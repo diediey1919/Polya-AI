@@ -1,0 +1,65 @@
+# Secrets and credentials
+.env
+.env.*
+auth.json
+*.pem
+*.key
+*.token
+*.secret
+
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# Node modules
+node_modules/
+
+# Caches
+.cache/
+.npm/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Logs and sessions
+logs/
+sessions/
+*.log
+
+# Database files (state data)
+state.db
+state.db-wal
+state.db-shm
+kanban.db
+verification_evidence.db
+
+# TTS models (5GB - download separately)
+tts-models/
+*.safetensors
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+# Model binaries
+*.bin
+*.pt
+*.pth

@@ -1,0 +1,32 @@
+diff --git a/tools/voice_mode.py b/tools/voice_mode.py
+index 80652bdb..e619a16b 100644
+--- a/tools/voice_mode.py
++++ b/tools/voice_mode.py
+@@ -1237,11 +1237,26 @@ WHISPER_HALLUCINATIONS = {
+     "amara.org",
+     "www.mooji.org",
+     "ご視聴ありがとうございました",
++    # Indonesian hallucinations (common on silence/noise)
++    "terima kasih.",
++    "terima kasih",
++    "intro",
++    "intro.",
++    "selamat pagi",
++    "selamat pagi.",
++    "halo",
++    "halo.",
++    "selamat malam",
++    "selamat malam.",
++    "sampai jumpa",
++    "sampai jumpa.",
+ }
+ 
+ # Regex patterns for repetitive hallucinations (e.g. "Thank you. Thank you. Thank you.")
+ _HALLUCINATION_REPEAT_RE = re.compile(
+-    r'^(?:thank you|thanks|bye|you|ok|okay|the end|\.|\s|,|!)+$',
++    r'^(?:thank you|thanks|bye|you|ok|okay|the end|\.\s|,|!|'
++    r'terima kasih|sampai jumpa|selamat|halo|intro|pagi|malam|siang|sore|'
++    r'menonton|video|selanjutnya|jumpa|nanti|lagi|\s)+[.!]*$',
+     flags=re.IGNORECASE,
+ )
+ 

@@ -1,0 +1,237 @@
+model:
+  default: qwen3.7-max
+  provider: alibaba
+  base_url: https://dashscope-intl.aliyuncs.com/compatible-mode/v1
+providers:
+  bedrock-mantle:
+    base_url: https://bedrock-mantle.us-east-1.api.aws/v1
+    key_env: AWS_BEARER_TOKEN_BEDROCK
+fallback_providers:
+  - model: gemini-3.6-flash
+    provider: gemini
+  - model: z-ai/glm-5.2:free
+    provider: openrouter
+  - model: muse-spark
+    provider: opencode-free
+database:
+  journal_mode: wal
+runtime:
+  nofile_soft_limit: 4096
+agent:
+  max_turns: 40
+  service_tier: ''
+  fast_auto_seconds: 60
+terminal:
+  backend: local
+  cwd: .
+  timeout: 180
+  home_mode: auto
+  container_cpu: 1
+  container_memory: 5120
+  container_disk: 51200
+  container_persistent: true
+  docker_mount_cwd_to_workspace: false
+web:
+  backend: keenable
+  provider_tier:
+    keenable: free
+browser:
+  backend: browser-use
+  inactivity_timeout: 120
+  extension_control:
+    enabled: false
+tool_loop_guardrails:
+  warnings_enabled: true
+  hard_stop_enabled: false
+  non_interactive_hard_stop_enabled: true
+  warn_after:
+    exact_failure: 2
+    same_tool_failure: 3
+    idempotent_no_progress: 2
+  hard_stop_after:
+    exact_failure: 5
+    same_tool_failure: 8
+    idempotent_no_progress: 5
+compression:
+  enabled: true
+  checkpoint_required: false
+  progress_notices: false
+  threshold: 0.3
+  target_ratio: 0.25
+  protect_last_n: 12
+  min_tail_user_messages: 1
+  max_attempts: 3
+  proactive_prune_tokens: 4000
+  proactive_prune_min_result_chars: 4000
+  proactive_prune_min_reclaim_tokens: 3000
+  hygiene_max_turn_hold_seconds: 10
+  protect_first_n: 3
+  codex_gpt55_autoraise: true
+  codex_app_server_auto: native
+  codex_responses_native: false
+  idle_compact_after_seconds: 120
+prompt_caching:
+  cache_ttl: 5m
+bedrock:
+  region: us-east-1
+auxiliary:
+  free_only: true
+  openrouter_model: z-ai/glm-5.2:free
+display:
+  compact: false
+  busy_input_mode: interrupt
+  bell_on_complete: false
+  bell_on_prompt: false
+  show_reasoning: true
+  background_process_notifications: concise
+  streaming: false
+  skin: default
+  interim_assistant_messages: true
+  tool_progress: all
+tts:
+  provider: chatterbox
+  elevenlabs:
+    voice_id: EXAVITQu4vr4xnSDxMaL
+  gemini: ''
+  edge: ''
+  providers:
+    chatterbox:
+      command: /home/ubuntu/.hermes/hermes-agent/venv/bin/python3 /home/ubuntu/.hermes/scripts/chatterbox_tts.py
+        {input_path} {output_path}
+      voice_name: Chatterbox Indonesian
+      timeout: 240
+stt:
+  enabled: true
+  language: id
+  groq:
+    model: whisper-large-v3
+    language: id
+  provider: groq
+  temperature: 0.0
+  no_speech_threshold: 0.85
+  vad:
+    aggressiveness: 3
+    min_speech_duration_ms: 500
+    min_silence_duration_ms: 600
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 2200
+  user_char_limit: 1375
+  nudge_interval: 10
+delegation:
+  max_iterations: 250
+kanban:
+  review_dispatch: true
+gateway:
+  signal_interrupt_grace_timeout: 1
+  delivery_ledger: true
+  platform_connect_timeout: 45
+  loop_watchdog: true
+  loop_watchdog_probe_interval_s: 30.0
+  loop_watchdog_probe_timeout_s: 10.0
+  loop_watchdog_max_strikes: 3
+  startup_watchdog: true
+  startup_watchdog_timeout_seconds: 300
+  write_sessions_json: true
+  scale_to_zero:
+    idle_timeout_minutes: 2
+  restart_loop_guard:
+    max_restarts: 3
+    window_seconds: 60
+    max_gap_seconds: 300
+  respawn_storm:
+    max_starts: 5
+    window_seconds: 120
+  message_timestamps:
+    enabled: false
+  max_inbound_media_bytes: 134217728
+  trust_env: true
+  strict: false
+  media_delivery_allow_dirs: []
+  trust_recent_files: true
+  trust_recent_files_seconds: 600
+  api_server:
+    max_concurrent_runs: 10
+streaming:
+  enabled: false
+onboarding:
+  seen:
+    busy_input_prompt: true
+    tool_progress_prompt: true
+telemetry:
+  shared_metrics:
+    enabled: false
+    send: false
+updates:
+  pre_update_backup: quick
+  backup_keep: 5
+  non_interactive_local_changes: stash
+computer_use:
+  backend: cua
+_config_version: 40
+custom_providers: []
+known_builtin_toolsets:
+  cli:
+    - browser
+    - clarify
+    - code_execution
+    - computer_use
+    - context_engine
+    - cronjob
+    - delegation
+    - discord
+    - discord_admin
+    - file
+    - homeassistant
+    - image_gen
+    - memory
+    - session_search
+    - skills
+    - spotify
+    - stt
+    - terminal
+    - todo
+    - tts
+    - video
+    - video_gen
+    - vision
+    - web
+    - x_search
+    - yuanbao
+known_plugin_toolsets:
+  cli:
+    - a2a
+    - spotify
+platform_toolsets:
+  cli:
+    - browser
+    - clarify
+    - code_execution
+    - computer_use
+    - cronjob
+    - delegation
+    - file
+    - image_gen
+    - memory
+    - session_search
+    - skills
+    - terminal
+    - todo
+    - tts
+    - vision
+    - web
+platforms:
+  discord:
+    enabled: true
+    home_channel:
+      chat_id: '1486101362193338480'
+      name: '🇾🇹 IndoPolyglot Academy / #PolyA Room'
+      platform: discord
+      scope_id: '1478240409431052298'
+      user_id: '356215590454558730'
+session_reset:
+  mode: none
+voice:
+  enabled: true
+  silence_threshold: 150

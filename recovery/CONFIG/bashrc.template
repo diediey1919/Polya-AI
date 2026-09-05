@@ -1,0 +1,19 @@
+# ~/.bashrc - Hermes/Polya Server Configuration
+# Add these lines to the END of your ~/.bashrc
+
+# Added by cua-driver-rs installer
+export PATH="/home/ubuntu/.local/bin:$PATH"
+
+# Hermes / Polya Server terminal
+export PS1='\[\e[32m\]\u\[\e[0m\]@\[\e[36m\]\h\[\e[0m\]:\[\e[34m\]\w\[\e[0m\]\$ '
+alias ll='ls -lah --color=auto'
+alias la='ls -A --color=auto'
+alias cls='clear'
+
+# Server-specific aliases
+alias mem='free -h'
+alias topmem='ps aux --sort=-%mem | head -10'
+alias cpu='ps aux --sort=-%cpu | head -10'
+
+# Source Gemini environment (if using separate .env file)
+# source ~/.env.gemini

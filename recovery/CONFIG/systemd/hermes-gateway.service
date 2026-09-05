@@ -1,0 +1,17 @@
+[Unit]
+Description=Hermes Agent Gateway
+Documentation=https://hermes-agent.nousresearch.com/docs
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+ExecStart=/home/ubuntu/.local/bin/hermes gateway start
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+Environment=HOME=/home/ubuntu
+
+[Install]
+WantedBy=multi-user.target
