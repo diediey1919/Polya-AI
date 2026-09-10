@@ -2,8 +2,9 @@
 import sys
 import os
 
-# Add runtime package to PYTHONPATH
-runtime_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+# Resolve real path in case called via symlink
+real_script = os.path.realpath(__file__)
+runtime_dir = os.path.abspath(os.path.join(os.path.dirname(real_script), ".."))
 if runtime_dir not in sys.path:
     sys.path.insert(0, runtime_dir)
 
