@@ -1,0 +1,4599 @@
+{
+  "nodes": [
+    {
+      "id": "SRC-ACAD-001",
+      "type": "source",
+      "title": "Sadeghi & Goudarzi (2012) \u2014 \u1e62an\u02bf\u0101\u02be 1 and the Origins of the Qur\u02be\u0101n",
+      "category": "ACADEMIC PUBLICATION",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-ACAD-002",
+      "type": "source",
+      "title": "Hilali (2017) \u2014 The Sanaa Palimpsest: The Transmission of the Qur'an in the First Centuries AH",
+      "category": "ACADEMIC PUBLICATION",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-BIB-002",
+      "type": "source",
+      "title": "** BibleHub Interlinear Greek NT - John 1:1",
+      "category": "** Biblical language/reference resource",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-BIB-003",
+      "type": "source",
+      "title": "** STEP Bible (Scripture Tools for Everyone) - Interactive Multilingual Biblical Text & Lexicon",
+      "category": "** Biblical language/reference resource",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-CRIT-001",
+      "type": "source",
+      "title": "SRC-CRIT-001.md",
+      "category": "** CRITICAL EDITION",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-CRIT-002",
+      "type": "source",
+      "title": "** Novum Testamentum Graece (28th Revised Edition / NA28)",
+      "category": "** CRITICAL EDITION (Secondary Critical Text)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-HIST-JOSEPH-001",
+      "type": "source",
+      "title": "SRC-HIST-JOSEPH-001.md",
+      "category": "ANCIENT HISTORICAL SOURCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-HIST-TAC-001",
+      "type": "source",
+      "title": "SRC-HIST-TAC-001.md",
+      "category": "ANCIENT HISTORICAL SOURCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-INSCR-001",
+      "type": "source",
+      "title": "Dome of the Rock Inscriptions (692 CE)",
+      "category": "INSCRIPTION / EPIGRAPHIC EVIDENCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-MS-002",
+      "type": "source",
+      "title": "SRC-MS-002.md",
+      "category": "** PRIMARY MANUSCRIPT / DIGITAL MANUSCRIPT REPOSITORY",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-MS-003",
+      "type": "source",
+      "title": "SRC-MS-003.md",
+      "category": "** PRIMARY MANUSCRIPT / DIGITAL MANUSCRIPT FACSIMILE PRESENTATION",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-MS-004",
+      "type": "source",
+      "title": "SRC-MS-004.md",
+      "category": "Papyri / Primary Manuscript",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-MS-005",
+      "type": "source",
+      "title": "SRC-MS-005.md",
+      "category": "PRIMARY MANUSCRIPT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-MS-006",
+      "type": "source",
+      "title": "Birmingham Quran Manuscript (Mingana Arabic 1572a)",
+      "category": "MANUSCRIPT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-MS-007",
+      "type": "source",
+      "title": "Sana'a Palimpsest (DAM 01-27.1)",
+      "category": "MANUSCRIPT / PALIMPSEST",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-MS-008",
+      "type": "source",
+      "title": "T\u00fcbingen Quran Manuscript (Ma VI 165)",
+      "category": "MANUSCRIPT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-MS-009",
+      "type": "source",
+      "title": "Codex Parisino-petropolitanus (BnF Arabe 328)",
+      "category": "MANUSCRIPT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-MS-010",
+      "type": "source",
+      "title": "Topkapi Quran Manuscript (H.S. 32)",
+      "category": "MANUSCRIPT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-MS-011",
+      "type": "source",
+      "title": "Samarkand Kufic Quran (Tashkent Quran)",
+      "category": "MANUSCRIPT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-MSS-002",
+      "type": "source",
+      "title": "SRC-MSS-002.md",
+      "category": "** PRIMARY MANUSCRIPT / DIGITAL MANUSCRIPT REPOSITORY",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-PAT-001",
+      "type": "source",
+      "title": "SRC-PAT-001.md",
+      "category": "PATRISTIC SOURCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-PAT-002",
+      "type": "source",
+      "title": "SRC-PAT-002.md",
+      "category": "PATRISTIC HISTORICAL SOURCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-PAT-003",
+      "type": "source",
+      "title": "SRC-PAT-003.md",
+      "category": "PATRISTIC HISTORICAL SOURCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-PAT-004",
+      "type": "source",
+      "title": "SRC-PAT-004.md",
+      "category": "PATRISTIC HISTORICAL SOURCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-PAT-005",
+      "type": "source",
+      "title": "SRC-PAT-005.md",
+      "category": "PATRISTIC THEOLOGICAL SOURCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-THEO-001",
+      "type": "source",
+      "title": "SRC-THEO-001.md",
+      "category": "CONCILIAR CREED / THEOLOGICAL SOURCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-THEO-002",
+      "type": "source",
+      "title": "SRC-THEO-002.md",
+      "category": "PRIMARY THEOLOGICAL SOURCE (FRAGMENTS)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-THEO-003",
+      "type": "source",
+      "title": "SRC-THEO-003.md",
+      "category": "CONCILIAR CREED / THEOLOGICAL SOURCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-THEO-004",
+      "type": "source",
+      "title": "SRC-THEO-004.md",
+      "category": "PRIMARY PATRISTIC THEOLOGICAL SOURCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-THEO-005",
+      "type": "source",
+      "title": "SRC-THEO-005.md",
+      "category": "CONCILIAR DEFINITION / THEOLOGICAL SOURCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-THEO-006",
+      "type": "source",
+      "title": "SRC-THEO-006.md",
+      "category": "PRIMARY PATRISTIC THEOLOGICAL SOURCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-THEO-007",
+      "type": "source",
+      "title": "SRC-THEO-007.md",
+      "category": "PRIMARY PATRISTIC THEOLOGICAL SOURCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-THEO-008",
+      "type": "source",
+      "title": "SRC-THEO-008.md",
+      "category": "SOURCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "SRC-THEO-009",
+      "type": "source",
+      "title": "SRC-THEO-009.md",
+      "category": "SOURCE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-BIB-JOHN1-001",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-BIB-STEP-JOHN1-001",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-CRIT-SBLGNT-JOHN1-001",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-HIST-JOSEPH-001",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-HIST-JOSEPH-002",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-HIST-JOSEPH-003",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-HIST-TAC-001",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-HIST-TAC-002",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-HIST-TAC-003",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-MSS-P46-001",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-MSS-P46-002",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-MSS-P46-003",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-MSS-P66-JOHN1-001",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-MSS-P75-JOHN1-001",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-MSS-SINAITICUS-JOHN1-001",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-MSS-VAT-JOHN1-001",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "CLAIM-PAT-IRE-001",
+      "type": "claim",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:ARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "145",
+      "title": "POLYA APOLOGETICA \u2014 STEP 145: ARGUMENT DATABASE FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:ARIAN-CONTROVERSY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "96",
+      "title": "ARIAN CONTROVERSY FORENSIC AUDIT (STEP 96)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:ASBAB-AL-NUZUL-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "109",
+      "title": "ASB\u0100B AL-NUZ\u016aL FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:ATHANASIUS-CHRISTOLOGY-NICENE-DEFENSE-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "97",
+      "title": "ATHANASIUS CHRISTOLOGY & NICENE DEFENSE FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:ATONEMENT-SALVATION-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "140",
+      "title": "STEP 140 \u2014 ATONEMENT & SALVATION FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:BIBLE-QURAN-CONTRADICTION-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "136",
+      "title": "BIBLE\u2013QUR'AN CONTRADICTION CLAIMS FORENSIC AUDIT (STEP 136)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CHALCEDON-451-RECEPTION-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "83",
+      "title": "CHALCEDON 451 RECEPTION FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-BIB-JOHN1-001__01_LANGUAGE.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: CLAIM-BIB-JOHN1-001__01_LANGUAGE.md",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-BIB-JOHN1-001__03_TRANSLATION.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: CLAIM-BIB-JOHN1-001__03_TRANSLATION.md",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-BIB-JOHN1-001__04_EXEGESIS_HERMENEUTICS.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: CLAIM-BIB-JOHN1-001__04_EXEGESIS_HERMENEUTICS.md",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-BIB-JOHN1-001__06_THEOLOGY_AQIDAH.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: CLAIM-BIB-JOHN1-001__12_APOLOGETICS_DEBATE.md",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-BIB-JOHN1-001__11_PHILOSOPHY_LOGIC.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: CLAIM-BIB-JOHN1-001__11_PHILOSOPHY_LOGIC.md",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-BIB-JOHN1-001__12_APOLOGETICS_DEBATE.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: CLAIM-BIB-JOHN1-001__12_APOLOGETICS_DEBATE.md",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-BIB-STEP-JOHN1-001__01_LANGUAGE.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: CLAIM-BIB-STEP-JOHN1-001__01_LANGUAGE.md",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-CRIT-SBLGNT-JOHN1-001__02_MANUSCRIPT.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: CLAIM-CRIT-SBLGNT-JOHN1-001__02_MANUSCRIPT.md",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-HIST-JOSEPH-001__07_HISTORY.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "Analysis 07_HISTORY: Josephus Historical Framework",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-HIST-JOSEPH-002__07_HISTORY.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "Analysis 07_HISTORY: James Passage Evaluation (JOSEPHUS-JAMES-001)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-HIST-JOSEPH-003__07_HISTORY.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "Analysis 07_HISTORY: Testimonium Flavianum Authenticity (JOSEPHUS-TF-001)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-HIST-TAC-001__07_HISTORY.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "Analysis 07_HISTORY: Tacitus Christian Presence in Rome",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-HIST-TAC-002__07_HISTORY.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "Analysis 07_HISTORY: Christus under Pontius Pilate",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-HIST-TAC-003__07_HISTORY.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "Analysis 07_HISTORY: Nero and the Persecution of Christians",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-MSS-P46-001__02_MANUSCRIPT.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "Analysis 02_MANUSCRIPT: P46 Textual Significance",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-MSS-P46-002__07_HISTORY.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "Analysis 07_HISTORY: P46 Historical Pauline Transmission",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-MSS-P46-003__07_HISTORY.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "Analysis 07_HISTORY: P46 Physical vs Genealogical Independence",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-MSS-P66-JOHN1-001__02_MANUSCRIPT.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: 02_MANUSCRIPT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-MSS-P66-JOHN1-001__07_HISTORY.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: 07_HISTORY",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-MSS-P66-JOHN1-001__08_ARCHAEOLOGY_EPIGRAPHY.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: 08_ARCHAEOLOGY_EPIGRAPHY",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-MSS-P75-JOHN1-001__02_MANUSCRIPT.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "Specialist Analysis: 02_MANUSCRIPT (CLAIM-MSS-P75-JOHN1-001__02_MANUSCRIPT)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-MSS-SINAITICUS-JOHN1-001__02_MANUSCRIPT.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: CLAIM-MSS-SINAITICUS-JOHN1-001__02_MANUSCRIPT.md",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__01_LANGUAGE.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: 01_LANGUAGE",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__02_MANUSCRIPT.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: 02_MANUSCRIPT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__03_TRANSLATION.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: 03_TRANSLATION",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__04_EXEGESIS_HERMENEUTICS.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: 04_EXEGESIS_HERMENEUTICS",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__06_THEOLOGY_AQIDAH.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: 06_THEOLOGY_AQIDAH",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__11_PHILOSOPHY_LOGIC.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SPECIALIST ANALYSIS: 11_PHILOSOPHY_LOGIC",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-PAT-IRE-001__07_HISTORY.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "Analysis 07_HISTORY: Irenaeus Historical Witness",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CLAIM-TO-SOURCE-GRAPH-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "148",
+      "title": "STEP 148 \u2014 CLAIM-TO-SOURCE GRAPH: FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:COMPARATIVE-EPISTEMOLOGY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "144",
+      "title": "COMPARATIVE EPISTEMOLOGY FORENSIC AUDIT (STEP 144)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CONSTANTINOPLE-II-553-THREE-CHAPTERS-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "CONSTANTINOPLE II (553) \u2014 THREE CHAPTERS FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "146",
+      "title": "POLYA APOLOGETICA \u2014 STEP 146: COUNTERARGUMENT DATABASE FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CROSS-SOURCE-JOHN1-1-AUDIT.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "CROSS-SOURCE TEXTUAL AUDIT: JOHN 1:1",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:CYRIL-EPHESUS-REUNION-CHALCEDON-CONTINUITY-AUDIT.md",
+      "type": "analysis",
+      "step": "85",
+      "title": "STEP 85 \u2014 CYRIL \u2192 EPHESUS \u2192 REUNION \u2192 CHALCEDON",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:DEBATE-FALLACY-AUDIT-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "147",
+      "title": "STEP 147 \u2014 DEBATE FALLACY AUDIT: FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "70",
+      "title": "EARLY CHRISTOLOGY CROSS-CORPUS FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:EARLY-ISLAM-CROSS-SOURCE-TRIANGULATION-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "118",
+      "title": "STEP 118: EARLY ISLAM CROSS-SOURCE TRIANGULATION FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:EARLY-ISLAM-MAJOR-HISTORICAL-CLAIMS-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "119",
+      "title": "STEP 119: EARLY ISLAM MAJOR HISTORICAL CLAIMS FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:EARLY-ISLAMIC-MATERIAL-EVIDENCE-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "117",
+      "title": "STEP 117: EARLY ISLAMIC MATERIAL EVIDENCE FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:EARLY-ISLAMIC-SECTARIAN-FORMATION-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "120",
+      "title": "STEP 120: EARLY ISLAMIC SECTARIAN FORMATION & SUNNI-SHI'A HISTORIOGRAPHY FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:EARLY-QURANIC-MANUSCRIPTS-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "102",
+      "title": "EARLY QUR'ANIC MANUSCRIPTS FORENSIC AUDIT (STEP 102)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:EARLY-SHII-SOURCES-HADITH-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "122",
+      "title": "EARLY SHI'I SOURCES & HADITH TRANSMISSION FORENSIC AUDIT (STEP 122)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:EARLY-TAFSIR-QURANIC-EXEGESIS-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "108",
+      "title": "EARLY TAFSIR & QUR'ANIC EXEGESIS FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:EPHESUS-REUNION-CHALCEDON-BRIDGE-AUDIT.md",
+      "type": "analysis",
+      "step": "82",
+      "title": "EPHESUS 431 \u2192 REUNION 433 \u2192 CHALCEDON 451",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:FILIOQUE-PROCESSION-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "99",
+      "title": "Filioque & Procession of the Holy Spirit Forensic Audit (STEP 99)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:FINAL-SYSTEM-AUDIT-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "150",
+      "title": "STEP 150 \u2014 FINAL SYSTEM AUDIT: POLYA APOLOGETICS KNOWLEDGE SYSTEM",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:FOUNDATION-CRITICAL-TEXT-NA28-SBLGNT.md",
+      "type": "analysis",
+      "step": "63",
+      "title": "NEW TESTAMENT CRITICAL TEXT FOUNDATION ANALYSIS (STEP 63)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:FOUR-GOSPELS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "92",
+      "title": "FOUR GOSPELS CHRISTOLOGY FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "100",
+      "title": "FULL CHRISTOLOGY & TRINITY CROSS-SYSTEM FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:FULL-CROSS-RELIGION-AUDIT-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "149",
+      "title": "STEP 149 \u2014 FULL CROSS-RELIGION AUDIT: FORENSIC SYSTEM AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:GHADIR-THAQALAYN-MANZILAH-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "125",
+      "title": "GHADIR, THAQALAYN & MANZILAH FORENSIC AUDIT (STEP 125)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:HADITH-AUTHENTICATION-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "131",
+      "title": "HADITH AUTHENTICATION CROSS-SYSTEM FORENSIC AUDIT (STEP 131)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:HADITH-HISTORICAL-SOURCE-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "115",
+      "title": "STEP 115: HADITH AS HISTORICAL SOURCE FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:HISTORICAL-JESUS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "89",
+      "title": "HISTORICAL JESUS CHRISTOLOGY FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:HISTORICAL-MUHAMMAD-EARLY-ISLAM-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "114",
+      "title": "STEP 114: HISTORICAL MUHAMMAD & EARLY ISLAM FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:HOLY-SPIRIT-PNEUMATOMACHIAN-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "98",
+      "title": "HOLY SPIRIT & PNEUMATOMACHIAN CONTROVERSY FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:INCARNATION-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "139",
+      "title": "INCARNATION FORENSIC AUDIT (STEP 139)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:JESUS-ISA-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "134",
+      "title": "JESUS / ISA FORENSIC AUDIT (STEP 134)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:KALAM-RATIONAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "130",
+      "title": "KALAM & RATIONAL THEOLOGY FORENSIC AUDIT (STEP 130)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:KHILAFAH-AHL-AL-BAYT-IMAMAH-POLITICAL-AUTHORITY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "121",
+      "title": "STEP 121: KHILAFAH, AHL AL-BAYT, IMAMAH & POLITICAL AUTHORITY FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:KHILAFAH-IMAMAH-POLITICAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "127",
+      "title": "KHILAFAH, IMAMAH & POLITICAL AUTHORITY FORENSIC AUDIT (STEP 127)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:MAKKI-MADANI-REVELATION-CHRONOLOGY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "111",
+      "title": "MAKKI/MADANI & REVELATION CHRONOLOGY FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:MIAPHYSITE-MONOPHYSITE-EUTYCHIAN-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "84",
+      "title": "STEP 84: MIAPHYSITE / MONOPHYSITE / EUTYCHIAN \u2014 CHRISTOLOGICAL TERMINOLOGY & IDENTITY FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:MIRACLES-REVELATION-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "141",
+      "title": "MIRACLES & REVELATION FORENSIC AUDIT (STEP 141)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:MUHAMMAD-IN-CHRISTIAN-SOURCES-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "135",
+      "title": "MUHAMMAD IN CHRISTIAN SOURCES FORENSIC AUDIT (STEP 135)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:NASKH-ABROGATION-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "110",
+      "title": "NASKH / ABROGATION FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:NESTORIUS-CHURCH-OF-THE-EAST-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "79",
+      "title": "NESTORIUS \u2192 CHURCH OF THE EAST \u2014 FORENSIC HISTORICAL AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:NICAEA-CONSTANTINE-CANON-AUDIT.md",
+      "type": "analysis",
+      "step": "69",
+      "title": "AUDIT REPORT: STEP 69 \u2014 NICAEA 325 / CONSTANTINE / CANON CLAIM FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:NUBUWWAH-PROPHETHOOD-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "133",
+      "title": "NUBUWWAH / PROPHETHOOD FORENSIC AUDIT (STEP 133)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:PATRISTIC-ATHANASIUS-FESTAL-39-AUDIT.md",
+      "type": "analysis",
+      "step": "66",
+      "title": "AUDIT REPORT: STEP 66 \u2014 ATHANASIUS FESTAL LETTER 39 (367 CE) CANON AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:PATRISTIC-CANON-AUDIT-IRENAEUS.md",
+      "type": "analysis",
+      "step": "65",
+      "title": "AUDIT REPORT: STEP 65 \u2014 IRENAEUS AND THE FOURFOLD GOSPEL / CANON FORMATION AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:PATRISTIC-EUSEBIUS-HE325-AUDIT.md",
+      "type": "analysis",
+      "step": "68",
+      "title": "AUDIT REPORT: STEP 68 \u2014 EUSEBIUS HE 3.25 CANONICAL CATEGORIES AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:PATRISTIC-MURATORIAN-FRAGMENT-AUDIT.md",
+      "type": "analysis",
+      "step": "67",
+      "title": "AUDIT REPORT: STEP 67 \u2014 MURATORIAN FRAGMENT CANON-HISTORY AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "89",
+      "title": "PAULINE CHRISTOLOGY \u2014 FORENSIC TEXTUAL, HISTORICAL, AND THEOLOGICAL AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:PHILOSOPHY-OF-REVELATION-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "143",
+      "title": "PHILOSOPHY OF REVELATION FORENSIC AUDIT (STEP 143)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:POST-CHALCEDON-RECEPTION-IDENTITY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "86",
+      "title": "POST-CHALCEDON RECEPTION & ECCLESIASTICAL IDENTITY FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "95",
+      "title": "PRE-NICENE FATHERS TRINITARIAN DEVELOPMENT FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:PROPHETIC-RELIABILITY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "142",
+      "title": "PROPHETIC RELIABILITY FORENSIC AUDIT (STEP 142)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:QURAN-IMAMAH-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "124",
+      "title": "QUR'AN & IMAMAH FORENSIC AUDIT (STEP 124)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "105",
+      "title": "QUR'AN TRANSMISSION HADITH & EARLY REPORTS FORENSIC AUDIT (STEP 105)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:QURAN-TRANSMISSION-HISTORY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "101",
+      "title": "QURAN TRANSMISSION HISTORY FORENSIC AUDIT (STEP 101)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:QURANIC-ARABIC-LINGUISTIC-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "107",
+      "title": "STEP 107 \u2014 QUR'ANIC ARABIC & LINGUISTIC FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:QURANIC-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "113",
+      "title": "STEP 113: QUR'ANIC CHRISTOLOGY FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:QURANIC-COLLECTION-CODIFICATION-CANON-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "112",
+      "title": "STEP 112: QUR'ANIC COLLECTION, CODIFICATION & CANON FORMATION FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:QURANIC-RASM-QIRAAT-READING-VARIANTS-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "104",
+      "title": "QUR'ANIC RASM, QIRA'AT, AHRUF, AND READING VARIANTS FORENSIC AUDIT (STEP 104)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:SAHABAH-AHL-AL-BAYT-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "126",
+      "title": "SAHABAH & AHL AL-BAYT FORENSIC AUDIT (STEP 126)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:SANAA-PALIMPSEST-DAM-01-27-1-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "103R",
+      "title": "\u1e62AN\u02bf\u0100\u02be PALIMPSEST FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:SCRIPTURE-AND-AUTHORITY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "132",
+      "title": "SCRIPTURE AND RELIGIOUS AUTHORITY FORENSIC AUDIT (STEP 132)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "SECOND TEMPLE JUDAISM \u2192 HISTORICAL JESUS \u2192 EARLIEST CHRISTIANITY \u2014 FORENSIC HISTORICAL CONTEXT AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:SHII-THEOLOGY-FORMATION-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "129",
+      "title": "SHI'I THEOLOGY FORMATION FORENSIC AUDIT (STEP 129)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:SIRAH-MAGHAZI-HISTORICAL-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "116",
+      "title": "STEP 116: SIRAH & MAGHAZI HISTORICAL FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:SUNNI-CREED-FORMATION-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "128",
+      "title": "SUNNI CREED FORMATION FORENSIC AUDIT (STEP 128)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:SUNNI-HADITH-AUTHORITY-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "123",
+      "title": "SUNNI HADITH & AUTHORITY FORENSIC AUDIT (STEP 123)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:TEXTUAL-PRESERVATION-COMPARISON-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "137",
+      "title": "TEXTUAL PRESERVATION COMPARISON FORENSIC AUDIT (STEP 137)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:THEOLOGY-ARIUS-CONTROVERSY-AUDIT.md",
+      "type": "analysis",
+      "step": "71",
+      "title": "AUDIT REPORT: STEP 71 \u2014 ARIUS / ARIAN CONTROVERSY PRIMARY-EVIDENCE AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:THEOLOGY-CAPPADOCIANS-OUSIA-HYPOSTASIS-AUDIT.md",
+      "type": "analysis",
+      "step": "73",
+      "title": "AUDIT REPORT: STEP 73 \u2014 CAPPADOCIAN FATHERS / OUSIA & HYPOSTASIS AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:THEOLOGY-CHALCEDON-451-AUDIT.md",
+      "type": "analysis",
+      "step": "74",
+      "title": "THEOLOGY-CHALCEDON-451-AUDIT (STEP 74)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:THEOLOGY-CONSTANTINOPLE-381-AUDIT.md",
+      "type": "analysis",
+      "step": "72",
+      "title": "AUDIT REPORT: STEP 72 \u2014 CONSTANTINOPLE 381 / NICENO-CONSTANTINOPOLITAN CREED AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:THEOLOGY-CYRIL-ALEXANDRIA-AUDIT.md",
+      "type": "analysis",
+      "step": "78",
+      "title": "AUDIT REPORT: STEP 78 \u2014 CYRIL OF ALEXANDRIA / CHRISTOLOGY AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:THEOLOGY-EPHESUS-431-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "SPECIALIST_ANALYSIS",
+      "title": "COUNCIL OF EPHESUS 431 \u2014 FORENSIC HISTORICAL AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:THEOLOGY-FORMULA-REUNION-433-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "81",
+      "title": "THEOLOGY-FORMULA-REUNION-433-FORENSIC-AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:THEOLOGY-LEOS-TOME-AUDIT.md",
+      "type": "analysis",
+      "step": "77",
+      "title": "AUDIT REPORT: STEP 77 \u2014 LEO'S TOME / CHRISTOLOGICAL EVIDENCE AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:THEOLOGY-NESTORIUS-AUDIT.md",
+      "type": "analysis",
+      "step": "79",
+      "title": "THEOLOGY-NESTORIUS-AUDIT \u2014 Primary Christological Evidence Audit",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:THEOLOGY-NICENE-CREED-325-AUDIT.md",
+      "type": "analysis",
+      "step": "70",
+      "title": "AUDIT REPORT: STEP 70 \u2014 NICENE CREED 325 CHRISTOLOGY FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:TRIADIC-PATTERNS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "90",
+      "title": "TRIADIC PATTERNS AND TRINITARIAN DEVELOPMENT FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:TRINITY-VS-TAWHID-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "138",
+      "title": "TRINITY VS TAWHID FORENSIC AUDIT (STEP 138)",
+      "reachability": "STORED_STATIC"
+    },
+    {
+      "id": "ANALYSIS:UTHMANIC-CODEX-REGIONAL-MUSHAFS-STANDARDIZATION-FORENSIC-AUDIT.md",
+      "type": "analysis",
+      "step": "106",
+      "title": "UTHMANIC CODEX, REGIONAL MUSHAFS & EARLY QUR'ANIC STANDARDIZATION FORENSIC AUDIT",
+      "reachability": "STORED_STATIC"
+    }
+  ],
+  "edges": [
+    {
+      "source": "CLAIM-HIST-JOSEPH-001",
+      "target": "SRC-HIST-JOSEPH-001",
+      "relation": "EXTRACTED_FROM"
+    },
+    {
+      "source": "CLAIM-HIST-JOSEPH-002",
+      "target": "SRC-HIST-JOSEPH-001",
+      "relation": "EXTRACTED_FROM"
+    },
+    {
+      "source": "CLAIM-HIST-JOSEPH-003",
+      "target": "SRC-HIST-JOSEPH-001",
+      "relation": "EXTRACTED_FROM"
+    },
+    {
+      "source": "CLAIM-HIST-TAC-001",
+      "target": "SRC-HIST-TAC-001",
+      "relation": "EXTRACTED_FROM"
+    },
+    {
+      "source": "CLAIM-HIST-TAC-002",
+      "target": "SRC-HIST-TAC-001",
+      "relation": "EXTRACTED_FROM"
+    },
+    {
+      "source": "CLAIM-HIST-TAC-003",
+      "target": "SRC-HIST-TAC-001",
+      "relation": "EXTRACTED_FROM"
+    },
+    {
+      "source": "CLAIM-MSS-P46-001",
+      "target": "SRC-MS-005",
+      "relation": "EXTRACTED_FROM"
+    },
+    {
+      "source": "CLAIM-MSS-P46-002",
+      "target": "SRC-MS-005",
+      "relation": "EXTRACTED_FROM"
+    },
+    {
+      "source": "CLAIM-MSS-P46-003",
+      "target": "SRC-MS-005",
+      "relation": "EXTRACTED_FROM"
+    },
+    {
+      "source": "CLAIM-MSS-P75-JOHN1-001",
+      "target": "SRC-MS-004",
+      "relation": "EXTRACTED_FROM"
+    },
+    {
+      "source": "CLAIM-PAT-IRE-001",
+      "target": "SRC-PAT-001",
+      "relation": "EXTRACTED_FROM"
+    },
+    {
+      "source": "ANALYSIS:ARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-BIB-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "STEP:103",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "STEP:138",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "STEP:139",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ARIAN-CONTROVERSY-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ARIAN-CONTROVERSY-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ARIAN-CONTROVERSY-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ARIAN-CONTROVERSY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ARIAN-CONTROVERSY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ARIAN-CONTROVERSY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ARIAN-CONTROVERSY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ARIAN-CONTROVERSY-FORENSIC-AUDIT.md",
+      "target": "STEP:90",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ARIAN-CONTROVERSY-FORENSIC-AUDIT.md",
+      "target": "STEP:91",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ARIAN-CONTROVERSY-FORENSIC-AUDIT.md",
+      "target": "STEP:92",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ARIAN-CONTROVERSY-FORENSIC-AUDIT.md",
+      "target": "STEP:93",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ARIAN-CONTROVERSY-FORENSIC-AUDIT.md",
+      "target": "STEP:94",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ARIAN-CONTROVERSY-FORENSIC-AUDIT.md",
+      "target": "STEP:95",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ASBAB-AL-NUZUL-FORENSIC-AUDIT.md",
+      "target": "STEP:104",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ASBAB-AL-NUZUL-FORENSIC-AUDIT.md",
+      "target": "STEP:105",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ASBAB-AL-NUZUL-FORENSIC-AUDIT.md",
+      "target": "STEP:106",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ASBAB-AL-NUZUL-FORENSIC-AUDIT.md",
+      "target": "STEP:107",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ASBAB-AL-NUZUL-FORENSIC-AUDIT.md",
+      "target": "STEP:108",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ASBAB-AL-NUZUL-FORENSIC-AUDIT.md",
+      "target": "STEP:110",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ATHANASIUS-CHRISTOLOGY-NICENE-DEFENSE-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ATHANASIUS-CHRISTOLOGY-NICENE-DEFENSE-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ATHANASIUS-CHRISTOLOGY-NICENE-DEFENSE-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ATHANASIUS-CHRISTOLOGY-NICENE-DEFENSE-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ATHANASIUS-CHRISTOLOGY-NICENE-DEFENSE-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ATHANASIUS-CHRISTOLOGY-NICENE-DEFENSE-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ATHANASIUS-CHRISTOLOGY-NICENE-DEFENSE-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ATHANASIUS-CHRISTOLOGY-NICENE-DEFENSE-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:ATHANASIUS-CHRISTOLOGY-NICENE-DEFENSE-FORENSIC-AUDIT.md",
+      "target": "STEP:28",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ATHANASIUS-CHRISTOLOGY-NICENE-DEFENSE-FORENSIC-AUDIT.md",
+      "target": "STEP:95",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ATHANASIUS-CHRISTOLOGY-NICENE-DEFENSE-FORENSIC-AUDIT.md",
+      "target": "STEP:96",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ATONEMENT-SALVATION-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:ATONEMENT-SALVATION-FORENSIC-AUDIT.md",
+      "target": "STEP:101",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:BIBLE-QURAN-CONTRADICTION-FORENSIC-AUDIT.md",
+      "target": "STEP:01",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:BIBLE-QURAN-CONTRADICTION-FORENSIC-AUDIT.md",
+      "target": "STEP:02",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:BIBLE-QURAN-CONTRADICTION-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:BIBLE-QURAN-CONTRADICTION-FORENSIC-AUDIT.md",
+      "target": "STEP:101",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:BIBLE-QURAN-CONTRADICTION-FORENSIC-AUDIT.md",
+      "target": "STEP:113",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:BIBLE-QURAN-CONTRADICTION-FORENSIC-AUDIT.md",
+      "target": "STEP:132",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:BIBLE-QURAN-CONTRADICTION-FORENSIC-AUDIT.md",
+      "target": "STEP:133",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:BIBLE-QURAN-CONTRADICTION-FORENSIC-AUDIT.md",
+      "target": "STEP:135",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:BIBLE-QURAN-CONTRADICTION-FORENSIC-AUDIT.md",
+      "target": "STEP:137",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:BIBLE-QURAN-CONTRADICTION-FORENSIC-AUDIT.md",
+      "target": "STEP:141",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CHALCEDON-451-RECEPTION-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CHALCEDON-451-RECEPTION-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CHALCEDON-451-RECEPTION-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CHALCEDON-451-RECEPTION-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CHALCEDON-451-RECEPTION-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CHALCEDON-451-RECEPTION-FORENSIC-AUDIT.md",
+      "target": "STEP:74",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CHALCEDON-451-RECEPTION-FORENSIC-AUDIT.md",
+      "target": "STEP:80",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CHALCEDON-451-RECEPTION-FORENSIC-AUDIT.md",
+      "target": "STEP:80R",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CHALCEDON-451-RECEPTION-FORENSIC-AUDIT.md",
+      "target": "STEP:81",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CHALCEDON-451-RECEPTION-FORENSIC-AUDIT.md",
+      "target": "STEP:82",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__01_LANGUAGE.md",
+      "target": "SRC-BIB-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__01_LANGUAGE.md",
+      "target": "CLAIM-BIB-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__01_LANGUAGE.md",
+      "target": "CLAIM-BIB-JOHN1-001__01_LANGUAGE",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__03_TRANSLATION.md",
+      "target": "SRC-BIB-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__03_TRANSLATION.md",
+      "target": "CLAIM-BIB-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__03_TRANSLATION.md",
+      "target": "CLAIM-BIB-JOHN1-001__03_TRANSLATION",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__04_EXEGESIS_HERMENEUTICS.md",
+      "target": "SRC-BIB-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__04_EXEGESIS_HERMENEUTICS.md",
+      "target": "CLAIM-BIB-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__04_EXEGESIS_HERMENEUTICS.md",
+      "target": "CLAIM-BIB-JOHN1-001__04_EXEGESIS_HERMENEUTICS",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__06_THEOLOGY_AQIDAH.md",
+      "target": "SRC-BIB-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__06_THEOLOGY_AQIDAH.md",
+      "target": "CLAIM-BIB-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__06_THEOLOGY_AQIDAH.md",
+      "target": "CLAIM-BIB-JOHN1-001__12_APOLOGETICS_DEBATE",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__11_PHILOSOPHY_LOGIC.md",
+      "target": "SRC-BIB-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__11_PHILOSOPHY_LOGIC.md",
+      "target": "CLAIM-BIB-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__11_PHILOSOPHY_LOGIC.md",
+      "target": "CLAIM-BIB-JOHN1-001__11_PHILOSOPHY_LOGIC",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__12_APOLOGETICS_DEBATE.md",
+      "target": "SRC-BIB-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__12_APOLOGETICS_DEBATE.md",
+      "target": "CLAIM-BIB-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-JOHN1-001__12_APOLOGETICS_DEBATE.md",
+      "target": "CLAIM-BIB-JOHN1-001__12_APOLOGETICS_DEBATE",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-STEP-JOHN1-001__01_LANGUAGE.md",
+      "target": "SRC-BIB-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-STEP-JOHN1-001__01_LANGUAGE.md",
+      "target": "SRC-BIB-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-STEP-JOHN1-001__01_LANGUAGE.md",
+      "target": "CLAIM-BIB-STEP-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-BIB-STEP-JOHN1-001__01_LANGUAGE.md",
+      "target": "CLAIM-BIB-STEP-JOHN1-001__01_LANGUAGE",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-CRIT-SBLGNT-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "SRC-CRIT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-CRIT-SBLGNT-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "SRC-MSS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-CRIT-SBLGNT-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "CLAIM-CRIT-SBLGNT-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-CRIT-SBLGNT-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "CLAIM-CRIT-SBLGNT-JOHN1-001__02_MANUSCRIPT",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-JOSEPH-001__07_HISTORY.md",
+      "target": "SRC-HIST-JOSEPH-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-JOSEPH-001__07_HISTORY.md",
+      "target": "CLAIM-HIST-JOSEPH-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-JOSEPH-001__07_HISTORY.md",
+      "target": "CLAIM-HIST-JOSEPH-001__07_HISTORY",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-JOSEPH-002__07_HISTORY.md",
+      "target": "SRC-HIST-JOSEPH-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-JOSEPH-002__07_HISTORY.md",
+      "target": "CLAIM-HIST-JOSEPH-002",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-JOSEPH-002__07_HISTORY.md",
+      "target": "CLAIM-HIST-JOSEPH-002__07_HISTORY",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-JOSEPH-003__07_HISTORY.md",
+      "target": "SRC-HIST-JOSEPH-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-JOSEPH-003__07_HISTORY.md",
+      "target": "CLAIM-HIST-JOSEPH-003",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-JOSEPH-003__07_HISTORY.md",
+      "target": "CLAIM-HIST-JOSEPH-003__07_HISTORY",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-TAC-001__07_HISTORY.md",
+      "target": "SRC-HIST-TAC-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-TAC-001__07_HISTORY.md",
+      "target": "CLAIM-HIST-TAC-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-TAC-001__07_HISTORY.md",
+      "target": "CLAIM-HIST-TAC-001__07_HISTORY",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-TAC-002__07_HISTORY.md",
+      "target": "SRC-HIST-TAC-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-TAC-002__07_HISTORY.md",
+      "target": "CLAIM-HIST-TAC-002",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-TAC-002__07_HISTORY.md",
+      "target": "CLAIM-HIST-TAC-002__07_HISTORY",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-TAC-003__07_HISTORY.md",
+      "target": "SRC-HIST-TAC-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-TAC-003__07_HISTORY.md",
+      "target": "CLAIM-HIST-TAC-003",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-HIST-TAC-003__07_HISTORY.md",
+      "target": "CLAIM-HIST-TAC-003__07_HISTORY",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P46-001__02_MANUSCRIPT.md",
+      "target": "SRC-MS-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P46-001__02_MANUSCRIPT.md",
+      "target": "CLAIM-MSS-P46-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P46-001__02_MANUSCRIPT.md",
+      "target": "CLAIM-MSS-P46-001__02_MANUSCRIPT",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P46-002__07_HISTORY.md",
+      "target": "SRC-MS-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P46-002__07_HISTORY.md",
+      "target": "CLAIM-MSS-P46-002",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P46-002__07_HISTORY.md",
+      "target": "CLAIM-MSS-P46-002__07_HISTORY",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P46-003__07_HISTORY.md",
+      "target": "SRC-MS-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P46-003__07_HISTORY.md",
+      "target": "CLAIM-MSS-P46-003",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P46-003__07_HISTORY.md",
+      "target": "CLAIM-MSS-P46-003__07_HISTORY",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P66-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "SRC-MS-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P66-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "CLAIM-MSS-P66-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P66-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "CLAIM-MSS-P66-JOHN1-001__02_MANUSCRIPT",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P66-JOHN1-001__07_HISTORY.md",
+      "target": "SRC-MS-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P66-JOHN1-001__07_HISTORY.md",
+      "target": "CLAIM-MSS-P66-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P66-JOHN1-001__07_HISTORY.md",
+      "target": "CLAIM-MSS-P66-JOHN1-001__07_HISTORY",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P66-JOHN1-001__08_ARCHAEOLOGY_EPIGRAPHY.md",
+      "target": "SRC-MS-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P66-JOHN1-001__08_ARCHAEOLOGY_EPIGRAPHY.md",
+      "target": "CLAIM-MSS-P66-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P66-JOHN1-001__08_ARCHAEOLOGY_EPIGRAPHY.md",
+      "target": "CLAIM-MSS-P66-JOHN1-001__08_ARCHAEOLOGY_EPIGRAPHY",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P75-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "SRC-MS-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P75-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "CLAIM-MSS-P75-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-P75-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "CLAIM-MSS-P75-JOHN1-001__02_MANUSCRIPT",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-SINAITICUS-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "SRC-BIB-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-SINAITICUS-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "SRC-BIB-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-SINAITICUS-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "SRC-MSS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-SINAITICUS-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "CLAIM-MSS-SINAITICUS-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-SINAITICUS-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "CLAIM-MSS-SINAITICUS-JOHN1-001__02_MANUSCRIPT",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__01_LANGUAGE.md",
+      "target": "SRC-MS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__01_LANGUAGE.md",
+      "target": "CLAIM-MSS-VAT-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__01_LANGUAGE.md",
+      "target": "CLAIM-MSS-VAT-JOHN1-001__01_LANGUAGE",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "SRC-MS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "CLAIM-MSS-VAT-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__02_MANUSCRIPT.md",
+      "target": "CLAIM-MSS-VAT-JOHN1-001__02_MANUSCRIPT",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__03_TRANSLATION.md",
+      "target": "SRC-MS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__03_TRANSLATION.md",
+      "target": "CLAIM-MSS-VAT-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__03_TRANSLATION.md",
+      "target": "CLAIM-MSS-VAT-JOHN1-001__03_TRANSLATION",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__04_EXEGESIS_HERMENEUTICS.md",
+      "target": "SRC-MS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__04_EXEGESIS_HERMENEUTICS.md",
+      "target": "CLAIM-MSS-VAT-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__04_EXEGESIS_HERMENEUTICS.md",
+      "target": "CLAIM-MSS-VAT-JOHN1-001__04_EXEGESIS_HERMENEUTICS",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__06_THEOLOGY_AQIDAH.md",
+      "target": "SRC-MS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__06_THEOLOGY_AQIDAH.md",
+      "target": "CLAIM-MSS-VAT-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__06_THEOLOGY_AQIDAH.md",
+      "target": "CLAIM-MSS-VAT-JOHN1-001__06_THEOLOGY_AQIDAH",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__11_PHILOSOPHY_LOGIC.md",
+      "target": "SRC-MS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__11_PHILOSOPHY_LOGIC.md",
+      "target": "CLAIM-MSS-VAT-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-MSS-VAT-JOHN1-001__11_PHILOSOPHY_LOGIC.md",
+      "target": "CLAIM-MSS-VAT-JOHN1-001__11_PHILOSOPHY_LOGIC",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-PAT-IRE-001__07_HISTORY.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-PAT-IRE-001__07_HISTORY.md",
+      "target": "CLAIM-PAT-IRE-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-PAT-IRE-001__07_HISTORY.md",
+      "target": "CLAIM-PAT-IRE-001__07_HISTORY",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-TO-SOURCE-GRAPH-FORENSIC-AUDIT.md",
+      "target": "CLAIM-TO-SOURCE",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-TO-SOURCE-GRAPH-FORENSIC-AUDIT.md",
+      "target": "CLAIM-TO-SOURCE-GRAPH-FORENSIC-AUDIT",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-TO-SOURCE-GRAPH-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-TO-SOURCE-GRAPH-FORENSIC-AUDIT.md",
+      "target": "STEP:145",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-TO-SOURCE-GRAPH-FORENSIC-AUDIT.md",
+      "target": "STEP:146",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-TO-SOURCE-GRAPH-FORENSIC-AUDIT.md",
+      "target": "STEP:147",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CLAIM-TO-SOURCE-GRAPH-FORENSIC-AUDIT.md",
+      "target": "STEP:149",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:COMPARATIVE-EPISTEMOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:141",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CONSTANTINOPLE-II-553-THREE-CHAPTERS-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CONSTANTINOPLE-II-553-THREE-CHAPTERS-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CONSTANTINOPLE-II-553-THREE-CHAPTERS-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CONSTANTINOPLE-II-553-THREE-CHAPTERS-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CONSTANTINOPLE-II-553-THREE-CHAPTERS-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CONSTANTINOPLE-II-553-THREE-CHAPTERS-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CONSTANTINOPLE-II-553-THREE-CHAPTERS-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CONSTANTINOPLE-II-553-THREE-CHAPTERS-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CONSTANTINOPLE-II-553-THREE-CHAPTERS-FORENSIC-AUDIT.md",
+      "target": "STEP:80R",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-BIB-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-HIST-JOSEPH-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-HIST-TAC-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-MSS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "STEP:103",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "STEP:138",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "STEP:139",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:COUNTERARGUMENT-DATABASE-FORENSIC-AUDIT.md",
+      "target": "STEP:145",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CROSS-SOURCE-JOHN1-1-AUDIT.md",
+      "target": "SRC-BIB-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CROSS-SOURCE-JOHN1-1-AUDIT.md",
+      "target": "SRC-BIB-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CROSS-SOURCE-JOHN1-1-AUDIT.md",
+      "target": "SRC-CRIT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CROSS-SOURCE-JOHN1-1-AUDIT.md",
+      "target": "SRC-MSS-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CROSS-SOURCE-JOHN1-1-AUDIT.md",
+      "target": "SRC-MSS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CROSS-SOURCE-JOHN1-1-AUDIT.md",
+      "target": "SRC-MSS-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CROSS-SOURCE-JOHN1-1-AUDIT.md",
+      "target": "CLAIM-BIB-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CROSS-SOURCE-JOHN1-1-AUDIT.md",
+      "target": "CLAIM-BIB-STEP-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CROSS-SOURCE-JOHN1-1-AUDIT.md",
+      "target": "CLAIM-CRIT-SBLGNT-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CROSS-SOURCE-JOHN1-1-AUDIT.md",
+      "target": "CLAIM-MSS-P66-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CROSS-SOURCE-JOHN1-1-AUDIT.md",
+      "target": "CLAIM-MSS-SINAITICUS-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CROSS-SOURCE-JOHN1-1-AUDIT.md",
+      "target": "CLAIM-MSS-VAT-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:CYRIL-EPHESUS-REUNION-CHALCEDON-CONTINUITY-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CYRIL-EPHESUS-REUNION-CHALCEDON-CONTINUITY-AUDIT.md",
+      "target": "SRC-THEO-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CYRIL-EPHESUS-REUNION-CHALCEDON-CONTINUITY-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CYRIL-EPHESUS-REUNION-CHALCEDON-CONTINUITY-AUDIT.md",
+      "target": "SRC-THEO-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:CYRIL-EPHESUS-REUNION-CHALCEDON-CONTINUITY-AUDIT.md",
+      "target": "STEP:80",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CYRIL-EPHESUS-REUNION-CHALCEDON-CONTINUITY-AUDIT.md",
+      "target": "STEP:80R",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CYRIL-EPHESUS-REUNION-CHALCEDON-CONTINUITY-AUDIT.md",
+      "target": "STEP:81",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CYRIL-EPHESUS-REUNION-CHALCEDON-CONTINUITY-AUDIT.md",
+      "target": "STEP:82",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CYRIL-EPHESUS-REUNION-CHALCEDON-CONTINUITY-AUDIT.md",
+      "target": "STEP:83",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:CYRIL-EPHESUS-REUNION-CHALCEDON-CONTINUITY-AUDIT.md",
+      "target": "STEP:84",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:DEBATE-FALLACY-AUDIT-FORENSIC-AUDIT.md",
+      "target": "CLAIM-TO-SOURCE",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:DEBATE-FALLACY-AUDIT-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:DEBATE-FALLACY-AUDIT-FORENSIC-AUDIT.md",
+      "target": "STEP:148",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "target": "SRC-HIST-JOSEPH-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "target": "SRC-HIST-TAC-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "target": "SRC-MSS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "target": "STEP:90",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-CHRISTOLOGY-CROSS-CORPUS-FORENSIC-AUDIT.md",
+      "target": "STEP:91",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-ISLAM-CROSS-SOURCE-TRIANGULATION-FORENSIC-AUDIT.md",
+      "target": "STEP:117",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-ISLAM-MAJOR-HISTORICAL-CLAIMS-FORENSIC-AUDIT.md",
+      "target": "STEP:118",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-ISLAMIC-MATERIAL-EVIDENCE-FORENSIC-AUDIT.md",
+      "target": "STEP:116",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-ISLAMIC-SECTARIAN-FORMATION-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-ISLAMIC-SECTARIAN-FORMATION-FORENSIC-AUDIT.md",
+      "target": "STEP:105",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-ISLAMIC-SECTARIAN-FORMATION-FORENSIC-AUDIT.md",
+      "target": "STEP:113",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-ISLAMIC-SECTARIAN-FORMATION-FORENSIC-AUDIT.md",
+      "target": "STEP:114",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-ISLAMIC-SECTARIAN-FORMATION-FORENSIC-AUDIT.md",
+      "target": "STEP:115",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-ISLAMIC-SECTARIAN-FORMATION-FORENSIC-AUDIT.md",
+      "target": "STEP:116",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-ISLAMIC-SECTARIAN-FORMATION-FORENSIC-AUDIT.md",
+      "target": "STEP:117",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-ISLAMIC-SECTARIAN-FORMATION-FORENSIC-AUDIT.md",
+      "target": "STEP:118",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-ISLAMIC-SECTARIAN-FORMATION-FORENSIC-AUDIT.md",
+      "target": "STEP:119",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-ISLAMIC-SECTARIAN-FORMATION-FORENSIC-AUDIT.md",
+      "target": "STEP:121",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-QURANIC-MANUSCRIPTS-FORENSIC-AUDIT.md",
+      "target": "SRC-INSCR-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-QURANIC-MANUSCRIPTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-QURANIC-MANUSCRIPTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-QURANIC-MANUSCRIPTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-QURANIC-MANUSCRIPTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-QURANIC-MANUSCRIPTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-010",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-QURANIC-MANUSCRIPTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-011",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EARLY-QURANIC-MANUSCRIPTS-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-QURANIC-MANUSCRIPTS-FORENSIC-AUDIT.md",
+      "target": "STEP:101",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-QURANIC-MANUSCRIPTS-FORENSIC-AUDIT.md",
+      "target": "STEP:103",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-QURANIC-MANUSCRIPTS-FORENSIC-AUDIT.md",
+      "target": "STEP:104",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-QURANIC-MANUSCRIPTS-FORENSIC-AUDIT.md",
+      "target": "STEP:106",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-SHII-SOURCES-HADITH-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-SHII-SOURCES-HADITH-FORENSIC-AUDIT.md",
+      "target": "STEP:123",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-TAFSIR-QURANIC-EXEGESIS-FORENSIC-AUDIT.md",
+      "target": "STEP:104",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-TAFSIR-QURANIC-EXEGESIS-FORENSIC-AUDIT.md",
+      "target": "STEP:105",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-TAFSIR-QURANIC-EXEGESIS-FORENSIC-AUDIT.md",
+      "target": "STEP:106",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-TAFSIR-QURANIC-EXEGESIS-FORENSIC-AUDIT.md",
+      "target": "STEP:107",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-TAFSIR-QURANIC-EXEGESIS-FORENSIC-AUDIT.md",
+      "target": "STEP:109",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EARLY-TAFSIR-QURANIC-EXEGESIS-FORENSIC-AUDIT.md",
+      "target": "STEP:113",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EPHESUS-REUNION-CHALCEDON-BRIDGE-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EPHESUS-REUNION-CHALCEDON-BRIDGE-AUDIT.md",
+      "target": "SRC-THEO-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EPHESUS-REUNION-CHALCEDON-BRIDGE-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EPHESUS-REUNION-CHALCEDON-BRIDGE-AUDIT.md",
+      "target": "SRC-THEO-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EPHESUS-REUNION-CHALCEDON-BRIDGE-AUDIT.md",
+      "target": "SRC-THEO-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:EPHESUS-REUNION-CHALCEDON-BRIDGE-AUDIT.md",
+      "target": "STEP:80R",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:EPHESUS-REUNION-CHALCEDON-BRIDGE-AUDIT.md",
+      "target": "STEP:81",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FILIOQUE-PROCESSION-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FILIOQUE-PROCESSION-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FILIOQUE-PROCESSION-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FILIOQUE-PROCESSION-FORENSIC-AUDIT.md",
+      "target": "STEP:94",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FILIOQUE-PROCESSION-FORENSIC-AUDIT.md",
+      "target": "STEP:95",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FILIOQUE-PROCESSION-FORENSIC-AUDIT.md",
+      "target": "STEP:98",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FINAL-SYSTEM-AUDIT-FORENSIC-AUDIT.md",
+      "target": "CLAIM-SOURCE",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:FINAL-SYSTEM-AUDIT-FORENSIC-AUDIT.md",
+      "target": "CLAIM-TO-SOURCE",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:FINAL-SYSTEM-AUDIT-FORENSIC-AUDIT.md",
+      "target": "CLAIM-TO-SOURCE-GRAPH-FORENSIC-AUDIT",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:FINAL-SYSTEM-AUDIT-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FINAL-SYSTEM-AUDIT-FORENSIC-AUDIT.md",
+      "target": "STEP:145",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FINAL-SYSTEM-AUDIT-FORENSIC-AUDIT.md",
+      "target": "STEP:146",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FINAL-SYSTEM-AUDIT-FORENSIC-AUDIT.md",
+      "target": "STEP:147",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FINAL-SYSTEM-AUDIT-FORENSIC-AUDIT.md",
+      "target": "STEP:148",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FINAL-SYSTEM-AUDIT-FORENSIC-AUDIT.md",
+      "target": "STEP:149",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FINAL-SYSTEM-AUDIT-FORENSIC-AUDIT.md",
+      "target": "STEP:151",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FOUNDATION-CRITICAL-TEXT-NA28-SBLGNT.md",
+      "target": "SRC-CRIT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FOUNDATION-CRITICAL-TEXT-NA28-SBLGNT.md",
+      "target": "SRC-CRIT-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FOUR-GOSPELS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-CRIT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FOUR-GOSPELS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FOUR-GOSPELS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FOUR-GOSPELS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FOUR-GOSPELS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-MSS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FOUR-GOSPELS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FOUR-GOSPELS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FOUR-GOSPELS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:70",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FOUR-GOSPELS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:71",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FOUR-GOSPELS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:89",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FOUR-GOSPELS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:90",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FOUR-GOSPELS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:91",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FOUR-GOSPELS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:93",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "SRC-HIST-JOSEPH-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "SRC-HIST-TAC-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "STEP:89",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FULL-CHRISTOLOGY-TRINITY-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "STEP:97",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FULL-CROSS-RELIGION-AUDIT-FORENSIC-AUDIT.md",
+      "target": "CLAIM-TO-SOURCE",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:FULL-CROSS-RELIGION-AUDIT-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FULL-CROSS-RELIGION-AUDIT-FORENSIC-AUDIT.md",
+      "target": "STEP:145",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FULL-CROSS-RELIGION-AUDIT-FORENSIC-AUDIT.md",
+      "target": "STEP:146",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FULL-CROSS-RELIGION-AUDIT-FORENSIC-AUDIT.md",
+      "target": "STEP:147",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FULL-CROSS-RELIGION-AUDIT-FORENSIC-AUDIT.md",
+      "target": "STEP:148",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:FULL-CROSS-RELIGION-AUDIT-FORENSIC-AUDIT.md",
+      "target": "STEP:150",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:GHADIR-THAQALAYN-MANZILAH-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:GHADIR-THAQALAYN-MANZILAH-FORENSIC-AUDIT.md",
+      "target": "STEP:126",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HADITH-AUTHENTICATION-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "CLAIM-BIB-JOHN1-001__06",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:HADITH-AUTHENTICATION-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HADITH-AUTHENTICATION-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "STEP:101",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HADITH-AUTHENTICATION-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "STEP:107",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HADITH-AUTHENTICATION-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "STEP:122",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HADITH-AUTHENTICATION-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "STEP:123",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HADITH-AUTHENTICATION-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "STEP:125",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HADITH-AUTHENTICATION-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "STEP:130",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HADITH-AUTHENTICATION-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "STEP:130R",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HADITH-AUTHENTICATION-CROSS-SYSTEM-FORENSIC-AUDIT.md",
+      "target": "STEP:132",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HADITH-HISTORICAL-SOURCE-FORENSIC-AUDIT.md",
+      "target": "STEP:101",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HADITH-HISTORICAL-SOURCE-FORENSIC-AUDIT.md",
+      "target": "STEP:114",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HISTORICAL-JESUS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-HIST-JOSEPH-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:HISTORICAL-JESUS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:HISTORICAL-JESUS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:HISTORICAL-JESUS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "CLAIM-HIST-JOSEPH-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:HISTORICAL-JESUS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "CLAIM-HIST-JOSEPH-002",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:HISTORICAL-JESUS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "CLAIM-HIST-JOSEPH-003",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:HISTORICAL-JESUS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "CLAIM-HIST-TAC-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:HISTORICAL-JESUS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "CLAIM-HIST-TAC-002",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:HISTORICAL-JESUS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:70",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HISTORICAL-JESUS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:89R",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HISTORICAL-JESUS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:90",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HISTORICAL-JESUS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:91",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HISTORICAL-JESUS-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:92",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HISTORICAL-MUHAMMAD-EARLY-ISLAM-FORENSIC-AUDIT.md",
+      "target": "STEP:105",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HOLY-SPIRIT-PNEUMATOMACHIAN-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:HOLY-SPIRIT-PNEUMATOMACHIAN-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:HOLY-SPIRIT-PNEUMATOMACHIAN-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:HOLY-SPIRIT-PNEUMATOMACHIAN-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:HOLY-SPIRIT-PNEUMATOMACHIAN-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:HOLY-SPIRIT-PNEUMATOMACHIAN-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:HOLY-SPIRIT-PNEUMATOMACHIAN-FORENSIC-AUDIT.md",
+      "target": "STEP:94",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HOLY-SPIRIT-PNEUMATOMACHIAN-FORENSIC-AUDIT.md",
+      "target": "STEP:95",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HOLY-SPIRIT-PNEUMATOMACHIAN-FORENSIC-AUDIT.md",
+      "target": "STEP:96",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:HOLY-SPIRIT-PNEUMATOMACHIAN-FORENSIC-AUDIT.md",
+      "target": "STEP:97",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:INCARNATION-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:INCARNATION-FORENSIC-AUDIT.md",
+      "target": "STEP:113",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:INCARNATION-FORENSIC-AUDIT.md",
+      "target": "STEP:128",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:INCARNATION-FORENSIC-AUDIT.md",
+      "target": "STEP:130",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:INCARNATION-FORENSIC-AUDIT.md",
+      "target": "STEP:132",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:INCARNATION-FORENSIC-AUDIT.md",
+      "target": "STEP:134",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:INCARNATION-FORENSIC-AUDIT.md",
+      "target": "STEP:138",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:INCARNATION-FORENSIC-AUDIT.md",
+      "target": "STEP:61",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:INCARNATION-FORENSIC-AUDIT.md",
+      "target": "STEP:62",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:INCARNATION-FORENSIC-AUDIT.md",
+      "target": "STEP:64",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:INCARNATION-FORENSIC-AUDIT.md",
+      "target": "STEP:73",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:INCARNATION-FORENSIC-AUDIT.md",
+      "target": "STEP:83",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:INCARNATION-FORENSIC-AUDIT.md",
+      "target": "STEP:92",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:INCARNATION-FORENSIC-AUDIT.md",
+      "target": "STEP:96",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:JESUS-ISA-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:JESUS-ISA-FORENSIC-AUDIT.md",
+      "target": "STEP:133",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:JESUS-ISA-FORENSIC-AUDIT.md",
+      "target": "STEP:135",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KALAM-RATIONAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KALAM-RATIONAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:101",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KALAM-RATIONAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:103R",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KALAM-RATIONAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:105",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KALAM-RATIONAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:107",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KALAM-RATIONAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:108",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KALAM-RATIONAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:113",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KALAM-RATIONAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:115",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KALAM-RATIONAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:120",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KALAM-RATIONAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:121",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KALAM-RATIONAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:129",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KALAM-RATIONAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:131",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KALAM-RATIONAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:95",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KHILAFAH-AHL-AL-BAYT-IMAMAH-POLITICAL-AUTHORITY-FORENSIC-AUDIT.md",
+      "target": "STEP:115",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KHILAFAH-IMAMAH-POLITICAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:KHILAFAH-IMAMAH-POLITICAL-THEOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:128",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MAKKI-MADANI-REVELATION-CHRONOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:101",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MAKKI-MADANI-REVELATION-CHRONOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:102",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MAKKI-MADANI-REVELATION-CHRONOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:104",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MAKKI-MADANI-REVELATION-CHRONOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:108",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MAKKI-MADANI-REVELATION-CHRONOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:109",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MAKKI-MADANI-REVELATION-CHRONOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:110",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MAKKI-MADANI-REVELATION-CHRONOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:112",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MIAPHYSITE-MONOPHYSITE-EUTYCHIAN-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:MIAPHYSITE-MONOPHYSITE-EUTYCHIAN-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:MIAPHYSITE-MONOPHYSITE-EUTYCHIAN-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:MIAPHYSITE-MONOPHYSITE-EUTYCHIAN-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:MIAPHYSITE-MONOPHYSITE-EUTYCHIAN-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:MIAPHYSITE-MONOPHYSITE-EUTYCHIAN-FORENSIC-AUDIT.md",
+      "target": "STEP:74",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MIAPHYSITE-MONOPHYSITE-EUTYCHIAN-FORENSIC-AUDIT.md",
+      "target": "STEP:78",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MIAPHYSITE-MONOPHYSITE-EUTYCHIAN-FORENSIC-AUDIT.md",
+      "target": "STEP:79",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MIAPHYSITE-MONOPHYSITE-EUTYCHIAN-FORENSIC-AUDIT.md",
+      "target": "STEP:80",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MIAPHYSITE-MONOPHYSITE-EUTYCHIAN-FORENSIC-AUDIT.md",
+      "target": "STEP:80R",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MIAPHYSITE-MONOPHYSITE-EUTYCHIAN-FORENSIC-AUDIT.md",
+      "target": "STEP:81",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MIAPHYSITE-MONOPHYSITE-EUTYCHIAN-FORENSIC-AUDIT.md",
+      "target": "STEP:82",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MIAPHYSITE-MONOPHYSITE-EUTYCHIAN-FORENSIC-AUDIT.md",
+      "target": "STEP:83",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MUHAMMAD-IN-CHRISTIAN-SOURCES-FORENSIC-AUDIT.md",
+      "target": "STEP:01",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MUHAMMAD-IN-CHRISTIAN-SOURCES-FORENSIC-AUDIT.md",
+      "target": "STEP:02",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MUHAMMAD-IN-CHRISTIAN-SOURCES-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MUHAMMAD-IN-CHRISTIAN-SOURCES-FORENSIC-AUDIT.md",
+      "target": "STEP:114",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MUHAMMAD-IN-CHRISTIAN-SOURCES-FORENSIC-AUDIT.md",
+      "target": "STEP:133",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MUHAMMAD-IN-CHRISTIAN-SOURCES-FORENSIC-AUDIT.md",
+      "target": "STEP:134",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:MUHAMMAD-IN-CHRISTIAN-SOURCES-FORENSIC-AUDIT.md",
+      "target": "STEP:136",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NASKH-ABROGATION-FORENSIC-AUDIT.md",
+      "target": "STEP:101",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NASKH-ABROGATION-FORENSIC-AUDIT.md",
+      "target": "STEP:102",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NASKH-ABROGATION-FORENSIC-AUDIT.md",
+      "target": "STEP:104",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NASKH-ABROGATION-FORENSIC-AUDIT.md",
+      "target": "STEP:105",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NASKH-ABROGATION-FORENSIC-AUDIT.md",
+      "target": "STEP:106",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NASKH-ABROGATION-FORENSIC-AUDIT.md",
+      "target": "STEP:108",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NASKH-ABROGATION-FORENSIC-AUDIT.md",
+      "target": "STEP:109",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NASKH-ABROGATION-FORENSIC-AUDIT.md",
+      "target": "STEP:111",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NESTORIUS-CHURCH-OF-THE-EAST-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:NESTORIUS-CHURCH-OF-THE-EAST-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:NESTORIUS-CHURCH-OF-THE-EAST-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:NESTORIUS-CHURCH-OF-THE-EAST-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:NESTORIUS-CHURCH-OF-THE-EAST-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:NESTORIUS-CHURCH-OF-THE-EAST-FORENSIC-AUDIT.md",
+      "target": "STEP:80",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NESTORIUS-CHURCH-OF-THE-EAST-FORENSIC-AUDIT.md",
+      "target": "STEP:83",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NESTORIUS-CHURCH-OF-THE-EAST-FORENSIC-AUDIT.md",
+      "target": "STEP:84",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NESTORIUS-CHURCH-OF-THE-EAST-FORENSIC-AUDIT.md",
+      "target": "STEP:84R",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NESTORIUS-CHURCH-OF-THE-EAST-FORENSIC-AUDIT.md",
+      "target": "STEP:87",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NESTORIUS-CHURCH-OF-THE-EAST-FORENSIC-AUDIT.md",
+      "target": "STEP:88",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NUBUWWAH-PROPHETHOOD-FORENSIC-AUDIT.md",
+      "target": "STEP:01",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NUBUWWAH-PROPHETHOOD-FORENSIC-AUDIT.md",
+      "target": "STEP:06",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NUBUWWAH-PROPHETHOOD-FORENSIC-AUDIT.md",
+      "target": "STEP:10",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NUBUWWAH-PROPHETHOOD-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NUBUWWAH-PROPHETHOOD-FORENSIC-AUDIT.md",
+      "target": "STEP:101",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NUBUWWAH-PROPHETHOOD-FORENSIC-AUDIT.md",
+      "target": "STEP:128",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NUBUWWAH-PROPHETHOOD-FORENSIC-AUDIT.md",
+      "target": "STEP:130",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NUBUWWAH-PROPHETHOOD-FORENSIC-AUDIT.md",
+      "target": "STEP:131",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NUBUWWAH-PROPHETHOOD-FORENSIC-AUDIT.md",
+      "target": "STEP:132",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NUBUWWAH-PROPHETHOOD-FORENSIC-AUDIT.md",
+      "target": "STEP:134",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:NUBUWWAH-PROPHETHOOD-FORENSIC-AUDIT.md",
+      "target": "STEP:135",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:PATRISTIC-ATHANASIUS-FESTAL-39-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PATRISTIC-ATHANASIUS-FESTAL-39-AUDIT.md",
+      "target": "SRC-PAT-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PATRISTIC-CANON-AUDIT-IRENAEUS.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PATRISTIC-EUSEBIUS-HE325-AUDIT.md",
+      "target": "SRC-PAT-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PATRISTIC-MURATORIAN-FRAGMENT-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PATRISTIC-MURATORIAN-FRAGMENT-AUDIT.md",
+      "target": "SRC-PAT-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PATRISTIC-MURATORIAN-FRAGMENT-AUDIT.md",
+      "target": "SRC-PAT-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-BIB-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-BIB-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-CRIT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-HIST-JOSEPH-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-HIST-TAC-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-MSS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PAULINE-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PHILOSOPHY-OF-REVELATION-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:PHILOSOPHY-OF-REVELATION-FORENSIC-AUDIT.md",
+      "target": "STEP:114",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:POST-CHALCEDON-RECEPTION-IDENTITY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:POST-CHALCEDON-RECEPTION-IDENTITY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:POST-CHALCEDON-RECEPTION-IDENTITY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:POST-CHALCEDON-RECEPTION-IDENTITY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:POST-CHALCEDON-RECEPTION-IDENTITY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:POST-CHALCEDON-RECEPTION-IDENTITY-FORENSIC-AUDIT.md",
+      "target": "STEP:74",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:POST-CHALCEDON-RECEPTION-IDENTITY-FORENSIC-AUDIT.md",
+      "target": "STEP:80",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:POST-CHALCEDON-RECEPTION-IDENTITY-FORENSIC-AUDIT.md",
+      "target": "STEP:81",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:POST-CHALCEDON-RECEPTION-IDENTITY-FORENSIC-AUDIT.md",
+      "target": "STEP:82",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:POST-CHALCEDON-RECEPTION-IDENTITY-FORENSIC-AUDIT.md",
+      "target": "STEP:83",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:POST-CHALCEDON-RECEPTION-IDENTITY-FORENSIC-AUDIT.md",
+      "target": "STEP:84",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "STEP:90",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "STEP:91",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "STEP:92",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "STEP:93",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:PRE-NICENE-FATHERS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "STEP:94",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:PROPHETIC-RELIABILITY-FORENSIC-AUDIT.md",
+      "target": "STEP:141",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURAN-IMAMAH-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURAN-IMAMAH-FORENSIC-AUDIT.md",
+      "target": "STEP:125",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "target": "SRC-ACAD-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "target": "SRC-ACAD-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "target": "SRC-INSCR-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-010",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-011",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "target": "STEP:101",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "target": "STEP:102",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "target": "STEP:103",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "target": "STEP:104",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HADITH-EARLY-REPORTS-FORENSIC-AUDIT.md",
+      "target": "STEP:106",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURAN-TRANSMISSION-HISTORY-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-ARABIC-LINGUISTIC-FORENSIC-AUDIT.md",
+      "target": "SRC-ACAD-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-ARABIC-LINGUISTIC-FORENSIC-AUDIT.md",
+      "target": "SRC-ACAD-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-ARABIC-LINGUISTIC-FORENSIC-AUDIT.md",
+      "target": "SRC-INSCR-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-ARABIC-LINGUISTIC-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-ARABIC-LINGUISTIC-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-ARABIC-LINGUISTIC-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-ARABIC-LINGUISTIC-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-ARABIC-LINGUISTIC-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-010",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-ARABIC-LINGUISTIC-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-011",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-ARABIC-LINGUISTIC-FORENSIC-AUDIT.md",
+      "target": "STEP:102",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-ARABIC-LINGUISTIC-FORENSIC-AUDIT.md",
+      "target": "STEP:103",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-ARABIC-LINGUISTIC-FORENSIC-AUDIT.md",
+      "target": "STEP:104",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-ARABIC-LINGUISTIC-FORENSIC-AUDIT.md",
+      "target": "STEP:105",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-ARABIC-LINGUISTIC-FORENSIC-AUDIT.md",
+      "target": "STEP:106",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:101",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:107",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:108",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:109",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:111",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:112",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-CHRISTOLOGY-FORENSIC-AUDIT.md",
+      "target": "STEP:90",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-COLLECTION-CODIFICATION-CANON-FORENSIC-AUDIT.md",
+      "target": "STEP:101",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-COLLECTION-CODIFICATION-CANON-FORENSIC-AUDIT.md",
+      "target": "STEP:108",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-COLLECTION-CODIFICATION-CANON-FORENSIC-AUDIT.md",
+      "target": "STEP:110",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-RASM-QIRAAT-READING-VARIANTS-FORENSIC-AUDIT.md",
+      "target": "SRC-ACAD-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-RASM-QIRAAT-READING-VARIANTS-FORENSIC-AUDIT.md",
+      "target": "SRC-ACAD-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-RASM-QIRAAT-READING-VARIANTS-FORENSIC-AUDIT.md",
+      "target": "SRC-INSCR-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-RASM-QIRAAT-READING-VARIANTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-RASM-QIRAAT-READING-VARIANTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-RASM-QIRAAT-READING-VARIANTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-RASM-QIRAAT-READING-VARIANTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-RASM-QIRAAT-READING-VARIANTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-010",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-RASM-QIRAAT-READING-VARIANTS-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-011",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-RASM-QIRAAT-READING-VARIANTS-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:QURANIC-RASM-QIRAAT-READING-VARIANTS-FORENSIC-AUDIT.md",
+      "target": "STEP:105",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SAHABAH-AHL-AL-BAYT-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SAHABAH-AHL-AL-BAYT-FORENSIC-AUDIT.md",
+      "target": "STEP:127",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SANAA-PALIMPSEST-DAM-01-27-1-FORENSIC-AUDIT.md",
+      "target": "SRC-ACAD-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SANAA-PALIMPSEST-DAM-01-27-1-FORENSIC-AUDIT.md",
+      "target": "SRC-ACAD-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SANAA-PALIMPSEST-DAM-01-27-1-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SANAA-PALIMPSEST-DAM-01-27-1-FORENSIC-AUDIT.md",
+      "target": "STEP:101",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SANAA-PALIMPSEST-DAM-01-27-1-FORENSIC-AUDIT.md",
+      "target": "STEP:102",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SANAA-PALIMPSEST-DAM-01-27-1-FORENSIC-AUDIT.md",
+      "target": "STEP:103",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SANAA-PALIMPSEST-DAM-01-27-1-FORENSIC-AUDIT.md",
+      "target": "STEP:104",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SCRIPTURE-AND-AUTHORITY-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SCRIPTURE-AND-AUTHORITY-FORENSIC-AUDIT.md",
+      "target": "STEP:129",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SCRIPTURE-AND-AUTHORITY-FORENSIC-AUDIT.md",
+      "target": "STEP:131",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SCRIPTURE-AND-AUTHORITY-FORENSIC-AUDIT.md",
+      "target": "STEP:133",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-BIB-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-BIB-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-CRIT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-HIST-JOSEPH-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-HIST-TAC-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-MSS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "STEP:61",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SECOND-TEMPLE-JUDAISM-HISTORICAL-JESUS-EARLIEST-CHRISTIANITY-FORENSIC-AUDIT.md",
+      "target": "STEP:62",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SHII-THEOLOGY-FORMATION-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SHII-THEOLOGY-FORMATION-FORENSIC-AUDIT.md",
+      "target": "STEP:130",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SIRAH-MAGHAZI-HISTORICAL-FORENSIC-AUDIT.md",
+      "target": "STEP:115",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SUNNI-CREED-FORMATION-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SUNNI-CREED-FORMATION-FORENSIC-AUDIT.md",
+      "target": "STEP:129",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SUNNI-HADITH-AUTHORITY-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:SUNNI-HADITH-AUTHORITY-FORENSIC-AUDIT.md",
+      "target": "STEP:124",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TEXTUAL-PRESERVATION-COMPARISON-FORENSIC-AUDIT.md",
+      "target": "STEP:02",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TEXTUAL-PRESERVATION-COMPARISON-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TEXTUAL-PRESERVATION-COMPARISON-FORENSIC-AUDIT.md",
+      "target": "STEP:103R",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TEXTUAL-PRESERVATION-COMPARISON-FORENSIC-AUDIT.md",
+      "target": "STEP:104",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TEXTUAL-PRESERVATION-COMPARISON-FORENSIC-AUDIT.md",
+      "target": "STEP:106",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TEXTUAL-PRESERVATION-COMPARISON-FORENSIC-AUDIT.md",
+      "target": "STEP:136",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TEXTUAL-PRESERVATION-COMPARISON-FORENSIC-AUDIT.md",
+      "target": "STEP:138",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TEXTUAL-PRESERVATION-COMPARISON-FORENSIC-AUDIT.md",
+      "target": "STEP:141",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-ARIUS-CONTROVERSY-AUDIT.md",
+      "target": "SRC-THEO-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-CAPPADOCIANS-OUSIA-HYPOSTASIS-AUDIT.md",
+      "target": "SRC-THEO-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-CHALCEDON-451-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-CHALCEDON-451-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-CHALCEDON-451-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-CONSTANTINOPLE-381-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-CYRIL-ALEXANDRIA-AUDIT.md",
+      "target": "SRC-CRIT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-CYRIL-ALEXANDRIA-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-CYRIL-ALEXANDRIA-AUDIT.md",
+      "target": "SRC-THEO-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-CYRIL-ALEXANDRIA-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-CYRIL-ALEXANDRIA-AUDIT.md",
+      "target": "SRC-THEO-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-CYRIL-ALEXANDRIA-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-CYRIL-ALEXANDRIA-AUDIT.md",
+      "target": "SRC-THEO-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-CYRIL-ALEXANDRIA-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-CYRIL-ALEXANDRIA-AUDIT.md",
+      "target": "CLAIM-BIB-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-EPHESUS-431-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-EPHESUS-431-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-EPHESUS-431-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-EPHESUS-431-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-EPHESUS-431-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-EPHESUS-431-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-EPHESUS-431-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-009",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-EPHESUS-431-FORENSIC-AUDIT.md",
+      "target": "STEP:79",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-FORMULA-REUNION-433-FORENSIC-AUDIT.md",
+      "target": "STEP:80R",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-LEOS-TOME-AUDIT.md",
+      "target": "SRC-MS",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-LEOS-TOME-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-LEOS-TOME-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-LEOS-TOME-AUDIT.md",
+      "target": "SRC-THEO-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-LEOS-TOME-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-LEOS-TOME-AUDIT.md",
+      "target": "SRC-THEO-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-LEOS-TOME-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-LEOS-TOME-AUDIT.md",
+      "target": "SRC-THEO-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-LEOS-TOME-AUDIT.md",
+      "target": "CLAIM-BIB-JOHN1-001",
+      "relation": "EVALUATES_CLAIM"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-NESTORIUS-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-NESTORIUS-AUDIT.md",
+      "target": "SRC-THEO-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-NESTORIUS-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-NESTORIUS-AUDIT.md",
+      "target": "SRC-THEO-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-NESTORIUS-AUDIT.md",
+      "target": "SRC-THEO-005",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-NESTORIUS-AUDIT.md",
+      "target": "SRC-THEO-006",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-NESTORIUS-AUDIT.md",
+      "target": "SRC-THEO-007",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-NESTORIUS-AUDIT.md",
+      "target": "SRC-THEO-008",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:THEOLOGY-NICENE-CREED-325-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:TRIADIC-PATTERNS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-CRIT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:TRIADIC-PATTERNS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-MS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:TRIADIC-PATTERNS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-MSS-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:TRIADIC-PATTERNS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-PAT-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:TRIADIC-PATTERNS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-001",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:TRIADIC-PATTERNS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-002",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:TRIADIC-PATTERNS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-003",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:TRIADIC-PATTERNS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "SRC-THEO-004",
+      "relation": "REFERENCES_SOURCE"
+    },
+    {
+      "source": "ANALYSIS:TRIADIC-PATTERNS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "STEP:91",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TRIADIC-PATTERNS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "STEP:92",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TRIADIC-PATTERNS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "STEP:93",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TRIADIC-PATTERNS-TRINITARIAN-DEVELOPMENT-FORENSIC-AUDIT.md",
+      "target": "STEP:94",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TRINITY-VS-TAWHID-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TRINITY-VS-TAWHID-FORENSIC-AUDIT.md",
+      "target": "STEP:128",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TRINITY-VS-TAWHID-FORENSIC-AUDIT.md",
+      "target": "STEP:134",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TRINITY-VS-TAWHID-FORENSIC-AUDIT.md",
+      "target": "STEP:135",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TRINITY-VS-TAWHID-FORENSIC-AUDIT.md",
+      "target": "STEP:137",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TRINITY-VS-TAWHID-FORENSIC-AUDIT.md",
+      "target": "STEP:139",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TRINITY-VS-TAWHID-FORENSIC-AUDIT.md",
+      "target": "STEP:61",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TRINITY-VS-TAWHID-FORENSIC-AUDIT.md",
+      "target": "STEP:70",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TRINITY-VS-TAWHID-FORENSIC-AUDIT.md",
+      "target": "STEP:72",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TRINITY-VS-TAWHID-FORENSIC-AUDIT.md",
+      "target": "STEP:84",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:TRINITY-VS-TAWHID-FORENSIC-AUDIT.md",
+      "target": "STEP:99",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:UTHMANIC-CODEX-REGIONAL-MUSHAFS-STANDARDIZATION-FORENSIC-AUDIT.md",
+      "target": "STEP:100",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:UTHMANIC-CODEX-REGIONAL-MUSHAFS-STANDARDIZATION-FORENSIC-AUDIT.md",
+      "target": "STEP:102",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:UTHMANIC-CODEX-REGIONAL-MUSHAFS-STANDARDIZATION-FORENSIC-AUDIT.md",
+      "target": "STEP:103",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:UTHMANIC-CODEX-REGIONAL-MUSHAFS-STANDARDIZATION-FORENSIC-AUDIT.md",
+      "target": "STEP:104",
+      "relation": "DEPENDS_ON_STEP"
+    },
+    {
+      "source": "ANALYSIS:UTHMANIC-CODEX-REGIONAL-MUSHAFS-STANDARDIZATION-FORENSIC-AUDIT.md",
+      "target": "STEP:107",
+      "relation": "DEPENDS_ON_STEP"
+    }
+  ]
+}
