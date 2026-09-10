@@ -18,7 +18,7 @@ class DriftReport:
     recommendation: str
 
 class ContextDriftDetector:
-    def __init__(self, drift_threshold: float = 0.25):
+    def __init__(self, drift_threshold: float = 0.15):
         self.analyzer = QueryAnalyzer()
         self.drift_threshold = drift_threshold
 
@@ -28,10 +28,26 @@ class ContextDriftDetector:
             "the", "a", "an", "is", "in", "of", "and", "or", "to", "for", "with",
             "on", "at", "from", "by", "that", "this", "it", "as", "are", "was",
             "were", "be", "been", "have", "has", "had", "do", "does", "did",
-            "you", "your", "they", "we", "he", "she", "but", "so", "if", "then"
+            "you", "your", "they", "we", "he", "she", "but", "so", "if", "then",
+            "what", "why", "how", "who", "when", "where", "which"
         }
         words = re.findall(r"\b[A-Za-z0-9_\-]{3,}\b", text.lower())
-        return {w for w in words if w not in stopwords}
+        stems = set()
+        for w in words:
+            if w not in stopwords:
+                stems.add(w)
+                # Lemmatization heuristics (strip plural / tense suffixes)
+                if w.endswith("ies") and len(w) > 4:
+                    stems.add(w[:-3] + "y")
+                elif w.endswith("es") and len(w) > 4:
+                    stems.add(w[:-2])
+                elif w.endswith("s") and not w.endswith("ss") and len(w) > 3:
+                    stems.add(w[:-1])
+                elif w.endswith("ed") and len(w) > 4:
+                    stems.add(w[:-2])
+                elif w.endswith("ing") and len(w) > 5:
+                    stems.add(w[:-3])
+        return stems
 
     def detect_drift(
         self,
@@ -58,10 +74,10 @@ class ContextDriftDetector:
 
         curr_lower = current_turn.lower()
 
-        # 1. Detect Gish Gallop: turn has > 4 questions or > 4 disparate topics in one turn
+        # 1. Detect Gish Gallop: turn has >= 3 questions or >= 3 disparate topic conjunctions
         question_count = len(re.findall(r"\?", current_turn))
         disparate_markers = len(re.findall(r"\b(?:also|and what about|plus|furthermore|another thing|explain this)\b", curr_lower))
-        if question_count >= 3 or (disparate_markers >= 3 and len(curr_tokens) > 30):
+        if question_count >= 3 or (disparate_markers >= 3 and len(curr_tokens) > 20):
             return DriftReport(
                 drift_detected=True,
                 drift_type="GISH_GALLOP",
@@ -82,22 +98,32 @@ class ContextDriftDetector:
                 recommendation="Acknowledge the comparative question politely, but insist on completing the evaluation of the active motion before pivoting to counter-critiques."
             )
 
-        # 3. Detect pure Topic Shift if lexical similarity is below threshold
-        if jaccard < self.drift_threshold:
-            # Check if entities overlap
-            orig_analysis = self.analyzer.analyze(original_motion)
-            curr_analysis = self.analyzer.analyze(current_turn)
-            common_entities = set(orig_analysis.entities).intersection(set(curr_analysis.entities))
+        # 3. Check Entity Overlap
+        orig_analysis = self.analyzer.analyze(original_motion)
+        curr_analysis = self.analyzer.analyze(current_turn)
+        common_entities = set(orig_analysis.entities).intersection(set(curr_analysis.entities))
 
-            if not common_entities:
-                return DriftReport(
-                    drift_detected=True,
-                    drift_type="TOPIC_SHIFT",
-                    similarity_score=jaccard,
-                    unresolved_original_topic=original_motion,
-                    current_topic=current_turn,
-                    recommendation=f"Gently anchor the dialogue back to the active topic ('{original_motion}') before proceeding to the new subject."
-                )
+        # If entities overlap, maintain continuity even with moderate lexical difference
+        if common_entities or len(intersection) > 0:
+            return DriftReport(
+                drift_detected=False,
+                drift_type="NONE",
+                similarity_score=max(jaccard, 0.40 if common_entities else 0.20),
+                unresolved_original_topic=original_motion,
+                current_topic=current_turn,
+                recommendation="Topic maintained within acceptable thematic bounds."
+            )
+
+        # 4. Detect pure Topic Shift
+        if jaccard < self.drift_threshold:
+            return DriftReport(
+                drift_detected=True,
+                drift_type="TOPIC_SHIFT",
+                similarity_score=jaccard,
+                unresolved_original_topic=original_motion,
+                current_topic=current_turn,
+                recommendation=f"Gently anchor the dialogue back to the active topic ('{original_motion}') before proceeding to the new subject."
+            )
 
         return DriftReport(
             drift_detected=False,

@@ -80,15 +80,25 @@ class ContradictionDetector:
         full_text = " ".join(turn_history[:-1]).lower()
         current_turn = turn_history[-1].lower()
 
-        # Inconsistency: Total mythicism vs specific historical proof-texting
-        if any(w in full_text for w in ["gospels are total myths", "gospels are completely forged", "jesus never existed"]) and \
-           any(w in current_turn for w in ["mark 13:32 proves", "jesus said in john", "the gospels admit"]):
+        # Inconsistency: Total mythicism / wholesale fabrication vs specific historical proof-texting
+        mythicism_markers = [
+            "gospels are total myths", "gospels are completely forged", "gospels are forged",
+            "gospels are complete legends", "gospels are fabrications", "jesus never existed",
+            "no historical value", "zero historical value", "new testament is completely forged",
+            "new testament is forged", "new testament is fake", "bible is completely forged"
+        ]
+        proof_texting_markers = [
+            "mark 13:32 proves", "jesus said in john", "the gospels admit", "bible proves",
+            "gospel of mark says", "gospel of matthew says"
+        ]
+
+        if any(w in full_text for w in mythicism_markers) and any(w in current_turn for w in proof_texting_markers):
             conflicts.append(ConflictReport(
                 conflict_detected=True,
                 conflict_type="INTERNAL_INCONSISTENCY",
                 user_claim=turn_history[-1],
                 refuting_records=["METHODOLOGICAL_CONSISTENCY"],
-                explanation="Internal methodological contradiction: Earlier turn asserted the Gospels are completely forged or non-historical, yet the current turn relies on a specific Gospel verse as authoritative historical proof.",
+                explanation="Internal methodological contradiction: Earlier turn asserted the Gospels or New Testament are completely forged, legendary, or non-historical, yet the current turn relies on a specific verse as authoritative historical proof.",
                 severity="MAJOR"
             ))
 

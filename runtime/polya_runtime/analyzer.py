@@ -25,11 +25,13 @@ KNOWN_ENTITIES = {
     "JESUS": ["jesus", "yeshua", "isa", "christ", "messiah", "son of god"],
     "PAUL": ["paul", "saul of tarsus", "pauline", "apostle paul"],
     "MUHAMMAD": ["muhammad", "prophet", "rasul", "messenger of allah"],
+    "GOSPEL": ["gospel", "gospels", "matthew", "mark", "luke", "john"],
+    "HADITH": ["hadith", "sunnah", "isnad", "matn", "bukhari", "muslim"],
     "SANAA_PALIMPSEST": ["sanaa", "san'a", "palimpsest", "dam 01-27.1", "lower text"],
     "CODEX_SINAITICUS": ["sinaiticus", "codex sinaiticus"],
     "CODEX_VATICANUS": ["vaticanus", "codex vaticanus"],
     "DEAD_SEA_SCROLLS": ["dead sea scrolls", "qumran", "1qisa", "4q246", "11q13"],
-    "COUNCIL_OF_NICAEA": ["nicaea", "nicene", "homoousios", "arian", "ariusu"],
+    "COUNCIL_OF_NICAEA": ["nicaea", "nicene", "homoousios", "arian", "arius"],
     "COUNCIL_OF_CHALCEDON": ["chalcedon", "hypostatic union", "two natures"],
     "TRINITY": ["trinity", "triune", "three persons", "filioque", "tawhid"],
     "INCARNATION": ["incarnation", "word made flesh", "logos", "god incarnate"],
@@ -103,7 +105,7 @@ class QueryAnalyzer:
         elif source_refs or step_refs or claim_refs or any(w in q_lower for w in ["source for", "citation", "evidence for"]):
             intent = "SOURCE_VERIFICATION"
 
-        # Extract search keywords (remove common punctuation/stopwords)
+        # Extract search keywords
         stopwords = {"the", "a", "an", "is", "in", "of", "and", "or", "to", "for", "with", "on", "at", "from", "by", "that", "this", "it", "as", "are"}
         words = re.findall(r"\b[A-Za-z0-9_\-]+\b", cleaned)
         key_terms = [w for w in words if w.lower() not in stopwords and len(w) > 2]

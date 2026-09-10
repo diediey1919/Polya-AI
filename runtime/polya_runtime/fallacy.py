@@ -30,7 +30,7 @@ FALLACY_CATALOG = [
         "name": "Strawman Argument",
         "category": "INFORMAL",
         "keywords": ["all christians believe", "muslims think that", "so you are claiming that god is literally three separate guys"],
-        "regex": r"\b(?:all muslims believe|all christians think|so you claim that god is literally three separate)\b",
+        "regex": r"\b(?:all muslims believe|all christians think|all christians worship|so you claim that god is literally three separate)\b",
         "severity": "HIGH",
         "description": "Misrepresenting or oversimplifying the opponent's theological position to make it easier to attack.",
         "remedy": "Execute mandatory steelmanning: articulate the opponent's doctrine in its most rigorous confessional/scholarly formulation before critique."
@@ -48,7 +48,7 @@ FALLACY_CATALOG = [
         "name": "Equivocation on Textual Variant vs Doctrinal Corruption",
         "category": "APOLOGETIC_SPECIFIC",
         "keywords": ["variant means corrupt", "spelling differences prove false", "words changed therefore fabricated"],
-        "regex": r"\b(?:variants? proves? (?:corrupt|fabricated|false)|spelling differences? proves?)\b",
+        "regex": r"\b(?:variants?\b.*?\b(?:proves?|means?)\b.*?\b(?:corrupt\w*|fabricat\w*|false)|(?:proves?|means?)\b.*?\b(?:corrupt\w*|fabricat\w*|false)\b.*?\bvariants?|spelling differences?\b.*?\bproves?)\b",
         "severity": "MEDIUM",
         "description": "Conflating orthographic/dialectal variants (qira'at / rasm / scribal slips) with wholesale theological corruption.",
         "remedy": "Distinguish between lower criticism (orthography, scribal habits, rasm) and higher criticism (theological interpolation)."
@@ -57,7 +57,7 @@ FALLACY_CATALOG = [
         "name": "Circular Reasoning (Petitio Principii)",
         "category": "INFORMAL",
         "keywords": ["bible is true because it is inspired", "quran is true because quran says so", "proved by itself"],
-        "regex": r"\b(?:is true because (?:the )?(?:bible|quran|scripture) says so|inspired because it claims to be)\b",
+        "regex": r"\b(?:is true because (?:the )?(?:bible|quran|scripture) says|inspired because it claims to be|proved by itself)\b",
         "severity": "HIGH",
         "description": "Using the authority of a scripture to validate the absolute authority of that same scripture without external warrant.",
         "remedy": "Introduce independent historical, manuscript, or rational verification outside the confessional circle."
@@ -65,7 +65,7 @@ FALLACY_CATALOG = [
     {
         "name": "False Dilemma / Bifurcation",
         "category": "INFORMAL",
-        "keywords": ["either god or evil", "either 100% inerrant or total fraud", "either liar lunatic or lord"],
+        "keywords": ["either god or evil", "either 100% inerrant or total fraud", "either liar lunatic or lord", "liar lunatic or lord"],
         "regex": r"\b(?:either (?:100%|completely) inerrant or total fraud|liar lunatic or lord|either god or a bad man)\b",
         "severity": "MEDIUM",
         "description": "Restricting available possibilities to two extreme polarities while ignoring legitimate historical or theological nuances (e.g. Lewis's trilemma ignoring legend).",

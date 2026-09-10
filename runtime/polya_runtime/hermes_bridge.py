@@ -110,14 +110,15 @@ class HermesPolyaBridge:
         )
 
         # 10. Activate Working Set within Token Budget
-        activated_nodes = self.activator.activate_candidates(
+        self.activator.activate_candidates(
             ranked_items[:limit],
             retriever=self.retriever
         )
+        active_working_set = self.activator.get_active_nodes()
 
         # 11. Compute Epistemic Confidence
-        active_sources = [n.id for n in activated_nodes if n.category == "source"]
-        for n in activated_nodes:
+        active_sources = [n.id for n in active_working_set if n.category == "source"]
+        for n in active_working_set:
             active_sources.extend(n.references)
         ev_score = self.evidence.compute_evidentiary_score(list(set(active_sources)))
 
@@ -133,7 +134,7 @@ class HermesPolyaBridge:
 
         # 12. Build Context Package
         package = self.package_builder.build_package(
-            active_nodes=activated_nodes,
+            active_nodes=active_working_set,
             query_analysis=q_analysis,
             decomposed_claim=decomposed,
             policy_result=policy_res,
@@ -149,7 +150,7 @@ class HermesPolyaBridge:
             claims_raised=[decomposed.primary_claim],
             fallacies=detected_fallacies,
             drift_report=drift_rep,
-            active_steps=[n.step for n in activated_nodes if n.step]
+            active_steps=[n.step for n in active_working_set if n.step]
         )
 
         # 14. Telemetry Logging
@@ -159,8 +160,8 @@ class HermesPolyaBridge:
             "latency_ms": latency_ms,
             "intent": q_analysis.intent,
             "tradition": q_analysis.primary_tradition,
-            "active_steps": [n.step for n in activated_nodes if n.step],
-            "active_sources": [n.id for n in activated_nodes if n.category == "source"],
+            "active_steps": [n.step for n in active_working_set if n.step],
+            "active_sources": [n.id for n in active_working_set if n.category == "source"],
             "fallacies": [f.name for f in detected_fallacies],
             "confidence_tier": confidence.tier,
             "tokens_estimate": package.total_tokens_estimate
