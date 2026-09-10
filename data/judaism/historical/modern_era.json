@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "developments": [
+    {
+      "name": "Haskalah (Jewish Enlightenment)",
+      "dates": "c. 1770–1880 CE",
+      "founder": "Moses Mendelssohn (Berlin)",
+      "ideals": [
+        "Integration into European society ('Be a Jew at home and a man in the street')",
+        "Revival of pure biblical Hebrew",
+        "Secular education, sciences, linguistic assimilation"
+      ]
+    },
+    {
+      "name": "Emancipation and Modern Denominational Splintering",
+      "dates": "19th century",
+      "outcomes": [
+        "Granting of citizenship to Jews across Western Europe",
+        "Emergence of Reform Judaism in Germany (Abraham Geiger, Samuel Holdheim)",
+        "Counter-reaction of Neo-Orthodoxy (Rabbi Samson Raphael Hirsch: Torah im Derekh Eretz)",
+        "Positive-Historical Judaism / Conservative Judaism (Zechariah Frankel)"
+      ]
+    },
+    {
+      "name": "The Shoah (Holocaust)",
+      "dates": "1933–1945 CE",
+      "event": "Systematic, industrialized genocide orchestrated by Nazi Germany murdering 6 million Jews (two-thirds of European Jewry)",
+      "theological_impact": "Post-Holocaust Jewish theology (Emil Fackenheim's 614th Commandment not to give Hitler posthumous victories; Richard Rubenstein; Elie Wiesel; Rabbi Joseph B. Soloveitchik Kol Dodi Dofek)"
+    },
+    {
+      "name": "Zionism and the Re-establishment of the State of Israel",
+      "dates": "1897 / 1948 CE",
+      "principles": [
+        "Modern political Zionism founded by Theodor Herzl (1897 First Zionist Congress in Basel)",
+        "Proclamation of the State of Israel on 14 May 1948 (5 Iyar 5708)",
+        "Crucial Distinction: Political Zionism as a modern national-liberation movement vs the eternal religious-covenantal yearning for Zion (Epistemic Rule 1.5)"
+      ]
+    }
+  ]
+}

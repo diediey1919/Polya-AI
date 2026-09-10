@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0",
+  "period": "ROMAN_SECOND_TEMPLE",
+  "sectarianism": {
+    "pharisees": {
+      "name": "Pharisees (Perushim)",
+      "social_base": "Urban scribes, middle class, sages",
+      "theology": [
+        "Belief in Oral Torah alongside Written Torah",
+        "Resurrection of the dead",
+        "Angels and divine providence balanced with human free will",
+        "Purity laws extended to the domestic table"
+      ],
+      "successor": "Rabbinic Judaism is the direct historical heir to the Pharisaic movement"
+    },
+    "sadducees": {
+      "name": "Sadducees (Tzedokim)",
+      "social_base": "Aristocratic high priesthood, wealthy Temple elite",
+      "theology": [
+        "Rejection of the Oral Torah; adherence strictly to the written Pentateuch",
+        "Denial of bodily resurrection of the dead",
+        "Denial of angels and deterministic fate",
+        "Strict literalism regarding purity and Temple penalties"
+      ],
+      "disappearance": "Disappeared following the destruction of the Second Temple in 70 CE when the priestly sacrificial apparatus ceased"
+    },
+    "essenes": {
+      "name": "Essenes (likely Qumran Community / Yahad)",
+      "social_base": "Ascetic, monastic, priestly desert separatists",
+      "theology": [
+        "Rejection of the Jerusalem Temple priesthood as corrupt and illegitimate",
+        "Solar 364-day calendar (vs lunisolar rabbinic calendar)",
+        "Apocalyptic dualism: Sons of Light vs Sons of Darkness",
+        "Extensive ritual immersion, communal property, strict hierarchy"
+      ],
+      "evidence": "Dead Sea Scrolls (1QS, 1QM, Damascus Document, 4QMMT)"
+    },
+    "zealots_sicarii": {
+      "name": "Zealots (Kannaim) & Sicarii",
+      "social_base": "Militant nationalists founded by Judas the Galilean (6 CE)",
+      "theology": [
+        "No ruler but God (rejection of Roman tax as idolatry)",
+        "Active military revolt to force divine intervention",
+        "Led defense of Jerusalem (70 CE) and Masada (73 CE)"
+      ]
+    }
+  },
+  "destruction_70_ce": {
+    "event": "Siege and Destruction of Second Temple by Roman General Titus in 70 CE",
+    "consequences": [
+      "End of animal sacrifices and hereditary Aaronic priestly hegemony",
+      "Yochanan ben Zakkai established the Academy at Yavneh (Kerem Be-Yavneh)",
+      "Transformation from a localized Temple-sacrificial cult to a portable text-, prayer-, and halakha-based global religious system"
+    ]
+  }
+}

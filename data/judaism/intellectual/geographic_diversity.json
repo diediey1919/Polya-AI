@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "communities": [
+    {
+      "community": "Ashkenazi Jewry",
+      "historical_geography": "Rhineland, France, Germany, Poland, Lithuania, Russia, Central/Eastern Europe",
+      "language": "Yiddish (Judeo-German)",
+      "liturgical_rite": "Nusach Ashkenaz / Nusach Sefard (Hasidic)",
+      "halakhic_decisors": "Moses Isserles (Rema), Vilna Gaon, Chafetz Chaim"
+    },
+    {
+      "community": "Sephardic Jewry",
+      "historical_geography": "Iberian Peninsula (Spain & Portugal) prior to 1492; Ottoman Empire, Balkans, North Africa, Western Europe (Amsterdam, London)",
+      "language": "Ladino / Judezmo (Judeo-Spanish)",
+      "liturgical_rite": "Nusach Edot Ha-Mizrach / Western Sephardi",
+      "halakhic_decisors": "Joseph Karo, Chida (Azulai), Ben Ish Chai, Rabbi Ovadia Yosef"
+    },
+    {
+      "community": "Mizrahi Jewry",
+      "historical_geography": "Middle East, Mesopotamia (Iraq/Babylon), Persia/Iran, Syria, Lebanon",
+      "language": "Judeo-Arabic, Judeo-Persian",
+      "heritage": "Direct heirs of the ancient Babylonian academies of Sura and Pumbedita"
+    },
+    {
+      "community": "Teimani (Yemenite) Jewry",
+      "historical_geography": "Yemen (Sanaa, Aden, Habban)",
+      "language": "Judeo-Yemenite Arabic",
+      "sub_streams": [
+        "Baladi (follows Maimonides' Mishneh Torah exclusively, retaining ancient Palestinian vocalization)",
+        "Shami (adopted later Sephardic codes and Kabbalah)"
+      ]
+    },
+    {
+      "community": "Beta Israel (Ethiopian Jewry)",
+      "historical_geography": "Gondar, Tigray (Ethiopia)",
+      "language": "Ge'ez (liturgical) and Amharic",
+      "scripture": "Orit (Octateuch in Ge'ez)",
+      "uniqueness": "Preserved pre-rabbinic, non-talmudic biblical Judaism with monastic priesthood (Kohanim/Kessim) until mass airlift migrations to Israel (Operation Moses 1984, Operation Solomon 1991)"
+    }
+  ]
+}

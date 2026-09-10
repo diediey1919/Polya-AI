@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0",
+  "period": "MEDIEVAL_RISHONIM (c. 1050–1500 CE)",
+  "traditions": [
+    {
+      "stream": "Franco-German (Ashkenaz)",
+      "centers": [
+        "Troyes",
+        "Sens",
+        "Worms",
+        "Speyer",
+        "Mainz",
+        "Regensburg"
+      ],
+      "key_figures": [
+        "Rabbeinu Gershom Me'or Ha-Golah (enactments banning polygamy and non-consensual divorce)",
+        "Rashi (1040-1105)",
+        "The Tosafists (Ba'alei Ha-Tosafot: Rashbam, Rabbeinu Tam, Ri of Dampierre)"
+      ],
+      "focus": "Micro-dialectical Talmudic harmonization, contextual biblical peshat, liturgical poetry (Piyyut), martyr theology (Kiddush Ha-Shem during Crusades)"
+    },
+    {
+      "stream": "Sephardic & Provencal (Sefarad & Provence)",
+      "centers": [
+        "Cordoba",
+        "Toledo",
+        "Lucena",
+        "Barcelona",
+        "Gerona",
+        "Lunel",
+        "Fustat/Old Cairo"
+      ],
+      "key_figures": [
+        "Isaac Alfasi (Rif)",
+        "Judah Halevi",
+        "Abraham Ibn Ezra",
+        "Maimonides (Rambam)",
+        "Nachmanides (Ramban)",
+        "Solomon ben Aderet (Rashba)",
+        "Yom Tov of Seville (Ritva)"
+      ],
+      "focus": "Systematic legal codification, Hebrew grammar, Arabic-Aristotelian philosophy, science, medicine, and the emergence of classical Kabbalah"
+    },
+    {
+      "historic_events": [
+        "The First Crusade massacres (Rhineland, 1096)",
+        "Expulsion of Jews from England (1290) and France (1306, 1394)",
+        "Disputation of Barcelona (1263: Nachmanides vs Pablo Christiani)",
+        "Disputation of Tortosa (1413–1414)",
+        "Spanish Inquisition established 1478; Alhambra Decree and Expulsion from Spain (1492)"
+      ]
+    }
+  ]
+}

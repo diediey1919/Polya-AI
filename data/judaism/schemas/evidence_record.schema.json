@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JudaismEvidenceRecord",
+  "type": "object",
+  "required": [
+    "evidence_id",
+    "evidence_class",
+    "text",
+    "source_id",
+    "verification_status",
+    "confidence"
+  ],
+  "properties": {
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^EVID-JEW-[A-Z0-9_\\-]+$"
+    },
+    "evidence_class": {
+      "type": "string",
+      "enum": [
+        "FACT",
+        "CLAIM",
+        "QUOTE",
+        "INTERPRETATION",
+        "INFERENCE",
+        "ARGUMENT",
+        "COUNTERARGUMENT",
+        "ACADEMIC_CONSENSUS",
+        "DENOMINATIONAL_POSITION",
+        "HISTORICAL_REPORT",
+        "TRADITIONAL_POSITION",
+        "DISPUTED_CLAIM",
+        "UNRESOLVED_QUESTION"
+      ]
+    },
+    "text": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "source_location": {
+      "type": "string"
+    },
+    "original_language_text": {
+      "type": "string"
+    },
+    "transliteration": {
+      "type": "string"
+    },
+    "gloss": {
+      "type": "string"
+    },
+    "historical_period": {
+      "type": "string"
+    },
+    "tradition": {
+      "type": "string"
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "PARTIALLY_VERIFIED",
+        "UNVERIFIED",
+        "DISPUTED"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "ESTABLISHED",
+        "HIGH",
+        "MODERATE",
+        "LOW",
+        "DISPUTED"
+      ]
+    }
+  }
+}

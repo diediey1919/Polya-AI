@@ -1,0 +1,261 @@
+{
+  "version": "1.0.0",
+  "canon_name": "Tanakh (Torah, Nevi'im, Ketuvim)",
+  "total_books_traditional": 24,
+  "divisions": [
+    {
+      "division": "TORAH",
+      "hebrew": "תורה",
+      "translation": "Instruction / Teaching / Law",
+      "books": [
+        {
+          "hebrew_title": "בראשית",
+          "transliteration": "Bereshit",
+          "english_title": "Genesis",
+          "chapters": 50,
+          "genre": "Cosmogony, Primeval History, Ancestral Narratives",
+          "key_themes": [
+            "Creation ex nihilo vs ordering chaos",
+            "Image of God (Tzelem Elohim)",
+            "Covenant with Noah",
+            "Abrahamic election & covenant",
+            "Patriarchs and Joseph narrative"
+          ],
+          "primary_witnesses": [
+            "Codex Leningradensis B19a",
+            "Aleppo Codex",
+            "4QGen-b",
+            "4QGen-j"
+          ],
+          "scholarly_dating_notes": "Classical documentary hypothesis sees J, E, P, D strata compiled in post-exilic Persian era; traditional rabbinic view asserts unitary Mosaic authorship at Sinai."
+        },
+        {
+          "hebrew_title": "שמות",
+          "transliteration": "Shemot",
+          "english_title": "Exodus",
+          "chapters": 40,
+          "genre": "Historical Epic, Legal Code, Cultic Architecture",
+          "key_themes": [
+            "Liberation from Egyptian bondage",
+            "Theophany at Mount Sinai",
+            "Decalogue (Ten Words)",
+            "Book of the Covenant (Exod 21-23)",
+            "Mishkan (Tabernacle) design"
+          ],
+          "primary_witnesses": [
+            "4QExod-a",
+            "4QpaleoExod-m",
+            "Codex Leningradensis B19a"
+          ]
+        },
+        {
+          "hebrew_title": "ויקרא",
+          "transliteration": "Vayikra",
+          "english_title": "Leviticus",
+          "chapters": 27,
+          "genre": "Priestly Ritual Law, Holiness Code",
+          "key_themes": [
+            "Korbanot (Sacrificial offerings)",
+            "Priestly consecration",
+            "Kashrut & dietary boundaries",
+            "Yom Kippur ritual (Lev 16)",
+            "Holiness Code (Lev 17-26: 'Love your neighbor as yourself' Lev 19:18)"
+          ],
+          "primary_witnesses": [
+            "11QpaleoLev",
+            "4QLev-b",
+            "Codex Leningradensis B19a"
+          ]
+        },
+        {
+          "hebrew_title": "במדבר",
+          "transliteration": "Bamidbar",
+          "english_title": "Numbers",
+          "chapters": 36,
+          "genre": "Wilderness Census, Narrative, Legal Additions",
+          "key_themes": [
+            "Desert encampment & marching orders",
+            "Rebellions of Korah and the Spies",
+            "Priestly Blessing (Birkat Kohanim 6:24-26)",
+            "Balaam oracles and Star of Jacob (Num 24:17)"
+          ],
+          "primary_witnesses": [
+            "Ketef Hinnom silver amulets (KH1/KH2 - c. 600 BCE)",
+            "4QNum-b"
+          ]
+        },
+        {
+          "hebrew_title": "דברים",
+          "transliteration": "Devarim",
+          "english_title": "Deuteronomy",
+          "chapters": 34,
+          "genre": "Farewell Orations, Covenant Renewal, Legal Restatement",
+          "key_themes": [
+            "Shema Yisrael (Deut 6:4-9)",
+            "Centralization of sacrificial cult in Jerusalem (Deut 12)",
+            "Prophetic test & prohibition of adding/subtracting (Deut 13, 18)",
+            "Death of Moses"
+          ],
+          "primary_witnesses": [
+            "4QDeut-n (All Souls Deuteronomy)",
+            "4QDeut-q",
+            "Nash Papyrus"
+          ]
+        }
+      ]
+    },
+    {
+      "division": "NEVI'IM",
+      "hebrew": "נביאים",
+      "translation": "Prophets",
+      "subdivisions": [
+        {
+          "subdivision": "FORMER_PROPHETS",
+          "hebrew": "נביאים ראשונים",
+          "books": [
+            {
+              "hebrew_title": "יהושע",
+              "english_title": "Joshua",
+              "chapters": 24
+            },
+            {
+              "hebrew_title": "שופטים",
+              "english_title": "Judges",
+              "chapters": 21
+            },
+            {
+              "hebrew_title": "שמואל",
+              "english_title": "Samuel (1-2 Samuel as 1 book)",
+              "chapters": 55
+            },
+            {
+              "hebrew_title": "מלכים",
+              "english_title": "Kings (1-2 Kings as 1 book)",
+              "chapters": 47
+            }
+          ]
+        },
+        {
+          "subdivision": "LATTER_PROPHETS",
+          "hebrew": "נביאים אחרונים",
+          "books": [
+            {
+              "hebrew_title": "ישעיהו",
+              "english_title": "Isaiah",
+              "chapters": 66,
+              "notes": "Witnesses include 1QIsa-a. Academic scholarship identifies Proto-Isaiah (1-39), Deutero-Isaiah (40-55), Trito-Isaiah (56-66); rabbinic tradition views Isaiah as a unitary prophetic work."
+            },
+            {
+              "hebrew_title": "ירמיהו",
+              "english_title": "Jeremiah",
+              "chapters": 52,
+              "notes": "LXX text is ~15% shorter than MT and has different chapter arrangement, corroborated by 4QJer-b."
+            },
+            {
+              "hebrew_title": "יחזקאל",
+              "english_title": "Ezekiel",
+              "chapters": 48,
+              "notes": "Merkavah divine chariot vision (ch. 1) founding Jewish mystical speculation; Temple restoration vision (ch. 40-48)."
+            },
+            {
+              "hebrew_title": "תרי עשר",
+              "english_title": "The Twelve Minor Prophets (counted as 1 book)",
+              "books": [
+                "Hosea",
+                "Joel",
+                "Amos",
+                "Obadiah",
+                "Jonah",
+                "Micah",
+                "Nahum",
+                "Habakkuk",
+                "Zephaniah",
+                "Haggai",
+                "Zechariah",
+                "Malachi"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "division": "KETUVIM",
+      "hebrew": "כתובים",
+      "translation": "Writings",
+      "books": [
+        {
+          "hebrew_title": "תהלים",
+          "english_title": "Psalms (Tehillim)",
+          "chapters": 150,
+          "notes": "Divided into 5 books mirroring Torah; extensive Qumran witnesses (11QPsa)."
+        },
+        {
+          "hebrew_title": "משלי",
+          "english_title": "Proverbs (Mishlei)",
+          "chapters": 31
+        },
+        {
+          "hebrew_title": "איוב",
+          "english_title": "Job (Iyyov)",
+          "chapters": 42
+        },
+        {
+          "hebrew_title": "שיר השירים",
+          "english_title": "Song of Songs",
+          "megillah": true
+        },
+        {
+          "hebrew_title": "רות",
+          "english_title": "Ruth",
+          "megillah": true
+        },
+        {
+          "hebrew_title": "איכה",
+          "english_title": "Lamentations",
+          "megillah": true
+        },
+        {
+          "hebrew_title": "קהלת",
+          "english_title": "Ecclesiastes",
+          "megillah": true
+        },
+        {
+          "hebrew_title": "אסתר",
+          "english_title": "Esther",
+          "megillah": true
+        },
+        {
+          "hebrew_title": "דניאל",
+          "english_title": "Daniel",
+          "chapters": 12,
+          "notes": "Bilingual Hebrew and Aramaic (Dan 2:4b–7:28); apocalypses and Son of Man vision."
+        },
+        {
+          "hebrew_title": "עזרא ונחמיה",
+          "english_title": "Ezra-Nehemiah (counted as 1 book)",
+          "chapters": 23
+        },
+        {
+          "hebrew_title": "דברי הימים",
+          "english_title": "Chronicles (1-2 Chronicles as 1 book)",
+          "chapters": 65,
+          "notes": "Final book of the Tanakh in traditional Jewish canonical order ending with Cyrus's proclamation of return."
+        }
+      ]
+    }
+  ],
+  "tanakh_vs_old_testament_differences": {
+    "canon_count": {
+      "tanakh": 24,
+      "protestant_ot": 39,
+      "catholic_ot": 46,
+      "eastern_orthodox_ot": 49
+    },
+    "order_significance": {
+      "tanakh_conclusion": "Chronicles ends with 2 Chron 36:23: 'Whoever among you of all His people... let him go up (ve-ya'al) to Jerusalem' — an open-ended invitation to return to the Land.",
+      "christian_ot_conclusion": "Concludes with Malachi 4:5-6 predicting Elijah's coming before the Day of the Lord, structurally serving as an immediate theological bridge to John the Baptist in Matthew."
+    },
+    "categorization_differences": "Christian Bibles group Daniel among the Major Prophets; Jewish canon places Daniel in Ketuvim (Writings) because Daniel was a court visionary rather than a classical public prophet (Navi)."
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "counterarguments": [
+    {
+      "counter_id": "COUNTER-CHRISTIAN-SINAI",
+      "target_arg": "ARG-JEW-SINAI-PUBLIC",
+      "tradition": "CHRISTIAN",
+      "objection": "The historical testimony of the resurrection of Jesus is attested by multiple independent early eyewitnesses (1 Cor 15:3-8 lists over 500 brethren at once), who were willing to endure martyrdom for their testimony, providing equal or superior historical confirmation."
+    },
+    {
+      "counter_id": "COUNTER-ISLAMIC-SINAI",
+      "target_arg": "ARG-JEW-SINAI-PUBLIC",
+      "tradition": "ISLAMIC",
+      "objection": "Islam fully affirms the miraculous event of Sinai (Tur) and the revelation to Musa, but maintains that succeeding generations of Israelites broke the covenant, engaged in golden calf worship, killed prophets, and altered the text (Tahrif)."
+    },
+    {
+      "counter_id": "COUNTER-ACADEMIC-SINAI",
+      "target_arg": "ARG-JEW-SINAI-PUBLIC",
+      "tradition": "ACADEMIC_CRITICAL",
+      "objection": "Textual-historical criticism dates the written composition of the Pentateuch narratives to centuries after the purported events, reflecting retrojected national mythmaking rather than contemporaneous archival eyewitness documentation."
+    }
+  ]
+}

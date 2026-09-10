@@ -1,0 +1,58 @@
+{
+  "version": "1.0.0",
+  "stages": [
+    {
+      "stage": "Tannaitic Period",
+      "dates": "c. 70–220 CE",
+      "geographic_center": "Land of Israel (Yavneh, Usha, Beit She'arim, Sepphoris)",
+      "prominent_sages": [
+        "Rabbi Yochanan ben Zakkai",
+        "Rabbi Akiva",
+        "Rabbi Ishmael",
+        "Rabbi Meir",
+        "Rabbi Yehudah Ha-Nasi"
+      ],
+      "master_work": "Mishnah (codified c. 200 CE), Tosefta, Midrash Halakha"
+    },
+    {
+      "stage": "Amoraic Period",
+      "dates": "c. 220–500 CE",
+      "geographic_centers": [
+        "Land of Israel (Tiberias, Caesarea)",
+        "Babylonia (Sura, Pumbedita, Nehardea)"
+      ],
+      "prominent_sages": [
+        "Rav (Abba Arikha)",
+        "Shmuel",
+        "Rabbi Yochanan bar Nappaha",
+        "Resh Lakish",
+        "Rava",
+        "Abaye",
+        "Rav Ashi",
+        "Ravina"
+      ],
+      "master_works": [
+        "Jerusalem Talmud (Talmud Yerushalmi, c. 380-400 CE)",
+        "Babylonian Talmud (Talmud Bavli, c. 500-600 CE)"
+      ]
+    },
+    {
+      "stage": "Savoraic Period",
+      "dates": "c. 500–600 CE",
+      "role": "Editorial smoothing, anonymous dialectical framing (Stamkait) of the Babylonian Talmud"
+    },
+    {
+      "stage": "Geonic Period",
+      "dates": "c. 600–1050 CE",
+      "geographic_center": "Babylonia (Sura & Pumbedita academies under Abbasid Caliphate)",
+      "prominent_geonim": [
+        "Mar Rav Yehudai Gaon",
+        "Rabbi Amram Gaon (first complete Siddur)",
+        "Rabbi Saadia Gaon",
+        "Rabbi Sherira Gaon (historical Iggeret)",
+        "Rabbi Hai Gaon"
+      ],
+      "impact": "Established Babylonian Talmud as the normative universal authority throughout the Islamic and Christian diaspora"
+    }
+  ]
+}

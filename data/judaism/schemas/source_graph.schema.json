@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JudaismSourceGraph",
+  "type": "object",
+  "required": [
+    "nodes",
+    "edges"
+  ],
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "label"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "TEXT",
+              "AUTHOR",
+              "TRADITION",
+              "PERIOD",
+              "CLAIM",
+              "INTERPRETATION",
+              "COUNTERARGUMENT",
+              "DENOMINATION",
+              "HISTORICAL_EVENT",
+              "THEME",
+              "EVIDENCE"
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source",
+          "target",
+          "relationship"
+        ],
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "relationship": {
+            "type": "string",
+            "enum": [
+              "SUPPORTS",
+              "CONTRADICTS",
+              "INTERPRETS",
+              "QUOTES",
+              "SUMMARIZES",
+              "CHALLENGES",
+              "HISTORICALLY_PRECEDES",
+              "DERIVES_FROM",
+              "RESPONDS_TO",
+              "PART_OF",
+              "BELONGS_TO"
+            ]
+          },
+          "weight": {
+            "type": "number"
+          },
+          "metadata": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JudaismTaxonomySchema",
+  "type": "object",
+  "required": [
+    "version",
+    "branches"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "branches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "branch_id",
+          "title",
+          "categories"
+        ],
+        "properties": {
+          "branch_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "categories": {
+            "type": "array"
+          }
+        }
+      }
+    }
+  }
+}

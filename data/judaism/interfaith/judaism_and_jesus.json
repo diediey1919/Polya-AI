@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "historical_context": "Jesus of Nazareth (Yeshua ben Yosef, c. 4 BCE–30/33 CE) operated strictly within the late Second Temple Jewish world of Roman-occupied Galilee and Judea. His teachings mirrored contemporary debates between Beit Hillel and Beit Shammai.",
+  "torah_stance": {
+    "historical_critical_view": "Jesus affirmed the perpetual validity of the Torah ('Do not think that I have come to abolish the Law or the Prophets... not one iota, not a dot will pass' Matt 5:17-18). His halakhic disputes with the Pharisees centered on internal matters of stringency: Shabbat healing (permitted in rabbinic halakha where life/limb is at stake), table fellowship, and handwashing (a non-biblical rabbinic purity expansion).",
+    "rabbinic_perspective": "Rabbinic traditions (Talmud Sanhedrin 43a, 107b - censored in medieval printings) view him as a Jewish sectarian teacher who deviated into heresy or led others astray, but never accepted his claims to messiahship or divine authority."
+  },
+  "reasons_for_jewish_rejection": [
+    {
+      "criterion": "Unfulfilled Prophetic Messianic Mandates",
+      "explanation": "Biblical prophecies define the Messianic era by tangible historical transformations: universal disarmament and global peace (Isaiah 2:4), ingathering of all Jewish exiles to the Land of Israel (Isaiah 11:12), rebuilding of the Holy Temple (Ezekiel 37:26-28), and universal knowledge of God (Zechariah 14:9). None of these occurred during Jesus's lifetime or following his death."
+    },
+    {
+      "criterion": "Incompatibility with Radical Monotheism",
+      "explanation": "Claiming divinity, ontological divine sonship, or equal status with the Creator directly violates the foundation of Jewish monotheism (Exodus 20:2-3, Deuteronomy 6:4, Isaiah 42:8: 'I am the Lord; that is My name; My glory I give to no other'). Any being born of a woman, subject to bodily needs, suffering, and physical death cannot be God."
+    },
+    {
+      "criterion": "Genealogy and Davidic Patrilineage",
+      "explanation": "According to biblical law (Numbers 1:18, Leviticus 24:10), tribal identity and monarchic Davidic rights pass exclusively through the biological human father. If the Christian doctrine of the Virgin Birth is true, Jesus had no human biological father, meaning he cannot inherit legal Davidic kingship through Joseph. If Joseph was his biological father, then the Virgin Birth is negated, and furthermore Joseph's lineage through Jeconiah (Matt 1:11) falls under the curse of Jeremiah 22:30 ('No man of his seed shall prosper, sitting upon the throne of David')."
+    },
+    {
+      "criterion": "Torah Abrogation Test",
+      "explanation": "Deuteronomy 13:1-5 explicitly commands that even if a prophet or dreamer performs signs and wonders, but instructs Israel to worship other entities or abandon the eternal commandments of the Torah, that prophet is false and must not be followed."
+    }
+  ]
+}

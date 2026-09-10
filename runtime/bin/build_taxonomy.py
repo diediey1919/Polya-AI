@@ -1,0 +1,163 @@
+#!/usr/bin/env python3
+"""
+Build Master Judaism Taxonomy for Polia AI
+Adheres to Master Prompt Section 8 and provides full machine-readable taxonomy.
+"""
+import json
+import os
+
+tax_polya = "/home/ubuntu/Polya-AI/data/judaism/taxonomy/master_judaism_taxonomy.json"
+tax_apologetica = "/home/ubuntu/apologetica/data/judaism/taxonomy/master_judaism_taxonomy.json"
+
+taxonomy_data = {
+    "version": "1.0.0",
+    "authority": "Polia AI System Architecture / Jewish Knowledge Layer",
+    "effective_date": "2026-09-11",
+    "description": "Comprehensive hierarchical taxonomy of Judaism covering identity, history, canon, textual traditions, halakha, theology, worship, intellectual streams, interfaith, and apologetics.",
+    "branches": [
+        {
+            "branch_id": "TAX-ID",
+            "title": "Identity, Terminology, and Peoplehood",
+            "description": "Rigorous linguistic, ethnic, religious, and legal definitions distinguishing Jewish identity categories.",
+            "categories": [
+                {"id": "TAX-ID-JUDAISM", "term": "Judaism", "hebrew": "יהדות", "definition": "The monotheistic religious, ethical, and cultural system of the Jewish people founded upon the covenant and Torah."},
+                {"id": "TAX-ID-JEW", "term": "Jew / Yehudi", "hebrew": "יהודי", "definition": "Member of the Jewish people, historically derived from the tribe/kingdom of Judah (Yehudah); defined halakhically by matrilineal descent or formal conversion, though definitions vary across modern denominations."},
+                {"id": "TAX-ID-ISRAELITE", "term": "Israelite / Yisrael", "hebrew": "ישראל", "definition": "Descendant of Jacob/Israel; members of the twelve tribes in the biblical and Second Temple periods."},
+                {"id": "TAX-ID-HEBREW", "term": "Hebrew / Ivri", "hebrew": "עברי", "definition": "Ancient ethnonym associated with Abraham (the one from beyond the river) and the Northwest Semitic language."},
+                {"id": "TAX-ID-BANI-ISRAIL", "term": "Bani Israil", "arabic": "בני ישראל / بنو إسرائيل", "definition": "Qur'anic and Islamic designation for the Children of Israel, recipients of the prophetic lineage and divine covenant."},
+                {"id": "TAX-ID-ETHNICITY", "term": "Jewish Ethnicity & Sub-ethnicities", "definition": "Ethno-cultural divisions including Ashkenazim, Sephardim, Mizrahim, Teimanim, and Beta Israel."},
+                {"id": "TAX-ID-PEOPLEHOOD", "term": "Jewish Peoplehood / Am Yisrael", "hebrew": "עם ישראל", "definition": "Transnational collective consciousness and existential solidarity binding Jews across historical eras and geographical boundaries."}
+            ]
+        },
+        {
+            "branch_id": "TAX-HIST",
+            "title": "Chronological Jewish History",
+            "description": "Historiographical periods from Bronze Age origins to contemporary global Jewry.",
+            "categories": [
+                {"id": "TAX-HIST-PATRIARCHAL", "era": "Patriarchal Traditions", "approx_dates": "c. 2000–1500 BCE", "milestones": ["Abrahamic covenant", "Genesis narratives"]},
+                {"id": "TAX-HIST-EXODUS-SINAI", "era": "Exodus and Wilderness", "approx_dates": "c. 13th c. BCE", "milestones": ["Exodus from Egypt", "Theophany at Sinai", "Decalogue"]},
+                {"id": "TAX-HIST-SETTLEMENT-JUDGES", "era": "Settlement & Judges Period", "approx_dates": "c. 1200–1020 BCE", "milestones": ["Tribal confederacy", "Canaanite matrix"]},
+                {"id": "TAX-HIST-UNITED-MONARCHY", "era": "United Monarchy", "approx_dates": "c. 1020–931 BCE", "milestones": ["Saul", "David", "Solomon", "First Temple construction"]},
+                {"id": "TAX-HIST-DIVIDED-MONARCHY", "era": "Divided Monarchy", "approx_dates": "931–586 BCE", "milestones": ["Northern Kingdom of Israel (fell 722 BCE to Assyria)", "Southern Kingdom of Judah"]},
+                {"id": "TAX-HIST-BABYLONIAN-EXILE", "era": "Babylonian Exile", "approx_dates": "586–539 BCE", "milestones": ["First Temple destroyed 586 BCE", "Deportation", "Ezekiel", "Second Isaiah"]},
+                {"id": "TAX-HIST-PERSIAN-RESTORATION", "era": "Persian Period & Restoration", "approx_dates": "539–332 BCE", "milestones": ["Cyrus Cylinder/Decree", "Second Temple rebuilt 516 BCE", "Ezra and Nehemiah reforms"]},
+                {"id": "TAX-HIST-HELLENISTIC-HASMONEAN", "era": "Hellenistic & Hasmonean Period", "approx_dates": "332–63 BCE", "milestones": ["Alexander the Great", "Antiochus IV persecution", "Maccabean Revolt 167 BCE", "Hasmonean state"]},
+                {"id": "TAX-HIST-ROMAN-SECOND-TEMPLE", "era": "Roman Period & Late Second Temple", "approx_dates": "63 BCE–70 CE", "milestones": ["Herodian reconstruction", "Sectarianism (Pharisees, Sadducees, Essenes, Zealots)", "Destruction of Temple 70 CE by Titus"]},
+                {"id": "TAX-HIST-BAR-KOKHBA", "era": "Bar Kokhba Revolt & Aftermath", "approx_dates": "132–135 CE", "milestones": ["Shimon Bar Kokhba messianic uprising", "Hadrianic persecutions", "Judea renamed Syria Palaestina"]},
+                {"id": "TAX-HIST-RABBINIC-CLASSICAL", "era": "Classical Rabbinic Period", "approx_dates": "70–600 CE", "milestones": ["Yavneh academy (Yochanan ben Zakkai)", "Mishnah codified c. 200 CE", "Talmud Yerushalmi c. 400 CE", "Talmud Bavli c. 500–600 CE"]},
+                {"id": "TAX-HIST-GEONIC-ISLAMIC", "era": "Geonic & Islamic Golden Age", "approx_dates": "600–1050 CE", "milestones": ["Sura and Pumbedita academies", "Saadia Gaon", "Exilarchate", "Karaite schism"]},
+                {"id": "TAX-HIST-MEDIEVAL", "era": "Medieval Era (Rishonim)", "approx_dates": "1050–1500 CE", "milestones": ["Rashi in Franco-Germany", "Maimonides in Egypt", "Crusades massacres", "Expulsion from Spain 1492"]},
+                {"id": "TAX-HIST-EARLY-MODERN", "era": "Early Modern Era", "approx_dates": "1500–1750 CE", "milestones": ["Safed Kabbalah (Isaac Luria)", "Shulchan Aruch codified", "Shabbetai Zvi messianic crisis"]},
+                {"id": "TAX-HIST-HASKALAH-EMANCIPATION", "era": "Haskalah & Emancipation", "approx_dates": "1750–1914 CE", "milestones": ["Jewish Enlightenment (Moses Mendelssohn)", "European legal emancipation", "Birth of Reform, Orthodox, Conservative movements"]},
+                {"id": "TAX-HIST-HOLOCAUST-SHOAH", "era": "Shoah / Holocaust", "approx_dates": "1933–1945 CE", "milestones": ["Systematic Nazi murder of 6 million European Jews", "Destruction of Ashkenazi cultural centers"]},
+                {"id": "TAX-HIST-STATE-OF-ISRAEL", "era": "Modern Zionism & State of Israel", "approx_dates": "1897–Present", "milestones": ["Herzl First Zionist Congress 1897", "Declaration of State of Israel 1948", "Ingathering of exiles"]},
+                {"id": "TAX-HIST-CONTEMPORARY-DIASPORA", "era": "Contemporary Global Jewry", "approx_dates": "1948–Present", "milestones": ["American Jewish flourishing", "Revival of Hebrew language", "Pluralistic denominations"]}
+            ]
+        },
+        {
+            "branch_id": "TAX-TANAKH",
+            "title": "Tanakh (Hebrew Bible) & Canon",
+            "description": "Tripartite canon (Torah, Nevi'im, Ketuvim), 24 books, textual witnesses, and contrast with Christian Old Testament.",
+            "categories": [
+                {"id": "TAX-TANAKH-TORAH", "name": "Torah (Teaching/Law)", "hebrew": "תורה", "books": ["Bereshit (Genesis)", "Shemot (Exodus)", "Vayikra (Leviticus)", "Bamidbar (Numbers)", "Devarim (Deuteronomy)"]},
+                {"id": "TAX-TANAKH-NEVIIM-FORMER", "name": "Nevi'im Rishonim (Former Prophets)", "hebrew": "נביאים ראשונים", "books": ["Yehoshua (Joshua)", "Shoftim (Judges)", "Shemuel (Samuel)", "Melakhim (Kings)"]},
+                {"id": "TAX-TANAKH-NEVIIM-LATTER", "name": "Nevi'im Aharonim (Latter Prophets)", "hebrew": "נביאים אחרונים", "books": ["Yeshayahu (Isaiah)", "Yirmeyahu (Jeremiah)", "Yechezkel (Ezekiel)", "Trei Asar (The Twelve Minor Prophets)"]},
+                {"id": "TAX-TANAKH-KETUVIM", "name": "Ketuvim (Writings)", "hebrew": "כתובים", "books": ["Tehillim (Psalms)", "Mishlei (Proverbs)", "Iyyov (Job)", "Shir Ha-Shirim (Song of Songs)", "Rut (Ruth)", "Eikhah (Lamentations)", "Kohelet (Ecclesiastes)", "Esther", "Daniel", "Ezra-Nehemiah", "Divrei Ha-Yamim (Chronicles)"]},
+                {"id": "TAX-TANAKH-CANON-OT-DIFF", "name": "Tanakh vs Christian Old Testament", "description": "Distinct canonical count (24 books vs 39/46/49), distinct arrangement (Ketuvim ending with Chronicles vs Malachi), and differing theological teleology."}
+            ]
+        },
+        {
+            "branch_id": "TAX-TEXT",
+            "title": "Textual Traditions and Languages",
+            "description": "Manuscripts, critical editions, vocalization traditions, and Semitic philology.",
+            "categories": [
+                {"id": "TAX-TEXT-MT", "name": "Masoretic Text (MT)", "witnesses": ["Codex Leningradensis B19a (1008 CE)", "Aleppo Codex (c. 920 CE)"], "features": ["Tiberian vocalization and cantillation", "Masorah Magna and Parva"]},
+                {"id": "TAX-TEXT-DSS", "name": "Dead Sea Scrolls (DSS)", "site": "Qumran Caves 1-11", "dates": "c. 250 BCE–68 CE", "significance": ["Proto-Masoretic texts", "Pre-Samaritan texts", "Septuagintal Hebrew Vorlage", "Non-aligned textual witnesses"]},
+                {"id": "TAX-TEXT-LXX", "name": "Septuagint (LXX)", "language": "Koine Greek", "dates": "c. 3rd–2nd c. BCE", "significance": ["Alexandrian Jewish translation of Torah", "Letter of Aristeas", "Textual divergences reflecting alternative Hebrew Vorlage"]},
+                {"id": "TAX-TEXT-SP", "name": "Samaritan Pentateuch (SP)", "tradition": "Samaritan community", "significance": ["Paleo-Hebrew script", "Mount Gerizim sectarian variants", "Harmonizations"]},
+                {"id": "TAX-TEXT-TARGUM", "name": "Aramaic Targumim", "dialects": ["Jewish Literary Aramaic", "Galilean Aramaic"], "corpuses": ["Targum Onkelos", "Targum Jonathan", "Targum Pseudo-Jonathan"]},
+                {"id": "TAX-TEXT-PHILOLOGY", "name": "Hebrew & Aramaic Philology", "dialects": ["Biblical Hebrew (CBH, LBH)", "Mishnaic Hebrew", "Medieval Hebrew", "Modern Israeli Hebrew", "Biblical/Rabbinic Aramaic"]}
+            ]
+        },
+        {
+            "branch_id": "TAX-HALAKHA",
+            "title": "Halakha, Mitzvot, and Rabbinic Law",
+            "description": "Legal frameworks, commandment enumerations, oral traditions, and jurisprudential methodology.",
+            "categories": [
+                {"id": "TAX-HAL-TORAH-DUAL", "name": "Dual Torah Doctrine", "hebrew": "תורה שבכתב ותורה שבעל פה", "description": "Written Torah (Tanakh) and Oral Torah (Mishnah, Gemara, Halakhic codes) received at Sinai."},
+                {"id": "TAX-HAL-613", "name": "613 Commandments (Taryag Mitzvot)", "breakdown": "248 positive commandments (mitzvot aseh), 365 negative commandments (mitzvot lo ta'aseh)", "major_enumerators": ["Maimonides (Sefer HaMitzvot)", "Sefer Ha-Chinuch"]},
+                {"id": "TAX-HAL-SHABBAT", "name": "Shabbat Laws", "concepts": ["39 melakhot (prohibited creative labors)", "Oneg Shabbat", "Kiddush", "Havdalah", "Pikuach Nefesh overrides Shabbat"]},
+                {"id": "TAX-HAL-KASHRUT", "name": "Dietary Laws (Kashrut)", "concepts": ["Clean vs unclean animals", "Shechita (ritual slaughter)", "Bedikah", "Prohibition of meat and milk (basar be-chalav)"]},
+                {"id": "TAX-HAL-PURITY", "name": "Taharah and Tum'ah (Purity & Impurity)", "concepts": ["Niddah", "Mikveh", "Historical Temple purity vs post-Temple rabbinic application"]},
+                {"id": "TAX-HAL-CIVIL", "name": "Mishpat Ivri (Civil and Family Law)", "concepts": ["Marriage (Kiddushin/Ketubah)", "Divorce (Get)", "Beit Din jurisprudence", "Dina de-malkhuta dina (the law of the land is the law)"]}
+            ]
+        },
+        {
+            "branch_id": "TAX-THEO",
+            "title": "Jewish Theology and Dogmatics",
+            "description": "Ontological, eschatological, and existential convictions across rabbinic and philosophical traditions.",
+            "categories": [
+                {"id": "TAX-THEO-MONOTHEISM", "name": "Pure Monotheism & Divine Incorporeality", "hebrew": "אחדות ה׳", "passages": ["Deut 6:4 (Shema)", "Isa 45:5-7"], "concepts": ["Tawhid-compatible non-composite unity", "Rejection of polytheism, dualism, and trinitarianism", "Rambam Principle 2 & 3"]},
+                {"id": "TAX-THEO-COVENANT", "name": "Brit (Covenant) & Election", "hebrew": "ברית ובחירת ישראל", "covenants": ["Noahic covenant (universal)", "Abrahamic covenant (Brit Bein Ha-Betarim, circumcision)", "Sinaitic covenant", "Davidic covenant"]},
+                {"id": "TAX-THEO-SIN-ATONEMENT", "name": "Sin, Teshuvah, and Atonement", "hebrew": "חטא, תשובה, וכפרה", "concepts": ["Absence of Original Sin dogma", "Yetzer Ha-Tov and Yetzer Ha-Ra (dual human impulses)", "Teshuvah (repentance through confession, regret, cessation, restitution)", "Atonement via prayer, charity, suffering, and Yom Kippur independent of animal sacrifice"]},
+                {"id": "TAX-THEO-MASHIACH", "name": "Mashiach (Messiah) & Messianic Era", "hebrew": "משיח וימות המשיח", "criteria": ["Mortal human king from Davidic patrilineal descent", "Gathering of exiles to Land of Israel", "Restoration of Temple and Torah observance", "Universal knowledge of God and global peace (Isa 2, 11; Mic 4)", "Rambam Hilkhot Melakhim ch. 11-12"]},
+                {"id": "TAX-THEO-AFTERLIFE", "name": "Olam Ha-Ba & Techiyat Ha-Metim", "hebrew": "עולם הבא ותחיית המתים", "concepts": ["Resurrection of the dead (rabbinic dogma)", "World to Come (spiritual afterlife)", "Gehinnom (temporary purgative purification, not eternal damnation)", "Gan Eden (spiritual reward)"]},
+                {"id": "TAX-THEO-SHEKHINAH", "name": "Shekhinah & Divine Immanence", "hebrew": "שכינה", "description": "The indwelling divine presence dwelling among Israel, in exile, and in sacred study."}
+            ]
+        },
+        {
+            "branch_id": "TAX-WORSHIP",
+            "title": "Worship, Liturgy, Festivals, and Lifecycle",
+            "description": "Liturgy, sacred calendar, rites of passage, and communal institutions.",
+            "categories": [
+                {"id": "TAX-WOR-PRAYER", "name": "Tefillah & Siddur Liturgy", "services": ["Shacharit (morning)", "Minchah (afternoon)", "Maariv (evening)", "Musaf (additional on Shabbat/festivals)"], "central_prayers": ["Shema Yisrael", "Amidah (Shemoneh Esrei)", "Aleinu", "Kaddish"]},
+                {"id": "TAX-WOR-PILGRIM-FESTIVALS", "name": "Shalosh Regalim (Three Pilgrimage Festivals)", "festivals": ["Pesach (Passover, Exodus, Matzah, Seder)", "Shavuot (Feast of Weeks, Sinai revelation, Book of Ruth)", "Sukkot (Booths, wilderness wanderings, Lulav and Etrog)"]},
+                {"id": "TAX-WOR-HIGH-HOLIDAYS", "name": "Yamim Nora'im (Days of Awe)", "festivals": ["Rosh Hashanah (New Year, Shofar, Day of Judgment)", "Yom Kippur (Day of Atonement, 25-hour fast, confession)"]},
+                {"id": "TAX-WOR-RABBINIC-FESTIVALS", "name": "Post-Biblical Rabbinic Festivals", "festivals": ["Hanukkah (Maccabean victory, Menorah miracle)", "Purim (Deliverance from Haman, Megillat Esther, Mishloach Manot)", "Tisha B'Av (Fast of the Ninth of Av mourning Temple destructions)"]},
+                {"id": "TAX-WOR-LIFECYCLE", "name": "Lifecycle Observances", "rites": ["Brit Milah (circumcision on 8th day)", "Simchat Bat", "Bar Mitzvah (age 13) / Bat Mitzvah (age 12/13)", "Chuppah & Kiddushin (marriage)", "Taharah, Keriah, Shiva, Shloshim, Kaddish Yatom (mourning)"]}
+            ]
+        },
+        {
+            "branch_id": "TAX-MOVEMENTS",
+            "title": "Denominations, Movements, and Sub-Traditions",
+            "description": "Historical sects and modern denominational architectures with distinct halakhic methodologies.",
+            "categories": [
+                {"id": "TAX-MOV-ORTHODOX-HAREDI", "movement": "Haredi / Ultra-Orthodox Judaism", "features": ["Strict adherence to traditional halakha", "Segregation from secular modernity", "Primacy of Torah study (Yeshiva world, Kollel)", "Hasidic and Lithuanian (Mitnagdim) branches"]},
+                {"id": "TAX-MOV-ORTHODOX-MODERN", "movement": "Modern Orthodox Judaism", "features": ["Halakhic commitment combined with active engagement with secular education, science, and modern society", "Torah U'Madda ethos", "Religious Zionism"]},
+                {"id": "TAX-MOV-CONSERVATIVE", "movement": "Conservative / Masorti Judaism", "features": ["Historical-positive Judaism (Solomon Schechter, Zechariah Frankel)", "Halakha is binding but evolves dynamically over time", "Egalitarianism", "Committee on Jewish Law and Standards (CJLS)"]},
+                {"id": "TAX-MOV-REFORM", "movement": "Reform / Progressive Judaism", "features": ["Autonomous individual conscience", "Primacy of ethical monotheism over ritual law", "Historical evolution of revelation", "Egalitarianism and inclusivity", "CCAR platforms"]},
+                {"id": "TAX-MOV-RECONSTRUCTIONIST", "movement": "Reconstructionist Judaism", "features": ["Mordecai Kaplan philosophy", "Judaism as an evolving religious civilization", "The people produce the religion rather than vice versa"]},
+                {"id": "TAX-MOV-KARAITE", "movement": "Karaite Judaism", "features": ["Rejection of the Oral Torah and Rabbinic authority", "Sole reliance on the Tanakh", "Historical flowering in Islamic Middle East (8th–12th c.)"]},
+                {"id": "TAX-MOV-SECULAR", "movement": "Secular Jewish Identity & Cultural Judaism", "features": ["Identification through Jewish heritage, literature, ethics, history, and peoplehood without religious dogma or ritual practice"]}
+            ]
+        },
+        {
+            "branch_id": "TAX-INTERFAITH",
+            "title": "Comparative Religion and Interfaith Relations",
+            "description": "Theological, textual, and historical relations between Judaism, Christianity, and Islam.",
+            "categories": [
+                {"id": "TAX-INT-JESUS", "theme": "Judaism and Jesus", "analysis": ["Jesus as first-century Galilean Jew operating within Second Temple Jewish matrix", "Disputes with scribes/Pharisees on halakhic stringencies", "Rejection of Jesus as Messiah due to unfulfilled prophetic criteria (world peace, ingathering, Temple)", "Rejection of divine sonship and incarnation as incompatible with monotheism"]},
+                {"id": "TAX-INT-CHRISTIANITY", "theme": "Judaism and Christianity", "analysis": ["Parting of the ways (1st–4th c. CE)", "Pauline repudiation of Mosaic law for Gentiles", "Trinitarian dogma vs absolute divine simplicity", "Supersessionism / Replacement Theology vs Jewish covenantal continuity", "Disputed proof-texts: Isaiah 7:14 ('almah), Isaiah 53 (Suffering Servant), Psalm 22, Psalm 110"]},
+                {"id": "TAX-INT-ISLAM", "theme": "Judaism and Islam", "analysis": ["Bani Israil in the Qur'an", "Prophets common to both (Ibrahim, Musa, Dawud, Sulayman)", "Shared radical monotheism (Tawhid vs Yihud)", "Halakha and Sharia structural parallels", "Pact of Umar and Dhimmi status under Islamic rule", "Judeo-Arabic literary and philosophical flowering (Saadia, Maimonides, Judah Halevi)"]},
+                {"id": "TAX-INT-TAHRIF", "theme": "Doctrine of Tahrif (Corruption of Scripture)", "analysis": ["Tahrif al-Ma'na (corruption of interpretation / misrepresentation of meaning)", "Tahrif al-Nass (textual alteration of consonants/words)", "Classical exegetes: Tabari, Razi, Ibn Hazm, Ibn Taymiyyah", "Academic manuscript evidence and Jewish textual preservation"]}
+            ]
+        },
+        {
+            "branch_id": "TAX-APOL",
+            "title": "Jewish Apologetics, Polemics, and Debate Structures",
+            "description": "Classical and modern defense of Jewish tradition against external theological challenges.",
+            "categories": [
+                {"id": "TAX-APOL-CLASSICAL", "theme": "Classical Medieval Disputations", "works": ["Sefer Milhamot Hashem (Jacob ben Reuben)", "Kuzari (Judah Halevi)", "Sefer Nitzahon Vetus", "Barcelona Disputation 1263 (Nachmanides vs Pablo Christiani)", "Hizzuk Emunah / Faith Strengthened (Isaac of Troki 1593)"]},
+                {"id": "TAX-APOL-ARGUMENTS", "theme": "Core Defensive Arguments", "arguments": ["Permanence and unalterability of Mosaic Torah (Deut 13, Malachi 3:22)", "National public revelation at Sinai as epistemic bedrock", "Literal vs allegorical reading of messianic peace prophecies", "Non-vicarious personal responsibility for sin (Deut 24:16, Ezek 18:20)"]},
+                {"id": "TAX-APOL-ZIONISM-SEP", "theme": "Separation of Judaism, Israel, and Zionism", "principles": ["Judaism is a 3,000+ year-old religion and covenant", "Zionism is a late 19th-century political movement", "State of Israel is a modern geopolitical nation-state founded in 1948", "Not all Jews are Israeli; not all Israelis are Jewish; not all religious Jews are Zionists"]}
+            ]
+        }
+    ]
+}
+
+for path in [tax_polya, tax_apologetica]:
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(taxonomy_data, f, indent=2, ensure_ascii=False)
+    print(f"Taxonomy written to {path}")
+
+print("Master Judaism Taxonomy v1.0 successfully generated.")

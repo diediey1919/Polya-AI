@@ -1,0 +1,259 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JudaismKnowledgeObject",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "domain",
+    "subdomain",
+    "topic",
+    "claim_type",
+    "summary",
+    "tradition",
+    "historical_period",
+    "verification_status",
+    "provenance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^KNOW-JEW-[A-Z0-9_\\-]+$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "JUDAISM",
+        "COMPARATIVE_RELIGION",
+        "INTERFAITH_POLEMICS"
+      ]
+    },
+    "subdomain": {
+      "type": "string"
+    },
+    "topic": {
+      "type": "string"
+    },
+    "subtopic": {
+      "type": "string"
+    },
+    "claim_type": {
+      "type": "string",
+      "enum": [
+        "FACT",
+        "CLAIM",
+        "QUOTE",
+        "INTERPRETATION",
+        "INFERENCE",
+        "ARGUMENT",
+        "COUNTERARGUMENT",
+        "ACADEMIC_CONSENSUS",
+        "DENOMINATIONAL_POSITION",
+        "HISTORICAL_REPORT",
+        "TRADITIONAL_POSITION",
+        "DISPUTED_CLAIM",
+        "UNRESOLVED_QUESTION"
+      ]
+    },
+    "claim": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "definition": {
+      "type": "string"
+    },
+    "tradition": {
+      "type": "string",
+      "enum": [
+        "BIBLICAL_ISRAELITE",
+        "SECOND_TEMPLE",
+        "PHARISEES",
+        "SADDUCEES",
+        "ESSENES",
+        "RABBINIC_TANNAITIC",
+        "RABBINIC_AMORAIC",
+        "GEONIC",
+        "MEDIEVAL_RISHONIM",
+        "EARLY_MODERN_ACHARONIM",
+        "ORTHODOX_MODERN",
+        "ORTHODOX_HAREDI",
+        "HASIDIC",
+        "CONSERVATIVE_MASORTI",
+        "REFORM",
+        "RECONSTRUCTIONIST",
+        "RENEWAL",
+        "HUMANISTIC",
+        "KARAITE",
+        "SECULAR_JEWISH",
+        "ACADEMIC_CRITICAL",
+        "INTERFAITH_COMPARATIVE"
+      ]
+    },
+    "denomination": {
+      "type": "string"
+    },
+    "historical_period": {
+      "type": "string",
+      "enum": [
+        "BRONZE_AGE",
+        "IRON_AGE_ISRAEL",
+        "BABYLONIAN_EXILE",
+        "PERSIAN_ERA",
+        "HELLENISTIC_ERA",
+        "HASMONEAN_PERIOD",
+        "ROMAN_SECOND_TEMPLE",
+        "TANNAITIC_ERA",
+        "AMORAIC_ERA",
+        "GEONIC_ERA",
+        "ISLAMIC_GOLDEN_AGE",
+        "MEDIEVAL_EUROPEAN",
+        "EARLY_MODERN",
+        "HASKALAH_EMANCIPATION",
+        "MODERN_PRE_WAR",
+        "HOLOCAUST_ERA",
+        "CONTEMPORARY"
+      ]
+    },
+    "date_from": {
+      "type": "string"
+    },
+    "date_to": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "primary_sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "secondary_sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "academic_sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "textual_witnesses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "interpretations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "counterinterpretations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "arguments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "counterarguments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "comparative_notes": {
+      "type": "object"
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "ESTABLISHED",
+        "HIGH",
+        "MODERATE",
+        "LOW",
+        "DISPUTED",
+        "HYPOTHETICAL"
+      ]
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "PARTIALLY_VERIFIED",
+        "UNVERIFIED",
+        "DISPUTED"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "source_ids",
+        "methodology",
+        "created_date",
+        "author_agent"
+      ],
+      "properties": {
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "methodology": {
+          "type": "string"
+        },
+        "created_date": {
+          "type": "string"
+        },
+        "author_agent": {
+          "type": "string"
+        },
+        "peer_review_status": {
+          "type": "string"
+        }
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "related_topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "last_verified": {
+      "type": "string"
+    }
+  }
+}

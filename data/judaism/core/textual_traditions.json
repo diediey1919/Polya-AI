@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0",
+  "traditions": [
+    {
+      "name": "Masoretic Text (MT)",
+      "definition": "The standard authoritative Hebrew text preserved and pointed by the Tiberian Masoretes (8th-10th c. CE), featuring consonants, vowels (nikkud), cantillation (te'amim), and marginal notes.",
+      "major_manuscripts": [
+        {
+          "name": "Codex Leningradensis B19a",
+          "date": "1008 CE",
+          "significance": "Complete Tanakh, basis for critical scholarly editions (BHS, BHQ)."
+        },
+        {
+          "name": "Aleppo Codex",
+          "date": "c. 920 CE",
+          "significance": "Most accurate Masoretic codex verified by Maimonides."
+        }
+      ],
+      "scribal_rules": "Strict Sofer rules: ink made from soot and gallnut, parchment from kosher skins, exact spacing, prohibition of copying from memory, counting of words and middle letters."
+    },
+    {
+      "name": "Dead Sea Scrolls (DSS)",
+      "definition": "Over 220 biblical manuscripts found at Qumran (c. 250 BCE–68 CE) demonstrating textual pluralism in the late Second Temple era.",
+      "textual_families_identified": [
+        {
+          "family": "Proto-Rabbinic / Proto-Masoretic",
+          "share": "~50%",
+          "examples": [
+            "1QIsa-b",
+            "4QGen-b"
+          ]
+        },
+        {
+          "family": "Pre-Samaritan",
+          "share": "~15%",
+          "examples": [
+            "4QpaleoExod-m",
+            "4QNum-b"
+          ]
+        },
+        {
+          "family": "Septuagintal Hebrew Vorlage",
+          "share": "~5%",
+          "examples": [
+            "4QJer-b",
+            "4QSam-a"
+          ]
+        },
+        {
+          "family": "Non-Aligned / Sectarian Orthography",
+          "share": "~30%",
+          "examples": [
+            "1QIsa-a",
+            "4QDeut-m"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Septuagint (LXX)",
+      "definition": "Ancient Greek translation of the Hebrew Scriptures begun in 3rd c. BCE in Alexandria, reflecting pre-Masoretic Hebrew Vorlagen and Hellenistic Jewish theology."
+    },
+    {
+      "name": "Samaritan Pentateuch (SP)",
+      "definition": "Independent transmission of the Torah in Paleo-Hebrew script preserved by the Samaritan community, containing Mount Gerizim cultic additions and linguistic regularizations."
+    },
+    {
+      "name": "Aramaic Targumim",
+      "definition": "Aramaic interpretive translations recited in ancient synagogues: Targum Onkelos (Torah) and Targum Jonathan (Prophets), capturing early rabbinic interpretations."
+    }
+  ]
+}

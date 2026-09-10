@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "worship": {
+    "synagogue": "Beit Knesset (House of Gathering) and Beit Midrash (House of Study). Requires a Minyan (quorum of 10 adults).",
+    "daily_prayers": [
+      {
+        "service": "Shacharit",
+        "time": "Morning",
+        "established_by": "Traditional patriarch Abraham"
+      },
+      {
+        "service": "Minchah",
+        "time": "Afternoon",
+        "established_by": "Traditional patriarch Isaac"
+      },
+      {
+        "service": "Maariv",
+        "time": "Evening",
+        "established_by": "Traditional patriarch Jacob"
+      }
+    ],
+    "core_prayers": [
+      "Shema Yisrael",
+      "Amidah (The 19 blessings of the Standing Prayer)",
+      "Aleinu Le-Shabe'ach",
+      "Kaddish"
+    ]
+  },
+  "lifecycle": [
+    {
+      "rite": "Brit Milah",
+      "timing": "8th day after birth",
+      "significance": "Covenant of circumcision entering child into Abrahamic covenant"
+    },
+    {
+      "rite": "Bar Mitzvah / Bat Mitzvah",
+      "timing": "Age 13 for boys / Age 12-13 for girls",
+      "significance": "Legal adulthood where the individual becomes obligated in all mitzvot"
+    },
+    {
+      "rite": "Kiddushin & Chuppah",
+      "timing": "Marriage",
+      "significance": "Wedding canopy, Ketubah (marriage contract protecting bride's rights), Seven Blessings (Sheva Berakhot)"
+    },
+    {
+      "rite": "Avelut (Mourning)",
+      "stages": [
+        "Aninut (death to burial)",
+        "Shiva (7-day intensive mourning)",
+        "Shloshim (30-day transition)",
+        "Yahrzeit & Kaddish (11 months recitation for parent)"
+      ]
+    }
+  ]
+}

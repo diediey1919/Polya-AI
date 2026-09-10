@@ -1,0 +1,62 @@
+{
+  "version": "1.0.0",
+  "terms": [
+    {
+      "term": "Almah",
+      "hebrew": "עַלְמָה",
+      "morphology": "Noun feminine singular",
+      "semantic_range": "Young woman of childbearing age, adolescent girl; does not denote anatomical virginity (which is specifically בְּתוּלָה / Bethulah).",
+      "biblical_occurrences": [
+        "Gen 24:43",
+        "Exod 2:8",
+        "Isa 7:14",
+        "Ps 68:26",
+        "Prov 30:19",
+        "Song 1:3",
+        "Song 6:8"
+      ],
+      "apologetic_debate": {
+        "locus": "Isaiah 7:14 ('Hineh ha-almah harah ve-yoledet ben...')",
+        "christian_interpretation": "Interprets as 'virgin birth' based on LXX translation 'parthenos' (παρθένος) cited in Matthew 1:23.",
+        "jewish_refutation": "The Hebrew word for virgin is Bethulah (used elsewhere in Isaiah, e.g. 23:12, 37:22, 62:5). 'Almah refers to a young woman present in King Ahaz's 8th-century BCE court (likely the prophet's wife or Queen Abi), whose impending child's birth serves as a contemporary sign of deliverance from Pekah and Rezin."
+      }
+    },
+    {
+      "term": "Mashiach",
+      "hebrew": "מָשִׁיחַ",
+      "morphology": "Passive participle masculine singular of the verb מָשַׁח (mashach - to smear or anoint with oil)",
+      "semantic_range": "Anointed one; applied in the Tanakh to Aaron and the High Priests (Lev 4:3), Saul (1 Sam 24:6), David (2 Sam 19:22), and even the Persian King Cyrus (Isa 45:1).",
+      "theological_evolution": "Evolved in late Second Temple and Rabbinic Judaism to denote the future human Davidic monarch who will gather the Jewish exiles, restore the Temple, and inaugurate global peace."
+    },
+    {
+      "term": "Elohim",
+      "hebrew": "אֱלֹהִים",
+      "morphology": "Noun masculine plural (grammatically construed with singular verbs and adjectives when referring to the True God)",
+      "semantic_range": "God (singular supreme deity when taking singular verb); gods/pagan deities (when taking plural verb, Exod 20:3); judges/magistrates (Exod 21:6, 22:7); supernatural celestial beings (Ps 8:6).",
+      "apologetic_debate": {
+        "christian_claim": "Argues the plural ending '-im' hints at the Trinity.",
+        "jewish_refutation": "Pluralis excellentiae / majestic plural standard in Semitic grammar (similar to Adonim / Ba'alim). When referring to YHWH, the accompanying verb is always strictly singular (e.g. Genesis 1:1 'Bara Elohim', not 'Bar'u Elohim')."
+      }
+    },
+    {
+      "term": "Teshuvah",
+      "hebrew": "תְּשׁוּבָה",
+      "morphology": "Abstract verbal noun from the root שׁ-ו-ב (shuv - to return / turn back)",
+      "semantic_range": "Repentance, returning to the divine path.",
+      "components_in_halakha": [
+        "Hakarat ha-chet (recognition of sin)",
+        "Charatah (sincere remorse)",
+        "Azivat ha-chet (practical cessation and abandonment of the sinful behavior)",
+        "Viduy (verbal confession)",
+        "Kabbalah le-haba (solemn resolution not to repeat the act)",
+        "Piyus / Mechilah (asking forgiveness and making financial/interpersonal restitution if the sin harmed a fellow human)"
+      ]
+    },
+    {
+      "term": "Go'el",
+      "hebrew": "גֹּאֵל",
+      "morphology": "Participle of root ג-א-ל (ga'al - to redeem)",
+      "semantic_range": "Kinsman-redeemer who buys back family land (Lev 25:25), redeems relatives from servitude (Lev 25:48), or acts as blood avenger (Num 35:19); applied metonymically to God redeeming Israel from Egypt and Babylon."
+    }
+  ]
+}

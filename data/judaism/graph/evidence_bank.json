@@ -1,0 +1,147 @@
+{
+  "version": "1.0.0",
+  "total_records": 12,
+  "records": [
+    {
+      "evidence_id": "EVID-JEW-001",
+      "evidence_class": "FACT",
+      "text": "The Tel Dan Stele, dated c. 840–800 BCE, contains the phrase 'bytdwd' (House of David), serving as archaeological epigraphic confirmation of the Davidic dynasty.",
+      "source_id": "SRC-JEW-EPIG-001",
+      "source_location": "Lines 8-9 of Fragment A",
+      "original_language_text": "ביתדוד",
+      "transliteration": "bytdwd",
+      "historical_period": "IRON_AGE_ISRAEL",
+      "tradition": "ARCHAEOLOGICAL_EPIGRAPHY",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED"
+    },
+    {
+      "evidence_id": "EVID-JEW-002",
+      "evidence_class": "FACT",
+      "text": "Ketef Hinnom silver amulets KH1 and KH2 (c. 600 BCE) contain the Priestly Blessing (Numbers 6:24-26) in Paleo-Hebrew script, pre-dating the Babylonian exile.",
+      "source_id": "SRC-JEW-EPIG-002",
+      "source_location": "Amulet KH2 lines 5-12",
+      "original_language_text": "יברכך יהוה וישמרך יאר יהוה פניו אליך וישם לך שלום",
+      "transliteration": "yevarekhekha YHWH ve-yishmerekha...",
+      "historical_period": "IRON_AGE_ISRAEL",
+      "tradition": "PRIESTLY_FIRST_TEMPLE",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED"
+    },
+    {
+      "evidence_id": "EVID-JEW-003",
+      "evidence_class": "FACT",
+      "text": "The Great Isaiah Scroll (1QIsa-a) from Qumran contains all 66 chapters of Isaiah, demonstrating substantial consonantal alignment with the 10th-century Masoretic Text over more than 1,000 years of transmission.",
+      "source_id": "SRC-JEW-DSS-001",
+      "source_location": "54 columns complete",
+      "historical_period": "ROMAN_SECOND_TEMPLE",
+      "tradition": "SECOND_TEMPLE_QUMRAN",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED"
+    },
+    {
+      "evidence_id": "EVID-JEW-004",
+      "evidence_class": "CLAIM",
+      "text": "Rabbi Moshe ben Maimon (Maimonides) codified in Mishneh Torah that if a king arises from the house of David who meditates on the Torah and observes commandments, but is killed before gathering exiles and rebuilding the Temple, he is certainly not the Messiah.",
+      "source_id": "SRC-JEW-RAMBAM-MT-001",
+      "source_location": "Hilkhot Melakhim u-Milchamot 11:4",
+      "original_language_text": "ואם עמד מלך מבית דוד... ונהרג, בידוע שאינו זה שהבטיחה עליו תורה",
+      "transliteration": "ve-im amad melekh mi-beit David... ve-neherag, beyadua she-eino zeh she-hivtichah alav torah",
+      "historical_period": "ISLAMIC_GOLDEN_AGE",
+      "tradition": "MEDIEVAL_RISHONIM",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED"
+    },
+    {
+      "evidence_id": "EVID-JEW-005",
+      "evidence_class": "INTERPRETATION",
+      "text": "The phrase 'Hineh ha-almah harah' in Isaiah 7:14 historically refers to a contemporary young woman in the court of King Ahaz whose pregnancy served as a chronological marker that the lands of Damascus and Samaria would be forsaken.",
+      "source_id": "SRC-JEW-RASHI-001",
+      "source_location": "Commentary on Isaiah 7:14",
+      "original_language_text": "הנה העלמה הרה - אשתי מעוברת... ויש אומרים שהיא אשתו של אחז",
+      "historical_period": "MEDIEVAL_EUROPEAN",
+      "tradition": "MEDIEVAL_RISHONIM",
+      "verification_status": "VERIFIED",
+      "confidence": "HIGH"
+    },
+    {
+      "evidence_id": "EVID-JEW-006",
+      "evidence_class": "ACADEMIC_CONSENSUS",
+      "text": "Critical Hebrew philology establishes that 'almah' in Biblical Hebrew signifies an adolescent woman of marriageable age, while 'bethulah' is the specific lexical term for virginity.",
+      "source_id": "SRC-ACAD-TOV-001",
+      "source_location": "Textual Criticism & Hebrew Lexicography",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "ACADEMIC_CRITICAL",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED"
+    },
+    {
+      "evidence_id": "EVID-JEW-007",
+      "evidence_class": "TRADITIONAL_POSITION",
+      "text": "The Oral Torah was revealed alongside the Written Torah at Mount Sinai and handed down through an unbroken chain of transmission from Moses to Joshua, Elders, Prophets, and the Men of the Great Assembly.",
+      "source_id": "SRC-JEW-MISHNAH-001",
+      "source_location": "Tractate Avot 1:1",
+      "original_language_text": "מֹשֶׁה קִבֵּל תּוֹרָה מִסִּינַי, וּמְסָרָהּ לִיהוֹשֻׁעַ, וִיהוֹשֻׁעַ לִזְקֵנִים, וּזְקֵנִים לִנְבִיאִים, וּנְבִיאִים מְסָרוּהָ לְאַנְשֵׁי כְנֶסֶת הַגְּדוֹלָה",
+      "historical_period": "TANNAITIC_ERA",
+      "tradition": "RABBINIC_TANNAITIC",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED_TRADITION"
+    },
+    {
+      "evidence_id": "EVID-JEW-008",
+      "evidence_class": "HISTORICAL_REPORT",
+      "text": "Upon the destruction of the Second Temple in 70 CE, Rabbi Yochanan ben Zakkai secured permission from Roman General Vespasian to establish the academy at Yavneh ('Give me Yavneh and its sages'), preserving Judaism.",
+      "source_id": "SRC-JEW-TALMUD-BAVLI-001",
+      "source_location": "Tractate Gittin 56b",
+      "original_language_text": "תן לי יבנה וחכמיה ושושילתא דרבן גמליאל",
+      "historical_period": "AMORAIC_ERA",
+      "tradition": "RABBINIC_AMORAIC",
+      "verification_status": "VERIFIED",
+      "confidence": "HIGH"
+    },
+    {
+      "evidence_id": "EVID-JEW-009",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "text": "Reform Judaism declared in the 1885 Pittsburgh Platform that ritual laws regulating diet, priestly purity, and dress fail to elevate the modern soul and are non-binding, though later platforms (1999 San Francisco) reclaimed traditional customs and Torah study.",
+      "source_id": "SRC-JEW-CCAR-PLATFORMS-001",
+      "source_location": "1885 Pittsburgh Platform §4; 1999 San Francisco Statement",
+      "historical_period": "HASKALAH_EMANCIPATION",
+      "tradition": "REFORM",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED"
+    },
+    {
+      "evidence_id": "EVID-JEW-010",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "text": "Conservative Judaism (CJLS) affirms Halakha as normative and binding, but subject to developmental halakhic jurisprudence responding to evolving historical, moral, and scientific knowledge.",
+      "source_id": "SRC-JEW-CJLS-CONSERVATIVE-001",
+      "source_location": "CJLS Core Principles Statement",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "CONSERVATIVE_MASORTI",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED"
+    },
+    {
+      "evidence_id": "EVID-JEW-011",
+      "evidence_class": "DISPUTED_CLAIM",
+      "text": "The identification of the 'Suffering Servant' of Isaiah 53: Jewish normative tradition (Rashi, Ibn Ezra, Radak) identifies the servant with the collective Nation of Israel; classical Christian theology identifies the servant with Jesus of Nazareth; some midrashic passages (Targum Jonathan, Midrash Tanhuma) preserve individualized messianic homilies.",
+      "source_id": "SRC-JEW-RASHI-001",
+      "source_location": "Isaiah 52:13–53:12 Apparatus",
+      "historical_period": "MEDIEVAL_EUROPEAN",
+      "tradition": "INTERFAITH_POLEMICS",
+      "verification_status": "VERIFIED",
+      "confidence": "DISPUTED"
+    },
+    {
+      "evidence_id": "EVID-JEW-012",
+      "evidence_class": "FACT",
+      "text": "Over 20% of citizens of the modern State of Israel are non-Jewish (Arab Muslims, Christians, Druze, Circassians), demonstrating that 'Israeli' citizenship is politically and legally distinct from 'Jewish' religious/ethnic identity.",
+      "source_id": "SRC-ACAD-COHEN-001",
+      "source_location": "Demographic & Legal Studies of Modern Israel",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "SECULAR_HISTORICAL",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED"
+    }
+  ]
+}

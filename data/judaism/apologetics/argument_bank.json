@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "arguments": [
+    {
+      "arg_id": "ARG-JEW-SINAI-PUBLIC",
+      "title": "National Public Revelation at Sinai as Epistemic Guarantee",
+      "premises": [
+        "P1: Claims of private revelation to single individuals (e.g. visions in a cave or personal revelations) can be easily fabricated or suffer from hallucination.",
+        "P2: The Sinaitic revelation was witnessed simultaneously by an entire nation of over 600,000 adult men (plus women and children) hearing the divine voice directly (Exod 19:9, Deut 4:32-35).",
+        "P3: It is historically and sociologically impossible to fabricate a national collective memory to a population ('Your ancestors all heard God speak from the fire') if it never occurred, because the population would reject the claim based on ancestral absence.",
+        "Conclusion: The Sinaitic revelation possesses a unique empirical-historical epistemic warrant superior to private revelations (Judah Halevi, Kuzari 1:87-89)."
+      ],
+      "confidence": "ESTABLISHED_INTERNAL_ARGUMENT"
+    },
+    {
+      "arg_id": "ARG-JEW-TORAH-ETERNAL",
+      "title": "Perpetuity and Non-Abrogation of the Torah",
+      "premises": [
+        "P1: The Torah repeatedly and emphatically designates its commandments as 'Chukat Olam' (an everlasting statute) throughout all generations (e.g. Exod 12:14, 31:16; Lev 3:17, 16:34).",
+        "P2: God is unchanging and does not revoke His divine law or change His mind (Num 23:19, Malachi 3:6).",
+        "P3: Deuteronomy 13:1-5 explicitly warns Israel that any future figure claiming divine authority who advocates adding to, subtracting from, or abolishing the commandments is a false prophet.",
+        "Conclusion: Neither Christian abrogation of the Law nor Islamic naskh (abrogation) of the Mosaic covenant is valid according to Hebrew scripture."
+      ],
+      "confidence": "ESTABLISHED_INTERNAL_ARGUMENT"
+    }
+  ]
+}

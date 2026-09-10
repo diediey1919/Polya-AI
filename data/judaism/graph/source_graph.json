@@ -1,0 +1,181 @@
+{
+  "version": "1.0.0",
+  "nodes": [
+    {
+      "id": "NODE-TANAKH",
+      "type": "TEXT",
+      "label": "Tanakh (Hebrew Bible)"
+    },
+    {
+      "id": "NODE-MT",
+      "type": "TEXT",
+      "label": "Masoretic Text (Codex Leningradensis)"
+    },
+    {
+      "id": "NODE-DSS",
+      "type": "TEXT",
+      "label": "Dead Sea Scrolls (1QIsa-a, 4QMMT)"
+    },
+    {
+      "id": "NODE-MISHNAH",
+      "type": "TEXT",
+      "label": "The Mishnah"
+    },
+    {
+      "id": "NODE-BAVLI",
+      "type": "TEXT",
+      "label": "Babylonian Talmud (Bavli)"
+    },
+    {
+      "id": "NODE-RAMBAM",
+      "type": "AUTHOR",
+      "label": "Moses ben Maimon (Maimonides)"
+    },
+    {
+      "id": "NODE-RASHI",
+      "type": "AUTHOR",
+      "label": "Shlomo Yitzchaki (Rashi)"
+    },
+    {
+      "id": "NODE-TROKI",
+      "type": "AUTHOR",
+      "label": "Isaac ben Abraham of Troki"
+    },
+    {
+      "id": "NODE-PHARISEES",
+      "type": "TRADITION",
+      "label": "Pharisees (Perushim)"
+    },
+    {
+      "id": "NODE-RABBINIC",
+      "type": "TRADITION",
+      "label": "Rabbinic Judaism"
+    },
+    {
+      "id": "NODE-ORTHODOX",
+      "type": "DENOMINATION",
+      "label": "Orthodox Judaism"
+    },
+    {
+      "id": "NODE-REFORM",
+      "type": "DENOMINATION",
+      "label": "Reform Judaism"
+    },
+    {
+      "id": "NODE-CONSERVATIVE",
+      "type": "DENOMINATION",
+      "label": "Conservative / Masorti Judaism"
+    },
+    {
+      "id": "NODE-TEMPLE-70",
+      "type": "HISTORICAL_EVENT",
+      "label": "Destruction of Second Temple (70 CE)"
+    },
+    {
+      "id": "NODE-THEME-MASHIACH",
+      "type": "THEME",
+      "label": "Messiah / Mashiach"
+    },
+    {
+      "id": "NODE-THEME-TORAH-ORAL",
+      "type": "THEME",
+      "label": "Oral Torah (Torah She-be'al Peh)"
+    },
+    {
+      "id": "NODE-THEME-TAHRIF",
+      "type": "THEME",
+      "label": "Doctrine of Tahrif (Scriptural Alteration)"
+    },
+    {
+      "id": "NODE-THEME-ZIONISM-DIST",
+      "type": "THEME",
+      "label": "Category Distinction: Jewish vs Israeli vs Zionist"
+    }
+  ],
+  "edges": [
+    {
+      "source": "NODE-MT",
+      "target": "NODE-TANAKH",
+      "relationship": "PART_OF",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DSS",
+      "target": "NODE-MT",
+      "relationship": "SUPPORTS",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-PHARISEES",
+      "target": "NODE-RABBINIC",
+      "relationship": "HISTORICALLY_PRECEDES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TEMPLE-70",
+      "target": "NODE-RABBINIC",
+      "relationship": "HISTORICALLY_PRECEDES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-MISHNAH",
+      "target": "NODE-THEME-TORAH-ORAL",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-BAVLI",
+      "target": "NODE-MISHNAH",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-RAMBAM",
+      "target": "NODE-BAVLI",
+      "relationship": "SUMMARIZES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-RAMBAM",
+      "target": "NODE-THEME-MASHIACH",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-RASHI",
+      "target": "NODE-TANAKH",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TROKI",
+      "target": "NODE-THEME-MASHIACH",
+      "relationship": "CHALLENGES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DSS",
+      "target": "NODE-THEME-TAHRIF",
+      "relationship": "CHALLENGES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ORTHODOX",
+      "target": "NODE-RABBINIC",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-CONSERVATIVE",
+      "target": "NODE-RABBINIC",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-REFORM",
+      "target": "NODE-RABBINIC",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    }
+  ]
+}

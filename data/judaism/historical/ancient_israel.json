@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "period": "IRON_AGE_ISRAEL",
+  "timeline": [
+    {
+      "era": "Patriarchal and Tribal League",
+      "dates": "c. 13th–11th c. BCE",
+      "key_events": [
+        "Merneptah Stele (c. 1208 BCE: first extra-biblical mention of 'Israel')",
+        "Shiloh sanctuary"
+      ]
+    },
+    {
+      "era": "United Monarchy",
+      "dates": "c. 1020–931 BCE",
+      "key_events": [
+        "Saul, David (Tel Dan Stele 'House of David'), Solomon",
+        "First Temple built on Mount Moriah"
+      ]
+    },
+    {
+      "era": "Divided Monarchy",
+      "dates": "931–586 BCE",
+      "key_events": [
+        "Northern Kingdom of Israel (Samaria) fell 722 BCE to Sargon II of Assyria; 10 tribes dispersed",
+        "Southern Kingdom of Judah (Jerusalem) survived Sennacherib's siege 701 BCE (Siloam inscription)"
+      ]
+    },
+    {
+      "era": "Exile and Restoration",
+      "dates": "586–332 BCE",
+      "key_events": [
+        "Nebuchadnezzar destroyed First Temple 586 BCE",
+        "Cyrus the Great decreed return 538 BCE",
+        "Second Temple completed 516 BCE under Zerubbabel",
+        "Ezra the Scribe reinstated Torah public reading"
+      ]
+    }
+  ]
+}

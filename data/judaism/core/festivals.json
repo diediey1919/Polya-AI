@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0",
+  "calendar_system": "Lunisolar calendar (months pegged to moon cycle, leap month Adar II added 7 times in 19 years to keep Pesach in the spring).",
+  "holidays": [
+    {
+      "name": "Pesach (Passover)",
+      "date": "15–21/22 Nisan",
+      "biblical_origin": "Exodus 12: liberation from Egypt, sacrifice of paschal lamb.",
+      "rabbinic_development": "Seder night, eating Matzah and Maror, recitation of the Haggadah, four cups of wine.",
+      "modern_observance": "Celebrated worldwide by all denominations as festival of freedom and national birth."
+    },
+    {
+      "name": "Shavuot (Feast of Weeks)",
+      "date": "6–7 Sivan",
+      "biblical_origin": "Exodus 23, 34; Leviticus 23: Feast of first fruits (Bikkurim) and wheat harvest 50 days after Pesach.",
+      "rabbinic_development": "Zman Matan Torateinu (Time of the Giving of the Torah at Mount Sinai), all-night Torah study (Tikkun Leil Shavuot), reading Book of Ruth."
+    },
+    {
+      "name": "Sukkot (Feast of Booths)",
+      "date": "15–21 Tishrei",
+      "biblical_origin": "Leviticus 23: dwelling in temporary booths commemorating wilderness wanderings.",
+      "observance": "Dwelling in Sukkah, waving Four Species (Arba'at Ha-Minim: Etrog, Lulav, Hadas, Aravah), followed by Shemini Atzeret and Simchat Torah."
+    },
+    {
+      "name": "Rosh Hashanah (Jewish New Year)",
+      "date": "1–2 Tishrei",
+      "biblical_origin": "Leviticus 23:24: Yom Teru'ah (Day of Shofar Blasting).",
+      "rabbinic_development": "Yom Ha-Din (Day of Judgment for all creatures), sounding 100 blasts of the ram's horn, dipping apples in honey."
+    },
+    {
+      "name": "Yom Kippur (Day of Atonement)",
+      "date": "10 Tishrei",
+      "biblical_origin": "Leviticus 16 & 23: Sabbath of Sabbaths, ritual purgation of sanctuary.",
+      "rabbinic_development": "25-hour complete fast from food, drink, washing, leather shoes, and marital relations; extensive communal confession (Al Chet) and final Ne'ilah service."
+    },
+    {
+      "name": "Hanukkah (Festival of Lights)",
+      "date": "25 Kislev–2/3 Tevet",
+      "origin": "Historical Second Temple victory (164 BCE) of Maccabees over Seleucid Syrian-Greeks and rededication of the Temple.",
+      "observance": "Kindling 8-branched Menorah (Hanukkiah), eating oil-fried foods (latkes, sufganiyot) commemorating the miracle of the oil flask."
+    },
+    {
+      "name": "Purim",
+      "date": "14 Adar (15 Adar in walled cities / Shushan Purim)",
+      "origin": "Book of Esther: deliverance of Persian Jews from Haman's genocide decree.",
+      "observance": "Reading Megillat Esther, sending gifts of food (Mishloach Manot), charity to the poor (Matanot La-Evyonim), festive meal."
+    }
+  ]
+}

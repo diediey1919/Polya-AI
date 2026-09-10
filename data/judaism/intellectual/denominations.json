@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0",
+  "movements": [
+    {
+      "id": "DENOM-ORTHODOX-HAREDI",
+      "movement": "Haredi ('Ultra-Orthodox') Judaism",
+      "halakhic_position": "Strict immutability of Halakha across all details; literal divine revelation of Written and Oral Torah at Sinai.",
+      "view_of_modernity": "Cultural insulation, rejection of secular values, prioritization of full-time Yeshiva study (Torato Umanuto).",
+      "sub_branches": [
+        "Hasidim (reverence for dynamic Rebbe dynasties)",
+        "Lithuanian / Yeshivish (Misnagdim: rigorous analytical Talmudic study)"
+      ],
+      "messiah_position": "Awaits literal personal human King Messiah from Davidic line."
+    },
+    {
+      "id": "DENOM-ORTHODOX-MODERN",
+      "movement": "Modern Orthodox Judaism (Centrist Orthodoxy)",
+      "halakhic_position": "Strict fidelity to Shulchan Aruch and traditional poskim; belief in Torah Mi-Sinai.",
+      "view_of_modernity": "Torah U'Madda (Torah and secular knowledge/sciences integrated); active civic, professional, and military engagement.",
+      "attitude_to_israel": "Strong Religious Zionism (viewing modern Israel as Reshit Tzemichat Ge'ulateinu — first flowering of our redemption)."
+    },
+    {
+      "id": "DENOM-CONSERVATIVE",
+      "movement": "Conservative / Masorti Judaism",
+      "halakhic_position": "Halakha is binding and normative, but historically developmental and evolving to address modern ethics and scientific realities.",
+      "view_of_scripture": "Revelation is divine-human encounter; accepts historical-critical biblical and talmudic scholarship.",
+      "features": [
+        "Egalitarian minyanim and ordination of women and LGBTQ+ rabbis",
+        "CJLS responsa allowing driving to nearest synagogue on Shabbat if necessary"
+      ]
+    },
+    {
+      "id": "DENOM-REFORM",
+      "movement": "Reform / Progressive Judaism",
+      "halakhic_position": "Halakha is non-binding counsel; autonomous individual moral conscience is supreme.",
+      "view_of_scripture": "Continuous progressive revelation; biblical laws reflect historical contexts of ancient eras.",
+      "features": [
+        "Emphasis on prophetic ethical monotheism and Tikkun Olam (social justice)",
+        "Gender egalitarianism, interfaith marriage welcoming, patrilineal descent recognition alongside matrilineal"
+      ]
+    },
+    {
+      "id": "DENOM-RECONSTRUCTIONIST",
+      "movement": "Reconstructionist Judaism",
+      "halakhic_position": "Non-binding 'folkways'; Judaism is an evolving religious civilization (Mordecai Kaplan).",
+      "god_concept": "Naturalistic religious humanism (God as the cosmic process that fosters human fulfillment)."
+    },
+    {
+      "id": "DENOM-KARAITE",
+      "movement": "Karaite Judaism (Bnei Mikra)",
+      "halakhic_position": "Rejects the Oral Torah, Talmud, and rabbinic authority entirely.",
+      "source_authority": "Direct autonomous interpretation of the Hebrew Tanakh using grammatical-contextual analysis (Peshuto shel Mikra)."
+    },
+    {
+      "id": "DENOM-SECULAR",
+      "movement": "Secular Jewish Identity (Hiloni)",
+      "identity_basis": "Jewish peoplehood, national history, Hebrew literature, cultural heritage, and shared destiny without adherence to divine commandments or theological dogma."
+    }
+  ]
+}

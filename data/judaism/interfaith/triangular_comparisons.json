@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "description": "Comparative matrix contrasting Judaism, Christianity, and Islam across 10 foundational theological and historical dimensions.",
+  "themes": [
+    {
+      "theme": "Concept of God (Monotheism)",
+      "judaism": "Absolute, non-composite, incorporeal unity (Yihud Ha-Shem). Rejects Trinity and Incarnation as blasphemous/impossible.",
+      "christianity": "Trinitarian monotheism: One God in three co-equal, consubstantial persons (Father, Son, Holy Spirit).",
+      "islam": "Strict Tawhid (Tawhid al-Rububiyyah, al-Uluhiyyah, al-Asma' was-Sifat). Rejects Trinity (Shirk) and Incarnation."
+    },
+    {
+      "theme": "Scripture and Revelation",
+      "judaism": "Tanakh (Written Torah) accompanied by Sinai Oral Torah; open to rabbinic dialectical interpretation and progressive rabbinic enactment.",
+      "christianity": "Old and New Testaments; inspired scripture fulfilling Old Testament covenants through Christ.",
+      "islam": "The Qur'an as literal uncreated verbatim speech of Allah revealed to Muhammad via Jibril; earlier scriptures corrupted (Tahrif)."
+    },
+    {
+      "theme": "Original Sin & Human Nature",
+      "judaism": "No Original Sin dogma. Humans are born morally neutral with Yetzer Ha-Tov and Yetzer Ha-Ra; free will is absolute.",
+      "christianity": "Original Sin inherited from Adam; humanity is fallen and unable to attain salvation without divine grace in Christ.",
+      "islam": "Fitrah (innate primordial monotheistic human purity); no inherited guilt; Adam erred and was forgiven upon repentance."
+    },
+    {
+      "theme": "Sin, Repentance, and Atonement",
+      "judaism": "Sin is rectified directly through Teshuvah (remorse, cessation, confession, restitution), prayer, and charity without vicarious human sacrifice.",
+      "christianity": "Atonement achieved through the vicarious, substitutionary sacrificial death and bodily resurrection of Jesus Christ.",
+      "islam": "Forgiveness obtained directly from Allah through sincere repentance (Tawbah), good deeds (Hasanaat), and divine Rahmah."
+    },
+    {
+      "theme": "Messiah / Eschatology",
+      "judaism": "Awaits mortal human Davidic King Messiah who will rebuild Temple, gather exiles, and bring universal peace.",
+      "christianity": "Jesus is the divine Messiah and Savior who accomplished spiritual redemption and will return in the Second Coming.",
+      "islam": "Isa al-Masih is a revered prophet/messenger who was not crucified (Qur'an 4:157), was raised to heaven, and will return before Judgment Day."
+    },
+    {
+      "theme": "Sacrificial System",
+      "judaism": "Ceased in 70 CE due to halakhic prohibition of sacrificing outside Temple Mount (Deut 12); replaced by prayer and repentance.",
+      "christianity": "Sacrifices permanently fulfilled and abolished once for all by the final sacrifice of Christ on the cross (Hebrews 10).",
+      "islam": "Animal sacrifice continues as non-atoning devotional commemoration during Eid al-Adha (Udhiyah/Qurbani)."
+    },
+    {
+      "theme": "Law and Observance",
+      "judaism": "Halakha: 613 Mitzvot binding exclusively upon the Jewish people; Gentiles obligated only in 7 Noahide Laws.",
+      "christianity": "Freedom from Mosaic ritual law; moral commandments retained through the Law of the Spirit / Love of Christ.",
+      "islam": "Sharia: Comprehensive divine legal code (Halal/Haram) binding upon all Muslims globally."
+    },
+    {
+      "theme": "Eschatological Afterlife (Salvation)",
+      "judaism": "Righteous of all nations have a share in the World to Come (Olam Ha-Ba); no eternal hellfire dogma.",
+      "christianity": "Eternal life granted to believers through faith in Jesus Christ; eternal separation/hell for the unredeemed.",
+      "islam": "Paradise (Jannah) for monotheistic believers; Hell (Jahannam) for disbelievers (Kuffar), with varying scholarly views on permanence."
+    },
+    {
+      "theme": "Jerusalem and the Temple Mount",
+      "judaism": "Har Ha-Bayit (Mount Moriah): holiest site on earth, place of First/Second Temples and Holy of Holies; direction of all prayer.",
+      "christianity": "Holy city of Christ's passion, death, and resurrection; Church of the Holy Sepulchre.",
+      "islam": "Al-Haram al-Sharif / Al-Quds: third holiest sanctuary (Masjid al-Aqsa and Dome of the Rock), destination of Isra and Mi'raj."
+    },
+    {
+      "theme": "Identity, Land, and Peoplehood",
+      "judaism": "Particularist covenant with a specific historical people (Am Yisrael) tied to a specific geographical Land (Eretz Yisrael).",
+      "christianity": "Universal spiritual body (Ecclesia) transcending ethnic and geographic national boundaries.",
+      "islam": "Universal global community of believers (Ummah) transcending race and nation."
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JudaismDebateStructure",
+  "type": "object",
+  "required": [
+    "theme_id",
+    "theme_title",
+    "jewish_position",
+    "christian_position",
+    "islamic_position",
+    "primary_evidence",
+    "historical_context"
+  ],
+  "properties": {
+    "theme_id": {
+      "type": "string",
+      "pattern": "^DEBATE-JEW-[A-Z0-9_\\-]+$"
+    },
+    "theme_title": {
+      "type": "string"
+    },
+    "jewish_position": {
+      "type": "object"
+    },
+    "christian_position": {
+      "type": "object"
+    },
+    "islamic_position": {
+      "type": "object"
+    },
+    "primary_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "jewish_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "christian_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "islamic_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "historical_context": {
+      "type": "string"
+    },
+    "textual_context": {
+      "type": "string"
+    },
+    "linguistic_context": {
+      "type": "string"
+    },
+    "theological_context": {
+      "type": "string"
+    },
+    "common_arguments": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "counterarguments": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "counter_counterarguments": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "common_misrepresentations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unresolved_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

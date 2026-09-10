@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "schools": [
+    {
+      "name": "Early Merkavah and Hekhalot Literature",
+      "dates": "c. 2nd–7th c. CE",
+      "focus": "Visionary ascents through seven celestial palaces (Hekhalot) to behold the Divine Chariot (Merkavah) described in Ezekiel 1; Shi'ur Qomah anthropomorphic divine measurements."
+    },
+    {
+      "name": "Sefer Yetzirah (Book of Formation)",
+      "dates": "c. 3rd–6th c. CE",
+      "focus": "Cosmogony based on the 32 Paths of Wisdom: 10 Sefirot (primordial numbers/dimensions) and 22 letters of the Hebrew alphabet."
+    },
+    {
+      "name": "Classical Theosophic Kabbalah (The Zohar)",
+      "dates": "Appeared c. 1280–1290 CE in Castile (attributed to Rabbi Shimon bar Yochai; redacted by Moses de Leon)",
+      "focus": "The Ten Sefirot (Keter, Chokhmah, Binah, Chesed, Gevurah, Tiferet, Netzach, Hod, Yesod, Malkhut/Shekhinah) manifesting the concealed Infinite (Ein Sof); human mitzvot unify masculine and feminine divine aspects (Yichud Kudesha Berikh Hu u-Shekhintei)."
+    },
+    {
+      "name": "Lurianic Kabbalah (Isaac Luria, The Ari)",
+      "dates": "16th century (Safed, Galilee)",
+      "focus": [
+        "Tzimtzum (divine self-contraction creating a cosmic void for creation)",
+        "Shevirat Ha-Kelim (Shattering of the Vessels under intense primordial light)",
+        "Nitzotzot (holy divine sparks trapped within material reality and Klipot / shells of evil)",
+        "Tikkun Olam (cosmic restoration accomplished through prayer, halakhic observance, and mystical intention / Kavanah)"
+      ]
+    },
+    {
+      "name": "Hasidism (Chasidut)",
+      "dates": "18th century–Present",
+      "founder": "Rabbi Israel Baal Shem Tov (Besht, 1698–1760)",
+      "teachings": [
+        "Panentheistic immanence of God in all things ('No place is void of Him')",
+        "Avodah be-Gashmiyyut (serving God through physical acts and mundane activities)",
+        "Joy (Simcha), ecstatic prayer (Devekut), and rejection of ascetic melancholy",
+        "The Tzaddik / Rebbe as spiritual intercessor and channel of divine blessing",
+        "Major branches: Chabad-Lubavitch, Satmar, Breslov, Ger, Belz, Vizhnitz"
+      ]
+    }
+  ],
+  "normative_boundary_clarification": "Normative traditional Judaism holds that Kabbalah and Hasidism are esoteric interpretations subordinate to the binding legal obligations of Halakha; mystical speculation never suspends or abrogates dietary laws, Shabbat, or interpersonal commandments."
+}

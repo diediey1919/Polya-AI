@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "structure": {
+    "oral_and_written_torah": {
+      "written_torah": "The text of the Pentateuch (Chumash), containing commandments that are frequently brief, ambiguous, or dependent on unwritten definitions (e.g. 'You shall bind them for a sign upon your hand' — the Written Torah never describes Tefillin; 'You shall slaughter of your cattle... as I have commanded you' Deut 12:21 — the slaughter procedure is nowhere written in the Torah).",
+      "oral_torah": "The divine explanations, definitions, and jurisprudential hermeneutical principles (Thirteen Middot of Rabbi Ishmael) revealed at Sinai and transmitted orally from Moses to Joshua, Elders, Prophets, and the Men of the Great Assembly until codified in the Mishnah and Talmud."
+    },
+    "613_commandments": {
+      "enumeration": "Taryag Mitzvot (613): 248 positive commandments (corresponding traditionally to the limbs of the human body) and 365 negative commandments (corresponding to the solar days).",
+      "authoritative_catalog": "Maimonides Sefer Ha-Mitzvot (Book of the Commandments), organizing each command with scriptural proof-texts."
+    },
+    "shabbat": {
+      "definition": "Weekly day of cessation and holy sanctification from Friday sunset to Saturday nightfall.",
+      "core_halakha": "Prohibition of 39 categories of creative work (Avot Melakhot) derived from the construction of the Tabernacle in the wilderness.",
+      "supreme_principle": "Pikuach Nefesh dohe Shabbat: Saving a human life overrides all Shabbat prohibitions (except idolatry, murder, and forbidden sexual relations)."
+    },
+    "kashrut": {
+      "definition": "Jewish dietary laws based on biblical commands in Leviticus 11 and Deuteronomy 14.",
+      "categories": [
+        "Land animals must chew the cud and have split hooves.",
+        "Aquatic creatures must have both fins and scales (excluding shellfish and catfish).",
+        "Birds must not be birds of prey (24 forbidden species listed in Torah).",
+        "Shechita (instantaneous ritual severance of trachea and esophagus with a surgically sharp knife without nicks).",
+        "Bedikah (inspection of lungs for adhesions or perforations).",
+        "Removal of blood (Salting / Melichah or broiling) and the sciatic nerve (Gid Ha-Nasheh, Gen 32:33).",
+        "Strict separation of meat and dairy based on the threefold prohibition: 'Do not boil a kid in its mother's milk' (Exod 23:19, 34:26; Deut 14:21)."
+      ]
+    },
+    "cessation_of_sacrifice": {
+      "reason": "Halakhic prohibition: Deuteronomy 12:13-14 strictly forbids offering sacrifices anywhere except the chosen place (Jerusalem Temple Mount). Once the Second Temple was destroyed by Rome in 70 CE, offering animal sacrifices became halakhically illegal.",
+      "replacement": "Rabbinic Judaism activated existing biblical mechanisms: Prayer ('We will render the prayer of our lips as calves' Hosea 14:3), Teshuvah (repentance), Charity (Tzedakah), and Torah study (Talmud Berakhot 26b, Pesikta de-Rav Kahana 16)."
+    }
+  }
+}

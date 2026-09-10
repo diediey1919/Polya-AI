@@ -1,0 +1,161 @@
+{
+  "version": "1.0.0",
+  "topics": [
+    {
+      "topic": "Messiah / Mashiach",
+      "keywords": [
+        "messiah",
+        "mashiach",
+        "son of david",
+        "ben david",
+        "chabad",
+        "hilkhot melakhim",
+        "third temple",
+        "isaiah 11",
+        "isaiah 53",
+        "second coming"
+      ],
+      "hebrew_terms": [
+        "משיח",
+        "בן דוד",
+        "ימות המשיח",
+        "גאולה"
+      ],
+      "arabic_terms": [
+        "المسيح",
+        "عيسى بن مريم",
+        "المهدي"
+      ],
+      "canonical_target_files": [
+        "core/theology.json",
+        "interfaith/judaism_and_jesus.json",
+        "apologetics/debate_structures.json"
+      ]
+    },
+    {
+      "topic": "Torah and Oral Law",
+      "keywords": [
+        "torah",
+        "oral law",
+        "mishnah",
+        "talmud",
+        "gemara",
+        "halakha",
+        "613 mitzvot",
+        "sinai",
+        "yavneh",
+        "shulchan aruch"
+      ],
+      "hebrew_terms": [
+        "תורה שבכתב",
+        "תורה שבעל פה",
+        "משנה",
+        "גמרא",
+        "הלכה",
+        "מצוות"
+      ],
+      "arabic_terms": [
+        "التوراة",
+        "الشريعة اليهودية",
+        "الوصايا"
+      ],
+      "canonical_target_files": [
+        "core/halakha_mitzvot.json",
+        "core/tanakh_canon.json",
+        "historical/rabbinic_era.json"
+      ]
+    },
+    {
+      "topic": "Tahrif and Textual Transmission",
+      "keywords": [
+        "tahrif",
+        "textual corruption",
+        "masoretic text",
+        "dead sea scrolls",
+        "qumran",
+        "septuagint",
+        "ezra",
+        "ibn hazm",
+        "tabari"
+      ],
+      "hebrew_terms": [
+        "נוסח המסורה",
+        "מגילות מדבר יהודה",
+        "תרגום השבעים"
+      ],
+      "arabic_terms": [
+        "تحريف",
+        "تحريف النص",
+        "تحريف المعنى",
+        "ابن حزم",
+        "الطبري"
+      ],
+      "canonical_target_files": [
+        "interfaith/tahrif_models.json",
+        "core/textual_traditions.json",
+        "registry/source_registry.json"
+      ]
+    },
+    {
+      "topic": "Judaism vs Zionism and Modern Israel",
+      "keywords": [
+        "zionism",
+        "israel",
+        "herzl",
+        "haskalah",
+        "secular jew",
+        "palestine",
+        "arab israeli",
+        "satmar",
+        "neturei karta"
+      ],
+      "hebrew_terms": [
+        "ציונות",
+        "מדינת ישראל",
+        "ארץ ישראל",
+        "עם ישראל"
+      ],
+      "arabic_terms": [
+        "الصهيونية",
+        "إسرائيل",
+        "بنو إسرائيل"
+      ],
+      "canonical_target_files": [
+        "historical/modern_era.json",
+        "intellectual/denominations.json",
+        "CONSTITUTION.md"
+      ]
+    },
+    {
+      "topic": "Sin, Repentance, and Atonement",
+      "keywords": [
+        "sin",
+        "teshuvah",
+        "atonement",
+        "yom kippur",
+        "sacrifice",
+        "original sin",
+        "yetzer hara",
+        "korbanot",
+        "forgiveness"
+      ],
+      "hebrew_terms": [
+        "חטא",
+        "תשובה",
+        "כפרה",
+        "יום כיפור",
+        "יצר הרע",
+        "יצר הטוב"
+      ],
+      "arabic_terms": [
+        "التوبة",
+        "الكفارة",
+        "الخطيئة"
+      ],
+      "canonical_target_files": [
+        "core/theology.json",
+        "interfaith/triangular_comparisons.json"
+      ]
+    }
+  ]
+}

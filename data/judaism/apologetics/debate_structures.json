@@ -1,0 +1,83 @@
+{
+  "version": "1.0.0",
+  "debates": [
+    {
+      "theme_id": "DEBATE-JEW-MASHIACH",
+      "theme_title": "The Identity, Nature, and Accomplishments of the Messiah",
+      "jewish_position": {
+        "summary": "Messiah is a mortal human Davidic king who will accomplish physical, political, and spiritual redemption in this world: gathering exiles, rebuilding Temple, inaugurating world peace.",
+        "sources": [
+          "Isaiah 2:1-4",
+          "Isaiah 11:1-12",
+          "Ezekiel 37:21-28",
+          "Rambam Hilkhot Melakhim 11-12"
+        ]
+      },
+      "christian_position": {
+        "summary": "Jesus of Nazareth is the divine Son of God and Messiah whose primary mission was spiritual atonement on the cross, resurrection, and whose physical kingdom will be realized at the Second Coming.",
+        "sources": [
+          "Luke 1:32-33",
+          "Matthew 26:63-64",
+          "Romans 1:3-4",
+          "Hebrews 9:11-28"
+        ]
+      },
+      "islamic_position": {
+        "summary": "Isa ibn Maryam is the Messiah (Al-Masih) and prophet of Allah, born of a virgin without a father, who performed miracles, was not crucified, and will descend before the Day of Judgment to defeat the Dajjal.",
+        "sources": [
+          "Qur'an 3:45",
+          "Qur'an 4:157-159",
+          "Sahih al-Bukhari 2222"
+        ]
+      },
+      "primary_evidence": [
+        "SRC-JEW-MT-001",
+        "SRC-JEW-DSS-001",
+        "SRC-JEW-RAMBAM-MT-001"
+      ],
+      "jewish_evidence": [
+        "SRC-JEW-TROKI-001",
+        "SRC-JEW-RAMBAN-TORAH-001"
+      ],
+      "christian_evidence": [
+        "Novum Testamentum Graece (NA28)"
+      ],
+      "islamic_evidence": [
+        "Qur'an / Tafsir Ibn Kathir"
+      ],
+      "historical_context": "First-century Judea experienced intense apocalyptic and messianic fervor under brutal Roman occupation, spawning various messianic claimants (Theudas, the Egyptian, Jesus, Simon bar Kokhba).",
+      "textual_context": "Tanakh prophetic passages consistently describe the messianic era in this-worldly historical and political terms of justice, national security, and world peace.",
+      "linguistic_context": "The root mashach denotes anointing with oil, applied to priests, prophets, and kings.",
+      "theological_context": "Fundamental divergence between Jewish this-worldly social-covenantal restoration vs Christian other-worldly spiritual salvation from original sin.",
+      "common_arguments": [
+        {
+          "claim": "Jesus fulfilled all Old Testament prophecies",
+          "speaker": "Christian Apologist"
+        },
+        {
+          "claim": "World peace has not arrived, so the Messiah has not yet come",
+          "speaker": "Jewish Disputant"
+        }
+      ],
+      "counterarguments": [
+        {
+          "claim": "Prophecies are split between First Coming (suffering servant) and Second Coming (triumphant king)",
+          "speaker": "Christian Apologist"
+        }
+      ],
+      "counter_counterarguments": [
+        {
+          "claim": "The Tanakh never mentions a 'Second Coming' or a split messianic career; a king who fails to deliver peace and dies has simply failed the biblical test",
+          "speaker": "Jewish Disputant (Rambam 11:4)"
+        }
+      ],
+      "common_misrepresentations": [
+        "Claiming Jews rejected Jesus out of superficial desire for a military conqueror rather than serious textual-theological adherence to biblical criteria.",
+        "Claiming Judaism teaches that the Messiah must be divine."
+      ],
+      "unresolved_questions": [
+        "How early did the distinction between Messiah ben Joseph (the suffering martyr) and Messiah ben David (the triumphant king) arise in rabbinic eschatology (Talmud Sukkah 52a)?"
+      ]
+    }
+  ]
+}

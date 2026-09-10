@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "comparative_theology": "Judaism and Islam share an uncompromising dedication to pure, non-incarnational, non-trinitarian monotheism (Yihud Ha-Shem and Tawhid). Maimonides (Hilkhot Ma'akhalot Asurot 11:7, Teshuvot Ha-Rambam 448) famously ruled that Muslims are strictly monotheistic, and Islam is not idolatry (Avodah Zarah).",
+  "prophetic_parallels": [
+    {
+      "name": "Moses / Musa",
+      "status": "In Judaism: Master of all prophets (Moshe Rabbenu), saw God face-to-face (Num 12:6-8); in Islam: Kalimullah (the one who spoke with God) and Ulul Azm messenger who brought the original Tawrat."
+    },
+    {
+      "name": "Abraham / Ibrahim",
+      "status": "Father of the covenant (Avraham Avinu); in Islam: Khalilullah, the archetype of pure Hanif monotheism."
+    },
+    {
+      "name": "David & Solomon / Dawud & Sulayman",
+      "status": "Kings of Israel; in Judaism: King David is author of Psalms and progenitor of Messiah, King Solomon built First Temple; in Islam: regarded primarily as righteous prophets (anbiya') endowed with wisdom."
+    }
+  ],
+  "halakha_vs_sharia": {
+    "structural_harmony": "Both systems are legalistic religions (Nomocracy) without a centralized sacramental clergy. Both emphasize jurisprudence (Fiqh / Halakha), dietary slaughter regulations (Dhabihah / Shechita), ritual circumcisions (Khitan / Brit Milah), strict ritual ablutions, daily prayers, and charity."
+  },
+  "historical_relations": "Jews lived under Islamic rule as Dhimmi (protected people of the book under the Pact of Umar). While subject to civil restrictions and poll taxes (Jizya), Jews generally experienced far greater cultural, intellectual, and economic integration in the Islamic world than in medieval Christendom, resulting in the Golden Age of Spain and Judeo-Arabic scholarship."
+}

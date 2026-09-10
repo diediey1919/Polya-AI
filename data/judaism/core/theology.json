@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0",
+  "concepts": [
+    {
+      "id": "THEO-MONO",
+      "title": "Absolute Divine Unity (Yihud Ha-Shem)",
+      "definition": "God is singular, indivisible, non-composite, eternal, incorporeal, and completely transcendent. Rejects all forms of dualism, polytheism, and Trinity.",
+      "primary_prooftexts": [
+        "Deuteronomy 6:4 (Shema)",
+        "Isaiah 45:5-7 ('I am YHWH and there is no other...')"
+      ],
+      "maimonidean_principles": "Principles 1, 2, and 3 of Rambam's Thirteen Principles: God exists, God is an absolute non-composite unity, God is non-physical and without bodily form or accident."
+    },
+    {
+      "id": "THEO-COVENANT",
+      "title": "The Covenants (Britot)",
+      "types": [
+        {
+          "name": "Noahic Covenant",
+          "scope": "All humankind (7 Noahide Laws: no idolatry, blasphemy, murder, theft, sexual immorality, eating flesh from living animal, establishing courts of justice). Non-Jews who observe these are righteous of the nations and merit the World to Come."
+        },
+        {
+          "name": "Abrahamic Covenant",
+          "scope": "Abraham and his physical seed; sealed by circumcision (Brit Milah) and promise of Land."
+        },
+        {
+          "name": "Sinaitic Covenant",
+          "scope": "The entire nation of Israel; mutual bilateral treaty accepting Torah and 613 Mitzvot."
+        }
+      ]
+    },
+    {
+      "id": "THEO-SIN-ATONEMENT",
+      "title": "Sin and Atonement without Original Sin",
+      "doctrine": "Judaism does not teach that humanity inherits the moral guilt or fallen nature of Adam and Eve. Every human is born morally pure with a Yetzer Ha-Tov (inclination toward good) and Yetzer Ha-Ra (inclination toward self-interest/passion). Sin (chet) is a failure to hit the mark or violation of command, rectified directly through Teshuvah, restitution, and divine mercy (Ezekiel 18:20-23)."
+    },
+    {
+      "id": "THEO-MASHIACH",
+      "title": "The Jewish Concept of Messiah (Mashiach)",
+      "criteria": [
+        "Mortal human king, physical descendant of King David and Solomon via direct patrilineal lineage (Jer 23:5, 33:17).",
+        "Rebuilder of the Third Temple in Jerusalem (Ezekiel 37:26-28).",
+        "Ingatherer of all Jewish exiles from global dispersion back to the Land of Israel (Isaiah 11:12).",
+        "Inaugurator of universal disarmament and global peace: 'Nation shall not lift up sword against nation, neither shall they learn war anymore' (Isaiah 2:4, Micah 4:3).",
+        "Universal knowledge of the One True God throughout the earth (Isaiah 11:9, Zechariah 14:9).",
+        "Full restoration of Torah observance and judicial Sanhedrin (Isaiah 1:26).",
+        "He does NOT die prior to completing these tasks. If a claimant is killed without achieving them, he is not the Messiah (Maimonides, Hilkhot Melakhim 11:4)."
+      ]
+    }
+  ]
+}

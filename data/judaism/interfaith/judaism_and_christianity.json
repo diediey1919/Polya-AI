@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "parting_of_the_ways": "Gradual historical separation spanning 70 CE (Temple destruction) to the 4th century (Nicene Christianity becoming Roman imperial state religion). Early Jewish-Christian sects (Ebionites, Nazarenes) vanished as Gentile Christianity defined orthodoxy.",
+  "core_debates": [
+    {
+      "locus": "Isaiah 7:14",
+      "christian_claim": "Predicts the miraculous Virgin Birth of Jesus Christ ('Behold, a virgin shall conceive and bear a son, and shall call his name Immanuel').",
+      "jewish_refutation": "The original Hebrew text reads 'ha-almah' (הָעַלְמָה), meaning 'the young woman' of marriageable age (often with the definite article pointing to someone present in the room). The Hebrew for anatomical virgin is Bethulah (בְּתוּלָה). The historical context (Isa 7:1-16) was a contemporary military crisis in 734 BCE: King Ahaz was terrified of the coalition between King Rezin of Aram and Pekah of Israel. Isaiah gave Ahaz a sign that before the child is old enough to refuse evil and choose good, the land of both enemy kings will be deserted."
+    },
+    {
+      "locus": "Isaiah 52:13–53:12 (The Suffering Servant)",
+      "christian_claim": "The premier Old Testament prophecy of Jesus's vicarious substitutionary atonement and crucifixion for the sins of the world.",
+      "jewish_refutation": "Throughout Isaiah's second section, God explicitly and repeatedly identifies the 'Servant' by name as the collective Nation of Israel: 'You, Israel, My servant Jacob whom I have chosen' (Isa 41:8-9), 'You are My servant, Israel, in whom I will be glorified' (Isa 49:3), 'Yet now hear, O Jacob My servant; and Israel, whom I have chosen' (Isa 44:1, 44:21). Chapter 53 is spoken from the perspective of the Gentile kings (52:15) marveling in astonishment at the end of days that the Jewish people, whom they despised, persecuted, and regarded as struck down by God, were actually suffering innocent hardship among the nations while preserving divine truth."
+    },
+    {
+      "locus": "Psalm 22:17 (MT) / 22:16 (Christian)",
+      "christian_claim": "'They pierced my hands and my feet', proving the crucifixion.",
+      "jewish_refutation": "The Masoretic Text reads 'Ka-ari yadai ve-raglai' (כָּאֲרִי יָדַי וְרַגְלָי) — 'Like a lion [they are at] my hands and my feet'. The word is 'Ka-ari' (like a lion, from אֲרִי), not a verb 'pierced'. David is composing a poetic lament describing his encirclement by predatory adversaries."
+    },
+    {
+      "locus": "Covenant and Supersessionism",
+      "christian_claim": "The Church is the 'New Israel' (Verus Israel) replacing the Jewish people whose covenant was broken (Hebrews 8:13).",
+      "jewish_refutation": "The Hebrew Bible explicitly declares the covenant with Israel to be eternal and irrevocable: 'I will establish My covenant... for an everlasting covenant' (Gen 17:7); 'Even when they are in the land of their enemies, I will not reject them, neither will I abhor them, to destroy them utterly and to break My covenant with them' (Lev 26:44); 'If heaven above can be measured... only then will I cast off all the offspring of Israel' (Jer 31:37)."
+    }
+  ]
+}

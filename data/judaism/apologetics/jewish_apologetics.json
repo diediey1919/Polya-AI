@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "polemical_milestones": [
+    {
+      "work": "Sefer Milhamot Hashem (The Wars of the Lord)",
+      "author": "Jacob ben Reuben",
+      "date": "1170 CE",
+      "content": "Systematic critique of the Gospels, identifying chronological errors and misapplied prophetic verses."
+    },
+    {
+      "work": "Disputation of Barcelona",
+      "date": "1263 CE",
+      "protagonists": "Rabbi Moses ben Nachman (Nachmanides / Ramban) vs Pablo Christiani",
+      "outcome": "Nachmanides successfully argued before King James I of Aragon that Aggadic Midrashim are non-binding homilies, and that the Messiah has not yet come because world peace and end of war have manifestly not arrived."
+    },
+    {
+      "work": "Hizzuk Emunah (Faith Strengthened)",
+      "author": "Isaac ben Abraham of Troki",
+      "date": "1593 CE",
+      "content": "Comprehensive 50-chapter polemic dissecting New Testament contradictions, demonstrating the perpetuity of the Mosaic Law, and analyzing all Christian Christological proof-texts."
+    }
+  ]
+}

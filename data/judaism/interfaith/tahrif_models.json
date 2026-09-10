@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "definition": "Tahrif (تحريف) is the Islamic theological term for the alteration or corruption of prior divine scriptures (Tawrat and Injil).",
+  "scholarly_distinctions": [
+    {
+      "category": "Tahrif al-Ma'na (تحريف المعنى)",
+      "meaning": "Corruption of interpretation and meaning.",
+      "theological_position": "The physical text of the Hebrew Bible remains substantially intact, but Jewish rabbis and interpreters deliberately misinterpreted, distorted, or concealed verses predicting the Prophet Muhammad or altered legal ordinances.",
+      "classical_advocates": [
+        "Muhammad ibn Jarir al-Tabari (Tafsir al-Tabari): emphasized Jews twist meanings with their tongues (Surah Al-Imran 3:78).",
+        "Fakhr al-Din al-Razi (Mafatih al-Ghayb): argued it is practically impossible for an entire nation spread across east and west to conspire together to physically alter every copy of their holy scripture without detection.",
+        "Shah Waliullah al-Dahlawi & Muhammad Abduh: modern reformist advocates of Tahrif al-Ma'na."
+      ]
+    },
+    {
+      "category": "Tahrif al-Nass / Tahrif al-Lafz (تحريف النص / تحريف اللفظ)",
+      "meaning": "Corruption of the physical text itself.",
+      "theological_position": "The original text of the Tawrat was lost or physically rewritten, corrupted, interpolated, and falsified by human scribes.",
+      "classical_advocates": [
+        "Ibn Hazm of Cordoba (Al-Fasl fi al-Milal, 11th c.): claimed Ezra (Uzayr) fabricated the Torah after the Babylonian exile; compiled internal contradictions and numerical discrepancies in Genesis and Samuel.",
+        "Al-Maqrizi & Al-Qurtubi: adopted severe textual alteration positions."
+      ]
+    }
+  ],
+  "jewish_and_academic_response": {
+    "manuscript_evidence": "The Dead Sea Scrolls (c. 250 BCE–68 CE) prove that the Hebrew Bible existed in virtually identical consonantal form hundreds of years before the rise of Islam in the 7th century CE. The Great Isaiah Scroll (1QIsa-a) and Proto-Masoretic fragments demonstrate that no wholesale post-Islamic or late pre-Islamic rewritings occurred.",
+    "distribution_impossibility": "By the 1st century CE, Jewish communities were dispersed across Rome, Alexandria, Babylon, Persia, Greece, and Yemen. A centralized coordinated conspiracy to alter every scroll simultaneously without leaving textual dissent or ancient manuscript traces is historically and logistically impossible."
+  }
+}

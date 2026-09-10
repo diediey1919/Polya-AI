@@ -1,0 +1,52 @@
+{
+  "version": "1.0.0",
+  "thinkers": [
+    {
+      "name": "Philo of Alexandria (c. 20 BCE–50 CE)",
+      "school": "Hellenistic Jewish Platonism",
+      "contribution": "Pioneered allegorical interpretation of the Pentateuch; formulated the concept of the Logos as the divine mind and creative instrument of God."
+    },
+    {
+      "name": "Saadia Gaon (882–942 CE)",
+      "school": "Judeo-Arabic Kalam Rationalism",
+      "work": "Kitab al-Amanat wal-I'tiqadat (Beliefs and Opinions)",
+      "contribution": "Demonstrated that divine revelation and human reason (aql) are mutually harmonious; categorized commandments into rational laws (mitzvot sikhliyyot) and revelatory laws (mitzvot shim'iyyot)."
+    },
+    {
+      "name": "Moses Maimonides (Rambam, 1138–1204 CE)",
+      "school": "Medieval Aristotelian Rationalism",
+      "work": "Moreh Nevukhim (Guide of the Perplexed)",
+      "contribution": "Radical negative theology (Via Negativa: God can only be described by what He is not); uncompromising rejection of anthropomorphism; formulated the Thirteen Principles of Faith (Shloshah Asar Ikkarim)."
+    },
+    {
+      "name": "Hasdai Crescas (c. 1340–1410 CE)",
+      "school": "Anti-Aristotelian Medieval Philosophy",
+      "work": "Or Hashem (Light of the Lord)",
+      "contribution": "Rigorous critique of Aristotelian physics and Maimonidean rationalism; emphasized divine love, joy, and emotional devotion over pure intellect."
+    },
+    {
+      "name": "Baruch Spinoza (1632–1677 CE)",
+      "school": "Early Modern Rationalist Metaphysics",
+      "work": "Tractatus Theologico-Politicus / Ethics",
+      "contribution": "Excommunicated by Amsterdam Portuguese-Jewish community; pioneered modern historical-critical biblical criticism; formulated pantheism/panentheism (Deus sive Natura)."
+    },
+    {
+      "name": "Moses Mendelssohn (1729–1786 CE)",
+      "school": "Haskalah Enlightenment Philosophy",
+      "work": "Jerusalem: Or on Religious Power and Judaism (1783)",
+      "contribution": "Argued Judaism contains no dogmatic coercion of belief; Judaism is 'revealed legislation' rather than 'revealed dogma'; defended state religious toleration and separation of church and state."
+    },
+    {
+      "name": "Martin Buber (1878–1965 CE)",
+      "school": "Dialogical Existentialism",
+      "work": "Ich und Du (I and Thou, 1923)",
+      "contribution": "Distinguished between instrumental objectifying relationships (I-It) and genuine reciprocal encounters (I-Thou); God is the Eternal Thou met in relation with humanity and creation."
+    },
+    {
+      "name": "Franz Rosenzweig (1886–1929 CE)",
+      "school": "Existential Jewish Philosophy",
+      "work": "Der Stern der Erlösung (The Star of Redemption, 1921)",
+      "contribution": "Formulated the relational triad of God, Man, and World linked by Creation, Revelation, and Redemption; viewed Judaism as eternal life within the covenant, while Christianity serves as eternal ray spreading outward to Gentiles."
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JudaismSourceObject",
+  "type": "object",
+  "required": [
+    "source_id",
+    "title",
+    "author",
+    "historical_period",
+    "tradition",
+    "language",
+    "source_type",
+    "primary_or_secondary",
+    "academic_or_religious",
+    "tier",
+    "verification_status",
+    "confidence",
+    "provenance"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "pattern": "^SRC-(JEW|BIB|ACAD|HIST|CRIT|PAT|ISL)-[A-Z0-9_\\-]+$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "editor": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "approximate_date": {
+      "type": "string"
+    },
+    "historical_period": {
+      "type": "string"
+    },
+    "tradition": {
+      "type": "string"
+    },
+    "denomination": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "CANONICAL_SCRIPTURE",
+        "DEAD_SEA_SCROLL",
+        "ANCIENT_INSCRIPTION",
+        "MISHNAH",
+        "TOSEFTA",
+        "TALMUD_BAVLI",
+        "TALMUD_YERUSHALMI",
+        "HALAKHIC_MIDRASH",
+        "AGGADIC_MIDRASH",
+        "RESPONSA",
+        "COMMENTARY",
+        "PHILOSOPHICAL_TREATISE",
+        "KABBALISTIC_TEXT",
+        "DENOMINATIONAL_PLATFORM",
+        "CRITICAL_EDITION",
+        "ACADEMIC_MONOGRAPH",
+        "PEER_REVIEWED_ARTICLE",
+        "POLEMICAL_APOLOGETIC",
+        "HISTORICAL_RECORD"
+      ]
+    },
+    "primary_or_secondary": {
+      "type": "string",
+      "enum": [
+        "PRIMARY",
+        "SECONDARY",
+        "TERTIARY"
+      ]
+    },
+    "academic_or_religious": {
+      "type": "string",
+      "enum": [
+        "RELIGIOUS",
+        "ACADEMIC",
+        "CONFESSIONAL",
+        "SECULAR_HISTORICAL"
+      ]
+    },
+    "tier": {
+      "type": "string",
+      "enum": [
+        "TIER_1_PRIMARY_ANCIENT",
+        "TIER_2_RABBINIC_CANONICAL",
+        "TIER_3_MEDIEVAL_RISHONIM",
+        "TIER_4_MODERN_MOVEMENTS",
+        "TIER_5_ACADEMIC_CRITICAL",
+        "TIER_6_APOLOGETIC_POLEMICAL"
+      ]
+    },
+    "publisher": {
+      "type": "string"
+    },
+    "edition": {
+      "type": "string"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "repository": {
+      "type": "string"
+    },
+    "manuscript_reference": {
+      "type": "string"
+    },
+    "bibliographic_reference": {
+      "type": "string"
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "PARTIALLY_VERIFIED",
+        "UNVERIFIED",
+        "DISPUTED"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "ESTABLISHED",
+        "HIGH",
+        "MODERATE",
+        "LOW",
+        "DISPUTED"
+      ]
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
