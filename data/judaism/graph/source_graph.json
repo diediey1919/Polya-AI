@@ -2575,20 +2575,8 @@
     },
     {
       "source": "NODE-DENOM-KARAITE",
-      "target": "NODE-THEME-TORAH-ORAL",
-      "relationship": "CHALLENGES",
-      "weight": 1.0
-    },
-    {
-      "source": "NODE-DENOM-KARAITE",
       "target": "NODE-THEME-TORAH-WRITTEN",
       "relationship": "SUPPORTS",
-      "weight": 1.0
-    },
-    {
-      "source": "NODE-SAADIA",
-      "target": "NODE-DENOM-KARAITE",
-      "relationship": "CHALLENGES",
       "weight": 1.0
     },
     {
@@ -2810,6 +2798,36 @@
     {
       "source": "NODE-EVID-066",
       "target": "NODE-CONSERVATIVE",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-COMM-NORTH-AFRICAN",
+      "target": "NODE-THEME-MINHAG-DIVERSITY",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-COMM-NORTH-AFRICAN",
+      "target": "NODE-COMM-SEPHARDIC",
+      "relationship": "DERIVES_FROM",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-ORTHODOX",
+      "target": "NODE-THEME-CONVERSION-STANDARDS",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-REFORM",
+      "target": "NODE-THEME-CONVERSION-STANDARDS",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-CONSERVATIVE",
+      "target": "NODE-THEME-CONVERSION-STANDARDS",
       "relationship": "INTERPRETS",
       "weight": 1.0
     }

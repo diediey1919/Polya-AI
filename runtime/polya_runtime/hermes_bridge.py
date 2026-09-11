@@ -142,6 +142,43 @@ class HermesPolyaBridge:
             confidence=confidence
         )
 
+        # 12b. Integrate Judaism Knowledge Base Pipeline when appropriate
+        if q_analysis.primary_tradition in ("JEWISH", "CROSS_RELIGIOUS") or len(active_working_set) == 0:
+            try:
+                from polya_runtime.judaism_access import JudaismKnowledgeAccess
+                j_access = JudaismKnowledgeAccess()
+                j_pipe = j_access.execute_reasoning_pipeline(query)
+                if j_pipe.get("matching_claims") or j_pipe.get("matching_evidence") or j_pipe.get("theological_positions") or j_pipe.get("synthesis"):
+                    j_lines = []
+                    j_lines.append("")
+                    j_lines.append("## 6. JUDAISM KNOWLEDGE BASE FORENSIC ACTIVATION")
+                    j_lines.append(f"- **Tradition Identified:** {j_pipe.get('tradition_identified', 'JEWISH')}")
+                    j_lines.append(f"- **Historical Period:** {j_pipe.get('historical_period', 'GENERAL')}")
+                    if j_pipe.get("synthesis"):
+                        j_lines.append(f"- **Forensic Synthesis:** {j_pipe['synthesis']}")
+                    
+                    if j_pipe.get("matching_claims"):
+                        j_lines.append("### Grounded Claims & Epistemic Classifications")
+                        for mc in j_pipe["matching_claims"][:5]:
+                            j_lines.append(f"- **[{mc['claim_id']}]** ({mc.get('epistemic_type', 'CLAIM')}) - Audit: {mc.get('audit_classification', 'SAFE')}")
+                            j_lines.append(f"  * {mc['claim_text'][:300]}")
+                    
+                    if j_pipe.get("matching_evidence"):
+                        j_lines.append("### Primary & Archaeological Evidence")
+                        for me in j_pipe["matching_evidence"][:4]:
+                            j_lines.append(f"- **[{me['evidence_id']}]** ({me.get('evidence_class', 'EVIDENCE')}): {me['text'][:250]}")
+                    
+                    if j_pipe.get("anti_flattening_safeguards"):
+                        j_lines.append("### Anti-Flattening Guardrails")
+                        for sg in j_pipe["anti_flattening_safeguards"]:
+                            j_lines.append(f"- 🛡️ {sg}")
+
+                    package.markdown_payload += "\n" + "\n".join(j_lines)
+                    package.total_tokens_estimate = max(1, len(package.markdown_payload) // 4)
+                    package.json_payload["judaism_context"] = j_pipe
+            except Exception:
+                pass
+
         # 13. Record Debate Turn
         self.debate.record_turn(
             speaker="USER",

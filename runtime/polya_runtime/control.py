@@ -73,6 +73,25 @@ def cmd_search(args):
         tradition=args.tradition,
         limit=args.limit
     )
+
+    # Check Judaism Knowledge Base
+    if args.tradition == "JEWISH" or (not results and args.tradition != "ISLAMIC" and args.tradition != "CHRISTIAN"):
+        try:
+            from polya_runtime.judaism_access import JudaismKnowledgeAccess
+            j_access = JudaismKnowledgeAccess()
+            j_results = j_access.search_judaism_knowledge(args.query, limit=args.limit)
+            if j_results:
+                print(f"Found {len(j_results)} Judaism Knowledge Base matches for '{args.query}':\n")
+                for i, r in enumerate(j_results, 1):
+                    audit_tag = f" [{r['audit_classification']}]" if "audit_classification" in r else ""
+                    print(f"{i}. [{r['type'].upper()}]{audit_tag} {r['id']} (Score: {r['score']}) - Epistemic: {r.get('epistemic_type', 'N/A')}")
+                    print(f"   Title: {r['title']}")
+                    print(f"   Snippet: {r['snippet'][:160]}...")
+                    print("")
+                return
+        except Exception:
+            pass
+
     print(f"Found {len(results)} matches for '{args.query}':\n")
     for i, r in enumerate(results, 1):
         step_tag = f" [STEP {r.step}]" if r.step else ""
@@ -188,6 +207,25 @@ def cmd_verify(args):
     if not sample_res:
         issues.append("Sample search query for 'Sanaa palimpsest' returned 0 results")
 
+    # Verify Judaism Knowledge Base & Forensic Linter
+    j_status_str = ""
+    try:
+        from polya_runtime.judaism_access import JudaismKnowledgeAccess
+        from polya_runtime.judaism_linter import JudaismKnowledgeLinter
+        j_access = JudaismKnowledgeAccess()
+        j_linter = JudaismKnowledgeLinter()
+        j_lint_rep = j_linter.lint_knowledge_base()
+        if not j_lint_rep["passed"]:
+            issues.append(f"Judaism KB forensic lint failed with {j_lint_rep['error_count']} errors")
+        j_sources = len(j_access.list_sources())
+        j_claims = len(j_access.list_claims())
+        j_evidence = len(j_access._cache["evidence"]["records"])
+        graph_nodes = len(j_access._cache["graph"]["nodes"])
+        graph_edges = len(j_access._cache["graph"]["edges"])
+        j_status_str = f"  - Judaism Knowledge Base: {j_sources} Sources, {j_claims} Claims, {j_evidence} Evidence Records, {graph_nodes} Nodes, {graph_edges} Edges (0 Lint Errors)"
+    except Exception as e:
+        issues.append(f"Judaism KB verification error: {str(e)}")
+
     print("==================================================")
     print(" POLIA KNOWLEDGE RUNTIME INTEGRITY VERIFICATION")
     print("==================================================")
@@ -197,6 +235,8 @@ def cmd_verify(args):
         print(f"  - Specialists: 12 Modules")
         print(f"  - Dependency Map: 166 Nodes, 693 Edges, 0 Cycles")
         print(f"  - FTS5 Database: {db_stats['total_records']} Records Indexed ({round(db_stats['database_size_bytes'] / (1024*1024), 2)} MB)")
+        if j_status_str:
+            print(j_status_str)
     else:
         print("STATUS: ISSUES DETECTED")
         for iss in issues:

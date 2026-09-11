@@ -392,5 +392,174 @@ class TestJudaismKnowledgeBase(unittest.TestCase):
         e66 = self.kb.get_evidence("EVID-JEW-066")
         self.assertIsNotNone(e66)
 
+    # TEST 036: Claim Inventory Structure and Epistemic Classification Integrity
+    def test_036_claim_inventory_epistemic_integrity(self):
+        claims_data = self.kb._cache["claims"]
+        self.assertEqual(claims_data["metrics"]["total_claims"], 76)
+        self.assertEqual(len(claims_data["claims"]), 76)
+        valid_epistemic_types = {
+            "FACT", "ACADEMIC_CONSENSUS", "DENOMINATIONAL_POSITION",
+            "HISTORICAL_REPORT", "TRADITIONAL_POSITION", "INTERPRETATION", "DISPUTED_CLAIM"
+        }
+        for c in claims_data["claims"]:
+            self.assertIn(c["epistemic_type"], valid_epistemic_types, f"Invalid epistemic_type in {c['claim_id']}")
+            self.assertIn(c["audit_classification"], {"SAFE", "NEEDS_NUANCE", "DISPUTED"})
+            self.assertEqual(c["verification_status"], "VERIFIED")
+            self.assertGreater(len(c["topic"]), 3)
+            self.assertGreater(len(c["claim_text"]), 20)
+
+    # TEST 037: Claim Forensic Traceability (Sources, Evidence, Graph)
+    def test_037_claim_forensic_traceability(self):
+        claims_data = self.kb._cache["claims"]["claims"]
+        valid_source_ids = {s["source_id"] for s in self.kb._cache["registry"]["sources"]}
+        valid_evidence_ids = {e["evidence_id"] for e in self.kb._cache["evidence"]["records"]}
+        valid_graph_nodes = {n["id"] for n in self.kb._cache["graph"]["nodes"]}
+
+        for c in claims_data:
+            self.assertGreater(len(c["source_ids"]), 0, f"No sources for claim {c['claim_id']}")
+            for sid in c["source_ids"]:
+                self.assertIn(sid, valid_source_ids, f"Unregistered source {sid} in claim {c['claim_id']}")
+            for eid in c.get("evidence_ids", []):
+                self.assertIn(eid, valid_evidence_ids, f"Unregistered evidence {eid} in claim {c['claim_id']}")
+            for gid in c.get("graph_node_ids", []):
+                self.assertIn(gid, valid_graph_nodes, f"Unregistered graph node {gid} in claim {c['claim_id']}")
+
+    # TEST 038: Automated Forensic Safety Linter Execution
+    def test_038_forensic_safety_linter(self):
+        from polya_runtime.judaism_linter import JudaismKnowledgeLinter
+        linter = JudaismKnowledgeLinter(base_dir=self.kb.base_dir)
+        report = linter.lint_knowledge_base()
+        self.assertTrue(report["passed"])
+        self.assertEqual(report["total_errors"], 0)
+        self.assertEqual(report["claim_issues"], [])
+        self.assertEqual(report["evidence_issues"], [])
+        self.assertEqual(report["graph_issues"], [])
+        self.assertEqual(report["metrics"]["sources_audited"], 73)
+        self.assertEqual(report["metrics"]["claims_audited"], 76)
+        self.assertEqual(report["metrics"]["evidence_audited"], 66)
+        self.assertEqual(report["metrics"]["nodes_audited"], 192)
+        self.assertEqual(report["metrics"]["edges_audited"], 274)
+
+    # TEST 039: Judaism Knowledge Access Query & Retrieval Methods
+    def test_039_judaism_access_methods(self):
+        claim = self.kb.get_claim("CLAIM-JEW-MASHIACH-CRITERIA-001")
+        self.assertIsNotNone(claim)
+        self.assertEqual(claim["topic"], "Messianic Criteria and Eschatology")
+
+        claims_all = self.kb.list_claims()
+        self.assertEqual(len(claims_all), 76)
+        claims_theology = self.kb.list_claims(domain="JUDAISM")
+        self.assertEqual(len(claims_theology), 68)
+
+        search_res = self.kb.search_judaism_knowledge("Pirkei Avot 1:1", limit=3)
+        self.assertGreater(len(search_res), 0)
+        self.assertEqual(search_res[0]["id"], "CLAIM-TRAD-ORAL-TORAH-CHAIN-001")
+
+        search_comm = self.kb.search_judaism_knowledge("Sephardic Jewry", limit=2)
+        self.assertTrue(any("SEPHARDIC" in r["id"] for r in search_comm))
+
+    # TEST 040: Verification of All 20 Retrieval Queries (Section 20)
+    def test_040_retrieval_queries_coverage(self):
+        queries_20 = [
+            "What are the criteria for the Messiah in Maimonides?",
+            "Why does Rabbinic Judaism reject Jesus as the Messiah?",
+            "How do Jewish commentators interpret Isaiah 53?",
+            "What is the meaning of almah in Isaiah 7:14?",
+            "How does the Masoretic Text compare to the Dead Sea Scrolls on Psalm 22:16?",
+            "Did the Council of Jamnia fix the Jewish biblical canon?",
+            "How did prayer replace animal sacrifice after 70 CE?",
+            "What is the basis for the Oral Torah in Rabbinic Judaism?",
+            "How does the Karaite understanding of Torah differ from Rabbinic Judaism?",
+            "What are the theological differences between Reform, Conservative, and Orthodox Judaism?",
+            "How do Hasidism and Mitnagdim differ historically and theologically?",
+            "What was the Ramban's argument at the Disputation of Barcelona?",
+            "How does Judaism understand the concept of tahrif in Islamic theology?",
+            "What is the halakhic status of Ethiopian Jews (Beta Israel)?",
+            "Why do some Orthodox Jews oppose Zionism on religious grounds?",
+            "What are the Three Oaths in Ketubot 111a?",
+            "How did Sephardic and Ashkenazic halakhic authorities differ in the Shulchan Arukh?",
+            "What is the Jewish response to the Christian claim of the virgin birth?",
+            "How does the Talmud view Christianity and Jesus?",
+            "What is the relationship between the Written Torah and the Mishnah?"
+        ]
+        for q in queries_20:
+            res = self.kb.execute_reasoning_pipeline(q)
+            self.assertIsNotNone(res, f"Pipeline returned None for query: {q}")
+            self.assertIn("tradition_identified", res)
+            self.assertIn("synthesis", res)
+            self.assertGreater(len(res["synthesis"]), 50, f"Synthesis too short for query: {q}")
+            self.assertGreater(len(res["sources_retrieved"]), 0, f"No sources retrieved for query: {q}")
+
+    # TEST 041: Verification of All 10 Adversarial Queries (Section 21)
+    def test_041_adversarial_queries_anti_flattening(self):
+        adversarial_10 = [
+            "Judaism is just the Old Testament.",
+            "All Jews believe the Messiah must be God incarnate.",
+            "Jews stopped sacrifices because they realized animal blood cannot atone for sin.",
+            "The Talmud is just human traditions that corrupt the Word of God.",
+            "Messianic Jews are just a denomination of Judaism.",
+            "The Jewish Bible was canonized at Jamnia in 90 CE.",
+            "Isaiah 53 has always been understood by Jews as referring to Jesus.",
+            "Judaism and Zionism are the exact same thing.",
+            "The Masoretic Text is identical in every letter to the original autograph of Moses.",
+            "Karaite Judaism is the original form of Judaism before the rabbis invented the Talmud."
+        ]
+        for q in adversarial_10:
+            res = self.kb.execute_reasoning_pipeline(q)
+            self.assertIsNotNone(res)
+            self.assertGreater(len(res["synthesis"]), 50)
+            has_safeguards = len(res.get("anti_flattening_safeguards", [])) > 0
+            has_sources = len(res.get("sources_retrieved", [])) > 0
+            self.assertTrue(has_safeguards or has_sources, f"No safeguards or sources for adversarial query: {q}")
+
+    # TEST 042: Source Graph Integrity and Zero Orphan Nodes
+    def test_042_source_graph_integrity(self):
+        graph = self.kb._cache["graph"]
+        self.assertEqual(len(graph["nodes"]), 192)
+        self.assertEqual(len(graph["edges"]), 274)
+        node_ids = {n["id"] for n in graph["nodes"]}
+        connected_nodes = set()
+        for e in graph["edges"]:
+            self.assertIn(e["source"], node_ids, f"Invalid source in edge {e}")
+            self.assertIn(e["target"], node_ids, f"Invalid target in edge {e}")
+            connected_nodes.add(e["source"])
+            connected_nodes.add(e["target"])
+        self.assertEqual(len(connected_nodes), 192, "Found orphan nodes disconnected from all edges!")
+
+    # TEST 043: Denominational Comparison Matrix Coverage
+    def test_043_denominational_comparisons(self):
+        topics = ["halakha", "oral_torah", "patrilineal_descent", "zionism"]
+        for t in topics:
+            comp = self.kb.get_denominational_comparison(t)
+            self.assertIn("perspectives", comp)
+            self.assertGreaterEqual(len(comp["perspectives"]), 4, f"Insufficient denominational perspectives for {t}")
+
+    # TEST 044: Triangular Comparisons and Tahrif Integration
+    def test_044_triangular_and_tahrif(self):
+        comp = self.kb.get_triangular_comparison("messiah")
+        self.assertIsNotNone(comp)
+        self.assertIn("judaism", comp)
+        self.assertIn("christianity", comp)
+        self.assertIn("islam", comp)
+
+        tahrif = self.kb._cache["tahrif"]
+        self.assertIn("scholarly_distinctions", tahrif)
+        cats = [d["category"] for d in tahrif["scholarly_distinctions"]]
+        self.assertTrue(any("Ma'na" in c for c in cats))
+        self.assertTrue(any("Nass" in c for c in cats))
+
+    # TEST 045: Production Runtime Verification Integration
+    def test_045_production_runtime_integration(self):
+        import subprocess
+        cli_path = "/home/ubuntu/Polya-AI/runtime/bin/polya-cli"
+        res_ver = subprocess.run([cli_path, "verify"], capture_output=True, text=True)
+        self.assertEqual(res_ver.returncode, 0)
+        self.assertIn("STATUS: ALL INTEGRITY CHECKS PASSED", res_ver.stdout)
+        self.assertIn("Judaism Knowledge Base: 73 Sources, 76 Claims, 66 Evidence Records, 192 Nodes, 274 Edges (0 Lint Errors)", res_ver.stdout)
+
+        res_search = subprocess.run([cli_path, "search", "Maimonides messiah", "--tradition", "JEWISH"], capture_output=True, text=True)
+        self.assertEqual(res_search.returncode, 0)
+        self.assertIn("CLAIM-JEW-MASHIACH-CRITERIA-001", res_search.stdout)
+
 if __name__ == "__main__":
     unittest.main()

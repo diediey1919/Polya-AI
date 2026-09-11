@@ -41,6 +41,13 @@ KNOWN_ENTITIES = {
     "BIBLE_INERRANCY": ["biblical inerrancy", "corruption", "textual criticism", "scribal errors"],
     "JOSEPHUS": ["josephus", "testimonium flavianum", "antiquities"],
     "TACITUS": ["tacitus", "annals", "pontius pilate"],
+    "MAIMONIDES": ["maimonides", "rambam", "mishneh torah", "hilkhot melakhim"],
+    "MASHIACH": ["mashiach", "messiah criteria", "messianic criteria", "beit david", "davidic descent", "davidic lineage"],
+    "TALMUD": ["talmud", "bavli", "yerushalmi", "mishnah", "gemara", "pirkei avot"],
+    "KARAITE": ["karaite", "karaites", "anan ben david"],
+    "HASIDISM": ["hasidism", "hasidic", "baal shem tov", "chabad", "mitnagdim"],
+    "BARCELONA_DISPUTATION": ["barcelona", "ramban", "nahmanides", "pablo christiani"],
+    "BETA_ISRAEL": ["beta israel", "haymanot", "orit", "kessim"],
 }
 
 class QueryAnalyzer:
@@ -72,7 +79,13 @@ class QueryAnalyzer:
         # 5. Tradition detection
         islamic_weight = sum(1 for w in ["qur'an", "quran", "hadith", "sunnah", "islam", "muslim", "allah", "uthman", "sanaa", "tawhid", "shubbiha"] if w in q_lower)
         christian_weight = sum(1 for w in ["jesus", "christ", "gospel", "trinity", "paul", "bible", "incarnation", "atonement", "resurrection", "nicaea"] if w in q_lower)
-        jewish_weight = sum(1 for w in ["torah", "tanakh", "talmud", "qumran", "dead sea scrolls", "rabbi", "yahweh", "mosaic"] if w in q_lower)
+        jewish_weight = sum(1 for w in [
+            "torah", "tanakh", "talmud", "qumran", "dead sea scrolls", "rabbi", "yahweh", "mosaic",
+            "judaism", "jewish", "maimonides", "rambam", "mishnah", "halakha", "karaite", "hasidic",
+            "hasidism", "mitnagdim", "almah", "mashiach", "mitzvot", "beit david", "ramban",
+            "barcelona", "sefirot", "kabbalah", "beta israel", "sephardic", "ashkenazi", "ashkenazic",
+            "shulchan", "jamnia"
+        ] if w in q_lower)
 
         if islamic_weight > christian_weight and islamic_weight > jewish_weight:
             tradition = "ISLAMIC"
@@ -80,7 +93,7 @@ class QueryAnalyzer:
             tradition = "CHRISTIAN"
         elif jewish_weight > islamic_weight and jewish_weight > christian_weight:
             tradition = "JEWISH"
-        elif (islamic_weight > 0 and christian_weight > 0) or (christian_weight > 0 and jewish_weight > 0):
+        elif (islamic_weight > 0 and christian_weight > 0) or (christian_weight > 0 and jewish_weight > 0) or (islamic_weight > 0 and jewish_weight > 0):
             tradition = "CROSS_RELIGIOUS"
         else:
             tradition = "GENERAL"
