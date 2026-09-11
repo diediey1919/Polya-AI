@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "topics": [
     {
       "topic": "Messiah / Mashiach",
@@ -155,6 +155,293 @@
       "canonical_target_files": [
         "core/theology.json",
         "interfaith/triangular_comparisons.json"
+      ]
+    },
+    {
+      "topic": "Jewish Denominational Diversity & Internal Pluralism",
+      "keywords": [
+        "denominations",
+        "movements",
+        "orthodox",
+        "reform",
+        "conservative",
+        "masorti",
+        "reconstructionist",
+        "hasidic",
+        "karaite",
+        "renewal",
+        "humanistic",
+        "secular",
+        "pluralism",
+        "halakhic divergence",
+        "patrilineal descent",
+        "conversion"
+      ],
+      "hebrew_terms": [
+        "זרמים ביהדות",
+        "אורתודוקסיה",
+        "יהדות רפורמית",
+        "יהדות קונסרבטיבית",
+        "חסידות",
+        "קראות",
+        "פלורליזם"
+      ],
+      "arabic_terms": [
+        "الطوائف اليهودية",
+        "التيارات اليهودية",
+        "الأرثوذكسية",
+        "الإصلاحية",
+        "المحافظة"
+      ],
+      "canonical_target_files": [
+        "intellectual/denominations.json",
+        "taxonomy/master_judaism_taxonomy.json",
+        "graph/evidence_bank.json"
+      ]
+    },
+    {
+      "topic": "Karaite Judaism and Anti-Rabbanite Scripturalism",
+      "keywords": [
+        "karaite",
+        "karaites",
+        "qaraim",
+        "anan ben david",
+        "qirqisani",
+        "aaron ben elijah",
+        "yefet ben ali",
+        "sefer gan eden",
+        "kitab al-anwar",
+        "rejection of oral torah",
+        "scripturalism",
+        "kashrut biblical",
+        "calendar observation"
+      ],
+      "hebrew_terms": [
+        "יהדות קראית",
+        "קראים",
+        "בני מקרא",
+        "ענן בן דוד",
+        "ספר גן עדן",
+        "תורה שבכתב בלבד"
+      ],
+      "arabic_terms": [
+        "اليهودية القرائية",
+        "القراؤون",
+        "عنان بن داود",
+        "القرقساني",
+        "إنكار التوراة الشفوية"
+      ],
+      "canonical_target_files": [
+        "intellectual/denominations.json",
+        "graph/evidence_bank.json",
+        "registry/source_registry.json"
+      ]
+    },
+    {
+      "topic": "Hasidism, Mysticism, and Pietism",
+      "keywords": [
+        "hasidism",
+        "hasidic",
+        "chassidus",
+        "baal shem tov",
+        "besht",
+        "nachman of breslov",
+        "chabad",
+        "shneur zalman",
+        "tanya",
+        "tzaddik",
+        "devekut",
+        "hitbodedut",
+        "joy in worship",
+        "misnagdim",
+        "vilna gaon"
+      ],
+      "hebrew_terms": [
+        "חסידות",
+        "חסידים",
+        "בעל שם טוב",
+        "רבי נחמן מברסלב",
+        "חב\"ד",
+        "דבקות",
+        "צדיק",
+        "התבודדות"
+      ],
+      "arabic_terms": [
+        "الحسيدية",
+        "التصوف اليهودي",
+        "بعل شيم طوف",
+        "الديفكوت"
+      ],
+      "canonical_target_files": [
+        "intellectual/denominations.json",
+        "graph/evidence_bank.json",
+        "core/theology.json"
+      ]
+    },
+    {
+      "topic": "Sephardic, Mizrahi, and Yemenite Halakhic Traditions",
+      "keywords": [
+        "sephardic",
+        "sephardi",
+        "mizrahi",
+        "yemenite",
+        "temani",
+        "baladi",
+        "shami",
+        "dardaim",
+        "ben ish hai",
+        "yosef hayyim",
+        "ovadia yosef",
+        "chida",
+        "shulchan aruch",
+        "maran",
+        "yabia omer",
+        "ladino",
+        "judeo-arabic",
+        "koach de-heteira"
+      ],
+      "hebrew_terms": [
+        "ספרדים",
+        "מזרחים",
+        "יהדות תימן",
+        "בן איש חי",
+        "עובדיה יוסף",
+        "החיד\"א",
+        "מנהג ספרד",
+        "כח דהיתירא עדיף"
+      ],
+      "arabic_terms": [
+        "السفارديم",
+        "المزراحيم",
+        "يهود اليمن",
+        "عوفاديا يوسف",
+        "بن إيش حاي"
+      ],
+      "canonical_target_files": [
+        "intellectual/geographic_diversity.json",
+        "intellectual/denominations.json",
+        "graph/evidence_bank.json"
+      ]
+    },
+    {
+      "topic": "Beta Israel (Ethiopian Judaism) and Haymanot Tradition",
+      "keywords": [
+        "beta israel",
+        "ethiopian jews",
+        "falasha",
+        "haymanot",
+        "orit",
+        "kessim",
+        "kahen",
+        "seged",
+        "sanbat",
+        "shabbat",
+        "ge ez",
+        "amharic",
+        "tigrinya",
+        "operation moses",
+        "operation solomon",
+        "radbaz",
+        "ovadia yosef ruling"
+      ],
+      "hebrew_terms": [
+        "ביתא ישראל",
+        "יהדות אתיופיה",
+        "היימנות",
+        "אורית",
+        "קסים",
+        "חג הסיגד",
+        "הרדב\"ז"
+      ],
+      "arabic_terms": [
+        "بيتا إسرائيل",
+        "يهود إثيوبيا",
+        "الهيمانوت",
+        "الأوريت",
+        "عيد السجد"
+      ],
+      "canonical_target_files": [
+        "intellectual/geographic_diversity.json",
+        "intellectual/denominations.json",
+        "graph/evidence_bank.json"
+      ]
+    },
+    {
+      "topic": "Modern Progressive and Non-Orthodox Movements",
+      "keywords": [
+        "reform judaism",
+        "conservative judaism",
+        "masorti",
+        "reconstructionist",
+        "jewish renewal",
+        "humanistic judaism",
+        "mordecai kaplan",
+        "zalman schachter-shalomi",
+        "sherwin wine",
+        "zacharias frankel",
+        "pittsburgh platform",
+        "columbus platform",
+        "patrilineal descent",
+        "autonomous halakha",
+        "evolving civilization"
+      ],
+      "hebrew_terms": [
+        "יהדות רפורמית",
+        "יהדות קונסרבטיבית",
+        "יהדות מסורתית",
+        "יהדות רקונסטרוקטיבית",
+        "התחדשות יהודית",
+        "יהדות חילונית-הומניסטית",
+        "אוטונומיה אישית"
+      ],
+      "arabic_terms": [
+        "اليهودية الإصلاحية",
+        "اليهودية المحافظة",
+        "اليهودية التجديدية",
+        "اليهودية الإنسانية"
+      ],
+      "canonical_target_files": [
+        "intellectual/denominations.json",
+        "graph/evidence_bank.json",
+        "core/halakha_mitzvot.json"
+      ]
+    },
+    {
+      "topic": "Messianic Judaism vs Normative Judaism (Legal and Theological Status)",
+      "keywords": [
+        "messianic judaism",
+        "messianic jews",
+        "jews for jesus",
+        "yeshua",
+        "rufeisen",
+        "brother daniel",
+        "beresford",
+        "law of return",
+        "apostasy",
+        "meshummad",
+        "christian evangelicalism",
+        "syncretism",
+        "unanimous rabbinic rejection"
+      ],
+      "hebrew_terms": [
+        "יהודים משיחיים",
+        "יהדות משיחית",
+        "ישו",
+        "משומד",
+        "חוק השבות",
+        "פסק דין רופאייזן",
+        "פסק דין ברספורד"
+      ],
+      "arabic_terms": [
+        "اليهودية المسكونية",
+        "اليهود المسيانيون",
+        "المتنصرون",
+        "قانون العودة"
+      ],
+      "canonical_target_files": [
+        "intellectual/denominations.json",
+        "interfaith/judaism_and_jesus.json",
+        "graph/evidence_bank.json"
       ]
     }
   ]

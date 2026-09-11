@@ -1,60 +1,1272 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "governance": {
+    "framework": "Polia AI Knowledge Base Architecture",
+    "phase": "9E - Denominational & Internal Diversity Expansion",
+    "effective_date": "2026-09-11",
+    "anti_flattening_policy": "STRICT_PROHIBITION_OF_THEOLOGICAL_AND_LEGAL_FLATTENING"
+  },
+  "anti_flattening_rules": {
+    "core_invariants": [
+      "Never present any single Jewish movement as representing all of Judaism.",
+      "Never equate Jewish identity with religious observance.",
+      "Never equate Judaism with the State of Israel or Zionism.",
+      "Never equate Israeli citizenship with Jewish religious/ethnic identity.",
+      "Never classify Messianic Judaism as normative rabbinic Judaism; preserve distinct self-description vs unanimous mainstream Jewish rejection.",
+      "Never reduce Karaite Judaism to 'Judaism without Talmud'; represent its positive scriptural-legal system.",
+      "Never describe Beta Israel merely as 'Rabbinic Judaism in Ethiopia'; represent Haymanot, the Orit, Kessim, and historical isolation.",
+      "Never collapse Sephardic, Mizrahi, North African, Iraqi, Persian, and Yemenite traditions into a single monolith."
+    ],
+    "preferred_formulations": [
+      "Rabbinic Jewish tradition generally...",
+      "Orthodox Judaism holds that...",
+      "Reform Judaism teaches that...",
+      "Conservative / Masorti halakha emphasizes...",
+      "In Karaite tradition...",
+      "According to Hasidic thought...",
+      "Beta Israel Haymanot tradition observes...",
+      "Some Jewish authorities argue, while others contend...",
+      "Historically, this issue was disputed between..."
+    ],
+    "prohibited_formulations": [
+      "Judaism teaches that...",
+      "All Jews believe...",
+      "The Jewish view on Halakha is...",
+      "Jews reject...",
+      "The Jewish position on the Messiah is universally..."
+    ]
+  },
   "movements": [
     {
       "id": "DENOM-ORTHODOX-HAREDI",
+      "canonical_name": "Haredi Judaism",
+      "alternate_names": [
+        "Ultra-Orthodox Judaism",
+        "Strict Traditionalist Judaism",
+        "Torah Judaism"
+      ],
+      "classification": "TRADITIONALIST_RABBINIC",
       "movement": "Haredi ('Ultra-Orthodox') Judaism",
+      "historical_origin": "19th-century Eastern and Central European reaction against the Haskalah (Enlightenment), secularization, and religious reform movements, championed by the Chatam Sofer ('Chadash Asur Min Ha-Torah' - the new is forbidden by the Torah).",
+      "geographic_origin": "Hungary, Galicia, Lithuania, Poland; contemporary major centers in Israel (Bnei Brak, Jerusalem) and USA (Lakewood, Brooklyn, Monsey).",
+      "historical_period": "HASKALAH_TO_CONTEMPORARY",
+      "demographic_context": "Fastest-growing Jewish demographic globally due to high birth rates, comprising ~12-13% of Israel's population and major diaspora communities.",
+      "theological_orientation": "Strict dogma of Torah Mi-Sinai (literal divine revelation of Written and Oral Torah at Sinai), absolute immutability of Halakha, and reverence for Da'at Torah (guidance of senior Torah sages).",
+      "view_of_God": "Radical monotheistic, transcendent Creator of the universe who revealed Himself at Sinai and directs history through divine providence (Hashgachah Pratit).",
+      "god_concept": "Transcendent personal God who commanded the 613 mitzvot and directly supervises human action.",
+      "view_of_Torah": "Literal divine revelation; every letter and crown is of infinite sanctity and immutable.",
+      "view_of_Tanakh": "Sanctified canon; Prophets and Writings are divine inspiration subservient to the eternal Mosaic Torah.",
+      "view_of_Oral_Torah": "Co-revealed with Written Torah at Sinai; codified by Tannaim and Amoraim; completely binding across all generations.",
+      "view_of_Talmud": "Supreme intellectual and spiritual authority; Talmudic Gemara study is the highest spiritual activity for men (Torato Umanuto).",
       "halakhic_position": "Strict immutability of Halakha across all details; literal divine revelation of Written and Oral Torah at Sinai.",
+      "halakhic_orientation": "Maximum stringency (machmir), preservation of ancestral customs (minhag avoteinu), rejection of leniencies introduced to accommodate modernity.",
+      "halakhic_authority": "Shulchan Aruch with classical nosei kelim (Magen Avraham, Taz, Shach); Mishnah Berurah (Rabbi Yisrael Meir Kagan); contemporary Moetzes Gedolei HaTorah.",
+      "authority_structure": "Hierarchical deference to Gedolei HaTorah (Roshei Yeshiva and Rebbes); Da'at Torah operates as binding spiritual and communal guidance.",
+      "rabbinic_authority": "Absolute within the community across communal, political, and personal decisions.",
+      "scripture_textual_authorities": [
+        "Tanakh with Mikraot Gedolot (Rashi, Ramban, Ibn Ezra)",
+        "Babylonian Talmud with Tosafot",
+        "Rambam Mishneh Torah",
+        "Tur and Shulchan Aruch",
+        "Mishnah Berurah"
+      ],
+      "source_authority": "Continuous unbroken rabbinic masorah from Sinai through Tannaim, Amoraim, Geonim, Rishonim, and Acharonim.",
+      "liturgy": "Nusach Ashkenaz (Lithuanian/Yeshivish) or Nusach Sefard (Hasidic); strict adherence to traditional Hebrew prayer texts without modification.",
+      "synagogue_prayer_practice": "Three daily communal prayer services with minyan; strict separation of sexes via opaque physical barrier (mechitza); men wear tallit and tefillin.",
+      "shabbat": "Meticulous observance of 39 melakhot and rabbinic fences; strict prohibition on electricity, electronics, driving, carrying outside eruv, or handling muktzeh.",
+      "kashrut": "Strict Glatt kosher standards; Mehadrin supervision (e.g. Badatz Eda HaCharedit, OU-Glatt, Rabbi Rubin); Chalav Yisrael (supervised milk); Pas Yisrael; strict separation of meat and dairy.",
+      "conversion": "Rigorous halakhic conversion through traditional Beit Din requiring full acceptance of all 613 mitzvot (Kabbalat Ol Mitzvot), circumcision/hatafat dam brit, and immersion in a kosher mikveh; rejection of non-Orthodox conversions.",
+      "marriage": "Kiddushin and Nisuin under Chuppah according to Shulchan Aruch; Ketubah; matchmaker (shidduch) system; strict modesty (tzniut); Yichud restrictions.",
+      "divorce": "Exclusive validity of religious Get (bill of divorce) written by a certified scribe under an Orthodox Beit Din; civil divorce holds no halakhic standing.",
+      "lifecycle": "Brit Milah on 8th day; Pidyon HaBen; Upsherin (first haircut at age 3); Bar Mitzvah at 13; Taharah, Shiva, Shloshim, Kaddish Yatom for mourning.",
+      "circumcision": "Mandatory Brit Milah performed strictly by certified Orthodox mohel on the eighth day, including traditional milah, periah, and metzitzah.",
+      "festivals": "Strict observance of all biblical and rabbinic holidays with an extra diaspora day (Yom Tov Sheni shel Galuyot); intensive preparation (e.g., complete Passover chametz removal and burning).",
+      "messianic_theology": "Awaits literal personal human King Messiah from Davidic line.",
+      "messiah_position": "Awaits literal personal human King Messiah from Davidic line who will rebuild the Temple, gather exiles, and restore sacrificial service.",
+      "afterlife_eschatology": "Dogmatic affirmation of physical resurrection of the dead (Techiyat HaMetim), spiritual afterlife in Olam HaBa, Gehinnom purification, and divine judgment.",
+      "modernity": "Ideological segregation; rejection of secular cultural values, unvetted internet, secular academia, and consumerist lifestyles.",
       "view_of_modernity": "Cultural insulation, rejection of secular values, prioritization of full-time Yeshiva study (Torato Umanuto).",
+      "gender_leadership": "Strictly patriarchal communal, legal, and liturgical leadership; women exempted from positive time-bound commandments; public modesty (tzniut); separate education (Yeshivot for boys, Bais Yaakov for girls).",
+      "relationship_to_israel": "The Land of Israel (Eretz Yisrael) is holy; however, the secular State of Israel is viewed with theological skepticism, ranging from pragmatic non-Zionism (Agudath Israel, voting for funding) to theological anti-Zionism (Edah HaCharedit, Neturei Karta).",
+      "relationship_to_zionism": "Rejection of secular political Zionism as a false attempt to force redemption (Three Oaths, Ketubot 111a); theological distinction between the holy Land of Israel and the secular state.",
+      "attitude_to_israel": "Theological skepticism toward the secular state; engagement limited to pragmatic coalition politics to protect Yeshiva funding and draft exemptions (non-Zionism).",
+      "relationship_to_other_jewish_movements": "Does not recognize Conservative, Reform, Reconstructionist, or secular movements as legitimate expressions of Judaism; views them as deviation from Torah, while treating non-observant Jews as Tinok Shenishba (infant raised without knowledge).",
+      "relationship_to_non_jewish_religions": "Rejects Christianity as Avodah Zarah (or Shituf); respects Islamic monotheism while rejecting Muhammad's prophecy; strict avoidance of interfaith theological dialogue.",
+      "internal_diversity": "Divided into Hasidic dynasties (Chabad, Satmar, Ger, Belz) and Lithuanian / Yeshivish (Mitnagdim, non-Hasidic analytical academies), as well as Sephardic Haredi (Shas movement under Rav Ovadia Yosef's legacy).",
       "sub_branches": [
+        "Hasidim (reverence for dynamic Rebbe dynasties, mystical piety, Nusach Sefard)",
+        "Lithuanian / Yeshivish (Misnagdim: rigorous analytical Brisker Talmudic study, primacy of Roshei Yeshiva)",
+        "Sephardic Haredim (Shas: allegiance to Maran Joseph Karo and legacy of Rabbi Ovadia Yosef)"
+      ],
+      "features": [
         "Hasidim (reverence for dynamic Rebbe dynasties)",
         "Lithuanian / Yeshivish (Misnagdim: rigorous analytical Talmudic study)"
       ],
-      "messiah_position": "Awaits literal personal human King Messiah from Davidic line."
+      "major_figures": [
+        "Chatam Sofer (Moses Schreiber)",
+        "Chafetz Chaim (Yisrael Meir Kagan)",
+        "Hazon Ish (Avraham Yeshaya Karelitz)",
+        "Rabbi Elazar Menachem Shach",
+        "Rabbi Yosef Shalom Elyashiv",
+        "Rabbi Chaim Kanievsky"
+      ],
+      "primary_sources": [
+        "Mishnah Berurah",
+        "Chayei Adam",
+        "Igrot Moshe",
+        "Chazon Ish"
+      ],
+      "academic_sources": [
+        "SRC-ACAD-COHEN-001",
+        "SRC-ACAD-HAYES-001"
+      ],
+      "source_ids": [
+        "SRC-JEW-SHULCHAN-ARUCH-001",
+        "SRC-JEW-FEINSTEIN-IGROT-001",
+        "SRC-ACAD-COHEN-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-007",
+        "EVID-JEW-019",
+        "EVID-JEW-051"
+      ],
+      "graph_node_ids": [
+        "NODE-DENOM-HAREDI",
+        "NODE-TEXT-SHULCHAN-ARUCH"
+      ],
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "methodology": "Sociological and halakhic documentary analysis of contemporary Haredi literature and Rabbinic decrees",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "disputed_or_contested_points": [
+        "Compulsory military service (IDF draft) for Yeshiva students in Israel",
+        "Integration of secular core curriculum (math, science, English) in state-funded Haredi schools",
+        "Da'at Torah scope over civil and political matters"
+      ]
+    },
+    {
+      "id": "DENOM-HASIDIC",
+      "canonical_name": "Hasidic Judaism",
+      "alternate_names": [
+        "Hasidism",
+        "Hasidut",
+        "Chassidism"
+      ],
+      "classification": "MYSTICAL_TRADITIONALIST_RABBINIC",
+      "movement": "Hasidic Judaism (Hasidut)",
+      "historical_origin": "Founded in 18th-century Eastern Europe (Podolia, Western Ukraine) by Rabbi Israel ben Eliezer (the Baal Shem Tov / Besht, c. 1698–1760) as a mystical revivalist movement following the Chmielnicki massacres and Sabbatean trauma.",
+      "geographic_origin": "Podolia, Galicia, Poland, Ukraine, Belarus, Hungary, Romania; contemporary global centers in Brooklyn (Crown Heights, Williamsburg, Boro Park), Monsey, Kiryas Joel, Lakewood, Jerusalem, and Bnei Brak.",
+      "historical_period": "EARLY_MODERN_TO_CONTEMPORARY",
+      "demographic_context": "Significant and growing sub-community of Haredi Judaism characterized by distinct dress (bekishe, shtreimel), Yiddish vernacular, and loyalty to hereditary dynastic courts.",
+      "theological_orientation": "Panentheistic divine immanence ('Leit Atar Panir Minei' - there is no place devoid of Him), joy in divine service (Simcha), cleaving to God (Devekut), passionate prayer (Hitlahavut), redemption of fallen holy sparks (Nitzotzot), and the Tzaddik as the spiritual conduit connecting heaven and earth.",
+      "view_of_God": "God permeates all reality; the material universe is a garment concealing the divine light that must be uncovered and elevated through intentional holy deeds.",
+      "god_concept": "Immanent and transcendent divine essence; panentheism balanced by strict adherence to halakhic boundaries.",
+      "view_of_Torah": "Possesses an inner soul (P'nimiyut HaTorah); every narrative and commandment contains profound Kabbalistic secrets and spiritual psychology applicable to the individual soul.",
+      "view_of_Tanakh": "Sanctified divine word illuminated by Kabbalistic and Hasidic homiletics (derashot).",
+      "view_of_Oral_Torah": "Eternal and divine; lived dynamically through continuous communion with the Tzaddik and ancestral rebbes.",
+      "view_of_Talmud": "Authoritative legal foundation; studied intensively alongside mystical and Hasidic homiletical works.",
+      "halakhic_position": "Strict immutability of Halakha across all details; literal divine revelation of Written and Oral Torah at Sinai, practiced with extra stringencies, Lurianic mystical kavanot, and mikveh immersion.",
+      "halakhic_orientation": "Strict adherence to Shulchan Aruch and Shulchan Aruch Ha-Rav, prioritizing extra stringencies in ritual slaughter (shechita), tefillin (wearing Rashi and Rabbeinu Tam pairs), and Passover stringencies.",
+      "halakhic_authority": "The Shulchan Aruch, complemented by dynastic authorities (e.g. Shulchan Aruch Ha-Rav for Chabad, Minchat Elazar for Munkacs, Divrei Chaim for Sanz), guided by the ruling Rebbe.",
+      "authority_structure": "The Tzaddik or Rebbe is the supreme spiritual, pastoral, and communal authority; dynastic succession is typically hereditary.",
+      "rabbinic_authority": "The Rebbe's advice (yechidus / kvitlach) encompasses both spiritual rectification and mundane life decisions (marriage, health, business).",
+      "scripture_textual_authorities": [
+        "Tanakh",
+        "Zohar and Kitvei Ha-Ari",
+        "Tanya (Likkutei Amarim)",
+        "Noam Elimelekh",
+        "Kedushat Levi",
+        "Likkutei Moharan",
+        "Sefat Emet"
+      ],
+      "source_authority": "Unbroken chain from Moses through the Sages, the Ari zal, the Baal Shem Tov, and the dynastic Rebbes.",
+      "liturgy": "Nusach Sefard (blending Ashkenazi verbal texts with Lurianic Kabbalistic arrangement and wording) or Nusach Ari (Chabad); marked by niggunim (wordless melodies), clapping, and spiritual enthusiasm.",
+      "synagogue_prayer_practice": "Prayer in a shtiebel or dynastic Beit Midrash; communal singing of niggunim; pre-prayer immersion in the mikveh; fervent swaying (shuklen).",
+      "shabbat": "The pinnacle of spiritual joy; celebrated with communal tisch (Rebbe's holy table), singing of zemiros, sharing of shirayim (food distributed by the Rebbe), and deep mystical camaraderie.",
+      "kashrut": "Ultra-strict kosher supervision; special Hasidic shechita using exceptionally smooth, razor-sharp knives checked by Hasidic slaughterers; strict Glatt and Chalav Yisrael.",
+      "conversion": "Rigorous Orthodox conversion; acceptance of 613 mitzvot; immersion in mikveh; strict vetting by recognized Orthodox Beit Din.",
+      "marriage": "Arranged shidduch through community matchmakers; early marriage; strict separation of sexes; lavish Mitzvah Tantz dancing before the bride at wedding.",
+      "divorce": "Religious Get through Orthodox Beit Din exclusively.",
+      "lifecycle": "Upsherin at age 3; Bar Mitzvah; adherence to Hasidic dress codes at maturity; annual pilgrimages to ancestral graves (ohel / yahrzeit).",
+      "circumcision": "Brit Milah performed strictly by Hasidic mohel with traditional pious intentions.",
+      "festivals": "Intense joy on Simchat Torah (ecstatic dancing), Purim (feasting with the Rebbe), and Lag BaOmer (pilgrimage to Meron); solemn devotion on High Holidays.",
+      "messianic_theology": "Awaits literal personal Davidic Messiah; redemption is hastened through spreading the inner wellsprings of Hasidism outward ('Yafutzu Ma'aynoteikha Chutzah').",
+      "messiah_position": "Intense messianic anticipation; Chabad experienced significant controversy regarding the messianic status of the Lubavitcher Rebbe (Rabbi Menachem Mendel Schneerson).",
+      "afterlife_eschatology": "Belief in resurrection (Techiyat HaMetim), Gilgul Neshamot (reincarnation of souls for rectification), Gan Eden, and elevating sparks.",
+      "modernity": "Deep suspicion of modern secular culture, fashion, media, and academia; cultural preservation through distinctive dress, Yiddish language, and self-contained enclaves.",
+      "view_of_modernity": "Resolute insulation from secular values, while actively utilizing technology when sanctified for outreach (Chabad Mitzvah campaigns).",
+      "gender_leadership": "Patriarchal leadership; women honored as the pillars of the home (Akeret HaBayit); strict modesty (sheitel/snood, long sleeves/skirts); separate Hasidic schools.",
+      "relationship_to_israel": "Profound love for the Holy Land (Eretz Yisrael); political stances toward the State of Israel range from passionate Chabad territorial integrity (Shleimut HaAretz) to fierce Satmar anti-Zionism (Va-Yoel Moshe).",
+      "relationship_to_zionism": "Diverse internal positions: Satmar opposes Zionism as heretical rebellion against divine decree; Ger and Belz participate pragmatically in Israeli government (Agudath Israel); Chabad supports Israeli security but avoids secular political endorsements.",
+      "attitude_to_israel": "Reverence for the land; theological divergence regarding the secular state and the timing of redemption.",
+      "relationship_to_other_jewish_movements": "Historically condemned non-Orthodox movements; Chabad pioneered unprecedented global outreach (Kiruv) to all Jews regardless of observance, while remaining strictly Orthodox in halakha.",
+      "relationship_to_non_jewish_religions": "Rejects Christianity and idolatry; promotes the Seven Noahide Laws for all non-Jews (especially Chabad global Noahide outreach).",
+      "internal_diversity": "Highly diverse dynastic landscape: Chabad-Lubavitch (intellectual outreach), Satmar (anti-Zionist Hungarian insularity), Breslov (personal prayer and joyful longing without a living Rebbe), Ger (Polish asceticism), Belz, Bobov, Vizhnitz.",
+      "sub_branches": [
+        "Chabad-Lubavitch (intellectual synthesis of Chokhmah-Binah-Da'at, global outreach)",
+        "Satmar (Hungarian insularity, Hungarian stringencies, theological anti-Zionism)",
+        "Breslov (teachings of Rebbe Nachman, hitbodedut personal meditation, no living Rebbe)",
+        "Ger / Gur (Polish heritage, asceticism, large presence in Israel)",
+        "Galician / Hungarian courts (Belz, Bobov, Vizhnitz, Sanz, Klausenburg)"
+      ],
+      "major_figures": [
+        "Israel Baal Shem Tov (Besht)",
+        "Dov Ber of Mezritch (The Maggid)",
+        "Shneur Zalman of Liadi (Alter Rebbe)",
+        "Nachman of Breslov",
+        "Elimelekh of Lizhensk",
+        "Levi Yitzchok of Berditchev",
+        "Joel Teitelbaum (Satmar Rebbe)",
+        "Menachem Mendel Schneerson (Lubavitcher Rebbe)"
+      ],
+      "primary_sources": [
+        "SRC-JEW-HASID-TANYA-001",
+        "SRC-JEW-HASID-BESHT-001",
+        "SRC-JEW-HASID-NACHMAN-001"
+      ],
+      "academic_sources": [
+        "SRC-ACAD-IDEL-001",
+        "SRC-ACAD-SCHOLEM-001"
+      ],
+      "source_ids": [
+        "SRC-JEW-HASID-TANYA-001",
+        "SRC-JEW-HASID-BESHT-001",
+        "SRC-JEW-HASID-NACHMAN-001",
+        "SRC-ACAD-IDEL-001",
+        "SRC-ACAD-SCHOLEM-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-049",
+        "EVID-JEW-050",
+        "EVID-JEW-051"
+      ],
+      "graph_node_ids": [
+        "NODE-DENOM-HASIDIC",
+        "NODE-TEXT-TANYA",
+        "NODE-AUTH-BESHT",
+        "NODE-THEME-DEVEKUT",
+        "NODE-THEME-TZADDIK"
+      ],
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "methodology": "Historical, mystical, and ethnographical research on Hasidic texts and living dynasties",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "disputed_or_contested_points": [
+        "Post-1994 Chabad messianism controversies (the belief by some adherents that the late Rebbe is the Messiah)",
+        "The theological legitimacy of the secular State of Israel between Satmar and pro-settlement Hasidim",
+        "Rebbe-centric intercession vs direct individual prayer"
+      ]
     },
     {
       "id": "DENOM-ORTHODOX-MODERN",
+      "canonical_name": "Modern Orthodox Judaism",
+      "alternate_names": [
+        "Centrist Orthodoxy",
+        "Neo-Orthodoxy",
+        "Torah U'Madda Orthodoxy",
+        "Dati Leumi (National Religious in Israel)"
+      ],
+      "classification": "INTEGRATIONIST_RABBINIC",
       "movement": "Modern Orthodox Judaism (Centrist Orthodoxy)",
+      "historical_origin": "Rooted in 19th-century German Neo-Orthodoxy (Rabbi Samson Raphael Hirsch's 'Torah Im Derech Eretz') and 20th-century American synthesis (Rabbi Joseph B. Soloveitchik's 'Torah U'Madda' at Yeshiva University).",
+      "geographic_origin": "Germany, United States (New York, Chicago, Los Angeles), Israel (as Dati Leumi / Religious Zionism), United Kingdom (United Synagogue), Western diaspora.",
+      "historical_period": "HASKALAH_TO_CONTEMPORARY",
+      "demographic_context": "Influential movement representing educated professional and civic Orthodox communities in the West and the National Religious movement in Israel.",
+      "theological_orientation": "Uncompromising adherence to Halakha (Torah Mi-Sinai) combined with an affirmative valuation of secular knowledge, science, democracy, and engagement with the broader modern world.",
+      "view_of_God": "Transcendent Creator who revealed the eternal Torah at Sinai and calls humanity to be partners in perfecting the world (Shutafut be-Ma'aseh Bereshit).",
+      "god_concept": "Personal, incorporeal God of the covenant whose law is eternal and compatible with rational scientific inquiry.",
+      "view_of_Torah": "Literal divine revelation at Sinai; holy, immutable, and normative for all generations.",
+      "view_of_Tanakh": "Sanctified canon; studied with classical commentaries alongside modern literary and grammatical insights (e.g. Tanakh study at Yeshivat Har Etzion).",
+      "view_of_Oral_Torah": "Divine origin alongside Written Torah; transmitted through the Sages and codified in Talmud and Shulchan Aruch.",
+      "view_of_Talmud": "Central pillar of religious education; studied analytically via the Brisker conceptual method pioneered by Rabbi Chaim Soloveitchik.",
       "halakhic_position": "Strict fidelity to Shulchan Aruch and traditional poskim; belief in Torah Mi-Sinai.",
+      "halakhic_orientation": "Rigorous adherence to the Shulchan Aruch, balancing traditional boundaries with halakhic responses to modern technology, medicine, and social realities (e.g., organ donation, fertility treatments).",
+      "halakhic_authority": "Shulchan Aruch, Mishnah Berurah, contemporary poskim such as Rav Moshe Feinstein, Rav Joseph B. Soloveitchik, Rav Aharon Lichtenstein, and the Rabbinical Council of America (RCA).",
+      "authority_structure": "Decentralized rabbinic leadership; community rabbis, Roshei Yeshiva, and institutional rabbinic bodies (RCA, Israeli Chief Rabbinate).",
+      "rabbinic_authority": "Recognized in halakhic and ritual matters; encourages personal intellectual responsibility and secular professional autonomy.",
+      "scripture_textual_authorities": [
+        "Tanakh",
+        "Babylonian Talmud",
+        "Maimonides' Mishneh Torah",
+        "Shulchan Aruch",
+        "Responsa of Rav Moshe Feinstein (Igrot Moshe)"
+      ],
+      "source_authority": "Unbroken rabbinic tradition; relies on rigorous halakhic precedent (pesak halakha) rather than subjective intuition.",
+      "liturgy": "Traditional Nusach Ashkenaz or Edot HaMizrach; incorporates prayers for the State of Israel (Tefillah Li-Shlom HaMedinah) and IDF soldiers.",
+      "synagogue_prayer_practice": "Daily minyanim; mechitzah separating men and women; sermon in vernacular; increasing participation of women in communal leadership and bat mitzvah celebrations within halakhic bounds.",
+      "shabbat": "Strict halakhic observance of all 39 melakhot; utilization of approved modern technology (Shabbat timers, kosher elevators) vetted by halakhic institutes (Tzomet).",
+      "kashrut": "Strict kosher observance under certified Orthodox agencies (OU, Star-K, OK, Badatz, Israeli Rabbinate).",
+      "conversion": "Rigorous halakhic conversion requiring Kabbalat Mitzvot, circumcision, and mikveh under recognized Orthodox Beit Din (e.g. RCA GPS network).",
+      "marriage": "Orthodox Chuppah and Kiddushin; widespread adoption of the Halakhic Prenuptial Agreement to prevent the tragic problem of agunot (chained wives).",
+      "divorce": "Religious Get according to Orthodox halakha; enforcement of prenuptial agreements to compel the husband to grant the get.",
+      "lifecycle": "Brit Milah; Bat Mitzvah (often celebrated with a siyyum or Dvar Torah); Bar Mitzvah; university education; civic integration.",
+      "circumcision": "Brit Milah on the eighth day by certified Orthodox mohel.",
+      "festivals": "Traditional biblical holidays with diaspora second day; enthusiastic celebration of Yom HaAtzmaut (Israel Independence Day) and Yom Yerushalayim (often reciting Hallel).",
+      "messianic_theology": "Belief in personal Davidic Messiah; views the modern State of Israel as 'Reshit Tzemichat Ge'ulateinu' (the first flowering of our redemption).",
+      "messiah_position": "Messianic redemption is an unfolding historical process in which human initiative (Zionism, settling the land) cooperates with divine providence.",
+      "afterlife_eschatology": "Affirms Techiyat HaMetim and Olam HaBa in line with Maimonidean Principles of Faith.",
+      "modernity": "Embraced affirmatively: 'Torah U'Madda' (Torah and secular wisdom / science) and 'Torah Im Derech Eretz'.",
       "view_of_modernity": "Torah U'Madda (Torah and secular knowledge/sciences integrated); active civic, professional, and military engagement.",
-      "attitude_to_israel": "Strong Religious Zionism (viewing modern Israel as Reshit Tzemichat Ge'ulateinu — first flowering of our redemption)."
+      "gender_leadership": "Halakhic boundaries preserved (orthodox ordination traditionally male), with significant expansion of women's Torah scholarship (Yoatzot Halakha, Midrashot, Matan, Nishmat, Stern College) and advanced Talmudic study.",
+      "relationship_to_israel": "Central religious and national commitment; active aliya promotion; mandatory military service in the IDF (Hesder Yeshiva program combining Talmud study and combat service).",
+      "relationship_to_zionism": "Passionate Religious Zionism (Mizrachi movement); modern Israel is seen as having immense theological significance.",
+      "attitude_to_israel": "Strong Religious Zionism (viewing modern Israel as Reshit Tzemichat Ge'ulateinu — first flowering of our redemption).",
+      "relationship_to_other_jewish_movements": "Rejects the halakhic legitimacy of non-Orthodox movements while maintaining cooperative civic relations on communal and defense matters (Klal Yisrael).",
+      "relationship_to_non_jewish_religions": "Friendly civic relations and cooperation on common moral and social concerns; generally follows Rav Soloveitchik's guidelines ('Confrontation') avoiding interfaith theological dialogue while encouraging joint social action.",
+      "internal_diversity": "Spans from 'Right-Wing Modern Orthodox' (closer to Yeshivish norms, strictly male leadership) to 'Left-Wing / Open Orthodox' (Yeshivat Chovevei Torah, ordination of Maharat women clergy, contested within mainstream Orthodoxy).",
+      "sub_branches": [
+        "Centrist Modern Orthodoxy (Yeshiva University, RCA, OU)",
+        "Dati Leumi / Religious Zionist (Hesder yeshivot, Bnei Akiva, Gush Emunim)",
+        "Open Orthodoxy / Torat Chayim (progressive flank, controversial rabbinic ordination for women)"
+      ],
+      "major_figures": [
+        "Samson Raphael Hirsch",
+        "Abraham Isaac Kook (Rav Kook)",
+        "Joseph B. Soloveitchik (The Rav)",
+        "Moshe Feinstein",
+        "Aharon Lichtenstein",
+        "Jonathan Sacks"
+      ],
+      "primary_sources": [
+        "SRC-JEW-SOLOVEITCHIK-001",
+        "SRC-JEW-FEINSTEIN-IGROT-001"
+      ],
+      "academic_sources": [
+        "SRC-ACAD-COHEN-001"
+      ],
+      "source_ids": [
+        "SRC-JEW-SOLOVEITCHIK-001",
+        "SRC-JEW-FEINSTEIN-IGROT-001",
+        "SRC-ACAD-COHEN-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-007",
+        "EVID-JEW-012",
+        "EVID-JEW-066"
+      ],
+      "graph_node_ids": [
+        "NODE-DENOM-ORTHODOX-MODERN",
+        "NODE-AUTH-SOLOVEITCHIK"
+      ],
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "methodology": "Institutional and theological analysis of Modern Orthodox publications, responsa, and organizational platforms",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "disputed_or_contested_points": [
+        "Boundaries of women's ritual participation (Partnership Minyanim, clergy ordination as Maharat/Rabba)",
+        "Engagement with academic biblical criticism",
+        "Extent of cooperation with non-Orthodox denominations"
+      ]
     },
     {
       "id": "DENOM-CONSERVATIVE",
+      "canonical_name": "Conservative Judaism",
+      "alternate_names": [
+        "Masorti Judaism (Traditional Judaism)",
+        "Historical-Positive Judaism"
+      ],
+      "classification": "DEVELOPMENTAL_HALAKHIC_RABBINIC",
       "movement": "Conservative / Masorti Judaism",
+      "historical_origin": "Originated in 19th-century Germany with Zechariah Frankel's Positive-Historical School (walking out of the 1845 Frankfurt Conference over abandoning Hebrew in prayer); developed into a major American movement under Solomon Schechter at the Jewish Theological Seminary (JTS).",
+      "geographic_origin": "Germany, United States (JTS New York), Israel, Latin America, Europe (Masorti Olami).",
+      "historical_period": "HASKALAH_TO_CONTEMPORARY",
+      "demographic_context": "Historically dominant American Jewish movement in the mid-to-late 20th century; maintains strong presence in North America, South America, and globally under the Masorti banner.",
+      "theological_orientation": "Affirms that Halakha is normative and binding, but intrinsically historical and developmental; revelation is a divine-human encounter mediated through history; embraces the concept of 'Catholic Israel' (Klal Yisrael — the consensus of the observant community shaping law).",
+      "view_of_God": "Personal, covenantal God whose will unfolds through historical interaction with the Jewish people.",
+      "god_concept": "Dynamic covenantal monotheism; theological pluralism ranging from traditional personal God to process theology.",
+      "view_of_Torah": "Sacred scripture reflecting divine revelation interpreted and recorded by human beings; fully open to historical-critical scholarship.",
+      "view_of_Tanakh": "Foundational divine text studied with critical scholarship, literary methods, and traditional commentaries.",
+      "view_of_Oral_Torah": "Authentic evolving expression of the covenant; the Oral Law is inherently dynamic, adapting to moral, social, and historical needs across generations.",
+      "view_of_Talmud": "Monumental record of rabbinic debate and legal evolution, demonstrating that earlier sages continually modified and updated Jewish law.",
       "halakhic_position": "Halakha is binding and normative, but historically developmental and evolving to address modern ethics and scientific realities.",
-      "view_of_scripture": "Revelation is divine-human encounter; accepts historical-critical biblical and talmudic scholarship.",
+      "halakhic_orientation": "Maintains commitment to the halakhic process while exercising legislative power through takkanot (rabbinic enactments) and responsa of the Committee on Jewish Law and Standards (CJLS).",
+      "halakhic_authority": "The Committee on Jewish Law and Standards (CJLS) of the Rabbinical Assembly (RA), guided by consensus and majority/minority opinions.",
+      "authority_structure": "Rabbinical Assembly (RA), Jewish Theological Seminary (JTS), United Synagogue of Conservative Judaism (USCJ).",
+      "rabbinic_authority": "Rabbi functions as the 'Mara D'Atra' (local halakhic decisor) empowered to select among CJLS opinions.",
+      "scripture_textual_authorities": [
+        "Tanakh (Etz Hayim commentary)",
+        "Talmud Bavli and Yerushalmi",
+        "Rambam Mishneh Torah",
+        "Shulchan Aruch",
+        "Responsa of the CJLS"
+      ],
+      "source_authority": "Continuous historical evolution of the Jewish legal tradition; relies on academic critical rabbinics and historical precedents.",
+      "liturgy": "Traditional Siddur structure (Sim Shalom / Lev Shalem) in Hebrew, with egalitarian modifications, prayers for the State of Israel, and contemporary vernacular poetry.",
+      "synagogue_prayer_practice": "Complete gender egalitarianism; women counted in minyan, called to Torah (Aliyot), and lead prayer; mixed seating without mechitzah; traditional tallit and tefillin encouraged for all.",
+      "shabbat": "Observance of Shabbat encouraged; 1950 CJLS landmark responsum permitted driving to the nearest synagogue solely for worship when walking is impossible; electricity generally permitted for domestic Shabbat enjoyment.",
+      "kashrut": "Observance of traditional kashrut (separate meat and milk, kosher meats, avoiding treif) is mandatory; CJLS permits certain vegetarian restaurant eating and approved cheeses.",
+      "conversion": "Strict traditional halakhic conversion requiring study of Judaism, Beit Din, circumcision (or hatafat dam brit), and immersion in a kosher mikveh; recognized as valid halakhically by Conservative authorities.",
+      "marriage": "Traditional Kiddushin with egalitarian Ketubah (often including the Lieberman Clause to resolve potential agunah situations); same-sex marriage officially affirmed by CJLS (2006, 2012).",
+      "divorce": "Requires a traditional Get alongside civil divorce; Rabbinical Assembly operates Beit Din to issue Gittin and utilizes Lieberman Clause or annulment (hafka'at kiddushin) to free agunot.",
+      "lifecycle": "Brit Milah; Simchat Bat / Brit Bat for daughters; fully egalitarian Bar and Bat Mitzvah; traditional funeral, shiva, and mourning.",
+      "circumcision": "Mandatory Brit Milah on the eighth day by trained mohel.",
+      "festivals": "Traditional observance of biblical and rabbinic holidays; diaspora second day traditionally kept, though individual congregations or Israeli Masorti communities may observe one day.",
+      "messianic_theology": "Focuses on the Messianic Era of universal peace, justice, and redemption rather than a literal personal king restoring animal sacrifices in a rebuilt Temple.",
+      "messiah_position": "Messianic hope is interpreted as a collaborative human-divine redemption inaugurating universal peace and righteousness.",
+      "afterlife_eschatology": "Affirms spiritual immortality of the soul and divine justice; interprets physical resurrection symbolically or traditionally with varied individual belief.",
+      "modernity": "Embraced as an essential arena for applying Jewish ethics; integrates modern academic scholarship, human rights, and scientific inquiry.",
+      "view_of_modernity": "Embraces historical consciousness, critical scholarship, and contemporary democratic ethics within a binding halakhic framework.",
+      "gender_leadership": "Fully egalitarian: women ordained as rabbis and cantors since 1983 (JTS ordination of Amy Eilberg in 1985); LGBTQ+ rabbinic ordination and marriage approved by CJLS in 2006.",
+      "relationship_to_israel": "Strong Zionist commitment; Masorti Movement in Israel advocates for religious pluralism, egalitarian prayer at the Western Wall (Ezrat Yisrael), and legal recognition of non-Orthodox marriages and conversions.",
+      "relationship_to_zionism": "Integral Zionism; affirms Israel as the spiritual and cultural homeland of the Jewish people while championing democratic equality.",
+      "attitude_to_israel": "Dedicated Zionism combined with vigorous advocacy for religious pluralism and state recognition of non-Orthodox rabbis and institutions.",
+      "relationship_to_other_jewish_movements": "Maintains bridge between Orthodoxy and Reform; participates in Klal Yisrael coalitions; critiques Orthodoxy for halakhic rigidity and Reform for abandoning binding halakha.",
+      "relationship_to_non_jewish_religions": "Active engagement in interfaith dialogue, mutual theological respect, and joint work for civil rights and social justice.",
+      "internal_diversity": "Spectrum from 'Right-Wing Conservative' (close to Modern Orthodoxy, traditional liturgy, hesitation on radical takkanot) to 'Left-Wing Conservative' (close to Reform, aggressive egalitarianism, non-traditional kashrut nuances).",
+      "sub_branches": [
+        "North American Conservative Judaism (USCJ, JTS, Rabbinical Assembly)",
+        "Masorti Movement in Israel (advocating pluralism and religious rights)",
+        "Latin American Masorti (Seminario Rabínico Latinoamericano in Buenos Aires, Marshall Meyer legacy)",
+        "European Masorti (Masorti Europe, Zacharias Frankel College in Potsdam)"
+      ],
       "features": [
         "Egalitarian minyanim and ordination of women and LGBTQ+ rabbis",
         "CJLS responsa allowing driving to nearest synagogue on Shabbat if necessary"
+      ],
+      "view_of_scripture": "Revelation is divine-human encounter; accepts historical-critical biblical and talmudic scholarship.",
+      "major_figures": [
+        "Zechariah Frankel",
+        "Solomon Schechter",
+        "Louis Finkelstein",
+        "Saul Lieberman",
+        "Abraham Joshua Heschel",
+        "Mordecai Waxman",
+        "Neil Gillman"
+      ],
+      "primary_sources": [
+        "SRC-JEW-CJLS-CONSERVATIVE-001",
+        "SRC-JEW-FRANKEL-001"
+      ],
+      "academic_sources": [
+        "SRC-ACAD-LIEBERMAN-001",
+        "SRC-ACAD-HAYES-001"
+      ],
+      "source_ids": [
+        "SRC-JEW-CJLS-CONSERVATIVE-001",
+        "SRC-JEW-FRANKEL-001",
+        "SRC-ACAD-LIEBERMAN-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-010",
+        "EVID-JEW-020",
+        "EVID-JEW-057",
+        "EVID-JEW-058"
+      ],
+      "graph_node_ids": [
+        "NODE-DENOM-CONSERVATIVE",
+        "NODE-AUTH-FRANKEL"
+      ],
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "methodology": "Systematic review of CJLS published responsa, Rabbinical Assembly proceedings, and academic histories of the Conservative movement",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "disputed_or_contested_points": [
+        "Permissibility of intermarriage officiation (strongly debated within Rabbinical Assembly)",
+        "Halakhic boundaries of non-observant Jews acting as communal witnesses",
+        "Erosion of traditional Shabbat and kashrut observance among lay members"
       ]
     },
     {
       "id": "DENOM-REFORM",
+      "canonical_name": "Reform Judaism",
+      "alternate_names": [
+        "Progressive Judaism",
+        "Liberal Judaism"
+      ],
+      "classification": "AUTONOMOUS_PROGRESSIVE_RABBINIC",
       "movement": "Reform / Progressive Judaism",
+      "historical_origin": "Emerged in early 19th-century Germany (Israel Jacobson, Abraham Geiger, Samuel Holdheim) adapting Judaism to modern civic emancipation; flourished and evolved in the United States under Isaac Mayer Wise.",
+      "geographic_origin": "Germany, United States (Cincinnati, New York), United Kingdom, Israel (Israel Movement for Reform and Progressive Judaism - IMPJ), worldwide under World Union for Progressive Judaism (WUPJ).",
+      "historical_period": "HASKALAH_TO_CONTEMPORARY",
+      "demographic_context": "Largest Jewish denomination in North America by self-identification, representing approximately 35-40% of affiliated American Jews.",
+      "theological_orientation": "Progressive revelation (God's revelation is an ongoing continuous process, not a one-time static event at Sinai); primacy of prophetic ethical monotheism and social justice (Tikkun Olam); supremacy of individual autonomous conscience in evaluating ritual traditions.",
+      "view_of_God": "Transcendent and immanent divine presence inspiring humanity toward righteousness, justice, and compassion.",
+      "god_concept": "Dynamic ethical monotheism; encourages personal theological exploration from classical theism to religious naturalism.",
+      "view_of_Torah": "The inspired human record of the Jewish people's ongoing encounter with the Divine, reflecting the historical contexts and limitations of its ancient authors.",
+      "view_of_Tanakh": "Sacred foundational literature studied with critical, historical, and literary methodologies; ethical teachings are timeless, while ceremonial laws are historically conditioned.",
+      "view_of_Oral_Torah": "Rich historical dialogue and cultural resource of Jewish wisdom, but not a divine or legally binding legislative code.",
+      "view_of_Talmud": "Valued as a historic compendium of ethical debate, folklore, and legal development; non-binding on modern Jews.",
       "halakhic_position": "Halakha is non-binding counsel; autonomous individual moral conscience is supreme.",
-      "view_of_scripture": "Continuous progressive revelation; biblical laws reflect historical contexts of ancient eras.",
+      "halakhic_orientation": "Rejects the binding legal authority of Halakha; views ritual mitzvot as voluntary personal disciplines that enhance spiritual and ethical life ('tradition has a vote, not a veto').",
+      "halakhic_authority": "Central Conference of American Rabbis (CCAR) Responsa Committee provides scholarly, advisory halakhic guidance; ultimate authority resides with the individual conscience.",
+      "authority_structure": "Congregational autonomy; Union for Reform Judaism (URJ), Hebrew Union College-Jewish Institute of Religion (HUC-JIR), CCAR.",
+      "rabbinic_authority": "Rabbis serve as teachers, spiritual guides, and community leaders rather than dogmatic halakhic judges.",
+      "scripture_textual_authorities": [
+        "Tanakh (The Torah: A Modern Commentary, Plaut)",
+        "CCAR Platforms and Responsa",
+        "Reform Liturgy (Mishkan T'filah)"
+      ],
+      "source_authority": "Prophetic ethics, Jewish historical experience, modern critical reason, and democratic humanist principles.",
+      "liturgy": "Mishkan T'filah; balanced bilingual Hebrew and vernacular prayer; substantial contemporary poetry and musical innovation; instruments (piano, guitar) integrated into worship.",
+      "synagogue_prayer_practice": "Fully egalitarian mixed seating; women lead worship, read from Torah, and serve as cantors and rabbis; creative and varied liturgy emphasizing social justice and communal singing.",
+      "shabbat": "Celebrated as a holy day of spiritual renewal, family joy, and rest; individual determines meaningful observance; work or travel for spiritual enrichment is permitted.",
+      "kashrut": "Individual choice; historical platforms dismissed dietary laws as archaic, but modern Reform encourages 'informed choice', including ethical eating, vegetarianism, or adopting kashrut for holiness.",
+      "conversion": "Welcoming conversion process through study, personal commitment to the Jewish people and ethical monotheism, Beit Din, and mikveh/circumcision (strongly encouraged though traditionally left to rabbinic discretion).",
+      "marriage": "Egalitarian wedding ceremony; CCAR permits rabbinic officiation for interfaith marriages (left to individual rabbi); full affirmation of same-sex marriage.",
+      "divorce": "Recognizes civil divorce as fully dissolving a Jewish marriage; CCAR offers a Reform religious divorce (Get) ceremony for spiritual closure if desired.",
+      "lifecycle": "Brit Milah / Brit Shalom; Brit Bat for infant girls; fully equal Bar and Bat Mitzvah; Confirmation at age 16; memorial services focusing on celebration of life.",
+      "circumcision": "Brit Milah encouraged; Brit Shalom (covenant of peace without incision) accepted by some rabbis for families choosing not to circumcise.",
+      "festivals": "Observance of biblical and rabbinic holidays for one day (in accordance with biblical text and Israeli custom, discarding the diaspora second day); profound emphasis on Yom Kippur atonement and Passover freedom.",
+      "messianic_theology": "Rejects the belief in a personal King Messiah; affirms the prophetic vision of a universal Messianic Era of peace, freedom, justice, and human brotherhood achieved through human partnership with God (Tikkun Olam).",
+      "messiah_position": "Prophetic Messianic Era of universal justice and peace, rejecting a personal Davidic King Messiah.",
+      "afterlife_eschatology": "Focuses primarily on this world ('Olam HaZeh') and ethical living; affirms the immortality of the soul in memory and God's presence; rejects physical bodily resurrection.",
+      "modernity": "Actively embraced as God's gift of progress, reason, science, universal human dignity, and democratic liberation.",
+      "view_of_modernity": "Affirmative embrace of modern reason, social equality, science, and ongoing moral progress.",
+      "gender_leadership": "Pioneered egalitarianism: Regina Jonas ordained in Germany (1935); Sally Priesand ordained by HUC-JIR (1972) as first woman rabbi in US; full LGBTQ+ inclusion and leadership.",
+      "relationship_to_israel": "Strong Zionist commitment affirmed since the 1937 Columbus Platform; active support for the Israel Movement for Reform and Progressive Judaism (IMPJ); vigorous campaign for religious pluralism, egalitarian prayer at the Kotel, and equality for all religious streams.",
+      "relationship_to_zionism": "Transitioned from 19th-century anti-nationalism (1885 Pittsburgh Platform) to passionate Zionism (1937 Columbus, 1976 Centenary, 1999 San Francisco Platforms), founding progressive kibbutzim (Yahel, Lotan).",
+      "attitude_to_israel": "Strong Zionist connection coupled with active struggle against the monopoly of the Orthodox Chief Rabbinate in Israel.",
+      "relationship_to_other_jewish_movements": "Advocates mutual respect across denominations; cooperates in broad Jewish communal institutions; critiques Orthodox delegitimization of progressive rabbis and conversions.",
+      "relationship_to_non_jewish_religions": "Active champion of interfaith dialog, ecumenism, and coalition-building with Christian, Muslim, and other faith traditions.",
+      "internal_diversity": "Dynamic historical progression from 'Classical Reform' (radical rationalism, minimal ritual, decorous hymns, Sunday services) to 'Neo-Reform / Contemporary Reform' (reclamation of Hebrew, tallit, kippah, kashrut, Kabbalah, and traditional rituals).",
+      "sub_branches": [
+        "American Reform Judaism (URJ, CCAR, HUC-JIR)",
+        "Classical Reform (minimal ritual, strict rationalism, universalism)",
+        "Progressive / Liberal Judaism in the UK and Europe (Liberal Judaism, Movement for Reform Judaism)",
+        "Israel Movement for Reform and Progressive Judaism (IMPJ / Ha-Tenu'ah Ha-Reformit)"
+      ],
       "features": [
         "Emphasis on prophetic ethical monotheism and Tikkun Olam (social justice)",
         "Gender egalitarianism, interfaith marriage welcoming, patrilineal descent recognition alongside matrilineal"
+      ],
+      "view_of_scripture": "Continuous progressive revelation; biblical laws reflect historical contexts of ancient eras.",
+      "major_figures": [
+        "Abraham Geiger",
+        "Samuel Holdheim",
+        "David Einhorn",
+        "Isaac Mayer Wise",
+        "Kaufmann Kohler",
+        "Solomon Freehof",
+        "Alexander Schindler",
+        "Michael A. Meyer"
+      ],
+      "primary_sources": [
+        "SRC-JEW-CCAR-PLATFORMS-001"
+      ],
+      "academic_sources": [
+        "SRC-ACAD-MEYER-001"
+      ],
+      "source_ids": [
+        "SRC-JEW-CCAR-PLATFORMS-001",
+        "SRC-ACAD-MEYER-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-009",
+        "EVID-JEW-059",
+        "EVID-JEW-060"
+      ],
+      "graph_node_ids": [
+        "NODE-DENOM-REFORM",
+        "NODE-TEXT-CCAR-PLATFORMS",
+        "NODE-ACAD-MEYER"
+      ],
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "methodology": "Historical analysis of CCAR platform declarations (1885, 1937, 1976, 1999, 2015) and published responsa",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "disputed_or_contested_points": [
+        "1983 Patrilineal Descent Resolution (recognizing child of Jewish father and non-Jewish mother as Jewish if raised Jewish, rejected by Orthodox and Conservative)",
+        "Rabbinic officiation at interfaith marriages",
+        "Degree of ritual reclamation vs autonomous liberty"
       ]
     },
     {
       "id": "DENOM-RECONSTRUCTIONIST",
+      "canonical_name": "Reconstructionist Judaism",
+      "alternate_names": [
+        "Reconstructing Judaism",
+        "Reconstructionism"
+      ],
+      "classification": "NATURALISTIC_CIVILIZATIONAL",
       "movement": "Reconstructionist Judaism",
+      "historical_origin": "Founded in the 1920s–1930s by Rabbi Mordecai M. Kaplan (1881–1983), professor at JTS, through his seminal 1934 book 'Judaism as a Civilization: Toward a Reconstruction of American-Jewish Life'; formalized as an independent movement in 1968 with the founding of the Reconstructionist Rabbinical College (RRC).",
+      "geographic_origin": "United States (New York, Philadelphia); presence in North America and international affiliates.",
+      "historical_period": "CONTEMPORARY",
+      "demographic_context": "Small but intellectually influential progressive movement with over 100 affiliated congregations in North America.",
+      "theological_orientation": "Defines Judaism not merely as a religion, but as an 'evolving religious civilization' comprising language, literature, folkways, art, music, ethics, land, and religion. Replaces supernaturalism with religious naturalism (God as the cosmic power or process that makes for salvation and human flourishing).",
+      "view_of_God": "Naturalistic and trans-personal; God is the power within nature and humanity that generates salvation, ethical fulfillment, and creative evolution; rejects supernatural divine interventions and miracles.",
+      "god_concept": "Naturalistic religious humanism (God as the cosmic process that fosters human fulfillment).",
+      "view_of_Torah": "The sacred, historic literature created by the Jewish people in their search for meaning and God; the Jewish people produced the Torah, rather than the Torah producing the Jewish people.",
+      "view_of_Tanakh": "Human literary and spiritual masterpiece reflecting ancient Jewish cultural and religious evolution.",
+      "view_of_Oral_Torah": "Historic cultural evolution of legal traditions; folkways rather than binding divine mandates.",
+      "view_of_Talmud": "Fascinating record of ancient Jewish civilization's self-reconstruction after Temple loss; serves as inspiration for contemporary reconstruction.",
       "halakhic_position": "Non-binding 'folkways'; Judaism is an evolving religious civilization (Mordecai Kaplan).",
-      "god_concept": "Naturalistic religious humanism (God as the cosmic process that fosters human fulfillment)."
+      "halakhic_orientation": "Reinterprets halakhic laws as 'folkways' (cultural customs and collective rituals) that possess a vote, but not a veto; community deliberates democratically on practices.",
+      "halakhic_authority": "Democratic communal consensus; guidelines issued by Reconstructing Judaism and the Reconstructionist Rabbinical Association (RRA).",
+      "authority_structure": "Non-hierarchical, democratic congregational governance; Reconstructing Judaism (formerly JRF), RRC.",
+      "rabbinic_authority": "Rabbis act as facilitators, resource persons, and educators in partnership with the community.",
+      "scripture_textual_authorities": [
+        "Mordecai Kaplan's works (Judaism as a Civilization)",
+        "Kol Haneshamah prayer book series",
+        "Contemporary egalitarian and environmental commentaries"
+      ],
+      "source_authority": "Jewish historical civilization, democratic values, modern philosophy, ecology, and human experience.",
+      "liturgy": "Kol Haneshamah; modified traditional liturgy removing elements deemed ethically or scientifically problematic: eliminated references to the Chosen People ('asher bachar banu'), bodily resurrection, and divine retribution; added feminist and gender-neutral imagery for God.",
+      "synagogue_prayer_practice": "Fully egalitarian, participatory, participatory singing, informal and creative liturgical expressions.",
+      "shabbat": "Observed as a communal and personal cultural folkway for spiritual renewal and community bonding.",
+      "kashrut": "Practiced voluntarily as a cultural folkway and ethical discipline; emphasis on eco-kashrut and ethical food sourcing.",
+      "conversion": "Warm and inclusive; requires study, Beit Din, and ritual observance (mikveh/circumcision traditionally recommended).",
+      "marriage": "Fully egalitarian; pioneers in celebrating same-sex weddings and welcoming interfaith families.",
+      "divorce": "Egalitarian religious divorce ceremony or acceptance of civil divorce.",
+      "lifecycle": "First movement to institute the modern Bat Mitzvah (Judith Kaplan, 1922); Brit Milah / Brit Shalom; inclusive ceremonies.",
+      "circumcision": "Encourages Brit Milah; accepts alternative welcoming ceremonies (Brit Tzedek / Brit Shalom).",
+      "festivals": "Celebration of all traditional festivals as seasonal, historical, and agricultural moments in Jewish civilizational life.",
+      "messianic_theology": "Rejects personal Messiah; affirms human collaborative responsibility to build a just and peaceful society.",
+      "messiah_position": "Rejects supernatural Messiah in favor of human collective social progress and environmental healing.",
+      "afterlife_eschatology": "Rejects physical resurrection and supernatural heaven/hell; affirms that human immortality exists through deeds, memory, and enduring influence on the community.",
+      "modernity": "Fully integrated into modern scientific worldview; religion must adapt to the best insights of anthropology, psychology, and sociology.",
+      "view_of_modernity": "Embraces modern secular civilization, democratic thought, scientific rationalism, and cultural pluralism.",
+      "gender_leadership": "Pioneering egalitarianism: held first American Bat Mitzvah (1922); ordains women, LGBTQ+, and rabbis in interfaith relationships (2015).",
+      "relationship_to_israel": "Affirms Israel as the vital spiritual and cultural center of the Jewish civilization (following Ahad Ha'am's cultural Zionism), while vigorously advocating for democratic justice, human rights, and religious pluralism.",
+      "relationship_to_zionism": "Strong cultural Zionism; sees Israel and Diaspora as mutually enriching poles of Jewish civilization.",
+      "attitude_to_israel": "Cultural Zionist affinity; critical support for Israeli democracy and full civil equality for Arab citizens and Palestinians.",
+      "relationship_to_other_jewish_movements": "Close fraternal relationship with Reform and Renewal; values Klal Yisrael across the theological spectrum.",
+      "relationship_to_non_jewish_religions": "Warm ecumenical and interfaith cooperation; views other religions as authentic evolving civilizations of their respective peoples.",
+      "internal_diversity": "Encompasses Kaplanian rationalists, spiritual seekers influenced by Jewish Renewal, and social justice activists.",
+      "sub_branches": [
+        "Reconstructing Judaism (movement organization)",
+        "Reconstructionist Rabbinical College (RRC)",
+        "Reconstructionist Rabbinical Association (RRA)"
+      ],
+      "major_figures": [
+        "Mordecai M. Kaplan",
+        "Ira Eisenstein",
+        "Judith Kaplan Eisenstein",
+        "Arthur Green",
+        "Sandy Eisenberg Sasso"
+      ],
+      "primary_sources": [
+        "SRC-JEW-RECON-KAPLAN-001"
+      ],
+      "academic_sources": [
+        "SRC-ACAD-COHEN-001"
+      ],
+      "source_ids": [
+        "SRC-JEW-RECON-KAPLAN-001",
+        "SRC-ACAD-COHEN-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-061"
+      ],
+      "graph_node_ids": [
+        "NODE-DENOM-RECONSTRUCTIONIST",
+        "NODE-TEXT-KAPLAN-CIVILIZATION"
+      ],
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "methodology": "Textual analysis of Mordecai Kaplan's foundational works and official policy statements of Reconstructing Judaism",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "disputed_or_contested_points": [
+        "Removal of the doctrine of the Chosen People from liturgy",
+        "Admitting and ordaining students in relationships with non-Jewish partners (2015 RRC policy change)",
+        "De-supernaturalized theology of God as process"
+      ]
     },
     {
       "id": "DENOM-KARAITE",
+      "canonical_name": "Karaite Judaism",
+      "alternate_names": [
+        "Bnei Mikra (Children of Scripture)",
+        "Ba'alei Ha-Mikra",
+        "Karaites",
+        "Qara'im"
+      ],
+      "classification": "SCRIPTURALIST_NON_RABBINIC",
       "movement": "Karaite Judaism (Bnei Mikra)",
-      "halakhic_position": "Rejects the Oral Torah, Talmud, and rabbinic authority entirely.",
-      "source_authority": "Direct autonomous interpretation of the Hebrew Tanakh using grammatical-contextual analysis (Peshuto shel Mikra)."
+      "historical_origin": "Consolidated in the 8th–9th centuries CE in Abbasid Baghdad, associated with Anan ben David ('Search thoroughly in the Torah and do not rely on my opinion'), reaching its Golden Age in Jerusalem during the 10th–11th centuries (Mourners of Zion).",
+      "geographic_origin": "Mesopotamia (Baghdad), Jerusalem, Cairo (Egypt), Byzantine Empire, Crimea, Lithuania (Troki/Trakai), Istanbul; contemporary centers in Israel (Ramla, Ashdod, Jerusalem, Ofakim) and USA (Daly City, California).",
+      "historical_period": "GEONIC_TO_CONTEMPORARY",
+      "demographic_context": "Distinct non-rabbinic Jewish community numbering approximately 40,000–50,000 worldwide, with ~40,000 in Israel and a historic center in the San Francisco Bay Area.",
+      "theological_orientation": "Sole divine authority of the Written Hebrew Tanakh (Mikra); absolute rejection of the divine authority of the Rabbinic Oral Torah, Mishnah, and Talmud. Every individual possesses the right and responsibility to study scripture directly using reason and Hebrew philology.",
+      "view_of_God": "Strict, pure biblical monotheism; absolute incorporeality, creator of the cosmos, revealer of the Written Law.",
+      "god_concept": "Incorporeal, absolute sovereign Creator revealed through the text of the Tanakh.",
+      "view_of_Torah": "The Written Torah is perfect, complete, and self-sufficient; it requires no external rabbinic Oral Law to complete it (Deut 4:2, 12:32).",
+      "view_of_Tanakh": "Sole scriptural canon; all 24 books of the Tanakh are authoritative; interpreted through Peshat (grammatical-contextual analysis), Qiyyas (rational analogy), and Sevel HaYerushah (consensus heritage, valid only if not conflicting with text).",
+      "view_of_Oral_Torah": "Rejects the Oral Torah, Talmud, and rabbinic authority entirely; views rabbinic claims of a co-equal Sinaitic oral transmission as an unproven human invention.",
+      "view_of_Talmud": "Talmud is considered human rabbinic literature with no divine authority; rejects rabbinic legal enactments (takkanot, gezerot) as adding to the Torah.",
+      "halakhic_position": "Rejects the Oral Torah, Talmud, and rabbinic authority entirely; relies solely on direct interpretation of the Hebrew Tanakh using grammatical-contextual analysis (Peshuto shel Mikra).",
+      "halakhic_orientation": "Autonomous scriptural jurisprudence based on three hermeneutical pillars: the plain literal text of scripture (Ketav), rational analogy (Qiyyas / Hekesh), and hereditary consensus tradition (Sevel Ha-Yerushah / Kibbutz) that does not contradict scripture.",
+      "halakhic_authority": "The biblical text interpreted by Karaite Hakhamim (scholars) and individual conscience; Universal Karaite Judaism Council of Sages (Moetzet Ha-Hakhamim).",
+      "authority_structure": "Hakhamim (wise scholars) who teach and advise, without claiming infallible divine legislative authority.",
+      "rabbinic_authority": "Completely rejected; rabbinic ordinances, berakhot, and interpretations carry no halakhic standing.",
+      "scripture_textual_authorities": [
+        "Tanakh (Hebrew Masoretic text)",
+        "Abu Yusuf Yaqub al-Qirqisani (Kitab al-Anwar wal-Maraqib)",
+        "Aaron ben Elijah (Gan Eden, Keter Torah, Etz Hayyim)",
+        "Yefet ben Eli commentaries",
+        "Isaac of Troki (Hizzuk Emunah)"
+      ],
+      "source_authority": "Direct autonomous interpretation of the Hebrew Tanakh using grammatical-contextual analysis (Peshuto shel Mikra).",
+      "liturgy": "Karaite prayer books composed almost exclusively of biblical passages, Psalms, and biblical praises; no rabbinic blessings ('asher kidshanu be-mitzvotav ve-tzivanu'); prayers recited twice daily (morning and evening).",
+      "synagogue_prayer_practice": "Kenesa (Karaite synagogue); worshippers remove shoes before entering the carpeted sanctuary; ritual ablutions (washing hands and feet); prayers recited while standing, bowing, and performing full prostration (hishtachavayah) touching faces to the ground facing Jerusalem.",
+      "shabbat": "Strict biblical literalism: total prohibition of fire burning during Shabbat (Exod 35:3) — traditionally no lights or fires burning even if kindled before Shabbat (observed in darkness and eating cold food, though later some allowed pre-lit lamps); prohibition on leaving the settlement; strict physical rest.",
+      "kashrut": "Biblical dietary laws: forbids consumption of meat with milk only in the literal sense of boiling a kid in its mother's milk (Exod 23:19); permits eating meat with dairy or poultry with dairy (since fowl produce no milk); strict independent ritual slaughter (shechita).",
+      "conversion": "Accepts converts who sincerely embrace the God of Israel, the Jewish people, and the Written Torah through study, circumcision, and mikveh.",
+      "marriage": "Kiddushin according to biblical terms; Karaite Ketubah; strict biblical consanguinity laws (Arayot) — historically practiced the 'Rikkuv' theory of extended incest bans (later relaxed by 11th-century Hakham Joseph ben Abraham ha-Ro'eh).",
+      "divorce": "Divorce (Sefer Keritut) granted by husband or enacted by the Karaite Beit Din on equitable biblical grounds, avoiding agunah problems.",
+      "lifecycle": "Brit Milah; Bar Mitzvah; mourning rituals grounded in biblical verses.",
+      "circumcision": "Brit Milah performed on the eighth day by a Karaite mohel, following biblical commands; rejects rabbinic metzitzah.",
+      "festivals": "Calendar determined by visual observation of the new moon (Rosh Chodesh) and agricultural examination of barley ripeness (Aviv) in the Land of Israel, rather than the calculated rabbinic calendar; Shavuot always falls on a Sunday ('the morrow after the Sabbath', Lev 23:15–16); does not celebrate Hanukkah (non-biblical post-prophetic holiday).",
+      "messianic_theology": "Awaits the coming of the personal Davidic Messiah and the restoration of the Temple in accordance with biblical prophecies.",
+      "messiah_position": "Prophetic Davidic King Messiah who will restore Israel and universal peace according to Tanakh.",
+      "afterlife_eschatology": "Belief in the resurrection of the dead (Techiyat HaMetim), divine judgment, and reward/punishment based on biblical verses (Dan 12:2).",
+      "modernity": "Contemporary integration into modern Israeli civic society and diaspora professions while strictly preserving distinct liturgical and halakhic heritage.",
+      "view_of_modernity": "Pragmatic participation in modern democratic society while maintaining independent religious institutions.",
+      "gender_leadership": "Hakhamim are historically male; women participate fully in religious study and inherit property equally in modern Karaite communities.",
+      "relationship_to_israel": "Deep ancestral attachment to Zion; the 10th-century Karaite 'Mourners of Zion' (Avelei Zion) in Jerusalem were among the earliest exilic Jews to establish permanent scholarly communities in the Holy City.",
+      "relationship_to_zionism": "Strong modern patriotic support for the State of Israel; serve in the IDF; recognized as Jews under the Law of Return.",
+      "attitude_to_israel": "Committed citizens of Israel; recognized by the Chief Rabbinate (Rabbi Ovadia Yosef, 1971) as Jews with whom rabbinic Jews may associate and marry under certain halakhic conditions.",
+      "relationship_to_other_jewish_movements": "Distinct from Rabbinic Judaism; historically engaged in fierce polemics with Rabbinic Geonim (notably Saadia Gaon), while maintaining mutual influence in Hebrew grammar, masorah, and biblical exegesis.",
+      "relationship_to_non_jewish_religions": "Strict polemical opposition to Christian Christology and Trinitarianism (Isaac of Troki's Hizzuk Emunah); respectful coexistence with Islamic monotheism.",
+      "internal_diversity": "Historical geographic branches: Eastern Karaites (Jerusalem, Cairo, Istanbul), Crimean and Lithuanian Karaites (who under Russian imperial pressure developed a separate ethno-national narrative under Abraham Firkovich), and modern Israeli Karaites.",
+      "sub_branches": [
+        "Israeli Karaite Community (Ramla, Ashdod, Jerusalem, universal religious council)",
+        "Karaite Jews of America (Congregation Bnei Yisrael, Daly City, California)",
+        "Crimean/Lithuanian Karaites (Karaim, Turkic-speaking linguistic heritage)",
+        "Historical Egyptian Karaite Community (Cairo, Genizah era through 20th century)"
+      ],
+      "major_figures": [
+        "Anan ben David",
+        "Abu Yusuf Yaqub al-Qirqisani",
+        "Salmon ben Yeruhim",
+        "Yefet ben Eli",
+        "Aaron ben Joseph the Physician",
+        "Aaron ben Elijah of Nicomedia",
+        "Isaac of Troki"
+      ],
+      "primary_sources": [
+        "SRC-JEW-KARAITE-QIRQISANI-001",
+        "SRC-JEW-KARAITE-AARON-001",
+        "SRC-JEW-KARAITE-YEFET-001",
+        "SRC-JEW-TROKI-001"
+      ],
+      "academic_sources": [
+        "SRC-ACAD-ASTREN-001"
+      ],
+      "source_ids": [
+        "SRC-JEW-KARAITE-QIRQISANI-001",
+        "SRC-JEW-KARAITE-AARON-001",
+        "SRC-JEW-KARAITE-YEFET-001",
+        "SRC-JEW-TROKI-001",
+        "SRC-ACAD-ASTREN-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-046",
+        "EVID-JEW-047",
+        "EVID-JEW-048"
+      ],
+      "graph_node_ids": [
+        "NODE-DENOM-KARAITE",
+        "NODE-AUTH-QIRQISANI",
+        "NODE-AUTH-AARON-BEN-ELIJAH",
+        "NODE-TEXT-ANWAR",
+        "NODE-TEXT-GAN-EDEN"
+      ],
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "methodology": "Primary manuscript analysis of Judeo-Arabic Karaite treatises and contemporary legal codes of the Universal Karaite Community",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "disputed_or_contested_points": [
+        "Marriage compatibility with Rabbinic Jews (mamzerut concerns raised by historical Rabbanites, resolved by Rabbi Ovadia Yosef's 1971 ruling permitting intermarriage if Karaites accept rabbinic instruction)",
+        "Use of electric lights on Shabbat in modern homes",
+        "Astronomical calculation vs physical sighting of the new moon"
+      ]
+    },
+    {
+      "id": "DENOM-RENEWAL",
+      "canonical_name": "Jewish Renewal",
+      "alternate_names": [
+        "ALEPH: Alliance for Jewish Renewal",
+        "Neo-Hasidic Movement"
+      ],
+      "classification": "TRANS-DENOMINATIONAL_MYSTICAL_PROGRESSIVE",
+      "movement": "Jewish Renewal (ALEPH)",
+      "historical_origin": "Emerged in North America during the late 1960s and 1970s out of the counterculture and Havurah movement, founded by Rabbi Zalman Schachter-Shalomi ('Reb Zalman', 1924–2014), a former Chabad Hasid who integrated Hasidic spirituality with humanistic psychology, feminist consciousness, and world religions.",
+      "geographic_origin": "United States (Philadelphia, Boulder, San Francisco Bay Area), with communities in Canada, Europe, and Israel.",
+      "historical_period": "CONTEMPORARY",
+      "demographic_context": "Small direct congregational membership through ALEPH networks, but exerts vast cultural and spiritual influence across Reform, Conservative, Reconstructionist, and independent minyanim.",
+      "theological_orientation": "Panentheism, neo-Hasidic mysticism, Kabbalistic devotion, ecological theology (Eco-Judaism), and deep ecumenism (drawing wisdom from Sufism, Buddhism, Native traditions while rooted in Torah). Emphasizes direct spiritual experience, contemplative prayer, and continuous spiritual evolution (Paradigm Shift).",
+      "view_of_God": "Panentheistic; God is both the transcendent source and the immanent living reality flowing through all creation ('Goding' as a dynamic verb).",
+      "god_concept": "Dynamic, living divine presence experienced through meditation, ecstatic prayer, nature, and loving relationships.",
+      "view_of_Torah": "Living, evolving divine revelation; read through mystical, psychological, and feminist lenses as an ongoing blueprint for human and planetary transformation.",
+      "view_of_Tanakh": "Sacred inspirational literature interpreted metaphorically, spiritually, and ecologically.",
+      "view_of_Oral_Torah": "Valued as a rich spiritual repository of ancestral wisdom to be renewed and re-embodied ('Integral Halakha').",
+      "view_of_Talmud": "Creative dialogical process of holy argument and spiritual growth rather than a static legal straitjacket.",
+      "halakhic_position": "Integral Halakha: non-dogmatic, evolving halakha emphasizing spiritual intentionality, eco-kashrut, gender egalitarianism, and deep ecumenism.",
+      "halakhic_orientation": "Integral Halakha: viewing Jewish law through an organic, post-triumphalist lens where halakha must heal the soul and protect the earth (Eco-Kashrut).",
+      "halakhic_authority": "Non-hierarchical; spiritual teachers and communities discern practice in holy dialogue (Ohalah rabbinic network).",
+      "authority_structure": "Decentralized, democratic, and collaborative; ALEPH: Alliance for Jewish Renewal, Ohalah (Association of Rabbis and Cantors for Jewish Renewal).",
+      "rabbinic_authority": "Rabbis act as spiritual directors (Mashpi'im), spiritual midwives, and facilitators of community prayer.",
+      "scripture_textual_authorities": [
+        "Zohar and Lurianic Kabbalah",
+        "Hasidic classics (Baal Shem Tov, Levi Yitzchok, Reb Nachman)",
+        "Works of Reb Zalman Schachter-Shalomi",
+        "Arthur Green's Radical Judaism"
+      ],
+      "source_authority": "Hasidic and Kabbalistic mystical tradition integrated with feminist theology, transpersonal psychology, and ecological ethics.",
+      "liturgy": "Creative fusion of traditional Hebrew davening with ecstatic niggunim, spontaneous prayer (hitbodedut), body movement, meditation, contemplative chanting, and inclusive God-language (Shechinah, Yah, Ruach HaOlam).",
+      "synagogue_prayer_practice": "Circles of worship rather than pews; rich musical accompaniment; ecstatic dancing; silent meditation; full gender egalitarianism.",
+      "shabbat": "Celebrated as a sanctuary in time; immersion in spiritual joy, deep rest, community meals, and ecological mindfulness.",
+      "kashrut": "Eco-kashrut: expanding traditional dietary laws to include environmental sustainability, animal welfare, fair labor standards, and ethical consumption.",
+      "conversion": "Inclusive and spiritually intensive; requires spiritual direction, Torah study, ritual immersion, and communal welcome.",
+      "marriage": "Fully egalitarian wedding ceremonies; co-created Brit Ahuvim (Covenant of Lovers); active celebration of LGBTQ+ marriages.",
+      "divorce": "Egalitarian spiritual release ceremony alongside civil divorce.",
+      "lifecycle": "Creative lifecycle rituals: Simchat Chokhmat (croning ceremonies celebrating elder wisdom), egalitarian baby namings, Bar/Bat/B-Mitzvah.",
+      "circumcision": "Encourages Brit Milah; embraces Brit Shalom and creative covenant ceremonies.",
+      "festivals": "Deep mystical celebration of festivals; Tu BiShvat as major ecological holy day; ecstatic Purim; contemplative High Holidays.",
+      "messianic_theology": "Planetary messianism: humanity collaborating to heal the biosphere, end oppression, and attain global spiritual awakening (Tikkun Olam).",
+      "messiah_position": "Collective messianic consciousness and planetary healing rather than an individual monarch.",
+      "afterlife_eschatology": "Mystical belief in soul reincarnation (Gilgul), soul evolution, and ultimate return of all sparks to the Infinite Divine (Ein Sof).",
+      "modernity": "Engages modernity critically; embraces ecological science, psychology, and holistic health while seeking to heal modern alienation through spiritual community.",
+      "view_of_modernity": "Embraces holistic paradigms, deep ecology, gender equality, and global consciousness.",
+      "gender_leadership": "Full egalitarianism and feminist leadership; honors the divine feminine (Shechinah); pioneers in LGBTQ+ ordination and leadership.",
+      "relationship_to_israel": "Profound spiritual love for the Land of Israel; strong support for peace, coexistence, and human rights for both Israelis and Palestinians.",
+      "relationship_to_zionism": "Spiritual Zionism committed to dual-narrative reconciliation, non-violence, and social justice in the Middle East.",
+      "attitude_to_israel": "Deep spiritual connection to the land combined with active advocacy for peace and human rights.",
+      "relationship_to_other_jewish_movements": "Trans-denominational bridge; widely influences liturgy and prayer styles in Conservative, Reform, and independent Jewish communities.",
+      "relationship_to_non_jewish_religions": "Pioneers of 'Deep Ecumenism': reverent inter-spiritual dialogue and mutual learning with Sufis, Buddhists, Christians, and indigenous wisdom keepers.",
+      "internal_diversity": "Encompasses traditional daveners practicing neo-Hasidic halakha as well as experimental, non-halakhic spiritual seekers.",
+      "sub_branches": [
+        "ALEPH Network",
+        "Ohalah Rabbinic Association",
+        "Havurah Movement historical roots"
+      ],
+      "major_figures": [
+        "Zalman Schachter-Shalomi (Reb Zalman)",
+        "Arthur Green",
+        "Arthur Waskow",
+        "Tirzah Firestone",
+        "Marcia Prager"
+      ],
+      "primary_sources": [
+        "SRC-JEW-RENEW-ZALMAN-001"
+      ],
+      "academic_sources": [
+        "SRC-ACAD-COHEN-001"
+      ],
+      "source_ids": [
+        "SRC-JEW-RENEW-ZALMAN-001",
+        "SRC-ACAD-COHEN-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-062"
+      ],
+      "graph_node_ids": [
+        "NODE-DENOM-RENEWAL",
+        "NODE-AUTH-ZALMAN-SCHACHTER",
+        "NODE-TEXT-PARADIGM-SHIFT",
+        "NODE-THEME-ECO-KASHRUT"
+      ],
+      "confidence": "HIGH",
+      "provenance": {
+        "methodology": "Ethno-theological and textual analysis of ALEPH core manifestos and Reb Zalman's published works",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "disputed_or_contested_points": [
+        "Rejection of traditional halakhic boundaries in favor of subjective spiritual experience",
+        "Borrowing practices from non-Jewish spiritual traditions (Sufi dhikr, Buddhist vipassana)",
+        "Non-recognition by Orthodox rabbinic authorities"
+      ]
+    },
+    {
+      "id": "DENOM-HUMANISTIC",
+      "canonical_name": "Humanistic Judaism",
+      "alternate_names": [
+        "Secular Humanistic Judaism",
+        "SHJ Movement"
+      ],
+      "classification": "NON_THEISTIC_HUMANIST",
+      "movement": "Humanistic Judaism (Society for Humanistic Judaism)",
+      "historical_origin": "Founded in 1963 by Rabbi Sherwin T. Wine (1928–2007) in Farmington Hills, Michigan, establishing the Birmingham Temple; organized the Society for Humanistic Judaism (SHJ) in 1969 and the International Institute for Secular Humanistic Judaism (IISHJ) in 1985.",
+      "geographic_origin": "United States (Michigan, Illinois, New York, California), Canada, Europe, and Israel (Tmura).",
+      "historical_period": "CONTEMPORARY",
+      "demographic_context": "Small formal movement (~10,000–15,000 members), but represents the philosophical outlook of millions of culturally identified, non-theistic secular Jews worldwide.",
+      "theological_orientation": "Non-theistic naturalism; affirms that Judaism is the historical culture, collective civilization, and human creation of the Jewish people rather than divine revelation. Ethics and human fulfillment are grounded in human reason, empathy, and scientific reality, without reliance on a supernatural deity.",
+      "view_of_God": "Non-theistic; rejects belief in a supernatural, personal, or interventionist deity. Understands the concept of God as a human mythological and cultural creation.",
+      "god_concept": "Non-theistic / atheistic / agnostic; human beings are the ultimate arbiters of truth and morality.",
+      "view_of_Torah": "A remarkable anthology of ancient Jewish literature, folklore, law, and poetry, reflecting the human struggles, values, and limitations of its authors; possesses no supernatural authority.",
+      "view_of_Tanakh": "Historic national literature to be studied critically and appreciated for its literary and historical insights, free from dogmatic veneration.",
+      "view_of_Oral_Torah": "Human cultural commentary reflecting the changing needs of Jews in late antiquity.",
+      "view_of_Talmud": "Fascinating historical literature documenting human rabbinic debate; carries no binding legal authority.",
+      "halakhic_position": "Non-halakhic: Halakha is viewed as historical human literature rather than binding divine law; ethics and ritual are grounded in human reason and responsibility.",
+      "halakhic_orientation": "Explicitly non-halakhic; replaces obedience to divine commandments (mitzvot) with human responsibility, ethics, and cultural celebration.",
+      "halakhic_authority": "Rejects halakhic authority; moral decision-making is guided by human reason, empathy, justice, and community consensus.",
+      "authority_structure": "Democratic congregational governance; Society for Humanistic Judaism (SHJ), Association of Humanistic Rabbis (AHR), IISHJ.",
+      "rabbinic_authority": "Humanistic Rabbis act as community leaders, cultural educators, philosophers, and ritual officiants, not legal judges.",
+      "scripture_textual_authorities": [
+        "Sherwin Wine's writings (Judaism Beyond God, Celebration)",
+        "Jewish secular literature, poetry, and philosophy (Spinoza, Ahad Ha'am, Yehuda Amichai)"
+      ],
+      "source_authority": "Human reason, scientific observation, secular ethics, and 3,000 years of Jewish cultural heritage.",
+      "liturgy": "Non-theistic liturgies and poetry in Hebrew and English; completely eliminates prayers of petition, praise, or worship directed to a supernatural deity; celebrates human solidarity, Jewish survival, and ethical courage.",
+      "synagogue_prayer_practice": "Celebrations focus on community singing, philosophical reflection, literary readings, and cultural connection rather than prayer.",
+      "shabbat": "Celebrated as a cultural and humanistic time of rest, family warmth, intellectual stimulation, and community fellowship (lighting Shabbat candles to symbolize human enlightenment).",
+      "kashrut": "Personal ethical choice; no religious dietary taboos; many members prioritize vegetarianism, ethical sourcing, or cultural Jewish cuisine.",
+      "conversion": "Welcoming and inclusive 'Adoption': individuals who choose to identify with the history, culture, and fate of the Jewish people are embraced as Jews without theological testing or mikveh/circumcision.",
+      "marriage": "Fully inclusive wedding ceremonies for any couple (intercultural, interfaith, same-sex) celebrating human love, mutual commitment, and cultural heritage.",
+      "divorce": "Recognizes civil divorce as fully sufficient to end a marriage; offers supportive secular ritual closure if desired.",
+      "lifecycle": "Baby namings celebrating human life; Bar and Bat Mitsva emphasizing independent research projects on Jewish culture and ethics; secular memorial services honoring the deceased's human legacy.",
+      "circumcision": "Individual parental choice; many Humanistic Jews choose Brit Shalom or non-surgical welcoming celebrations, separating Jewish identity from circumcision.",
+      "festivals": "Celebration of all major Jewish holidays reinterpreted through their seasonal, agricultural, historical, and humanistic dimensions (e.g. Passover as universal human liberation, Hanukkah as human courage against intolerance).",
+      "messianic_theology": "Rejects supernatural messianism; the only 'messianic' redemption is that which human beings create through peace, science, social justice, and international cooperation.",
+      "messiah_position": "Rejects supernatural Messiah; human agency and ethical progress are the sole sources of redemption.",
+      "afterlife_eschatology": "No belief in afterlife, heaven, hell, or physical resurrection; immortality is achieved solely through the living memories, deeds, and contributions left to family and humanity.",
+      "modernity": "Completely rooted in Enlightenment rationalism, human rights, modern science, and secular democratic values.",
+      "view_of_modernity": "Full commitment to secular democracy, scientific rationalism, human autonomy, and cultural freedom.",
+      "gender_leadership": "Total gender equality and full LGBTQ+ inclusion across all levels of leadership and ritual participation.",
+      "relationship_to_israel": "Values Israel as the vibrant cultural homeland and Hebrew-speaking center of the Jewish people; critiques the religious establishment's monopoly over civil marriage and divorce in Israel.",
+      "relationship_to_zionism": "Affirms cultural Zionism and the right of the Jewish people to national self-determination; advocates for a secular, democratic state with complete separation of religion and state.",
+      "attitude_to_israel": "Support for Israeli cultural vitality alongside strong advocacy for secular democracy and freedom from religious coercion.",
+      "relationship_to_other_jewish_movements": "Advocates pluralistic recognition of all Jewish expressions; participates in communal organizations while defending the legitimacy of secular Jewish identity.",
+      "relationship_to_non_jewish_religions": "Friendly, non-proselytizing humanist dialogue; collaboration on secular ethics, civil liberties, and human rights.",
+      "internal_diversity": "Ranges from purely philosophical humanists to culturally traditional members who enjoy traditional Jewish folkways without theological belief.",
+      "sub_branches": [
+        "Society for Humanistic Judaism (SHJ, North America)",
+        "International Institute for Secular Humanistic Judaism (IISHJ, academic arm)",
+        "Tmura / Secular Humanistic Judaism in Israel (ordaining secular Israeli rabbis)"
+      ],
+      "major_figures": [
+        "Sherwin T. Wine",
+        "Miriam Jerris",
+        "Adam Chalom",
+        "Eviatar Zerubavel"
+      ],
+      "primary_sources": [
+        "SRC-JEW-HUMAN-WINE-001"
+      ],
+      "academic_sources": [
+        "SRC-ACAD-COHEN-001"
+      ],
+      "source_ids": [
+        "SRC-JEW-HUMAN-WINE-001",
+        "SRC-ACAD-COHEN-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-063"
+      ],
+      "graph_node_ids": [
+        "NODE-DENOM-HUMANISTIC",
+        "NODE-AUTH-SHERWIN-WINE",
+        "NODE-TEXT-JUDAISM-BEYOND-GOD"
+      ],
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "methodology": "Doctrinal analysis of official SHJ programmatic declarations, prayer books, and philosophical treatises of Rabbi Sherwin Wine",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "disputed_or_contested_points": [
+        "Rejection of God language in ritual celebrations",
+        "Admitting members and converts without traditional religious confession or ritual circumcision/mikveh",
+        "Non-recognition as a valid religious stream by the Israeli Orthodox Chief Rabbinate"
+      ]
     },
     {
       "id": "DENOM-SECULAR",
+      "canonical_name": "Secular / Cultural Jewish Identity",
+      "alternate_names": [
+        "Hiloni (in Israel)",
+        "Secular Jewishness",
+        "Cultural Judaism",
+        "Yiddishist / Bundist Heritage"
+      ],
+      "classification": "ETHNOCULTURAL_NON_RELIGIOUS",
       "movement": "Secular Jewish Identity (Hiloni)",
-      "identity_basis": "Jewish peoplehood, national history, Hebrew literature, cultural heritage, and shared destiny without adherence to divine commandments or theological dogma."
+      "historical_origin": "Rooted in the 19th-century Haskalah (Jewish Enlightenment), Eastern European Jewish socialist Bundism, secular Zionism (Theodor Herzl, Ahad Ha'am, David Ben-Gurion), and modern Western civic acculturation.",
+      "geographic_origin": "Eastern and Central Europe, modern State of Israel (~45% of Israeli Jews identify as Hiloni), United States, France, global diaspora.",
+      "historical_period": "HASKALAH_TO_CONTEMPORARY",
+      "demographic_context": "Comprises roughly 40-50% of world Jewry who identify as ethnically, culturally, or nationally Jewish without adhering to religious dogma or halakhic practice.",
+      "theological_orientation": "Non-theological or secular; Jewishness is an ethnic, national, historical, and cultural identity (Am Yisrael - the Jewish people) rather than a set of theological beliefs.",
+      "view_of_God": "Diverse personal views ranging from atheism, agnosticism, and deism to cultural indifference; theological dogma is not a criterion for Jewish belonging.",
+      "god_concept": "Non-binding personal orientation; identity is independent of divine belief.",
+      "view_of_Torah": "Foundational national epic, historic literature, and cultural heritage of the Jewish people.",
+      "view_of_Tanakh": "Masterpiece of ancient Hebrew literature, history, and moral archetype; central to modern Israeli Hebrew education.",
+      "view_of_Oral_Torah": "Cultural and legal folklore reflecting ancient and medieval Jewish exilic adaptation.",
+      "view_of_Talmud": "Intellectual artifact of exilic history, appreciated by some for argumentative rigor but carrying no personal legal authority.",
+      "halakhic_position": "Non-halakhic: Jewish identity is grounded in culture, peoplehood, history, and literature without commitment to halakha or theological dogma.",
+      "halakhic_orientation": "Non-observant of Halakha; selects cultural traditions (Passover Seder, Hanukkah menorah, Friday family dinner) on an autonomous personal, cultural, or familial basis.",
+      "halakhic_authority": "Rejects halakhic authority over personal and civil life.",
+      "authority_structure": "Secular democratic civil institutions, cultural organizations, and personal autonomy.",
+      "rabbinic_authority": "Rejects rabbinic control over civil affairs (especially marriage, divorce, and public transport in Israel).",
+      "scripture_textual_authorities": [
+        "Modern Hebrew literature (Bialik, Tchernichovsky, Agnon, Amichai)",
+        "Tanakh as national literature",
+        "Zionist and Bundist historical writings"
+      ],
+      "source_authority": "Shared national history, Jewish peoplehood, collective memory of suffering and triumph, and democratic humanism.",
+      "liturgy": "No regular prayer liturgy; cultural holiday celebrations feature folk songs, contemporary poetry, and cultural traditions.",
+      "synagogue_prayer_practice": "Infrequent or non-existent synagogue attendance; lifecycle celebrations may occur in secular venues or community centers.",
+      "shabbat": "Observed as a secular day of rest, leisure, nature outings, family gatherings, and cultural enrichment.",
+      "kashrut": "Non-observant of religious kashrut; culinary Jewish traditions (challah, shakshuka, bagels, gefilte fish) enjoyed culturally.",
+      "conversion": "Identity defined primarily by birth, culture, or national shared destiny; advocates for secular civil conversion or naturalization.",
+      "marriage": "Prefers civil marriage or secular ceremony; in Israel, forced to contend with Chief Rabbinate monopoly or marry abroad (e.g. Cyprus).",
+      "divorce": "Advocates for civil divorce through secular family courts.",
+      "lifecycle": "Celebrates milestones (birth, Bar/Bat Mitzvah, marriage, death) through cultural, national, and familial gatherings.",
+      "circumcision": "Widely practiced in Israel and diaspora as a cultural/medical norm and mark of Jewish national identity, though increasingly debated by secular critics.",
+      "festivals": "Enthusiastic cultural and national celebration of holidays: Passover as festival of freedom and spring; Purim carnivals; Hanukkah; Yom HaAtzmaut; Yom HaShoah.",
+      "messianic_theology": "Rejects supernatural Messiah; historic secular Zionism envisioned national liberation and sovereign independence as the modern redemption.",
+      "messiah_position": "National self-liberation and cultural flourishing in place of theological messianism.",
+      "afterlife_eschatology": "Secular worldview; memory preserved in family, community, and national memory.",
+      "modernity": "Fully integrated into modern secular life, science, technology, arts, and democratic citizenship.",
+      "view_of_modernity": "Complete participation in modern global civilization, secular arts, sciences, and democratic politics.",
+      "gender_leadership": "Full gender equality and progressive social values.",
+      "relationship_to_israel": "In Israel, forms the core civic, cultural, military, and technological backbone of the modern state; in the diaspora, maintains strong ethnic solidarity with Israel.",
+      "relationship_to_zionism": "Core historic driver of classical political Zionism (Herzl, Nordau, Ben-Gurion); views Israel as the sovereign nation-state of the Jewish people.",
+      "attitude_to_israel": "Strong patriotic identification with the State of Israel combined with fierce opposition to religious coercion by the Orthodox rabbinate.",
+      "relationship_to_other_jewish_movements": "Shares ethnic and national solidarity (Am Yisrael); resents Orthodox religious coercion in public life; shares cultural resonance with progressive denominations.",
+      "relationship_to_non_jewish_religions": "Secular, tolerant coexistence; civic integration; freedom of and from religion.",
+      "internal_diversity": "Diverse spectrum: Israeli Hiloni (Hebrew-speaking, culturally embedded in Jewish calendar and army service), American secular/cultural Jews ('Jews of no religion'), Bundist/Yiddishist culturalists, and post-Zionist intellectuals.",
+      "identity_basis": "Jewish peoplehood, national history, Hebrew literature, cultural heritage, and shared destiny without adherence to divine commandments or theological dogma.",
+      "sub_branches": [
+        "Israeli Hiloni (Hebrew language, national calendar, cultural holidays)",
+        "American Cultural / Secular Jews (heritage, values, comedy, literature, social justice)",
+        "Historical Jewish Labor Bund (socialist, anti-Zionist, Yiddish culturalism)"
+      ],
+      "major_figures": [
+        "Theodor Herzl",
+        "Ahad Ha'am",
+        "Hayim Nahman Bialik",
+        "David Ben-Gurion",
+        "Amos Oz",
+        "Albert Einstein"
+      ],
+      "primary_sources": [
+        "SRC-ACAD-COHEN-001"
+      ],
+      "academic_sources": [
+        "SRC-ACAD-COHEN-001"
+      ],
+      "source_ids": [
+        "SRC-ACAD-COHEN-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-012"
+      ],
+      "graph_node_ids": [
+        "NODE-DENOM-SECULAR"
+      ],
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "methodology": "Sociological demographic data from Israel Central Bureau of Statistics and Pew Research Center surveys of Jewish Americans",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "disputed_or_contested_points": [
+        "The legal status of secular civil marriage and public transportation on Shabbat in Israel",
+        "Defining 'Who is a Jew' under civil law vs halakha",
+        "Assimilation and continuity rates in the diaspora"
+      ]
+    },
+    {
+      "id": "DENOM-BETA-ISRAEL",
+      "canonical_name": "Beta Israel Haymanot Tradition",
+      "alternate_names": [
+        "Ethiopian Jewish Tradition",
+        "Haymanot Judaism",
+        "House of Israel (Beta Israel)",
+        "Historical exonym: Falasha (derogatory)"
+      ],
+      "classification": "PRE_RABBINIC_BIBLICAL_PRIESTLY",
+      "movement": "Beta Israel Haymanot Tradition",
+      "historical_origin": "Ancient Jewish community developed in northwestern Ethiopia (Gondar, Simien Mountains, Tigray) in centuries-long isolation from the Mediterranean and Babylonian rabbinic academies; preserved an archaic, pre-rabbinic form of biblical religion.",
+      "geographic_origin": "Ethiopia (Gondar, Tigray, Wolkait); modern State of Israel (where ~160,000 Ethiopian Israelis reside today).",
+      "historical_period": "ANCIENT_TO_CONTEMPORARY",
+      "demographic_context": "Over 160,000 citizens of Ethiopian descent in modern Israel following heroic airlift operations (Operation Moses 1984, Operation Solomon 1991).",
+      "theological_orientation": "Haymanot (Ge'ez for religion/faith): centered upon the Orit (the Octateuch in Ge'ez), strict biblical purity laws, Sabbath sanctification as a living spiritual queen, and covenantal renewal.",
+      "view_of_God": "Egziabher (God of Israel): supreme, creator of heaven and earth, covenantal God of Abraham, Isaac, and Jacob.",
+      "god_concept": "Pure biblical monotheism; Creator and redeemer of Israel.",
+      "view_of_Torah": "The Orit (Ge'ez translation of the Octateuch: Pentateuch plus Joshua, Judges, Ruth) written on parchment and venerated as the supreme sacred scripture.",
+      "view_of_Tanakh": "Canon comprises the Orit alongside Ge'ez translations of other biblical books and ancient Jewish apocrypha (Book of Enoch, Jubilees, Testament of Abraham).",
+      "view_of_Oral_Torah": "Historically had no contact with or knowledge of the Rabbinic Oral Torah, Mishnah, or Talmud for millennia until modern contact.",
+      "view_of_Talmud": "Historically unknown; 20th-century contact led to gradual adoption of rabbinic law alongside preservation of ancestral traditions.",
+      "halakhic_position": "Biblical Haymanot law based directly on the Orit; historically developed independently of Talmudic and Rabbinic Halakha until 20th-century integration with Israeli rabbinic authority.",
+      "halakhic_orientation": "Strict adherence to biblical commandments and ancestral priestly oral regulations handed down by the Kessim, with particular stringency regarding ritual purity (attinkun) and Sabbath sanctity.",
+      "halakhic_authority": "The Kessim (Kohanim) and monastic sages (monks like Abba Sabra who established monastic institutions in the 15th century).",
+      "authority_structure": "The Kessim (priests) wearing white turbans and carrying prayer sticks, guided by Liqa Kahnat (High Priests).",
+      "rabbinic_authority": "Historically unknown; recognized halakhically by Sephardic Chief Rabbi Ovadia Yosef in 1973, leading to integration under the Israeli Chief Rabbinate.",
+      "scripture_textual_authorities": [
+        "The Orit (Ge'ez Octateuch)",
+        "Mashafa Qeddus (holy books including Enoch and Jubilees)",
+        "Liturgical prayer books in Ge'ez and Agaw"
+      ],
+      "source_authority": "Ancient Ge'ez biblical manuscripts and unbroken oral transmission of the Kessim priestly guild.",
+      "liturgy": "Sung liturgical prayer in Ge'ez and Agaw (Qwarinya) accompanied by ritual drums (kebero), metal clappers, and prayer sticks in the Masgid (house of prayer).",
+      "synagogue_prayer_practice": "Worship in the Masgid led by Kessim; congregation removes shoes; prayers sung standing and bowing; ritual cleanliness strictly maintained.",
+      "shabbat": "Sanbat: deeply revered and personified as a beloved heavenly queen; absolute cessation of all labor, cooking, or lighting fires; sexual abstinence observed on Sabbath to maintain ritual purity.",
+      "kashrut": "Strict biblical kashrut: clean animals slaughtered strictly by the Kessim with specific blessings; meat never mixed with dairy; prohibition of eating food prepared by non-Jews.",
+      "conversion": "Historically rarely accepted converts due to strict social boundaries and persecution; in modern Israel, symbolic conversion (Giyur Le-Chumra) was initially requested by the Chief Rabbinate due to historical divergence in marriage/divorce, sparking historic community protests and eventual recognition.",
+      "marriage": "Traditional biblical marriage arranged by families and consecrated by Kessim; strict avoidance of marriage within seven generations of consanguinity.",
+      "divorce": "Divorce was historically extremely rare and viewed with great shame; resolved by priestly mediation.",
+      "lifecycle": "Strict biblical purity laws: mother stays in ya-margam gogo during menstruation and ya-dass gogo (birth hut) for 40 days for a boy, 80 days for a girl (Leviticus 12), followed by ritual river immersion; circumcision on eighth day.",
+      "circumcision": "Brit Milah performed on the eighth day by female elders or priests in accordance with Genesis 17 and Leviticus 12.",
+      "festivals": "Biblical holidays according to the lunar-solar calendar: Fasika (Passover, with sacrificial lamb historically offered by Kessim), Ba'ala Mazallat (Sukkot), Berhan Saraqa (Rosh Hashanah), Astasreyo (Yom Kippur); unique festival of Seged (29th of Heshvan: fasting, climbing a mountain with stones on heads, reading the Orit in Ge'ez and translating to Amharic, renewing the Sinai covenant as in Ezra and Nehemiah).",
+      "messianic_theology": "Awaits the ingathering of all exiles to Jerusalem and the rebuilding of Zion.",
+      "messiah_position": "Prophetic redemption and return of all dispersed Jews to the Holy City of Jerusalem.",
+      "afterlife_eschatology": "Belief in divine judgment, paradise for the righteous, and punishment for the wicked.",
+      "modernity": "Successful modern integration into Israeli society, IDF officer corps, universities, arts, politics, and the Knesset, while fighting for complete social equality and preservation of their unique heritage.",
+      "view_of_modernity": "Full participation in modern Israeli democratic life while actively celebrating and preserving distinct Ethiopian Jewish cultural and religious identity.",
+      "gender_leadership": "Priesthood is male; women hold revered status in maintaining family purity, lifecycle traditions, and cultural transmission.",
+      "relationship_to_israel": "Central to Beta Israel identity for millennia; historical yearning expressed in the prayer 'Next year in Jerusalem'; realized through perilous treks across the Sudanese desert and airlift migrations.",
+      "relationship_to_zionism": "Profound, authentic Zionism of deep religious faith; thousands died in Sudanese refugee camps walking toward Zion.",
+      "attitude_to_israel": "Deep patriotic and religious loyalty to the State of Israel, paired with civic struggle for full recognition of Kessim and elimination of discrimination.",
+      "relationship_to_other_jewish_movements": "Acknowledged as part of Klal Yisrael; Rabbinic authorities historically recognized their Jewishness (Radbaz in 16th c., Rabbi Ovadia Yosef in 1973); now recognized as an official state holiday in Israel (Seged Law of 2008).",
+      "relationship_to_non_jewish_religions": "Maintained fierce independence and resistance against centuries of Christian Ethiopian imperial persecution and missionary efforts (by the London Society for Promoting Christianity Amongst the Jews).",
+      "internal_diversity": "Beta Israel traditionalists, modern Israeli integrationists, and descendants of forced converts (Beta Abraham / Falash Mura) undergoing formal return to Judaism.",
+      "sub_branches": [
+        "Beta Israel (veteran communities of Gondar, Simien, and Tigray)",
+        "Falash Mura (descendants of 19th-20th century converts to Christianity returning to Judaism in Israel)"
+      ],
+      "major_figures": [
+        "Abba Sabra (15th-century monk and liturgical reformer)",
+        "Radbaz (Rabbi David ben Zimra, 16th c.)",
+        "Rabbi Ovadia Yosef (1973 recognition)",
+        "Liqa Kahnat Uri Ben-Baruch",
+        "Kes Raphael Hadane"
+      ],
+      "primary_sources": [
+        "SRC-JEW-BETA-ORIT-001"
+      ],
+      "academic_sources": [
+        "SRC-ACAD-KAPLAN-BETA-001",
+        "SRC-ACAD-SHELEMAY-001"
+      ],
+      "source_ids": [
+        "SRC-JEW-BETA-ORIT-001",
+        "SRC-ACAD-KAPLAN-BETA-001",
+        "SRC-ACAD-SHELEMAY-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-054",
+        "EVID-JEW-055",
+        "EVID-JEW-056"
+      ],
+      "graph_node_ids": [
+        "NODE-COMM-BETA-ISRAEL",
+        "NODE-TEXT-ORIT",
+        "NODE-THEME-HAYMANOT",
+        "NODE-THEME-SEGED"
+      ],
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "methodology": "Ethnomusicological, liturgical, and historical documentation of Ge'ez texts, Kessim oral traditions, and Israeli rabbinic rulings",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "disputed_or_contested_points": [
+        "The historical debate over Giyur Le-Chumra (pro-forma conversion) imposed by earlier rabbinic authorities",
+        "Official state recognition and funding of Kessim on par with rabbinic communal rabbis",
+        "Status and aliyah eligibility of the Falash Mura (descendants of converts)"
+      ]
+    },
+    {
+      "id": "DENOM-MESSIANIC",
+      "canonical_name": "Messianic Judaism",
+      "alternate_names": [
+        "Messianic Jews",
+        "Hebrew Christians (historical)",
+        "Jewish Believers in Yeshua"
+      ],
+      "classification": "SYNCRETIC_EVANGELICAL_CHRISTIAN",
+      "movement": "Messianic Judaism (Non-Normative / Syncretic)",
+      "historical_origin": "Emerged in the late 1960s and 1970s in the United States from the evangelical Protestant 'Hebrew Christian' mission movement and the Jesus Movement counterculture, rebranding missions to emphasize Jewish cultural forms and Israeli identity while retaining Evangelical Protestant theology.",
+      "geographic_origin": "United States (California, Chicago, Florida), Israel, Western Europe, former Soviet Union.",
+      "historical_period": "CONTEMPORARY",
+      "demographic_context": "Global movement estimated at 150,000–300,000 adherents, a substantial proportion of whom have no verifiable Jewish ancestry; operates distinct congregations ('Messianic Synagogues').",
+      "theological_orientation": "Doctrinally Evangelical Christian: affirms the divinity, Trinity, incarnation, virgin birth, and bodily resurrection of Jesus (Yeshua) of Nazareth; affirms that salvation from sin is obtainable exclusively through personal faith in Jesus' substitutionary atonement on the cross. Retains Jewish liturgical symbols (tallit, shofar, Torah scrolls, Hebrew terms) as cultural expressions.",
+      "view_of_God": "Trinitarian Christian theology: One God eternally existent in three persons: Father, Son (Yeshua), and Holy Spirit (Ruach HaKodesh). Fundamentally rejected by Judaism as violating radical monotheism (Yihud Ha-Shem).",
+      "god_concept": "Trinitarian / Incarnational; worships Jesus (Yeshua) as the divine Son of God co-equal with the Father.",
+      "view_of_Torah": "Viewed through the lens of the Christian New Testament: either as moral inspiration fulfilled in Christ, or as cultural heritage; rejects rabbinic oral law.",
+      "view_of_Tanakh": "Read typologically and messianically as a prophetic book pointing directly to Jesus as the Messiah and divine Savior.",
+      "view_of_Oral_Torah": "Rejects the divine authority of the Rabbinic Oral Torah, Talmud, and Halakha; draws upon select rabbinic traditions purely for cultural embellishment.",
+      "view_of_Talmud": "Non-authoritative human literature; sometimes mined for polemical or homiletical proof-texts.",
+      "halakhic_position": "Rejects normative Rabbinic Halakha; integrates select biblical/Jewish ritual practices with New Testament evangelical Christian theology; universally rejected by Jewish halakhic decisors.",
+      "halakhic_orientation": "Non-halakhic; practice is voluntary and evangelical; ritual observance (keeping kosher, Shabbat) is viewed not as saving law, but as cultural witness and divine blessing.",
+      "halakhic_authority": "Rejects rabbinic authority entirely; authority resides in the New Testament and Hebrew Scriptures as interpreted by evangelical theology.",
+      "authority_structure": "Messianic congregational networks (e.g. Messianic Jewish Alliance of America - MJAA, Union of Messianic Jewish Congregations - UMJC); allied closely with Evangelical Protestant denominations.",
+      "rabbinic_authority": "Messianic 'Rabbis' are evangelical Christian ministers who use Jewish titles; unrecognized by any Jewish denomination.",
+      "scripture_textual_authorities": [
+        "The Christian Bible (Tanakh and New Testament / Brit Chadasha)",
+        "Evangelical Christian theology",
+        "Writings of Messianic leaders (David Stern, Dan Juster)"
+      ],
+      "source_authority": "Protestant Sola Scriptura combined with Jewish cultural adaptation.",
+      "liturgy": "Hybrid service blending Christian evangelical worship (praise and worship songs, communion / Lord's supper, evangelical sermons) with Jewish liturgical elements (Shema, Torah procession, kaddish, blowing of the shofar).",
+      "synagogue_prayer_practice": "Congregations typically meet on Friday evening or Saturday morning; utilize Jewish liturgical vestments (tallit, kippah) while praying explicitly in the name of Yeshua (Jesus).",
+      "shabbat": "Observed on Saturday in church-like congregational services; retains evangelical Sunday school dynamics.",
+      "kashrut": "Varied voluntary practice: some observe biblical kashrut (avoiding pork and shellfish) to identify with Jewish culture; others view dietary laws as superseded by the New Testament.",
+      "conversion": "Practice Christian baptism (Tevilah) in the name of the Father, Son, and Holy Spirit as the essential rite of salvation; encourages non-Jews who join to adopt 'Messianic Jewish' lifestyle.",
+      "marriage": "Officiated by Messianic leaders incorporating Christian vows and Jewish canopy (Chuppah); invalid under Israeli rabbinic marriage laws.",
+      "divorce": "Follows New Testament evangelical teachings on marriage and divorce.",
+      "lifecycle": "Celebrates Bar/Bat Mitzvah with New Testament readings; infant dedication or baptism.",
+      "circumcision": "Practiced by Jewish-born adherents as an ethnic/covenantal custom, but non-essential for spiritual salvation (relying on Pauline theology in Galatians and Romans).",
+      "festivals": "Celebrates biblical Jewish holidays (Passover, Rosh Hashanah, Yom Kippur, Sukkot) reinterpreted christologically (e.g. the Passover lamb symbolizing Jesus' crucifixion, the Afikoman symbolizing Jesus' broken body and resurrection); some celebrate Christmas and Easter.",
+      "messianic_theology": "Asserts that Jesus of Nazareth is the divine Son of God and promised Messiah who accomplished spiritual salvation through his death and resurrection, and will return in a second coming.",
+      "messiah_position": "Classical Christian Christology: Jesus (Yeshua) is the divine Messiah and Savior of the world.",
+      "afterlife_eschatology": "Classical Christian doctrine of heaven and hell: eternal salvation for believers in Jesus, eternal damnation for non-believers.",
+      "modernity": "Utilizes contemporary Christian media, music, internet evangelism, and television broadcasting.",
+      "view_of_modernity": "Embraces modern mass media and evangelical missionary strategies.",
+      "gender_leadership": "Mixed evangelical governance; some egalitarian congregations, others conservative complementarian.",
+      "relationship_to_israel": "Ardent Christian Zionist support for the State of Israel; views modern Israel through the lens of biblical prophecy and eschatology (pre-millennial dispensation).",
+      "relationship_to_zionism": "Christian Zionist theology; sees the ingathering of Jews to Israel as fulfilling prophecy leading to the second coming of Jesus.",
+      "attitude_to_israel": "Strong support for the state, while facing legal and social marginalization within Israel due to missionary activities.",
+      "relationship_to_other_jewish_movements": "Unanimously and unequivocally rejected by all mainstream Jewish denominations (Orthodox, Conservative, Reform, Reconstructionist, and Karaite); mainstream Judaism views Messianic Judaism not as a denomination of Judaism, but as a form of Christian evangelicalism aimed at proselytizing Jews.",
+      "relationship_to_non_jewish_religions": "Theologically allied with Evangelical Protestant Christianity; views non-Christian religions (including rabbinic Judaism, Islam, etc.) as in need of personal salvation through faith in Jesus.",
+      "internal_diversity": "Spectrum includes Messianic congregations with high Jewish cultural observance (UMJC), charismatic / pentecostal Messianic churches (MJAA), and predominantly Gentile evangelical congregations using Jewish ritual items.",
+      "institutional_and_legal_status": "In landmark rulings (Rufeisen v. Minister of the Interior 1962, Beresford v. Minister of the Interior 1989), the Supreme Court of Israel definitively ruled that Messianic Jews are members of another religion and therefore do not qualify as Jews under the Law of Return (Hok Ha-Shevut).",
+      "academic_classification": "Religious studies scholars (Cohn-Sherbok, Ariel, Feher) classify Messianic Judaism as a syncretic new religious movement rooted in 20th-century Protestant evangelical missions to the Jews.",
+      "major_figures": [
+        "Martin Chernoff",
+        "David H. Stern (author of Complete Jewish Bible)",
+        "Daniel Juster",
+        "Moishe Rosen (founder of Jews for Jesus, mission agency)"
+      ],
+      "primary_sources": [
+        "SRC-HIST-ISRAEL-COURT-001"
+      ],
+      "academic_sources": [
+        "SRC-ACAD-COHNSHERBOK-001",
+        "SRC-ACAD-ARIEL-001"
+      ],
+      "source_ids": [
+        "SRC-HIST-ISRAEL-COURT-001",
+        "SRC-ACAD-COHNSHERBOK-001",
+        "SRC-ACAD-ARIEL-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-064",
+        "EVID-JEW-065"
+      ],
+      "graph_node_ids": [
+        "NODE-DENOM-MESSIANIC",
+        "NODE-ACAD-COHNSHERBOK",
+        "NODE-ACAD-ARIEL"
+      ],
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "methodology": "Comparative theological analysis, Israeli Supreme Court jurisprudence (H.C. 265/87), and academic sociological studies of evangelical missions",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "disputed_or_contested_points": [
+        "Self-identification as Jewish believers vs universal consensus of all Jewish denominations and Israeli law categorizing the movement as Christian",
+        "Use of Jewish sacred symbols (Torah scrolls, tallit, shofar) in Christian theological contexts",
+        "Deceptive proselytizing accusations by anti-missionary organizations (Yad L'Achim)"
+      ]
     }
   ]
 }

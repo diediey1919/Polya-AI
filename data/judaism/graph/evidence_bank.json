@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "total_records": 45,
+  "total_records": 66,
   "records": [
     {
       "evidence_id": "EVID-JEW-001",
@@ -1389,6 +1389,654 @@
         "author_agent": "Polia Knowledge Architecture Specialist"
       },
       "notes": "Housed in the Israel Museum, Jerusalem; universally recognized benchmark in synagogue archaeology."
+    },
+    {
+      "evidence_id": "EVID-JEW-046",
+      "claim_id": "CLAIM-KARAITE-ORAL-TORAH-REJECTION-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "THEOLOGICAL_LEGAL",
+      "text": "Karaite Judaism rejects the divine authority of the Rabbinic Oral Torah, Mishnah, and Talmud, affirming that the Written Hebrew Tanakh is self-sufficient and must be interpreted through plain literal meaning (Peshat), rational analogy (Qiyyas), and consensus inheritance (Sevel Ha-Yerushah).",
+      "source_id": "SRC-JEW-KARAITE-QIRQISANI-001",
+      "source_tier": "TIER_3_MEDIEVAL_RISHONIM",
+      "source_location": "Kitab al-Anwar wal-Maraqib, Discourse I & II",
+      "original_language_text": "ابحثوا في التوراة جيدا ولا تعتمدوا على رأيي",
+      "transliteration": "Ibhathu fi al-tawrah jayyidan wa-la ta'tamidu 'ala ra'yi",
+      "historical_period": "ISLAMIC_GOLDEN_AGE",
+      "tradition": "KARAITE_JUDAISM",
+      "context": "10th-century Abbasid Baghdad and Cairo; Yaqub al-Qirqisani formulating the foundational epistemology and legal philosophy of Karaism against Rabbanite Rabbinic claims.",
+      "interpretation": "Denies that God revealed an unwritten second Torah to Moses at Sinai; argues that every individual has an intellectual obligation to study the written scriptures directly.",
+      "competing_interpretation": "Normative Rabbinic Judaism maintains that the Written Torah is incomprehensible without the Sinaitic Oral Law (Talmud Shabbat 31a).",
+      "counterargument": "Demonstrates that Karaism is not merely an absence of Talmud, but an autonomous positive jurisprudence grounded in Hebrew philology, rational logic, and biblical context.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Nemoy-1952",
+          "Astren-2004",
+          "SRC-JEW-KARAITE-QIRQISANI-001"
+        ],
+        "methodology": "Textual analysis of Judeo-Arabic philosophical and polemical treatises",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Classic text establishing Karaite hermeneutical independence from Rabbinic halakha."
+    },
+    {
+      "evidence_id": "EVID-JEW-047",
+      "claim_id": "CLAIM-KARAITE-CALENDAR-SHAVUOT-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "HALAKHIC",
+      "text": "Karaite halakha determines the sacred calendar through physical lunar crescent sighting and barley ripeness (Aviv) in the Land of Israel, mandating that the festival of Shavuot always falls on a Sunday following the literal 'morrow after the Sabbath' (Leviticus 23:15-16).",
+      "source_id": "SRC-JEW-KARAITE-AARON-001",
+      "source_tier": "TIER_3_MEDIEVAL_RISHONIM",
+      "source_location": "Gan Eden, Inyan Shavuot & Inyan Rosh Chodesh",
+      "original_language_text": "ממחרת השבת - שבת בראשית... שיהיה חג השבועות לעולם ביום ראשון",
+      "transliteration": "mi-mochorat ha-shabbat - shabbat bereshit... she-yihyeh chag ha-shavuot le-olam be-yom rishon",
+      "historical_period": "MEDIEVAL_ERA",
+      "tradition": "KARAITE_JUDAISM",
+      "context": "Centuries-long calendar dispute between Karaites and Rabbanites over biblical exegesis of Leviticus 23:11, 15.",
+      "interpretation": "Interprets 'shabbat' in Lev 23:15 literally as the weekly seventh-day Sabbath occurring during the week of Unleavened Bread, meaning Shavuot (50 days later) must invariably occur on the first day of the week (Sunday).",
+      "competing_interpretation": "Rabbinic tradition (Mishnah Menachot 10:3) interprets 'shabbat' as the first day of Passover (a Yom Tov day of rest), fixing Shavuot on 6 Sivan regardless of the day of the week.",
+      "counterargument": "Illustrates radical liturgical divergence between Rabbinic and non-Rabbinic biblical communities regarding sacred time.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Delitzsch-1841",
+          "SRC-JEW-KARAITE-AARON-001"
+        ],
+        "methodology": "Exegetical and halakhic text collation of medieval Karaite legal codes",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Foundational difference in festival observance between Karaite and Rabbinic Judaism."
+    },
+    {
+      "evidence_id": "EVID-JEW-048",
+      "claim_id": "CLAIM-KARAITE-LITURGY-PROSTRATION-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "LITURGICAL",
+      "text": "Karaite liturgical worship takes place in carpeted Kenesas without shoes, consisting almost exclusively of biblical Psalms and praises recited with ritual ablutions and full bodily prostration (hishtachavayah) touching faces to the floor facing Jerusalem.",
+      "source_id": "SRC-JEW-KARAITE-AARON-001",
+      "source_tier": "TIER_3_MEDIEVAL_RISHONIM",
+      "source_location": "Gan Eden, Inyan Tefillah ch. 1–4",
+      "original_language_text": "ונשתחוה ונכרעה נברכה לפני ה׳ עשנו",
+      "transliteration": "nishtachaveh ve-nikhrah nivrekhah lifnei YHWH osenu",
+      "historical_period": "MEDIEVAL_ERA",
+      "tradition": "KARAITE_JUDAISM",
+      "context": "Karaite preservation of ancient Near Eastern and biblical worship postures (Neh 8:6, Ps 95:6) in Islamic lands.",
+      "interpretation": "Affirms that legitimate prayer must use God's own words from Tanakh rather than rabbinic post-biblical formulations; bodily prostration expresses total submission before the Divine.",
+      "competing_interpretation": "Rabbinic Judaism abandoned regular daily prostration in exile (preserving only standing Amidah with slight bows, reserving prostration for High Holidays) to avoid resemblance to surrounding non-Jewish rites.",
+      "counterargument": "Empirically disproves the assumption that Jewish prayer postures have been uniform throughout history.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Astren-2004",
+          "SRC-JEW-KARAITE-AARON-001"
+        ],
+        "methodology": "Comparative liturgical analysis of Kenesa prayer manuals and Rabbinic siddurim",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Witnessed in living Karaite communities in Ramla, Ashdod, and Daly City."
+    },
+    {
+      "evidence_id": "EVID-JEW-049",
+      "claim_id": "CLAIM-HASID-DEVEKUT-TZADDIK-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "THEOLOGICAL_MYSTICAL",
+      "text": "Hasidic theology emphasizes Devekut (unbroken cleaving to God), serving God with joy (Ivdu et Hashem be-simcha), and the centrality of the Tzaddik (Rebbe) as a living spiritual conduit connecting heaven and earth to uplift the souls of his followers.",
+      "source_id": "SRC-JEW-HASID-BESHT-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
+      "source_location": "Shivchei Ha-Besht, Teachings on Devekut",
+      "original_language_text": "עבדו את ה׳ בשמחה... ובכל דרכיך דעהו, אפילו בעניינים גשמיים",
+      "transliteration": "ivdu et Hashem be-simcha... u-ve-khol drakhekha da'ehu, afilu be-inyanim gashmiyyim",
+      "historical_period": "EARLY_MODERN_ERA",
+      "tradition": "HASIDIC_JUDAISM",
+      "context": "Revitalization of Eastern European Jewry in the 18th century, teaching that God is present in everyday physical reality ('Avodah be-Gashmiyut').",
+      "interpretation": "Spiritual ecstasy and heartfelt intention (kavvanah) allow ordinary people to elevate fallen divine sparks (nitzotzot) even while eating or working, with the Tzaddik interceding on their behalf.",
+      "competing_interpretation": "The Lithuanian Mitnagdim (Rabbi Eliyahu of Vilna) argued that Hasidism dangerously devalued rigorous Talmud study and risked antinomian enthusiasm similar to the Sabbatean heresy.",
+      "counterargument": "Demonstrates that Hasidism introduced a revolution in Jewish religious psychology while remaining within the bounds of halakhic practice.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Ben-Amos-Mintz-1970",
+          "Idel-1995",
+          "SRC-JEW-HASID-BESHT-001"
+        ],
+        "methodology": "Textual and phenomenological analysis of early Hasidic teachings",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Foundational pillar of all Hasidic dynastic branches."
+    },
+    {
+      "evidence_id": "EVID-JEW-050",
+      "claim_id": "CLAIM-HASID-CHABAD-BEINONI-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "THEOLOGICAL_PSYCHOLOGICAL",
+      "text": "Rabbi Shneur Zalman of Liadi codified in the Tanya (1797) the Chabad intellectual synthesis of Hasidism, defining the spiritual ideal for the ordinary person as the 'Beinoni' (intermediate person), who maintains complete mastery of thought, speech, and action over the animal soul.",
+      "source_id": "SRC-JEW-HASID-TANYA-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
+      "source_location": "Likkutei Amarim (Tanya), Chapters 11–14",
+      "original_language_text": "והבינוני הוא שאין הרע גובר עליו לעולם להביאו לידי חטא... אלא מחשבה דבור ומעשה שלו הם אך ורק לתורה ומצות",
+      "transliteration": "ve-ha-beinoni hu she-ein ha-ra gover alav le-olam le-havio li-ydei chet... ela machshavah dibbur u-ma'aseh shelo hem akh ve-rak le-torah u-mitzvot",
+      "historical_period": "HASKALAH_EMANCIPATION",
+      "tradition": "HASIDIC_CHABAD",
+      "context": "Founding of the Chabad (Chokhmah, Binah, Da'at) intellectual dynasty in White Russia / Lithuania, systematizing Hasidic mysticism into accessible psychological theology.",
+      "interpretation": "Distinguishes between the rare righteous person (Tzaddik), who has entirely transformed their evil inclination, and the intermediate person (Beinoni), who experiences continuous inner battle with the animal soul but never succumbs in deed, speech, or entertained thought.",
+      "competing_interpretation": "Classical Talmudic homilies sometimes equated Beinoni with an equal balance of sins and merits; Tanya redefines it as behavioral perfection coupled with ongoing inner struggle.",
+      "counterargument": "Establishes that Chabad Hasidism is a deeply intellectualized, disciplined system of spiritual psychology rather than unguided emotional revivalism.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Foxbrunner-1992",
+          "Scholem-1974",
+          "SRC-JEW-HASID-TANYA-001"
+        ],
+        "methodology": "Textual and mystical commentary on the Tanya and early Chabad responsa",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Central text for understanding Chabad intellectual theology."
+    },
+    {
+      "evidence_id": "EVID-JEW-051",
+      "claim_id": "CLAIM-HASID-MITNAGDIM-CHEREM-001",
+      "evidence_class": "HISTORICAL_REPORT",
+      "evidence_type": "HISTORICAL_POLEMICAL",
+      "text": "In 1772 and 1781, the communal leadership of Vilna led by the Vilna Gaon (Gra) issued formal excommunications (cherem) against Hasidism, condemning their separate prayer houses (shtieblach), alterations to the Ashkenazi prayer rite (adopting Nusach Sefard), and perceived disrespect for Talmudic scholars.",
+      "source_id": "SRC-ACAD-IDEL-001",
+      "source_tier": "TIER_5_ACADEMIC_CRITICAL",
+      "source_location": "Hasidism: Between Ecstasy and Magic, Ch. 1",
+      "original_language_text": "חרם הגר״א מווילנא נגד החסידים תקל״ב ותקמ״א",
+      "transliteration": "Cherem ha-Gra mi-Vilna neged ha-chasidim",
+      "historical_period": "EARLY_MODERN_ERA",
+      "tradition": "RABBINIC_MITNAGDIC",
+      "context": "The profound theological and communal schism in 18th-century Eastern Europe between Hasidim and the Lithuanian traditionalists (Mitnagdim).",
+      "interpretation": "The Gaon feared that Hasidic charismatic leadership (Rebbes) and ecstatic practices resembled the recent Sabbatean and Frankist heresies; by the mid-19th century, both factions reconciled against the secularizing threat of the Haskalah.",
+      "competing_interpretation": "Hasidic leaders defended their innovations as a genuine restoration of Lurianic Kabbalistic intentions necessary to save Jewish souls from spiritual numbness.",
+      "counterargument": "Proves that traditional Orthodox Judaism is not a monolithic historical consensus, but contains intense internal polemics that were later harmonized.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Idel-1995",
+          "Etkes-2002",
+          "SRC-ACAD-IDEL-001"
+        ],
+        "methodology": "Archival examination of 18th-century communal ban decrees (Kozower and Vilna pinkasim)",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Essential historical milestone for understanding intra-Orthodox diversity."
+    },
+    {
+      "evidence_id": "EVID-JEW-052",
+      "claim_id": "CLAIM-SEPH-BENISHHAI-HALAKHA-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "HALAKHIC_KABBALISTIC",
+      "text": "Rabbi Yosef Hayyim of Baghdad (Ben Ish Hai) established the dominant halakhic paradigm of Iraqi and broader Mizrahi Jewry by systematically weaving Shulchan Aruch rulings with the Kabbalistic mystical customs of Rabbi Isaac Luria (the Ari zal).",
+      "source_id": "SRC-JEW-SEPH-BENISHHAI-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
+      "source_location": "Sefer Ben Ish Hai, Introduction and weekly halakhot",
+      "original_language_text": "לפסוק כדברי מרן השולחן ערוך, וכל מקום שיש מנהג על פי הסוד נוהגים כדברי האר״י ז״ל",
+      "transliteration": "lifsoq ke-divrei Maran ha-Shulchan Aruch, ve-khol maqom she-yesh minhag al pi ha-sod nohagim ke-divrei ha-Ari zal",
+      "historical_period": "HASKALAH_EMANCIPATION",
+      "tradition": "SEPHARDIC_MIZRAHI",
+      "context": "19th-century Baghdad, where Ben Ish Hai served as the supreme spiritual authority for Iraqi, Persian, and Indian diaspora communities.",
+      "interpretation": "Affirms that when Maran Joseph Karo and the Ari zal conflict, one should adopt the stringency of the Kabbalistic custom if feasible, creating a distinctly mystical Mizrahi halakhic culture.",
+      "competing_interpretation": "Later 20th-century Sephardic authorities, notably Rabbi Ovadia Yosef, vigorously contested this approach, arguing that Maran's legal rulings must always prevail over Kabbalistic stringencies.",
+      "counterargument": "Demonstrates major jurisprudential diversity within Sephardic and Mizrahi rabbinic traditions.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Zohar-2013",
+          "SRC-JEW-SEPH-BENISHHAI-001"
+        ],
+        "methodology": "Comparative halakhic jurisprudence analysis across Middle Eastern rabbinic codes",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Classic text defining Iraqi and Persian traditional practice."
+    },
+    {
+      "evidence_id": "EVID-JEW-053",
+      "claim_id": "CLAIM-SEPH-OVADIA-RESTORE-CROWN-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "HALAKHIC_JURISPRUDENCE",
+      "text": "Rabbi Ovadia Yosef launched a legal campaign known as 'Le-hachzir atarah le-yoshnah' (to restore the crown to its ancient glory), ruling that all Sephardic and Mizrahi Jews must unite under the rulings of Maran Joseph Karo, rejecting both Ashkenazi stringencies and excessive Kabbalistic additions.",
+      "source_id": "SRC-JEW-SEPH-OVADIA-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
+      "source_location": "Yabia Omer Vol. 1, Introduction & Orach Chaim 1",
+      "original_language_text": "להחזיר עטרה ליושנה - שקבלנו הוראות מרן הבית יוסף כהלכה למשה מסיני",
+      "transliteration": "le-hachzir atarah le-yoshnah - she-kibalnu hora'ot Maran ha-Beit Yosef ke-halakhah le-Moshe mi-Sinai",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "SEPHARDIC_HALAKHA",
+      "context": "20th-century Israel, where immigrant Sephardic and Mizrahi communities faced Ashkenazi institutional dominance in the Chief Rabbinate.",
+      "interpretation": "Sephardic jurisprudence is characterized by courageous adherence to the 'power of leniency' (ko'ach de-heteira adif), demonstrated in his rulings on agunot from the Yom Kippur War, recognizing Beta Israel, and lenient conversions.",
+      "competing_interpretation": "Iraqi traditionalists adhering to the Ben Ish Hai and Moroccan rabbis adhering to ancestral Maghrebi customs resisted Rav Ovadia's total standardization around the Shulchan Aruch.",
+      "counterargument": "Highlights that Sephardic halakha is an active, evolving, and contested intellectual tradition with distinct schools of thought.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Picard-2012",
+          "Zohar-2013",
+          "SRC-JEW-SEPH-OVADIA-001"
+        ],
+        "methodology": "Analysis of landmark 20th-century Sephardic responsa and political-halakhic movements",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Foundational ethos of the Sephardic Torah revival in contemporary Israel."
+    },
+    {
+      "evidence_id": "EVID-JEW-054",
+      "claim_id": "CLAIM-BETA-YOSEF-1973-RULING-001",
+      "evidence_class": "HISTORICAL_REPORT",
+      "evidence_type": "HALAKHIC_DECISION",
+      "text": "In 1973, Sephardic Chief Rabbi Ovadia Yosef issued a historic halakhic decree affirming that the Beta Israel of Ethiopia are authentically descendants of the Tribe of Dan, relying upon the 16th-century responsa of the Radbaz and mandating their immediate rescue and integration into Israel.",
+      "source_id": "SRC-JEW-SEPH-OVADIA-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
+      "source_location": "Responsum of 7 Adar I 5733 (February 1973); Yabia Omer Vol. 8, Even HaEzer 11",
+      "original_language_text": "הפלאשים הם ללא ספק משבט דן... ומצוה לפדותם ולהצילם מכלייה רוחנית וגשמית",
+      "transliteration": "ha-Falashim hem le-lo safek mi-shevet Dan... u-mitzvah lifdotam u-le-hatzilam mi-khelayah ruchanit ve-gashmit",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "SEPHARDIC_HALAKHA",
+      "context": "The diplomatic and legal struggle over applying the Israeli Law of Return to Ethiopian Jews living in isolated provinces of Gondar and Tigray.",
+      "interpretation": "Rav Ovadia's ruling provided the legal foundation for the Israeli government (Prime Minister Menachem Begin, 1977) to mobilize the Mossad and IDF for Operations Moses (1984) and Solomon (1991).",
+      "competing_interpretation": "Some Ashkenazi rabbinic authorities originally expressed doubts regarding marriage status (mamzerut concerns) due to ancient non-rabbinic divorce customs, initially recommending symbolic pro-forma conversion.",
+      "counterargument": "Decisively disproves the claim that rabbinic Judaism permanently excludes historically isolated Jewish groups.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Corinaldi-1998",
+          "Kaplan-1992",
+          "SRC-JEW-SEPH-OVADIA-001"
+        ],
+        "methodology": "Judicial and halakhic documentary history of Israel's Chief Rabbinate",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Landmark human rights and halakhic rescue decision."
+    },
+    {
+      "evidence_id": "EVID-JEW-055",
+      "claim_id": "CLAIM-BETA-HAYMANOT-ORIT-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "RELIGIOUS_TRADITION",
+      "text": "The Beta Israel tradition (Haymanot) is centered on the Orit (Octateuch in Ge'ez), led by a sacerdotal hierarchy of Kessim (priests) and historic monastic orders (Abba Sabra), preserving an archaic pre-rabbinic biblical system without knowledge of the Talmud.",
+      "source_id": "SRC-ACAD-KAPLAN-BETA-001",
+      "source_tier": "TIER_5_ACADEMIC_CRITICAL",
+      "source_location": "The Beta Israel in Ethiopia, Chapters 3 & 4",
+      "original_language_text": "ሃይማኖት (Haymanot) & ኦሪት (Orit)",
+      "transliteration": "Haymanot & Orit",
+      "historical_period": "MEDIEVAL_TO_CONTEMPORARY",
+      "tradition": "BETA_ISRAEL_HAYMANOT",
+      "context": "Centuries of autonomous development in the Ethiopian highlands maintaining Jewish identity amid Christian imperial power.",
+      "interpretation": "Beta Israel practiced biblical sacrificial worship, observed extreme ritual purity (attinkun) separating menstruating women into special huts, and revered Sabbath (Sanbat) as a heavenly being, demonstrating the pluriformity of ancient biblical Jewish practice.",
+      "competing_interpretation": "Earlier European ethnographers mistakenly categorized them as converts to an offshoot of Christian monasticism, which modern scholarship has thoroughly corrected.",
+      "counterargument": "Proves that authentic historic Jewish life existed for millennia outside the boundaries of the Babylonian Talmudic corpus.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Kaplan-1992",
+          "Shelemay-1989",
+          "SRC-ACAD-KAPLAN-BETA-001"
+        ],
+        "methodology": "Ethnohistorical and linguistic analysis of Ge'ez religious manuscripts",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Essential safeguard against flattening Judaism into an exclusively Talmudic mold."
+    },
+    {
+      "evidence_id": "EVID-JEW-056",
+      "claim_id": "CLAIM-BETA-SEGED-FESTIVAL-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "LITURGICAL_FESTIVAL",
+      "text": "The unique Beta Israel holiday of Seged is celebrated on the 29th of Heshvan (50 days after Yom Kippur), during which the community fasts, climbs a mountain led by Kessim carrying the Orit, and reenacts the covenant renewal of Ezra and Nehemiah, praying for the return to Jerusalem.",
+      "source_id": "SRC-ACAD-SHELEMAY-001",
+      "source_tier": "TIER_5_ACADEMIC_CRITICAL",
+      "source_location": "Music, Ritual, and Secrecy Among the Ethiopian Jews, Ch. 5",
+      "original_language_text": "ስግד (Seged: prostration/worship)",
+      "transliteration": "Seged",
+      "historical_period": "MEDIEVAL_TO_CONTEMPORARY",
+      "tradition": "BETA_ISRAEL_HAYMANOT",
+      "context": "Instituted by Beta Israel leaders (attributed to 15th-century Abba Sabra) based on Nehemiah 8–9; adopted as an official Israeli national holiday in 2008.",
+      "interpretation": "Represents a distinct Jewish covenant-renewal festival unknown in rabbinic liturgy, expressing continuous, unbroken yearning for Zion and Jerusalem across centuries of exile.",
+      "competing_interpretation": "No direct rabbinic equivalent exists; rabbinic authorities now celebrate it in Israel alongside Ethiopian Jews as a legitimate ancestral biblical celebration.",
+      "counterargument": "Demonstrates that regional Jewish communities developed independent, authentic holy days rooted directly in biblical texts.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Shelemay-1989",
+          "Ben-Dor-1985",
+          "SRC-ACAD-SHELEMAY-001"
+        ],
+        "methodology": "Ethnomusicological field recording and liturgical documentation",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Officially codified in Israeli law (Seged Holiday Law, 5768-2008)."
+    },
+    {
+      "evidence_id": "EVID-JEW-057",
+      "claim_id": "CLAIM-CONS-CATHOLIC-ISRAEL-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "THEOLOGICAL_LEGAL",
+      "text": "Conservative Judaism bases its halakhic methodology on Zechariah Frankel's Positive-Historical School and Solomon Schechter's doctrine of 'Catholic Israel' (Klal Yisrael), affirming that Halakha is legally binding but historically evolutionary, shaped by the collective consensus of the observant community.",
+      "source_id": "SRC-JEW-FRANKEL-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
+      "source_location": "Darkhei Ha-Mishnah / Studies in Judaism (Schechter, 1896)",
+      "original_language_text": "כלל ישראל - Catholic Israel: the universal consensus of the living community",
+      "transliteration": "Klal Yisrael",
+      "historical_period": "HASKALAH_EMANCIPATION",
+      "tradition": "CONSERVATIVE_MASORTI",
+      "context": "19th-century intellectual development seeking a middle path between Orthodox rejection of critical history and Reform abandonment of halakhic obligation.",
+      "interpretation": "The true locus of halakhic authority is not static text alone, but the historical interaction between the Jewish people and the divine covenant across time.",
+      "competing_interpretation": "Orthodoxy rejects the historical conditioning of Sinai revelation; Reform rejects the normative binding quality of halakha.",
+      "counterargument": "Demonstrates that binding religious law and critical historical awareness can be coherent within a unified Jewish jurisprudence.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Frankel-1859",
+          "Schechter-1896",
+          "SRC-JEW-FRANKEL-001"
+        ],
+        "methodology": "Historiographical and philosophical analysis of Positive-Historical Judaism",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Foundational premise of modern Conservative / Masorti halakha."
+    },
+    {
+      "evidence_id": "EVID-JEW-058",
+      "claim_id": "CLAIM-CONS-WOMEN-ORDINATION-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "HALAKHIC_RESPONSUM",
+      "text": "In 1983, the faculty of the Jewish Theological Seminary voted to admit women to the rabbinical school, supported by CJLS halakhic responsa (Rabbi Joel Roth, Rabbi Mayer Rabinowitz) arguing that women can voluntarily assume the obligation of time-bound commandments, thereby leading prayer and serving as halakhic authorities.",
+      "source_id": "SRC-JEW-CJLS-CONSERVATIVE-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
+      "source_location": "CJLS Responsa on the Ordination of Women as Rabbis (1983–1984)",
+      "original_language_text": "אשה חייבת או מחייבת עצמה במצוות עשה שהזמן גרמא",
+      "transliteration": "ishah chayyevet o mechayyevet atzmah be-mitzvot aseh she-ha-zman grama",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "CONSERVATIVE_MASORTI",
+      "context": "Decades-long egalitarian transformation in the Conservative movement, resulting in the ordination of Rabbi Amy Eilberg in 1985.",
+      "interpretation": "Egalitarianism was achieved through classical halakhic argumentation (drawing on Kiddushin 31a and Rambam) rather than discarding the halakhic process.",
+      "competing_interpretation": "Orthodox authorities rejected the ruling as a radical departure from precedent; some traditionalist Conservative faculty formed the Union for Traditional Judaism (UTJ) in dissent.",
+      "counterargument": "Exemplifies how developmental halakhic jurisprudence handles contemporary ethical and gender challenges using traditional legal mechanics.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Roth-1984",
+          "CJLS-Responsa-Archive",
+          "SRC-JEW-CJLS-CONSERVATIVE-001"
+        ],
+        "methodology": "Official jurisprudence archive of the Rabbinical Assembly Committee on Jewish Law and Standards",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Key legal precedent for egalitarian rabbinic leadership within a halakhic framework."
+    },
+    {
+      "evidence_id": "EVID-JEW-059",
+      "claim_id": "CLAIM-REF-1999-PLATFORM-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "DENOMINATIONAL_PLATFORM",
+      "text": "The Reform Movement's 1999 Pittsburgh / San Francisco Statement of Principles reversed the anti-ritualism of the 1885 Pittsburgh Platform, explicitly encouraging the reclamation of traditional mitzvot (Torah study, Hebrew prayer, Shabbat candle lighting, and dietary practices) through personal informed choice.",
+      "source_id": "SRC-JEW-CCAR-PLATFORMS-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
+      "source_location": "1999 Statement of Principles for Reform Judaism, Section II",
+      "original_language_text": "We are committed to the ongoing study of the whole array of mitzvot and to the fulfillment of those that address us as individuals and as a community.",
+      "transliteration": "N/A",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "REFORM",
+      "context": "Late 20th-century evolution of American Reform Judaism reclaiming ritual and Hebrew sacred language.",
+      "interpretation": "Reform Judaism is dynamic rather than static, moving from classical rationalist minimalism to a neo-traditional appreciation of ritual as a vehicle for personal holiness and communal solidarity.",
+      "competing_interpretation": "Orthodoxy maintains that mitzvot are absolute divine commands rather than personal selections; classical Reformers feared losing universalist rationalism.",
+      "counterargument": "Refutes outdated stereotypes that Reform Judaism is synonymous with the abandonment of Jewish ceremonial tradition.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "CCAR-1999",
+          "Meyer-1988",
+          "SRC-JEW-CCAR-PLATFORMS-001"
+        ],
+        "methodology": "Official synodal documentary analysis of CCAR convention resolutions",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Essential document for understanding contemporary Reform religious practice."
+    },
+    {
+      "evidence_id": "EVID-JEW-060",
+      "claim_id": "CLAIM-REF-PATRILINEAL-DESCENT-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "DENOMINATIONAL_RESOLUTION",
+      "text": "In 1983, the Central Conference of American Rabbis (CCAR) adopted the Resolution on Patrilineal Descent, declaring that a child of either a Jewish father or a Jewish mother is presumed to be Jewish, provided that the identity is established through appropriate and timely public acts of Jewish identification and education.",
+      "source_id": "SRC-JEW-CCAR-PLATFORMS-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
+      "source_location": "CCAR Resolution on Patrilineal Descent (March 15, 1983)",
+      "original_language_text": "The Central Conference of American Rabbis declares that the child of one Jewish parent is under the presumption of Jewish descent.",
+      "transliteration": "N/A",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "REFORM",
+      "context": "Rising rates of interfaith marriage in late 20th-century North America and pastoral desire to maintain families within the Jewish community.",
+      "interpretation": "Breaks with the classical rabbinic matrilineal principle (Mishnah Kiddushin 3:12) to establish gender equality and active commitment as the criteria of Jewish status.",
+      "competing_interpretation": "Orthodox and Conservative movements vehemently rejected the resolution, asserting that a child born to a non-Jewish mother remains a non-Jew unless formally converted through halakhic immersion and circumcision.",
+      "counterargument": "Marks one of the most severe halakhic divergences in modern Jewish history regarding the baseline definition of Jewish identity ('Who is a Jew').",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "CCAR-1983",
+          "Washofsky-2001",
+          "SRC-JEW-CCAR-PLATFORMS-001"
+        ],
+        "methodology": "Legal and sociological analysis of modern denominational status resolutions",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Major boundary marker dividing Reform from Orthodox and Conservative personal status law."
+    },
+    {
+      "evidence_id": "EVID-JEW-061",
+      "claim_id": "CLAIM-RECON-CIVILIZATION-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "THEOLOGICAL_PHILOSOPHY",
+      "text": "Mordecai Kaplan established in 'Judaism as a Civilization' (1934) that Judaism is an evolving religious civilization produced by the Jewish people, replacing supernaturalism with religious naturalism and reinterpreting halakha as democratic, non-binding folkways.",
+      "source_id": "SRC-JEW-RECON-KAPLAN-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
+      "source_location": "Judaism as a Civilization, Chapters 15–20",
+      "original_language_text": "Judaism is not a religion only, but an evolving religious civilization.",
+      "transliteration": "N/A",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "RECONSTRUCTIONIST",
+      "context": "1930s American Jewish intellectual crisis navigating secularism, science, and the challenges of immigrant integration.",
+      "interpretation": "God is redefined functionally as the cosmic power that makes for salvation (human fulfillment); Jewish rituals are preserved as valuable cultural folkways that bind the group together democratically.",
+      "competing_interpretation": "Traditional rabbinic Judaism considers the Torah and God to be primordial, creating the Jewish people rather than being created by them.",
+      "counterargument": "Provides a coherent, fully articulated intellectual alternative to both traditional Orthodoxy and classical Reform.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Kaplan-1934",
+          "Scult-1993",
+          "SRC-JEW-RECON-KAPLAN-001"
+        ],
+        "methodology": "Philosophical and sociological textual analysis of Kaplanian reconstructionism",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Pioneered the Bat Mitzvah (1922) and democratic folkway models."
+    },
+    {
+      "evidence_id": "EVID-JEW-062",
+      "claim_id": "CLAIM-RENEW-INTEGRAL-HALAKHA-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "THEOLOGICAL_MYSTICAL",
+      "text": "Rabbi Zalman Schachter-Shalomi articulated 'Integral Halakha' in Jewish Renewal, formulating 'Eco-Kashrut' which expands traditional dietary laws to encompass ecological sustainability, fair labor, and animal welfare, viewing law through an organic, post-triumphalist lens.",
+      "source_id": "SRC-JEW-RENEW-ZALMAN-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
+      "source_location": "Paradigm Shift, Chapter 12; Jewish with Feeling",
+      "original_language_text": "Eco-Kashrut: Is this food kosher for the earth and the soul?",
+      "transliteration": "N/A",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "JEWISH_RENEWAL",
+      "context": "Late 20th-century spiritual renewal merging neo-Hasidic mysticism with environmental consciousness and deep ecumenism.",
+      "interpretation": "Mitzvot are dynamic software programs for soul evolution; if a product exploits workers or destroys the rainforest, it cannot be considered kosher regardless of ritual slaughter.",
+      "competing_interpretation": "Traditional Orthodoxy restricts kashrut to strict ritual definitions in the Shulchan Aruch, treating ethical labor issues under separate civil halakhic rubrics (Choshen Mishpat).",
+      "counterargument": "Illustrates the emergence of trans-denominational eco-theology directly impacting contemporary Jewish ritual practice.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Schachter-Shalomi-1993",
+          "Waskow-2000",
+          "SRC-JEW-RENEW-ZALMAN-001"
+        ],
+        "methodology": "Phenomenological and textual analysis of Jewish Renewal eco-theology",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Influenced mainstream progressive American Jewish dietary and ethical discourse."
+    },
+    {
+      "evidence_id": "EVID-JEW-063",
+      "claim_id": "CLAIM-HUMAN-SECULAR-PHILOSOPHY-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "PHILOSOPHICAL",
+      "text": "Rabbi Sherwin Wine founded Humanistic Judaism (1963) asserting that Judaism is the human culture and historic achievement of the Jewish people; its liturgy and ethics are strictly non-theistic, omitting prayers to a supernatural deity and celebrating human responsibility.",
+      "source_id": "SRC-JEW-HUMAN-WINE-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
+      "source_location": "Judaism Beyond God, Chapters 1–3",
+      "original_language_text": "Judaism is the creation of the Jewish people... human responsibility is the foundation of ethics.",
+      "transliteration": "N/A",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "HUMANISTIC_JUDAISM",
+      "context": "Post-Holocaust theological skepticism and secularization of educated American and Israeli Jewry.",
+      "interpretation": "Jews can celebrate holidays, lifecycle milestones, and identity honestly without professing beliefs in a supernatural God that contradict their rational convictions.",
+      "competing_interpretation": "Theistic Jewish movements argue that Judaism without God is a contradiction in terms, as covenant with God is the foundational core of historical Jewish identity.",
+      "counterargument": "Documents the existence of a formalized, philosophical non-theistic movement within the modern Jewish spectrum.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Wine-1985",
+          "SHJ-Manifesto",
+          "SRC-JEW-HUMAN-WINE-001"
+        ],
+        "methodology": "Textual and programmatic analysis of Secular Humanistic Jewish liturgies and philosophy",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Essential record for representing non-theistic Jewish identity."
+    },
+    {
+      "evidence_id": "EVID-JEW-064",
+      "claim_id": "CLAIM-MESSIANIC-THEOLOGICAL-CHRISTOLOGY-001",
+      "evidence_class": "ACADEMIC_CONSENSUS",
+      "evidence_type": "ACADEMIC_ANALYSIS",
+      "text": "Academic scholarship establishes that Messianic Judaism is an evangelical Protestant movement emerging from 1960s–1970s Hebrew Christian missions, which adopts Jewish cultural and liturgical forms while holding orthodox Christian Trinitarian Christology and New Testament salvific theology.",
+      "source_id": "SRC-ACAD-ARIEL-001",
+      "source_tier": "TIER_5_ACADEMIC_CRITICAL",
+      "source_location": "Evangelizing the Chosen People, Chapters 7 & 8",
+      "original_language_text": "Messianic Judaism emerged as a new phase in evangelical missionary activity to the Jews, adopting Jewish cultural expressions while remaining doctrinally committed to Evangelical Christianity.",
+      "transliteration": "N/A",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "ACADEMIC_CRITICAL",
+      "context": "Sociological analysis of religious syncretism, conversion, and identity construction in late 20th-century America.",
+      "interpretation": "While Messianic Jews self-identify as Jewish believers, their theological commitments (incarnation, atonement, Trinity, New Testament canon) place them definitively within the theological matrix of Protestant Christianity.",
+      "competing_interpretation": "Messianic Judaism claims to be the most authentic continuation of 1st-century Jewish faith in Jesus (the Nazarene sect of Acts).",
+      "counterargument": "Provides critical academic corroboration that Messianic Judaism cannot be classified as another denomination of rabbinic or normative Judaism.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Ariel-2000",
+          "Cohn-Sherbok-2000",
+          "SRC-ACAD-ARIEL-001"
+        ],
+        "methodology": "Archival historical analysis of mission boards and field sociology of messianic congregations",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Academic reference standard for categorizing the movement."
+    },
+    {
+      "evidence_id": "EVID-JEW-065",
+      "claim_id": "CLAIM-MESSIANIC-ISRAEL-COURT-001",
+      "evidence_class": "FACT",
+      "evidence_type": "JUDICIAL_RULING",
+      "text": "In Beresford v. Minister of the Interior (1989), the Supreme Court of Israel unanimously ruled that Messianic Jews are members of 'another religion' under Section 4A of the Law of Return, holding that adopting Christian belief in Jesus excludes a person from the statutory and historical definition of a Jew.",
+      "source_id": "SRC-HIST-ISRAEL-COURT-001",
+      "source_tier": "TIER_5_ACADEMIC_CRITICAL",
+      "source_location": "H.C. 265/87, Piskei Din 43(4), pp. 793–852",
+      "original_language_text": "מי שמאמין בישוע כמשיח וכבן אלוהים... הוא בן דת אחרת ואינו זכאי לשבות כיהודי",
+      "transliteration": "mi she-ma'amin be-Yeshua ke-mashiach u-khe-ven elohim... hu ben dat acheret ve-eino zakai li-shvut ke-yehudi",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "ISRAELI_JURISPRUDENCE",
+      "context": "South African couple Gary and Shirley Beresford appealing the denial of Israeli citizenship under the Law of Return due to their active participation in Messianic Judaism.",
+      "interpretation": "Justice Menachem Elon held that throughout centuries of persecution, the Jewish national and historical consciousness has always regarded one who converts to Christianity as having severed their membership in the Jewish collective, regardless of subjective self-definition.",
+      "competing_interpretation": "The petitioners argued that since they considered themselves ethnically and culturally Jewish, belief in Jesus as the Jewish Messiah should not disqualify them.",
+      "counterargument": "Establishes a legally binding precedent in Israeli civil jurisprudence reflecting the universal consensus of all Jewish religious denominations.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Piskei-Din-43-4-793",
+          "Elon-1994",
+          "SRC-HIST-ISRAEL-COURT-001"
+        ],
+        "methodology": "Analysis of binding statutory precedents in Israeli administrative and constitutional law",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Decisive judicial boundary defining the limits of Jewish identity in modern law."
+    },
+    {
+      "evidence_id": "EVID-JEW-066",
+      "claim_id": "CLAIM-ORTH-ZIONISM-DIVERSITY-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "THEOLOGICAL_POLITICAL",
+      "text": "Orthodox Judaism exhibits profound internal theological diversity regarding Zionism, spanning Religious Zionism (Mizrachi / Rav Kook) which views the State of Israel as the initial flowering of redemption, pragmatic non-Zionism (Agudath Israel), and fierce theological anti-Zionism (Satmar's Va-Yoel Moshe).",
+      "source_id": "SRC-ACAD-COHEN-001",
+      "source_tier": "TIER_5_ACADEMIC_CRITICAL",
+      "source_location": "Studies in Jewish Nationalism and Religion, Ch. 6",
+      "original_language_text": "ג' שבועות - שלא יעלו בחומה ושלא ימרדו באומות (כתובות קיא.)",
+      "transliteration": "Shalosh Shevuot - she-lo ya'alu va-choma ve-she-lo yimredu ba-umot",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "TRADITIONALIST_RABBINIC",
+      "context": "Theological debate over the founding of the State of Israel in 1948 based on Talmudic tractate Ketubot 111a (the Three Oaths forbidding forcing the end of exile).",
+      "interpretation": "Religious Zionists argued that the Balfour Declaration, UN Partition, and Holocaust annulled the oaths, making settling the land a supreme mitzvah; Satmar argued that political statehood prior to the Messiah is a grave rebellion against God.",
+      "competing_interpretation": "Secular Zionists viewed statehood in purely national-political terms without reference to messianic theology or the Three Oaths.",
+      "counterargument": "Crucial anti-flattening safeguard proving that 'Orthodox Judaism' and 'Zionism' cannot be equated or treated as a single uniform stance.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Teitelbaum-VaYoel-Moshe",
+          "Kook-Orot",
+          "SRC-ACAD-COHEN-001"
+        ],
+        "methodology": "Comparative halakhic and political philosophy analysis of Orthodox rabbinic stances on Zionism",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Anti-flattening benchmark preventing conflation of Judaism and political statehood."
     }
   ]
 }

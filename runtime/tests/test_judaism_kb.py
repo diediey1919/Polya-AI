@@ -213,5 +213,184 @@ class TestJudaismKnowledgeBase(unittest.TestCase):
         self.assertIn("Jesus Christ", salv["christianity"])
         self.assertIn("Paradise", salv["islam"])
 
+    # TEST 021: "What does Judaism teach about Halakha?"
+    def test_021_what_does_judaism_teach_about_halakha(self):
+        res = self.kb.execute_reasoning_pipeline("What does Judaism teach about Halakha?")
+        self.assertIsNotNone(res["synthesis"])
+        self.assertIn("not viewed monolithically", res["synthesis"])
+        self.assertIn("Orthodox", res["synthesis"])
+        self.assertIn("Conservative", res["synthesis"])
+        self.assertIn("Reform", res["synthesis"])
+        self.assertIn("Karaite", res["synthesis"])
+        comp = self.kb.get_denominational_comparison("halakha")
+        self.assertIn("Orthodox (Haredi & Modern)", comp["perspectives"])
+        self.assertIn("Reform", comp["perspectives"])
+        self.assertIn("Karaite", comp["perspectives"])
+
+    # TEST 022: "Do Jews believe in the Oral Torah?"
+    def test_022_do_jews_believe_in_the_oral_torah(self):
+        res = self.kb.execute_reasoning_pipeline("Do Jews believe in the Oral Torah?")
+        self.assertIsNotNone(res["synthesis"])
+        self.assertIn("Rabbinic", res["synthesis"])
+        self.assertIn("Karaite", res["synthesis"])
+        self.assertIn("Beta Israel", res["synthesis"])
+        self.assertIn("rejects", res["synthesis"].lower())
+
+    # TEST 023: "Do Jews all reject Jesus?"
+    def test_023_do_jews_all_reject_jesus(self):
+        res = self.kb.execute_reasoning_pipeline("Do Jews all reject Jesus?")
+        self.assertIsNotNone(res["synthesis"])
+        self.assertIn("normative Jewish denominations", res["synthesis"])
+        self.assertIn("unanimously reject", res["synthesis"].lower())
+        self.assertIn("Second Temple", res["synthesis"])
+
+    # TEST 024: "Are Zionism and Judaism the same?"
+    def test_024_are_zionism_and_judaism_the_same(self):
+        res = self.kb.execute_reasoning_pipeline("Are Zionism and Judaism the same?")
+        self.assertIsNotNone(res["synthesis"])
+        self.assertIn("NOT the same", res["synthesis"])
+        self.assertIn("Satmar", res["synthesis"])
+        self.assertIn("20%", res["synthesis"])
+
+    # TEST 025: "Is Messianic Judaism a Jewish denomination?"
+    def test_025_is_messianic_judaism_a_jewish_denomination(self):
+        res = self.kb.execute_reasoning_pipeline("Is Messianic Judaism a Jewish denomination?")
+        self.assertIsNotNone(res["synthesis"])
+        self.assertIn("syncretic", res["synthesis"].lower())
+        self.assertIn("unanimously reject", res["synthesis"].lower())
+        self.assertIn("Rufeisen", res["synthesis"])
+        self.assertIn("Beresford", res["synthesis"])
+
+    # TEST 026: "Is Beta Israel Rabbinic Judaism?"
+    def test_026_is_beta_israel_rabbinic_judaism(self):
+        res = self.kb.execute_reasoning_pipeline("Is Beta Israel Rabbinic Judaism?")
+        self.assertIsNotNone(res["synthesis"])
+        self.assertIn("NOT historically Rabbinic", res["synthesis"])
+        self.assertIn("Haymanot", res["synthesis"])
+        self.assertIn("Orit", res["synthesis"])
+        self.assertIn("Ovadia Yosef", res["synthesis"])
+
+    # TEST 027: Karaite Jurisprudence and Sources
+    def test_027_karaite_jurisprudence_and_sources(self):
+        src_aaron = self.kb.get_source("SRC-JEW-KARAITE-AARON-001")
+        self.assertIsNotNone(src_aaron)
+        self.assertIn("Aaron ben Elijah", src_aaron["author"])
+        self.assertIn("Gan Eden", src_aaron["title"])
+        src_yefet = self.kb.get_source("SRC-JEW-KARAITE-YEFET-001")
+        self.assertIsNotNone(src_yefet)
+        self.assertIn("Yefet", src_yefet["author"])
+
+    # TEST 028: Hasidic Theology and Sources
+    def test_028_hasidic_theology_and_sources(self):
+        src_besht = self.kb.get_source("SRC-JEW-HASID-BESHT-001")
+        self.assertIsNotNone(src_besht)
+        self.assertIn("Besht", src_besht["title"])
+        src_nachman = self.kb.get_source("SRC-JEW-HASID-NACHMAN-001")
+        self.assertIsNotNone(src_nachman)
+        self.assertIn("Nachman of Breslov", src_nachman["author"])
+        self.assertIn("Likkutei Moharan", src_nachman["title"])
+
+    # TEST 029: Sephardic and Mizrahi Legal Methodology
+    def test_029_sephardic_mizrahi_legal_methodology(self):
+        src_bih = self.kb.get_source("SRC-JEW-SEPH-BENISHHAI-001")
+        self.assertIsNotNone(src_bih)
+        self.assertIn("Yosef Hayyim", src_bih["author"])
+        src_oy = self.kb.get_source("SRC-JEW-SEPH-OVADIA-001")
+        self.assertIsNotNone(src_oy)
+        self.assertIn("Ovadia Yosef", src_oy["author"])
+        self.assertIn("Yabia Omer", src_oy["title"])
+
+    # TEST 030: Patrilineal Descent Divergence
+    def test_030_patrilineal_descent_divergence(self):
+        comp = self.kb.get_denominational_comparison("patrilineal descent")
+        self.assertIn("Orthodox", comp["perspectives"])
+        self.assertIn("Reform", comp["perspectives"])
+        self.assertIn("1983 CCAR", comp["perspectives"]["Reform"])
+        self.assertIn("Strictly matrilineal", comp["perspectives"]["Orthodox"])
+
+    # TEST 031: Anti-Flattening Audit Tool
+    def test_031_anti_flattening_audit_validations(self):
+        # Fallacy 1: Talmudic flattening
+        a1 = self.kb.anti_flattening_audit("All Jews follow the Talmud and oral law as binding.")
+        self.assertFalse(a1["passed"])
+        self.assertTrue(any(v["fallacy"] == "TALMUDIC_FLATTENING" for v in a1["violations_detected"]))
+
+        # Fallacy 2: Zionism-Judaism conflation
+        a2 = self.kb.anti_flattening_audit("Judaism is Zionism and all Jews support Israel.")
+        self.assertFalse(a2["passed"])
+        self.assertTrue(any(v["fallacy"] == "ZIONISM_JUDAISM_CONFLATION" for v in a2["violations_detected"]))
+
+        # Fallacy 3: Messianic Judaism normalization
+        a3 = self.kb.anti_flattening_audit("Messianic Judaism is a legitimate denomination of Judaism.")
+        self.assertFalse(a3["passed"])
+        self.assertTrue(any(v["fallacy"] == "MESSIANIC_SYNCRETISM_NORMALIZATION" for v in a3["violations_detected"]))
+
+        # Valid statement passes
+        a_pass = self.kb.anti_flattening_audit("Rabbinic Judaism affirms the Oral Torah while Karaites adhere to scripturalism.")
+        self.assertTrue(a_pass["passed"])
+
+    # TEST 032: Denominational and Community Helpers
+    def test_032_denominational_and_community_helpers(self):
+        denoms = self.kb.list_denominations()
+        self.assertGreaterEqual(len(denoms), 12)
+        karaite = self.kb.get_denomination("DENOM-KARAITE")
+        self.assertIsNotNone(karaite)
+        self.assertIn("Karaite", karaite["movement"])
+        hasidic = self.kb.get_denomination("DENOM-HASIDIC")
+        self.assertIsNotNone(hasidic)
+        self.assertIn("Baal Shem Tov", " ".join(hasidic["major_figures"]))
+
+        comms = self.kb.list_geographic_communities()
+        self.assertGreaterEqual(len(comms), 6)
+        yemen = self.kb.get_geographic_community("COMM-YEMENITE")
+        self.assertIsNotNone(yemen)
+        self.assertTrue(any("Baladi" in s["name"] for s in yemen["sub_streams"]))
+
+    # TEST 033: Geographic Diversity Catalog
+    def test_033_geographic_diversity_catalog(self):
+        geo = self.kb._cache["geographic"]["communities"]
+        comm_ids = [c["id"] for c in geo]
+        self.assertIn("COMM-ASHKENAZI", comm_ids)
+        self.assertIn("COMM-SEPHARDIC", comm_ids)
+        self.assertIn("COMM-MIZRAHI", comm_ids)
+        self.assertIn("COMM-YEMENITE", comm_ids)
+        self.assertIn("COMM-NORTH-AFRICAN", comm_ids)
+        self.assertIn("COMM-BETA-ISRAEL", comm_ids)
+
+    # TEST 034: Source Graph Denominational Connectivity
+    def test_034_source_graph_denominational_connectivity(self):
+        graph = self.kb._cache["graph"]
+        nodes = {n["id"]: n for n in graph["nodes"]}
+        self.assertIn("NODE-DENOM-HASIDIC", nodes)
+        self.assertIn("NODE-DENOM-RENEWAL", nodes)
+        self.assertIn("NODE-DENOM-HUMANISTIC", nodes)
+        self.assertIn("NODE-COMM-BETA-ISRAEL", nodes)
+        self.assertIn("NODE-AUTH-OVADIA-YOSEF", nodes)
+
+        edges = graph["edges"]
+        hasid_partof_ortho = any(e["source"] == "NODE-DENOM-HASIDIC" and e["target"] == "NODE-ORTHODOX" and e["relationship"] == "PART_OF" for e in edges)
+        self.assertTrue(hasid_partof_ortho)
+        karaite_challenges_oral = any(e["source"] == "NODE-DENOM-KARAITE" and e["target"] == "NODE-THEME-TORAH-ORAL" and e["relationship"] == "CHALLENGES" for e in edges)
+        self.assertTrue(karaite_challenges_oral)
+        court_contradicts_messianic = any(e["source"] == "NODE-HIST-ISRAEL-COURT-RUFEISEN" and e["target"] == "NODE-DENOM-MESSIANIC-JEW" and e["relationship"] == "CONTRADICTS" for e in edges)
+        self.assertTrue(court_contradicts_messianic)
+
+    # TEST 035: Evidence Bank Denominational Coverage
+    def test_035_evidence_bank_denominational_coverage(self):
+        evid_bank = self.kb._cache["evidence"]
+        self.assertEqual(evid_bank["total_records"], 66)
+        self.assertEqual(len(evid_bank["records"]), 66)
+        e46 = self.kb.get_evidence("EVID-JEW-046")
+        self.assertIsNotNone(e46)
+        self.assertIn("Karaite", e46["text"])
+        e55 = self.kb.get_evidence("EVID-JEW-055")
+        self.assertIsNotNone(e55)
+        self.assertIn("Beta Israel", e55["text"])
+        e65 = self.kb.get_evidence("EVID-JEW-065")
+        self.assertIsNotNone(e65)
+        self.assertIn("Beresford", e65["text"])
+        e66 = self.kb.get_evidence("EVID-JEW-066")
+        self.assertIsNotNone(e66)
+
 if __name__ == "__main__":
     unittest.main()

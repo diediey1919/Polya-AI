@@ -639,10 +639,62 @@
           ]
         },
         {
+          "id": "TAX-MOV-HASIDIC",
+          "movement": "Hasidic Judaism (Hasidut)",
+          "features": [
+            "Mystical revitalization founded by Rabbi Israel Baal Shem Tov (Besht)",
+            "Doctrines of devekut (cleaving to God), hitlahavut (spiritual ecstasy), and joyful service",
+            "Centrality of the Tzaddik/Rebbe as spiritual conduit and leader",
+            "Nusach Sefard prayer rites blending Ashkenazi liturgy with Lurianic Kabbalah",
+            "Dynamic dynasties: Chabad-Lubavitch, Satmar, Ger, Breslov, Belz, Vizhnitz"
+          ]
+        },
+        {
+          "id": "TAX-MOV-RENEWAL",
+          "movement": "Jewish Renewal (ALEPH)",
+          "features": [
+            "Spiritual and mystical renewal movement founded by Rabbi Zalman Schachter-Shalomi",
+            "Synthesis of neo-Hasidic spirituality, Kabbalah, transpersonal psychology, and deep ecumenism",
+            "Integral Halakha and eco-kashrut emphasizing environmental ethics",
+            "Full gender egalitarianism, LGBTQ+ inclusion, and creative liturgical renewal"
+          ]
+        },
+        {
+          "id": "TAX-MOV-HUMANISTIC",
+          "movement": "Humanistic Judaism (Society for Humanistic Judaism)",
+          "features": [
+            "Non-theistic, human-centered philosophy founded by Rabbi Sherwin Wine (1963)",
+            "Affirms Judaism as the historic culture, ethical civilization, and heritage of the Jewish people",
+            "Rejection of supernatural divine intervention; emphasis on human reason and responsibility",
+            "Celebration of Jewish holidays and lifecycle events through non-theistic cultural liturgies"
+          ]
+        },
+        {
           "id": "TAX-MOV-SECULAR",
-          "movement": "Secular Jewish Identity & Cultural Judaism",
+          "movement": "Secular Jewish Identity & Cultural Judaism (Hiloni)",
           "features": [
             "Identification through Jewish heritage, literature, ethics, history, and peoplehood without religious dogma or ritual practice"
+          ]
+        },
+        {
+          "id": "TAX-MOV-BETA-ISRAEL",
+          "movement": "Beta Israel Haymanot Tradition",
+          "features": [
+            "Ancient pre-rabbinic, non-talmudic biblical tradition of Ethiopian Jewry",
+            "Sacred scripture centered on the Orit (Octateuch in Ge'ez)",
+            "Spiritual leadership of Kessim (Kohanim) and historic monastic orders (Abba Sabra)",
+            "Strict ritual purity laws (attinkun) and unique covenant-renewal festival of Seged",
+            "Recognized halakhically by Rabbi Ovadia Yosef (1973) and integrated into modern Israeli society"
+          ]
+        },
+        {
+          "id": "TAX-MOV-MESSIANIC",
+          "movement": "Messianic Judaism (Non-Normative / Syncretic)",
+          "features": [
+            "Syncretic modern movement combining Jewish cultural forms with Evangelical Protestant theology",
+            "Self-identification as Jewish believers in Yeshua (Jesus) as Messiah and divine Savior",
+            "Universal rejection by all mainstream Jewish denominations (Orthodox, Conservative, Reform, Reconstructionist)",
+            "Classified legally as another religion by the Supreme Court of Israel (Beresford v. Minister of the Interior 1989)"
           ]
         }
       ]

@@ -1,5 +1,4 @@
 {
-  "version": "1.0.0",
   "nodes": [
     {
       "id": "NODE-TANAKH",
@@ -860,6 +859,331 @@
       "id": "NODE-ACAD-LIEBERMAN",
       "type": "AUTHOR",
       "label": "Saul Lieberman (Academic - Rabbinic Philology)"
+    },
+    {
+      "id": "NODE-DENOM-RENEWAL",
+      "type": "DENOMINATION",
+      "label": "Jewish Renewal (Aleph)"
+    },
+    {
+      "id": "NODE-DENOM-HUMANISTIC",
+      "type": "DENOMINATION",
+      "label": "Humanistic Judaism (Secular Humanistic)"
+    },
+    {
+      "id": "NODE-DENOM-SECULAR",
+      "type": "DENOMINATION",
+      "label": "Secular Jewish Identity & Culture (Hiloni / Cultural)"
+    },
+    {
+      "id": "NODE-COMM-BETA-ISRAEL",
+      "type": "TRADITION",
+      "label": "Beta Israel / Ethiopian Jewish Tradition (Haymanot)"
+    },
+    {
+      "id": "NODE-COMM-SEPHARDIC",
+      "type": "TRADITION",
+      "label": "Sephardic Jewish Tradition (Iberian, Western, Ottoman)"
+    },
+    {
+      "id": "NODE-COMM-MIZRAHI",
+      "type": "TRADITION",
+      "label": "Mizrahi Jewish Tradition (Middle Eastern / Babylonian)"
+    },
+    {
+      "id": "NODE-COMM-YEMENITE",
+      "type": "TRADITION",
+      "label": "Yemenite Jewish Tradition (Temani / Baladi & Shami)"
+    },
+    {
+      "id": "NODE-COMM-ASHKENAZI",
+      "type": "TRADITION",
+      "label": "Ashkenazi Jewish Tradition (Franco-German & Eastern European)"
+    },
+    {
+      "id": "NODE-COMM-NORTH-AFRICAN",
+      "type": "TRADITION",
+      "label": "North African / Maghrebi Jewish Tradition"
+    },
+    {
+      "id": "NODE-AUTH-AARON-BEN-ELIJAH",
+      "type": "AUTHOR",
+      "label": "Aaron ben Elijah of Nicomedia (Karaite Theologian)"
+    },
+    {
+      "id": "NODE-AUTH-YEFET-BEN-ALI",
+      "type": "AUTHOR",
+      "label": "Yefet ben Ali ha-Levi (Karaite Exegete)"
+    },
+    {
+      "id": "NODE-AUTH-BESHT",
+      "type": "AUTHOR",
+      "label": "Israel Baal Shem Tov (Besht - Founder of Hasidism)"
+    },
+    {
+      "id": "NODE-AUTH-NACHMAN-BRESLOV",
+      "type": "AUTHOR",
+      "label": "Rebbe Nachman of Breslov (Hasidic Master)"
+    },
+    {
+      "id": "NODE-AUTH-BEN-ISH-HAI",
+      "type": "AUTHOR",
+      "label": "Hakham Yosef Hayyim of Baghdad (Ben Ish Hai)"
+    },
+    {
+      "id": "NODE-AUTH-CHIDA",
+      "type": "AUTHOR",
+      "label": "Hayyim Yosef David Azulai (Hida)"
+    },
+    {
+      "id": "NODE-AUTH-OVADIA-YOSEF",
+      "type": "AUTHOR",
+      "label": "Rav Ovadia Yosef (Sephardic Chief Rabbi & Posek)"
+    },
+    {
+      "id": "NODE-AUTH-ZALMAN-SCHACHTER",
+      "type": "AUTHOR",
+      "label": "Rabbi Zalman Schachter-Shalomi (Founder of Jewish Renewal)"
+    },
+    {
+      "id": "NODE-AUTH-SHERWIN-WINE",
+      "type": "AUTHOR",
+      "label": "Rabbi Sherwin Wine (Founder of Humanistic Judaism)"
+    },
+    {
+      "id": "NODE-AUTH-FRANKEL",
+      "type": "AUTHOR",
+      "label": "Zacharias Frankel (Positive-Historical Judaism)"
+    },
+    {
+      "id": "NODE-TEXT-ANWAR",
+      "type": "TEXT",
+      "label": "Kitab al-Anwar wal-Maraqib (Qirqisani)"
+    },
+    {
+      "id": "NODE-TEXT-GAN-EDEN",
+      "type": "TEXT",
+      "label": "Sefer Gan Eden (Aaron ben Elijah)"
+    },
+    {
+      "id": "NODE-TEXT-SHIVCHEI-BESHT",
+      "type": "TEXT",
+      "label": "Shivchei ha-Besht (Praises of the Besht)"
+    },
+    {
+      "id": "NODE-TEXT-LIKKUTEI-MOHARAN",
+      "type": "TEXT",
+      "label": "Likkutei Moharan (Rebbe Nachman of Breslov)"
+    },
+    {
+      "id": "NODE-TEXT-BEN-ISH-HAI",
+      "type": "TEXT",
+      "label": "Ben Ish Hai (Yosef Hayyim of Baghdad)"
+    },
+    {
+      "id": "NODE-TEXT-YABIA-OMER",
+      "type": "TEXT",
+      "label": "Shut Yabia Omer (Rav Ovadia Yosef)"
+    },
+    {
+      "id": "NODE-TEXT-ORIT",
+      "type": "TEXT",
+      "label": "The Orit (Ge ez Octateuch of Beta Israel)"
+    },
+    {
+      "id": "NODE-TEXT-PARADIGM-SHIFT",
+      "type": "TEXT",
+      "label": "Paradigm Shift (Zalman Schachter-Shalomi)"
+    },
+    {
+      "id": "NODE-TEXT-JUDAISM-BEYOND-GOD",
+      "type": "TEXT",
+      "label": "Judaism Beyond God (Sherwin Wine)"
+    },
+    {
+      "id": "NODE-TEXT-COLUMBUS-1937",
+      "type": "TEXT",
+      "label": "Columbus Platform 1937 (Reform Movement)"
+    },
+    {
+      "id": "NODE-THEME-DEVEKUT",
+      "type": "THEME",
+      "label": "Devekut (Mystical Cleaving to the Divine)"
+    },
+    {
+      "id": "NODE-THEME-TZADDIK",
+      "type": "THEME",
+      "label": "The Tzaddik / Rebbe as Spiritual Guide"
+    },
+    {
+      "id": "NODE-THEME-HAYMANOT",
+      "type": "THEME",
+      "label": "Haymanot (Pre-Talmudic Faith of Beta Israel)"
+    },
+    {
+      "id": "NODE-THEME-SEGED",
+      "type": "THEME",
+      "label": "Seged (Pilgrimage & Covenant Renewal Holy Day)"
+    },
+    {
+      "id": "NODE-THEME-ECO-KASHRUT",
+      "type": "THEME",
+      "label": "Eco-Kashrut & Contemporary Halakhic Ethics"
+    },
+    {
+      "id": "NODE-THEME-PATRILINEAL-DESCENT",
+      "type": "THEME",
+      "label": "Patrilineal Descent & Jewish Identity Status"
+    },
+    {
+      "id": "NODE-THEME-CONVERSION-STANDARDS",
+      "type": "THEME",
+      "label": "Denominational Disparities in Conversion Standards"
+    },
+    {
+      "id": "NODE-THEME-MINHAG-DIVERSITY",
+      "type": "THEME",
+      "label": "Minhag ha-Maqom and Regional Halakhic Autonomy"
+    },
+    {
+      "id": "NODE-ACAD-COHNSHERBOK",
+      "type": "AUTHOR",
+      "label": "Dan Cohn-Sherbok (Scholar of Messianic Judaism)"
+    },
+    {
+      "id": "NODE-ACAD-ARIEL",
+      "type": "AUTHOR",
+      "label": "Yaakov Ariel (Scholar of Messianism & Jewish-Christian Relations)"
+    },
+    {
+      "id": "NODE-ACAD-KAPLAN-STEVEN",
+      "type": "AUTHOR",
+      "label": "Steven Kaplan (Historian of Beta Israel)"
+    },
+    {
+      "id": "NODE-ACAD-MEYER",
+      "type": "AUTHOR",
+      "label": "Michael A. Meyer (Historian of Reform Judaism)"
+    },
+    {
+      "id": "NODE-ACAD-IDEL",
+      "type": "AUTHOR",
+      "label": "Moshe Idel (Scholar of Hasidism & Kabbalah)"
+    },
+    {
+      "id": "NODE-ACAD-ZOHAR",
+      "type": "AUTHOR",
+      "label": "Zvi Zohar (Scholar of Sephardic Rabbinic Tradition)"
+    },
+    {
+      "id": "NODE-HIST-ISRAEL-COURT-RUFEISEN",
+      "type": "HISTORICAL_EVENT",
+      "label": "Supreme Court of Israel Rufeisen (1962) & Beresford (1989) Decisions"
+    },
+    {
+      "id": "NODE-EVID-046",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-046"
+    },
+    {
+      "id": "NODE-EVID-047",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-047"
+    },
+    {
+      "id": "NODE-EVID-048",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-048"
+    },
+    {
+      "id": "NODE-EVID-049",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-049"
+    },
+    {
+      "id": "NODE-EVID-050",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-050"
+    },
+    {
+      "id": "NODE-EVID-051",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-051"
+    },
+    {
+      "id": "NODE-EVID-052",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-052"
+    },
+    {
+      "id": "NODE-EVID-053",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-053"
+    },
+    {
+      "id": "NODE-EVID-054",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-054"
+    },
+    {
+      "id": "NODE-EVID-055",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-055"
+    },
+    {
+      "id": "NODE-EVID-056",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-056"
+    },
+    {
+      "id": "NODE-EVID-057",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-057"
+    },
+    {
+      "id": "NODE-EVID-058",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-058"
+    },
+    {
+      "id": "NODE-EVID-059",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-059"
+    },
+    {
+      "id": "NODE-EVID-060",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-060"
+    },
+    {
+      "id": "NODE-EVID-061",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-061"
+    },
+    {
+      "id": "NODE-EVID-062",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-062"
+    },
+    {
+      "id": "NODE-EVID-063",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-063"
+    },
+    {
+      "id": "NODE-EVID-064",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-064"
+    },
+    {
+      "id": "NODE-EVID-065",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-065"
+    },
+    {
+      "id": "NODE-EVID-066",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-066"
     }
   ],
   "edges": [
@@ -2000,6 +2324,492 @@
     {
       "source": "NODE-ACAD-LIEBERMAN",
       "target": "NODE-MISHNAH",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-HASIDIC",
+      "target": "NODE-ORTHODOX",
+      "relationship": "PART_OF",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-HASIDIC",
+      "target": "NODE-THEME-DEVEKUT",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-HASIDIC",
+      "target": "NODE-THEME-TZADDIK",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-AUTH-BESHT",
+      "target": "NODE-DENOM-HASIDIC",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TEXT-SHIVCHEI-BESHT",
+      "target": "NODE-AUTH-BESHT",
+      "relationship": "INTERPRETS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-AUTH-NACHMAN-BRESLOV",
+      "target": "NODE-DENOM-HASIDIC",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TEXT-LIKKUTEI-MOHARAN",
+      "target": "NODE-AUTH-NACHMAN-BRESLOV",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-HASIDIC",
+      "target": "NODE-TRAD-KABBALAH",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-RENEWAL",
+      "target": "NODE-THEME-ECO-KASHRUT",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-RENEWAL",
+      "target": "NODE-TRAD-KABBALAH",
+      "relationship": "DERIVES_FROM",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-AUTH-ZALMAN-SCHACHTER",
+      "target": "NODE-DENOM-RENEWAL",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TEXT-PARADIGM-SHIFT",
+      "target": "NODE-AUTH-ZALMAN-SCHACHTER",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-HUMANISTIC",
+      "target": "NODE-THEME-TORAH-ORAL",
+      "relationship": "CHALLENGES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-HUMANISTIC",
+      "target": "NODE-THEME-EMUNAH-FAITH",
+      "relationship": "CHALLENGES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-AUTH-SHERWIN-WINE",
+      "target": "NODE-DENOM-HUMANISTIC",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TEXT-JUDAISM-BEYOND-GOD",
+      "target": "NODE-AUTH-SHERWIN-WINE",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-HUMANISTIC",
+      "target": "NODE-THEME-PATRILINEAL-DESCENT",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-REFORM",
+      "target": "NODE-THEME-PATRILINEAL-DESCENT",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ORTHODOX",
+      "target": "NODE-THEME-PATRILINEAL-DESCENT",
+      "relationship": "CHALLENGES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-CONSERVATIVE",
+      "target": "NODE-THEME-PATRILINEAL-DESCENT",
+      "relationship": "CHALLENGES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-SECULAR",
+      "target": "NODE-THEME-HALAKHIC-AUTHORITY",
+      "relationship": "CHALLENGES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-SECULAR",
+      "target": "NODE-THEME-TORAH-ORAL",
+      "relationship": "CHALLENGES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-COMM-BETA-ISRAEL",
+      "target": "NODE-THEME-HAYMANOT",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-COMM-BETA-ISRAEL",
+      "target": "NODE-THEME-SEGED",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TEXT-ORIT",
+      "target": "NODE-COMM-BETA-ISRAEL",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TEXT-ORIT",
+      "target": "NODE-TANAKH",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-COMM-BETA-ISRAEL",
+      "target": "NODE-THEME-TORAH-ORAL",
+      "relationship": "RESPONDS_TO",
+      "weight": 0.8
+    },
+    {
+      "source": "NODE-AUTH-OVADIA-YOSEF",
+      "target": "NODE-COMM-BETA-ISRAEL",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-AUTH-OVADIA-YOSEF",
+      "target": "NODE-COMM-SEPHARDIC",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TEXT-YABIA-OMER",
+      "target": "NODE-AUTH-OVADIA-YOSEF",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-AUTH-BEN-ISH-HAI",
+      "target": "NODE-COMM-MIZRAHI",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TEXT-BEN-ISH-HAI",
+      "target": "NODE-AUTH-BEN-ISH-HAI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-AUTH-CHIDA",
+      "target": "NODE-COMM-SEPHARDIC",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-COMM-SEPHARDIC",
+      "target": "NODE-RAMBAM",
+      "relationship": "DERIVES_FROM",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-COMM-YEMENITE",
+      "target": "NODE-RAMBAM",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-COMM-ASHKENAZI",
+      "target": "NODE-THEME-MINHAG-DIVERSITY",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-COMM-SEPHARDIC",
+      "target": "NODE-THEME-MINHAG-DIVERSITY",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-AUTH-AARON-BEN-ELIJAH",
+      "target": "NODE-DENOM-KARAITE",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TEXT-GAN-EDEN",
+      "target": "NODE-AUTH-AARON-BEN-ELIJAH",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-AUTH-YEFET-BEN-ALI",
+      "target": "NODE-DENOM-KARAITE",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TEXT-ANWAR",
+      "target": "NODE-QIRQISANI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-KARAITE",
+      "target": "NODE-THEME-TORAH-ORAL",
+      "relationship": "CHALLENGES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-KARAITE",
+      "target": "NODE-THEME-TORAH-WRITTEN",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-SAADIA",
+      "target": "NODE-DENOM-KARAITE",
+      "relationship": "CHALLENGES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-KARAITE",
+      "target": "NODE-SAADIA",
+      "relationship": "RESPONDS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-MESSIANIC-JEW",
+      "target": "NODE-THEME-JESUS",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ORTHODOX",
+      "target": "NODE-DENOM-MESSIANIC-JEW",
+      "relationship": "CONTRADICTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-CONSERVATIVE",
+      "target": "NODE-DENOM-MESSIANIC-JEW",
+      "relationship": "CONTRADICTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-REFORM",
+      "target": "NODE-DENOM-MESSIANIC-JEW",
+      "relationship": "CONTRADICTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-RECONSTRUCTIONIST",
+      "target": "NODE-DENOM-MESSIANIC-JEW",
+      "relationship": "CONTRADICTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-KARAITE",
+      "target": "NODE-DENOM-MESSIANIC-JEW",
+      "relationship": "CONTRADICTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-HIST-ISRAEL-COURT-RUFEISEN",
+      "target": "NODE-DENOM-MESSIANIC-JEW",
+      "relationship": "CONTRADICTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ACAD-ARIEL",
+      "target": "NODE-DENOM-MESSIANIC-JEW",
+      "relationship": "INTERPRETS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-ACAD-COHNSHERBOK",
+      "target": "NODE-DENOM-MESSIANIC-JEW",
+      "relationship": "INTERPRETS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-ACAD-KAPLAN-STEVEN",
+      "target": "NODE-COMM-BETA-ISRAEL",
+      "relationship": "INTERPRETS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-ACAD-MEYER",
+      "target": "NODE-REFORM",
+      "relationship": "INTERPRETS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-ACAD-IDEL",
+      "target": "NODE-DENOM-HASIDIC",
+      "relationship": "INTERPRETS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-ACAD-ZOHAR",
+      "target": "NODE-COMM-SEPHARDIC",
+      "relationship": "INTERPRETS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-AUTH-FRANKEL",
+      "target": "NODE-CONSERVATIVE",
+      "relationship": "HISTORICALLY_PRECEDES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TEXT-COLUMBUS-1937",
+      "target": "NODE-REFORM",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-046",
+      "target": "NODE-DENOM-KARAITE",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-047",
+      "target": "NODE-DENOM-KARAITE",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-048",
+      "target": "NODE-DENOM-HASIDIC",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-049",
+      "target": "NODE-DENOM-HASIDIC",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-050",
+      "target": "NODE-COMM-SEPHARDIC",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-051",
+      "target": "NODE-COMM-SEPHARDIC",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-052",
+      "target": "NODE-COMM-BETA-ISRAEL",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-053",
+      "target": "NODE-COMM-BETA-ISRAEL",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-054",
+      "target": "NODE-DENOM-RENEWAL",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-055",
+      "target": "NODE-DENOM-HUMANISTIC",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-056",
+      "target": "NODE-THEME-PATRILINEAL-DESCENT",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-057",
+      "target": "NODE-DENOM-MESSIANIC-JEW",
+      "relationship": "CONTRADICTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-058",
+      "target": "NODE-DENOM-MESSIANIC-JEW",
+      "relationship": "CONTRADICTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-059",
+      "target": "NODE-DENOM-MESSIANIC-JEW",
+      "relationship": "CONTRADICTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-060",
+      "target": "NODE-DENOM-MESSIANIC-JEW",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-061",
+      "target": "NODE-COMM-BETA-ISRAEL",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-062",
+      "target": "NODE-DENOM-KARAITE",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-063",
+      "target": "NODE-REFORM",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-064",
+      "target": "NODE-DENOM-HASIDIC",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-065",
+      "target": "NODE-COMM-SEPHARDIC",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-066",
+      "target": "NODE-CONSERVATIVE",
       "relationship": "INTERPRETS",
       "weight": 1.0
     }

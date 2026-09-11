@@ -1,40 +1,110 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "communities": [
     {
+      "id": "COMM-ASHKENAZI",
       "community": "Ashkenazi Jewry",
-      "historical_geography": "Rhineland, France, Germany, Poland, Lithuania, Russia, Central/Eastern Europe",
-      "language": "Yiddish (Judeo-German)",
+      "historical_geography": "Rhineland, France, Germany, Poland, Lithuania, Russia, Central/Eastern Europe, Anglo-American diaspora",
+      "language": "Yiddish (Judeo-German), Rabbinic Hebrew, English",
       "liturgical_rite": "Nusach Ashkenaz / Nusach Sefard (Hasidic)",
-      "halakhic_decisors": "Moses Isserles (Rema), Vilna Gaon, Chafetz Chaim"
+      "halakhic_decisors": "Moses Isserles (Rema), Vilna Gaon, Chafetz Chaim (Yisrael Meir Kagan), Moshe Feinstein",
+      "historical_heritage": "Flourishing of Franco-German Tosafist commentary and Eastern European Yeshivish and Hasidic traditions."
     },
     {
+      "id": "COMM-SEPHARDIC",
       "community": "Sephardic Jewry",
-      "historical_geography": "Iberian Peninsula (Spain & Portugal) prior to 1492; Ottoman Empire, Balkans, North Africa, Western Europe (Amsterdam, London)",
-      "language": "Ladino / Judezmo (Judeo-Spanish)",
+      "historical_geography": "Iberian Peninsula (Spain & Portugal) prior to 1492; Ottoman Empire, Balkans, North Africa, Western Europe (Amsterdam, London, Livorno)",
+      "language": "Ladino / Judezmo (Judeo-Spanish), Western Sephardi Portuguese/Spanish, Rabbinic Hebrew",
       "liturgical_rite": "Nusach Edot Ha-Mizrach / Western Sephardi",
-      "halakhic_decisors": "Joseph Karo, Chida (Azulai), Ben Ish Chai, Rabbi Ovadia Yosef"
-    },
-    {
-      "community": "Mizrahi Jewry",
-      "historical_geography": "Middle East, Mesopotamia (Iraq/Babylon), Persia/Iran, Syria, Lebanon",
-      "language": "Judeo-Arabic, Judeo-Persian",
-      "heritage": "Direct heirs of the ancient Babylonian academies of Sura and Pumbedita"
-    },
-    {
-      "community": "Teimani (Yemenite) Jewry",
-      "historical_geography": "Yemen (Sanaa, Aden, Habban)",
-      "language": "Judeo-Yemenite Arabic",
-      "sub_streams": [
-        "Baladi (follows Maimonides' Mishneh Torah exclusively, retaining ancient Palestinian vocalization)",
-        "Shami (adopted later Sephardic codes and Kabbalah)"
+      "halakhic_decisors": "Joseph Karo (Maran), Chida (Rabbi Hayyim Yosef David Azulai), Ben Ish Chai, Rabbi Ovadia Yosef",
+      "historical_heritage": "Classical Judeo-Spanish Golden Age, philosophical synthesis, and systematic codification (Shulchan Aruch).",
+      "sub_traditions": [
+        {
+          "name": "Western Sephardim (Spanish and Portuguese Jews)",
+          "centers": "Amsterdam, London, Hamburg, Bayonne, New York, Philadelphia, Curaçao",
+          "character": "Western civic acculturation, stately choral liturgy (Minhag Amsterdam), distinguished communal discipline (Nação), authorities including Menasseh ben Israel, Jacob Sasportas, David Nieto"
+        },
+        {
+          "name": "Eastern Sephardim (Ottoman Sephardim)",
+          "centers": "Salonika, Istanbul, Izmir, Rhodes, Sarajevo, Sofia, Jerusalem",
+          "character": "Vibrant Ladino-speaking culture, preservation of medieval Spanish ballads (romanceros), halakhic flourishing under authorities such as Rabbi Joseph Karo and Rabbi Hayyim Palachi"
+        }
       ]
     },
     {
+      "id": "COMM-MIZRAHI",
+      "community": "Mizrahi Jewry",
+      "historical_geography": "Middle East, Mesopotamia (Iraq/Babylon), Persia/Iran, Syria, Lebanon, Central Asia",
+      "language": "Judeo-Arabic dialects, Judeo-Persian, Neo-Aramaic",
+      "heritage": "Direct heirs of the ancient Babylonian academies of Sura and Pumbedita and Persian-era exilic communities",
+      "halakhic_decisors": "Geonim (Saadia Gaon, Hai Gaon), Ben Ish Hai (Rabbi Yosef Hayyim of Baghdad), Abdullah Somekh, Rabbi Ezra Attiya",
+      "sub_traditions": [
+        {
+          "name": "Iraqi / Babylonian Jewry",
+          "centers": "Baghdad, Basra, Mosul, Kurdistan",
+          "character": "Unbroken 2,500-year continuity from Babylonian exile; premier halakhic authority in Ben Ish Hai integrating halakha with Lurianic Kabbalah; Midrash Ben Ish Hai; distinctive Aramaic/Arabic liturgical melodies"
+        },
+        {
+          "name": "Persian / Iranian Jewry",
+          "centers": "Tehran, Isfahan, Shiraz, Yazd, Hamedan, Bukhara, Mountain Jews of the Caucasus",
+          "character": "Ancient community tracing origins to Cyrus the Great and Book of Esther; rich Judeo-Persian literature (Shahin Shirazi epics), distinct Passover customs, and veneration of tombs of Esther, Mordecai, and Daniel"
+        },
+        {
+          "name": "Syrian Jewry (Shami)",
+          "centers": "Aleppo (Aram Tzova), Damascus, Brooklyn NY",
+          "character": "Custodians of the 10th-century Aleppo Codex (Keter Aram Tzova); legendary Maqam-based Pizmonim tradition; famous 1935 Rabbinic Edict strictly forbidding acceptance of converts to protect communal cohesion"
+        }
+      ]
+    },
+    {
+      "id": "COMM-NORTH-AFRICAN",
+      "community": "North African / Maghrebi Jewry",
+      "historical_geography": "Morocco, Algeria, Tunisia, Libya (Maghreb)",
+      "language": "Judeo-Arabic, Haketia (Spanish-Moroccan), Tamazight (Judeo-Berber), French",
+      "liturgical_rite": "Nusach Maghrebi / Edot Ha-Mizrach",
+      "halakhic_decisors": "Isaac Alfasi (Rif), Raphael Berdugo, Shalom Messas, Israel Abuhatzeira (Baba Sali)",
+      "distinctive_practices": [
+        "Veneration of tzaddikim and joyful Hilula anniversary pilgrimages",
+        "Celebration of Mimouna at the conclusion of Passover celebrating springtime and communal friendship",
+        "Ancient rabbinic courts of Fes and Meknes with distinct halakhic ordinances (Takkanot of Castile and Fes)"
+      ]
+    },
+    {
+      "id": "COMM-YEMENITE",
+      "community": "Teimani (Yemenite) Jewry",
+      "historical_geography": "Yemen (Sanaa, Aden, Habban, Sa'dah)",
+      "language": "Judeo-Yemenite Arabic, ancient Yemenite Hebrew with archaic Babylonian vocalization and phonetic preservation of letters (gimel, dalet, vav, tet, ayin, qof)",
+      "halakhic_decisors": "Moses ben Maimon (Maimonides / Rambam - author of Iggeret Teiman), Rabbi Shalom Sharabi, Rabbi Yihyeh Qafih",
+      "sub_streams": [
+        {
+          "name": "Baladi (Traditional/Native)",
+          "description": "Follows Maimonides' Mishneh Torah almost exclusively as the sole decisor; maintains the ancient pre-Kabbalistic Tiklal prayer book without later mystical accretions; recites Targum Aramaic verse-by-verse during Torah reading"
+        },
+        {
+          "name": "Shami (Levantine/Sephardic)",
+          "description": "Adopted the Sephardic Shulchan Aruch and Lurianic Kabbalah starting in the 17th century following the arrival of printed books from Safed and Salonika"
+        },
+        {
+          "name": "Dor Deah (Dardaim)",
+          "description": "Rationalist reform movement founded in early 20th-century Sanaa by Rabbi Yihyeh Qafih, rejecting the Zohar and Kabbalistic theology in favor of pure Maimonidean rationalism, fiercely opposed by the traditionalist Iqshim"
+        }
+      ]
+    },
+    {
+      "id": "COMM-BETA-ISRAEL",
       "community": "Beta Israel (Ethiopian Jewry)",
-      "historical_geography": "Gondar, Tigray (Ethiopia)",
-      "language": "Ge'ez (liturgical) and Amharic",
-      "scripture": "Orit (Octateuch in Ge'ez)",
+      "historical_geography": "Gondar, Simien Mountains, Tigray (northwestern Ethiopia), modern State of Israel",
+      "language": "Ge'ez (classical liturgical language), Amharic, Tigrinya, Modern Hebrew",
+      "scripture": "The Orit (Octateuch in Ge'ez: Pentateuch plus Joshua, Judges, Ruth) alongside Ge'ez Enoch, Jubilees, and Testament of Abraham",
+      "religious_tradition": "Haymanot (pre-rabbinic, non-talmudic biblical Judaism preserved in isolation for centuries)",
+      "leadership_structure": "Kessim / Kohanim (spiritual leaders and priestly sacrificers wearing white turbans) and an ancient monastic order (founded by monks such as Abba Sabra in the 15th century)",
+      "liturgy_and_prayer": "Sung prayers in Ge'ez and Agaw (Qwarinya) accompanied by liturgical drums (kebero) and prayer sticks in the Masgid (prayer house)",
+      "distinctive_practices": [
+        "Rigorous biblical purity laws (attinkun: ritual isolation of menstruating women in ya-margam gogo huts and mothers after childbirth in ya-dass gogo, followed by total river immersion)",
+        "Strict Sabbath observance (Sanbat personified as heavenly queen and bride, forbidding fire, cooking, or leaving village)",
+        "Unique festival of Seged (celebrated 29th of Heshvan, 50 days after Yom Kippur, climbing a mountain with stones to renew the Sinaitic covenant as in Ezra-Nehemiah)"
+      ],
+      "relationship_to_rabbinic_judaism": "Historically isolated from the Talmud and rabbinic halakhic developments; halakhically recognized in 16th century by Rabbi David ben Zimra (Radbaz) as originating from the lost Tribe of Dan; definitively recognized in 1973 by Sephardic Chief Rabbi Ovadia Yosef; integrated into modern Israel through Operation Moses (1984) and Operation Solomon (1991), followed by institutional dialogue over rabbinic marriage and recognition of Kessim.",
       "uniqueness": "Preserved pre-rabbinic, non-talmudic biblical Judaism with monastic priesthood (Kohanim/Kessim) until mass airlift migrations to Israel (Operation Moses 1984, Operation Solomon 1991)"
     }
   ]
