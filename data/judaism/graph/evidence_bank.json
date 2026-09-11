@@ -1,147 +1,1384 @@
 {
   "version": "1.0.0",
-  "total_records": 12,
+  "total_records": 45,
   "records": [
     {
       "evidence_id": "EVID-JEW-001",
+      "claim_id": "CLAIM-HIST-DAVIDIC-DYNASTY-001",
       "evidence_class": "FACT",
+      "evidence_type": "ARCHAEOLOGICAL",
       "text": "The Tel Dan Stele, dated c. 840–800 BCE, contains the phrase 'bytdwd' (House of David), serving as archaeological epigraphic confirmation of the Davidic dynasty.",
       "source_id": "SRC-JEW-EPIG-001",
+      "source_tier": "TIER_1_PRIMARY_ANCIENT",
       "source_location": "Lines 8-9 of Fragment A",
       "original_language_text": "ביתדוד",
       "transliteration": "bytdwd",
       "historical_period": "IRON_AGE_ISRAEL",
       "tradition": "ARCHAEOLOGICAL_EPIGRAPHY",
+      "context": "Aram-Damascus victory monument erected by King Hazael celebrating victory over the king of Israel and the king of the 'House of David' (Judah).",
+      "interpretation": "Provides extra-biblical ninth-century BCE epigraphic corroboration that the Judean monarchy was historically known as the House of David.",
+      "competing_interpretation": "A minimal minority of minimalist historians originally suggested alternative vocalizations ('house of kettle' or 'house of uncle'), but broad scholarly consensus reads 'bytdwd' as House of David.",
+      "counterargument": "Demonstrates that the Davidic royal lineage is an authentic historical institution rather than a purely fictional Hellenistic/Persian literary invention.",
       "verification_status": "VERIFIED",
-      "confidence": "ESTABLISHED"
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Biran-Naveh-1993",
+          "SRC-JEW-EPIG-001"
+        ],
+        "methodology": "Direct epigraphic analysis and archaeological stratum dating",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Discovered at Tel Dan in northern Israel by Avraham Biran (1993–1994)."
     },
     {
       "evidence_id": "EVID-JEW-002",
+      "claim_id": "CLAIM-BIB-FIRST-TEMPLE-LITURGY-001",
       "evidence_class": "FACT",
+      "evidence_type": "PRIMARY_TEXT",
       "text": "Ketef Hinnom silver amulets KH1 and KH2 (c. 600 BCE) contain the Priestly Blessing (Numbers 6:24-26) in Paleo-Hebrew script, pre-dating the Babylonian exile.",
       "source_id": "SRC-JEW-EPIG-002",
+      "source_tier": "TIER_1_PRIMARY_ANCIENT",
       "source_location": "Amulet KH2 lines 5-12",
       "original_language_text": "יברכך יהוה וישמרך יאר יהוה פניו אליך וישם לך שלום",
-      "transliteration": "yevarekhekha YHWH ve-yishmerekha...",
+      "transliteration": "yevarekhekha YHWH ve-yishmerekha yair YHWH panav elekha ve-yasem lekha shalom",
       "historical_period": "IRON_AGE_ISRAEL",
       "tradition": "PRIESTLY_FIRST_TEMPLE",
+      "context": "Late First Temple burial cave complex overlooking the Hinnom Valley in Jerusalem; tiny rolled silver scrolls worn as apotropaic amulets.",
+      "interpretation": "Confirms the circulation of liturgical priestly formulations verbatim identical to the Pentateuch prior to the destruction of the First Temple (586 BCE).",
+      "competing_interpretation": "Some late-dating documentary hypothesis proponents originally suggested Hellenistic dating, but Barkay et al. (2004) high-resolution imaging and paleography confirmed late 7th to early 6th century BCE date.",
+      "counterargument": "Directly challenges radical theories asserting the entire Priestly Source (P) was created ex nihilo during the Persian or Hellenistic periods.",
       "verification_status": "VERIFIED",
-      "confidence": "ESTABLISHED"
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Barkay-2004",
+          "SRC-JEW-EPIG-002"
+        ],
+        "methodology": "High-resolution multi-spectral microscopic imaging and metallurgical dating",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Earliest surviving physical citation of a biblical text."
     },
     {
       "evidence_id": "EVID-JEW-003",
+      "claim_id": "CLAIM-MSS-ISAIAH-STABILITY-001",
       "evidence_class": "FACT",
+      "evidence_type": "MANUSCRIPT",
       "text": "The Great Isaiah Scroll (1QIsa-a) from Qumran contains all 66 chapters of Isaiah, demonstrating substantial consonantal alignment with the 10th-century Masoretic Text over more than 1,000 years of transmission.",
       "source_id": "SRC-JEW-DSS-001",
+      "source_tier": "TIER_1_PRIMARY_ANCIENT",
       "source_location": "54 columns complete",
+      "original_language_text": "ישעיהו",
+      "transliteration": "Yeshayahu",
       "historical_period": "ROMAN_SECOND_TEMPLE",
       "tradition": "SECOND_TEMPLE_QUMRAN",
+      "context": "Deposited in Cave 1 at Qumran c. 68 CE; copied c. 125–100 BCE by sectarian or commercial scribes.",
+      "interpretation": "Affirms remarkable long-term consonantal preservation and textual integrity of the prophetic book across a millennium of copying.",
+      "competing_interpretation": "Contains fuller (plene) orthography, grammatical harmonizations, and minor variants that differ from Codex Leningradensis, reflecting a popular/sectarian scribal practice rather than strict proto-rabbinic standardization.",
+      "counterargument": "Refutes simplistic assertions of wholesale textual corruption (Tahrif al-nass) prior to Islam, while showing the nature of fluid Second Temple orthography.",
       "verification_status": "VERIFIED",
-      "confidence": "ESTABLISHED"
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Ulrich-DSS-2010",
+          "SRC-JEW-DSS-001"
+        ],
+        "methodology": "Text-critical collation against MT, LXX, and 1QIsa-b",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Preserved in the Shrine of the Book, Jerusalem."
     },
     {
       "evidence_id": "EVID-JEW-004",
+      "claim_id": "CLAIM-JEW-MASHIACH-CRITERIA-001",
       "evidence_class": "CLAIM",
+      "evidence_type": "HALAKHIC",
       "text": "Rabbi Moshe ben Maimon (Maimonides) codified in Mishneh Torah that if a king arises from the house of David who meditates on the Torah and observes commandments, but is killed before gathering exiles and rebuilding the Temple, he is certainly not the Messiah.",
       "source_id": "SRC-JEW-RAMBAM-MT-001",
+      "source_tier": "TIER_3_MEDIEVAL_RISHONIM",
       "source_location": "Hilkhot Melakhim u-Milchamot 11:4",
       "original_language_text": "ואם עמד מלך מבית דוד... ונהרג, בידוע שאינו זה שהבטיחה עליו תורה",
       "transliteration": "ve-im amad melekh mi-beit David... ve-neherag, beyadua she-eino zeh she-hivtichah alav torah",
       "historical_period": "ISLAMIC_GOLDEN_AGE",
       "tradition": "MEDIEVAL_RISHONIM",
+      "context": "Codification of messianic jurisprudence (*Hilkhot Melakhim*) setting legal evidentiary criteria for verifying messianic authenticity.",
+      "interpretation": "A presumed messiah (*be-chezkat mashiach*) becomes the confirmed messiah (*mashiach vadai*) only upon successful physical fulfillment of gathering the dispersed of Israel, rebuilding the Temple, and establishing Torah law; untimely death invalidates the claim.",
+      "competing_interpretation": "Christian messianism posited a suffering, dying, and resurrecting messiah with a deferred second coming, which Maimonides explicitly rejects as having no basis in Tanakh.",
+      "counterargument": "Demonstrates that normative Rabbinic Judaism evaluates messiahship by concrete historical deliverables in this world rather than posthumous spiritual redemptions.",
       "verification_status": "VERIFIED",
-      "confidence": "ESTABLISHED"
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Frankel-MT-2002",
+          "SRC-JEW-RAMBAM-MT-001"
+        ],
+        "methodology": "Halakhic jurisprudence and cross-manuscript textual verification of uncensored Mishneh Torah",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Uncensored manuscripts explicitly reference Jesus of Nazareth and Bar Kokhba as historical examples of failed presumptive candidates."
     },
     {
       "evidence_id": "EVID-JEW-005",
+      "claim_id": "CLAIM-EXEG-ISAIAH-7-14-001",
       "evidence_class": "INTERPRETATION",
+      "evidence_type": "RABBINIC",
       "text": "The phrase 'Hineh ha-almah harah' in Isaiah 7:14 historically refers to a contemporary young woman in the court of King Ahaz whose pregnancy served as a chronological marker that the lands of Damascus and Samaria would be forsaken.",
       "source_id": "SRC-JEW-RASHI-001",
+      "source_tier": "TIER_3_MEDIEVAL_RISHONIM",
       "source_location": "Commentary on Isaiah 7:14",
       "original_language_text": "הנה העלמה הרה - אשתי מעוברת... ויש אומרים שהיא אשתו של אחז",
+      "transliteration": "hineh ha-almah harah - ishti me'uberet... ve-yesh omerim she-hi ishto shel achaz",
       "historical_period": "MEDIEVAL_EUROPEAN",
       "tradition": "MEDIEVAL_RISHONIM",
+      "context": "The Syro-Ephraimite War (c. 735–734 BCE); Rezin of Damascus and Pekah of Israel threatening to overthrow King Ahaz of Judah.",
+      "interpretation": "The child serves as an imminent chronological sign: before the boy knows to refuse evil and choose good, the threatening kingdoms will be desolated (Isa 7:16).",
+      "competing_interpretation": "Christian patristic tradition interpreted the verse via the Septuagint translation *parthenos* as predicting the virginal conception of Jesus Christ centuries later (Matthew 1:22-23).",
+      "counterargument": "A child born eight centuries after Ahaz could not function as an immediate geopolitical sign of military deliverance to the terrified 8th-century BCE king of Judah.",
       "verification_status": "VERIFIED",
-      "confidence": "HIGH"
+      "confidence": "HIGH",
+      "provenance": {
+        "source_ids": [
+          "Rashi-Isa-Standard",
+          "SRC-JEW-RASHI-001"
+        ],
+        "methodology": "Peshat-oriented contextual exegesis within biblical historical chronologies",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Radak and Ibn Ezra similarly affirm that the woman was either the prophet's wife or Queen Abi, mother of Hezekiah."
     },
     {
       "evidence_id": "EVID-JEW-006",
+      "claim_id": "CLAIM-LEX-ALMAH-BETHULAH-001",
       "evidence_class": "ACADEMIC_CONSENSUS",
+      "evidence_type": "LEXICAL",
       "text": "Critical Hebrew philology establishes that 'almah' in Biblical Hebrew signifies an adolescent woman of marriageable age, while 'bethulah' is the specific lexical term for virginity.",
       "source_id": "SRC-ACAD-TOV-001",
+      "source_tier": "TIER_5_ACADEMIC_CRITICAL",
       "source_location": "Textual Criticism & Hebrew Lexicography",
+      "original_language_text": "עַלְמָה vs בְּתוּלָה",
+      "transliteration": "almah vs bethulah",
       "historical_period": "CONTEMPORARY",
       "tradition": "ACADEMIC_CRITICAL",
+      "context": "Semitic lexicography comparing Ugaritic *ʿlmt*, Phoenician, and Biblical Hebrew occurrences (Gen 24:43, Exod 2:8, Prov 30:19, Song 1:3).",
+      "interpretation": "Biblical Hebrew possesses a designated technical word for virginity (*bethulah*); *almah* denotes female physical maturity and age-class, leaving sexual status neutral or context-dependent.",
+      "competing_interpretation": "Traditional Christian apologetics claimed *almah* inherently implies virginity because in ancient Israelite culture an unmarried adolescent was presumed to be a virgin.",
+      "counterargument": "In Proverbs 30:19 ('the way of a man with an almah') and Song of Songs 6:8 (*alamot ein mispar* alongside queens and concubines), the term does not denote physiological virginity.",
       "verification_status": "VERIFIED",
-      "confidence": "ESTABLISHED"
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Tov-2012",
+          "BDB-1906",
+          "SRC-ACAD-TOV-001"
+        ],
+        "methodology": "Comparative Northwest Semitic philology and exhaustive corpus concordance analysis",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Corroborated by Gesenius, BDB (p. 761), and modern critical biblical translations (NRSV, JPS, ESV note)."
     },
     {
       "evidence_id": "EVID-JEW-007",
+      "claim_id": "CLAIM-TRAD-ORAL-TORAH-CHAIN-001",
       "evidence_class": "TRADITIONAL_POSITION",
+      "evidence_type": "RABBINIC",
       "text": "The Oral Torah was revealed alongside the Written Torah at Mount Sinai and handed down through an unbroken chain of transmission from Moses to Joshua, Elders, Prophets, and the Men of the Great Assembly.",
       "source_id": "SRC-JEW-MISHNAH-001",
+      "source_tier": "TIER_2_RABBINIC_CANONICAL",
       "source_location": "Tractate Avot 1:1",
       "original_language_text": "מֹשֶׁה קִבֵּל תּוֹרָה מִסִּינַי, וּמְסָרָהּ לִיהוֹשֻׁעַ, וִיהוֹשֻׁעַ לִזְקֵנִים, וּזְקֵנִים לִנְבִיאִים, וּנְבִיאִים מְסָרוּהָ לְאַנְשֵׁי כְנֶסֶת הַגְּדוֹלָה",
+      "transliteration": "Moshe kibbel Torah mi-Sinai, u-mesarah li-Yhoshua, vi-Yhoshua li-zkenim, u-zkenim li-nevi'im, u-nevi'im mesaruha le-anshei knesset ha-gedolah",
       "historical_period": "TANNAITIC_ERA",
       "tradition": "RABBINIC_TANNAITIC",
+      "context": "Opening of Tractate Avot, providing ideological legitimation and pedigree for the authority of the Tannaitic Sages.",
+      "interpretation": "The Sages possess legitimate divine authority to interpret and apply the Torah because their legal rulings derive from the primordial Sinaitic revelation.",
+      "competing_interpretation": "Second Temple Sadducees, Karaites, and modern academic historians view the Oral Law as an evolutionary legal and customary development of the Second Temple and post-70 rabbinic guilds rather than a verbatim Sinaitic dictation.",
+      "counterargument": "Even from an academic historical standpoint, the Written text requires interpretive conventions (e.g. slaughter methods, tefillin design, calendar calculations) that existed as unwritten customary practice.",
       "verification_status": "VERIFIED",
-      "confidence": "ESTABLISHED_TRADITION"
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "MS-Kaufmann-A50",
+          "SRC-JEW-MISHNAH-001"
+        ],
+        "methodology": "Critical manuscript collation of Mishnah Nezikin",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Foundational text for rabbinic legitimacy and halakhic epistemology."
     },
     {
       "evidence_id": "EVID-JEW-008",
+      "claim_id": "CLAIM-HIST-YAVNEH-RECONSTRUCTION-001",
       "evidence_class": "HISTORICAL_REPORT",
+      "evidence_type": "HISTORICAL",
       "text": "Upon the destruction of the Second Temple in 70 CE, Rabbi Yochanan ben Zakkai secured permission from Roman General Vespasian to establish the academy at Yavneh ('Give me Yavneh and its sages'), preserving Judaism.",
       "source_id": "SRC-JEW-TALMUD-BAVLI-001",
+      "source_tier": "TIER_2_RABBINIC_CANONICAL",
       "source_location": "Tractate Gittin 56b",
       "original_language_text": "תן לי יבנה וחכמיה ושושילתא דרבן גמליאל",
+      "transliteration": "ten li Yavneh va-chakhameha ve-shoshilta de-Rabban Gamliel",
       "historical_period": "AMORAIC_ERA",
       "tradition": "RABBINIC_AMORAIC",
+      "context": "The Roman siege of Jerusalem (68–70 CE); internal zealot civil war and impending devastation of the sanctuary.",
+      "interpretation": "Transitioned Judaism from a localized Temple-centered cult dependent on sacrificial rituals into a decentralized, text-centered religious civilization grounded in synagogue worship, prayer, halakhic study, and rabbinic leadership.",
+      "competing_interpretation": "Academic historians (e.g., Neusner, Cohen) note that the Yavneh narrative reflects later Amoraic memory and retrojection of rabbinic hegemony, though historically Yavneh did serve as the initial gathering point for post-70 reconstruction.",
+      "counterargument": "Demonstrates the resilience and conscious institutional re-adaptation of Jewish identity following catastrophic national loss.",
       "verification_status": "VERIFIED",
-      "confidence": "HIGH"
+      "confidence": "HIGH",
+      "provenance": {
+        "source_ids": [
+          "Vilna-Gittin",
+          "Cohen-1984",
+          "SRC-JEW-TALMUD-BAVLI-001"
+        ],
+        "methodology": "Textual and historiographical analysis of Talmudic narratives and Josephus parallels",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Parallel accounts found in Avot de-Rabbi Natan and Midrash Lamentations Rabbah."
     },
     {
       "evidence_id": "EVID-JEW-009",
+      "claim_id": "CLAIM-DENOM-REFORM-HALAKHA-001",
       "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "DENOMINATIONAL",
       "text": "Reform Judaism declared in the 1885 Pittsburgh Platform that ritual laws regulating diet, priestly purity, and dress fail to elevate the modern soul and are non-binding, though later platforms (1999 San Francisco) reclaimed traditional customs and Torah study.",
       "source_id": "SRC-JEW-CCAR-PLATFORMS-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
       "source_location": "1885 Pittsburgh Platform §4; 1999 San Francisco Statement",
+      "original_language_text": "We hold that all such Mosaic and rabbinical laws as regulate diet, priestly purity, and dress originated in ages and under the influence of ideas entirely foreign to our present mental and spiritual state.",
+      "transliteration": "N/A",
       "historical_period": "HASKALAH_EMANCIPATION",
       "tradition": "REFORM",
+      "context": "The American Reform movement adapting Judaism to modern Western civic emancipation, rationalism, and universal ethics.",
+      "interpretation": "Articulates progressive revelation: Jewish ceremonial law is historically conditioned and subject to individual autonomy, retaining only universal moral imperatives.",
+      "competing_interpretation": "Orthodoxy considers this platform an explicit abrogation of the Sinai covenant and halakhic authority; later 20th-century Reform thinkers criticized 1885 for excessive assimilationist rationalism.",
+      "counterargument": "Illustrates that modern Reform Judaism is dynamic rather than static, moving from radical rejection of ritual in 1885 to partial ritual re-engagement in 1999.",
       "verification_status": "VERIFIED",
-      "confidence": "ESTABLISHED"
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "CCAR-Platforms-Archive",
+          "SRC-JEW-CCAR-PLATFORMS-001"
+        ],
+        "methodology": "Historical documentation of official denominational synods and published resolutions",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Essential benchmark for tracking theological shifts in modern non-Orthodox Judaism."
     },
     {
       "evidence_id": "EVID-JEW-010",
+      "claim_id": "CLAIM-DENOM-CONSERVATIVE-JURISPRUDENCE-001",
       "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "DENOMINATIONAL",
       "text": "Conservative Judaism (CJLS) affirms Halakha as normative and binding, but subject to developmental halakhic jurisprudence responding to evolving historical, moral, and scientific knowledge.",
       "source_id": "SRC-JEW-CJLS-CONSERVATIVE-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
       "source_location": "CJLS Core Principles Statement",
+      "original_language_text": "Halakhah is our normative guide... shaped by historical development and capable of continuous growth in dialogue with contemporary reality.",
+      "transliteration": "N/A",
       "historical_period": "CONTEMPORARY",
       "tradition": "CONSERVATIVE_MASORTI",
+      "context": "The Historical-Positive school (Zechariah Frankel, Solomon Schechter) navigating between Orthodox traditionalism and Reform radicalism.",
+      "interpretation": "Combines fealty to rabbinic legal processes (*Halakha*) with the historical-critical recognition that legal interpretations have always evolved across generations (*Catholic Israel*).",
+      "competing_interpretation": "Orthodoxy argues Conservative modifications (e.g. driving on Shabbat to synagogue, egalitarian ordination) exceed legitimate rabbinic precedent; Reform views retention of binding halakha as an unnecessary constraint.",
+      "counterargument": "Provides evidence that binding law and historical evolution can be co-affirmed within modern Jewish jurisprudence.",
       "verification_status": "VERIFIED",
-      "confidence": "ESTABLISHED"
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "CJLS-Responsa-2000",
+          "SRC-JEW-CJLS-CONSERVATIVE-001"
+        ],
+        "methodology": "Official Rabbinical Assembly Committee on Jewish Law and Standards jurisprudence analysis",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Known globally as Masorti (Traditional) Judaism outside North America."
     },
     {
       "evidence_id": "EVID-JEW-011",
+      "claim_id": "CLAIM-EXEG-ISAIAH-53-SERVANT-001",
       "evidence_class": "DISPUTED_CLAIM",
+      "evidence_type": "INTERFAITH_COMPARATIVE",
       "text": "The identification of the 'Suffering Servant' of Isaiah 53: Jewish normative tradition (Rashi, Ibn Ezra, Radak) identifies the servant with the collective Nation of Israel; classical Christian theology identifies the servant with Jesus of Nazareth; some midrashic passages (Targum Jonathan, Midrash Tanhuma) preserve individualized messianic homilies.",
       "source_id": "SRC-JEW-RASHI-001",
+      "source_tier": "TIER_3_MEDIEVAL_RISHONIM",
       "source_location": "Isaiah 52:13–53:12 Apparatus",
+      "original_language_text": "הנה ישכיל עבדי - יצלח עבדי יעקב... ישראל שהם עבדי",
+      "transliteration": "hineh yaskil avdi - yitzlach avdi Ya'akov... Yisrael she-hem avdi",
       "historical_period": "MEDIEVAL_EUROPEAN",
       "tradition": "INTERFAITH_POLEMICS",
+      "context": "Medieval disputations and cross-traditional biblical exegesis concerning the fourth Servant Song of Deutero-Isaiah.",
+      "interpretation": "In Chapters 41–49 of Isaiah, the servant is explicitly named as Israel/Jacob ('You, Israel, are my servant', Isa 41:8, 44:1, 49:3). The kings of the nations speak in Isaiah 53:1–6, expressing shock at Israel's ultimate vindication after being despised in exile.",
+      "competing_interpretation": "Christianity interprets the passage as a prophetic depiction of substitutionary vicarious atonement fulfilled in the passion and crucifixion of Jesus.",
+      "counterargument": "Targum Jonathan opens with 'Behold My Servant Messiah,' but paraphrases the suffering verses so that the Messiah inflicts suffering on gentile oppressors rather than dying himself, showing that ancient Jewish messianism did not endorse a dying deity.",
       "verification_status": "VERIFIED",
-      "confidence": "DISPUTED"
+      "confidence": "DISPUTED",
+      "provenance": {
+        "source_ids": [
+          "Neubauer-Driver-1877",
+          "SRC-JEW-RASHI-001"
+        ],
+        "methodology": "Comparative text-critical and history-of-interpretation analysis across Jewish, Christian, and Targumic sources",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Classic anthology documented in Neubauer & Driver, 'The Fifty-Third Chapter of Isaiah According to the Jewish Interpreters' (1877)."
     },
     {
       "evidence_id": "EVID-JEW-012",
+      "claim_id": "CLAIM-POL-ISRAEL-DEMOGRAPHICS-001",
       "evidence_class": "FACT",
+      "evidence_type": "HISTORICAL",
       "text": "Over 20% of citizens of the modern State of Israel are non-Jewish (Arab Muslims, Christians, Druze, Circassians), demonstrating that 'Israeli' citizenship is politically and legally distinct from 'Jewish' religious/ethnic identity.",
       "source_id": "SRC-ACAD-COHEN-001",
+      "source_tier": "TIER_5_ACADEMIC_CRITICAL",
       "source_location": "Demographic & Legal Studies of Modern Israel",
+      "original_language_text": "אזרחות ישראלית לעומת לאום ודת",
+      "transliteration": "ezrachut yisraelit le'umat le'om ve-dat",
       "historical_period": "CONTEMPORARY",
       "tradition": "SECULAR_HISTORICAL",
+      "context": "Modern Middle Eastern politics and sociology of law distinguishing civic statehood from transnational ethno-religious community.",
+      "interpretation": "A citizen of Israel is an 'Israeli' (*Yisraeli*), whereas a member of the Jewish people is a 'Jew' (*Yehudi*). Conflating the two produces severe category errors in constitutional and theological discourse.",
+      "competing_interpretation": "Both anti-Zionist polemicists and ultra-nationalist extremists frequently collapse the distinction to treat Israel as solely a theocracy or an apartheid monolith.",
+      "counterargument": "Israeli Supreme Court jurisprudence (*George Tamarin v. State of Israel*, 1972) affirmed that Israeli law registers citizenship (*ezrachut*) distinctly from ethno-religious nationality (*le'om*).",
       "verification_status": "VERIFIED",
-      "confidence": "ESTABLISHED"
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Israel-CBS-2023",
+          "SRC-ACAD-COHEN-001"
+        ],
+        "methodology": "Demographic census data verification and constitutional legal analysis",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Essential epistemic invariant against anti-Semitic conflation of worldwide Jews with state policies of Israel."
+    },
+    {
+      "evidence_id": "EVID-JEW-013",
+      "claim_id": "CLAIM-CANON-TANAKH-STRUCTURE-001",
+      "evidence_class": "TRADITIONAL_POSITION",
+      "evidence_type": "RABBINIC",
+      "text": "The Babylonian Talmud codifies the 24-book tripartite canon of the Hebrew Bible (Torah, 8 Prophets, 11 Ketuvim), establishing the internal ordering of prophetic and hagiographical books.",
+      "source_id": "SRC-JEW-TALMUD-BAVLI-001",
+      "source_tier": "TIER_2_RABBINIC_CANONICAL",
+      "source_location": "Tractate Bava Batra 14b–15a",
+      "original_language_text": "סדרן של נביאים: יהושע ושופטים, שמואל ומלכים, ירמיה ויחזקאל, ישעיה ושנים עשר... סדרן של כתובים: רות וספר תהלים, ואיוב ומשלי, קהלת, שיר השירים וקינות, דניאל ומגילת אסתר, עזרא ודברי הימים",
+      "transliteration": "Sidran shel nevi'im: Yehoshua ve-Shoftim, Shemuel u-Melakhim, Yirmeyahu ve-Yechezkel, Yeshayahu u-Shneim Asar... Sidran shel Ketuvim: Rut ve-sefer Tehillim, ve-Iyov u-Mishlei, Kohelet, Shir ha-Shirim ve-Kinot, Daniel u-megillat Ester, Ezra ve-Divrei ha-Yamim",
+      "historical_period": "AMORAIC_ERA",
+      "tradition": "RABBINIC_AMORAIC",
+      "context": "Classical Amoraic discussion regarding the scribal attachment of scrolls, scroll dimensions, and canonical book sequencing.",
+      "interpretation": "Establishes that the traditional Jewish canon consists of exactly 24 books ending with Divrei Ha-Yamim (Chronicles), contrasting with Christian Old Testament canons ending with Malachi.",
+      "competing_interpretation": "Christian canons reorganize the order into Law, History, Poetry, and Prophets to lead teleologically into the New Testament Gospel narratives.",
+      "counterargument": "The 24-book count is affirmed by Josephus (who counted 22 by combining books) and 4 Ezra 14:45 (24 public books vs 70 hidden esoteric books).",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Vilna-Bava-Batra",
+          "SRC-JEW-TALMUD-BAVLI-001"
+        ],
+        "methodology": "Talmudic text-critical analysis and canon history collation",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Forms the standard rabbinic definition of the Tanakh canon."
+    },
+    {
+      "evidence_id": "EVID-JEW-014",
+      "claim_id": "CLAIM-MSS-TIBERIAN-MASORAH-001",
+      "evidence_class": "FACT",
+      "evidence_type": "MANUSCRIPT",
+      "text": "The Aleppo Codex (c. 920 CE) represents the peak of Tiberian Masoretic scholarship by Aaron ben Moses ben Asher, establishing standard vocalization, cantillation accents (*ta'amei ha-mikra*), and scribal preservation notes.",
+      "source_id": "SRC-JEW-ALEPPO-001",
+      "source_tier": "TIER_1_PRIMARY_ANCIENT",
+      "source_location": "Colophon and Masorah Magna/Parva apparatus",
+      "original_language_text": "זה הכתר של ארם צובה... שהגיהו ובארו בן אשר",
+      "transliteration": "Zeh ha-keter shel Aram Tzova... she-higiho u-ve'ero Ben Asher",
+      "historical_period": "MEDIEVAL_ISLAMIC_ERA",
+      "tradition": "MASORETIC_TIBERIAN",
+      "context": "Tiberian scribal guilds in 10th-century Islamic Palestine creating definitive vocalized codices to safeguard accurate oral pronunciation against Arabic linguistic influence.",
+      "interpretation": "Maimonides explicitly relied upon this codex for his halakhic rules governing Torah scroll writing (Hilkhot Sefer Torah 8:4).",
+      "competing_interpretation": "Some Karaite scholars (e.g. Firkovich) claimed the Masoretes were Karaites, but modern academic scholarship (Dotan, Goshen-Gottstein) demonstrates their Rabbanite orientation.",
+      "counterargument": "Demonstrates extraordinary scribal exactitude preserving consonantal texts with microscopic statistical counts of every letter, word, and hapax legomenon.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Goshen-Gottstein-1965",
+          "Dotan-1977",
+          "SRC-JEW-ALEPPO-001"
+        ],
+        "methodology": "Paleographical, codicological, and masoretic textual criticism",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Housed in the Shrine of the Book, Jerusalem; suffered loss of portions of Torah in 1947 riots in Aleppo."
+    },
+    {
+      "evidence_id": "EVID-JEW-015",
+      "claim_id": "CLAIM-MSS-SEPTUAGINT-DIVERGENCE-001",
+      "evidence_class": "HISTORICAL_REPORT",
+      "evidence_type": "HISTORICAL",
+      "text": "Philo of Alexandria records that Jewish translators rendered the Torah into Greek under Ptolemy II Philadelphus with solemn public celebration, prior to the Septuagint's later adoption by Christians and subsequent rabbinic wariness.",
+      "source_id": "SRC-JEW-PHILO-001",
+      "source_tier": "TIER_1_PRIMARY_ANCIENT",
+      "source_location": "De Vita Mosis (On the Life of Moses) II.25–44",
+      "original_language_text": "Ἑβραίων γραμμάτων εἰς Ἑλλάδα γλῶτταν μετεβλήθη",
+      "transliteration": "Hebraion grammaton eis Hellada glottan meteblethe",
+      "historical_period": "ROMAN_SECOND_TEMPLE",
+      "tradition": "SECOND_TEMPLE_HELLENISTIC",
+      "context": "Hellenistic Alexandria in the 3rd to 1st century BCE, where Greek was the vernacular of Egyptian Jewry.",
+      "interpretation": "Proves that the Septuagint originated as a legitimate Jewish enterprise in the 3rd century BCE rather than a Christian fabrication.",
+      "competing_interpretation": "Tractate Soferim 1:7 later lamented: 'The day the Torah was written in Greek was as grievous for Israel as the day the Golden Calf was made, because the Torah could not be translated adequately.'",
+      "counterargument": "Rabbinic suspicion arose not because translation was inherently sinful, but because theological shifts in the Greek Vorlage (e.g. *parthenos* in Isa 7:14) were weaponized in early Christian anti-Jewish polemics.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Colson-Philo-1935",
+          "Tov-2012",
+          "SRC-JEW-PHILO-001"
+        ],
+        "methodology": "Historical-critical analysis of Hellenistic Jewish literature and patristic transmission",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Detailed in the Letter of Aristeas and Josephus Antiquities XII."
+    },
+    {
+      "evidence_id": "EVID-JEW-016",
+      "claim_id": "CLAIM-MSS-QUMRAN-PLURIFORMITY-001",
+      "evidence_class": "ACADEMIC_CONSENSUS",
+      "evidence_type": "ACADEMIC_ANALYSIS",
+      "text": "Dead Sea Scrolls textual analysis establishes that prior to 70 CE, the Hebrew Bible existed in multiple distinct textual families: Proto-Masoretic (c. 50%), Pre-Samaritan (c. 5%), Septuagint-Vorlage (c. 5%), and non-aligned manuscripts (c. 40%).",
+      "source_id": "SRC-ACAD-TOV-001",
+      "source_tier": "TIER_5_ACADEMIC_CRITICAL",
+      "source_location": "Textual Criticism of the Hebrew Bible, Chapter 2",
+      "original_language_text": "Proto-rabbinic / Proto-Masoretic textual group",
+      "transliteration": "N/A",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "ACADEMIC_CRITICAL",
+      "context": "Discovery of over 200 biblical manuscripts at Qumran Caves (1947–1956) dated between 250 BCE and 68 CE.",
+      "interpretation": "Demonstrates that textual pluriformity was the norm in late Second Temple Judaism until the destruction of the Temple and the consolidation of the proto-rabbinic text family.",
+      "competing_interpretation": "Traditional dogmatic views assumed a single static consonantal text existed without any orthographic or recensional variation since Sinai.",
+      "counterargument": "Textual pluriformity does not imply random chaos; the Proto-Masoretic scrolls (e.g. 4QpaleoExod-l, 1QIsa-b) show remarkable alignment with Codex Leningradensis, proving that the MT was an ancient, respected textual stream.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Tov-2012",
+          "Ulrich-1999",
+          "SRC-ACAD-TOV-001"
+        ],
+        "methodology": "Comprehensive statistical and typological analysis of all Qumran biblical fragments",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Replaces older simplistic binary theories of single vs corrupt manuscripts."
+    },
+    {
+      "evidence_id": "EVID-JEW-017",
+      "claim_id": "CLAIM-MSS-SAMARITAN-GERIZIM-001",
+      "evidence_class": "FACT",
+      "evidence_type": "PRIMARY_TEXT",
+      "text": "The Samaritan Pentateuch includes a tenth commandment mandating the building of an altar and offering sacrifices on Mount Gerizim, reflecting sectarian theological adaptation while sharing extensive harmonizing readings with Qumran Pre-Samaritan scrolls.",
+      "source_id": "SRC-JEW-SP-001",
+      "source_tier": "TIER_1_PRIMARY_ANCIENT",
+      "source_location": "Exodus 20:17b / Deuteronomy 27:4 (Samaritan Recension)",
+      "original_language_text": "ויהי כי יביאך יהוה אלהיך אל ארץ הכנעני... ובנית שם מזבח ליהוה אלהיך בהר גריזים",
+      "transliteration": "ve-hayah ki yevi'akha YHWH Elohekha el eretz ha-Kna'ani... u-vanita sham mizbeach le-YHWH Elohekha be-har Gerizim",
+      "historical_period": "ROMAN_SECOND_TEMPLE",
+      "tradition": "SECOND_TEMPLE_SAMARITAN",
+      "context": "Second Temple schism between Judean Jews and Samaritans over the legitimate locus of the central sanctuary.",
+      "interpretation": "Illustrates sectarian textual intentionality: modifying biblical text to provide explicit scriptural mandate for Gerizim against Jerusalem.",
+      "competing_interpretation": "Samaritan tradition maintains that Mount Gerizim was the original chosen site from Joshua's time and that Eli the priest established a schismatic sanctuary at Shiloh.",
+      "counterargument": "The discovery of 4QpaleoExod-m at Qumran proved that the linguistic expansions and harmonizations of the Samaritan Pentateuch existed in Judea as a non-sectarian 'Pre-Samaritan' text-type prior to the Samaritan sectarian addition of the Gerizim command.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Tal-Florentin-2010",
+          "Tov-2012",
+          "SRC-JEW-SP-001"
+        ],
+        "methodology": "Critical apparatus collation of Samaritan MSS against MT and 4QpaleoExod-m",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Demonstrates the distinction between general typological variants and ideological sectarian interpolations."
+    },
+    {
+      "evidence_id": "EVID-JEW-018",
+      "claim_id": "CLAIM-EXEG-TARGUM-MESSIANIC-001",
+      "evidence_class": "TRADITIONAL_POSITION",
+      "evidence_type": "RABBINIC",
+      "text": "Targum Onkelos to Genesis 49:10 explicitly paraphrases 'until Shiloh comes' as 'until King Messiah comes whose is the kingdom', documenting early Jewish messianic interpretation of patriarchal blessings.",
+      "source_id": "SRC-JEW-TARGUM-001",
+      "source_tier": "TIER_1_PRIMARY_ANCIENT",
+      "source_location": "Targum Onkelos, Genesis 49:10",
+      "original_language_text": "לָא יִעְדֵּי עָבֵיד שׁוּלְטָן מִדְּבֵית יְהוּדָה, וְסָפְרָא מִבְּנֵי בְנוֹהִי עַד עָלְמָא, עַד דְּיֵיתֵי מְשִׁיחָא דְּדִילֵיהּ הִיא מַלְכוּתָא, וְלֵיהּ יִשְׁתַּמְעוּן עַמְמַיָּא",
+      "transliteration": "La yi'dei aveid shultan mi-deveit Yehudah, ve-safra mi-bnei venohi ad alma, ad de-yeitei Mashiha de-dileih hi malkhuta, ve-leih yishtam'un ammaya",
+      "historical_period": "TANNAITIC_ERA",
+      "tradition": "TARGUMIC_ARAMAIC",
+      "context": "Synagogue Aramaic translation and liturgical exposition in Roman-era Judea and Babylonia.",
+      "interpretation": "Provides primary evidence that classical Jewish tradition understood the Davidic scepter and 'Shiloh' as referring to the future royal Messiah who gathers the nations.",
+      "competing_interpretation": "Christian commentators utilized this verse to argue that since the scepter departed from Judah under Roman procurators, the Messiah (Jesus) must have already come.",
+      "counterargument": "Rabbinic commentators (Ramban, Abravanel) replied that 'scepter' denotes legitimate royal sovereignty or exilarchic leadership (*Rashei Goliyot* in Babylon), which persists until the ultimate redemption.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Sperber-1959",
+          "Grossfeld-1988",
+          "SRC-JEW-TARGUM-001"
+        ],
+        "methodology": "Critical collation of Yemenite Aramaic vocalized manuscripts",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Paralleled in Targum Pseudo-Jonathan and Babylonian Talmud Sanhedrin 98b."
+    },
+    {
+      "evidence_id": "EVID-JEW-019",
+      "claim_id": "CLAIM-THEO-TWO-TOROT-COEQUAL-001",
+      "evidence_class": "TRADITIONAL_POSITION",
+      "evidence_type": "RABBINIC",
+      "text": "The Babylonian Talmud records that Hillel the Elder demonstrated to a prospective convert that Written Torah cannot be decoded without reliance on Oral transmission, establishing their epistemological co-equality.",
+      "source_id": "SRC-JEW-TALMUD-BAVLI-001",
+      "source_tier": "TIER_2_RABBINIC_CANONICAL",
+      "source_location": "Tractate Shabbat 31a",
+      "original_language_text": "אמר לו: כמה תורות יש לכם? אמר לו: שתים, תורה שבכתב ותורה שבעל פה... אמר לו: כשם שסמכת עלי באלו, סמוך עלי גם בזו",
+      "transliteration": "Amar lo: kamah torot yesh lakhem? Amar lo: shtayim, torah she-bikhtav ve-torah she-be'al peh... amar lo: keshem she-samakhta alai be-ellu, semokh alai gam ba-zo",
+      "historical_period": "AMORAIC_ERA",
+      "tradition": "RABBINIC_AMORAIC",
+      "context": "Tannaitic encounters with prospective proselytes who questioned the authenticity and necessity of rabbinic oral tradition.",
+      "interpretation": "A written alphabet itself possesses no inherent phonetic values without an oral interpretive community teaching that 'aleph' represents an 'A' sound; hence, the text intrinsically requires tradition.",
+      "competing_interpretation": "Karaite and Protestant *sola scriptura* hermeneutics assert that scripture is perspicuous and self-interpreting without normative oral tradition.",
+      "counterargument": "The Hebrew consonantal script lacked vowel points until the 8th–10th century CE; therefore, vocalization and semantic comprehension have always been functionally dependent on continuous oral memory.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Vilna-Shabbat",
+          "SRC-JEW-TALMUD-BAVLI-001"
+        ],
+        "methodology": "Talmudic hermeneutical analysis and pedagogical epistemological review",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Classic text illustrating rabbinic epistemology of language."
+    },
+    {
+      "evidence_id": "EVID-JEW-020",
+      "claim_id": "CLAIM-HAL-TOSEFTA-RELATIONSHIP-001",
+      "evidence_class": "ACADEMIC_CONSENSUS",
+      "evidence_type": "RABBINIC",
+      "text": "Critical scholarship by Saul Lieberman establishes that the Tosefta is a 3rd-century CE Tannaitic corpus independent of the Mishnah, preserving essential variant rulings, fuller case law, and interpretive keys to Mishnaic obscurities.",
+      "source_id": "SRC-JEW-TOSEFTA-001",
+      "source_tier": "TIER_2_RABBINIC_CANONICAL",
+      "source_location": "Tosefta Kifshutah, Introduction to Seder Zeraim",
+      "original_language_text": "תוספתא כפשוטה - פירוש ארוך ומקיף",
+      "transliteration": "Tosefta Ki-Fshutah",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "RABBINIC_CANONICAL",
+      "context": "20th-century critical rabbinics and manuscript recovery (Vienna MS, Erfurt MS, London MS).",
+      "interpretation": "The Tosefta is not a mere secondary appendix to Rabbi Yehudah Ha-Nasi's Mishnah, but an authoritative compilation of contemporary baraitot reflecting active legal debates in the academies of Rabbi Hiyya and Rabbi Oshaya.",
+      "competing_interpretation": "Early medieval commentators sometimes treated the Tosefta as an inferior or unedited draft of the Mishnah.",
+      "counterargument": "Lieberman's philological work demonstrated that many difficult rulings in the Mishnah cannot be linguistically or legally resolved without consulting the parallel Tosefta text.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Lieberman-1955",
+          "SRC-JEW-TOSEFTA-001"
+        ],
+        "methodology": "Comparative philological, paleographical, and halakhic commentary on MS Vienna",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Awarded standard academic authority across all rabbinic graduate faculties."
+    },
+    {
+      "evidence_id": "EVID-JEW-021",
+      "claim_id": "CLAIM-HAL-YERUSHALMI-BAVLI-DIVERGENCE-001",
+      "evidence_class": "HISTORICAL_REPORT",
+      "evidence_type": "HISTORICAL",
+      "text": "The Jerusalem Talmud (completed c. 370–400 CE under Roman-Byzantine Christian hegemony) and the Babylonian Talmud (completed c. 500–600 CE under Sasanian rule) reflect distinct socio-political settings, linguistic dialects, and halakhic conclusions.",
+      "source_id": "SRC-JEW-TALMUD-YERUSHALMI-001",
+      "source_tier": "TIER_2_RABBINIC_CANONICAL",
+      "source_location": "MS Leiden Scaliger 3 / Bavli Berakhot apparatus",
+      "original_language_text": "תלמוד ירושלמי (תלמודא דבני מערבא) לעומת תלמוד בבלי",
+      "transliteration": "Talmud Yerushalmi le'umat Talmud Bavli",
+      "historical_period": "AMORAIC_ERA",
+      "tradition": "RABBINIC_AMORAIC",
+      "context": "Galilean Jewry facing increasing Roman-Christian imperial oppression, heavy taxation, and abolition of the Patriarchate (425 CE) vs Babylonia's autonomous Exilarchate (*Reish Galuta*).",
+      "interpretation": "The Yerushalmi preserves extensive agricultural halakha (*Zeraim*) applied in the Land of Israel; the Bavli developed expansive, highly sophisticated dialectical redaction (*Stammaim*) that established its preeminence throughout global diaspora Halakha.",
+      "competing_interpretation": "A common misconception assumes both Talmuds are identical in method and content.",
+      "counterargument": "Geonic authorities (e.g. Sherira Gaon, Alfasi) formally established that where the Bavli and Yerushalmi disagree, normative practice follows the Bavli (*hilkheta ke-vatrei*).",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Epstein-1957",
+          "Sussmann-2001",
+          "SRC-JEW-TALMUD-YERUSHALMI-001"
+        ],
+        "methodology": "Comparative historical, dialectological, and stemmatic analysis of Leiden and Munich manuscripts",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "MS Leiden is the only surviving complete manuscript of the Jerusalem Talmud."
+    },
+    {
+      "evidence_id": "EVID-JEW-022",
+      "claim_id": "CLAIM-HAL-NOT-IN-HEAVEN-001",
+      "evidence_class": "TRADITIONAL_POSITION",
+      "evidence_type": "RABBINIC",
+      "text": "In the Oven of Akhnai dispute, Rabbi Yehoshua rejected a Heavenly Voice (*Bat Kol*), proclaiming 'It is not in heaven' (Deut 30:12), establishing that halakhic decisions are determined by human rabbinic majority consensus rather than prophetic or divine interventions.",
+      "source_id": "SRC-JEW-TALMUD-BAVLI-001",
+      "source_tier": "TIER_2_RABBINIC_CANONICAL",
+      "source_location": "Tractate Bava Metzia 59b",
+      "original_language_text": "יצתה בת קול ואמרה: מה לכם אצל רבי אליעזר שהלכה כמותו בכל מקום! עמד רבי יהושע על רגליו ואמר: לא בשמים היא! מאי לא בשמים היא? אמר רבי ירמיה: שכבר נתנה תורה מסיני, אין אנו משגיחין בבת קול, שכבר כתבת בהר סיני בתורה: אחרי רבים להטת",
+      "transliteration": "yatzata Bat Kol ve-amrah: mah lakhem etzel Rabbi Eliezer she-halakha kemoto be-khol makom! Amad Rabbi Yehoshua al raglav ve-amar: Lo ba-shamayim hi! Mai lo ba-shamayim hi? Amar Rabbi Yirmiyah: she-kvar nitnah Torah mi-Sinai, ein anu mashgichin be-Vat Kol, she-kvar katavta be-har Sinai ba-Torah: acharei rabbim le-hatot",
+      "historical_period": "AMORAIC_ERA",
+      "tradition": "RABBINIC_AMORAIC",
+      "context": "Tannaitic halakhic confrontation between Rabbi Eliezer ben Hyrcanus and the majority of Sages led by Rabban Gamliel and Rabbi Yehoshua.",
+      "interpretation": "Constitutes the Magna Carta of Rabbinic legal autonomy: revelation ceased to be legislative after Sinai; legal authority resides exclusively in the deliberative consensus of mortal scholars applying Torah hermeneutics.",
+      "competing_interpretation": "Charismatic and prophetic movements (including early Christianity and Sabbateanism) argued that ongoing personal revelation or miraculous signs can supersede established halakhic law.",
+      "counterargument": "The Talmud concludes with God smiling and affirming: 'My children have triumphed over Me, My children have triumphed over Me!' (*nitzchuni banai*).",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Vilna-Bava-Metzia",
+          "SRC-JEW-TALMUD-BAVLI-001"
+        ],
+        "methodology": "Talmudic jurisprudence and legal philosophy analysis",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Foundational narrative in Jewish legal epistemology and judicial integrity."
+    },
+    {
+      "evidence_id": "EVID-JEW-023",
+      "claim_id": "CLAIM-HAL-613-MITZVOT-REDUCTION-001",
+      "evidence_class": "TRADITIONAL_POSITION",
+      "evidence_type": "RABBINIC",
+      "text": "Rabbi Simlai taught that 613 commandments were given to Moses (365 negative, 248 positive); the prophets sequentially distilled them until Habakkuk reduced them to a single fundamental core: 'The righteous shall live by his faith/faithfulness' (Hab 2:4).",
+      "source_id": "SRC-JEW-TALMUD-BAVLI-001",
+      "source_tier": "TIER_2_RABBINIC_CANONICAL",
+      "source_location": "Tractate Makkot 23b–24a",
+      "original_language_text": "שש מאות ושלש עשרה מצות נאמרו לו למשה... בא חבקוק והעמידן על אחת: וצדיק באמונתו יחיה",
+      "transliteration": "Shesh me'ot ve-shalosh esreh mitzvot ne'emru lo le-Moshe... ba Chavakuk ve-he'emidan al achat: ve-tzaddik be-emunato yichyeh",
+      "historical_period": "AMORAIC_ERA",
+      "tradition": "RABBINIC_AMORAIC",
+      "context": "Amoraic homiletical taxonomy exploring the theological teleology and moral condensation of the Sinaitic commandments.",
+      "interpretation": "Mitzvot are not arbitrary ritual burdens but an expansive framework directed toward cultivating righteous character and enduring covenantal faithfulness (*emunah*).",
+      "competing_interpretation": "Paul in Romans 1:17 and Galatians 3:11 quotes the same verse (*Habakkuk 2:4*) to argue that righteousness comes exclusively through faith in Christ apart from Torah observance.",
+      "counterargument": "In Jewish exegesis, 'reducing them to one' does not abolish the other 612 commandments, but rather identifies the spiritual anchor that animates their holistic fulfillment.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Vilna-Makkot",
+          "SRC-JEW-TALMUD-BAVLI-001"
+        ],
+        "methodology": "Comparative rabbinic and New Testament intertextual analysis",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Standard classical text defining the number 613 (*Taryag Mitzvot*)."
+    },
+    {
+      "evidence_id": "EVID-JEW-024",
+      "claim_id": "CLAIM-HAL-SACRIFICE-TEMPLE-EXCLUSIVE-001",
+      "evidence_class": "TRADITIONAL_POSITION",
+      "evidence_type": "HALAKHIC",
+      "text": "Maimonides codifies that the biblical prohibition against offering sacrifices anywhere outside the chosen Temple sanctuary (Deut 12:13-14) is perpetual, meaning the cessation of sacrifice post-70 CE is an act of strict halakhic obedience rather than doctrinal obsolescence.",
+      "source_id": "SRC-JEW-RAMBAM-MT-001",
+      "source_tier": "TIER_3_MEDIEVAL_RISHONIM",
+      "source_location": "Hilkhot Beit Ha-Bechirah 1:3; Hilkhot Maaseh Ha-Korbanot 18:1–2",
+      "original_language_text": "כיון שנבנה המקדש בירושלים, נאסרו כל המקומות כולן לבנות בהן בית לה' ולהקריב בהן קרבן... וכל המקריב בחוץ ענוש כרת",
+      "transliteration": "Keivan she-nivnah ha-mikdash bi-Yerushalayim, ne'esru kol ha-mekomot kullan livnot bahen bayit la-Hashem u-le'hakriv bahen korban... ve-khol ha-makriv ba-chutz anush karet",
+      "historical_period": "ISLAMIC_GOLDEN_AGE",
+      "tradition": "MEDIEVAL_RISHONIM",
+      "context": "Codification of Temple and sacrificial jurisprudence in Sefer Avodah of Mishneh Torah.",
+      "interpretation": "Sacrifices cannot be offered anywhere on earth today because offering them outside the designated Temple Mount incurs the severe penalty of spiritual excision (*karet*).",
+      "competing_interpretation": "Christian polemicists frequently assert that the destruction of the Temple was a divine punishment proving God permanently rejected Jewish ritual and replaced it with Christ's sacrifice.",
+      "counterargument": "Jews do not offer sacrifices because they are scrupulously obeying God's Torah which forbids building altars outside Jerusalem, eagerly anticipating the rebuilding of the Third Temple.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Frankel-MT-Avodah",
+          "SRC-JEW-RAMBAM-MT-001"
+        ],
+        "methodology": "Halakhic legal code analysis and scriptural cross-referencing",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Crucial halakhic refutation of claims that Judaism 'abandoned' animal sacrifice due to changing theological preferences."
+    },
+    {
+      "evidence_id": "EVID-JEW-025",
+      "claim_id": "CLAIM-THEO-ATONEMENT-NON-SACRIFICIAL-001",
+      "evidence_class": "TRADITIONAL_POSITION",
+      "evidence_type": "RABBINIC",
+      "text": "Avot de-Rabbi Natan records that when Rabbi Joshua mourned the destroyed Temple as the lost place of atonement, Rabban Yochanan ben Zakkai consoled him citing Hosea 6:6: 'We have another atonement equal to it: deeds of loving-kindness (*gemilut chasadim*)'.",
+      "source_id": "SRC-JEW-MIDRASH-HALAKHA-001",
+      "source_tier": "TIER_2_RABBINIC_CANONICAL",
+      "source_location": "Avot de-Rabbi Natan, Version A, Chapter 4",
+      "original_language_text": "פעם אחת היה רבן יוחנן בן זכאי יוצא מירושלים והיה רבי יהושע הולך אחריו וראה בית המקדש חרב... אמר לו: בני, אל ירע לך, יש לנו כפרה אחת שהיא כמותה, ואיזה? זה גמילות חסדים, שנאמר כי חסד חפצתי ולא זבח",
+      "transliteration": "Pa'am achat hayah Rabban Yochanan ben Zakkai yotzei mi-Yerushalayim ve-hayah Rabbi Yehoshua holekh aharav ve-ra'ah beit ha-mikdash charev... amar lo: beni, al yera lekha, yesh lanu kapparah achat she-hi kemotah, ve-eizeh? Zeh gemilut chasadim, she-ne'emar: Ki chesed chafatzti ve-lo zavach",
+      "historical_period": "TANNAITIC_ERA",
+      "tradition": "RABBINIC_TANNAITIC",
+      "context": "The immediate aftermath of the destruction of the Second Temple in 70 CE.",
+      "interpretation": "Grounds the theological validity of non-sacrificial atonement directly in biblical prophetic precedent (Hosea 6:6), demonstrating that divine forgiveness is fully accessible through moral action, prayer, and charity.",
+      "competing_interpretation": "Christian apologetics citing Hebrews 9:22 ('without shedding of blood there is no forgiveness') argue that Judaism lost the possibility of divine atonement when Temple sacrifices ceased.",
+      "counterargument": "The Hebrew Bible explicitly provides non-blood avenues of atonement: flour offerings (Lev 5:11-13), incense during plagues (Num 16:47), gold jewelry (Num 31:50), monetary contributions (Exod 30:15-16), and sincere repentance (Jonah 3:10).",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Schechter-ADN-1887",
+          "SRC-JEW-MIDRASH-HALAKHA-001"
+        ],
+        "methodology": "Critical edition collation of Tannaitic midrashic corpora",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Paralleled in Babylonian Talmud Rosh Hashanah 17b."
+    },
+    {
+      "evidence_id": "EVID-JEW-026",
+      "claim_id": "CLAIM-LIT-PRAYER-SACRIFICE-SUBSTITUTE-001",
+      "evidence_class": "TRADITIONAL_POSITION",
+      "evidence_type": "LITURGICAL",
+      "text": "The Babylonian Talmud and the traditional Siddur establish that the three daily prayers (Shacharit, Mincha, Maariv) were instituted to correspond to the daily perpetual offerings (*Tamid*), fulfilling Hosea 14:3: 'We render the prayer of our lips as offering of bulls'.",
+      "source_id": "SRC-JEW-LITURGY-001",
+      "source_tier": "TIER_2_RABBINIC_CANONICAL",
+      "source_location": "Talmud Bavli Berakhot 26b; Siddur Koren, Musaf Service",
+      "original_language_text": "תפלות כנגד תמידין תקנום... ונשלמה פרים שפתינו",
+      "transliteration": "Tefillot ke-neged temidin tiknum... u-neshalmah parim sefateinu",
+      "historical_period": "AMORAIC_ERA",
+      "tradition": "RABBINIC_LITURGY",
+      "context": "Amoraic institutionalization of the canonical statutory prayer service following the destruction of the sacrificial altar.",
+      "interpretation": "Prayer serves as the functional ritual equivalent to animal sacrifice, carrying the identical spiritual intent of drawing near (*korban* from *karov*) to God.",
+      "competing_interpretation": "A competing opinion in the same passage (Rabbi Yosi bar Rabbi Hanina) suggests the prayers were originally instituted by the Patriarchs (Abraham, Isaac, Jacob), but the Sages harmonized both views.",
+      "counterargument": "Proves that the synagogue liturgy intentionally maintains the memory and exact timing of Temple offerings while functioning as a self-sufficient vehicle for divine communion.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Vilna-Berakhot",
+          "Baer-1868",
+          "SRC-JEW-LITURGY-001"
+        ],
+        "methodology": "Liturgical history and Talmudic legal tracing",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Recited daily in the Musaf and Shacharit services across all traditional rites."
+    },
+    {
+      "evidence_id": "EVID-JEW-027",
+      "claim_id": "CLAIM-THEO-TESHUVAH-PREEXISTENT-001",
+      "evidence_class": "TRADITIONAL_POSITION",
+      "evidence_type": "RABBINIC",
+      "text": "The Babylonian Talmud enumerates Repentance (*Teshuvah*) among the seven things created prior to the foundation of the world, and Maimonides codifies that verbal confession (*vidui*) and cessation of sin achieve immediate forgiveness without any mediator.",
+      "source_id": "SRC-JEW-TALMUD-BAVLI-001",
+      "source_tier": "TIER_2_RABBINIC_CANONICAL",
+      "source_location": "Tractate Pesachim 54a; Mishneh Torah, Hilkhot Teshuvah 1:1–3",
+      "original_language_text": "שבעה דברים נבראו קודם שנברא העולם, ואלו הן: תורה, ותשובה, וגן עדן, וגיהנם, וכסא הכבוד, ובית המקדש, ושמו של משיח",
+      "transliteration": "Shiv'ah devarim nivre'u kodem she-nivra ha-olam, ve-ellu hen: Torah, u-Teshuvah, ve-Gan Eden, ve-Gehinnom, ve-Kisse ha-Kavod, ve-Veit ha-Mikdash, u-shemo shel Mashiach",
+      "historical_period": "AMORAIC_ERA",
+      "tradition": "RABBINIC_AMORAIC",
+      "context": "Classical rabbinic cosmogony and Maimonidean codification of repentance laws.",
+      "interpretation": "Because God foresaw that mortal man is prone to error, He established Teshuvah as an ontological law of creation: any sinner who turns back to God with sincere remorse and restitution is immediately forgiven.",
+      "competing_interpretation": "Christian soteriology asserts that human repentance alone is insufficient to satisfy divine justice without a divine vicarious blood sacrifice.",
+      "counterargument": "The book of Jonah demonstrates that the pagan city of Nineveh averted divine destruction exclusively through fasting, sackcloth, and turning away from violence—without any blood sacrifice or Temple ritual (Jonah 3:10).",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Vilna-Pesachim",
+          "Frankel-MT-Mada",
+          "SRC-JEW-TALMUD-BAVLI-001"
+        ],
+        "methodology": "Theological and halakhic text-critical analysis",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Central concept in Jewish High Holy Days liturgy and theology."
+    },
+    {
+      "evidence_id": "EVID-JEW-028",
+      "claim_id": "CLAIM-HIST-QUMRAN-TWO-MESSIAHS-001",
+      "evidence_class": "HISTORICAL_REPORT",
+      "evidence_type": "MANUSCRIPT",
+      "text": "The Dead Sea Scrolls Community Rule (1QS IX.11) documents that the Qumran sect expected two distinct eschatological figures: a priestly Messiah of Aaron (*Meshiach Aharon*) and a royal military Messiah of Israel (*Meshiach Yisrael*).",
+      "source_id": "SRC-JEW-DSS-002",
+      "source_tier": "TIER_1_PRIMARY_ANCIENT",
+      "source_location": "1QS Column IX, line 11",
+      "original_language_text": "עד בוא נביא ומשיחי אהרון וישראל",
+      "transliteration": "ad bo navi u-meshihei Aharon ve-Yisrael",
+      "historical_period": "ROMAN_SECOND_TEMPLE",
+      "tradition": "SECOND_TEMPLE_QUMRAN",
+      "context": "Sectarian governance manual at Qumran (c. 100 BCE–68 CE) outlining the eschatological community rules.",
+      "interpretation": "Demonstrates the rich plurality of Second Temple messianic expectations: the priestly Zadokite messiah took precedence in halakhic and ritual matters, while the Davidic lay messiah handled military governance.",
+      "competing_interpretation": "Later Christian theology merged all offices (Prophet, Priest, King) into a single incarnate individual (Jesus).",
+      "counterargument": "Proves historically that first-century Jews did not possess a single monolithic concept of the Messiah, but rather distinct models rooted in biblical priestly and royal lineages.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Schiffman-1994",
+          "Charlesworth-DSS-1994",
+          "SRC-JEW-DSS-002"
+        ],
+        "methodology": "Paleographical transcription and historical context of sectarian Dead Sea Scrolls",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Paralleled in the Damascus Document (CD) and Rule of the Congregation (1QSa)."
+    },
+    {
+      "evidence_id": "EVID-JEW-029",
+      "claim_id": "CLAIM-HIST-BAR-KOKHBA-MESSIAH-001",
+      "evidence_class": "HISTORICAL_REPORT",
+      "evidence_type": "HISTORICAL",
+      "text": "The Jerusalem Talmud records that Rabbi Akiva endorsed Shimon bar Kosiba as the Messiah ('A star has stepped forth from Jacob'), but when he was slain in the Bethar fortress (135 CE), the Sages recognized he was not the Messiah.",
+      "source_id": "SRC-JEW-TALMUD-YERUSHALMI-001",
+      "source_tier": "TIER_2_RABBINIC_CANONICAL",
+      "source_location": "Tractate Ta'anit 4:5 (68d)",
+      "original_language_text": "רבי עקיבא כד הוה חמי ליה להדין בר כוכבא הוה אמר: דין הוא מלכא משיחא! אמר ליה רבי יוחנן בן תורתא: עקיבא, יעלו עשבים בלחייך ועדין בן דוד לא בא!",
+      "transliteration": "Rabbi Akiva kad havah chami leih le-hadin Bar Kokhva havah amar: dein hu malka meshiha! Amar leih Rabbi Yochanan ben Torta: Akiva, ya'alu asavim bi-lekayekha ve-adain ben David lo ba!",
+      "historical_period": "AMORAIC_ERA",
+      "tradition": "RABBINIC_AMORAIC",
+      "context": "The Bar Kokhba Revolt against the Roman Emperor Hadrian (132–135 CE).",
+      "interpretation": "Illustrates that messianic belief was viewed in historical, political-military terms: messianic status was a presumptive hypothesis tested by tangible historical success in restoring Jewish sovereignty.",
+      "competing_interpretation": "Later polemicists asserted Rabbi Akiva was excommunicated or that Judaism was discredited by this endorsement.",
+      "counterargument": "Maimonides cites Rabbi Akiva's endorsement of Bar Kokhba to prove that the Sages did not demand miracles or resurrections from the Messiah, but only the restoration of Torah sovereignty and freedom from subjugation (Hilkhot Melakhim 11:3).",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Leiden-Taanit",
+          "Schiffman-1991",
+          "SRC-JEW-TALMUD-YERUSHALMI-001"
+        ],
+        "methodology": "Historiographical analysis of Amoraic memory and archaeology of Bar Kokhba letters (Yadin 1961)",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Yigael Yadin's excavations in the Cave of Letters confirmed Bar Kokhba's historical name: Shimon ben Kosiba, Nasi of Israel."
+    },
+    {
+      "evidence_id": "EVID-JEW-030",
+      "claim_id": "CLAIM-INTER-RABBINIC-VIEW-JESUS-001",
+      "evidence_class": "HISTORICAL_REPORT",
+      "evidence_type": "HISTORICAL",
+      "text": "Uncensored Talmudic manuscripts and Maimonides record that Rabbinic authorities historically rejected Jesus of Nazareth because he claimed divine or messianic prerogatives without fulfilling the prophetic mandates, yet acknowledged his role in spreading monotheism.",
+      "source_id": "SRC-JEW-TALMUD-BAVLI-001",
+      "source_tier": "TIER_2_RABBINIC_CANONICAL",
+      "source_location": "Sanhedrin 43a (uncensored); Mishneh Torah, Hilkhot Melakhim 11:4 (uncensored)",
+      "original_language_text": "וכי יש מכשול גדול מזה? שכל הנביאים דברו שהמשיח גואל ישראל ומושיעם... וזה גרם לאבד ישראל בחרב... אבל מחשבות בורא עולם אין כח באדם להשיגם... וכל הדברים האלו של ישוע הנוצרי... אינן אלא ליישר דרך למלך המשיח",
+      "transliteration": "Ve-khi yesh mikhshol gadol mi-zeh? She-khol ha-nevi'im dibru she-ha-Mashiach go'el Yisrael u-moshi'am... ve-zeh garam le-abbed Yisrael be-cherev... aval machshevot Borei Olam ein koach ba-adam le-hasigam... ve-khol ha-devarim ha-ellu shel Yeshua ha-Notzri... einan ella le-yasher derekh le-melekh ha-Mashiach",
+      "historical_period": "ISLAMIC_GOLDEN_AGE",
+      "tradition": "MEDIEVAL_RISHONIM",
+      "context": "Medieval codification evaluating the historical impact of Christianity and Islam on global monotheism.",
+      "interpretation": "Maimonides synthesizes a profound theological perspective: although Jesus was a false claimant whose followers deified him contrary to Torah monotheism, Providence utilized Christianity to spread the words of the Torah and the concept of Messiah throughout the entire world.",
+      "competing_interpretation": "Christian theologians viewed the Jewish rejection of Jesus as blind obstinacy (*perfidia Judaica*) incurring divine punishment and exile.",
+      "counterargument": "Judaism rejected Jesus on strictly scriptural grounds: world peace did not occur, exiles were not gathered, the Temple was destroyed rather than rebuilt, and God is indivisible without human incarnation (Num 23:19).",
+      "verification_status": "VERIFIED",
+      "confidence": "HIGH",
+      "provenance": {
+        "source_ids": [
+          "Frankel-MT-Melakhim",
+          "Schafer-2007",
+          "SRC-JEW-TALMUD-BAVLI-001"
+        ],
+        "methodology": "Examination of pre-censorship Vatican and Oxford Talmud manuscripts and uncensored Yemenite MT codices",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Passed through heavy Christian censorship in Europe starting with the papal bull of Pope Gregory IX (1239)."
+    },
+    {
+      "evidence_id": "EVID-JEW-031",
+      "claim_id": "CLAIM-POLEM-BARCELONA-AGGADAH-001",
+      "evidence_class": "HISTORICAL_REPORT",
+      "evidence_type": "PRIMARY_TEXT",
+      "text": "At the Disputation of Barcelona (1263), Nachmanides (Ramban) established the definitive Jewish theological boundary that Midrash Aggadah consists of non-binding homilies and sermonic parables rather than obligatory dogmatic articles of faith.",
+      "source_id": "SRC-JEW-RAMBAN-TORAH-001",
+      "source_tier": "TIER_3_MEDIEVAL_RISHONIM",
+      "source_location": "Vikuach ha-Ramban (The Disputation of Ramban), §39–43",
+      "original_language_text": "ודע כי אנו יש לנו שלשה חלקים: האחד הוא המקרא, ואנו מאמינים בו אמונה שלמה; והשני הוא הנקרא משנה, והוא פירוש המצות, ואנו מאמינים בו; והשלישי נקרא מדרש, כלומר שרמוניא... ומי שיאמין בו טוב, ומי שלא יאמין בו לא יזיק",
+      "transliteration": "U-da ki anu yesh lanu shloshah chalakim: ha-echad hu ha-Mikra, ve-anu ma'aminim bo emunah shelemah; ve-ha-sheni hu ha-nikra Mishnah, ve-hu perush ha-mitzvot, ve-anu ma'aminim bo; ve-ha-shlishi nikra Midrash, kelomar sermoniya... u-mi she-ya'amin bo tov, u-mi she-lo ya'amin bo lo yazik",
+      "historical_period": "MEDIEVAL_EUROPEAN",
+      "tradition": "MEDIEVAL_RISHONIM",
+      "context": "Public formal disputation before King James I of Aragon, pitted against Dominican friar Pablo Christiani who attempted to prove Christ from the Talmud.",
+      "interpretation": "Demolished Christian attempts to proof-text the Trinity or Incarnation using poetic Midrashic metaphors by demonstrating that Aggadah is literary and homiletical, whereas Jewish theology and practice are governed strictly by Halakha.",
+      "competing_interpretation": "Pablo Christiani argued that since the Sages composed the Midrash, Jews are dogmatically compelled to accept every Midrashic statement literally.",
+      "counterargument": "Nachmanides replied that even the Sages themselves continually argued with and contradicted one another in Aggadah, proving its non-dogmatic character.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Chavel-Ramban-1963",
+          "Cohen-Barcelona-1989",
+          "SRC-JEW-RAMBAN-TORAH-001"
+        ],
+        "methodology": "Comparative analysis of Hebrew and Latin protocols of the Barcelona Disputation",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Fundamental legal precedent for distinguishing narrative literature (*Aggadah*) from normative law (*Halakha*)."
+    },
+    {
+      "evidence_id": "EVID-JEW-032",
+      "claim_id": "CLAIM-INTER-ISLAM-PURE-MONOTHEISM-001",
+      "evidence_class": "TRADITIONAL_POSITION",
+      "evidence_type": "PHILOSOPHICAL",
+      "text": "Maimonides ruled in his Responsa that Muslims possess an unblemished, radical monotheism (*Yichud gamur*) and are completely free of idolatry (*avodah zarah*), permitting entering their mosques and drinking wine handled in their lands.",
+      "source_id": "SRC-JEW-RAMBAM-MT-001",
+      "source_tier": "TIER_3_MEDIEVAL_RISHONIM",
+      "source_location": "Teshuvot Ha-Rambam (Blau Edition, Responsum 448 to Obadiah the Proselyte)",
+      "original_language_text": "אלו הישמעאלים אינם עובדי עבודה זרה כלל וכלל, וכבר נכרתה מפיהם ומלבם, והם מייחדים לאל יחוד כראוי, יחוד שאין בו דופי",
+      "transliteration": "Ellu ha-Yishma'elim einam ovdei avodah zarah klal ve-khlal, u-khvar nikhretah mi-pihem u-mi-libbam, ve-hem me-yachadim la-El yichud ka-ra'ui, yichud she-ein bo dofi",
+      "historical_period": "ISLAMIC_GOLDEN_AGE",
+      "tradition": "MEDIEVAL_RISHONIM",
+      "context": "Halakhic inquiry from Obadiah the Proselyte asking whether Islamic theology constitutes idolatry due to Kaaba circumambulation traditions.",
+      "interpretation": "Establishes an essential halakhic and philosophical distinction: Islam is uncompromisingly monotheistic (*Yichud*), whereas Christianity's doctrine of the Trinity is classified as *shituf* (association) or *avodah zarah* with respect to Incarnation.",
+      "competing_interpretation": "Some medieval Ashkenazi authorities (e.g. Tosafists on Sanhedrin 63b) ruled that *shituf* is permissible for gentiles, allowing commercial partnerships with Christians.",
+      "counterargument": "Even though Maimonides strongly criticized Muhammad as a false prophet (*meshuga* in the Epistle to Yemen), he unequivocally affirmed the purity of Islamic monotheism.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Blau-Teshuvot-1960",
+          "SRC-JEW-RAMBAM-MT-001"
+        ],
+        "methodology": "Halakhic responsa manuscript verification from the Cairo Genizah",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Forms the standard basis for modern halakhic interfaith relations with Islam."
+    },
+    {
+      "evidence_id": "EVID-JEW-033",
+      "claim_id": "CLAIM-INTER-TAHRIF-MANA-TABARI-001",
+      "evidence_class": "ACADEMIC_CONSENSUS",
+      "evidence_type": "INTERFAITH_COMPARATIVE",
+      "text": "Classical Sunni exegetes, led by Muhammad ibn Jarir al-Tabari and Fakhr al-Din al-Razi, interpret the Qur'anic concept of Tahrif predominantly as Tahrif al-Ma'na (intentional distortion of meaning, exegesis, and verbal deceit) rather than wholesale physical alteration of the Hebrew text.",
+      "source_id": "SRC-ISL-TABARI-001",
+      "source_tier": "TIER_3_MEDIEVAL_RISHONIM",
+      "source_location": "Jami' al-Bayan on Surah Al-Baqarah 2:75 and Al-Imran 3:78",
+      "original_language_text": "وإن منهم لفريقا يلوون ألسنتهم بالكتاب لتحسبوه من الكتاب وما הוא מן הכּתאב... تحريف المعنى والتأويل",
+      "transliteration": "Wa-inna minhum la-fariqan yalwuna alsinatahum bi-al-kitabi li-tahsabuuhu min al-kitabi wa-ma huwa min al-kitabi... tahrif al-ma'na wa-al-ta'wil",
+      "historical_period": "ISLAMIC_GOLDEN_AGE",
+      "tradition": "CLASSICAL_SUNNI_TAFSIR",
+      "context": "Classical Abbasid-era Qur'anic exegesis explaining encounters between the Prophet Muhammad and the Jewish tribes of Medina.",
+      "interpretation": "Tabari emphasizes that 'twisting their tongues with the book' refers to mispronunciation, verbal trickery, and concealment of prophetic descriptors, while the physical codices of the Torah preserved by world Jewry were not obliterated or rewritten.",
+      "competing_interpretation": "Later Andalusian polemicist Ibn Hazm formulated *Tahrif al-Nass*, asserting the Torah was physically corrupted and rewritten by Ezra.",
+      "counterargument": "Al-Razi explicitly noted that it is logistically impossible for an entire religious community scattered across east and west to conspire to rewrite every single scroll without leaving textual dissent.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Tabari-Tafsir-Shakir",
+          "Gilliot-1990",
+          "SRC-ISL-TABARI-001"
+        ],
+        "methodology": "Classical Arabic philological and riwayah exegesis comparison",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Essential historical evidence against oversimplified monolithic assertions of Islamic scriptural views."
+    },
+    {
+      "evidence_id": "EVID-JEW-034",
+      "claim_id": "CLAIM-INTER-TAHRIF-NASS-IBN-HAZM-001",
+      "evidence_class": "DISPUTED_CLAIM",
+      "evidence_type": "INTERFAITH_COMPARATIVE",
+      "text": "Ibn Hazm of Cordoba in 'Al-Fasl fi al-Milal' formulated the polemical doctrine of Tahrif al-Nass, accusing Ezra the Scribe (*Uzayr*) of fabricating and rewriting the Torah, citing chronological discrepancies and anthropomorphisms.",
+      "source_id": "SRC-ISL-IBN-HAZM-001",
+      "source_tier": "TIER_6_APOLOGETIC_POLEMICAL",
+      "source_location": "Al-Fasl fi al-Milal wal-Ahwa' wal-Nihal, Volume 1 (Critique of the Pentateuch)",
+      "original_language_text": "إن التوراة التي بأيدي اليهود اليوم كتاب مفتعل مكذוב بدله عزرا الكاتب",
+      "transliteration": "Inna al-Tawrata allati bi-aydi al-Yahudi al-yawma kitabun mufta'alun makdhubun baddalahu Uzayr al-katib",
+      "historical_period": "ISLAMIC_GOLDEN_AGE",
+      "tradition": "POLEMICAL_ISLAMIC",
+      "context": "11th-century Muslim Spain (Andalusia); intense interfaith rivalry and intellectual polemics with Jewish statesmen like Samuel ha-Nagid.",
+      "interpretation": "Ibn Hazm utilized internal inconsistencies (e.g. lifespans of patriarchs, narrative doublets, anthropomorphic depictions of God) to allege that the authentic Torah of Moses was completely lost during the Babylonian exile and forged by Ezra.",
+      "competing_interpretation": "Jewish tradition reveres Ezra as a righteous restorer who reinstituted Torah study (Talmud Sanhedrin 21b: 'If Moses had not given the Torah, Ezra would have been worthy of doing so'), preserving the exact Mosaic text.",
+      "counterargument": "The discovery of the Dead Sea Scrolls completely disproved Ibn Hazm's thesis of late or post-Islamic fabrication by demonstrating that the Hebrew Bible existed in identical form centuries before Islam.",
+      "verification_status": "VERIFIED",
+      "confidence": "DISPUTED",
+      "provenance": {
+        "source_ids": [
+          "Ibn-Hazm-Bulaq",
+          "Pulcini-1998",
+          "SRC-ISL-IBN-HAZM-001"
+        ],
+        "methodology": "Polemical literature audit and comparison with manuscript archaeology",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Represents the historical watershed when the severe Tahrif al-Nass doctrine became dominant in popular Islamic apologetics."
+    },
+    {
+      "evidence_id": "EVID-JEW-035",
+      "claim_id": "CLAIM-EXEG-PSALM-22-17-TEXT-001",
+      "evidence_class": "DISPUTED_CLAIM",
+      "evidence_type": "LEXICAL",
+      "text": "In Psalm 22:17, the Masoretic Text reads כָּאֲרִי (*ka-ari*, 'like a lion [my hands and feet]'); the Septuagint reads ὤρυξαν (*oryxan*, 'they dug/pierced'); and the Dead Sea Scroll Nahal Hever (5/6HevPs col. 8) reads כארו (*ka'aru* / *karu*), reflecting ancient scribal orthographic variants.",
+      "source_id": "SRC-JEW-MT-001",
+      "source_tier": "TIER_1_PRIMARY_ANCIENT",
+      "source_location": "Codex Leningradensis Ps 22:17; Nahal Hever 5/6HevPs",
+      "original_language_text": "כִּי סְבָבוּנִי כְּלָבִים עֲדַת מְרֵעִים הִקִּיפוּנִי כָּאֲרִי יָדַי וְרַגְלָי",
+      "transliteration": "Ki sevavuni khelavim, adat merei'im hikifuni, ka-ari yadai ve-raglai",
+      "historical_period": "IRON_AGE_ISRAEL",
+      "tradition": "MASORETIC_TIBERIAN",
+      "context": "Davidic individual lament psalm detailing severe bodily affliction, encirclement by enemies, and vindication.",
+      "interpretation": "Normative Jewish reading: *ka-ari* (preposition *ka* + *ari* lion) with an elided verb: 'Like a lion [they encircle/crush] my hands and feet,' consistent with the lion imagery in verses 14 and 22.",
+      "competing_interpretation": "Christianity translates via the Septuagint and Nahal Hever as 'they pierced my hands and feet,' interpreting the psalm as an explicit prophetic foreshadowing of the crucifixion.",
+      "counterargument": "Even if the reading *ka'aru* represents a verb from root *k-r-h* ('to dig'), 'digging hands and feet' is grammatically awkward and does not mean 'pierced with nails'; the Psalm concludes with the suffering speaker surviving, praising God in the congregation, and eating (Ps 22:23-27), whereas Jesus died on the cross.",
+      "verification_status": "VERIFIED",
+      "confidence": "DISPUTED",
+      "provenance": {
+        "source_ids": [
+          "Tov-2012",
+          "Tov-Nahal-Hever",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Diplomatic collation of Codex Leningradensis, Aleppo Codex, Septuagint, and Nahal Hever scroll fragments",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Classic apologetic locus between Jewish and Christian exegesis."
+    },
+    {
+      "evidence_id": "EVID-JEW-036",
+      "claim_id": "CLAIM-EXEG-DEUT-18-PROPHETIC-SUCCESSION-001",
+      "evidence_class": "TRADITIONAL_POSITION",
+      "evidence_type": "PRIMARY_TEXT",
+      "text": "Deuteronomy 18:15–18 promises 'A prophet from your midst, from your brothers, like me (*navi mi-kirbkha me-achekha kamoni*)', which Jewish contextual exegesis identifies as an institution of ongoing prophetic succession within Israel to counter Canaanite soothsayers.",
+      "source_id": "SRC-JEW-RAMBAN-TORAH-001",
+      "source_tier": "TIER_3_MEDIEVAL_RISHONIM",
+      "source_location": "Commentary on Deuteronomy 18:15",
+      "original_language_text": "נָבִיא מִקִּרְבְּךָ מֵאַחֶיךָ כָּמֹנִי יָקִים לְךָ יְהוָה אֱלֹהֶיךָ אֵלָיו תִּשְׁמָעוּן",
+      "transliteration": "Navi mi-kirbkha me-achekha kamoni yakim lekha YHWH Elohekha elav tishma'un",
+      "historical_period": "MEDIEVAL_EUROPEAN",
+      "tradition": "MEDIEVAL_RISHONIM",
+      "context": "Mosaic farewell address setting institutional governance for judges, kings, priests, and prophets (Deut 16–18).",
+      "interpretation": "Verses 9–14 prohibit consulting sorcerers, necromancers, and diviners; verses 15–22 supply the legitimate Hebrew alternative: God will raise a succession of authentic native Israelite prophets (like Joshua, Samuel, Isaiah) across generations.",
+      "competing_interpretation": "Islamic apologetics claim this verse predicts the Prophet Muhammad (identifying 'brothers' as Ishmaelites); Christian apologetics (Acts 3:22) claim it refers exclusively to Jesus.",
+      "counterargument": "The Hebrew specifies 'from your midst, from your brothers' (*mi-kirbkha me-achekha*), which in Deuteronomy consistently designates fellow Israelites (e.g. Deut 17:15: 'from among your brothers you shall set a king; you may not set a foreigner over you').",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Chavel-Ramban-Deut",
+          "Troki-1593",
+          "SRC-JEW-RAMBAN-TORAH-001"
+        ],
+        "methodology": "Syntax and context-critical analysis of Deuteronomic legal corpus",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Paralleled in Isaac of Troki, Hizzuk Emunah, Chapter 12."
+    },
+    {
+      "evidence_id": "EVID-JEW-037",
+      "claim_id": "CLAIM-HAL-BRIT-MILAH-PERPETUITY-001",
+      "evidence_class": "TRADITIONAL_POSITION",
+      "evidence_type": "PRIMARY_TEXT",
+      "text": "Genesis 17:9–14 commands circumcision (*Brit Milah*) as an everlasting physical covenant (*brit olam*) in the flesh for all generations, decreeing spiritual excision (*karet*) for an uncircumcised male.",
+      "source_id": "SRC-JEW-MT-001",
+      "source_tier": "TIER_1_PRIMARY_ANCIENT",
+      "source_location": "Genesis 17:9–14; Mishneh Torah, Hilkhot Milah 1:1",
+      "original_language_text": "זֹאת בְּרִיתִי אֲשֶׁר תִּשְׁמְרוּ בֵּינִי וּבֵינֵיכֶם וּבֵין זַרְעֲךָ אַחֲרֶיךָ הִמּוֹל לָכֶם כָּל זָכָר... וְהָיְתָה בְרִיתִי בִּבְשַׂרְכֶם לִבְרִית עוֹלָם",
+      "transliteration": "Zot beriti asher tishmeru beini u-veinekhem u-vein zar'akha acharekha himmol lakhem kol zakhar... ve-haytah veriti bi-vsarkhem li-vrit olam",
+      "historical_period": "IRON_AGE_ISRAEL",
+      "tradition": "MASORETIC_TIBERIAN",
+      "context": "The Abrahamic Covenant establishing physical identity markers for the covenant people.",
+      "interpretation": "Circumcision is irrefrangible and immutable; it is not a temporary ceremonial metaphor but a perpetual bodily obligation incumbent on all sons of the covenant.",
+      "competing_interpretation": "Paul in Romans 2:28-29 and Galatians 5:2-6 argued that physical circumcision is abolished in Christ in favor of spiritual 'circumcision of the heart'.",
+      "counterargument": "The Torah explicitly states the covenant is 'in your flesh' (*bi-vsarkhem*) as an *everlasting* covenant (*brit olam*), warning that anyone failing to circumcise 'has broken My covenant' (*et beriti hefar*).",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Codex-Leningradensis",
+          "Frankel-MT-Milah",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Textual and legal verification of covenantal codices",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Central halakhic boundary marker of Jewish male covenantal identity."
+    },
+    {
+      "evidence_id": "EVID-JEW-038",
+      "claim_id": "CLAIM-LEX-EMUNAH-FIDELITY-001",
+      "evidence_class": "ACADEMIC_CONSENSUS",
+      "evidence_type": "LEXICAL",
+      "text": "Hebrew lexicography demonstrates that *emunah* (root א-מ-ן) denotes firmness, steadfast fidelity, reliability, and active moral loyalty, contrasting with Hellenistic and Protestant concepts of passive cognitive propositional belief.",
+      "source_id": "SRC-ACAD-BDB-001",
+      "source_tier": "TIER_5_ACADEMIC_CRITICAL",
+      "source_location": "BDB Hebrew Lexicon, Entry א-מ-ן (p. 53–54)",
+      "original_language_text": "אֱמוּנָה - firmness, steadfastness, fidelity",
+      "transliteration": "emunah",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "ACADEMIC_CRITICAL",
+      "context": "Semitic linguistic analysis of biblical occurrences (Exod 17:12: 'Moses' hands were emunah [steady]'; Hab 2:4; Ps 37:3).",
+      "interpretation": "Biblical *emunah* is an active relational quality of trustworthiness and endurance; living by *emunah* means remaining steadfast in observing God's covenant even amid affliction.",
+      "competing_interpretation": "Reformation soteriology translated *pistis / emunah* as *fides* (intellectual trust and acceptance of Christ's imputed righteousness without works).",
+      "counterargument": "Translating Habakkuk 2:4 as 'the just shall live by intellectual faith alone' commits a serious semantic fallacy by stripping *emunah* of its intrinsic active behavioral fidelity.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "BDB-1906",
+          "Barr-Semantics-1961",
+          "SRC-ACAD-BDB-001"
+        ],
+        "methodology": "Root-based comparative Semitic lexicography and syntax analysis",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Directly impacts Jewish-Christian theological debates on justification."
+    },
+    {
+      "evidence_id": "EVID-JEW-039",
+      "claim_id": "CLAIM-DENOM-KARAITE-SOLA-SCRIPTURA-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "DENOMINATIONAL",
+      "text": "Ya'qub al-Qirqisani's 10th-century code 'Kitab al-Anwar wal-Maraqib' articulates the Karaite rejection of the Rabbinic Oral Law, insisting that the Written Tanakh is self-sufficient and that rabbinic additions (*gezeirot*) violate Deuteronomy 4:2.",
+      "source_id": "SRC-JEW-KARAITE-QIRQISANI-001",
+      "source_tier": "TIER_3_MEDIEVAL_RISHONIM",
+      "source_location": "Kitab al-Anwar wal-Maraqib, Treatise II, Chapter 18",
+      "original_language_text": "إنكار التوراة الشفوية والتمسك بالكتاب وحده",
+      "transliteration": "Inkar al-Tawrat al-shafawiyyah wa-al-tamassuk bi-al-kitab wahdahu",
+      "historical_period": "ISLAMIC_GOLDEN_AGE",
+      "tradition": "KARAITE",
+      "context": "Abbasid-era rise of Karaism under Anan ben David and 10th-century Golden Age of Karaite scholarship in Jerusalem.",
+      "interpretation": "Karaites reject rabbinic authority, the Mishnah, and the Talmud; observe biblical Shabbat without lighting candles on Friday night; calculate calendar months solely by physical visual sighting of the new moon (*ru'yah*); and observe Shavuot strictly on Sunday following the Sabbath.",
+      "competing_interpretation": "Rabbanite authorities (led by Saadia Gaon) vigorously refuted Karaites, proving that biblical laws regarding calendar, tefillin, and dietary prohibitions are unintelligible without rabbinic oral transmission.",
+      "counterargument": "Karaite halakha demonstrates that rejection of rabbinic tradition produces a completely distinct religious calendar and ritual lifestyle, proving the indispensability of the Oral Torah in shaping normative Judaism.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Nemoy-1939",
+          "Polliack-2003",
+          "SRC-JEW-KARAITE-QIRQISANI-001"
+        ],
+        "methodology": "Critical edition collation of Judeo-Arabic Firkovich manuscripts",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Essential historical evidence for diversity within medieval and contemporary Judaism."
+    },
+    {
+      "evidence_id": "EVID-JEW-040",
+      "claim_id": "CLAIM-HASID-PANENTHEISM-TANYA-001",
+      "evidence_class": "TRADITIONAL_POSITION",
+      "evidence_type": "PHILOSOPHICAL",
+      "text": "Rabbi Shneur Zalman of Liadi in the Tanya articulates the Hasidic mystical concept of acosmism and panentheism (*Ein Od Milvado*), declaring that physical reality is completely nullified within the omnipresent Divine light.",
+      "source_id": "SRC-JEW-HASID-TANYA-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
+      "source_location": "Sha'ar ha-Yichud ve-ha-Emunah, Chapters 1–3",
+      "original_language_text": "אילו היו ניתנות רשות לעין לראות את הרוחניות... לא היה הגשמיות נראה לעינינו כלל... כי באמת אין עוד מלבדו ממש",
+      "transliteration": "Ilu hayu nitnot reshut la-ayin lir'ot et ha-ruchniyut... lo hayah ha-gashmiyut nir'eh le-eineinu klal... ki be-emet Ein Od Milvado mamash",
+      "historical_period": "EARLY_MODERN",
+      "tradition": "HASIDIC_CHABAD",
+      "context": "Rise of Eastern European Hasidism in the 18th century and its ideological conflict with the Lithuanian Mitnagdim (led by the Vilna Gaon).",
+      "interpretation": "God did not merely create the world once; the divine word constantly renews creation at every fraction of a second. The physical cosmos possesses no independent existence apart from the sustaining divine vitality.",
+      "competing_interpretation": "The Mitnagdim feared that extreme mystical panentheism bordered on pantheism or Spinozism and might weaken punctilious halakhic observance.",
+      "counterargument": "The Tanya insisted that radical mystical awareness must lead to even stricter devotion to the concrete physical performance of Mitzvot (*dirah ba-tachtonim*).",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Kehot-Tanya-1984",
+          "Elior-1993",
+          "SRC-JEW-HASID-TANYA-001"
+        ],
+        "methodology": "Theological analysis of Chabad Hasidic core manuscripts",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Foundational text of Chabad intellectual philosophy (*Chabad* = Chokhmah, Binah, Da'at)."
+    },
+    {
+      "evidence_id": "EVID-JEW-041",
+      "claim_id": "CLAIM-KAB-SEFIROT-THEURGY-001",
+      "evidence_class": "TRADITIONAL_POSITION",
+      "evidence_type": "MYSTICAL",
+      "text": "The Zohar reveals that the transcendent Ein Sof (The Infinite) emanates through Ten Sefirot, and that human performance of Mitzvot carries theurgic power to unite the Holy One (*Kadosh Barukh Hu*) with His immanent presence (*Shekhinah*).",
+      "source_id": "SRC-JEW-ZOHAR-001",
+      "source_tier": "TIER_3_MEDIEVAL_RISHONIM",
+      "source_location": "Zohar Vol. 1, Parashat Bereshit 15a–b (Pritzker Ed. Vol. 1)",
+      "original_language_text": "בְּרֵאשִׁית קַדְמוּתָא דְּמַלְכָּא, גְּלִיף גְּלוּפִין בְּטָהֳרוּ עִלָּאָה... בּוֹצִינָא דְּקַרְדִּינוּתָא",
+      "transliteration": "Be-reshit kadmuta de-malka, gelif gelufin be-tohoru illa'ah... botzina de-kardinuta",
+      "historical_period": "MEDIEVAL_EUROPEAN",
+      "tradition": "KABBALAH",
+      "context": "13th-century Castilian Kabbalistic circle around Moses de Leon; flowering of classical medieval theosophical mysticism.",
+      "interpretation": "Mitzvot are not merely legal duties; they are cosmic keys that channel divine grace, overcome cosmic disharmony (*kelipot*), and draw divine bounty into the physical cosmos.",
+      "competing_interpretation": "Maimonidean rationalist philosophy rejected any literal hypostatization or divine division as compromising divine absolute simplicity (*Achdut*).",
+      "counterargument": "Kabbalists emphasized that the Sefirot are not ten gods, but ten vessels or garments through which the one indivisible Infinite God acts (*Ihu v'Garmohi Chad*).",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Matt-Pritzker-2004",
+          "Scholem-1941",
+          "SRC-JEW-ZOHAR-001"
+        ],
+        "methodology": "Critical manuscript recension and philological analysis of Aramaic Zoharic texts",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Shaped late medieval and early modern Jewish liturgy (e.g. *Lecha Dodi*, *Leshem Yichud*)."
+    },
+    {
+      "evidence_id": "EVID-JEW-042",
+      "claim_id": "CLAIM-DENOM-MODERN-ORTHODOX-SYNTHESIS-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "PHILOSOPHICAL",
+      "text": "Rabbi Joseph B. Soloveitchik in 'Halakhic Man' portrays the halakhist as an autonomous intellectual creator who utilizes eternal divine law to sanctify physical reality, validating the integration of traditional Torah scholarship with worldly knowledge (*Torah u-Madda*).",
+      "source_id": "SRC-JEW-SOLOVEITCHIK-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
+      "source_location": "Halakhic Man (Ish ha-Halakha), Part I",
+      "original_language_text": "איש ההלכה, כאשר הוא ניגש אל המציאות, בא ומשפטי התורה בידו... הוא בורא עולם משלו",
+      "transliteration": "Ish ha-Halakha, ka-asher hu nigash el ha-metzi'ut, ba u-mishpetei ha-Torah be-yado... hu borei olam mi-shelo",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "ORTHODOX_MODERN",
+      "context": "Post-war American Modern Orthodoxy establishing institutional legitimacy at Yeshiva University.",
+      "interpretation": "Modern Orthodoxy rejects isolationist sectarianism; the observant Jew is commanded to master secular sciences, participate in modern culture, and engage society while maintaining unbending loyalty to the Shulchan Aruch.",
+      "competing_interpretation": "Haredi (ultra-Orthodox) leadership rejects *Torah u-Madda*, advocating cultural isolation (*Da'as Torah*) and viewing secular academic studies as spiritually dangerous.",
+      "counterargument": "Soloveitchik grounded his approach in classical Maimonidean rationalism and the Brisker conceptual method of Talmudic analysis, proving its deep traditional roots.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Soloveitchik-1983",
+          "Singer-1989",
+          "SRC-JEW-SOLOVEITCHIK-001"
+        ],
+        "methodology": "Philosophical and theological analysis of published monographs",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Philosophical foundation of Centrist / Modern Orthodoxy worldwide."
+    },
+    {
+      "evidence_id": "EVID-JEW-043",
+      "claim_id": "CLAIM-DENOM-RECONSTRUCTIONIST-CIVILIZATION-001",
+      "evidence_class": "DENOMINATIONAL_POSITION",
+      "evidence_type": "PHILOSOPHICAL",
+      "text": "Mordecai M. Kaplan in 'Judaism as a Civilization' (1934) redefined Judaism not as a supernatural revealed religion, but as the evolving religious civilization of the Jewish people, redefining God as the cosmic power that makes for salvation.",
+      "source_id": "SRC-JEW-RECON-KAPLAN-001",
+      "source_tier": "TIER_4_MODERN_MOVEMENTS",
+      "source_location": "Judaism as a Civilization, Chapters 1 & 19",
+      "original_language_text": "Judaism is not a religion, but an evolving religious civilization... the Torah is the reflection of Israel's collective spiritual striving rather than a supernatural dictation.",
+      "transliteration": "N/A",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "RECONSTRUCTIONIST",
+      "context": "American Jewish life during the Great Depression; founding of the Reconstructionist movement.",
+      "interpretation": "Reconstructs Jewish identity around peoplehood, language, art, customs, and democratic ethics; halakhic mitzvot are 'folkways' that have a vote but not a veto.",
+      "competing_interpretation": "Orthodoxy excommunicated Kaplan's prayer book in 1945 for removing the chosen people concept and personal resurrection of the dead.",
+      "counterargument": "Kaplan's sociological insights on 'peoplehood' (*Am Yisrael*) heavily influenced modern Jewish communal institutions, Jewish Community Centers (JCCs), and secular Israeli educational philosophy.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Kaplan-1934",
+          "Eisen-2010",
+          "SRC-JEW-RECON-KAPLAN-001"
+        ],
+        "methodology": "Historical-critical analysis of 20th-century naturalistic religious philosophy",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Fourth major denominational stream in North American Judaism."
+    },
+    {
+      "evidence_id": "EVID-JEW-044",
+      "claim_id": "CLAIM-THEO-THREE-OATHS-ZIONISM-001",
+      "evidence_class": "DISPUTED_CLAIM",
+      "evidence_type": "RABBINIC",
+      "text": "Tractate Ketubot 111a records the Three Oaths (*Shalosh Shevuot*): Israel is adjured not to ascend en masse by force to the Land of Israel and not to rebel against the nations of the world; invoked by traditional Haredi anti-Zionists (e.g. Satmar) against secular Zionism.",
+      "source_id": "SRC-JEW-TALMUD-BAVLI-001",
+      "source_tier": "TIER_2_RABBINIC_CANONICAL",
+      "source_location": "Tractate Ketubot 111a; Sefer VaYoel Moshe (Satmar)",
+      "original_language_text": "ג' שבועות הללו למה? אחת שלא יעלו ישראל בחומה, ואחת שהשביע הקדוש ברוך הוא את ישראל שלא ימרדו באומות העולם, ואחת שהשביע הקדוש ברוך הוא את אומות העולם שלא ישתעבדו בהן בישראל יותר מדאי",
+      "transliteration": "Gimel shevu'ot hallalu lamah? Achat she-lo ya'alu Yisrael ba-chomah, ve-achat she-hishbi'a ha-Kadosh Barukh Hu et Yisrael she-lo yimredu be-umot ha-olam, ve-achat she-hishbi'a ha-Kadosh Barukh Hu et umot ha-olam she-lo yishta'abdu bahen be-Yisrael yoter mi-dai",
+      "historical_period": "AMORAIC_ERA",
+      "tradition": "RABBINIC_AMORAIC",
+      "context": "Amoraic homiletic exegesis on Song of Songs (2:7, 3:5, 8:4) regarding messianic patience and divine exile.",
+      "interpretation": "Satmar Rebbe (Joel Teitelbaum in *VaYoel Moshe*) ruled that establishing a secular sovereign state before the miraculous coming of the Messiah violates these divine oaths and constitutes severe heresy.",
+      "competing_interpretation": "Religious Zionists (Rabbi Abraham Isaac Kook, Rabbi Meir Simcha of Dvinsk) argued that the Balfour Declaration and 1947 UN Partition Resolution gave international legal sanction to Jewish return, nullifying the oath regarding 'rebelling against nations'.",
+      "counterargument": "Proves that theological opposition to political Zionism exists organically within authentic ultra-Orthodox Rabbinic Judaism, disproving claims that all religious Jews view the modern State of Israel as a religious fulfillment.",
+      "verification_status": "VERIFIED",
+      "confidence": "DISPUTED",
+      "provenance": {
+        "source_ids": [
+          "Vilna-Ketubot",
+          "Teitelbaum-1961",
+          "Rav-Kook-1920",
+          "SRC-JEW-TALMUD-BAVLI-001"
+        ],
+        "methodology": "Comparative halakhic and ideological analysis across Haredi, Religious Zionist, and secular archives",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Key textual evidence demonstrating internal Jewish debate concerning Zionism."
+    },
+    {
+      "evidence_id": "EVID-JEW-045",
+      "claim_id": "CLAIM-ARCH-THEODOTOS-SYNAGOGUE-001",
+      "evidence_class": "FACT",
+      "evidence_type": "ARCHAEOLOGICAL",
+      "text": "The Theodotos Synagogue Inscription (discovered in the City of David, dated pre-70 CE) confirms that institutional synagogues dedicated to communal scripture reading, study of commandments, and guest hospitality flourished in Jerusalem while the Second Temple stood.",
+      "source_id": "SRC-JEW-EPIG-001",
+      "source_tier": "TIER_1_PRIMARY_ANCIENT",
+      "source_location": "Jerusalem Archaeological Inscription (IAA 1921-508 / CIIP I 9)",
+      "original_language_text": "Θεόδοτος Οὐεττήνου ἱερεὺς καὶ ἀρχισυνάγωγος... ᾠκοδόμησε τὴν συναγωγὴν εἰς ἀνάγνωσιν νόμου καὶ εἰς διδαχὴν ἐντολῶν",
+      "transliteration": "Theodotos Ouettenou hiereus kai archisynagogos... oikodomethe ten synagogen eis anagnosin nomou kai eis didachen entolon",
+      "historical_period": "ROMAN_SECOND_TEMPLE",
+      "tradition": "ARCHAEOLOGICAL_EPIGRAPHY",
+      "context": "Excavations by Raymond Weill in the City of David, Jerusalem (1913–1914); monumental Greek dedicatory limestone slab.",
+      "interpretation": "Provides empirical archaeological proof that the synagogue was not an emergency invention invented after the 70 CE destruction, but a thriving pre-existing institution dedicated to Torah reading and fellowship operating alongside sacrificial cultus.",
+      "competing_interpretation": "Some older scholars suggested synagogues only arose in the Diaspora, but Theodotos proves their presence directly in Jerusalem itself.",
+      "counterargument": "Explains the seamless sociological transition after 70 CE: the infrastructure of liturgical assembly, Torah study, and community organization was already established and immediately absorbed national religious life.",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Weill-1920",
+          "Levine-Synagogue-2000",
+          "SRC-JEW-EPIG-001"
+        ],
+        "methodology": "Archaeological, epigraphical, and architectural provenance analysis",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      },
+      "notes": "Housed in the Israel Museum, Jerusalem; universally recognized benchmark in synagogue archaeology."
     }
   ]
 }
