@@ -1,11 +1,17 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "description": "Enriched Hebrew and Aramaic Lexical Knowledge Layer for Apologetics and Interfaith Analysis",
   "terms": [
     {
       "term": "Almah",
       "hebrew": "עַלְמָה",
+      "transliteration": "'Almah / Almah",
+      "grammatical_category": "Noun feminine singular",
       "morphology": "Noun feminine singular",
+      "root": "ע-ל-ם (ʿ-l-m; meaning to be ripe, mature, sexually mature; cognate with Ugaritic 'ġlmt', Arabic 'ghulamah')",
+      "basic_lexical_range": "Young woman of childbearing age, adolescent girl, nubile maiden",
       "semantic_range": "Young woman of childbearing age, adolescent girl; does not denote anatomical virginity (which is specifically בְּתוּלָה / Bethulah).",
+      "contextual_semantic_range": "Denotes physical maturity and childbearing capacity without asserting anatomical virginity. In Ugaritic, Phoenician, and Biblical Hebrew, refers to a young woman of marriageable age who may or may not be a virgin.",
       "biblical_occurrences": [
         "Gen 24:43",
         "Exod 2:8",
@@ -15,34 +21,170 @@
         "Song 1:3",
         "Song 6:8"
       ],
+      "later_hebrew_usage": "In Mishnaic and Talmudic Hebrew, 'almah' continues to mean an adolescent young woman, whereas 'betulah' is the technical legal and halakhic term for virginity (e.g. Ketubot 1:2).",
+      "aramaic_cognates": "עוּלֶמְתָּא (Ulemta) - young girl, maiden (Targum Jonathan on Isa 7:14 renders 'ulafta').",
+      "translation_equivalents": {
+        "greek": "νεᾶνις (neanis - Aquila, Symmachus, Theodotion), παρθένος (parthenos - LXX Isa 7:14)",
+        "latin": "virgo, iuvencula",
+        "english": "young woman, maiden"
+      },
+      "lxx_translation_issues": "The LXX translators rendered 'almah' in Isa 7:14 as παρθένος (parthenos), whereas elsewhere (Gen 24:43, Exod 2:8) they varied. Later Jewish Greek recensions (Aquila, Symmachus, Theodotion) corrected Isa 7:14 to νεᾶνις (neanis, young woman).",
+      "jewish_traditional_interpretation": "Rashi, Ibn Ezra, and Kimchi note that 'almah' refers to a young woman present in King Ahaz's 8th-century BCE court (likely Queen Abi, mother of Hezekiah, or the prophet's wife), whose impending child's birth serves as a contemporary chronological sign of deliverance from Pekah and Rezin.",
+      "christian_interpretive_usage": "Matthew 1:22-23 cites Isaiah 7:14 via the LXX parthenos as a direct messianic prophecy of the miraculous Virgin Birth of Jesus Christ.",
+      "islamic_interfaith_relevance": "The Quran affirms the virgin birth of Isa (Jesus) through Maryam without human father (Surah 3:47, 19:20), but bases this on direct Quranic revelation rather than the linguistic proof-text of Isaiah 7:14.",
+      "semantic_fallacies_to_avoid": "Anachronistic semantic restriction (insisting 'almah' must mean virgin because Rebekah in Gen 24:43 was also a virgin, confusing referent with lexical meaning).",
+      "apologetic_relevance": "Pivotal locus in Jewish-Christian apologetics regarding Isaiah 7:14, Matthew 1:23, and the Virgin Birth.",
       "apologetic_debate": {
         "locus": "Isaiah 7:14 ('Hineh ha-almah harah ve-yoledet ben...')",
         "christian_interpretation": "Interprets as 'virgin birth' based on LXX translation 'parthenos' (παρθένος) cited in Matthew 1:23.",
         "jewish_refutation": "The Hebrew word for virgin is Bethulah (used elsewhere in Isaiah, e.g. 23:12, 37:22, 62:5). 'Almah refers to a young woman present in King Ahaz's 8th-century BCE court (likely the prophet's wife or Queen Abi), whose impending child's birth serves as a contemporary sign of deliverance from Pekah and Rezin."
+      },
+      "safety": {
+        "safe_use": "Highlight the Hebrew contrast between 'almah' (age/life-stage) and 'betulah' (state of virginity).",
+        "common_misuse": "Claiming that 'almah' means 'promiscuous woman' or conversely that it exclusively denotes a virgin.",
+        "translation_risk": "Translating 'almah' in Isaiah 7:14 as 'virgin' without acknowledging the original Hebrew terminology.",
+        "context_required": "The historical context of the Syro-Ephraimite War in Isaiah 7:1-17."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RASHI-001",
+          "SRC-JEW-IBN-EZRA-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Comparative Semitic philology, Ugaritic parallels, and historical-grammatical exegesis",
+        "author_agent": "Polia Knowledge Architecture Specialist"
       }
     },
     {
       "term": "Mashiach",
       "hebrew": "מָשִׁיחַ",
+      "transliteration": "Mashiach / Messiah",
+      "grammatical_category": "Passive participle masculine singular / Verbal noun",
       "morphology": "Passive participle masculine singular of the verb מָשַׁח (mashach - to smear or anoint with oil)",
+      "root": "מ-ש-ח (m-sh-ch; to smear, stroke, anoint with consecrated olive oil)",
+      "basic_lexical_range": "Anointed one, person consecrated through physical unction for royal, priestly, or prophetic office",
       "semantic_range": "Anointed one; applied in the Tanakh to Aaron and the High Priests (Lev 4:3), Saul (1 Sam 24:6), David (2 Sam 19:22), and even the Persian King Cyrus (Isa 45:1).",
-      "theological_evolution": "Evolved in late Second Temple and Rabbinic Judaism to denote the future human Davidic monarch who will gather the Jewish exiles, restore the Temple, and inaugurate global peace."
+      "contextual_semantic_range": "In Biblical Hebrew, an adjective/title for living historical figures: reigning kings (Saul, David, Solomon), High Priests (ha-Kohen ha-Mashiach), and even the non-Jewish king Cyrus of Persia (Isa 45:1). It never designates a divine savior or transcendent deity in the Tanakh.",
+      "biblical_occurrences": [
+        "Lev 4:3",
+        "Lev 4:5",
+        "1 Sam 24:6",
+        "2 Sam 1:14",
+        "2 Sam 19:22",
+        "Ps 2:2",
+        "Ps 18:51",
+        "Isa 45:1",
+        "Dan 9:25-26"
+      ],
+      "theological_evolution": "Evolved in late Second Temple and Rabbinic Judaism to denote the future human Davidic monarch who will gather the Jewish exiles, restore the Temple, and inaugurate global peace.",
+      "later_hebrew_usage": "In Mishnaic, Talmudic, and medieval Jewish philosophy (Maimonides Hilkhot Melakhim 11-12), became the specific title for Melekh HaMashiach, the future human mortal king of the line of David.",
+      "aramaic_cognates": "מְשִׁיחָא (Meshicha) - the anointed one, Messiah (Targum Onkelos, Targum Jonathan).",
+      "translation_equivalents": {
+        "greek": "Χριστός (Christos)",
+        "latin": "Christus, unctus",
+        "arabic": "Al-Masih (المَسِيح)",
+        "english": "anointed one, Messiah"
+      },
+      "lxx_translation_issues": "Consistently translated as Χριστός (Christos). In the Hellenistic world, Christos lost its original Semitic sense of royal unction and became a proper personal name for Jesus ('Jesus Christ').",
+      "jewish_traditional_interpretation": "Maimonides outlines strict criteria: must be an observant Davidic king, rebuild the Temple, ingather the exiles, establish global peace, and succeed in his lifetime; dying before accomplishing these disqualifies the candidate.",
+      "christian_interpretive_usage": "Understood as the incarnate Son of God whose messianic mission was accomplished through his substitutionary death, resurrection, and future second coming.",
+      "islamic_interfaith_relevance": "The Quran honours Isa ibn Maryam with the title Al-Masih (Surah 3:45, 4:171), affirming his status as a major prophet and messianic figure while strictly rejecting his divinity or crucifixion.",
+      "semantic_fallacies_to_avoid": "Retrojective anachronism: projecting post-biblical divine-savior concepts onto biblical figures called 'mashiach' (such as King Saul or King Cyrus).",
+      "apologetic_relevance": "Fundamental definition of Messiah separating Judaism (earthly Davidic monarch and global peace) from Christianity (crucified divine redeemer).",
+      "safety": {
+        "safe_use": "Present the historical-contextual biblical usage of 'mashiach' for priests, kings, and Cyrus alongside the rabbinic Davidic messianic criteria.",
+        "common_misuse": "Asserting that every mention of 'mashiach' in Tanakh is an eschatological prophecy.",
+        "translation_risk": "Capitalizing 'Messiah' in English translations of historical passages (e.g. Dan 9:25-26).",
+        "context_required": "The halakhic criteria of Maimonides (Mishneh Torah, Hilkhot Melakhim 11-12)."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RAMBAM-MT-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Textual and historical analysis of kingship unction rituals and rabbinic codifications",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
     },
     {
       "term": "Elohim",
       "hebrew": "אֱלֹהִים",
+      "transliteration": "Elohim",
+      "grammatical_category": "Noun masculine plural (plural of majesty / pluralis excellentiae when referring to YHWH)",
       "morphology": "Noun masculine plural (grammatically construed with singular verbs and adjectives when referring to the True God)",
+      "root": "א-ל-ה (ʾ-l-h; or א-ו-ל / א-י-ל, power, strength, preeminence)",
+      "basic_lexical_range": "God, deities, judges, celestial beings, superhuman authorities",
       "semantic_range": "God (singular supreme deity when taking singular verb); gods/pagan deities (when taking plural verb, Exod 20:3); judges/magistrates (Exod 21:6, 22:7); supernatural celestial beings (Ps 8:6).",
+      "contextual_semantic_range": "When referring to the God of Israel, it is syntactically treated as a singular noun (taking singular verbs and singular adjectives, e.g. Gen 1:1 'Bara [sg] Elohim'). When referring to multiple pagan deities, it takes plural verbs/adjectives (Exod 20:3 'elohim acherim'). It also designates human judges and authorities (Exod 21:6, Exod 22:7-8, Ps 82:6) and angelic beings (Ps 8:6).",
+      "biblical_occurrences": [
+        "Gen 1:1",
+        "Gen 20:13",
+        "Exod 20:3",
+        "Exod 21:6",
+        "Exod 22:7",
+        "Deut 6:4",
+        "Ps 8:6",
+        "Ps 82:1",
+        "Ps 82:6"
+      ],
+      "later_hebrew_usage": "Standard rabbinic term for God's attribute of Strict Justice (Middat Ha-Din), contrasted with YHWH which represents the attribute of Mercy (Middat Ha-Rachamim).",
+      "aramaic_cognates": "אֱלָהָא (Elaha) / אֱלָהִין (Elahin) in Biblical Aramaic (Dan 2:47, 3:25).",
+      "translation_equivalents": {
+        "greek": "θεός (theos - singular for YHWH), θεοί (theoi - plural for pagan gods)",
+        "latin": "Deus, dii",
+        "arabic": "Allah (الله), Ilah (إِلَه)",
+        "english": "God, gods, judges, divine beings"
+      },
+      "lxx_translation_issues": "LXX translates as θεός (theos, singular) when referring to YHWH, and as θεοί (theoi, plural) when referring to pagan idols, correctly reflecting the syntactical verb agreement.",
+      "jewish_traditional_interpretation": "Exclusively and radically monotheistic. Semitic intensive plural / majestic plural denoting the totality of power, as noted by Ibn Ezra and Gesenius. Similar to 'Adonim' (Lord/owner) in Gen 39:2 or 'Be'alim' (owner) in Exod 21:29.",
+      "christian_interpretive_usage": "Historically utilized by some Christian apologists to argue for plurality in the Godhead / Trinity in Genesis 1:1 and 1:26 ('Let us make man in our image').",
+      "islamic_interfaith_relevance": "Arabic cognate Ilah / Allah. Islamic theology shares the absolute rejection of divine plurality, viewing any ontological division in God as Shirk.",
+      "semantic_fallacies_to_avoid": "Grammatical number fallacy: confusing plural morphology with polytheistic or multi-personal plurality, disregarding Hebrew singular verbal agreement.",
+      "apologetic_relevance": "Central battleground in Trinitarian vs Unitarian/Jewish debates over Genesis 1:1, Genesis 1:26, and Deuteronomy 6:4.",
       "apologetic_debate": {
         "christian_claim": "Argues the plural ending '-im' hints at the Trinity.",
         "jewish_refutation": "Pluralis excellentiae / majestic plural standard in Semitic grammar (similar to Adonim / Ba'alim). When referring to YHWH, the accompanying verb is always strictly singular (e.g. Genesis 1:1 'Bara Elohim', not 'Bar'u Elohim')."
+      },
+      "safety": {
+        "safe_use": "Demonstrate how Semitic grammar employs plural nouns of dignity/majesty with strictly singular verbs.",
+        "common_misuse": "Asserting that the plural suffix '-im' on Elohim proves three persons in one God.",
+        "translation_risk": "Translating 'elohim' in Psalm 82:6 as 'God' rather than 'gods/judges'.",
+        "context_required": "Verbal agreement analysis in the Masoretic Text."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-IBN-EZRA-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Syntactical concord analysis, Semitic linguistics, and rabbinic midrashic collation",
+        "author_agent": "Polia Knowledge Architecture Specialist"
       }
     },
     {
       "term": "Teshuvah",
       "hebrew": "תְּשׁוּבָה",
+      "transliteration": "Teshuvah",
+      "grammatical_category": "Abstract verbal noun feminine singular",
       "morphology": "Abstract verbal noun from the root שׁ-ו-ב (shuv - to return / turn back)",
+      "root": "שׁ-ו-ב (sh-w-b; to return, turn back, go back, restore)",
+      "basic_lexical_range": "Return, turning back, restoration, repentance, response",
       "semantic_range": "Repentance, returning to the divine path.",
+      "contextual_semantic_range": "In Biblical Hebrew, the verb *shuv* is used extensively for turning away from sin and returning to God and His covenant (Deut 30:2, Isa 55:7, Ezek 18:21, Hos 14:2). In Rabbinic Hebrew, the noun *teshuvah* became the technical term for the dynamic moral and spiritual return to God.",
+      "biblical_occurrences": [
+        "1 Kgs 8:47-50",
+        "Deut 30:2",
+        "Isa 55:7",
+        "Jer 3:12",
+        "Ezek 18:21-23",
+        "Hos 14:2",
+        "Jonah 3:10"
+      ],
       "components_in_halakha": [
         "Hakarat ha-chet (recognition of sin)",
         "Charatah (sincere remorse)",
@@ -50,13 +192,711 @@
         "Viduy (verbal confession)",
         "Kabbalah le-haba (solemn resolution not to repeat the act)",
         "Piyus / Mechilah (asking forgiveness and making financial/interpersonal restitution if the sin harmed a fellow human)"
-      ]
+      ],
+      "later_hebrew_usage": "Codified by Maimonides in Hilkhot Teshuvah as an autonomous, complete mechanism of atonement and reconciliation with God without sacrificial ritual.",
+      "aramaic_cognates": "תְּיוּבְתָא (Teyuvta) - answer, refutation, repentance (Talmudic Aramaic).",
+      "translation_equivalents": {
+        "greek": "μετάνοια (metanoia), ἐπιστροφή (epistrophē)",
+        "latin": "poenitentia, conversio",
+        "arabic": "Tawbah (تَوْבَة)",
+        "english": "repentance, return, turning"
+      },
+      "lxx_translation_issues": "LXX translates verbal forms of *shuv* as ἐπιστρέφω (epistrephō, to turn back/return) or μετανοέω (metanoeō, to repent/change one's mind).",
+      "jewish_traditional_interpretation": "Teshuvah was created before the creation of the universe (Pesachim 54a). It has the power to transform deliberate sins into merits (Yoma 86b) and is unconditionally accepted by God from every human being.",
+      "christian_interpretive_usage": "Often viewed as necessary preparation for receiving Christ's salvation, but Christian apologetics argues that repentance without vicarious blood atonement is insufficient before God's infinite justice.",
+      "islamic_interfaith_relevance": "Direct etymological and theological cognate with Arabic Tawbah (returning to Allah). In both Judaism and Islam, sincere repentance accompanied by cessation of sin directly cleanses the penitent without intermediary or human sacrifice.",
+      "semantic_fallacies_to_avoid": "Transactional fallacy: treating teshuvah merely as outward ritual or penance, rather than an internal transformation and behavioral turning.",
+      "apologetic_relevance": "Core theological mechanism demonstrating that in Judaism, direct reconciliation with God exists independently of Temple animal sacrifice.",
+      "safety": {
+        "safe_use": "Explain the six halakhic components of teshuvah and cite prophetic texts like Hosea 14:2 and Ezekiel 18:21.",
+        "common_misuse": "Asserting that Judaism teaches that sin is forgiven effortlessly or without total behavioral cessation.",
+        "translation_risk": "Translating as passive 'repentance' (feeling sorry) rather than active 'return' (moral realignment).",
+        "context_required": "Maimonides Hilkhot Teshuvah and prophetic theology."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RAMBAM-MT-001",
+          "SRC-JEW-TALMUD-BAVLI-001"
+        ],
+        "methodology": "Halakhic codification and biblical theological synthesis",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
     },
     {
       "term": "Go'el",
       "hebrew": "גֹּאֵל",
+      "transliteration": "Go'el",
+      "grammatical_category": "Active participle masculine singular / Noun",
       "morphology": "Participle of root ג-א-ל (ga'al - to redeem)",
-      "semantic_range": "Kinsman-redeemer who buys back family land (Lev 25:25), redeems relatives from servitude (Lev 25:48), or acts as blood avenger (Num 35:19); applied metonymically to God redeeming Israel from Egypt and Babylon."
+      "root": "ג-א-ל (g-ʾ-l; to redeem, repurchase, reclaim, ransom relatives or family property)",
+      "basic_lexical_range": "Redeemer, kinsman-redeemer, avenger of blood, vindicator, deliverer",
+      "semantic_range": "Kinsman-redeemer who buys back family land (Lev 25:25), redeems relatives from servitude (Lev 25:48), or acts as blood avenger (Num 35:19); applied metonymically to God redeeming Israel from Egypt and Babylon.",
+      "contextual_semantic_range": "Rooted in Israelite clan and family law: the nearest male relative obligated to restore familial equilibrium. Functions: (1) redeeming ancestral property sold under distress (Lev 25:25), (2) redeeming an impoverished relative sold into debt servitude (Lev 25:47-49), (3) marrying a deceased relative's widow under levirate/kinsman duty (Ruth 3-4), (4) avenging murder as Go'el HaDam (Num 35:19). Theologically applied to God as the Divine Redeemer of Israel from Egyptian bondage and Babylonian exile (Exod 6:6, Isa 41:14, 43:1, 44:6, 49:26).",
+      "biblical_occurrences": [
+        "Lev 25:25",
+        "Lev 25:48",
+        "Num 35:19",
+        "Ruth 2:20",
+        "Ruth 3:12",
+        "Ruth 4:1-6",
+        "Job 19:25",
+        "Isa 44:6",
+        "Isa 49:26"
+      ],
+      "later_hebrew_usage": "Standard rabbinic concept of Ge'ulah (redemption) and the Messianic redeemer (Go'el Acharon, the final redeemer patterned after Moses, the Go'el Rishon).",
+      "aramaic_cognates": "פָּרִיקָא (Pariqa) - redeemer, savior (Targum rendering).",
+      "translation_equivalents": {
+        "greek": "ἀγχιστεύς (anchisteus - next of kin), λυτρωτής (lytrōtēs - redeemer)",
+        "latin": "redemptor, vindex, propinquus",
+        "arabic": "Fadi (فَادِي), Wali (وَلِيّ)",
+        "english": "kinsman-redeemer, redeemer, avenger, vindicator"
+      },
+      "lxx_translation_issues": "LXX translates according to context: ἀγχιστεύς (next-of-kin) in legal/historical narratives (Leviticus, Ruth), and λυτρωτής (redeemer/ransom payer) in devotional and prophetic passages (Psalms, Isaiah).",
+      "jewish_traditional_interpretation": "Job 19:25 ('Va-ani yada'ti go'ali chai' - 'For I know that my Redeemer lives') refers to God as the living vindicator who will ultimately vindicate Job's righteousness against his earthly accusers. God is Israel's Go'el because Israel is His family/covenant kin.",
+      "christian_interpretive_usage": "Job 19:25 is heavily celebrated in Christian liturgical tradition (e.g. Handel's Messiah) as a prophecy of the resurrected Jesus Christ as personal savior and bodily redeemer on the Last Day.",
+      "islamic_interfaith_relevance": "Parallels the concept of Wali ad-Dam (guardian of blood / avenger) in Islamic jurisprudence (Surah 17:33), and God's role as Al-Wali (the Protecting Friend and Guardian).",
+      "semantic_fallacies_to_avoid": "Anachronistic Christological projection: reading modern individual soteriology into ancient clan kinship and property restitution law.",
+      "apologetic_relevance": "Key to interpreting Job 19:25 and the Hebrew legal definition of redemption vs Western penal ransom theories.",
+      "safety": {
+        "safe_use": "Explain the fourfold legal duty of the kinsman-redeemer in Leviticus and Ruth before examining theological metaphors.",
+        "common_misuse": "Presenting Job 19:25 as proof that Job foresaw Jesus Christ.",
+        "translation_risk": "Translating *go'el* in Job exclusively as 'Savior' rather than 'kinsman-vindicator'.",
+        "context_required": "Israelite familial clan law in Leviticus 25 and Ruth."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-IBN-EZRA-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Ancient Near Eastern kinship law analysis and biblical exegesis",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
+    },
+    {
+      "term": "Eved",
+      "hebrew": "עֶבֶד",
+      "transliteration": "'Eved / Ebed",
+      "grammatical_category": "Noun masculine singular (plural: avadim)",
+      "morphology": "Noun masculine singular",
+      "root": "ע-ב-ד (ʿ-b-d; to work, serve, till, worship, perform sacred service)",
+      "basic_lexical_range": "Servant, slave, bondservant, subject, royal courtier, worshiper",
+      "semantic_range": "Ranging from chattel slave/servant (Exod 21:2) to royal official/courtier (2 Kgs 22:12), trusted diplomatic emissary, and ultimate pious worshiper/prophet of YHWH (Moses in Deut 34:5, David in 2 Sam 7:5, corporate Israel in Isa 41:8).",
+      "contextual_semantic_range": "Designates varying degrees of subordination: (1) domestic or agricultural bondservant (Exod 21:2), (2) high political officer or minister of state ('eved ha-melekh', 2 Kgs 22:12), (3) respectful humble self-designation before a superior ('your servant', Gen 32:5), (4) theological servant of YHWH: applied to Moses (Deut 34:5), Joshua (Josh 24:29), David (2 Sam 7:5), the prophets (Amos 3:7), and corporate Israel (Isa 41:8, 44:1, 49:3).",
+      "biblical_occurrences": [
+        "Exod 21:2",
+        "Deut 34:5",
+        "2 Sam 7:5",
+        "2 Kgs 22:12",
+        "Isa 41:8-9",
+        "Isa 42:1",
+        "Isa 44:1-2",
+        "Isa 49:3",
+        "Isa 52:13-53:11"
+      ],
+      "later_hebrew_usage": "In Rabbinic Hebrew, used for halakhic categories of servitude (eved Ivri / eved Kena'ani) and religious devotion ('Avodat HaShem' = divine worship/service of God; 'Avodah' = Temple sacrificial service and prayer).",
+      "aramaic_cognates": "עַבְדָּא (ʿAvda) - servant, slave (Dan 2:4, Ezra 4:11).",
+      "translation_equivalents": {
+        "greek": "δοῦλος (doulos - bondslave), παῖς (pais - servant/child/boy), θεράπων (therapōn - confidential servant)",
+        "latin": "servus, famulus",
+        "arabic": "ʿAbd (عَبْد)",
+        "english": "servant, bondservant, slave, official"
+      },
+      "lxx_translation_issues": "LXX alternates between παῖς (pais, servant/child, e.g. Isa 42:1, 52:13) and δοῦλος (doulos, bondslave). Pais allows ambiguity in early Christian Greek between 'servant' and 'son/boy' (Acts 3:13, 3:26, 4:27), subtly coloring messianic texts.",
+      "jewish_traditional_interpretation": "In Isaiah's Servant Songs (Isa 41:8, 44:1, 49:3, 52:13-53:12), the servant is explicitly defined by the text itself as corporate Israel ('You are My servant, Israel, in whom I will be glorified', Isa 49:3; 'You, Israel, My servant, Jacob whom I have chosen', Isa 41:8), suffering vicariously in exile amidst the astonished gentile kings, though some traditional commentators note dual individual/collective layers (e.g. Jeremiah, righteous remnant, or Messiah).",
+      "christian_interpretive_usage": "Exclusively individualized and messianized to Jesus of Nazareth, reading Isaiah 52:13-53:12 as a literal detailed prediction of the passion, crucifixion, and penal substitutionary atonement of Christ.",
+      "islamic_interfaith_relevance": "Direct cognate with Arabic ʿAbd (عَبْد). In Islam, ʿAbdullah (Servant of Allah) is the highest honorific for Muhammad and Isa (Surah 19:30 'Inni 'Abdullah', where infant Jesus explicitly declares himself Allah's servant, not divine son).",
+      "semantic_fallacies_to_avoid": "Illegitimate totality transfer: assuming every occurrence of 'eved' refers to the Messiah, or flattening domestic slavery and prophetic royal honor into an identical concept.",
+      "apologetic_relevance": "Crux of the Isaiah 53 debate between Jewish collective national interpretation (Israel as suffering servant) and Christian individual messianic interpretation.",
+      "apologetic_debate": {
+        "locus": "Isaiah 52:13–53:12 ('Hineh yaskil avdi...')",
+        "christian_interpretation": "Jesus Christ is the suffering servant who died as a vicarious penal substitute for individual human sins.",
+        "jewish_refutation": "Contextual reading of Deutero-Isaiah explicitly identifies the servant as Israel (Isa 41:8-9, 44:1, 44:21, 49:3). Isaiah 53 records the speech of astonished Gentile kings (52:15) recognizing that Israel suffered from their brutality rather than being uniquely cursed by God."
+      },
+      "safety": {
+        "safe_use": "Distinguish domestic/chattel servitude from diplomatic and prophetic titles; acknowledge explicit corporate self-identification in Isaiah 41:8 and 49:3.",
+        "common_misuse": "Isolating Isaiah 53 from chapters 40-55 where 'eved' is repeatedly defined as corporate Israel.",
+        "translation_risk": "Translating 'eved' as 'son' (via Greek pais) to retroject divine sonship.",
+        "context_required": "The macro-structure of Isaiah 40-55 and Hebrew grammar of corporate personality."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RASHI-001",
+          "SRC-JEW-IBN-EZRA-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Discourse analysis of Deutero-Isaiah and Semitic legal sociology",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
+    },
+    {
+      "term": "Ben",
+      "hebrew": "בֵּן",
+      "transliteration": "Ben",
+      "grammatical_category": "Noun masculine singular (construct: ben / bēn; plural: banim)",
+      "morphology": "Noun masculine singular",
+      "root": "ב-נ-ה (b-n-h; to build, erect; or Proto-Semitic archaic noun *bin-)",
+      "basic_lexical_range": "Son, child, descendant, male offspring, member of a class/guild",
+      "semantic_range": "Literal biological son (Gen 21:2); adoptive/covenantal sonship (Exod 4:22, Ps 2:7); member of a collective (benei Yisrael = Israelites); idiomatic qualification (ben-chayil = valiant man; ben-mavet = doomed to die; ben-shana = one year old).",
+      "contextual_semantic_range": "Ranges across multiple semantic domains: (1) biological son (Gen 4:17), (2) covenantal/adoptive sonship of Israel as a collective nation ('Beni vekhori Yisrael', Exod 4:22), (3) royal covenantal adoption of the Davidic king (2 Sam 7:14 'I will be to him a father, and he shall be to Me a son'; Ps 2:7 'You are My son, today I have begotten you'), (4) class/guild membership ('benei ha-nevi'im' = disciples of prophets, 2 Kgs 2:3), (5) idiomatic moral characterization (ben-avlah = wicked person).",
+      "biblical_occurrences": [
+        "Gen 4:17",
+        "Exod 4:22",
+        "2 Sam 7:14",
+        "Ps 2:7",
+        "Ps 89:27-28",
+        "Prov 3:1",
+        "Isa 9:5"
+      ],
+      "later_hebrew_usage": "Pervasive in Rabbinic Hebrew: Bar (Aramaic) and Ben (Hebrew) designate religious maturity (Bar Mitzvah), scholarly discipleship (Ben Torah), and family lineage.",
+      "aramaic_cognates": "בַּר (Bar) - son (Dan 7:13, Ezra 5:1, Prov 31:2).",
+      "translation_equivalents": {
+        "greek": "υἱός (huios - son), τέκνον (teknon - child)",
+        "latin": "filius",
+        "arabic": "Ibn (اِبْن)",
+        "english": "son, child, descendant"
+      },
+      "lxx_translation_issues": "Consistently translated as υἱός (huios). In royal coronation psalms (Ps 2:7), huios was understood in Greek philosophical/theological frameworks as ontological metaphysical generation rather than Semitic royal covenantal adoption.",
+      "jewish_traditional_interpretation": "In ancient Near Eastern and Semitic royal ideology, 'son' is a functional, covenantal title for the Davidic monarch, signifying suzerain-vassal adoption and divine endorsement (2 Sam 7:14, Ps 89:27-28), never physical or metaphysical divine substance. Corporate Israel is also designated God's firstborn son (Exod 4:22).",
+      "christian_interpretive_usage": "Interpreted ontologically to support the eternal generation and consubstantial deity of Jesus Christ as the Second Person of the Trinity (Heb 1:5, Acts 13:33).",
+      "islamic_interfaith_relevance": "Contrast with Arabic Ibn / Walad; the Quran fiercely rejects that Allah has a son (Surah 112:3 'Lam yalid wa-lam yulad', Surah 19:35), viewing Christian claims of divine sonship as Shirk, targeting physical/literal generation.",
+      "semantic_fallacies_to_avoid": "Ontological projection: reading Greek metaphysical substance (ousia/homoousios) into ancient Semitic covenantal-adoptive idioms.",
+      "apologetic_relevance": "Crucial for interpreting Psalm 2:7, 2 Samuel 7:14, Exodus 4:22, and Isaiah 9:5 (9:6 in Christian versification).",
+      "safety": {
+        "safe_use": "Explain the ancient Near Eastern covenantal-adoptive context of royal sonship in Psalm 2:7 and 2 Samuel 7:14.",
+        "common_misuse": "Asserting that calling a king 'son of God' in Tanakh implied divine ontology.",
+        "translation_risk": "Equating Semitic covenantal metaphor with ontological filial generation.",
+        "context_required": "Coronation ritual context of Psalm 2 and suzerain covenant formulas."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RAMBAM-MN-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Ancient Near Eastern royal ideology comparison and Semitic lexicography",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
+    },
+    {
+      "term": "Ben Elohim",
+      "hebrew": "בֶּן אֱלֹהִים / בְּנֵי הָאֱלֹהִים",
+      "transliteration": "Ben Elohim (sg.) / Benei Elohim (pl.)",
+      "grammatical_category": "Noun construct phrase (masculine singular/plural construct + noun)",
+      "morphology": "Noun construct phrase",
+      "root": "ב-נ-ה / א-ל-ה",
+      "basic_lexical_range": "Son(s) of God, sons of judges/rulers, celestial beings, members of the divine council",
+      "semantic_range": "Angelic/heavenly beings forming God's heavenly assembly (Job 1:6, 2:1, 38:7; Ps 29:1, 89:7); human rulers/judges (Gen 6:2 rabbinic interpretation); pagan divine beings (Dan 3:25 Aramaic).",
+      "contextual_semantic_range": "In the Tanakh, occurs almost exclusively in the plural (בְּנֵי הָאֱלֹהִים / בְּנֵי אֵלִים). Refers to created heavenly angelic courtiers (Job 1:6, 38:7, Ps 29:1). In Gen 6:2-4, historically understood either as fallen angels (Enochic/DSS literature) or aristocratic judges/sons of nobles (Targum Onkelos, Rashi, Midrash Genesis Rabbah 26:5). In Daniel 3:25, the Aramaic singular phrase 'bar elahin' is spoken by pagan king Nebuchadnezzar meaning 'a divine being / angel', explicitly identified in 3:28 as God's angel.",
+      "biblical_occurrences": [
+        "Gen 6:2",
+        "Gen 6:4",
+        "Job 1:6",
+        "Job 2:1",
+        "Job 38:7",
+        "Ps 29:1",
+        "Ps 89:7",
+        "Dan 3:25"
+      ],
+      "later_hebrew_usage": "In rabbinic literature, identified either with heavenly angels (mal'akhim) or judges/nobles. Rabbi Shimon bar Yochai cursed anyone who called them 'sons of God' in a literal physical sense (Genesis Rabbah 26:5) to safeguard monotheism.",
+      "aramaic_cognates": "בַּר אֱלָהִין (Bar Elahin) - a divine being / son of the gods (Dan 3:25).",
+      "translation_equivalents": {
+        "greek": "υἱοὶ τοῦ θεοῦ (huioi tou theou), ἄγγελοι τοῦ θεοῦ (angeloi tou theou - LXX Gen 6:2 in MS Alexandrinus)",
+        "latin": "filii Dei",
+        "english": "sons of God, heavenly beings, divine council members"
+      },
+      "lxx_translation_issues": "LXX in Genesis 6:2 and Job renders some instances as ἄγγελοι τοῦ θεοῦ (angels of God), reflecting interpretive translation to avoid polytheistic or mythological misunderstandings.",
+      "jewish_traditional_interpretation": "Strictly monotheistic: either angelic messengers created by God without independent autonomy, or human princes/magistrates. Daniel 3:25 is recognized as pagan speech by Nebuchadnezzar referring to an angel, confirmed by Dan 3:28 ('Blessed be God... who sent His angel').",
+      "christian_interpretive_usage": "Often cited in popular Christian apologetics regarding Daniel 3:25 as a 'Christophany' (pre-incarnate appearance of Jesus), despite the text stating it was spoken by a pagan monarch using plural/generic Aramaic 'elahin' and subsequently defined in 3:28 as God's angel.",
+      "islamic_interfaith_relevance": "Direct parallel to Islamic rejection of angels being 'daughters of Allah' (banat Allah, Surah 17:40, 37:150) or divine offspring; in Islam, angels (mala'ikah) are created beings of light who obey God without autonomy.",
+      "semantic_fallacies_to_avoid": "Reading later Christian Trinitarian dogma into Nebuchadnezzar's polytheistic pagan utterance in Daniel 3:25.",
+      "apologetic_relevance": "Clarifies Daniel 3:25 Christophany debates and Genesis 6:2-4 angelology/anthropology.",
+      "safety": {
+        "safe_use": "Highlight that Daniel 3:25 is an Aramaic phrase spoken by a pagan Babylonian king, interpreted by the biblical author in 3:28 as an angel.",
+        "common_misuse": "Claiming Daniel 3:25 proves Jesus was present in the fiery furnace based on King James translation 'the Son of God'.",
+        "translation_risk": "Translating 'bar elahin' as definite singular capitalized 'the Son of God' instead of indefinite 'a son of the gods / a divine being'.",
+        "context_required": "Grammatical indefinite status in Aramaic and Nebuchadnezzar's pagan context."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RASHI-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Aramaic epigraphy, comparative Semitic angelology, and contextual syntactical analysis",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
+    },
+    {
+      "term": "Adon",
+      "hebrew": "אָדוֹן",
+      "transliteration": "Adon",
+      "grammatical_category": "Noun masculine singular (plural: adonim)",
+      "morphology": "Noun masculine singular",
+      "root": "א-ד-ן (ʾ-d-n; base, pedestal, lord, master, ruler)",
+      "basic_lexical_range": "Lord, master, owner, superior, human ruler, sovereign",
+      "semantic_range": "Human master/owner (Gen 24:12); royal monarch or official (Gen 45:8); respectful form of address ('my lord', 1 Sam 1:15). In Psalm 110:1: 'l'adoni' (לַאדֹנִי = to my lord) designates a human master/king, strictly distinct from Adonai.",
+      "contextual_semantic_range": "Denotes human master/owner (Gen 24:12, Sarah calling Abraham lord Gen 18:12), royal monarch or official (Gen 40:1, Joseph as lord of Egypt Gen 45:8), or prophetic/reverential address ('my lord'). Grammatically distinct from the divine title *Adonai* (which has a distinctive Qamets vowel pointing reserved strictly for God). In Psalm 110:1: 'Ne'um YHWH l'adoni' (לַאדֹנִי = to my lord, with chirik/hireq, indicating a human lord/master, NOT God).",
+      "biblical_occurrences": [
+        "Gen 18:12",
+        "Gen 24:12",
+        "Gen 45:8",
+        "Exod 21:4",
+        "1 Sam 1:15",
+        "1 Sam 25:24",
+        "Ps 110:1"
+      ],
+      "later_hebrew_usage": "Standard formal modern and rabbinic address: 'Mr.' or 'sir' (Adon), preserving its secular, human meaning.",
+      "aramaic_cognates": "מָרֵא (Mare' / Mara) - lord, master (Dan 2:47, 4:19).",
+      "translation_equivalents": {
+        "greek": "κύριος (kurios)",
+        "latin": "dominus, erus",
+        "arabic": "Sayyid (سَيِّד), Mawla (مَوْلَى)",
+        "english": "lord, master, sir"
+      },
+      "lxx_translation_issues": "Critical conflation: The Septuagint translated both the Tetragrammaton (YHWH) and Adon / Adonai indiscriminately as κύριος (kurios). Consequently, Psalm 110:1 'Ne'um YHWH l'adoni' became 'Εἶπεν ὁ κύριος τῷ κυρίῳ μου' (Eipen ho kurios tō kuriō mou - 'The Lord said to my lord'), masking the Hebrew distinction between YHWH (the transcendent God) and l'adoni (to my earthly lord/king).",
+      "jewish_traditional_interpretation": "In Psalm 110:1, King David is either the author addressing his king/subject, or more traditionally, the psalm was composed by a court poet/Levitical singer addressing King David as 'my lord' (adoni), celebrating David's enthronement in Jerusalem and military victories.",
+      "christian_interpretive_usage": "Based on the Greek LXX and Synoptic Gospels (Matt 22:41-46), Jesus uses Ps 110:1 to confound the Pharisees, arguing that since David calls the Messiah 'Lord' (kurios), the Messiah cannot merely be David's human son, but must be divine.",
+      "islamic_interfaith_relevance": "Parallels the Arabic distinction between Rabb (Lord, reserved for Allah) and Sayyid (master/lord applied to humans).",
+      "semantic_fallacies_to_avoid": "Confusing 'Adon' (human master) / 'l'adoni' (to my human lord) with 'Adonai' (the Divine Sovereign).",
+      "apologetic_relevance": "Central to the New Testament Christological proof-text of Psalm 110:1 in Matthew 22, Mark 12, Luke 20, Acts 2:34-36, Hebrews 1:13.",
+      "apologetic_debate": {
+        "locus": "Psalm 110:1 ('Ne'um YHWH l'adoni: shev limini...')",
+        "christian_interpretation": "David calls the Messiah his Lord, proving the Messiah pre-existed David and is ontologically divine.",
+        "jewish_refutation": "The Hebrew reads 'l'adoni' (to my master/lord, pointing with hireq), which is exclusively applied to human superiors throughout the Tanakh, never to God (which would be 'l'Adonai' with qamets). The psalm was composed for David by a court singer addressing David as 'my lord'."
+      },
+      "safety": {
+        "safe_use": "Demonstrate the vocalic and Masoretic distinction between l'adoni (human master) and Adonai (YHWH).",
+        "common_misuse": "Claiming Psalm 110:1 features God speaking to God as equals based on English 'The LORD said unto my Lord'.",
+        "translation_risk": "Failure to preserve Hebrew vocable distinction lost in Greek kurios and English Lord/LORD.",
+        "context_required": "Vocalization and Masoretic cantillation of Psalm 110:1."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RASHI-001",
+          "SRC-JEW-IBN-EZRA-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Masoretic pointing analysis and Synoptic-Septuagint comparative reception",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
+    },
+    {
+      "term": "Adonai",
+      "hebrew": "אֲדֹנָי",
+      "transliteration": "Adonai",
+      "grammatical_category": "Proper divine title (morphologically plural of majesty with archaic 1st person suffix lengthened to Qamets)",
+      "morphology": "Proper divine title / Plural of majesty",
+      "root": "א-ד-ן (ʾ-d-n)",
+      "basic_lexical_range": "The Lord, the Sovereign Master of the universe",
+      "semantic_range": "Exclusively designates the God of Israel. Never applied to any human, angel, or pagan idol. Used as the spoken substitute (Qere perpetuum) whenever the four-letter Name (Tetragrammaton YHWH) appears in the biblical text during liturgical reading.",
+      "contextual_semantic_range": "Exclusively designates the God of Israel. Never applied to any human, angel, or pagan idol. Used as the spoken substitute (Qere perpetuum) whenever the four-letter Name (Tetragrammaton YHWH) appears in the biblical text during liturgical reading.",
+      "biblical_occurrences": [
+        "Gen 15:2",
+        "Gen 18:27",
+        "Exod 4:10",
+        "Isa 6:1",
+        "Ps 8:1",
+        "Ps 35:23",
+        "Ps 130:2"
+      ],
+      "later_hebrew_usage": "Liturgical designation for God; in everyday speech Orthodox Jews substitute 'HaShem' (The Name) to avoid uttering Adonai in vain outside prayer.",
+      "aramaic_cognates": "מָרְיָא (Marya) in Peshitta, corresponding to Adonai/YHWH.",
+      "translation_equivalents": {
+        "greek": "ὁ Κύριος (ho Kurios)",
+        "latin": "Dominus",
+        "arabic": "Ar-Rabb (الرَّبّ)",
+        "english": "the Lord, Sovereign God"
+      },
+      "lxx_translation_issues": "Translated as κύριος (kurios), reinforcing the erasure of the distinction between YHWH, Adonai, and human adon.",
+      "jewish_traditional_interpretation": "The attribute of Divine Masterhood and Mercy. Maimonides notes that Adonai signifies that God is the Master of all creation, and its sanctity is second only to the Tetragrammaton.",
+      "christian_interpretive_usage": "Early Christians transferred the title Kurios/Adonai to Jesus (e.g. Phil 2:9-11, Rom 10:9, 1 Cor 8:6), effectively applying Old Testament passages concerning Adonai/YHWH to Jesus.",
+      "islamic_interfaith_relevance": "Closest theological parallel is Rabb al-'Alamin (Lord of the Worlds); Islamic theology agrees that divine Lordship (Rububiyyah) belongs exclusively to the One Creator.",
+      "semantic_fallacies_to_avoid": "Confusing the Masoretic vowel pointing of Adonai (Qamets: absolute divine title) with adoni (Hireq: 'my lord' applied to humans) or adonai (Patach: 'my masters' plural human).",
+      "apologetic_relevance": "Crucial counterpoint to Christological readings of Psalm 110:1 and divine titles.",
+      "safety": {
+        "safe_use": "Clarify that the unique Qamets pointing on Adonai is never applied to humans in biblical Hebrew.",
+        "common_misuse": "Conflating Adonai with adoni to claim the Tanakh teaches multiple divine persons.",
+        "translation_risk": "Flattening all forms into English 'Lord'.",
+        "context_required": "Masoretic vowel pointing system and Qere/Ketiv traditions."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RAMBAM-MN-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Masoretic grammatical analysis and comparative Semitic theology",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
+    },
+    {
+      "term": "Brit",
+      "hebrew": "בְּרִית",
+      "transliteration": "Brit / Berit",
+      "grammatical_category": "Noun feminine singular (plural: beritot)",
+      "morphology": "Noun feminine singular",
+      "root": "ב-ר-י (b-r-y) or ב-ר-ת (b-r-t); related to Akkadian *birītu* (clasp, bond, fetter) or root meaning 'to cut' (karat brit)",
+      "basic_lexical_range": "Covenant, treaty, pact, solemn alliance, binding pledge",
+      "semantic_range": "Political parity treaty between equals (Gen 21:27); suzerain-vassal treaty (1 Sam 11:1); marriage bond (Mal 2:14); binding theological covenants between God and humanity/Israel (Noahic, Abrahamic, Sinaitic, Davidic, New Covenant).",
+      "contextual_semantic_range": "Encompasses political treaties between equals (Gen 21:27, 1 Kgs 15:19); suzerain-vassal treaties between monarch and subjects (1 Sam 11:1); marriage pacts (Mal 2:14, Prov 2:17); and supremely, the binding theological covenants between God and humanity/Israel (Noahic Gen 9, Abrahamic Gen 15/17, Sinaitic Exod 24, Davidic 2 Sam 7/Ps 89, and the Renewal/New Covenant of Jer 31:31-34). Characterized by the idiom 'likhrot brit' (to cut a covenant) involving sacrificial ratification.",
+      "biblical_occurrences": [
+        "Gen 9:9",
+        "Gen 15:18",
+        "Gen 17:7",
+        "Exod 24:7",
+        "Deut 29:9",
+        "Jer 31:31-34",
+        "Mal 3:1"
+      ],
+      "later_hebrew_usage": "Brit Milah (ritual circumcision, covenant of Abraham); Brit Shalom; Brit Olam (everlasting covenant).",
+      "aramaic_cognates": "קְיָם (Qeyam) - decree, statute, covenant (Dan 6:8, Targum rendering).",
+      "translation_equivalents": {
+        "greek": "διαθήκη (diathēkē - testament/covenant, chosen over synthēkē to preserve divine sovereign initiative)",
+        "latin": "testamentum, foedus, pactum",
+        "arabic": "'Ahd (عَهْد), Mithaq (مِيثَاق)",
+        "english": "covenant, treaty, pact, alliance"
+      },
+      "lxx_translation_issues": "Hellenistic translators chose διαθήκη (diathēkē - testament/last will or unilateral disposition) rather than συνθήκη (synthēkē - bilateral contract) to emphasize God's sovereign initiative. This later influenced the Latin choice of 'Testament' (Vetus/Novum Testamentum), shifting the concept towards a last will that takes effect upon death (Heb 9:16-17).",
+      "jewish_traditional_interpretation": "Covenants with God are unconditional and eternal in their foundational election (Brit Olam, Gen 17:7, Lev 26:44-45), though individual blessing or exile within the covenant depends on Torah observance. The 'New Covenant' in Jeremiah 31:31-34 (Brit Chadashah) is understood not as a new Torah or abrogation of the commandments, but as an internal spiritual renewal where the *same* Torah is written upon the heart of the house of Israel and Judah.",
+      "christian_interpretive_usage": "Foundation of Supersessionism / Covenant Theology: the Old Covenant (Mosaic Law) is viewed as temporary, obsolete, or fulfilled and replaced by the New Covenant inaugurated by the blood and death of Jesus (Heb 8:13, Matt 26:28, Luke 22:20).",
+      "islamic_interfaith_relevance": "Strong concordance with Quranic Mithaq (solemn covenant taken with the Prophets and Bani Isra'il, Surah 2:83-84, 5:12-14). Islam asserts that previous communities broke their covenants through alteration (tahrif) or neglect, culminating in the final covenant with Muhammad.",
+      "semantic_fallacies_to_avoid": "Conflating 'new covenant' (Jer 31:31) with the abolition of the Torah or replacement of the Jewish people.",
+      "apologetic_relevance": "Heart of Christian-Jewish debates over supersessionism, continuity vs discontinuity of the Law, and the meaning of Jeremiah 31:31-34.",
+      "safety": {
+        "safe_use": "Present Jeremiah 31:31-34 in its explicit context ('with the House of Israel and the House of Judah') and note that the content of the covenant is the internalization of the Torah, not its annulment.",
+        "common_misuse": "Claiming the Tanakh predicts the complete cancellation of Jewish national election.",
+        "translation_risk": "Translating diathēkē / brit exclusively as 'testament' implying God died or a will was executed.",
+        "context_required": "Near Eastern treaty structures and Leviticus 26:44-45 (eternal non-revocation)."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-MT-001",
+          "SRC-ACAD-COHEN-001"
+        ],
+        "methodology": "Ancient Near Eastern treaty genre comparison and covenant theology",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
+    },
+    {
+      "term": "Zera",
+      "hebrew": "זֶרַע",
+      "transliteration": "Zera",
+      "grammatical_category": "Noun masculine singular (collective)",
+      "morphology": "Noun masculine singular (collective)",
+      "root": "ז-ר-ע (z-r-ʿ; to sow, scatter seed)",
+      "basic_lexical_range": "Seed (botanical), semen (physiological), offspring/descendants/posterity (genealogical collective)",
+      "semantic_range": "Grammatically a collective singular noun denoting all descendants or multiple offspring (like English 'progeny', 'offspring', 'seed'). Used for crops (Gen 1:11), human semen (Lev 15:16), and collective descendants (Gen 12:7, Gen 13:16, Gen 15:5).",
+      "contextual_semantic_range": "Grammatically a collective singular noun denoting all descendants or multiple offspring (like English 'offspring', 'progeny', 'sheep', or 'seed'). Used for agricultural crops (Gen 1:11); human semen (Lev 15:16); and collective descendants (Gen 12:7 'To your seed I will give this land', Gen 13:16 'as the dust of the earth', Gen 15:5 'as the stars of heaven'). Very rarely refers to an individual child (Gen 4:25, Gen 21:13), but in covenantal promises it is overwhelmingly and consistently collective.",
+      "biblical_occurrences": [
+        "Gen 1:11",
+        "Gen 3:15",
+        "Gen 12:7",
+        "Gen 13:16",
+        "Gen 15:5",
+        "Gen 22:17-18",
+        "Ps 89:4"
+      ],
+      "later_hebrew_usage": "Zera Yisrael (seed of Israel, halakhic term for patrilineal descendants of Jews); Zera Kodesh (holy seed).",
+      "aramaic_cognates": "זַרְעָא (Zar'a) - seed, offspring (Dan 2:43).",
+      "translation_equivalents": {
+        "greek": "σπέρμα (sperma)",
+        "latin": "semen, soboles",
+        "arabic": "Zurriyyah (ذُرِّيَّة), Zar' (زَرْع)",
+        "english": "seed, offspring, descendants, posterity"
+      },
+      "lxx_translation_issues": "Translated as σπέρμα (sperma), which in Greek can also function as a collective singular or be grammatically analyzed as singular vs plural.",
+      "jewish_traditional_interpretation": "In the patriarchal promises (Abraham, Isaac, Jacob), 'zera' uniformly designates the numerous national descendants of Israel ('as the dust of the earth and the sand of the seashore', Gen 22:17). The grammatical singular form is the standard Hebrew rule for collective nouns, not an indication of a single individual.",
+      "christian_interpretive_usage": "Paul in Galatians 3:16 builds a theological argument on the singular number of the word: 'He does not say, \"And to seeds,\" as of many, but as of one, \"And to your seed,\" who is Christ.' Christian theology uses this to argue that the true heir of the Abrahamic promises is Jesus Christ.",
+      "islamic_interfaith_relevance": "Parallels Zurriyyat Ibrahim (posterity of Abraham) in the Quran (Surah 2:124, 14:37), through whom prophethood and scripture were granted (Surah 29:27), including both Ishmael and Isaac.",
+      "semantic_fallacies_to_avoid": "Grammatical number fallacy: treating a collective singular noun in Semitic grammar as if it must denote a single individual person.",
+      "apologetic_relevance": "Foundational for evaluating Paul's hermeneutic in Galatians 3:16 vs Hebrew grammatical syntax of Genesis 12:7, 13:15, 22:17-18.",
+      "safety": {
+        "safe_use": "Explain that 'zera' in biblical Hebrew is a collective singular that normally takes plural pronouns and verb agreements when referring to multiple descendants (e.g. Gen 15:13, Gen 17:8).",
+        "common_misuse": "Asserting that the Hebrew text of Genesis 22:18 linguistically excluded plural descendants and could only grammatically refer to one individual.",
+        "translation_risk": "Confusing grammatical singularity with numerical singularity.",
+        "context_required": "Hebrew collective noun syntax across Semitic languages."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-IBN-EZRA-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Semitic collective noun morphosyntax and comparative Pauline midrashic analysis",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
+    },
+    {
+      "term": "Kapparah",
+      "hebrew": "כַּפָּרָה / כָּפַר",
+      "transliteration": "Kapparah (noun) / Kafar (verb)",
+      "grammatical_category": "Abstract noun feminine singular / Pi'el verbal root כ-פ-ר",
+      "morphology": "Abstract noun / Pi'el verb",
+      "root": "כ-פ-ר (k-p-r; comparative Semitic: Akkadian *kapāru* = to wipe off, cleanse; Arabic *kafara* = to cover, conceal)",
+      "basic_lexical_range": "Atonement, expiation, purgation, wiping away, cleansing, ransom (kofer)",
+      "semantic_range": "In Levitical ritual, the Pi'el verb *kipper* means to perform a ritual of purgation/cleansing of the sanctuary and the sinner, removing ritual impurity and moral defilement (Lev 16:30). Accomplished through sacrifices, money, incense, prayer, repentance, and righteousness.",
+      "contextual_semantic_range": "In Levitical ritual, the Pi'el verb *kipper* means to perform a ritual of purgation/cleansing of the sanctuary and the sinner, removing ritual impurity and moral defilement (Lev 16:30). Also associated with monetary/property ransom (*kofer*, Exod 30:12, Num 35:31). Crucially in Tanakh, kapparah is accomplished through multiple avenues: animal sacrifices (Lev 4-5), monetary contribution (Exod 30:15-16), incense (Num 16:46-48), prayer and fasting (Exod 32:30, Jonah 3:5-10, Ps 35:13), repentance and righteousness (Prov 16:6 'By lovingkindness and truth iniquity is atoned for / yekhuppar avon'; Dan 4:27), and suffering/exile (Isa 40:2).",
+      "biblical_occurrences": [
+        "Exod 30:15-16",
+        "Lev 4:20",
+        "Lev 5:11-13",
+        "Lev 16:30",
+        "Lev 17:11",
+        "Num 16:46-48",
+        "Prov 16:6",
+        "Isa 22:14",
+        "Dan 4:27"
+      ],
+      "later_hebrew_usage": "Central to Yom Kippur theology, Rabbinic liturgy, and the concept of Kapparah through teshuvah, tzedakah, and tfilah (repentance, charity, and prayer).",
+      "aramaic_cognates": "כַּפֵּר (Kapper) - to forgive, atone, wipe away (Targum).",
+      "translation_equivalents": {
+        "greek": "ἐξιλάσκομαι (exilaskomai - expiate), ἱλασμός (hilasmos - expiation/propitiation)",
+        "latin": "expiatio, propitiatio",
+        "arabic": "Kaffarah (كَفَّارَة)",
+        "english": "atonement, expiation, purgation, cleansing"
+      },
+      "lxx_translation_issues": "LXX often translates using ἐξιλάσκομαι (exilaskomai). In Greek pagan religion, this verb meant 'to placate or propitiate an angry deity.' In biblical Hebrew, however, God is almost never the direct object of *kipper*; rather, sin, impurity, or the sanctuary is cleansed/covered.",
+      "jewish_traditional_interpretation": "Sacrificial atonement applied primarily to unintentional sins (shegogot, Lev 4:2, 4:27), never to intentional high-handed rebellion (Num 15:30). Following the destruction of the Second Temple, Judaism emphasized that prayer, repentance, and deeds of lovingkindness replace animal offerings, directly anchored in biblical precedents (Hos 6:6 'For I desire lovingkindness and not sacrifice', Hos 14:3 'We will render the prayer of our lips instead of bulls', 1 Sam 15:22, Ps 51:17-19).",
+      "christian_interpretive_usage": "Christian apologetics heavily cites Leviticus 17:11 ('For the life of the flesh is in the blood... it is the blood that makes atonement') to argue that without blood sacrifice, there is no forgiveness of sins (Heb 9:22), and therefore Judaism without a Temple is deficient without Jesus's sacrificial blood.",
+      "islamic_interfaith_relevance": "Cognate with Arabic Kaffarah (expiation for oaths or missed fasts, Surah 5:89, 5:95). In Islam, forgiveness (Maghfirah / Tawbah) is direct from Allah based on sincere repentance; animal sacrifice ('Eid al-Adha) is an act of piety, not vicarious sin expiation (Quran 22:37: 'Neither their meat nor their blood reaches Allah; but piety from you reaches Him').",
+      "semantic_fallacies_to_avoid": "'Blood-alone' fallacy (asserting that Tanakh knows no atonement without physical blood shedding, ignoring Lev 5:11-13 where flour atones, Exod 30:15 where silver atones, Num 16:47 where incense atones, and Prov 16:6 where chesed atones).",
+      "apologetic_relevance": "Major battleground on the necessity of blood sacrifice, Leviticus 17:11 vs Hosea 14:3, and Hebrews 9:22.",
+      "safety": {
+        "safe_use": "Note Leviticus 5:11 (flour offering achieves atonement without blood) alongside Leviticus 17:11 to show the full scriptural breadth.",
+        "common_misuse": "Claiming that Jews today have no means of forgiveness without the Temple altar or Christ.",
+        "translation_risk": "Confusing pagan propitiation (calming an angry god) with Levitical expiation/cleansing (sanctuary purification).",
+        "context_required": "Leviticus 4-5 sacrificial categories and post-destruction rabbinic continuity based on prophetic texts."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RAMBAM-MT-001",
+          "SRC-JEW-TALMUD-BAVLI-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Levitical cultic philology, comparative Semitic semantics, and prophetic theology",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
+    },
+    {
+      "term": "Korban",
+      "hebrew": "קָרְבָּן",
+      "transliteration": "Korban / Qorban",
+      "grammatical_category": "Noun masculine singular (plural: korbanot)",
+      "morphology": "Noun masculine singular",
+      "root": "ק-ר-ב (q-r-b; to draw near, approach, come close)",
+      "basic_lexical_range": "Offering, oblation, sacrifice; literally 'that which is brought near' to God",
+      "semantic_range": "Root strictly signifies drawing near or approaching God into intimate fellowship. Encompasses various categories: Olah (burnt offering expressing total devotion), Minchah (grain offering of the poor), Shelamim (peace/fellowship offering eaten in joy by worshippers), Chatat (purification/sin offering for inadvertent sins), Asham (guilt offering for trespasses).",
+      "contextual_semantic_range": "Root strictly signifies *drawing near* or approaching God into intimate fellowship. Not derived from a concept of 'destruction', 'killing', or 'penalty', but of proximity. Encompasses various categories: Olah (burnt offering expressing total devotion), Minchah (grain offering of the poor), Shelamim (peace/fellowship offering eaten in joy by worshippers), Chatat (purification/sin offering for inadvertent sins), Asham (guilt offering for trespasses).",
+      "biblical_occurrences": [
+        "Lev 1:2",
+        "Lev 2:1",
+        "Lev 3:1",
+        "Lev 7:38",
+        "Num 7:12",
+        "Num 28:2",
+        "Ezek 20:28"
+      ],
+      "later_hebrew_usage": "Used for sacrificial liturgy (Seder Korbanot in morning prayer); in Mishnaic Hebrew also denotes a vow consecrating property to God (Mishnah Nedarim).",
+      "aramaic_cognates": "קֻרְבָּנָא (Qurbana) - offering, sacrifice (also used in Syriac liturgy for the Eucharist).",
+      "translation_equivalents": {
+        "greek": "δῶρον (dōron - gift), θυσία (thusia - sacrifice), κορבᾶν (korban - transliterated in Mark 7:11)",
+        "latin": "oblatio, sacrificium, donum",
+        "arabic": "Qurban (قُرْبَان)",
+        "english": "offering, sacrifice, oblation"
+      },
+      "lxx_translation_issues": "LXX often translates as δῶρον (gift) or θυσία (sacrifice). In Mark 7:11, the Hebrew/Aramaic word itself is transliterated into Greek as κορבᾶν (korban = 'a gift devoted to God').",
+      "jewish_traditional_interpretation": "The purpose of the korban is spiritual elevation and drawing near to the Shekhinah (Divine Presence). Maimonides (Guide for the Perplexed 3:32) viewed animal sacrifice as a historical concession to steer Israel away from idolatrous Egyptian practices toward monotheism, while Nachmanides (Ramban) emphasized the psychological-experiential dimension where the person internalizes that their own life belongs to God.",
+      "christian_interpretive_usage": "Typologically interpreted as foreshadowing the ultimate, once-for-all sacrifice of Jesus Christ (Hebrews 9-10).",
+      "islamic_interfaith_relevance": "Appears in the Quran as Qurban (Surah 3:183, 5:27 on Abel and Cain's offerings). Animal sacrifice (Udhiyah/Qurbani) is performed during Eid al-Adha honoring Abraham's obedience.",
+      "semantic_fallacies_to_avoid": "Etymological fallacy assuming sacrifice is fundamentally about pagan appeasement rather than drawing near (q-r-b).",
+      "apologetic_relevance": "Clarifies the theological nature of the biblical sacrificial system vs penal substitute views.",
+      "safety": {
+        "safe_use": "Emphasize the etymological root (q-r-b = to draw close) and the diversity of korbanot (most were not for sin, e.g. thank-offerings and grain).",
+        "common_misuse": "Reducing all Temple sacrifices to blood sin-expiation.",
+        "translation_risk": "Translating merely as 'slaughter' or 'destruction' rather than offering of proximity.",
+        "context_required": "Leviticus 1-7 taxonomy of sacrifices."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RAMBAM-MN-001",
+          "SRC-JEW-RAMBAN-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Cultic etymology and rabbinic philosophical theology",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
+    },
+    {
+      "term": "Emunah",
+      "hebrew": "אֱמוּנָה",
+      "transliteration": "Emunah",
+      "grammatical_category": "Noun feminine singular",
+      "morphology": "Noun feminine singular",
+      "root": "א-מ-ן (ʾ-m-n; firmness, steadfastness, fidelity, trust, truth; root of Amen and Emet)",
+      "basic_lexical_range": "Faithfulness, reliability, trustworthiness, steadfastness, fidelity, steadfast trust",
+      "semantic_range": "Active, relational quality of reliability and steadfast conduct, NOT passive mental assent to propositional dogma. Applied to God's covenant faithfulness (Deut 32:4, Lam 3:23), human integrity in stewardship (2 Kgs 12:15), and moral steadfastness (Hab 2:4).",
+      "contextual_semantic_range": "In Biblical Hebrew, *emunah* is an active, relational quality of reliability and steadfast conduct, NOT passive mental assent to propositional dogma. Applied to God's unswerving covenant faithfulness (Deut 32:4 'A God of faithfulness / El emunah', Ps 89:2, Lam 3:23 'Great is Your faithfulness'), to human integrity in stewardship (2 Kgs 12:15, 2 Kgs 22:7 'for they dealt faithfully'), and to persistent steadfastness (Exod 17:12 Moses' hands held up in emunah). In Habakkuk 2:4 ('ve-tzaddik be-emunato yichyeh'), it denotes the righteous person living by their steadfast fidelity, moral steadfastness, and persistent trust in God amidst imperial crisis.",
+      "biblical_occurrences": [
+        "Exod 17:12",
+        "Deut 32:4",
+        "1 Sam 26:23",
+        "2 Kgs 12:15",
+        "Ps 36:6",
+        "Ps 89:2",
+        "Hab 2:4"
+      ],
+      "later_hebrew_usage": "In medieval Jewish philosophy (Maimonides' 13 Principles), evolved to incorporate philosophical conviction and theological belief, while retaining active mitzvah observance.",
+      "aramaic_cognates": "הֵימָנוּתָא (Hemanuta) - faith, faithfulness, trust (Targum).",
+      "translation_equivalents": {
+        "greek": "πίστις (pistis - faithfulness/faith), ἀλήθεια (alētheia - truth)",
+        "latin": "fidelitas, fides",
+        "arabic": "Iman (إِيمَان), Amanah (أَمَانَة)",
+        "english": "faithfulness, fidelity, steadfastness, trust"
+      },
+      "lxx_translation_issues": "LXX translates *emunah* as πίστις (pistis). While pistis in classical Greek could mean trust/fidelity, in Hellenistic and Christian usage it increasingly came to mean intellectual belief/confession, which subtly shifted Habakkuk 2:4 when quoted in the New Testament.",
+      "jewish_traditional_interpretation": "Living a life of active loyalty, observance, and moral integrity under God's Torah. The tzaddik (righteous person) survives and flourishes through enduring steadfast loyalty to God even during national catastrophe.",
+      "christian_interpretive_usage": "Paul in Romans 1:17 and Galatians 3:11 quotes Habakkuk 2:4 ('The just shall live by faith') as the quintessential proof-text for the Protestant doctrine of Justification by Faith Alone (*Sola Fide*) without works of the law.",
+      "islamic_interfaith_relevance": "Cognate with Arabic Iman (faith/belief) and Amanah (trust/moral responsibility). In Islam, Iman is incomplete without 'Amal Salih (righteous deeds), closely mirroring the Jewish synthesis of faith and halakhic practice.",
+      "semantic_fallacies_to_avoid": "Propositional anachronism: reading post-Reformation concepts of intellectual 'faith vs works' back into the ancient Hebrew concept of *emunah* (steadfast loyalty/faithfulness).",
+      "apologetic_relevance": "Core text in the debate over Paul's use of Habakkuk 2:4 in Romans 1:17 and James 2:14-26.",
+      "safety": {
+        "safe_use": "Demonstrate that Habakkuk 2:4 in its original Hebrew context refers to faithfulness/steadfast endurance, not cognitive faith divorced from deed.",
+        "common_misuse": "Pitting Old Testament 'works-righteousness' against New Testament 'faith' based on a misreading of *emunah*.",
+        "translation_risk": "Translating *emunah* as abstract belief rather than active faithfulness.",
+        "context_required": "Historical setting of Habakkuk confronting the Babylonian invasion."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RAMBAM-MN-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Comparative Semitic lexicography and biblical theology of covenant faithfulness",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
+    },
+    {
+      "term": "Torah",
+      "hebrew": "תּוֹרָה",
+      "transliteration": "Torah",
+      "grammatical_category": "Noun feminine singular (plural: torot)",
+      "morphology": "Noun feminine singular",
+      "root": "י-ר-ה (y-r-h; Hif'il form *horah* = to point out, instruct, direct, guide, teach)",
+      "basic_lexical_range": "Instruction, teaching, guidance, direction; divine revelation, law",
+      "semantic_range": "Does NOT fundamentally mean 'law' in the narrow statutory or penal sense. Derived from archery/pointing an arrow to show the right path. Encompasses parental instruction (Prov 1:8), specific priestly instructions (Lev 7:37), the Chumash (Five Books of Moses), and the dual Written/Oral revelation.",
+      "contextual_semantic_range": "Does NOT fundamentally mean 'law' in the narrow statutory or penal sense. Derived from archery/pointing an arrow to show the right target or path. Encompasses parental instruction (Prov 1:8 'Torat immekha', your mother's teaching), specific priestly instructions/manuals regarding sacrifices and leprosy (Lev 7:37, Lev 14:57), the Five Books of Moses (Chumash), the entire written Tanakh, and in Rabbinic Judaism, the dual revelation: Torah she-bikhtav (Written Torah) and Torah she-be'al peh (Oral Torah).",
+      "biblical_occurrences": [
+        "Exod 24:12",
+        "Lev 7:37",
+        "Deut 4:44",
+        "Deut 33:4",
+        "Josh 1:8",
+        "Ps 1:2",
+        "Ps 19:8",
+        "Ps 119:1",
+        "Prov 1:8"
+      ],
+      "later_hebrew_usage": "Comprehensive designation for all Jewish learning and sacred scholarship; 'Torah study' (Talmud Torah).",
+      "aramaic_cognates": "אוֹרַיְתָא (Orayta) - the Torah, divine teaching (Targum and Talmud).",
+      "translation_equivalents": {
+        "greek": "νόμος (nomos - custom, statute, law)",
+        "latin": "lex, doctrina",
+        "arabic": "Tawrat (تَوْרָاة), Ta'lim (تَعْلِيم)",
+        "english": "instruction, teaching, guidance, Law"
+      },
+      "lxx_translation_issues": "Decisive shift in conceptualization: LXX translated *Torah* as νόμος (nomos = custom, convention, statute, legal code). This legalistic framing was inherited by the Latin *lex* and modern Western translations as 'The Law', creating the polemical Christian antithesis between 'Law' (legalism, burden, curse) and 'Grace' (Gospel).",
+      "jewish_traditional_interpretation": "The supreme, loving divine instruction and blueprint for cosmic existence, given by God to sanctify every facet of human life. Psalm 119 repeatedly praises the Torah as sweeter than honey, a lamp to the feet, and the ultimate source of freedom, joy, and spiritual delight.",
+      "christian_interpretive_usage": "Often contrasted with grace (John 1:17 'For the law was given through Moses; grace and truth came through Jesus Christ'; Gal 3:10-13 'Christ redeemed us from the curse of the law'). Pauline theology wrestles with its holy character yet treats its ritual commandments as a paidagogos (custodian) until Christ came.",
+      "islamic_interfaith_relevance": "Mentioned explicitly as the Tawrat revealed to Musa (Moses) containing guidance and light (Surah 5:44 'Inna anzalna at-Tawrata fiha hudan wa-nur'). Islam affirms its divine origin while asserting that subsequent rabbinic transmission suffered textual corruption (tahrif).",
+      "semantic_fallacies_to_avoid": "'Nomism' fallacy: reducing the multifaceted divine instruction/teaching (*Torah*) to cold legalistic statutory code (*nomos/lex*).",
+      "apologetic_relevance": "Crucial for unpacking Christian vs Jewish debates over the 'burden' of the law vs the 'joy' of the mitzvot (Simchat Torah).",
+      "safety": {
+        "safe_use": "Clarify the etymology (y-r-h = instruction/direction) and distinguish between parental teaching, legal statutes, and cosmic revelation.",
+        "common_misuse": "Equating Torah with Pharisaic legalism or an unbearable yoke of impossible perfectionism.",
+        "translation_risk": "Translating *Torah* uniformly as 'The Law'.",
+        "context_required": "Psalm 19 and Psalm 119 devotional and covenantal contexts."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RAMBAM-MT-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Etymological root analysis and comparative Hellenistic-Rabbinic theology",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
+    },
+    {
+      "term": "Nephesh",
+      "hebrew": "נֶפֶשׁ",
+      "transliteration": "Nephesh",
+      "grammatical_category": "Noun feminine singular (plural: nefashot)",
+      "morphology": "Noun feminine singular",
+      "root": "נ-פ-שׁ (n-p-sh; to breathe, respire; related to Akkadian *napištu* = throat, neck, life, breath)",
+      "basic_lexical_range": "Throat, neck, breath, vital life-force, living being, person, soul, desire/appetite",
+      "semantic_range": "In Biblical Hebrew, represents a psychosomatic unity: a breathing, living, concrete being, NOT an immaterial, immortal soul trapped in a physical body. Physical throat/neck (Jonah 2:6); biological life-force in blood (Lev 17:11); person/individual (Gen 12:5); corpse (Lev 21:11).",
+      "contextual_semantic_range": "In Biblical Hebrew, *nephesh* represents a psychosomatic unity: a breathing, living, concrete being, NOT an immaterial, immortal soul trapped in a physical body (which is Platonic/Cartesian dualism). Physical throat/neck (Jonah 2:6 'waters encompassed me up to the nephesh/neck', Isa 5:14 'Sheol has enlarged its nephesh/throat'); biological life-force connected to blood (Gen 9:4, Lev 17:11 'the nephesh of the flesh is in the blood'); appetite/desire (Prov 23:2, Deut 12:20); the person/individual herself (Gen 12:5 'the nefashot they made in Haran', Lev 4:2 'if a nephesh sins'); corpse/dead body (Lev 21:11 nephesh met).",
+      "biblical_occurrences": [
+        "Gen 1:20",
+        "Gen 2:7",
+        "Gen 9:4",
+        "Lev 17:11",
+        "Lev 21:11",
+        "Deut 6:5",
+        "Ps 42:2",
+        "Jonah 2:6"
+      ],
+      "later_hebrew_usage": "In Rabbinic and medieval Kabbalistic psychology, integrated into a tripartite or five-level schema of soul faculties: Nephesh (basic biological/instinctive life), Ruach (emotional/moral spirit), Neshamah (intellectual/divine breath), Chayah, and Yechidah.",
+      "aramaic_cognates": "נַפְשָׁא (Nafsha) - soul, person, self (Targum and Syriac).",
+      "translation_equivalents": {
+        "greek": "ψυχή (psuchē - soul, life)",
+        "latin": "anima, vita",
+        "arabic": "Nafs (نَفْس)",
+        "english": "soul, life, being, person, throat, breath"
+      },
+      "lxx_translation_issues": "Translated as ψυχή (psuchē), which carried Greek philosophical baggage of the Orphic/Platonic immortal soul distinct from and opposed to the corruptible mortal body (soma). This led Western readers to project body-soul dualism onto ancient Hebrew anthropology.",
+      "jewish_traditional_interpretation": "In biblical anthropology, human beings do not *have* a nephesh; they *are* a nephesh (Gen 2:7 'and man *became* a nephesh chayah / living being'). Bodily resurrection (Techiyat HaMetim) rather than mere disembodied immortality became normative rabbinic eschatology because Hebrew thought insists on the integrity of the embodied person.",
+      "christian_interpretive_usage": "Frequently read through Greek dualistic categories as the immortal soul that goes immediately to heaven or hell upon bodily death, or cited in Leviticus 17:11 regarding the blood atonement of Christ.",
+      "islamic_interfaith_relevance": "Cognate with Arabic Nafs (the self, ego, soul). The Quran distinguishes between Nafs al-Ammarah (the soul prompting evil, Surah 12:53), Nafs al-Lawwamah (the self-accusing soul, 75:2), and Nafs al-Mutma'innah (the tranquil soul, 89:27).",
+      "semantic_fallacies_to_avoid": "Dualistic fallacy: projecting Greek philosophical Cartesian/Platonic body-soul dichotomy onto the Semitic holistic term *nephesh*.",
+      "apologetic_relevance": "Foundational for biblical anthropology, resurrection of the dead vs immortality of the soul, and Leviticus 17:11.",
+      "safety": {
+        "safe_use": "Clarify that in Genesis 2:7 Adam becomes a living nephesh, meaning an embodied living being.",
+        "common_misuse": "Claiming that Genesis 2:7 describes the infusion of a Greek-style immortal soul into a disposable clay shell.",
+        "translation_risk": "Translating *nephesh* as 'immortal soul' rather than 'life', 'breath', or 'living creature'.",
+        "context_required": "Comparative ancient Near Eastern anthropology and Leviticus 17:11."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RAMBAM-MN-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Comparative Semitic anthropology, psychosomatic holism analysis, and biblical exegesis",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
     }
-  ]
+  ],
+  "total_count": 17
 }

@@ -1089,7 +1089,41 @@
         "peer_review_status": "POLEMICAL_CLASSIC"
       },
       "notes": "Foundational Islamic polemical work formulating the doctrine of Tahrif al-Nass; argued that Ezra fabricated the Torah after the Babylonian exile."
+    },
+    {
+      "source_id": "SRC-ACAD-BDB-001",
+      "title": "A Hebrew and English Lexicon of the Old Testament (Brown-Driver-Briggs / BDB)",
+      "author": "Francis Brown, S. R. Driver, and Charles A. Briggs",
+      "date": "1906 CE",
+      "approximate_date": "Early 20th century CE (1891–1906)",
+      "historical_period": "MODERN_ERA",
+      "tradition": "ACADEMIC_CRITICAL",
+      "denomination": "ACADEMIC",
+      "language": "Biblical Hebrew / Biblical Aramaic / English",
+      "region": "Oxford, United Kingdom / Boston, United States",
+      "source_type": "LEXICON_REFERENCE",
+      "primary_or_secondary": "SECONDARY",
+      "academic_or_religious": "ACADEMIC",
+      "tier": "TIER_5_ACADEMIC_CRITICAL",
+      "publisher": "Clarendon Press / Oxford University Press",
+      "edition": "Oxford Clarendon Press 1906 / Hendrickson Publishers reprint",
+      "identifier": "ISBN 978-0198643012",
+      "repository": "Bodleian Library, Oxford / Harvard University",
+      "manuscript_reference": "Standard biblical Hebrew lexicon based on Wilhelm Gesenius",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "BDB-1906",
+          "Gesenius-Tregelles"
+        ],
+        "methodology": "Exhaustive comparative Semitic etymology, root-based morphology, and biblical concordance cross-referencing",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist",
+        "peer_review_status": "CLASSICAL_ACADEMIC_STANDARD"
+      },
+      "notes": "The definitive classical reference lexicon for Biblical Hebrew and Biblical Aramaic, organized by triliteral roots with comparative Semitic cognates."
     }
   ],
-  "total_count": 33
+  "total_count": 34
 }
