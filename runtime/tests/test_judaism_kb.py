@@ -434,7 +434,7 @@ class TestJudaismKnowledgeBase(unittest.TestCase):
         self.assertEqual(report["claim_issues"], [])
         self.assertEqual(report["evidence_issues"], [])
         self.assertEqual(report["graph_issues"], [])
-        self.assertEqual(report["metrics"]["sources_audited"], 73)
+        self.assertEqual(report["metrics"]["sources_audited"], 74)
         self.assertEqual(report["metrics"]["claims_audited"], 76)
         self.assertEqual(report["metrics"]["evidence_audited"], 66)
         self.assertEqual(report["metrics"]["nodes_audited"], 192)
@@ -555,11 +555,52 @@ class TestJudaismKnowledgeBase(unittest.TestCase):
         res_ver = subprocess.run([cli_path, "verify"], capture_output=True, text=True)
         self.assertEqual(res_ver.returncode, 0)
         self.assertIn("STATUS: ALL INTEGRITY CHECKS PASSED", res_ver.stdout)
-        self.assertIn("Judaism Knowledge Base: 73 Sources, 76 Claims, 66 Evidence Records, 192 Nodes, 274 Edges (0 Lint Errors)", res_ver.stdout)
+        self.assertIn("Judaism Knowledge Base: 74 Sources, 76 Claims, 66 Evidence Records, 192 Nodes, 274 Edges (0 Lint Errors)", res_ver.stdout)
 
         res_search = subprocess.run([cli_path, "search", "Maimonides messiah", "--tradition", "JEWISH"], capture_output=True, text=True)
         self.assertEqual(res_search.returncode, 0)
         self.assertIn("CLAIM-JEW-MASHIACH-CRITERIA-001", res_search.stdout)
+
+    # TEST 046: Lexicon Source Canonicalization, Metric Reconciliation, and Graph Semantics
+    def test_046_lexicon_and_graph_semantics(self):
+        # 1. Lexicon metric reconciliation
+        lex = self.kb._cache["lexicon"]
+        self.assertEqual(len(lex["terms"]), 17)
+        self.assertEqual(lex.get("actual_terms"), 17)
+        self.assertEqual(lex.get("total_count"), 17)
+        self.assertEqual(lex.get("target_expansion_count"), 35)
+
+        # 2. Source canonicalization
+        reg_ids = {s["source_id"] for s in self.kb._cache["registry"]["sources"]}
+        self.assertIn("SRC-JEW-IBN-EZRA-001", reg_ids)
+        self.assertIn("SRC-JEW-RAMBAM-MOREH-001", reg_ids)
+        self.assertIn("SRC-JEW-RAMBAN-TORAH-001", reg_ids)
+
+        # Check all source IDs in lexicon resolve to registry
+        unresolved = set()
+        for t in lex["terms"]:
+            for sid in t.get("provenance", {}).get("source_ids", []):
+                if sid not in reg_ids:
+                    unresolved.add(sid)
+        self.assertEqual(unresolved, set())
+
+        # 3. Graph semantics: dialectical reciprocal pairs vs acyclic lineage
+        graph = self.kb._cache["graph"]
+        self.assertIn("metadata", graph)
+        self.assertEqual(graph["metadata"]["graph_type"], "SEMANTIC_KNOWLEDGE_GRAPH")
+        self.assertTrue(graph["metadata"]["acyclicity_invariants"]["permits_reciprocal_dialogue"])
+        self.assertTrue(graph["metadata"]["acyclicity_invariants"]["lineage_subgraph_dag"])
+
+        # Check that reciprocal edge pair exists and is documented
+        saadia_challenges = any(
+            e["source"] == "NODE-SAADIA" and e["target"] == "NODE-DENOM-KARAITE" and e["relationship"] == "CHALLENGES"
+            for e in graph["edges"]
+        )
+        karaite_responds = any(
+            e["source"] == "NODE-DENOM-KARAITE" and e["target"] == "NODE-SAADIA" and e["relationship"] == "RESPONDS_TO"
+            for e in graph["edges"]
+        )
+        self.assertTrue(saadia_challenges and karaite_responds)
 
 if __name__ == "__main__":
     unittest.main()

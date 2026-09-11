@@ -1,4 +1,34 @@
 {
+  "metadata": {
+    "graph_type": "SEMANTIC_KNOWLEDGE_GRAPH",
+    "description": "Semantic knowledge relationship graph modeling conceptual, historical, textual, and polemical relationships across Judaism. Formally distinguished from runtime execution dependency DAGs.",
+    "acyclicity_invariants": {
+      "execution_dependency_dag": false,
+      "lineage_subgraph_dag": true,
+      "permits_reciprocal_dialogue": true
+    },
+    "dialectical_reciprocal_pairs": [
+      {
+        "interlocutors": [
+          "NODE-SAADIA",
+          "NODE-DENOM-KARAITE"
+        ],
+        "edges": [
+          {
+            "source": "NODE-SAADIA",
+            "target": "NODE-DENOM-KARAITE",
+            "relationship": "CHALLENGES"
+          },
+          {
+            "source": "NODE-DENOM-KARAITE",
+            "target": "NODE-SAADIA",
+            "relationship": "RESPONDS_TO"
+          }
+        ],
+        "rationale": "Historical polemical exchange: Saadia Gaon challenged Karaite scripturalism in anti-Karaite polemics; Karaite scholars (e.g. Salmon ben Jeroham) directly responded with counter-polemics defending Karaism."
+      }
+    ]
+  },
   "nodes": [
     {
       "id": "NODE-TANAKH",
@@ -1455,7 +1485,12 @@
       "source": "NODE-SAADIA",
       "target": "NODE-DENOM-KARAITE",
       "relationship": "CHALLENGES",
-      "weight": 1.0
+      "weight": 1.0,
+      "metadata": {
+        "is_reciprocal_dialogue": true,
+        "dialectical_counterpart": "NODE-DENOM-KARAITE",
+        "reciprocal_relationship": "RESPONDS_TO"
+      }
     },
     {
       "source": "NODE-DENOM-MESSIANIC-JEW",
@@ -2583,7 +2618,12 @@
       "source": "NODE-DENOM-KARAITE",
       "target": "NODE-SAADIA",
       "relationship": "RESPONDS_TO",
-      "weight": 1.0
+      "weight": 1.0,
+      "metadata": {
+        "is_reciprocal_dialogue": true,
+        "dialectical_counterpart": "NODE-SAADIA",
+        "reciprocal_relationship": "CHALLENGES"
+      }
     },
     {
       "source": "NODE-DENOM-MESSIANIC-JEW",

@@ -596,6 +596,39 @@
       "notes": "The universally authoritative commentary combining literal contextual exegesis (peshat) with selected midrashic insights; essential for understanding traditional Jewish interpretation of Isaiah 53 and messianic passages."
     },
     {
+      "source_id": "SRC-JEW-IBN-EZRA-001",
+      "title": "Ibn Ezra: Commentary on the Torah (Perush Ibn Ezra al Ha-Torah)",
+      "author": "Abraham ben Meir Ibn Ezra",
+      "date": "c. 1153–1156 CE",
+      "approximate_date": "Mid-12th century CE",
+      "historical_period": "MEDIEVAL_EUROPEAN",
+      "tradition": "MEDIEVAL_RISHONIM",
+      "denomination": "RABBINIC",
+      "language": "Biblical Hebrew / Judeo-Arabic",
+      "region": "Rome / Lucca / Mantua / London / Provence",
+      "source_type": "COMMENTARY",
+      "primary_or_secondary": "PRIMARY",
+      "academic_or_religious": "RELIGIOUS",
+      "tier": "TIER_3_MEDIEVAL_RISHONIM",
+      "publisher": "Mossad Harav Kook, Jerusalem",
+      "edition": "Ibn Ezra: Perushei Ha-Torah, ed. Asher Weiser (Jerusalem: Mossad Harav Kook, 1977, 3 vols.); Torat Chayim",
+      "identifier": "Mossad Harav Kook Edition",
+      "repository": "National Library of Israel / Bodleian Library",
+      "manuscript_reference": "MS Oxford Bodleian Opp. 25; MS Vatican Ebr. 38",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Weiser-Ibn-Ezra"
+        ],
+        "methodology": "Critical grammatical-philological analysis based on Andalusian Hebrew linguistics and manuscript comparison",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist",
+        "peer_review_status": "ACADEMIC_STANDARD"
+      },
+      "notes": "Pioneering medieval grammatical and contextual (peshat) biblical commentary, notable for rigorous philology, critical awareness of textual nuances, and proto-critical observations on biblical composition."
+    },
+    {
       "source_id": "SRC-JEW-RAMBAM-MT-001",
       "title": "Maimonides: Mishneh Torah (Yad Ha-Chazaqah)",
       "author": "Rabbi Moshe ben Maimon (Maimonides / Rambam)",
@@ -2416,5 +2449,5 @@
       "notes": "Critical scholarship analyzing Sephardic and Mizrahi rabbinic halakhic decision-making, demonstrating halakhic dynamism and moderate traditionalism."
     }
   ],
-  "total_count": 73
+  "total_count": 74
 }

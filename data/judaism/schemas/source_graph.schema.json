@@ -1,12 +1,52 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "JudaismSourceGraph",
+  "description": "Semantic Knowledge Relationship Graph for the Judaism Knowledge Base. Models conceptual, historical, textual, and polemical relationships among Jewish texts, authorities, traditions, movements, and themes. Architecturally distinguished from runtime execution/dependency graphs (which enforce strict DAG with 0 cycles for scheduling and activation). In this semantic knowledge graph, dialectical/discursive relationships (reciprocal pairs such as CHALLENGES and RESPONDS_TO) are valid representations of historical debate (e.g. Saadia Gaon vs. Karaism), while structural lineage and historical precedence edges (DERIVES_FROM, PART_OF, BELONGS_TO, HISTORICALLY_PRECEDES) remain strictly acyclic.",
   "type": "object",
   "required": [
     "nodes",
     "edges"
   ],
   "properties": {
+    "metadata": {
+      "type": "object",
+      "description": "Graph metadata specifying topological semantics, classification, and validation rules.",
+      "properties": {
+        "graph_type": {
+          "type": "string",
+          "enum": [
+            "SEMANTIC_KNOWLEDGE_GRAPH",
+            "EXECUTION_DEPENDENCY_DAG"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "acyclicity_invariants": {
+          "type": "object",
+          "properties": {
+            "execution_dependency_dag": {
+              "type": "boolean",
+              "description": "False for semantic knowledge graph; runtime execution graph remains strict DAG with 0 cycles."
+            },
+            "lineage_subgraph_dag": {
+              "type": "boolean",
+              "description": "True: hierarchical and lineage edges (DERIVES_FROM, PART_OF, BELONGS_TO, HISTORICALLY_PRECEDES) must form a strict DAG with 0 cycles."
+            },
+            "permits_reciprocal_dialogue": {
+              "type": "boolean",
+              "description": "True: reciprocal dialectical pairs (e.g. CHALLENGES <-> RESPONDS_TO) are valid representations of historical debates."
+            }
+          }
+        },
+        "dialectical_reciprocal_pairs": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
     "nodes": {
       "type": "array",
       "items": {
@@ -63,6 +103,7 @@
           },
           "relationship": {
             "type": "string",
+            "description": "Semantic relationship connecting nodes. Edge categories: (1) Lineage/Hierarchical: DERIVES_FROM, PART_OF, BELONGS_TO, HISTORICALLY_PRECEDES (strict DAG required); (2) Epistemic/Evidentiary: SUPPORTS, INTERPRETS, QUOTES, SUMMARIZES; (3) Dialectical/Discursive: CHALLENGES, RESPONDS_TO, CONTRADICTS (permits reciprocal dialogical pairs between debate interlocutors).",
             "enum": [
               "SUPPORTS",
               "CONTRADICTS",
