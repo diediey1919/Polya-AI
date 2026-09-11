@@ -90,6 +90,726 @@
       "id": "NODE-THEME-ZIONISM-DIST",
       "type": "THEME",
       "label": "Category Distinction: Jewish vs Israeli vs Zionist"
+    },
+    {
+      "id": "NODE-ALEPPO",
+      "type": "TEXT",
+      "label": "Aleppo Codex (Keter Aram Tzova)"
+    },
+    {
+      "id": "NODE-LXX",
+      "type": "TEXT",
+      "label": "Septuagint (LXX Greek Translation)"
+    },
+    {
+      "id": "NODE-SP",
+      "type": "TEXT",
+      "label": "Samaritan Pentateuch"
+    },
+    {
+      "id": "NODE-TARGUM",
+      "type": "TEXT",
+      "label": "Aramaic Targumim (Onkelos & Jonathan)"
+    },
+    {
+      "id": "NODE-TOSEFTA",
+      "type": "TEXT",
+      "label": "The Tosefta"
+    },
+    {
+      "id": "NODE-YERUSHALMI",
+      "type": "TEXT",
+      "label": "Jerusalem Talmud (Talmud Yerushalmi)"
+    },
+    {
+      "id": "NODE-MIDRASH",
+      "type": "TEXT",
+      "label": "Midrashic Corpora (Halakhic & Aggadic)"
+    },
+    {
+      "id": "NODE-ZOHAR",
+      "type": "TEXT",
+      "label": "Sefer ha-Zohar (The Zohar)"
+    },
+    {
+      "id": "NODE-TANYA",
+      "type": "TEXT",
+      "label": "Likkutei Amarim (Tanya)"
+    },
+    {
+      "id": "NODE-LITURGY",
+      "type": "TEXT",
+      "label": "Traditional Jewish Liturgy (Siddur / Avodah)"
+    },
+    {
+      "id": "NODE-TEL-DAN",
+      "type": "TEXT",
+      "label": "Tel Dan Stele (bytdwd Inscription)"
+    },
+    {
+      "id": "NODE-KETEF-HINNOM",
+      "type": "TEXT",
+      "label": "Ketef Hinnom Silver Amulets (Priestly Blessing)"
+    },
+    {
+      "id": "NODE-THEODOTOS",
+      "type": "TEXT",
+      "label": "Theodotos Synagogue Inscription (Pre-70 Jerusalem)"
+    },
+    {
+      "id": "NODE-RAMBAN",
+      "type": "AUTHOR",
+      "label": "Moses ben Nachman (Nachmanides / Ramban)"
+    },
+    {
+      "id": "NODE-SAADIA",
+      "type": "AUTHOR",
+      "label": "Saadia Gaon"
+    },
+    {
+      "id": "NODE-TABARI",
+      "type": "AUTHOR",
+      "label": "Muhammad ibn Jarir al-Tabari"
+    },
+    {
+      "id": "NODE-IBN-HAZM",
+      "type": "AUTHOR",
+      "label": "Ibn Hazm of Cordoba"
+    },
+    {
+      "id": "NODE-QIRQISANI",
+      "type": "AUTHOR",
+      "label": "Ya'qub al-Qirqisani"
+    },
+    {
+      "id": "NODE-SOLOVEITCHIK",
+      "type": "AUTHOR",
+      "label": "Joseph B. Soloveitchik"
+    },
+    {
+      "id": "NODE-KAPLAN",
+      "type": "AUTHOR",
+      "label": "Mordecai M. Kaplan"
+    },
+    {
+      "id": "NODE-ALTER-REBBE",
+      "type": "AUTHOR",
+      "label": "Shneur Zalman of Liadi (Alter Rebbe)"
+    },
+    {
+      "id": "NODE-TRAD-SECOND-TEMPLE",
+      "type": "TRADITION",
+      "label": "Second Temple Judaism"
+    },
+    {
+      "id": "NODE-TRAD-QUMRAN",
+      "type": "TRADITION",
+      "label": "Qumran Essene Community"
+    },
+    {
+      "id": "NODE-TRAD-SADDUCEES",
+      "type": "TRADITION",
+      "label": "Sadducees (Tzedukim)"
+    },
+    {
+      "id": "NODE-TRAD-GEONIC",
+      "type": "TRADITION",
+      "label": "Geonic Babylonian Tradition"
+    },
+    {
+      "id": "NODE-TRAD-RISHONIM",
+      "type": "TRADITION",
+      "label": "Medieval Rabbinic Rishonim"
+    },
+    {
+      "id": "NODE-TRAD-KABBALAH",
+      "type": "TRADITION",
+      "label": "Jewish Mysticism (Kabbalah)"
+    },
+    {
+      "id": "NODE-TRAD-CHRISTIANITY",
+      "type": "TRADITION",
+      "label": "Christianity"
+    },
+    {
+      "id": "NODE-TRAD-ISLAM",
+      "type": "TRADITION",
+      "label": "Islam"
+    },
+    {
+      "id": "NODE-DENOM-HAREDI",
+      "type": "DENOMINATION",
+      "label": "Haredi / Ultra-Orthodox Judaism"
+    },
+    {
+      "id": "NODE-DENOM-HASIDIC",
+      "type": "DENOMINATION",
+      "label": "Hasidic Judaism"
+    },
+    {
+      "id": "NODE-DENOM-MODERN-ORTHODOX",
+      "type": "DENOMINATION",
+      "label": "Modern Orthodox Judaism"
+    },
+    {
+      "id": "NODE-DENOM-RECONSTRUCTIONIST",
+      "type": "DENOMINATION",
+      "label": "Reconstructionist Judaism"
+    },
+    {
+      "id": "NODE-DENOM-KARAITE",
+      "type": "DENOMINATION",
+      "label": "Karaite Judaism"
+    },
+    {
+      "id": "NODE-DENOM-MESSIANIC-JEW",
+      "type": "DENOMINATION",
+      "label": "Messianic Judaism (Syncretic / Non-Normative)"
+    },
+    {
+      "id": "NODE-PERIOD-SECOND-TEMPLE",
+      "type": "PERIOD",
+      "label": "Second Temple Period (516 BCE–70 CE)"
+    },
+    {
+      "id": "NODE-PERIOD-RABBINIC",
+      "type": "PERIOD",
+      "label": "Rabbinic / Talmudic Era (70–600 CE)"
+    },
+    {
+      "id": "NODE-PERIOD-ISLAMIC-GOLDEN",
+      "type": "PERIOD",
+      "label": "Islamic Golden Age (7th–13th c. CE)"
+    },
+    {
+      "id": "NODE-EVENT-BAR-KOKHBA",
+      "type": "HISTORICAL_EVENT",
+      "label": "Bar Kokhba Revolt (132–135 CE)"
+    },
+    {
+      "id": "NODE-EVENT-BARCELONA-1263",
+      "type": "HISTORICAL_EVENT",
+      "label": "Disputation of Barcelona (1263 CE)"
+    },
+    {
+      "id": "NODE-THEME-TORAH-WRITTEN",
+      "type": "THEME",
+      "label": "Written Torah (Torah She-bikhtav)"
+    },
+    {
+      "id": "NODE-THEME-HALAKHIC-AUTHORITY",
+      "type": "THEME",
+      "label": "Rabbinic Halakhic Authority (Lo Ba-Shamayim Hi)"
+    },
+    {
+      "id": "NODE-THEME-ATONEMENT-REPENTANCE",
+      "type": "THEME",
+      "label": "Atonement & Repentance (Kapparah & Teshuvah)"
+    },
+    {
+      "id": "NODE-THEME-SACRIFICE-TEMPLE",
+      "type": "THEME",
+      "label": "Temple Sacrifices (Korbanot) & Halakhic Cessation"
+    },
+    {
+      "id": "NODE-THEME-COVENANT-CIRCUMCISION",
+      "type": "THEME",
+      "label": "Perpetual Covenant & Circumcision (Brit Milah)"
+    },
+    {
+      "id": "NODE-THEME-EMUNAH-FAITH",
+      "type": "THEME",
+      "label": "Faithfulness vs Faith (Emunah vs Fides)"
+    },
+    {
+      "id": "NODE-THEME-JESUS",
+      "type": "THEME",
+      "label": "Historical Jesus & Jewish Rabbinic Views"
+    },
+    {
+      "id": "NODE-THEME-ISAIAH-7-14",
+      "type": "THEME",
+      "label": "Prophetic Exegesis: Isaiah 7:14 (Almah)"
+    },
+    {
+      "id": "NODE-THEME-ISAIAH-53",
+      "type": "THEME",
+      "label": "Prophetic Exegesis: Isaiah 53 (Suffering Servant)"
+    },
+    {
+      "id": "NODE-THEME-PSALM-22",
+      "type": "THEME",
+      "label": "Prophetic Exegesis: Psalm 22 (Ka-ari)"
+    },
+    {
+      "id": "NODE-THEME-DEUT-18",
+      "type": "THEME",
+      "label": "Prophetic Succession: Deuteronomy 18 (Navi)"
+    },
+    {
+      "id": "NODE-THEME-TAHRIF-MANA",
+      "type": "THEME",
+      "label": "Tahrif al-Ma'na (Interpretive Corruption)"
+    },
+    {
+      "id": "NODE-THEME-TAHRIF-NASS",
+      "type": "THEME",
+      "label": "Tahrif al-Nass (Textual Corruption Polemic)"
+    },
+    {
+      "id": "NODE-THEME-THREE-OATHS",
+      "type": "THEME",
+      "label": "The Three Oaths (Shalosh Shevuot & Zionism)"
+    },
+    {
+      "id": "NODE-EVID-001",
+      "type": "EVIDENCE",
+      "label": "Evidence 001: The Tel Dan Stele, dated c. 840–800 BCE, contains the p...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-001",
+        "evidence_class": "FACT",
+        "source_id": "SRC-JEW-EPIG-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-002",
+      "type": "EVIDENCE",
+      "label": "Evidence 002: Ketef Hinnom silver amulets KH1 and KH2 (c. 600 BCE) co...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-002",
+        "evidence_class": "FACT",
+        "source_id": "SRC-JEW-EPIG-002"
+      }
+    },
+    {
+      "id": "NODE-EVID-003",
+      "type": "EVIDENCE",
+      "label": "Evidence 003: The Great Isaiah Scroll (1QIsa-a) from Qumran contains ...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-003",
+        "evidence_class": "FACT",
+        "source_id": "SRC-JEW-DSS-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-004",
+      "type": "EVIDENCE",
+      "label": "Evidence 004: Rabbi Moshe ben Maimon (Maimonides) codified in Mishneh...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-004",
+        "evidence_class": "CLAIM",
+        "source_id": "SRC-JEW-RAMBAM-MT-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-005",
+      "type": "EVIDENCE",
+      "label": "Evidence 005: The phrase 'Hineh ha-almah harah' in Isaiah 7:14 histor...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-005",
+        "evidence_class": "INTERPRETATION",
+        "source_id": "SRC-JEW-RASHI-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-006",
+      "type": "EVIDENCE",
+      "label": "Evidence 006: Critical Hebrew philology establishes that 'almah' in B...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-006",
+        "evidence_class": "ACADEMIC_CONSENSUS",
+        "source_id": "SRC-ACAD-TOV-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-007",
+      "type": "EVIDENCE",
+      "label": "Evidence 007: The Oral Torah was revealed alongside the Written Torah...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-007",
+        "evidence_class": "TRADITIONAL_POSITION",
+        "source_id": "SRC-JEW-MISHNAH-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-008",
+      "type": "EVIDENCE",
+      "label": "Evidence 008: Upon the destruction of the Second Temple in 70 CE, Rab...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-008",
+        "evidence_class": "HISTORICAL_REPORT",
+        "source_id": "SRC-JEW-TALMUD-BAVLI-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-009",
+      "type": "EVIDENCE",
+      "label": "Evidence 009: Reform Judaism declared in the 1885 Pittsburgh Platform...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-009",
+        "evidence_class": "DENOMINATIONAL_POSITION",
+        "source_id": "SRC-JEW-CCAR-PLATFORMS-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-010",
+      "type": "EVIDENCE",
+      "label": "Evidence 010: Conservative Judaism (CJLS) affirms Halakha as normativ...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-010",
+        "evidence_class": "DENOMINATIONAL_POSITION",
+        "source_id": "SRC-JEW-CJLS-CONSERVATIVE-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-011",
+      "type": "EVIDENCE",
+      "label": "Evidence 011: The identification of the 'Suffering Servant' of Isaiah...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-011",
+        "evidence_class": "DISPUTED_CLAIM",
+        "source_id": "SRC-JEW-RASHI-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-012",
+      "type": "EVIDENCE",
+      "label": "Evidence 012: Over 20% of citizens of the modern State of Israel are ...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-012",
+        "evidence_class": "FACT",
+        "source_id": "SRC-ACAD-COHEN-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-013",
+      "type": "EVIDENCE",
+      "label": "Evidence 013: The Babylonian Talmud codifies the 24-book tripartite c...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-013",
+        "evidence_class": "TRADITIONAL_POSITION",
+        "source_id": "SRC-JEW-TALMUD-BAVLI-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-014",
+      "type": "EVIDENCE",
+      "label": "Evidence 014: The Aleppo Codex (c. 920 CE) represents the peak of Tib...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-014",
+        "evidence_class": "FACT",
+        "source_id": "SRC-JEW-ALEPPO-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-015",
+      "type": "EVIDENCE",
+      "label": "Evidence 015: Philo of Alexandria records that Jewish translators ren...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-015",
+        "evidence_class": "HISTORICAL_REPORT",
+        "source_id": "SRC-JEW-PHILO-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-016",
+      "type": "EVIDENCE",
+      "label": "Evidence 016: Dead Sea Scrolls textual analysis establishes that prio...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-016",
+        "evidence_class": "ACADEMIC_CONSENSUS",
+        "source_id": "SRC-ACAD-TOV-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-017",
+      "type": "EVIDENCE",
+      "label": "Evidence 017: The Samaritan Pentateuch includes a tenth commandment m...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-017",
+        "evidence_class": "FACT",
+        "source_id": "SRC-JEW-SP-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-018",
+      "type": "EVIDENCE",
+      "label": "Evidence 018: Targum Onkelos to Genesis 49:10 explicitly paraphrases ...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-018",
+        "evidence_class": "TRADITIONAL_POSITION",
+        "source_id": "SRC-JEW-TARGUM-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-019",
+      "type": "EVIDENCE",
+      "label": "Evidence 019: The Babylonian Talmud records that Hillel the Elder dem...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-019",
+        "evidence_class": "TRADITIONAL_POSITION",
+        "source_id": "SRC-JEW-TALMUD-BAVLI-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-020",
+      "type": "EVIDENCE",
+      "label": "Evidence 020: Critical scholarship by Saul Lieberman establishes that...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-020",
+        "evidence_class": "ACADEMIC_CONSENSUS",
+        "source_id": "SRC-JEW-TOSEFTA-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-021",
+      "type": "EVIDENCE",
+      "label": "Evidence 021: The Jerusalem Talmud (completed c. 370–400 CE under Rom...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-021",
+        "evidence_class": "HISTORICAL_REPORT",
+        "source_id": "SRC-JEW-TALMUD-YERUSHALMI-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-022",
+      "type": "EVIDENCE",
+      "label": "Evidence 022: In the Oven of Akhnai dispute, Rabbi Yehoshua rejected ...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-022",
+        "evidence_class": "TRADITIONAL_POSITION",
+        "source_id": "SRC-JEW-TALMUD-BAVLI-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-023",
+      "type": "EVIDENCE",
+      "label": "Evidence 023: Rabbi Simlai taught that 613 commandments were given to...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-023",
+        "evidence_class": "TRADITIONAL_POSITION",
+        "source_id": "SRC-JEW-TALMUD-BAVLI-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-024",
+      "type": "EVIDENCE",
+      "label": "Evidence 024: Maimonides codifies that the biblical prohibition again...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-024",
+        "evidence_class": "TRADITIONAL_POSITION",
+        "source_id": "SRC-JEW-RAMBAM-MT-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-025",
+      "type": "EVIDENCE",
+      "label": "Evidence 025: Avot de-Rabbi Natan records that when Rabbi Joshua mour...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-025",
+        "evidence_class": "TRADITIONAL_POSITION",
+        "source_id": "SRC-JEW-MIDRASH-HALAKHA-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-026",
+      "type": "EVIDENCE",
+      "label": "Evidence 026: The Babylonian Talmud and the traditional Siddur establ...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-026",
+        "evidence_class": "TRADITIONAL_POSITION",
+        "source_id": "SRC-JEW-LITURGY-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-027",
+      "type": "EVIDENCE",
+      "label": "Evidence 027: The Babylonian Talmud enumerates Repentance (*Teshuvah*...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-027",
+        "evidence_class": "TRADITIONAL_POSITION",
+        "source_id": "SRC-JEW-TALMUD-BAVLI-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-028",
+      "type": "EVIDENCE",
+      "label": "Evidence 028: The Dead Sea Scrolls Community Rule (1QS IX.11) documen...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-028",
+        "evidence_class": "HISTORICAL_REPORT",
+        "source_id": "SRC-JEW-DSS-002"
+      }
+    },
+    {
+      "id": "NODE-EVID-029",
+      "type": "EVIDENCE",
+      "label": "Evidence 029: The Jerusalem Talmud records that Rabbi Akiva endorsed ...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-029",
+        "evidence_class": "HISTORICAL_REPORT",
+        "source_id": "SRC-JEW-TALMUD-YERUSHALMI-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-030",
+      "type": "EVIDENCE",
+      "label": "Evidence 030: Uncensored Talmudic manuscripts and Maimonides record t...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-030",
+        "evidence_class": "HISTORICAL_REPORT",
+        "source_id": "SRC-JEW-TALMUD-BAVLI-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-031",
+      "type": "EVIDENCE",
+      "label": "Evidence 031: At the Disputation of Barcelona (1263), Nachmanides (Ra...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-031",
+        "evidence_class": "HISTORICAL_REPORT",
+        "source_id": "SRC-JEW-RAMBAN-TORAH-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-032",
+      "type": "EVIDENCE",
+      "label": "Evidence 032: Maimonides ruled in his Responsa that Muslims possess a...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-032",
+        "evidence_class": "TRADITIONAL_POSITION",
+        "source_id": "SRC-JEW-RAMBAM-MT-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-033",
+      "type": "EVIDENCE",
+      "label": "Evidence 033: Classical Sunni exegetes, led by Muhammad ibn Jarir al-...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-033",
+        "evidence_class": "ACADEMIC_CONSENSUS",
+        "source_id": "SRC-ISL-TABARI-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-034",
+      "type": "EVIDENCE",
+      "label": "Evidence 034: Ibn Hazm of Cordoba in 'Al-Fasl fi al-Milal' formulated...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-034",
+        "evidence_class": "DISPUTED_CLAIM",
+        "source_id": "SRC-ISL-IBN-HAZM-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-035",
+      "type": "EVIDENCE",
+      "label": "Evidence 035: In Psalm 22:17, the Masoretic Text reads כָּאֲרִי (*ka-...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-035",
+        "evidence_class": "DISPUTED_CLAIM",
+        "source_id": "SRC-JEW-MT-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-036",
+      "type": "EVIDENCE",
+      "label": "Evidence 036: Deuteronomy 18:15–18 promises 'A prophet from your mids...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-036",
+        "evidence_class": "TRADITIONAL_POSITION",
+        "source_id": "SRC-JEW-RAMBAN-TORAH-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-037",
+      "type": "EVIDENCE",
+      "label": "Evidence 037: Genesis 17:9–14 commands circumcision (*Brit Milah*) as...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-037",
+        "evidence_class": "TRADITIONAL_POSITION",
+        "source_id": "SRC-JEW-MT-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-038",
+      "type": "EVIDENCE",
+      "label": "Evidence 038: Hebrew lexicography demonstrates that *emunah* (root א-...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-038",
+        "evidence_class": "ACADEMIC_CONSENSUS",
+        "source_id": "SRC-ACAD-BDB-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-039",
+      "type": "EVIDENCE",
+      "label": "Evidence 039: Ya'qub al-Qirqisani's 10th-century code 'Kitab al-Anwar...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-039",
+        "evidence_class": "DENOMINATIONAL_POSITION",
+        "source_id": "SRC-JEW-KARAITE-QIRQISANI-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-040",
+      "type": "EVIDENCE",
+      "label": "Evidence 040: Rabbi Shneur Zalman of Liadi in the Tanya articulates t...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-040",
+        "evidence_class": "TRADITIONAL_POSITION",
+        "source_id": "SRC-JEW-HASID-TANYA-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-041",
+      "type": "EVIDENCE",
+      "label": "Evidence 041: The Zohar reveals that the transcendent Ein Sof (The In...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-041",
+        "evidence_class": "TRADITIONAL_POSITION",
+        "source_id": "SRC-JEW-ZOHAR-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-042",
+      "type": "EVIDENCE",
+      "label": "Evidence 042: Rabbi Joseph B. Soloveitchik in 'Halakhic Man' portrays...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-042",
+        "evidence_class": "DENOMINATIONAL_POSITION",
+        "source_id": "SRC-JEW-SOLOVEITCHIK-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-043",
+      "type": "EVIDENCE",
+      "label": "Evidence 043: Mordecai M. Kaplan in 'Judaism as a Civilization' (1934...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-043",
+        "evidence_class": "DENOMINATIONAL_POSITION",
+        "source_id": "SRC-JEW-RECON-KAPLAN-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-044",
+      "type": "EVIDENCE",
+      "label": "Evidence 044: Tractate Ketubot 111a records the Three Oaths (*Shalosh...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-044",
+        "evidence_class": "DISPUTED_CLAIM",
+        "source_id": "SRC-JEW-TALMUD-BAVLI-001"
+      }
+    },
+    {
+      "id": "NODE-EVID-045",
+      "type": "EVIDENCE",
+      "label": "Evidence 045: The Theodotos Synagogue Inscription (discovered in the ...",
+      "attributes": {
+        "evidence_id": "EVID-JEW-045",
+        "evidence_class": "FACT",
+        "source_id": "SRC-JEW-EPIG-001"
+      }
     }
   ],
   "edges": [
@@ -175,6 +895,936 @@
       "source": "NODE-REFORM",
       "target": "NODE-RABBINIC",
       "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ALEPPO",
+      "target": "NODE-MT",
+      "relationship": "PART_OF",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-LXX",
+      "target": "NODE-TANAKH",
+      "relationship": "DERIVES_FROM",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-SP",
+      "target": "NODE-TANAKH",
+      "relationship": "DERIVES_FROM",
+      "weight": 0.85
+    },
+    {
+      "source": "NODE-TARGUM",
+      "target": "NODE-TANAKH",
+      "relationship": "INTERPRETS",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-DSS",
+      "target": "NODE-SP",
+      "relationship": "SUPPORTS",
+      "weight": 0.85
+    },
+    {
+      "source": "NODE-DSS",
+      "target": "NODE-LXX",
+      "relationship": "SUPPORTS",
+      "weight": 0.8
+    },
+    {
+      "source": "NODE-TOSEFTA",
+      "target": "NODE-MISHNAH",
+      "relationship": "INTERPRETS",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-YERUSHALMI",
+      "target": "NODE-MISHNAH",
+      "relationship": "INTERPRETS",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-YERUSHALMI",
+      "target": "NODE-BAVLI",
+      "relationship": "HISTORICALLY_PRECEDES",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-MIDRASH",
+      "target": "NODE-TANAKH",
+      "relationship": "INTERPRETS",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-TRAD-GEONIC",
+      "target": "NODE-BAVLI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-SAADIA",
+      "target": "NODE-TRAD-GEONIC",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TRAD-RISHONIM",
+      "target": "NODE-TRAD-GEONIC",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-RASHI",
+      "target": "NODE-TRAD-RISHONIM",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-RAMBAM",
+      "target": "NODE-TRAD-RISHONIM",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-RAMBAN",
+      "target": "NODE-TRAD-RISHONIM",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-RAMBAN",
+      "target": "NODE-TANAKH",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-RAMBAN",
+      "target": "NODE-RAMBAM",
+      "relationship": "CHALLENGES",
+      "weight": 0.85
+    },
+    {
+      "source": "NODE-ZOHAR",
+      "target": "NODE-TANAKH",
+      "relationship": "INTERPRETS",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-TRAD-KABBALAH",
+      "target": "NODE-ZOHAR",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TANYA",
+      "target": "NODE-ZOHAR",
+      "relationship": "INTERPRETS",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-ALTER-REBBE",
+      "target": "NODE-TANYA",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-HAREDI",
+      "target": "NODE-ORTHODOX",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-HASIDIC",
+      "target": "NODE-ORTHODOX",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-MODERN-ORTHODOX",
+      "target": "NODE-ORTHODOX",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-SOLOVEITCHIK",
+      "target": "NODE-DENOM-MODERN-ORTHODOX",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-RECONSTRUCTIONIST",
+      "target": "NODE-CONSERVATIVE",
+      "relationship": "DERIVES_FROM",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-KAPLAN",
+      "target": "NODE-DENOM-RECONSTRUCTIONIST",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-KARAITE",
+      "target": "NODE-THEME-TORAH-ORAL",
+      "relationship": "CHALLENGES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-QIRQISANI",
+      "target": "NODE-DENOM-KARAITE",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-SAADIA",
+      "target": "NODE-DENOM-KARAITE",
+      "relationship": "CHALLENGES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-MESSIANIC-JEW",
+      "target": "NODE-RABBINIC",
+      "relationship": "CONTRADICTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TRAD-CHRISTIANITY",
+      "target": "NODE-THEME-MASHIACH",
+      "relationship": "INTERPRETS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-TRAD-CHRISTIANITY",
+      "target": "NODE-THEME-ISAIAH-7-14",
+      "relationship": "INTERPRETS",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-TRAD-CHRISTIANITY",
+      "target": "NODE-THEME-ISAIAH-53",
+      "relationship": "INTERPRETS",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-TRAD-CHRISTIANITY",
+      "target": "NODE-THEME-PSALM-22",
+      "relationship": "INTERPRETS",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-TRAD-CHRISTIANITY",
+      "target": "NODE-THEME-COVENANT-CIRCUMCISION",
+      "relationship": "CHALLENGES",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-RASHI",
+      "target": "NODE-THEME-ISAIAH-7-14",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-RASHI",
+      "target": "NODE-THEME-ISAIAH-53",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TRAD-ISLAM",
+      "target": "NODE-THEME-DEUT-18",
+      "relationship": "INTERPRETS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-TRAD-ISLAM",
+      "target": "NODE-THEME-TAHRIF",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-RAMBAN",
+      "target": "NODE-THEME-DEUT-18",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVENT-BARCELONA-1263",
+      "target": "NODE-TRAD-CHRISTIANITY",
+      "relationship": "RESPONDS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVENT-BARCELONA-1263",
+      "target": "NODE-MIDRASH",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TROKI",
+      "target": "NODE-TRAD-CHRISTIANITY",
+      "relationship": "RESPONDS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-THEME-TAHRIF-MANA",
+      "target": "NODE-THEME-TAHRIF",
+      "relationship": "PART_OF",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-THEME-TAHRIF-NASS",
+      "target": "NODE-THEME-TAHRIF",
+      "relationship": "PART_OF",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TABARI",
+      "target": "NODE-THEME-TAHRIF-MANA",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-IBN-HAZM",
+      "target": "NODE-THEME-TAHRIF-NASS",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-THEME-TAHRIF-NASS",
+      "target": "NODE-THEME-TAHRIF-MANA",
+      "relationship": "CONTRADICTS",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-DSS",
+      "target": "NODE-THEME-TAHRIF-NASS",
+      "relationship": "CHALLENGES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-MT",
+      "target": "NODE-THEME-TAHRIF-NASS",
+      "relationship": "CHALLENGES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-THEME-JESUS",
+      "target": "NODE-THEME-MASHIACH",
+      "relationship": "CHALLENGES",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-TRAD-QUMRAN",
+      "target": "NODE-THEME-MASHIACH",
+      "relationship": "INTERPRETS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-EVENT-BAR-KOKHBA",
+      "target": "NODE-THEME-MASHIACH",
+      "relationship": "INTERPRETS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-BAVLI",
+      "target": "NODE-THEME-JESUS",
+      "relationship": "INTERPRETS",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-RAMBAM",
+      "target": "NODE-THEME-JESUS",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TEMPLE-70",
+      "target": "NODE-THEME-SACRIFICE-TEMPLE",
+      "relationship": "HISTORICALLY_PRECEDES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-THEME-SACRIFICE-TEMPLE",
+      "target": "NODE-THEME-HALAKHIC-AUTHORITY",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-THEME-ATONEMENT-REPENTANCE",
+      "target": "NODE-THEME-SACRIFICE-TEMPLE",
+      "relationship": "RESPONDS_TO",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-LITURGY",
+      "target": "NODE-THEME-SACRIFICE-TEMPLE",
+      "relationship": "RESPONDS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-THEODOTOS",
+      "target": "NODE-LITURGY",
+      "relationship": "HISTORICALLY_PRECEDES",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-THEODOTOS",
+      "target": "NODE-TEMPLE-70",
+      "relationship": "HISTORICALLY_PRECEDES",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-THEME-THREE-OATHS",
+      "target": "NODE-THEME-ZIONISM-DIST",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-DENOM-HAREDI",
+      "target": "NODE-THEME-THREE-OATHS",
+      "relationship": "SUPPORTS",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-BAVLI",
+      "target": "NODE-THEME-THREE-OATHS",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-001",
+      "target": "NODE-TEL-DAN",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-001",
+      "target": "NODE-THEME-MASHIACH",
+      "relationship": "SUPPORTS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-EVID-002",
+      "target": "NODE-KETEF-HINNOM",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-002",
+      "target": "NODE-THEME-TORAH-WRITTEN",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-003",
+      "target": "NODE-DSS",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-003",
+      "target": "NODE-MT",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-004",
+      "target": "NODE-RAMBAM",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-004",
+      "target": "NODE-THEME-MASHIACH",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-005",
+      "target": "NODE-RASHI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-005",
+      "target": "NODE-THEME-ISAIAH-7-14",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-006",
+      "target": "NODE-THEME-ISAIAH-7-14",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-006",
+      "target": "NODE-TRAD-CHRISTIANITY",
+      "relationship": "CHALLENGES",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-EVID-007",
+      "target": "NODE-MISHNAH",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-007",
+      "target": "NODE-THEME-TORAH-ORAL",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-008",
+      "target": "NODE-BAVLI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-008",
+      "target": "NODE-TEMPLE-70",
+      "relationship": "RESPONDS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-009",
+      "target": "NODE-REFORM",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-009",
+      "target": "NODE-THEME-HALAKHIC-AUTHORITY",
+      "relationship": "CHALLENGES",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-EVID-010",
+      "target": "NODE-CONSERVATIVE",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-010",
+      "target": "NODE-THEME-HALAKHIC-AUTHORITY",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-011",
+      "target": "NODE-THEME-ISAIAH-53",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-011",
+      "target": "NODE-RASHI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-012",
+      "target": "NODE-THEME-ZIONISM-DIST",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-013",
+      "target": "NODE-BAVLI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-013",
+      "target": "NODE-TANAKH",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-014",
+      "target": "NODE-ALEPPO",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-014",
+      "target": "NODE-MT",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-015",
+      "target": "NODE-LXX",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-015",
+      "target": "NODE-TRAD-SECOND-TEMPLE",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-016",
+      "target": "NODE-DSS",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-016",
+      "target": "NODE-TANAKH",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-017",
+      "target": "NODE-SP",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-017",
+      "target": "NODE-MT",
+      "relationship": "CONTRADICTS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-EVID-018",
+      "target": "NODE-TARGUM",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-018",
+      "target": "NODE-THEME-MASHIACH",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-019",
+      "target": "NODE-BAVLI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-019",
+      "target": "NODE-THEME-TORAH-ORAL",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-020",
+      "target": "NODE-TOSEFTA",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-020",
+      "target": "NODE-MISHNAH",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-021",
+      "target": "NODE-YERUSHALMI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-021",
+      "target": "NODE-BAVLI",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-022",
+      "target": "NODE-BAVLI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-022",
+      "target": "NODE-THEME-HALAKHIC-AUTHORITY",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-023",
+      "target": "NODE-BAVLI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-023",
+      "target": "NODE-THEME-HALAKHIC-AUTHORITY",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-024",
+      "target": "NODE-RAMBAM",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-024",
+      "target": "NODE-THEME-SACRIFICE-TEMPLE",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-025",
+      "target": "NODE-MIDRASH",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-025",
+      "target": "NODE-THEME-ATONEMENT-REPENTANCE",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-026",
+      "target": "NODE-LITURGY",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-026",
+      "target": "NODE-THEME-SACRIFICE-TEMPLE",
+      "relationship": "RESPONDS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-027",
+      "target": "NODE-BAVLI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-027",
+      "target": "NODE-THEME-ATONEMENT-REPENTANCE",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-028",
+      "target": "NODE-DSS",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-028",
+      "target": "NODE-THEME-MASHIACH",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-029",
+      "target": "NODE-EVENT-BAR-KOKHBA",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-029",
+      "target": "NODE-THEME-MASHIACH",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-030",
+      "target": "NODE-BAVLI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-030",
+      "target": "NODE-THEME-JESUS",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-031",
+      "target": "NODE-EVENT-BARCELONA-1263",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-031",
+      "target": "NODE-RAMBAN",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-032",
+      "target": "NODE-RAMBAM",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-032",
+      "target": "NODE-TRAD-ISLAM",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-033",
+      "target": "NODE-TABARI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-033",
+      "target": "NODE-THEME-TAHRIF-MANA",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-034",
+      "target": "NODE-IBN-HAZM",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-034",
+      "target": "NODE-THEME-TAHRIF-NASS",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-035",
+      "target": "NODE-MT",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-035",
+      "target": "NODE-THEME-PSALM-22",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-036",
+      "target": "NODE-RAMBAN",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-036",
+      "target": "NODE-THEME-DEUT-18",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-037",
+      "target": "NODE-MT",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-037",
+      "target": "NODE-THEME-COVENANT-CIRCUMCISION",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-038",
+      "target": "NODE-THEME-EMUNAH-FAITH",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-038",
+      "target": "NODE-TRAD-CHRISTIANITY",
+      "relationship": "CHALLENGES",
+      "weight": 0.95
+    },
+    {
+      "source": "NODE-EVID-039",
+      "target": "NODE-QIRQISANI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-039",
+      "target": "NODE-DENOM-KARAITE",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-040",
+      "target": "NODE-TANYA",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-040",
+      "target": "NODE-DENOM-HASIDIC",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-041",
+      "target": "NODE-ZOHAR",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-041",
+      "target": "NODE-TRAD-KABBALAH",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-042",
+      "target": "NODE-SOLOVEITCHIK",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-042",
+      "target": "NODE-DENOM-MODERN-ORTHODOX",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-043",
+      "target": "NODE-KAPLAN",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-043",
+      "target": "NODE-DENOM-RECONSTRUCTIONIST",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-044",
+      "target": "NODE-BAVLI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-044",
+      "target": "NODE-THEME-THREE-OATHS",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-045",
+      "target": "NODE-THEODOTOS",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-045",
+      "target": "NODE-LITURGY",
+      "relationship": "SUPPORTS",
       "weight": 1.0
     }
   ]
