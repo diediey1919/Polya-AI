@@ -810,6 +810,56 @@
         "evidence_class": "FACT",
         "source_id": "SRC-JEW-EPIG-001"
       }
+    },
+    {
+      "id": "NODE-ACAD-SCHOLEM",
+      "type": "AUTHOR",
+      "label": "Gershom Scholem (Academic - Jewish Mysticism)"
+    },
+    {
+      "id": "NODE-ACAD-TWERSKY",
+      "type": "AUTHOR",
+      "label": "Isadore Twersky (Academic - Maimonidean Law)"
+    },
+    {
+      "id": "NODE-ACAD-PINES",
+      "type": "AUTHOR",
+      "label": "Shlomo Pines (Academic - Judeo-Arabic Philosophy)"
+    },
+    {
+      "id": "NODE-ACAD-MCOHEN",
+      "type": "AUTHOR",
+      "label": "Mark R. Cohen (Academic - Jews in Islamic World)"
+    },
+    {
+      "id": "NODE-ACAD-GOITEIN",
+      "type": "AUTHOR",
+      "label": "S. D. Goitein (Academic - Cairo Genizah)"
+    },
+    {
+      "id": "NODE-ACAD-HAYES",
+      "type": "AUTHOR",
+      "label": "Christine Hayes (Academic - Early Halakhic Theory)"
+    },
+    {
+      "id": "NODE-ACAD-BOYARIN",
+      "type": "AUTHOR",
+      "label": "Daniel Boyarin (Academic - Judaeo-Christianity)"
+    },
+    {
+      "id": "NODE-ACAD-VERMES",
+      "type": "AUTHOR",
+      "label": "Geza Vermes (Academic - Qumran Studies)"
+    },
+    {
+      "id": "NODE-ACAD-GOODMAN",
+      "type": "AUTHOR",
+      "label": "Martin Goodman (Academic - Second Temple Historiography)"
+    },
+    {
+      "id": "NODE-ACAD-LIEBERMAN",
+      "type": "AUTHOR",
+      "label": "Saul Lieberman (Academic - Rabbinic Philology)"
     }
   ],
   "edges": [
@@ -1867,6 +1917,90 @@
       "source": "NODE-EVID-045",
       "target": "NODE-LITURGY",
       "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ACAD-SCHOLEM",
+      "target": "NODE-ZOHAR",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ACAD-SCHOLEM",
+      "target": "NODE-TRAD-KABBALAH",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ACAD-TWERSKY",
+      "target": "NODE-RAMBAM",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ACAD-PINES",
+      "target": "NODE-RAMBAM",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ACAD-MCOHEN",
+      "target": "NODE-TRAD-ISLAM",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ACAD-MCOHEN",
+      "target": "NODE-TRAD-CHRISTIANITY",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ACAD-GOITEIN",
+      "target": "NODE-PERIOD-ISLAMIC-GOLDEN",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ACAD-HAYES",
+      "target": "NODE-THEME-HALAKHIC-AUTHORITY",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ACAD-BOYARIN",
+      "target": "NODE-TRAD-CHRISTIANITY",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ACAD-BOYARIN",
+      "target": "NODE-RABBINIC",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ACAD-VERMES",
+      "target": "NODE-DSS",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ACAD-GOODMAN",
+      "target": "NODE-TEMPLE-70",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ACAD-LIEBERMAN",
+      "target": "NODE-TOSEFTA",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-ACAD-LIEBERMAN",
+      "target": "NODE-MISHNAH",
+      "relationship": "INTERPRETS",
       "weight": 1.0
     }
   ]

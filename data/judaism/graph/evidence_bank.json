@@ -114,7 +114,8 @@
       "provenance": {
         "source_ids": [
           "Frankel-MT-2002",
-          "SRC-JEW-RAMBAM-MT-001"
+          "SRC-JEW-RAMBAM-MT-001",
+          "SRC-ACAD-TWERSKY-001"
         ],
         "methodology": "Halakhic jurisprudence and cross-manuscript textual verification of uncensored Mishneh Torah",
         "created_date": "2026-09-11",
@@ -236,7 +237,8 @@
         "source_ids": [
           "Vilna-Gittin",
           "Cohen-1984",
-          "SRC-JEW-TALMUD-BAVLI-001"
+          "SRC-JEW-TALMUD-BAVLI-001",
+          "SRC-ACAD-GOODMAN-001"
         ],
         "methodology": "Textual and historiographical analysis of Talmudic narratives and Josephus parallels",
         "created_date": "2026-09-11",
@@ -386,7 +388,8 @@
       "provenance": {
         "source_ids": [
           "Vilna-Bava-Batra",
-          "SRC-JEW-TALMUD-BAVLI-001"
+          "SRC-JEW-TALMUD-BAVLI-001",
+          "SRC-ACAD-BERLIN-BRETTLER-001"
         ],
         "methodology": "Talmudic text-critical analysis and canon history collation",
         "created_date": "2026-09-11",
@@ -601,7 +604,8 @@
       "provenance": {
         "source_ids": [
           "Lieberman-1955",
-          "SRC-JEW-TOSEFTA-001"
+          "SRC-JEW-TOSEFTA-001",
+          "SRC-ACAD-LIEBERMAN-001"
         ],
         "methodology": "Comparative philological, paleographical, and halakhic commentary on MS Vienna",
         "created_date": "2026-09-11",
@@ -662,7 +666,8 @@
       "provenance": {
         "source_ids": [
           "Vilna-Bava-Metzia",
-          "SRC-JEW-TALMUD-BAVLI-001"
+          "SRC-JEW-TALMUD-BAVLI-001",
+          "SRC-ACAD-HAYES-001"
         ],
         "methodology": "Talmudic jurisprudence and legal philosophy analysis",
         "created_date": "2026-09-11",
@@ -722,7 +727,8 @@
       "provenance": {
         "source_ids": [
           "Frankel-MT-Avodah",
-          "SRC-JEW-RAMBAM-MT-001"
+          "SRC-JEW-RAMBAM-MT-001",
+          "SRC-ACAD-TWERSKY-001"
         ],
         "methodology": "Halakhic legal code analysis and scriptural cross-referencing",
         "created_date": "2026-09-11",
@@ -845,7 +851,8 @@
         "source_ids": [
           "Schiffman-1994",
           "Charlesworth-DSS-1994",
-          "SRC-JEW-DSS-002"
+          "SRC-JEW-DSS-002",
+          "SRC-ACAD-VERMES-001"
         ],
         "methodology": "Paleographical transcription and historical context of sectarian Dead Sea Scrolls",
         "created_date": "2026-09-11",
@@ -907,7 +914,8 @@
         "source_ids": [
           "Frankel-MT-Melakhim",
           "Schafer-2007",
-          "SRC-JEW-TALMUD-BAVLI-001"
+          "SRC-JEW-TALMUD-BAVLI-001",
+          "SRC-ACAD-BOYARIN-001"
         ],
         "methodology": "Examination of pre-censorship Vatican and Oxford Talmud manuscripts and uncensored Yemenite MT codices",
         "created_date": "2026-09-11",
@@ -968,7 +976,8 @@
       "provenance": {
         "source_ids": [
           "Blau-Teshuvot-1960",
-          "SRC-JEW-RAMBAM-MT-001"
+          "SRC-JEW-RAMBAM-MT-001",
+          "SRC-ACAD-MCOHEN-001"
         ],
         "methodology": "Halakhic responsa manuscript verification from the Cairo Genizah",
         "created_date": "2026-09-11",
@@ -1247,7 +1256,8 @@
         "source_ids": [
           "Matt-Pritzker-2004",
           "Scholem-1941",
-          "SRC-JEW-ZOHAR-001"
+          "SRC-JEW-ZOHAR-001",
+          "SRC-ACAD-SCHOLEM-001"
         ],
         "methodology": "Critical manuscript recension and philological analysis of Aramaic Zoharic texts",
         "created_date": "2026-09-11",
