@@ -2,12 +2,12 @@
   "version": "2.0.0",
   "description": "Enriched Hebrew and Aramaic Lexical Knowledge Layer for Apologetics and Interfaith Analysis",
   "metadata": {
-    "actual_terms": 17,
-    "total_count": 17,
+    "actual_terms": 21,
+    "total_count": 21,
     "target_expansion_count": 35,
     "status": "PRODUCTION_READY",
     "metrics_reconciled": true,
-    "notes": "17 terms currently implemented with full forensic philological and interfaith apparatus on disk; 35 terms designated as future expansion target."
+    "notes": "21 terms currently implemented with full forensic philological and interfaith apparatus on disk; 35 terms designated as future expansion target."
   },
   "terms": [
     {
@@ -904,9 +904,213 @@
         "methodology": "Comparative Semitic anthropology, psychosomatic holism analysis, and biblical exegesis",
         "author_agent": "Polia Knowledge Architecture Specialist"
       }
+    },
+    {
+      "term": "Kadosh",
+      "hebrew": "קָדוֹשׁ",
+      "transliteration": "Kadosh (adj. / noun)",
+      "grammatical_category": "Adjective masculine singular / substantive noun (plural: kedoshim)",
+      "morphology": "Adjective masculine singular (qatul pattern)",
+      "root": "ק-ד-שׁ (q-d-sh; comparative Semitic: Ugaritic *qdš* = sanctuary/holy; Akkadian *qadāšu* = to be clean, pure; Arabic *quddus*)",
+      "basic_lexical_range": "Holy, set apart, sacred, separate, consecrated, transcendent",
+      "semantic_range": "Fundamental ontological separation and distinction of God from creation (Isa 6:3); moral and ritual consecration of people (Lev 19:2); dedicated objects, times (Shabbat), and spaces (Beit HaMikdash).",
+      "contextual_semantic_range": "In Biblical Hebrew, *kadosh* expresses total otherness, purity, and transcendence rather than mere moral goodness. God as *HaKadosh Barukh Hu* (The Holy One, Blessed be He) is set apart from the profane (chol) and common. Applied to Israel through covenantal commandment (Lev 19:2 'You shall be holy, for I YHWH your God am holy'), indicating an ethical and ritual vocation to reflect divine purity in communal life.",
+      "biblical_occurrences": [
+        "Exod 19:6",
+        "Lev 11:44",
+        "Lev 19:2",
+        "Isa 6:3",
+        "Isa 40:25",
+        "Ps 22:4",
+        "Ps 99:5"
+      ],
+      "later_hebrew_usage": "HaKadosh Barukh Hu (standard rabbinic title for God); Kedushah (prayer sanctification); Kiddush (Shabbat blessing); Kiddushin (betrothal/sanctification of marriage); Kiddush HaShem (martyrdom/sanctification of the Name).",
+      "aramaic_cognates": "קַדִּישׁ (Qaddish) - holy, sacred (Dan 4:10, 7:18; Targum rendering; Kaddish prayer).",
+      "translation_equivalents": {
+        "greek": "ἅγιος (hagios)",
+        "latin": "sanctus, sacer",
+        "arabic": "Quddus (قُدُّوس), Muqaddas (مُقَدَّס)",
+        "english": "holy, sacred, consecrated, set apart"
+      },
+      "lxx_translation_issues": "LXX consistently renders *kadosh* with ἅγιος (hagios). In classical Greek pagan religion, *hieros* designated ritual taboo, whereas *hagios* was adopted by Jewish translators to denote awe-inspiring reverence due to the transcendent God of Israel.",
+      "jewish_traditional_interpretation": "Rashi explains 'Kedoshim tiheyu' as 'perushim tiheyu' (be separated from illicit desires and boundary violations). Ramban (Nachmanides) emphasizes that holiness requires self-restraint even within permitted matters ('do not be a scoundrel with the Torah's permission'). Maimonides defines holiness as intellectual-moral contemplation and imitation of God (imitatio Dei).",
+      "christian_interpretive_usage": "Used in Trinitarian apologetics regarding the Trisagion of Isaiah 6:3 ('Holy, Holy, Holy') as a purported Old Testament allusion to the Trinity (Father, Son, Holy Spirit).",
+      "islamic_interfaith_relevance": "Parallels the divine name *Al-Quddus* (The All-Holy, Surah 59:23, 62:1) and *Ruh al-Qudus* (the Holy Spirit, identified with angel Jibril in Islam, Surah 16:102). In Islam, Allah's transcendence (Tanzih) is absolute and inviolable.",
+      "semantic_fallacies_to_avoid": "Trinitarian proof-text fallacy: asserting that the threefold repetition of *kadosh* in Isaiah 6:3 grammatically or historically intended a three-person hypostasis, rather than the standard Semitic superlative triplication for emphasis (as in Jer 7:4).",
+      "apologetic_relevance": "Central to Jewish-Christian dialogue on Isaiah 6:3, divine transcendence vs incarnation, and Jewish-Islamic dialogue on divine holiness (Tanzih / Kedushah).",
+      "safety": {
+        "safe_use": "Acknowledge the poetic Semitic superlative triplication in Isaiah 6:3 while noting Christian liturgical adoption in the Sanctus/Trisagion.",
+        "common_misuse": "Claiming Isaiah 6:3 directly demonstrates the doctrine of the Trinity in the Hebrew text.",
+        "translation_risk": "Equating holiness with static ritualism rather than ethical-existential consecration.",
+        "context_required": "Semitic stylistic hyperbole/superlative repetition (e.g. Jer 22:29 'O land, land, land') and Leviticus 19 holiness code."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RAMBAN-TORAH-001",
+          "SRC-JEW-RAMBAM-MOREH-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Semitic lexicography, comparative ancient Near Eastern holiness concepts, and rabbinic ethics",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
+    },
+    {
+      "term": "Tzedek",
+      "hebrew": "צֶדֶק / צְדָקָה",
+      "transliteration": "Tzedek (m.) / Tzedakah (f.)",
+      "grammatical_category": "Noun masculine singular (tzedek) / Noun feminine singular (tzedakah)",
+      "morphology": "Noun masculine / feminine singular",
+      "root": "צ-ד-ק (tz-d-q; comparative Semitic: Ugaritic *ṣdq* = true, legitimate; Arabic *ṣadaqa* = to be truthful, *ṣadaqah* = voluntary charity; Aramaic *tzidqa*)",
+      "basic_lexical_range": "Righteousness, justice, rectitude, covenantal equity, legitimacy, charity/beneficence",
+      "semantic_range": "In Biblical Hebrew, *tzedek* denotes structural, legal, and relational righteousness that conforms to covenantal norms (Deut 16:20 'Tzedek tzedek tirdof'). In Rabbinic Hebrew, *tzedakah* specialized to denote mandatory social charity, reflecting the conviction that economic support for the needy is not optional mercy, but an act of strict justice.",
+      "contextual_semantic_range": "In Tanakh, represents cosmic order, legal integrity, and defense of the vulnerable: the orphan, the widow, the poor, and the resident alien (Ps 82:3, Amos 5:24, Isa 1:17). Unlike Greek *dikaiosynē* which frequently focuses on abstract philosophical justice, *tzedek* is active, redemptive, and vindicating. In later Jewish practice, giving *tzedakah* is a legal obligation (mitzvah), affirming that all wealth ultimately belongs to God (Ps 24:1).",
+      "biblical_occurrences": [
+        "Gen 15:6",
+        "Lev 19:15",
+        "Deut 16:20",
+        "Ps 82:3",
+        "Ps 85:11",
+        "Isa 1:27",
+        "Amos 5:24"
+      ],
+      "later_hebrew_usage": "Tzedakah as mandatory communal charity; Tzaddik (righteous master or saint); Tzedek Chevrati (social justice).",
+      "aramaic_cognates": "צִדְקְתָא (Tzidketa) - righteousness, almsgiving, charity (Dan 4:24; Targum rendering).",
+      "translation_equivalents": {
+        "greek": "δικαιοσύνη (dikaiosynē), ἐλεημοσύνη (eleēmosynē - alms)",
+        "latin": "iustitia, eleemosyna",
+        "arabic": "Sidq (صِدْק - truth/sincerity), Sadaqah (صَدَقَة - charity/alms)",
+        "english": "justice, righteousness, equity, charitable giving"
+      },
+      "lxx_translation_issues": "LXX translated *tzedakah* variously as δικαιοσύνη (dikaiosynē = justice/righteousness) and in later books as ἐλεημοσύνη (eleēmosynē = mercy/alms), reflecting the historical semantic transition toward almsgiving that is also evident in the Dead Sea Scrolls and Rabbinic Hebrew.",
+      "jewish_traditional_interpretation": "Maimonides in Mishneh Torah (Hilkhot Matanot Aniyim 10:7-14) details the famous Eight Degrees of Tzedakah, where the highest form is preventing a person from falling into dependency by offering an interest-free loan, partnership, or employment. Tzedakah is justice, not paternalistic condescension.",
+      "christian_interpretive_usage": "Paul in Romans 4:3-5 and Galatians 3:6 cites Genesis 15:6 ('And he believed in YHWH, and He counted it to him as righteousness / tzedakah') to demonstrate justification by faith apart from Torah works, framing righteousness as an imputed forensic status rather than an active ethical practice.",
+      "islamic_interfaith_relevance": "Exact morphological and conceptual parallel to Arabic *Sadaqah* (voluntary charity) and *Zakat* (obligatory purification alms). Both Islam and Judaism view charity not as benevolent condescension, but as a divine right belonging to the poor (Quran 51:19: 'And in their wealth there was a rightful share for the beggar and the deprived').",
+      "semantic_fallacies_to_avoid": "Abstract forensic fallacy: reducing Semitic *tzedakah* (covenantal restorative justice and tangible relief) strictly to a legalistic imputation in a courtroom setting.",
+      "apologetic_relevance": "Foundational text for Jewish-Christian debate on Genesis 15:6, Pauline justification vs James 2:21-24, and the theological definition of charity as justice.",
+      "safety": {
+        "safe_use": "Highlight that in Jewish theology *tzedakah* stems from *tzedek* (justice), making charity a legal obligation rather than voluntary philanthropy.",
+        "common_misuse": "Pitting Paul's interpretation of Genesis 15:6 against Jewish tradition without examining the Hebrew semantic range of covenantal loyalty.",
+        "translation_risk": "Translating *tzedakah* in rabbinic contexts merely as 'alms' without conveying its inherent demand for systemic fairness.",
+        "context_required": "Deuteronomy 16:20 legal context and Rabbinic codification in Mishneh Torah."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RAMBAM-MT-001",
+          "SRC-JEW-MT-001",
+          "SRC-JEW-TALMUD-BAVLI-001"
+        ],
+        "methodology": "Comparative Semitic philology, socioeconomic ethical analysis, and prophetic theology",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
+    },
+    {
+      "term": "Ruach",
+      "hebrew": "רוּחַ",
+      "transliteration": "Ruach",
+      "grammatical_category": "Noun feminine singular (rarely masculine; plural: ruchot)",
+      "morphology": "Noun feminine singular",
+      "root": "ר-ו-ח (r-w-ch; comparative Semitic: Ugaritic *rḥ* = wind/scent; Akkadian *râḫu*; Arabic *rih* = wind, *ruh* = spirit/soul; Aramaic *rucha*)",
+      "basic_lexical_range": "Wind, breath, air in motion, vigor, disposition, spirit, divine power/inspiration",
+      "semantic_range": "Physical meteorological wind (Exod 14:21); biological breath of physical respiration (Job 9:18); human mental/emotional disposition (Prov 16:32); divine empowering force and prophetic inspiration (*Ruach Elohim* / *Ruach HaKodesh*, Gen 1:2, Isa 61:1).",
+      "contextual_semantic_range": "In Biblical Hebrew, *ruach* is predominantly feminine. It designates dynamic energy in movement: meteorological wind (Gen 8:1), the vital breath that animates physical flesh (Ps 104:29-30), the psychological spirit or resolve of humans (Josh 2:11), and the divine active presence that endows individuals with prophetic insight, wisdom, and military prowess (Judg 3:10, Isa 11:2). Never in the Tanakh does *ruach* represent an autonomous, distinct hypostatic person within the Godhead.",
+      "biblical_occurrences": [
+        "Gen 1:2",
+        "Gen 8:1",
+        "Exod 14:21",
+        "Num 11:25",
+        "Judg 3:10",
+        "Ps 51:13",
+        "Ps 104:30",
+        "Isa 11:2",
+        "Isa 61:1"
+      ],
+      "later_hebrew_usage": "Ruach HaKodesh (the Holy Spirit as divine inspiration/prophecy); Ruach Shtut (spirit of folly); tripartite soul hierarchy (Nephesh-Ruach-Neshamah).",
+      "aramaic_cognates": "רוּחָא (Rucha) - wind, spirit; רוּחַ קֻדְשָׁא (Ruach Kudsha) - the Holy Spirit (Targum and Syriac Peshitta).",
+      "translation_equivalents": {
+        "greek": "πνεῦμα (pneuma - wind, breath, spirit)",
+        "latin": "spiritus, flatus",
+        "arabic": "Rih (رِيح - wind), Ruh (رُوح - spirit)",
+        "english": "wind, breath, spirit, divine inspiration"
+      },
+      "lxx_translation_issues": "LXX renders *ruach* as πνεῦμα (pneuma, neuter). In Greek philosophy, *pneuma* carried Stoic materialist connotations of a subtle physical vapor, whereas in the New Testament it was personalized into the Third Person of the Trinity (Pneuma Hagion).",
+      "jewish_traditional_interpretation": "Rabbinic Judaism identifies *Ruach HaKodesh* not as a divine person, but as the medium of divine inspiration, prophetic communication, and divine providence. With the deaths of the last post-exilic prophets (Haggai, Zechariah, Malachi), the full manifestation of Ruach HaKodesh ceased in Israel, leaving only the *Bat Kol* (heavenly echo) and Torah study as modes of revelation (Talmud Sanhedrin 11a).",
+      "christian_interpretive_usage": "Central to Pneumatology and Trinitarian dogma: Christian theology interprets passages like Genesis 1:2 ('Ruach Elohim hovering over the face of the waters') and Psalm 51:11 ('take not Thy Holy Spirit from me') as references to the Third Person of the Holy Trinity.",
+      "islamic_interfaith_relevance": "Parallels Arabic *Ar-Ruh* (Surah 17:85: 'They ask you concerning the Spirit; say: The Spirit is of the command of my Lord'). In Islamic theology, *Ruh al-Qudus* (the Holy Spirit) is not God or a divine person, but the archangel Jibril (Gabriel) who conveys divine revelation to the prophets (Surah 2:87, 16:102).",
+      "semantic_fallacies_to_avoid": "Hypostatic retrojection fallacy: treating an ancient Semitic term for divine energy, wind, or prophetic breath (*ruach*, grammatically feminine) as if it denoted the Nicene third hypostasis of a masculine/neuter deity.",
+      "apologetic_relevance": "Pivotal in Jewish-Christian and Christian-Muslim debates regarding the ontological nature of the Holy Spirit (divine power vs distinct divine person vs created angel).",
+      "safety": {
+        "safe_use": "Show that *ruach* in Hebrew is grammatically feminine and functions as divine power or prophetic endowment throughout the Tanakh.",
+        "common_misuse": "Claiming Genesis 1:2 proves the Holy Trinity was explicitly taught in the first verses of the Torah.",
+        "translation_risk": "Capitalizing 'Spirit' indiscriminately in Old Testament passages without noting the literal meaning 'breath' or 'wind'.",
+        "context_required": "Semitic grammar of gender agreements (feminine verbs/adjectives with ruach) and ancient Near Eastern creation imagery."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RAMBAM-MOREH-001",
+          "SRC-JEW-TALMUD-BAVLI-001",
+          "SRC-JEW-MT-001"
+        ],
+        "methodology": "Philological gender analysis, comparative Semitic pneumatology, and rabbinic prophetic epistemology",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
+    },
+    {
+      "term": "Shekhinah",
+      "hebrew": "שְׁכִינָה",
+      "transliteration": "Shekhinah",
+      "grammatical_category": "Abstract noun feminine singular",
+      "morphology": "Mishnaic/Rabbinic noun feminine singular (qetilal pattern)",
+      "root": "ש-כ-ן (sh-k-n; comparative Semitic: Akkadian *šakānu* = to place, establish, dwell; Ugaritic *škn*; Arabic *sakana* = to settle, be calm, dwell; *sakinah* = divine tranquility/peace)",
+      "basic_lexical_range": "Indwelling, divine presence, immanence, glory of God residing among humanity",
+      "semantic_range": "Post-biblical Rabbinic and Kabbalistic designation for God's manifested, perceptible immanent presence in the world, Tabernacle, Temple, and community of Israel, contrasted with divine transcendence (*Ein Sof* / *Kadosh*).",
+      "contextual_semantic_range": "Derived from the biblical verbal root *sh-k-n* (Exod 25:8 'and let them make Me a sanctuary, that I may dwell [ve-shakhanti] among them'). Does NOT appear as a noun in the Hebrew Bible, but emerged in the Targums and Talmud as a reverent circumlocution to avoid anthropomorphic descriptions of God moving or dwelling locally. In Talmudic thought, whenever ten people pray or two study Torah, the Shekhinah rests between them (Berakhot 6a, Avot 3:2). When Israel went into exile, the Shekhinah accompanied them into exile (Megillah 29a).",
+      "biblical_occurrences": [
+        "Exod 25:8",
+        "Exod 40:34-35",
+        "1 Kgs 8:12-13",
+        "Ps 135:21"
+      ],
+      "later_hebrew_usage": "In Kabbalah (Zohar, Isaac Luria), the Shekhinah is conceived as the tenth Sefirah (Malkhut), representing the feminine divine principle in exile awaiting cosmic reunification (*Yichud Kudsha Brikh Hu u-Shekhintei*).",
+      "aramaic_cognates": "שְׁכִנְתָּא (Shekhinta) - divine indwelling, presence of God (Targum Onkelos, Targum Yonatan).",
+      "translation_equivalents": {
+        "greek": "σκηνόω (skēnoō - to tabernacle/dwell; John 1:14), δόξα τοῦ θεοῦ (doxa tou theou - glory of God)",
+        "latin": "habitatio Dei, praesentia divina",
+        "arabic": "Sakinah (سَكِينَة - divine peace, tranquility, reassuring divine presence)",
+        "english": "divine presence, indwelling, immanence"
+      },
+      "lxx_translation_issues": "In the Targums, *Shekhinta* was coined precisely to translate biblical anthropomorphic passages safely. In the New Testament, John 1:14 ('and the Word became flesh and tabernacled / eskēnōsen among us') is widely recognized by scholars as a Greek wordplay on the Semitic root *sh-k-n*.",
+      "jewish_traditional_interpretation": "Maimonides in Guide for the Perplexed (1:27, 1:64) explains Shekhinah as a created light (*Kavod Nivra*) through which God manifests His presence in a perceptible manner without implying that the infinite divine essence changes, moves, or is localized in space. In Kabbalah, Shekhinah represents God's relational intimacy with the cosmos.",
+      "christian_interpretive_usage": "Christian theologians and Messianic apologetics identify the Shekhinah with the Holy Spirit or with the incarnate Logos in Christ (John 1:14, Col 2:9), using Jewish concepts of divine indwelling to justify incarnation theology.",
+      "islamic_interfaith_relevance": "Cognate with the Quranic *Sakinah* (divine peace and assurance, Surah 2:248, 9:26, 48:4). The Quran mentions the Ark of the Covenant containing *Sakinah* from the Lord (Surah 2:248), illustrating the shared Semitic heritage of divine indwelling as comfort and protection.",
+      "semantic_fallacies_to_avoid": "Polytheistic reification fallacy: treating the Shekhinah as an independent goddess or a separate divine ontological entity detached from the One God of Israel, rather than God's immanent manifestation.",
+      "apologetic_relevance": "Crucial for interfaith debates on divine transcendence vs immanence, the theology of the Temple, John 1:14 incarnational parallels, and Quranic *Sakinah*.",
+      "safety": {
+        "safe_use": "Explain that Shekhinah is originally a rabbinic noun coined to avoid anthropomorphism, signifying God's relational presence rather than a second deity.",
+        "common_misuse": "Claiming Kabbalistic Shekhinah proves ancient normative Judaism taught an incarnate multi-person Godhead.",
+        "translation_risk": "Translating *Shekhinah* as an autonomous divine person rather than the divine presence.",
+        "context_required": "Rabbinic circumlocution methodology in Targum Onkelos and Maimonidean Guide for the Perplexed 1:27."
+      },
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "SRC-ACAD-BDB-001",
+          "SRC-JEW-RAMBAM-MOREH-001",
+          "SRC-JEW-TALMUD-BAVLI-001",
+          "SRC-JEW-ZOHAR-001",
+          "SRC-JEW-LURIA-VITAL-001"
+        ],
+        "methodology": "Targumic and Talmudic circumlocution analysis, Maimonidean metaphysics, and Kabbalistic theosophy",
+        "author_agent": "Polia Knowledge Architecture Specialist"
+      }
     }
   ],
-  "actual_terms": 17,
-  "total_count": 17,
+  "actual_terms": 21,
+  "total_count": 21,
   "target_expansion_count": 35
 }

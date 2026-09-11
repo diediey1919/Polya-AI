@@ -1214,6 +1214,141 @@
       "id": "NODE-EVID-066",
       "type": "EVIDENCE",
       "label": "Evidence Record EVID-JEW-066"
+    },
+    {
+      "id": "NODE-LURIA-VITAL",
+      "type": "AUTHOR",
+      "label": "Isaac Luria & Chaim Vital (Safed Kabbalah)"
+    },
+    {
+      "id": "NODE-FACKENHEIM",
+      "type": "AUTHOR",
+      "label": "Emil L. Fackenheim (Post-Holocaust Philosophy)"
+    },
+    {
+      "id": "NODE-RUBENSTEIN",
+      "type": "AUTHOR",
+      "label": "Richard L. Rubenstein (Post-Holocaust Radical Theology)"
+    },
+    {
+      "id": "NODE-HARTMAN",
+      "type": "AUTHOR",
+      "label": "Rabbi David Hartman (Covenantal Philosophy)"
+    },
+    {
+      "id": "NODE-GEONIC-RESPONSA",
+      "type": "TEXT",
+      "label": "Otzar Ha-Geonim (Babylonian Geonic Responsa)"
+    },
+    {
+      "id": "NODE-COMM-PERSIAN",
+      "type": "DENOMINATION",
+      "label": "Persian and Iranian Jewish Community"
+    },
+    {
+      "id": "NODE-COMM-IRAQI",
+      "type": "DENOMINATION",
+      "label": "Iraqi / Babylonian Jewish Community"
+    },
+    {
+      "id": "NODE-THEME-POST-HOLOCAUST-THEOLOGY",
+      "type": "THEME",
+      "label": "Post-Holocaust Jewish Theology & Covenantal Crisis"
+    },
+    {
+      "id": "NODE-THEME-LURIANIC-TIKKUN",
+      "type": "THEME",
+      "label": "Lurianic Metaphysics (Tzimtzum, Shevirah & Tikkun)"
+    },
+    {
+      "id": "NODE-THEME-COVENANT-RESPONSIBILITY",
+      "type": "THEME",
+      "label": "Sinai Covenant as Adult Human Responsibility & Partnership"
+    },
+    {
+      "id": "NODE-THEME-HALAKHIC-PLURALISM",
+      "type": "THEME",
+      "label": "Rabbinic Halakhic Pluralism (Eilu va-Eilu)"
+    },
+    {
+      "id": "NODE-EVID-067",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-067 (Lurianic Tzimtzum)"
+    },
+    {
+      "id": "NODE-EVID-068",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-068 (Shevirat Ha-Kelim & Tikkun)"
+    },
+    {
+      "id": "NODE-EVID-069",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-069 (Hai Gaon on Talmudic Authority)"
+    },
+    {
+      "id": "NODE-EVID-070",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-070 (Brody on Geonic Responsa Network)"
+    },
+    {
+      "id": "NODE-EVID-071",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-071 (Fackenheim 614th Commandment)"
+    },
+    {
+      "id": "NODE-EVID-072",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-072 (Rubenstein Rupture of Theodicy)"
+    },
+    {
+      "id": "NODE-EVID-073",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-073 (Hartman Covenant of Responsibility)"
+    },
+    {
+      "id": "NODE-EVID-074",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-074 (Cyrus Decree & Persian Jewry)"
+    },
+    {
+      "id": "NODE-EVID-075",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-075 (Ben Ish Hai Baghdadi Tradition)"
+    },
+    {
+      "id": "NODE-EVID-076",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-076 (Yavneh as Academy Not Canon Council)"
+    },
+    {
+      "id": "NODE-EVID-077",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-077 (Prayer as Service of the Heart)"
+    },
+    {
+      "id": "NODE-EVID-078",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-078 (Eilu va-Eilu Halakhic Pluralism)"
+    },
+    {
+      "id": "NODE-EVID-079",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-079 (Anti-Flattening of Jew, Israeli, Zionist)"
+    },
+    {
+      "id": "NODE-EVID-080",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-080 (Qirqisani on Calendar & Aviv)"
+    },
+    {
+      "id": "NODE-EVID-081",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-081 (Daniel 7 Bar Enash Exegesis)"
+    },
+    {
+      "id": "NODE-EVID-082",
+      "type": "EVIDENCE",
+      "label": "Evidence Record EVID-JEW-082 (Beta Israel Sigd Covenant Renewal)"
     }
   ],
   "edges": [
@@ -2870,6 +3005,270 @@
       "target": "NODE-THEME-CONVERSION-STANDARDS",
       "relationship": "INTERPRETS",
       "weight": 1.0
+    },
+    {
+      "source": "NODE-LURIA-VITAL",
+      "target": "NODE-THEME-LURIANIC-TIKKUN",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-LURIA-VITAL",
+      "target": "NODE-TRAD-KABBALAH",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-FACKENHEIM",
+      "target": "NODE-THEME-POST-HOLOCAUST-THEOLOGY",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-RUBENSTEIN",
+      "target": "NODE-THEME-POST-HOLOCAUST-THEOLOGY",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-HARTMAN",
+      "target": "NODE-THEME-COVENANT-RESPONSIBILITY",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-HARTMAN",
+      "target": "NODE-ORTHODOX",
+      "relationship": "BELONGS_TO",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-GEONIC-RESPONSA",
+      "target": "NODE-BAVLI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-GEONIC-RESPONSA",
+      "target": "NODE-TRAD-GEONIC",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-COMM-PERSIAN",
+      "target": "NODE-COMM-MIZRAHI",
+      "relationship": "PART_OF",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-COMM-IRAQI",
+      "target": "NODE-COMM-MIZRAHI",
+      "relationship": "PART_OF",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-COMM-IRAQI",
+      "target": "NODE-TRAD-GEONIC",
+      "relationship": "DERIVES_FROM",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-THEME-HALAKHIC-PLURALISM",
+      "target": "NODE-BAVLI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-067",
+      "target": "NODE-LURIA-VITAL",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-067",
+      "target": "NODE-THEME-LURIANIC-TIKKUN",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-068",
+      "target": "NODE-LURIA-VITAL",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-068",
+      "target": "NODE-THEME-LURIANIC-TIKKUN",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-069",
+      "target": "NODE-GEONIC-RESPONSA",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-069",
+      "target": "NODE-BAVLI",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-070",
+      "target": "NODE-GEONIC-RESPONSA",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-070",
+      "target": "NODE-TRAD-GEONIC",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-071",
+      "target": "NODE-FACKENHEIM",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-071",
+      "target": "NODE-THEME-POST-HOLOCAUST-THEOLOGY",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-072",
+      "target": "NODE-RUBENSTEIN",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-072",
+      "target": "NODE-THEME-POST-HOLOCAUST-THEOLOGY",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-073",
+      "target": "NODE-HARTMAN",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-073",
+      "target": "NODE-THEME-COVENANT-RESPONSIBILITY",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-074",
+      "target": "NODE-TANAKH",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-074",
+      "target": "NODE-COMM-PERSIAN",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-075",
+      "target": "NODE-COMM-IRAQI",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-075",
+      "target": "NODE-THEME-LURIANIC-TIKKUN",
+      "relationship": "INTERPRETS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-EVID-076",
+      "target": "NODE-THEME-HALAKHIC-PLURALISM",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-076",
+      "target": "NODE-MISHNAH",
+      "relationship": "INTERPRETS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-EVID-077",
+      "target": "NODE-BAVLI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-077",
+      "target": "NODE-THEME-HALAKHIC-PLURALISM",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-078",
+      "target": "NODE-BAVLI",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-078",
+      "target": "NODE-THEME-HALAKHIC-PLURALISM",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-079",
+      "target": "NODE-THEME-ZIONISM-DIST",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-079",
+      "target": "NODE-ORTHODOX",
+      "relationship": "INTERPRETS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-EVID-080",
+      "target": "NODE-DENOM-KARAITE",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-080",
+      "target": "NODE-THEME-TORAH-WRITTEN",
+      "relationship": "INTERPRETS",
+      "weight": 0.9
+    },
+    {
+      "source": "NODE-EVID-081",
+      "target": "NODE-TANAKH",
+      "relationship": "DERIVES_FROM",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-081",
+      "target": "NODE-THEME-MASHIACH",
+      "relationship": "INTERPRETS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-082",
+      "target": "NODE-COMM-BETA-ISRAEL",
+      "relationship": "SUPPORTS",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-EVID-082",
+      "target": "NODE-TANAKH",
+      "relationship": "DERIVES_FROM",
+      "weight": 0.9
     }
   ]
 }

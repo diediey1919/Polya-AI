@@ -378,8 +378,8 @@ class TestJudaismKnowledgeBase(unittest.TestCase):
     # TEST 035: Evidence Bank Denominational Coverage
     def test_035_evidence_bank_denominational_coverage(self):
         evid_bank = self.kb._cache["evidence"]
-        self.assertEqual(evid_bank["total_records"], 66)
-        self.assertEqual(len(evid_bank["records"]), 66)
+        self.assertEqual(evid_bank["total_records"], 82)
+        self.assertEqual(len(evid_bank["records"]), 82)
         e46 = self.kb.get_evidence("EVID-JEW-046")
         self.assertIsNotNone(e46)
         self.assertIn("Karaite", e46["text"])
@@ -395,8 +395,8 @@ class TestJudaismKnowledgeBase(unittest.TestCase):
     # TEST 036: Claim Inventory Structure and Epistemic Classification Integrity
     def test_036_claim_inventory_epistemic_integrity(self):
         claims_data = self.kb._cache["claims"]
-        self.assertEqual(claims_data["metrics"]["total_claims"], 76)
-        self.assertEqual(len(claims_data["claims"]), 76)
+        self.assertEqual(claims_data["metrics"]["total_claims"], 84)
+        self.assertEqual(len(claims_data["claims"]), 84)
         valid_epistemic_types = {
             "FACT", "ACADEMIC_CONSENSUS", "DENOMINATIONAL_POSITION",
             "HISTORICAL_REPORT", "TRADITIONAL_POSITION", "INTERPRETATION", "DISPUTED_CLAIM"
@@ -434,11 +434,11 @@ class TestJudaismKnowledgeBase(unittest.TestCase):
         self.assertEqual(report["claim_issues"], [])
         self.assertEqual(report["evidence_issues"], [])
         self.assertEqual(report["graph_issues"], [])
-        self.assertEqual(report["metrics"]["sources_audited"], 74)
-        self.assertEqual(report["metrics"]["claims_audited"], 76)
-        self.assertEqual(report["metrics"]["evidence_audited"], 66)
-        self.assertEqual(report["metrics"]["nodes_audited"], 192)
-        self.assertEqual(report["metrics"]["edges_audited"], 274)
+        self.assertEqual(report["metrics"]["sources_audited"], 80)
+        self.assertEqual(report["metrics"]["claims_audited"], 84)
+        self.assertEqual(report["metrics"]["evidence_audited"], 82)
+        self.assertEqual(report["metrics"]["nodes_audited"], 219)
+        self.assertEqual(report["metrics"]["edges_audited"], 318)
 
     # TEST 039: Judaism Knowledge Access Query & Retrieval Methods
     def test_039_judaism_access_methods(self):
@@ -447,9 +447,9 @@ class TestJudaismKnowledgeBase(unittest.TestCase):
         self.assertEqual(claim["topic"], "Messianic Criteria and Eschatology")
 
         claims_all = self.kb.list_claims()
-        self.assertEqual(len(claims_all), 76)
+        self.assertEqual(len(claims_all), 84)
         claims_theology = self.kb.list_claims(domain="JUDAISM")
-        self.assertEqual(len(claims_theology), 68)
+        self.assertEqual(len(claims_theology), 76)
 
         search_res = self.kb.search_judaism_knowledge("Pirkei Avot 1:1", limit=3)
         self.assertGreater(len(search_res), 0)
@@ -515,8 +515,8 @@ class TestJudaismKnowledgeBase(unittest.TestCase):
     # TEST 042: Source Graph Integrity and Zero Orphan Nodes
     def test_042_source_graph_integrity(self):
         graph = self.kb._cache["graph"]
-        self.assertEqual(len(graph["nodes"]), 192)
-        self.assertEqual(len(graph["edges"]), 274)
+        self.assertEqual(len(graph["nodes"]), 219)
+        self.assertEqual(len(graph["edges"]), 318)
         node_ids = {n["id"] for n in graph["nodes"]}
         connected_nodes = set()
         for e in graph["edges"]:
@@ -524,7 +524,7 @@ class TestJudaismKnowledgeBase(unittest.TestCase):
             self.assertIn(e["target"], node_ids, f"Invalid target in edge {e}")
             connected_nodes.add(e["source"])
             connected_nodes.add(e["target"])
-        self.assertEqual(len(connected_nodes), 192, "Found orphan nodes disconnected from all edges!")
+        self.assertEqual(len(connected_nodes), 219, "Found orphan nodes disconnected from all edges!")
 
     # TEST 043: Denominational Comparison Matrix Coverage
     def test_043_denominational_comparisons(self):
@@ -555,7 +555,7 @@ class TestJudaismKnowledgeBase(unittest.TestCase):
         res_ver = subprocess.run([cli_path, "verify"], capture_output=True, text=True)
         self.assertEqual(res_ver.returncode, 0)
         self.assertIn("STATUS: ALL INTEGRITY CHECKS PASSED", res_ver.stdout)
-        self.assertIn("Judaism Knowledge Base: 74 Sources, 76 Claims, 66 Evidence Records, 192 Nodes, 274 Edges (0 Lint Errors)", res_ver.stdout)
+        self.assertIn("Judaism Knowledge Base: 80 Sources, 84 Claims, 82 Evidence Records, 219 Nodes, 318 Edges (0 Lint Errors)", res_ver.stdout)
 
         res_search = subprocess.run([cli_path, "search", "Maimonides messiah", "--tradition", "JEWISH"], capture_output=True, text=True)
         self.assertEqual(res_search.returncode, 0)
@@ -565,9 +565,9 @@ class TestJudaismKnowledgeBase(unittest.TestCase):
     def test_046_lexicon_and_graph_semantics(self):
         # 1. Lexicon metric reconciliation
         lex = self.kb._cache["lexicon"]
-        self.assertEqual(len(lex["terms"]), 17)
-        self.assertEqual(lex.get("actual_terms"), 17)
-        self.assertEqual(lex.get("total_count"), 17)
+        self.assertEqual(len(lex["terms"]), 21)
+        self.assertEqual(lex.get("actual_terms"), 21)
+        self.assertEqual(lex.get("total_count"), 21)
         self.assertEqual(lex.get("target_expansion_count"), 35)
 
         # 2. Source canonicalization

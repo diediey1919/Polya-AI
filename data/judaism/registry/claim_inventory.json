@@ -2,15 +2,15 @@
   "version": "1.0.0",
   "description": "Polia Apologetika Judaism Knowledge Base Complete Forensic Claim Inventory (Phase 9F)",
   "metrics": {
-    "total_claims": 76,
-    "claims_with_sources": 76,
-    "claims_directly_verified": 76,
+    "total_claims": 84,
+    "claims_with_sources": 84,
+    "claims_directly_verified": 84,
     "claims_partially_verified": 0,
     "claims_needing_nuance": 6,
     "disputed_claims": 30,
     "unverified_claims": 0,
     "audit_classification_breakdown": {
-      "SAFE": 40,
+      "SAFE": 48,
       "NEEDS_NUANCE": 6,
       "DISPUTED": 30,
       "MISLEADING": 0,
@@ -337,7 +337,7 @@
     },
     {
       "claim_id": "CLAIM-EXEG-ISAIAH-53-SERVANT-001",
-      "claim_text": "In the fourth Servant Song (Isaiah 52:13\u201353:12), the dominant medieval and modern Jewish contextual interpretation (championed by Rashi, Ibn Ezra, and Radak) identifies the suffering servant collectively with the exiled and persecuted people of Israel, who suffer at the hands of the nations who will ultimately express astonishment at Israel's vindication. Individual messianic readings exist in certain midrashic and aggadic sources but do not affirm divine incarnation or vicarious damnation.",
+      "claim_text": "In the fourth Servant Song (Isaiah 52:13–53:12), the dominant medieval and modern Jewish contextual interpretation (championed by Rashi, Ibn Ezra, and Radak) identifies the suffering servant collectively with the exiled and persecuted people of Israel, who suffer at the hands of the nations who will ultimately express astonishment at Israel's vindication. Individual messianic readings exist in certain midrashic and aggadic sources but do not affirm divine incarnation or vicarious damnation.",
       "domain": "JUDAISM",
       "subdomain": "EXEGESIS",
       "topic": "Isaiah 53 Servant Identity",
@@ -397,7 +397,7 @@
     },
     {
       "claim_id": "CLAIM-LEX-ALMAH-BETHULAH-001",
-      "claim_text": "Hebrew lexicography establishes that 'almah' (\u05e2\u05b7\u05dc\u05b0\u05de\u05b8\u05d4) denotes a young woman of childbearing age without grammatical or biological assertion of sexual virginity, whereas biblical Hebrew uses 'bethulah' (\u05d1\u05b0\u05bc\u05ea\u05d5\u05bc\u05dc\u05b8\u05d4) when virginity is the specific legal or physical point of emphasis (e.g. Genesis 24:16, Deuteronomy 22:13-21).",
+      "claim_text": "Hebrew lexicography establishes that 'almah' (עַלְמָה) denotes a young woman of childbearing age without grammatical or biological assertion of sexual virginity, whereas biblical Hebrew uses 'bethulah' (בְּתוּלָה) when virginity is the specific legal or physical point of emphasis (e.g. Genesis 24:16, Deuteronomy 22:13-21).",
       "domain": "JUDAISM",
       "subdomain": "LEXICON",
       "topic": "Lexical Analysis of Almah vs Bethulah",
@@ -425,7 +425,7 @@
     },
     {
       "claim_id": "CLAIM-LEX-MASHIACH-ANOINTED-001",
-      "claim_text": "In biblical Hebrew, 'mashiach' (\u05de\u05b8\u05e9\u05b4\u05c1\u05d9\u05d7\u05b7) is an adjective or noun meaning 'anointed one', referring to individuals consecrated with olive oil for royal or priestly offices, including King Saul (1 Sam 24:6), King David (2 Sam 19:22), the High Priest (Lev 4:3), and even the non-Jewish Persian king Cyrus the Great (Isaiah 45:1). It does not denote divinity or metaphysical saviorhood in the Tanakh.",
+      "claim_text": "In biblical Hebrew, 'mashiach' (מָשִׁיחַ) is an adjective or noun meaning 'anointed one', referring to individuals consecrated with olive oil for royal or priestly offices, including King Saul (1 Sam 24:6), King David (2 Sam 19:22), the High Priest (Lev 4:3), and even the non-Jewish Persian king Cyrus the Great (Isaiah 45:1). It does not denote divinity or metaphysical saviorhood in the Tanakh.",
       "domain": "JUDAISM",
       "subdomain": "LEXICON",
       "topic": "Lexical Meaning of Mashiach",
@@ -452,7 +452,7 @@
     },
     {
       "claim_id": "CLAIM-LEX-BEN-ELOHIM-SON-OF-GOD-001",
-      "claim_text": "In Tanakh phraseology, 'ben Elohim' (\u05d1\u05b6\u05bc\u05df \u05d0\u05b1\u05dc\u05b9\u05d4\u05b4\u05d9\u05dd) or 'bnei Elohim' refers metaphorically to heavenly angels (Job 1:6, 38:7), human judges (Psalm 82:6), or the entire covenant nation of Israel collectively (Exodus 4:22: 'My firstborn son is Israel'). It never conveys literal physical or ontological divine procreation.",
+      "claim_text": "In Tanakh phraseology, 'ben Elohim' (בֶּן אֱלֹהִים) or 'bnei Elohim' refers metaphorically to heavenly angels (Job 1:6, 38:7), human judges (Psalm 82:6), or the entire covenant nation of Israel collectively (Exodus 4:22: 'My firstborn son is Israel'). It never conveys literal physical or ontological divine procreation.",
       "domain": "JUDAISM",
       "subdomain": "THEOLOGY",
       "topic": "Idiomatic Usage of Ben Elohim",
@@ -1344,7 +1344,7 @@
     },
     {
       "claim_id": "CLAIM-THEO-THREE-OATHS-ZIONISM-001",
-      "claim_text": "Traditionalist anti-Zionist Orthodox theology (most systematically expounded by Rabbi Joel Teitelbaum in Sefer Va-Yoel Moshe) invokes the 'Three Oaths' of Talmud Bavli Ketubot 111a\u2014prohibiting the Jewish people from ascending en masse ('scaling the wall') or rebelling against the nations before divine redemption\u2014to argue that modern political Zionism represents a sinful usurpation of divine messianic initiative. Conversely, Religious Zionists (e.g. Rav Kook) hold that the Balfour Declaration, the Holocaust, and UN recognition dissolved the oaths and inaugurated the beginning of redemption (Atchalta de-Ge'ulah).",
+      "claim_text": "Traditionalist anti-Zionist Orthodox theology (most systematically expounded by Rabbi Joel Teitelbaum in Sefer Va-Yoel Moshe) invokes the 'Three Oaths' of Talmud Bavli Ketubot 111a—prohibiting the Jewish people from ascending en masse ('scaling the wall') or rebelling against the nations before divine redemption—to argue that modern political Zionism represents a sinful usurpation of divine messianic initiative. Conversely, Religious Zionists (e.g. Rav Kook) hold that the Balfour Declaration, the Holocaust, and UN recognition dissolved the oaths and inaugurated the beginning of redemption (Atchalta de-Ge'ulah).",
       "domain": "JUDAISM",
       "subdomain": "THEOLOGY",
       "topic": "The Three Oaths & Land Covenant",
@@ -1555,7 +1555,7 @@
     },
     {
       "claim_id": "CLAIM-EXEG-DEUT-18-PROPHETIC-SUCCESSION-001",
-      "claim_text": "Deuteronomy 18:15\u201318 promises 'A prophet from your midst, from your brothers, like me (*navi mi-kirbkha me-achekha kamoni*)', which Jewish contextual exegesis identifies as an institution of ongoing prophetic succession within Israel to counter Canaanite soothsayers.",
+      "claim_text": "Deuteronomy 18:15–18 promises 'A prophet from your midst, from your brothers, like me (*navi mi-kirbkha me-achekha kamoni*)', which Jewish contextual exegesis identifies as an institution of ongoing prophetic succession within Israel to counter Canaanite soothsayers.",
       "domain": "JUDAISM",
       "subdomain": "MEDIEVAL_RISHONIM",
       "topic": "Prophetic Succession and Deuteronomy 18",
@@ -1581,7 +1581,7 @@
     },
     {
       "claim_id": "CLAIM-HAL-BRIT-MILAH-PERPETUITY-001",
-      "claim_text": "Genesis 17:9\u201314 commands circumcision (*Brit Milah*) as an everlasting physical covenant (*brit olam*) in the flesh for all generations, decreeing spiritual excision (*karet*) for an uncircumcised male.",
+      "claim_text": "Genesis 17:9–14 commands circumcision (*Brit Milah*) as an everlasting physical covenant (*brit olam*) in the flesh for all generations, decreeing spiritual excision (*karet*) for an uncircumcised male.",
       "domain": "JUDAISM",
       "subdomain": "MASORETIC_TIBERIAN",
       "topic": "Perpetuity of Brit Milah (Circumcision)",
@@ -1607,7 +1607,7 @@
     },
     {
       "claim_id": "CLAIM-LEX-EMUNAH-FIDELITY-001",
-      "claim_text": "Hebrew lexicography demonstrates that *emunah* (root \u05d0-\u05de-\u05df) denotes firmness, steadfast fidelity, reliability, and active moral loyalty, contrasting with Hellenistic and Protestant concepts of passive cognitive propositional belief.",
+      "claim_text": "Hebrew lexicography demonstrates that *emunah* (root א-מ-ן) denotes firmness, steadfast fidelity, reliability, and active moral loyalty, contrasting with Hellenistic and Protestant concepts of passive cognitive propositional belief.",
       "domain": "JUDAISM",
       "subdomain": "ACADEMIC_CRITICAL",
       "topic": "Biblical Semantic Domain of Emunah (Faithfulness)",
@@ -2098,6 +2098,221 @@
       "audit_classification": "DISPUTED",
       "audit_rationale": "Linked directly to verified evidence record with verified bibliographic provenance.",
       "notes": "Anti-flattening benchmark preventing conflation of Judaism and political statehood."
+    },
+    {
+      "claim_id": "CLAIM-THEO-LURIANIC-KABBALAH-001",
+      "claim_text": "Lurianic Kabbalah, codified by Rabbi Chaim Vital from the oral teachings of Rabbi Isaac Luria (Arizal) in Safed (c. 1572), articulates a cosmic drama of creation consisting of Tzimtzum (divine withdrawal/contraction), Shevirat Ha-Kelim (the catastrophic shattering of the vessels of primordial light), and Tikkun Olam (the sacred task of human beings to liberate and elevate the trapped holy sparks through halakhic mitzvot and mystical intention).",
+      "domain": "JUDAISM",
+      "subdomain": "KABBALISTIC",
+      "topic": "Lurianic Metaphysics, Tzimtzum, and Tikkun Olam",
+      "historical_period": "MEDIEVAL_EUROPEAN",
+      "tradition": "KABBALISTIC",
+      "denomination": "PAN_JEWISH",
+      "source_ids": [
+        "SRC-JEW-LURIA-VITAL-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-067",
+        "EVID-JEW-068"
+      ],
+      "graph_node_ids": [
+        "NODE-THEME-LURIANIC-TIKKUN"
+      ],
+      "epistemic_type": "TRADITIONAL_POSITION",
+      "confidence": "ESTABLISHED",
+      "verification_status": "VERIFIED",
+      "contested": false,
+      "audit_classification": "SAFE",
+      "audit_rationale": "Linked directly to verified evidence record from Sefer Etz Chaim with verified primary provenance.",
+      "notes": "Foundational paradigm of Jewish mystical theodicy and ethical activism."
+    },
+    {
+      "claim_id": "CLAIM-HIST-GEONIC-AUTHORITY-001",
+      "claim_text": "During the Abbasid Caliphate (c. 750–1040 CE), the Geonim of the Babylonian academies of Sura and Pumbedita exercised centralized halakhic and juridical hegemony across the Islamic diaspora, establishing the Babylonian Talmud as universally authoritative through thousands of written responsa (Teshuvot Ha-Geonim) and actively defending rabbinic tradition against early Karaite scripturalism.",
+      "domain": "JUDAISM",
+      "subdomain": "GEONIC",
+      "topic": "Geonic Legal Authority and Universalization of the Babylonian Talmud",
+      "historical_period": "ISLAMIC_GOLDEN_AGE",
+      "tradition": "GEONIC",
+      "denomination": "RABBINIC",
+      "source_ids": [
+        "SRC-JEW-GEONIC-RESPONSA-001",
+        "SRC-ACAD-BRODY-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-069",
+        "EVID-JEW-070"
+      ],
+      "graph_node_ids": [
+        "NODE-GEONIC-RESPONSA"
+      ],
+      "epistemic_type": "HISTORICAL_REPORT",
+      "confidence": "ESTABLISHED",
+      "verification_status": "VERIFIED",
+      "contested": false,
+      "audit_classification": "SAFE",
+      "audit_rationale": "Linked directly to verified evidence records from Otzar Ha-Geonim and standard critical academic historiography.",
+      "notes": "Crucial historical phase solidifying Talmudic rabbinic normativity."
+    },
+    {
+      "claim_id": "CLAIM-THEO-POST-HOLOCAUST-FACKENHEIM-001",
+      "claim_text": "In 'To Mend the World' (1982), philosopher Emil Fackenheim formulated the '614th Commandment': that after Auschwitz, Jews are morally and theologically forbidden to grant Hitler posthumous victories by despairing of God, abandoning Jewish peoplehood, or assimilating out of existence.",
+      "domain": "JUDAISM",
+      "subdomain": "MODERN_PHILOSOPHY",
+      "topic": "Emil Fackenheim 614th Commandment on Jewish Survival",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "MODERN_PHILOSOPHY",
+      "denomination": "PAN_JEWISH",
+      "source_ids": [
+        "SRC-ACAD-FACKENHEIM-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-071"
+      ],
+      "graph_node_ids": [
+        "NODE-THEME-POST-HOLOCAUST-THEOLOGY"
+      ],
+      "epistemic_type": "INTERPRETATION",
+      "confidence": "ESTABLISHED",
+      "verification_status": "VERIFIED",
+      "contested": true,
+      "audit_classification": "SAFE",
+      "audit_rationale": "Linked directly to verified evidence record from Fackenheim's philosophical monograph.",
+      "notes": "Cornerstone of modern Jewish existential theodicy and post-Shoah ethics."
+    },
+    {
+      "claim_id": "CLAIM-THEO-POST-HOLOCAUST-RUBENSTEIN-001",
+      "claim_text": "In 'After Auschwitz' (1966), theologian Richard L. Rubenstein argued that the extermination of six million European Jews shattered the classical covenantal theodicy of divine reward and retribution (mipenei chata'einu), contending that Jewish survival requires rejecting naive messianism and embracing existential community.",
+      "domain": "JUDAISM",
+      "subdomain": "MODERN_PHILOSOPHY",
+      "topic": "Richard Rubenstein Radical Post-Shoah Theology and Theodicy Rupture",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "MODERN_PHILOSOPHY",
+      "denomination": "PAN_JEWISH",
+      "source_ids": [
+        "SRC-ACAD-RUBENSTEIN-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-072"
+      ],
+      "graph_node_ids": [
+        "NODE-THEME-POST-HOLOCAUST-THEOLOGY"
+      ],
+      "epistemic_type": "INTERPRETATION",
+      "confidence": "ESTABLISHED",
+      "verification_status": "VERIFIED",
+      "contested": true,
+      "audit_classification": "SAFE",
+      "audit_rationale": "Linked directly to verified evidence record from Rubenstein's theological monograph.",
+      "notes": "Anti-flattening entry showing radical internal theological diversity in response to the Holocaust."
+    },
+    {
+      "claim_id": "CLAIM-THEO-COVENANT-RESPONSIBILITY-001",
+      "claim_text": "In 'A Living Covenant' (1985), Rabbi David Hartman formulated a contemporary theology of the Sinai covenant as an empowering, mature partnership between God and humanity, arguing that halakha demands human intellectual and moral responsibility in history rather than passive dependence on supernatural miracles.",
+      "domain": "JUDAISM",
+      "subdomain": "MODERN_PHILOSOPHY",
+      "topic": "David Hartman Theology of Covenantal Partnership and Human Agency",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "MODERN_PHILOSOPHY",
+      "denomination": "MODERN_ORTHODOX",
+      "source_ids": [
+        "SRC-ACAD-HARTMAN-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-073"
+      ],
+      "graph_node_ids": [
+        "NODE-THEME-COVENANT-RESPONSIBILITY"
+      ],
+      "epistemic_type": "INTERPRETATION",
+      "confidence": "ESTABLISHED",
+      "verification_status": "VERIFIED",
+      "contested": true,
+      "audit_classification": "SAFE",
+      "audit_rationale": "Linked directly to verified evidence record from Hartman's halakhic-philosophical monograph.",
+      "notes": "Central text in Modern Orthodox intellectual philosophy balancing tradition and human autonomy."
+    },
+    {
+      "claim_id": "CLAIM-COMM-PERSIAN-JEWRY-001",
+      "claim_text": "Persian and Iranian Jewry constitutes one of the oldest unbroken Jewish communities in the world, with continuous settlement dating over 2,700 years to the biblical Assyrian and Babylonian exiles and the decree of Cyrus the Great (538 BCE), maintaining ancient pilgrimage shrines (Esther and Mordecai in Hamadan, Daniel in Susa) and a rich tradition of Judeo-Persian literature.",
+      "domain": "JUDAISM",
+      "subdomain": "MIZRAHI",
+      "topic": "Antiquity, Heritage, and Autonomy of Persian and Iranian Jewry",
+      "historical_period": "ANCIENT_NEAR_EAST",
+      "tradition": "MIZRAHI",
+      "denomination": "PAN_JEWISH",
+      "source_ids": [
+        "SRC-ACAD-MCOHEN-001",
+        "SRC-JEW-MT-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-074"
+      ],
+      "graph_node_ids": [
+        "NODE-COMM-PERSIAN"
+      ],
+      "epistemic_type": "HISTORICAL_REPORT",
+      "confidence": "ESTABLISHED",
+      "verification_status": "VERIFIED",
+      "contested": false,
+      "audit_classification": "SAFE",
+      "audit_rationale": "Linked directly to verified historical evidence records from biblical, inscriptional, and academic sources.",
+      "notes": "Essential geographic anti-flattening entry preserving the unique non-Ashkenazi non-Sephardic identity of Iranian Jewry."
+    },
+    {
+      "claim_id": "CLAIM-HIST-YAVNEH-ACADEMY-001",
+      "claim_text": "Modern academic consensus demonstrates that the rabbinic assembly at Yavneh (Jamnia) under Rabban Yochanan ben Zakkai after the Temple's destruction in 70 CE was an academy and court that reorganized Jewish civil and religious life, not an ecumenical council that closed or fixed the biblical canon (the debunked 19th-century Graetz hypothesis).",
+      "domain": "JUDAISM",
+      "subdomain": "RABBINIC",
+      "topic": "Academic Reality of Yavneh / Jamnia Assembly and Gradual Canonization",
+      "historical_period": "ROMAN_ERA",
+      "tradition": "ACADEMIC_CRITICAL",
+      "denomination": "PAN_JEWISH",
+      "source_ids": [
+        "SRC-ACAD-COHEN-001",
+        "SRC-ACAD-GOODMAN-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-076"
+      ],
+      "graph_node_ids": [
+        "NODE-THEME-HALAKHIC-PLURALISM"
+      ],
+      "epistemic_type": "ACADEMIC_CONSENSUS",
+      "confidence": "ESTABLISHED",
+      "verification_status": "VERIFIED",
+      "contested": false,
+      "audit_classification": "SAFE",
+      "audit_rationale": "Supported by multiple Tier 5 academic sources confirming modern consensus rejecting the Jamnia canon myth.",
+      "notes": "Critical historical safeguard against the Jamnia canon myth."
+    },
+    {
+      "claim_id": "CLAIM-HAL-PRAYER-SACRIFICE-SUBSTITUTION-001",
+      "claim_text": "Following the Roman destruction of the Second Temple (70 CE), Jewish sacrificial offerings ceased because biblical law strictly restricts sacrifices to the chosen central sanctuary (Deut 12); the Sages instituted formalized synagogue prayer (tefillah) and acts of lovingkindness (gemilut chasadim) as the substitute spiritual service of the heart (avodah she-ba-lev), while traditional rabbinic liturgy preserved explicit prayers for the future restoration of Temple service.",
+      "domain": "JUDAISM",
+      "subdomain": "RABBINIC",
+      "topic": "Halakhic Cessation of Sacrifice and Prayer as Service of the Heart",
+      "historical_period": "RABBINIC_ERA",
+      "tradition": "RABBINIC",
+      "denomination": "PAN_JEWISH",
+      "source_ids": [
+        "SRC-JEW-TALMUD-BAVLI-001",
+        "SRC-JEW-MT-001"
+      ],
+      "evidence_ids": [
+        "EVID-JEW-077",
+        "EVID-JEW-078"
+      ],
+      "graph_node_ids": [
+        "NODE-THEME-HALAKHIC-PLURALISM"
+      ],
+      "epistemic_type": "TRADITIONAL_POSITION",
+      "confidence": "ESTABLISHED",
+      "verification_status": "VERIFIED",
+      "contested": false,
+      "audit_classification": "SAFE",
+      "audit_rationale": "Linked directly to verified Talmudic texts (Berakhot 26b, Ta'anit 27b, Hosea 14:3) and normative halakhic codifications.",
+      "notes": "Critical anti-oversimplification safeguard clarifying the nature of post-70 CE worship transformation."
     }
   ]
 }

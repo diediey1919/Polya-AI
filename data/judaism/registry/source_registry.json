@@ -2447,7 +2447,202 @@
         "peer_review_status": "PEER_REVIEWED_ACADEMIC"
       },
       "notes": "Critical scholarship analyzing Sephardic and Mizrahi rabbinic halakhic decision-making, demonstrating halakhic dynamism and moderate traditionalism."
+    },
+    {
+      "source_id": "SRC-JEW-LURIA-VITAL-001",
+      "title": "Chaim Vital & Isaac Luria: Sefer Etz Chaim (The Tree of Life)",
+      "author": "Rabbi Chaim Vital (recording teachings of Rabbi Isaac Luria / Arizal)",
+      "date": "c. 1572–1590 CE",
+      "approximate_date": "Late 16th century CE",
+      "historical_period": "MEDIEVAL_EUROPEAN",
+      "tradition": "KABBALISTIC",
+      "denomination": "RABBINIC",
+      "language": "Rabbinic Hebrew / Judeo-Aramaic",
+      "region": "Safed (Tzfat), Ottoman Galilee / Damascus",
+      "source_type": "KABBALISTIC_TEXT",
+      "primary_or_secondary": "PRIMARY",
+      "academic_or_religious": "RELIGIOUS",
+      "tier": "TIER_3_MEDIEVAL_RISHONIM",
+      "publisher": "Yeshivat Ha-Shalom / Mossad Harav Kook",
+      "edition": "Sefer Etz Chaim: Maharash Vital recension, ed. Menachem Mendel Eichler (Jerusalem, 1988); critical commentary by Shalom Sharabi (Nahar Shalom)",
+      "identifier": "Classical Safed Kabbalistic Corpus",
+      "repository": "National Library of Israel / Oxford Bodleian Library",
+      "manuscript_reference": "MS Jerusalem Heb. 8 3182; MS Oxford Bodl. Opp. 544",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Vital-Etz-Chaim-1988"
+        ],
+        "methodology": "Manuscript collation of the Shemonah She'arim corpus and systematic mystical hermeneutics",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist",
+        "peer_review_status": "ACADEMIC_STANDARD"
+      },
+      "notes": "Foundational treatise of Lurianic Kabbalah establishing the metaphysical doctrines of Tzimtzum (divine withdrawal/contraction), Shevirat Ha-Kelim (shattering of the primordial vessels), and Tikkun Olam (cosmic restoration through observance of mitzvot and mystical kavvanot)."
+    },
+    {
+      "source_id": "SRC-JEW-GEONIC-RESPONSA-001",
+      "title": "Otzar Ha-Geonim: Thesaurus of Geonic Responsa and Commentaries",
+      "author": "Sura and Pumbedita Geonim (ed. Benjamin M. Lewin / Simcha Assaf)",
+      "date": "c. 750–1040 CE",
+      "approximate_date": "8th to 11th century CE",
+      "historical_period": "ISLAMIC_GOLDEN_AGE",
+      "tradition": "GEONIC",
+      "denomination": "RABBINIC",
+      "language": "Judeo-Arabic / Babylonian Rabbinic Aramaic / Rabbinic Hebrew",
+      "region": "Baghdad, Sura, Pumbedita, Abbasid Caliphate",
+      "source_type": "RESPONSA",
+      "primary_or_secondary": "PRIMARY",
+      "academic_or_religious": "RELIGIOUS",
+      "tier": "TIER_3_MEDIEVAL_RISHONIM",
+      "publisher": "Haifa / Hebrew University of Jerusalem",
+      "edition": "Otzar Ha-Geonim, ed. Benjamin M. Lewin (Haifa/Jerusalem, 1928–1943, 13 vols.); Teshuvot Geonei Mizrach u-Ma'arav, ed. Joel Müller",
+      "identifier": "Otzar Ha-Geonim 13-vol Series",
+      "repository": "Cambridge University Library (Taylor-Schechter Genizah Collection) / Russian National Library (Firkovich Collection)",
+      "manuscript_reference": "T-S Ar. 30.12; MS Antonin 842",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Lewin-Otzar-Geonim",
+          "Brody-1998"
+        ],
+        "methodology": "Critical diplomatic transcription and collation of Cairo Genizah fragments and European responsa collections",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist",
+        "peer_review_status": "UNIVERSAL_ACADEMIC_STANDARD"
+      },
+      "notes": "Monumental source corpus documenting the halakhic, philosophical, and liturgical decisions of the Geonim (Sherira Gaon, Hai Gaon, Amram Gaon, Sar Shalom Gaon), establishing the Babylonian Talmud as normative across the Islamic empire."
+    },
+    {
+      "source_id": "SRC-ACAD-FACKENHEIM-001",
+      "title": "To Mend the World: Foundations of Future Jewish Thought",
+      "author": "Emil L. Fackenheim",
+      "date": "1982 CE",
+      "approximate_date": "Late 20th century CE",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "MODERN_PHILOSOPHY",
+      "denomination": "PAN_JEWISH",
+      "language": "English",
+      "region": "Toronto, Canada / Jerusalem, Israel",
+      "source_type": "ACADEMIC_MONOGRAPH",
+      "primary_or_secondary": "SECONDARY",
+      "academic_or_religious": "ACADEMIC",
+      "tier": "TIER_5_ACADEMIC_CRITICAL",
+      "publisher": "Schocken Books / Indiana University Press",
+      "edition": "First Edition (Schocken, 1982; reprinted with new introduction, Indiana Univ. Press, 1994)",
+      "identifier": "ISBN 978-0253208743",
+      "repository": "University of Toronto Robarts Library / National Library of Israel",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Fackenheim-1982"
+        ],
+        "methodology": "Philosophical-phenomenological inquiry engaging Hegel, Rosenzweig, Spinoza, and post-Holocaust ontological rupture",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist",
+        "peer_review_status": "PEER_REVIEWED_ACADEMIC"
+      },
+      "notes": "Pivotal post-Holocaust Jewish philosophical treatise articulating the '614th Commandment' forbidding Jews from granting posthumous victories to Hitler through despair, assimilation, or loss of religious faith."
+    },
+    {
+      "source_id": "SRC-ACAD-RUBENSTEIN-001",
+      "title": "After Auschwitz: Radical Theology and the Future of Jewish Life",
+      "author": "Richard L. Rubenstein",
+      "date": "1966 CE",
+      "approximate_date": "Mid-20th century CE",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "MODERN_PHILOSOPHY",
+      "denomination": "PAN_JEWISH",
+      "language": "English",
+      "region": "Tallahassee, Florida, USA",
+      "source_type": "ACADEMIC_MONOGRAPH",
+      "primary_or_secondary": "SECONDARY",
+      "academic_or_religious": "ACADEMIC",
+      "tier": "TIER_5_ACADEMIC_CRITICAL",
+      "publisher": "Bobbs-Merrill / Johns Hopkins University Press",
+      "edition": "First Edition (Bobbs-Merrill, 1966; 2nd revised edition, Johns Hopkins, 1992)",
+      "identifier": "ISBN 978-0801842856",
+      "repository": "Harvard University Library / Johns Hopkins University",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Rubenstein-1966"
+        ],
+        "methodology": "Radical theological and psychoanalytic critique of classical theodicy and covenantal history after the Shoah",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist",
+        "peer_review_status": "PEER_REVIEWED_ACADEMIC"
+      },
+      "notes": "Foundational work in Holocaust theology arguing that the extermination of six million European Jews shattered the traditional covenantal claim that history is governed by a benevolent, omnipotent God who rewards and punishes."
+    },
+    {
+      "source_id": "SRC-ACAD-HARTMAN-001",
+      "title": "A Living Covenant: The Innovative Spirit in Traditional Judaism",
+      "author": "David Hartman",
+      "date": "1985 CE",
+      "approximate_date": "Late 20th century CE",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "MODERN_PHILOSOPHY",
+      "denomination": "MODERN_ORTHODOX",
+      "language": "English",
+      "region": "Jerusalem, Israel",
+      "source_type": "ACADEMIC_MONOGRAPH",
+      "primary_or_secondary": "SECONDARY",
+      "academic_or_religious": "ACADEMIC",
+      "tier": "TIER_5_ACADEMIC_CRITICAL",
+      "publisher": "Free Press / Jewish Publication Society",
+      "edition": "First Edition (Free Press, 1985; reprinted Jewish Lights Publishing, 1998)",
+      "identifier": "ISBN 978-1580230117",
+      "repository": "Shalom Hartman Institute Library / National Library of Israel",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Hartman-1985"
+        ],
+        "methodology": "Philosophical synthesis of Maimonidean rationalism, Soloveitchik's halakhic man, and contemporary democratic ethics",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist",
+        "peer_review_status": "PEER_REVIEWED_ACADEMIC"
+      },
+      "notes": "Formulates a theology of covenant as adult partnership, rejecting theological passivity and framing halakhic observance as dynamic human responsibility in history."
+    },
+    {
+      "source_id": "SRC-ACAD-BRODY-001",
+      "title": "The Geonim of Babylonia and the Shaping of Medieval Jewish Culture",
+      "author": "Robert Brody",
+      "date": "1998 CE",
+      "approximate_date": "Late 20th century CE",
+      "historical_period": "CONTEMPORARY",
+      "tradition": "ACADEMIC_CRITICAL",
+      "denomination": "PAN_JEWISH",
+      "language": "English",
+      "region": "New Haven / Jerusalem",
+      "source_type": "ACADEMIC_MONOGRAPH",
+      "primary_or_secondary": "SECONDARY",
+      "academic_or_religious": "ACADEMIC",
+      "tier": "TIER_5_ACADEMIC_CRITICAL",
+      "publisher": "Yale University Press",
+      "edition": "First Edition",
+      "identifier": "ISBN 978-0300070477",
+      "repository": "Yale University Library / Hebrew University of Jerusalem",
+      "verification_status": "VERIFIED",
+      "confidence": "ESTABLISHED",
+      "provenance": {
+        "source_ids": [
+          "Brody-1998"
+        ],
+        "methodology": "Critical historical and philological synthesis of Geonic literature, Cairo Genizah texts, and Islamic-era Jewish institutional history",
+        "created_date": "2026-09-11",
+        "author_agent": "Polia Knowledge Architecture Specialist",
+        "peer_review_status": "PEER_REVIEWED_ACADEMIC"
+      },
+      "notes": "The standard scholarly authority on the Babylonian Geonic academies, their halakhic output, their relations with the Exilarchate, and their polemical confrontation with Karaite scripturalism."
     }
   ],
-  "total_count": 74
+  "total_count": 80
 }

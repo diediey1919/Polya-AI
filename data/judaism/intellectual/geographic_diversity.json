@@ -106,6 +106,34 @@
       ],
       "relationship_to_rabbinic_judaism": "Historically isolated from the Talmud and rabbinic halakhic developments; halakhically recognized in 16th century by Rabbi David ben Zimra (Radbaz) as originating from the lost Tribe of Dan; definitively recognized in 1973 by Sephardic Chief Rabbi Ovadia Yosef; integrated into modern Israel through Operation Moses (1984) and Operation Solomon (1991), followed by institutional dialogue over rabbinic marriage and recognition of Kessim.",
       "uniqueness": "Preserved pre-rabbinic, non-talmudic biblical Judaism with monastic priesthood (Kohanim/Kessim) until mass airlift migrations to Israel (Operation Moses 1984, Operation Solomon 1991)"
+    },
+    {
+      "id": "COMM-PERSIAN",
+      "community": "Persian / Iranian Jewry",
+      "historical_geography": "Iran (Hamadan, Isfahan, Shiraz, Tehran, Kashan, Yazd), Central Asia, contemporary diaspora (Los Angeles, New York, Tel Aviv)",
+      "language": "Judeo-Persian dialects, Judeo-Tat, Judeo-Tajik (Bukhori), Persian, Hebrew",
+      "liturgical_rite": "Nusach Paras / Nusach Edot Ha-Mizrach with archaic Babylonian and Persian cantillations",
+      "halakhic_decisors": "Babylonian Geonim, Mullahs and Hakhamim of Isfahan and Hamadan (Hakham Yedidia Shofet, Hakham Uriel Davidi)",
+      "historical_heritage": "One of the oldest diaspora communities dating 2,700 years to the Assyrian and Babylonian exiles; received the Edict of Cyrus the Great (538 BCE); preserves the pilgrimage tombs of Queen Esther and Mordecai in Hamadan, the Prophet Daniel in Susa, and Habakkuk in Tuyserkan; rich tradition of Judeo-Persian epic poetry (Shahin Shirazi, Imrani).",
+      "distinctive_practices": [
+        "Veneration and annual pilgrimage to the Mausoleum of Esther and Mordecai in Hamadan on Purim",
+        "Unique Passover Seder ritual using scallions/leeks during Dayenu symbolizing the whips of Egyptian taskmasters",
+        "Celebration of Rooz-e Baghi and integration of Persian cultural milestones with strict halakhic observance"
+      ]
+    },
+    {
+      "id": "COMM-IRAQI",
+      "community": "Iraqi / Babylonian Jewry (Bavlim)",
+      "historical_geography": "Mesopotamia / Iraq (Baghdad, Basra, Mosul, Hillah, Kurdistan), Anglo-Indian Sassoon diaspora, contemporary Israel",
+      "language": "Judeo-Arabic (Baghdadi dialect), Judeo-Aramaic (Kurdistani Neo-Aramaic), Rabbinic Hebrew",
+      "liturgical_rite": "Nusach Baghdad (Edot Ha-Mizrach) with strict Iraqi Maqamat system for Pizmonim and liturgical poetry",
+      "halakhic_decisors": "Babylonian Geonim (Saadia Gaon, Sherira Gaon, Hai Gaon), Rabbi Abdallah Somekh (Midrash Beit Zilkha), Rabbi Yosef Hayyim (Ben Ish Hai)",
+      "historical_heritage": "Direct unbroken 2,500-year continuity from the Babylonian exile (586 BCE); historical redactors and custodians of the Babylonian Talmud in the academies of Sura, Pumbedita, and Nehardea under the Exilarch (Resh Galuta); premier halakhic synthesizing tradition integrating legal codification with Lurianic Kabbalah.",
+      "distinctive_practices": [
+        "Uncompromising fidelity to the halakhic and kabbalistic rulings of the Ben Ish Hai",
+        "Rich liturgical Pizmonim tradition following the classical Arabic Maqam system pegged to the weekly Torah reading",
+        "Pilgrimages to the shrines of the Prophet Ezekiel (Al-Kifl), Ezra the Scribe (Al-Uzair), and Joshua the High Priest (Baghdad)"
+      ]
     }
   ]
 }
