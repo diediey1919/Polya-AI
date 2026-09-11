@@ -243,9 +243,72 @@ def cmd_verify(args):
             print(f"  - FAIL: {iss}")
         sys.exit(1)
 
+def cmd_singularity(args):
+    from polya_runtime.debate import SingularityCognitiveLoop
+    loop = SingularityCognitiveLoop()
+    persona_choice = "zuma" if getattr(args, "zuma", False) or getattr(args, "persona", "default").lower() == "zuma" else getattr(args, "persona", "default")
+    res = loop.process_turn(args.claim, tradition=args.tradition or "COMPARATIVE", persona=persona_choice)
+
+    persona_title = " (ZUMA PERSONA LAYER)" if res.persona_applied == "ZUMA" else ""
+    print("==================================================")
+    print(f" 🌌 POLYA OMNI-DEBATE SINGULARITY COGNITIVE LOOP{persona_title}")
+    print("==================================================")
+    print(f"Target Claim:        {res.user_input}")
+    print(f"Opponent Archetype:  {res.opponent_archetype}")
+    print(f"Persona Active:      {res.persona_applied}")
+    print(f"Zugzwang State:      {'ACTIVE (CHECKMATE)' if res.forecast_report['zugzwang_detected'] else 'OPEN'}")
+    print(f"Hyper 5D Confidence: {round(res.hyper_5d_verification['confidence_score'] * 100, 1)}% [{res.hyper_5d_verification['confidence_tier']}]")
+    print("--------------------------------------------------")
+    print("1. DECONSTRUCTED ROOT AXIOM:")
+    print(f"   Ontology:            {res.deconstructed_axiom['ontological']}")
+    print(f"   Epistemology:        {res.deconstructed_axiom['epistemological']}")
+    print(f"   Reflexive Peritrope: {res.deconstructed_axiom['peritrope_inversion']}")
+    print("--------------------------------------------------")
+    print("2. PREDICTIVE DECISION TREE HORIZON:")
+    for b in res.forecast_report['branches']:
+        print(f"   [{b['id']}] P={int(b['probability']*100)}% | {b['label']}")
+        print(f"      Counter-Artifact: {b['pre_indexed_artifact']}")
+    print("--------------------------------------------------")
+    print("3. STEELMAN & SHADOW RED-TEAM:")
+    print(f"   Steelman (100x):     {res.steelman_summary['formulation']}")
+    print(f"   Patches Sealed:      {', '.join(res.patch_report['patches_applied'])}")
+    print("--------------------------------------------------")
+    print("4. ASYMMETRIC SOCRATIC WEAPON:")
+    print(f"   Maieutic Probe:      {res.socratic_weapon['stage_1_probe']}")
+    print(f"   Fatal Dilemma:       {res.socratic_weapon['constructive_dilemma']}")
+    if res.persona_applied == "ZUMA" and res.zuma_strategy:
+        print("--------------------------------------------------")
+        print("4b. ZUMA DIALECTICAL TACTIC & LADDER:")
+        print(f"   Tactical Strategy:   {res.zuma_strategy.get('name')}")
+        print(f"   Focus:               {res.zuma_strategy.get('focus')}")
+        if res.zuma_ladder:
+            print("   Interrogation Steps:")
+            for s in res.zuma_ladder:
+                print(f"     * {s}")
+    print("==================================================")
+    print("5. FINAL DELIVER:")
+    print(res.gravity_delivery)
+    print("==================================================")
+
 def main():
     parser = argparse.ArgumentParser(description="Polia AI Knowledge Runtime Control CLI")
     subparsers = parser.add_subparsers(dest="subcommand", required=True)
+
+    # singularity
+    p_sing = subparsers.add_parser("singularity", help="Run Omni-Debate Singularity Cognitive Loop")
+    p_sing.add_argument("claim", type=str, help="Target claim or opponent argument")
+    p_sing.add_argument("--tradition", type=str, default="COMPARATIVE", help="Tradition filter (ISLAMIC, CHRISTIAN, JEWISH, COMPARATIVE)")
+    p_sing.add_argument("--persona", type=str, default="default", choices=["default", "zuma"], help="Select debate persona layer (default or zuma)")
+    p_sing.add_argument("--zuma", action="store_true", help="Shortcut for --persona zuma")
+    p_sing.set_defaults(func=cmd_singularity)
+
+    # debate (alias for interactive / persona debate loop)
+    p_deb = subparsers.add_parser("debate", help="Execute debate turn with specified persona")
+    p_deb.add_argument("claim", type=str, help="Opponent argument or thesis to debate")
+    p_deb.add_argument("--tradition", type=str, default="COMPARATIVE", help="Tradition context")
+    p_deb.add_argument("--persona", type=str, default="default", choices=["default", "zuma"], help="Debate persona")
+    p_deb.add_argument("--zuma", action="store_true", help="Use ZUMA strategic persona")
+    p_deb.set_defaults(func=cmd_singularity)
 
     # index
     p_index = subparsers.add_parser("index", help="Build or refresh FTS5 index")
