@@ -1294,6 +1294,48 @@
       "weight": 1.0
     },
     {
+      "source": "NODE-THEME-TORAH-WRITTEN",
+      "target": "NODE-TANAKH",
+      "relationship": "PART_OF",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-PERIOD-SECOND-TEMPLE",
+      "target": "NODE-PERIOD-RABBINIC",
+      "relationship": "HISTORICALLY_PRECEDES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-PERIOD-RABBINIC",
+      "target": "NODE-PERIOD-ISLAMIC-GOLDEN",
+      "relationship": "HISTORICALLY_PRECEDES",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TEMPLE-70",
+      "target": "NODE-PERIOD-SECOND-TEMPLE",
+      "relationship": "PART_OF",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TRAD-SECOND-TEMPLE",
+      "target": "NODE-PERIOD-SECOND-TEMPLE",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TRAD-SADDUCEES",
+      "target": "NODE-TRAD-SECOND-TEMPLE",
+      "relationship": "BELONGS_TO",
+      "weight": 1.0
+    },
+    {
+      "source": "NODE-TRAD-SADDUCEES",
+      "target": "NODE-THEME-TORAH-ORAL",
+      "relationship": "CHALLENGES",
+      "weight": 1.0
+    },
+    {
       "source": "NODE-EVID-001",
       "target": "NODE-TEL-DAN",
       "relationship": "DERIVES_FROM",
