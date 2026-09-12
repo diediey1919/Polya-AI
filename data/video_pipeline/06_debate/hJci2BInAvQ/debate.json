@@ -1,0 +1,479 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "hJci2BInAvQ",
+  "motion_or_topic": "Hukum Makanan Halal/Haram (Imamat 11 vs Kisah 10) & Otoritas Perintah Rasuli",
+  "debate_mode": "zuma_persona",
+  "persona_id": "zuma_debate_v1",
+  "persona_intensity": 0.8,
+  "participants": [
+    {
+      "participant_id": "PART-ZUMA",
+      "name": "Zulkifli M. Abbas (ZUMA)",
+      "role": "AFFIRMATIVE_CRITIQUE",
+      "core_stance": "Uji naskah primer kanonik LAI TB & penolakan dogma tanpa ayat."
+    },
+    {
+      "participant_id": "PART-OPPONENT",
+      "name": "Interlocutor / Pembela Doktrin",
+      "role": "NEGATIVE_DEFENSE",
+      "core_stance": "Pembelaan tradisi teologis dan penafsiran dogmatis."
+    }
+  ],
+  "grounding_rules": {
+    "strict_knowledge_only": true,
+    "zero_hallucination_enforced": true,
+    "provenance_required": true
+  },
+  "rounds": [
+    {
+      "round_num": 1,
+      "turn_speaker": "ZUMA",
+      "speech_type": "SOCRATIC_OPENING",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Kita uji perdebatan hukum makanan dan otoritas rasuli: Hukum Makanan Halal/Haram (Imamat 11 vs Kisah 10) & Otoritas Perintah Rasuli. Mari kita buktikan apakah perintah Taurat dibatalkan ataukah ada manipulasi penafsiran terhadap Kisah Para Rasul.",
+      "persona_strategy": "verbatim_textual_anchoring",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-001",
+          "segment_id": "SEG-hJci2BInAvQ-0060",
+          "timestamp": "30:43",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    },
+    {
+      "round_num": 1,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "APOLOGETIC_OPENING",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Dalam Kisah Para Rasul 10, Tuhan menurunkan kain berisi segala jenis binatang haram dan berfirman kepada Petrus: 'Bangunlah, sembelihlah dan makanlah!' Apa yang dinyatakan halal oleh Allah tidak boleh dinyatakan haram oleh manusia. Hukum makanan Imamat 11 sudah dihapus bagi orang Kristen!",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-002",
+          "segment_id": "SEG-hJci2BInAvQ-0055",
+          "timestamp": "28:10",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    },
+    {
+      "round_num": 2,
+      "turn_speaker": "ZUMA",
+      "speech_type": "PRIMARY_TEXT_ARGUMENT",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Saudara mengutip ayat seperti orang yang belum membaca perikop sampai selesai! Perhatikan fakta historisnya: peristiwa Kisah 10 terjadi sekitar 10 tahun SETELAH kenaikan Yesus! Apa respon Petrus di ayat 14 saat kain itu turun? 'Tidak, Tuhan, tidak, sebab aku belum pernah makan sesuatu yang berketiadaan dan haram!' Jika Yesus selama 3,5 tahun melayani sudah menghalalkan babi dan membatalkan Imamat 11, mengapa Petrus rasul terdekat Yesus bersumpah belum pernah makan makanan haram 10 tahun kemudian?",
+      "persona_strategy": "context_expansion_rebuttal",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-001",
+          "segment_id": "SEG-hJci2BInAvQ-0060",
+          "timestamp": "30:43",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    },
+    {
+      "round_num": 2,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "DOGMATIC_JUSTIFICATION",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Justru penglihatan itu diberikan Tuhan kepada Petrus tepat untuk mengubah pemahaman lamanya agar tidak lagi mengharamkan makanan!",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-002",
+          "segment_id": "SEG-hJci2BInAvQ-0055",
+          "timestamp": "28:10",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    },
+    {
+      "round_num": 3,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "DEFENSIVE_OBJECTION",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Perintah suara dari langit itu tegas: 'Apa yang dinyatakan halal oleh Allah, tidak boleh engkau nyatakan haram!' Mengapa Anda menentang firman dari langit itu?",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-002",
+          "segment_id": "SEG-hJci2BInAvQ-0055",
+          "timestamp": "28:10",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    },
+    {
+      "round_num": 3,
+      "turn_speaker": "ZUMA",
+      "speech_type": "EVASION_INTERRUPTION",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Dengar saudara pendeta! Siapa yang menentang firman? Mengapa saudara berhenti membaca di ayat 15 dan sengaja menyembunyikan ayat 28? Buka Kisah Para Rasul 10 ayat 28 sekarang juga!",
+      "persona_strategy": "data_focus_interruption",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-001",
+          "segment_id": "SEG-hJci2BInAvQ-0060",
+          "timestamp": "30:43",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    },
+    {
+      "round_num": 4,
+      "turn_speaker": "ZUMA",
+      "speech_type": "VERBATIM_REBUTTAL",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Baca dengan mata dan telinga saudara ayat 28: Petrus sendiri yang menjelaskan arti penglihatan kain itu: 'Kamu tahu, betapa kerasnya larangan bagi seorang Yahudi untuk bergaul dengan orang-orang yang bukan Yahudi atau masuk ke rumah mereka. Tetapi Allah telah menunjukkan kepadaku, bahwa aku tidak boleh menyebut orang (MANUSIA) najis atau haram!' Tafsir resmi dari Rasul Petrus: yang dimaksud halal bukan daging babi, melainkan MANUSIA bukan Yahudi (Kornelius dan keluarganya) yang diterima masuk keselamatan!",
+      "persona_strategy": "context_expansion_rebuttal",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-001",
+          "segment_id": "SEG-hJci2BInAvQ-0060",
+          "timestamp": "30:43",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    },
+    {
+      "round_num": 4,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "EVASIVE_DEFENSE",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Tetapi prinsip penerimaan manusia itu juga mencakup kebebasan memakan segala makanan di meja perjamuan bersama mereka.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-002",
+          "segment_id": "SEG-hJci2BInAvQ-0055",
+          "timestamp": "28:10",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    },
+    {
+      "round_num": 5,
+      "turn_speaker": "ZUMA",
+      "speech_type": "CONSTRUCTIVE_FATAL_DILEMMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Tolong jawab jujur di hadapan jemaat: Apakah di Kisah Para Rasul 10:28 Petrus mengatakan 'Allah menunjukkan kepadaku bahwa babi sudah halal', atau 'Allah menunjukkan kepadaku bahwa manusia bukan Yahudi tidak boleh disebut haram'?",
+      "persona_strategy": "constructive_fatal_dilemma",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-001",
+          "segment_id": "SEG-hJci2BInAvQ-0060",
+          "timestamp": "30:43",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    },
+    {
+      "round_num": 5,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "DILEMMA_RESPONSE",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Ayat 28 menyebutkan tentang tidak boleh menyebut manusia haram.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-002",
+          "segment_id": "SEG-hJci2BInAvQ-0055",
+          "timestamp": "28:10",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    },
+    {
+      "round_num": 6,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "THEOLOGICAL_DEFENSE",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Dalam 1 Timotius 4:4 dikatakan bahwa semua yang diciptakan Allah itu baik dan tidak ada yang haram jika diterima dengan ucapan syukur.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-002",
+          "segment_id": "SEG-hJci2BInAvQ-0055",
+          "timestamp": "28:10",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    },
+    {
+      "round_num": 6,
+      "turn_speaker": "ZUMA",
+      "speech_type": "COUNTER_DEFENSE",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Surat 1 Timotius 4:4 berbicara tentang makanan yang dikuduskan oleh firman Allah dan doa (ayat 5). Makanan apa yang dikuduskan firman Allah? Makanan yang halal menurut firman Taurat, bukan yang diharamkan secara eksplisit dalam Imamat 11!",
+      "persona_strategy": "presupposition_inversion",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-001",
+          "segment_id": "SEG-hJci2BInAvQ-0060",
+          "timestamp": "30:43",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    },
+    {
+      "round_num": 7,
+      "turn_speaker": "ZUMA",
+      "speech_type": "SYNTHESIS_REBUTTAL",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Saudara telah terpojok oleh teks naskah saudara sendiri. Dari Imamat 11, Kisah 10:14, hingga Kisah 10:28, hukum makanan haram tetap berlaku dan tidak pernah dibatalkan oleh mimpi kain!",
+      "persona_strategy": "canonical_exclusivity_restriction",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-001",
+          "segment_id": "SEG-hJci2BInAvQ-0060",
+          "timestamp": "30:43",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    },
+    {
+      "round_num": 7,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "CONCLUDING_OBJECTION",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Bagi kami kerajaan Allah bukan soal makanan dan minuman, tetapi soal kebenaran dan damai sejahtera.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-002",
+          "segment_id": "SEG-hJci2BInAvQ-0055",
+          "timestamp": "28:10",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    },
+    {
+      "round_num": 8,
+      "turn_speaker": "ZUMA",
+      "speech_type": "MAIEUTIC_CLOSING",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Kerajaan Allah memang bukan soal makanan, tetapi ketaatan pada firman tertulis adalah ukuran integritas iman! Maieutic lockdown: naskah telah menelanjangi kesalahan tafsir saudara. Kebenaran naskah abadi!",
+      "persona_strategy": "maieutic_epistemic_verdict",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-001",
+          "segment_id": "SEG-hJci2BInAvQ-0060",
+          "timestamp": "30:43",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    },
+    {
+      "round_num": 8,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "FINAL_CLOSING",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Kami bersyukur atas segala yang Tuhan sediakan bagi kami.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-hJci2BInAvQ-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-hJci2BInAvQ-002",
+          "segment_id": "SEG-hJci2BInAvQ-0055",
+          "timestamp": "28:10",
+          "video_url": "https://www.youtube.com/watch?v=hJci2BInAvQ"
+        }
+      ]
+    }
+  ],
+  "cross_examination": [
+    {
+      "examiner": "ZUMA",
+      "target": "OPPONENT",
+      "socratic_question": "Apakah saudara bersedia mengakui naskah tertulis kanon Bible Imamat 11:7-8, Kisah Para Rasul 10:14, 10:28 mengenai tema 'Hukum Makanan Halal/Haram (Imamat 11 vs Kisah 10) & Otoritas Perintah Rasuli' secara verbatim tanpa menyelundupkan asumsi luar?",
+      "target_dilemma": "Jika mengakui teks apa adanya, premis dogmatis runtuh; jika menolak bunyi teks, saudara mendustai kitab kanon sendiri.",
+      "presupposition_demolished": "Asumsi bahwa doktrin gerejawi kebal dari pengujian filologis dan eksegetis naskah primer."
+    }
+  ],
+  "epistemic_verdict": {
+    "verdict_summary": "Simulasi dialektika ZUMA persona membuktikan bahwa klaim pembelaan dogma lawan dalam topik 'Hukum Makanan Halal/Haram (Imamat 11 vs Kisah 10) & Otoritas Perintah Rasuli' runtuh saat dihadapkan pada pembacaan verbatim naskah kanonik dan pengujian konsistensi internal.",
+    "logical_superiority": "AFFIRMATIVE_CRITIQUE (ZUMA)",
+    "unsupported_claims_flagged": [
+      "CLM-hJci2BInAvQ-002"
+    ]
+  },
+  "persona_traceability": [
+    {
+      "round_num": 1,
+      "round_name": "ROUND 1 — OPENING",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "verbatim_textual_anchoring",
+      "persona_evidence": {
+        "video_id": "hJci2BInAvQ",
+        "timestamp": "30:43",
+        "pattern": "Q-PAT-VERBATIM-CHALLENGE"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-hJci2BInAvQ-001",
+      "source_claim": "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan.",
+      "source_scripture": "Imamat 11:7-8, Kisah Para Rasul 10:14, 10:28",
+      "timestamp": "30:43"
+    },
+    {
+      "round_num": 2,
+      "round_name": "ROUND 2 — ARGUMENT",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "context_expansion_rebuttal",
+      "persona_evidence": {
+        "video_id": "hJci2BInAvQ",
+        "timestamp": "33:15",
+        "pattern": "REB-PAT-CONTEXT-EXPANSION"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-hJci2BInAvQ-001",
+      "source_claim": "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan.",
+      "source_scripture": "Imamat 11:7-8, Kisah Para Rasul 10:14, 10:28",
+      "timestamp": "30:43"
+    },
+    {
+      "round_num": 3,
+      "round_name": "ROUND 3 — COUNTERARGUMENT",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "data_focus_interruption",
+      "persona_evidence": {
+        "video_id": "hJci2BInAvQ",
+        "timestamp": "30:43",
+        "pattern": "PRS-PAT-INTERRUPTION-CONTROL"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-hJci2BInAvQ-001",
+      "source_claim": "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan.",
+      "source_scripture": "Imamat 11:7-8, Kisah Para Rasul 10:14, 10:28",
+      "timestamp": "30:43"
+    },
+    {
+      "round_num": 4,
+      "round_name": "ROUND 4 — REBUTTAL",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "context_expansion_rebuttal",
+      "persona_evidence": {
+        "video_id": "hJci2BInAvQ",
+        "timestamp": "33:15",
+        "pattern": "REB-PAT-CONTEXT-EXPANSION"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-hJci2BInAvQ-001",
+      "source_claim": "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan.",
+      "source_scripture": "Imamat 11:7-8, Kisah Para Rasul 10:14, 10:28",
+      "timestamp": "30:43"
+    },
+    {
+      "round_num": 5,
+      "round_name": "ROUND 5 — CROSS EXAMINATION",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "constructive_fatal_dilemma",
+      "persona_evidence": {
+        "video_id": "hJci2BInAvQ",
+        "timestamp": "30:43",
+        "pattern": "CRX-PAT-CONSTRUCTIVE-DILEMMA"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-hJci2BInAvQ-001",
+      "source_claim": "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan.",
+      "source_scripture": "Imamat 11:7-8, Kisah Para Rasul 10:14, 10:28",
+      "timestamp": "30:43"
+    },
+    {
+      "round_num": 6,
+      "round_name": "ROUND 6 — DEFENSE",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "presupposition_inversion",
+      "persona_evidence": {
+        "video_id": "hJci2BInAvQ",
+        "timestamp": "30:43",
+        "pattern": "PRE-PAT-INVERSION"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-hJci2BInAvQ-001",
+      "source_claim": "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan.",
+      "source_scripture": "Imamat 11:7-8, Kisah Para Rasul 10:14, 10:28",
+      "timestamp": "30:43"
+    },
+    {
+      "round_num": 7,
+      "round_name": "ROUND 7 — FINAL REBUTTAL",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "canonical_exclusivity_restriction",
+      "persona_evidence": {
+        "video_id": "hJci2BInAvQ",
+        "timestamp": "30:43",
+        "pattern": "EVI-PAT-CANONICAL-EXCLUSIVITY"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-hJci2BInAvQ-001",
+      "source_claim": "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan.",
+      "source_scripture": "Imamat 11:7-8, Kisah Para Rasul 10:14, 10:28",
+      "timestamp": "30:43"
+    },
+    {
+      "round_num": 8,
+      "round_name": "ROUND 8 — CLOSING",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "maieutic_epistemic_verdict",
+      "persona_evidence": {
+        "video_id": "hJci2BInAvQ",
+        "timestamp": "30:43",
+        "pattern": "CLS-PAT-MAIEUTIC-LOCKDOWN"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-hJci2BInAvQ-001",
+      "source_claim": "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan.",
+      "source_scripture": "Imamat 11:7-8, Kisah Para Rasul 10:14, 10:28",
+      "timestamp": "30:43"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "nodes": [
+    {
+      "id": "CLM-tm7Q1ZoWiS8-001",
+      "type": "claim",
+      "label": "Yesus dalam Bible Matius 5:17-19 menegaskan tidak satu iota atau satu titik pun hukum Taurat ditiadakan sampai langit dan bumi lenyap.",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "CLM-tm7Q1ZoWiS8-002",
+      "type": "claim",
+      "label": "Orang Kristen tidak lagi di bawah hukum Taurat karena Kristus telah menebus orang beriman dari kutuk hukum Taurat (Galatia 3:13).",
+      "speaker": "OPPONENT"
+    },
+    {
+      "id": "CLM-tm7Q1ZoWiS8-003",
+      "type": "claim",
+      "label": "Peniadaan hukum Taurat oleh rumusan Paulus bertentangan secara diametral dengan amanat ketetapan abadi Yesus dalam Matius 5:17-19.",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "ARG-tm7Q1ZoWiS8-001",
+      "type": "argument",
+      "label": "Hukum Taurat Kekal vs Peniadaan Hukum oleh Paulus (Matius 5:17 vs Galatia 3:13)",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "EVI-tm7Q1ZoWiS8-001",
+      "type": "evidence",
+      "label": "Matius 5:17-19",
+      "speaker": "SOURCE"
+    },
+    {
+      "id": "EVI-tm7Q1ZoWiS8-002",
+      "type": "evidence",
+      "label": "Galatia 3:13",
+      "speaker": "SOURCE"
+    },
+    {
+      "id": "CNT-tm7Q1ZoWiS8-001",
+      "type": "counterargument",
+      "label": "Orang Kristen tidak lagi di bawah hukum Taurat karena Kristus telah menebus orang beriman dari kutuk hukum Taurat (Galatia 3:13).",
+      "speaker": "OPPONENT"
+    },
+    {
+      "id": "REB-tm7Q1ZoWiS8-001",
+      "type": "rebuttal",
+      "label": "ZUMA membuktikan ketidakabsahan sanggahan lawan dengan merujuk langsung pada naskah Matius 5:17-19.",
+      "speaker": "ZUMA"
+    }
+  ],
+  "edges": [
+    {
+      "source": "EVI-tm7Q1ZoWiS8-001",
+      "target": "CLM-tm7Q1ZoWiS8-001",
+      "relation": "evidenced_by"
+    },
+    {
+      "source": "ARG-tm7Q1ZoWiS8-001",
+      "target": "CLM-tm7Q1ZoWiS8-001",
+      "relation": "supports"
+    },
+    {
+      "source": "CNT-tm7Q1ZoWiS8-001",
+      "target": "CLM-tm7Q1ZoWiS8-001",
+      "relation": "attacks"
+    },
+    {
+      "source": "REB-tm7Q1ZoWiS8-001",
+      "target": "CNT-tm7Q1ZoWiS8-001",
+      "relation": "rebutted_by"
+    }
+  ]
+}

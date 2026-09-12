@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RawMetadataSchema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "video_id",
+    "source_url",
+    "title",
+    "channel",
+    "extracted_at",
+    "extraction_method"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "video_id": {
+      "type": "string"
+    },
+    "youtube_id": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "channel": {
+      "type": "string"
+    },
+    "speaker_or_creator": {
+      "type": "string"
+    },
+    "published_date": {
+      "type": "string"
+    },
+    "duration_seconds": {
+      "type": "number"
+    },
+    "duration_formatted": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "extraction_method": {
+      "type": "object",
+      "required": [
+        "transcript_source",
+        "transcript_method",
+        "quality"
+      ],
+      "properties": {
+        "transcript_source": {
+          "type": "string"
+        },
+        "transcript_method": {
+          "type": "string"
+        },
+        "quality": {
+          "type": "string",
+          "enum": [
+            "high",
+            "medium",
+            "low",
+            "unverified"
+          ]
+        }
+      }
+    },
+    "extracted_at": {
+      "type": "string"
+    },
+    "raw_files": {
+      "type": "object",
+      "properties": {
+        "transcript_file": {
+          "type": "string"
+        },
+        "metadata_file": {
+          "type": "string"
+        },
+        "log_file": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "record_id": "KNOW-REC-CLM-hk2tmZOqVmQ-001",
+    "canonical_key": "canon_clm-hk2tmzoqvmq-001",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "VALUE_JUDGMENT",
+    "content": "Menguji integritas nabi memerlukan standar moral yang adil tanpa standar ganda terhadap riwayat kitab suci masing-masing.",
+    "verification_status": "supported",
+    "confidence": 0.96,
+    "provenance_chain": {
+      "video_id": "hk2tmZOqVmQ",
+      "source_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ",
+      "segment_id": "SEG-hk2tmZOqVmQ-0015",
+      "timestamp": "6:45",
+      "speaker": "ZUMA"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-hk2tmZOqVmQ-002",
+    "canonical_key": "canon_clm-hk2tmzoqvmq-002",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "HISTORICAL_CLAIM",
+    "content": "Kitab Perjanjian Lama mencatat perbuatan asusila berat (seperti kisah Lot di Kejadian 19 dan Daud di 2 Samuel 11) yang tidak dapat dibela bila lawan menuntut kesucian absolut para nabi.",
+    "verification_status": "supported",
+    "confidence": 0.95,
+    "provenance_chain": {
+      "video_id": "hk2tmZOqVmQ",
+      "source_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ",
+      "segment_id": "SEG-hk2tmZOqVmQ-0020",
+      "timestamp": "9:10",
+      "speaker": "ZUMA"
+    }
+  }
+]

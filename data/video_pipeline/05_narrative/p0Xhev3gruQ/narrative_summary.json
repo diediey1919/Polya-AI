@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "p0Xhev3gruQ",
+  "discourse_type": "APOLOGETIC_INTERFAITH_DEBATE",
+  "speaker_perspectives": {
+    "OPPONENT": {
+      "speaker_name": "Guest / Interlocutor",
+      "central_thesis": "Kata Elohim yang berbentuk jamak membuktikan konsep Trinitas sudah termaktub sejak Kitab Kejadian 1:1.",
+      "key_arguments": [
+        "Kata Elohim yang berbentuk jamak membuktikan konsep Trinitas sudah termaktub sejak Kitab Kejadian 1:1."
+      ],
+      "core_presupposition": "Doktrin yang diterima diyakini benar tanpa pemeriksaan tekstual kritis mendalam."
+    },
+    "ZUMA": {
+      "speaker_name": "Zulkifli M. Abbas (ZUMA)",
+      "central_thesis": "Bentuk gramatikal kata 'Elohim' dalam Tanakh berakhiran plural -im namun berpasangan dengan kata kerja tunggal (bara), menandakan Pluralis Majestatis bukan politeisme/Trinitas.",
+      "key_arguments": [
+        "Bentuk gramatikal kata 'Elohim' dalam Tanakh berakhiran plural -im namun berpasangan dengan kata kerja tunggal (bara), menandakan Pluralis Majestatis bukan politeisme/Trinitas."
+      ],
+      "core_presupposition": "Kebenaran doktrinal harus koheren secara naskah tanpa kontradiksi internal."
+    }
+  },
+  "chronological_flow": [
+    {
+      "phase": "Pembukaan & Penetapan Tema",
+      "timestamp_range": "00:00 - 05:00",
+      "topic": "Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika",
+      "speaker_action": "ZUMA membuka tema berdasarkan data tertulis dan menantang lawan.",
+      "summary": "Pembukaan fokus pada topik Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika."
+    },
+    {
+      "phase": "Interogasi Teks & Konfrontasi Eksegesis",
+      "timestamp_range": "05:00 - 25:00",
+      "topic": "Pembacaan Ayat & Socratic Questioning",
+      "speaker_action": "ZUMA menyodorkan teks Bible LAI TB untuk dibaca lawan.",
+      "summary": "Lawan dihadapkan pada fakta naskah tertulis."
+    },
+    {
+      "phase": "Penguncian Dilema & Penutupan",
+      "timestamp_range": "25:00 - Akhir",
+      "topic": "Kesimpulan Dialektis",
+      "speaker_action": "ZUMA mendemolisi presuposisi lawan dan menetapkan kesimpulan.",
+      "summary": "Lawan terdesak dalam kontradiksi argumennya sendiri."
+    }
+  ],
+  "argument_map": {
+    "theses": [
+      {
+        "speaker": "OPPONENT",
+        "thesis": "Kata Elohim yang berbentuk jamak membuktikan konsep Trinitas sudah termaktub sejak Kitab Kejadian 1:1."
+      },
+      {
+        "speaker": "ZUMA",
+        "thesis": "Bentuk gramatikal kata 'Elohim' dalam Tanakh berakhiran plural -im namun berpasangan dengan kata kerja tunggal (bara), menandakan Pluralis Majestatis bukan politeisme/Trinitas."
+      }
+    ],
+    "dialectical_clashes": [
+      {
+        "topic": "Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika",
+        "side_a": {
+          "speaker": "OPPONENT",
+          "argument": "Kata Elohim yang berbentuk jamak membuktikan konsep Trinitas sudah termaktub sejak Kitab Kejadian 1:1."
+        },
+        "side_b": {
+          "speaker": "ZUMA",
+          "argument": "Bentuk gramatikal kata 'Elohim' dalam Tanakh berakhiran plural -im namun berpasangan dengan kata kerja tunggal (bara), menandakan Pluralis Majestatis bukan politeisme/Trinitas."
+        },
+        "turning_point": "Ketika teks primer Bible dibacakan verbatim.",
+        "resolved_or_deadlock": "Deadlock bagi lawan yang tidak mampu menyelaraskan kontradiksi teks."
+      }
+    ]
+  },
+  "synthesis_summary": "Perdebatan mengenai Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika memperlihatkan keunggulan pembuktian naskah primer ZUMA berbanding pembelaan asumtif lawan."
+}

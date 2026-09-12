@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "iJ2opoPF5I0",
+  "claims": [
+    {
+      "claim_id": "CLM-iJ2opoPF5I0-001",
+      "text": "Gelar 'Singa dari suku Yehuda' dalam Wahyu 5:5 adalah gelar eskatologis eksklusif milik Mesias, bukan manusia fana.",
+      "speaker": "ZUMA",
+      "claim_type": "THEOLOGICAL_CLAIM",
+      "verification_status": "supported",
+      "review_status": "AUTO_EXTRACTED",
+      "confidence": 0.98,
+      "source_segment": "SEG-iJ2opoPF5I0-0015",
+      "timestamp": "5:20"
+    },
+    {
+      "claim_id": "CLM-iJ2opoPF5I0-002",
+      "text": "Pemimpin gereja atau pastor dapat menyandang gelar Singa Yehuda sebagai representasi kuasa rohani di bumi.",
+      "speaker": "OPPONENT",
+      "claim_type": "THEOLOGICAL_CLAIM",
+      "verification_status": "contested",
+      "review_status": "AUTO_EXTRACTED",
+      "confidence": 0.89,
+      "source_segment": "SEG-iJ2opoPF5I0-0012",
+      "timestamp": "4:10"
+    }
+  ],
+  "arguments": [
+    {
+      "argument_id": "ARG-iJ2opoPF5I0-001",
+      "claim_id": "CLM-iJ2opoPF5I0-001",
+      "speaker": "ZUMA",
+      "topic": "Gelar Eskatologis Singa Yehuda (Wahyu 5:5) & Batas Otoritas Manusia Fana",
+      "premises": [
+        "Gelar 'Singa dari suku Yehuda' dalam Wahyu 5:5 adalah gelar eskatologis eksklusif milik Mesias, bukan manusia fana.",
+        "Pemimpin gereja atau pastor dapat menyandang gelar Singa Yehuda sebagai representasi kuasa rohani di bumi."
+      ],
+      "assumptions": [
+        "Teks naskah kanonik primer menjadi tolok ukur pengujian doktrin."
+      ],
+      "reasoning": "Analisis dialektis membuktikan ketegangan antara teks naskah dan klaim lawan mengenai Gelar Eskatologis Singa Yehuda (Wahyu 5:5) & Batas Otoritas Manusia Fana.",
+      "conclusion": "Gelar 'Singa dari suku Yehuda' dalam Wahyu 5:5 adalah gelar eskatologis eksklusif milik Mesias, bukan manusia fana.",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EVI-iJ2opoPF5I0-001"
+      ],
+      "source_segments": [
+        "SEG-iJ2opoPF5I0-0015"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "EVI-iJ2opoPF5I0-001",
+      "claim_id": "CLM-iJ2opoPF5I0-001",
+      "description": "Teks nubuatan apokaliptik Yohanes mengenai Singa dari suku Yehuda, tunas Daud yang berhak membuka ketujuh meterai.",
+      "source": "Wahyu 5:5",
+      "source_type": "scripture",
+      "speaker_reference": "Dikutip langsung dalam perdebatan Gelar Eskatologis Singa Yehuda (Wahyu 5:5) & Batas Otoritas Manusia Fana.",
+      "verification_status": "supported",
+      "reliability": "high",
+      "confidence": 0.96,
+      "source_segment": "SEG-iJ2opoPF5I0-0015"
+    }
+  ],
+  "counterarguments": [
+    {
+      "counterargument_id": "CNT-iJ2opoPF5I0-001",
+      "target_claim_id": "CLM-iJ2opoPF5I0-001",
+      "speaker": "OPPONENT",
+      "text": "Pemimpin gereja atau pastor dapat menyandang gelar Singa Yehuda sebagai representasi kuasa rohani di bumi.",
+      "source_segment": "SEG-iJ2opoPF5I0-0012",
+      "confidence": 0.88
+    }
+  ],
+  "rebuttals": [
+    {
+      "rebuttal_id": "REB-iJ2opoPF5I0-001",
+      "target_counterargument_id": "CNT-iJ2opoPF5I0-001",
+      "speaker": "ZUMA",
+      "text": "ZUMA membuktikan ketidakabsahan sanggahan lawan dengan merujuk langsung pada naskah Wahyu 5:5.",
+      "source_segment": "SEG-iJ2opoPF5I0-0015",
+      "confidence": 0.95
+    }
+  ],
+  "fallacies": [
+    {
+      "fallacy_id": "FAL-iJ2opoPF5I0-001",
+      "fallacy_type": "Blasphemous Title Appropriation / Megalomania",
+      "speaker": "OPPONENT",
+      "target_segment": "SEG-iJ2opoPF5I0-0012",
+      "explanation": "Mengklaim gelar ilahi eskatologis mesianik bagi individu pelayan manusia biasa.",
+      "confidence": 0.95,
+      "is_ai_inference": true
+    }
+  ],
+  "assumptions": [
+    {
+      "assumption_id": "ASM-iJ2opoPF5I0-001",
+      "argument_id": "ARG-iJ2opoPF5I0-001",
+      "text": "Integritas suatu doktrin bergantung pada koherensi internal naskah kanoniknya.",
+      "is_implicit": true,
+      "confidence": 0.92
+    }
+  ],
+  "argument_graph": {
+    "nodes": [
+      {
+        "id": "CLM-iJ2opoPF5I0-001",
+        "type": "claim",
+        "label": "Gelar 'Singa dari suku Yehuda' dalam Wahyu 5:5 adalah gelar eskatologis eksklusif milik Mesias, bukan manusia fana.",
+        "speaker": "ZUMA"
+      },
+      {
+        "id": "CLM-iJ2opoPF5I0-002",
+        "type": "claim",
+        "label": "Pemimpin gereja atau pastor dapat menyandang gelar Singa Yehuda sebagai representasi kuasa rohani di bumi.",
+        "speaker": "OPPONENT"
+      },
+      {
+        "id": "ARG-iJ2opoPF5I0-001",
+        "type": "argument",
+        "label": "Gelar Eskatologis Singa Yehuda (Wahyu 5:5) & Batas Otoritas Manusia Fana",
+        "speaker": "ZUMA"
+      },
+      {
+        "id": "EVI-iJ2opoPF5I0-001",
+        "type": "evidence",
+        "label": "Wahyu 5:5",
+        "speaker": "SOURCE"
+      },
+      {
+        "id": "CNT-iJ2opoPF5I0-001",
+        "type": "counterargument",
+        "label": "Pemimpin gereja atau pastor dapat menyandang gelar Singa Yehuda sebagai representasi kuasa rohani di bumi.",
+        "speaker": "OPPONENT"
+      },
+      {
+        "id": "REB-iJ2opoPF5I0-001",
+        "type": "rebuttal",
+        "label": "ZUMA membuktikan ketidakabsahan sanggahan lawan dengan merujuk langsung pada naskah Wahyu 5:5.",
+        "speaker": "ZUMA"
+      }
+    ],
+    "edges": [
+      {
+        "source": "EVI-iJ2opoPF5I0-001",
+        "target": "CLM-iJ2opoPF5I0-001",
+        "relation": "evidenced_by"
+      },
+      {
+        "source": "ARG-iJ2opoPF5I0-001",
+        "target": "CLM-iJ2opoPF5I0-001",
+        "relation": "supports"
+      },
+      {
+        "source": "CNT-iJ2opoPF5I0-001",
+        "target": "CLM-iJ2opoPF5I0-001",
+        "relation": "attacks"
+      },
+      {
+        "source": "REB-iJ2opoPF5I0-001",
+        "target": "CNT-iJ2opoPF5I0-001",
+        "relation": "rebutted_by"
+      }
+    ]
+  }
+}

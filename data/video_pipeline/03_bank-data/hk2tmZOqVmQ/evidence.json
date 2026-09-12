@@ -1,0 +1,14 @@
+[
+  {
+    "evidence_id": "EVI-hk2tmZOqVmQ-001",
+    "claim_id": "CLM-hk2tmZOqVmQ-001",
+    "description": "Catatan biblika mengenai narasi moral para tokoh Perjanjian Lama.",
+    "source": "Kejadian 19:30-38 & 2 Samuel 11:1-27",
+    "source_type": "scripture",
+    "speaker_reference": "Dikutip langsung dalam perdebatan Standar Moralitas Kenabian: Serangan Hadis vs Catatan Moral Tokoh Bible.",
+    "verification_status": "supported",
+    "reliability": "high",
+    "confidence": 0.96,
+    "source_segment": "SEG-hk2tmZOqVmQ-0020"
+  }
+]

@@ -1,0 +1,49 @@
+[
+  {
+    "argument_id": "ARG-MUesrqdzI90-001",
+    "claim_id": "CLM-MUesrqdzI90-001",
+    "speaker": "OPPONENT",
+    "topic": "Mandat Misi vs Perdebatan Terbuka",
+    "premises": [
+      "Kitab suci memuat mandat mengajar.",
+      "Perdebatan dinilai tidak produktif."
+    ],
+    "assumptions": [
+      "Dialog terbuka tidak perlu."
+    ],
+    "reasoning": "Dialog konfrontatif dianggap sia-sia.",
+    "conclusion": "Perdebatan doktrin dihentikan.",
+    "confidence": 0.85,
+    "evidence_ids": [
+      "EVI-MUesrqdzI90-001"
+    ],
+    "source_segments": [
+      "SEG-MUesrqdzI90-0002",
+      "SEG-MUesrqdzI90-0003"
+    ]
+  },
+  {
+    "argument_id": "ARG-MUesrqdzI90-002",
+    "claim_id": "CLM-MUesrqdzI90-006",
+    "speaker": "ZUMA",
+    "topic": "Inkonsistensi Otoritas Apostolik Paulus vs Petrus",
+    "premises": [
+      "Paulus menegur Petrus munafik di Galatia 2.",
+      "Pertentangan meruntuhkan konsensus apostolik."
+    ],
+    "assumptions": [
+      "Teks kanonik merefleksikan friksi nyata."
+    ],
+    "reasoning": "Pertentangan membuktikan relativitas ajaran apostolik.",
+    "conclusion": "Otoritas apostolik mengandung paradoks internal.",
+    "confidence": 0.92,
+    "evidence_ids": [
+      "EVI-MUesrqdzI90-002",
+      "EVI-MUesrqdzI90-003"
+    ],
+    "source_segments": [
+      "SEG-MUesrqdzI90-0037",
+      "SEG-MUesrqdzI90-0038"
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "theses": [
+    {
+      "speaker": "OPPONENT",
+      "thesis": "Kitab Perjanjian Lama mencatat perbuatan asusila berat (seperti kisah Lot di Kejadian 19 dan Daud di 2 Samuel 11) yang tidak dapat dibela bila lawan menuntut kesucian absolut para nabi."
+    },
+    {
+      "speaker": "ZUMA",
+      "thesis": "Menguji integritas nabi memerlukan standar moral yang adil tanpa standar ganda terhadap riwayat kitab suci masing-masing."
+    }
+  ],
+  "dialectical_clashes": [
+    {
+      "topic": "Standar Moralitas Kenabian: Serangan Hadis vs Catatan Moral Tokoh Bible",
+      "side_a": {
+        "speaker": "OPPONENT",
+        "argument": "Kitab Perjanjian Lama mencatat perbuatan asusila berat (seperti kisah Lot di Kejadian 19 dan Daud di 2 Samuel 11) yang tidak dapat dibela bila lawan menuntut kesucian absolut para nabi."
+      },
+      "side_b": {
+        "speaker": "ZUMA",
+        "argument": "Menguji integritas nabi memerlukan standar moral yang adil tanpa standar ganda terhadap riwayat kitab suci masing-masing."
+      },
+      "turning_point": "Ketika teks primer Bible dibacakan verbatim.",
+      "resolved_or_deadlock": "Deadlock bagi lawan yang tidak mampu menyelaraskan kontradiksi teks."
+    }
+  ]
+}

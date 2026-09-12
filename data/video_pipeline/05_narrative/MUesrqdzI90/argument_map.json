@@ -1,0 +1,27 @@
+{
+  "theses": [
+    {
+      "speaker": "OPPONENT",
+      "thesis": "Perdebatan lintas iman tidak perlu dilakukan bila tidak mengubah nasib eskatologis."
+    },
+    {
+      "speaker": "ZUMA",
+      "thesis": "Ada perintah kitab suci untuk menjadikan seluruh bangsa dan rakyat menjadi penganut agama tertentu."
+    }
+  ],
+  "dialectical_clashes": [
+    {
+      "topic": "Urgensi Dialog Iman & Friksi Apostolik Paulus vs Petrus (Galatia 2 & Roma 15)",
+      "side_a": {
+        "speaker": "OPPONENT",
+        "argument": "Perdebatan lintas iman tidak perlu dilakukan bila tidak mengubah nasib eskatologis."
+      },
+      "side_b": {
+        "speaker": "ZUMA",
+        "argument": "Ada perintah kitab suci untuk menjadikan seluruh bangsa dan rakyat menjadi penganut agama tertentu."
+      },
+      "turning_point": "Ketika teks primer Bible dibacakan verbatim.",
+      "resolved_or_deadlock": "Deadlock bagi lawan yang tidak mampu menyelaraskan kontradiksi teks."
+    }
+  ]
+}

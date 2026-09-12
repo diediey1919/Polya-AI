@@ -1,0 +1,26 @@
+[
+  {
+    "evidence_id": "EVI-tm7Q1ZoWiS8-001",
+    "claim_id": "CLM-tm7Q1ZoWiS8-001",
+    "description": "Khotbah di Bukit di mana Yesus menolak anggapan kedatangan-Nya untuk meniadakan hukum Taurat atau kitab para nabi.",
+    "source": "Matius 5:17-19",
+    "source_type": "scripture",
+    "speaker_reference": "Dikutip langsung dalam perdebatan Hukum Taurat Kekal vs Peniadaan Hukum oleh Paulus (Matius 5:17 vs Galatia 3:13).",
+    "verification_status": "supported",
+    "reliability": "high",
+    "confidence": 0.96,
+    "source_segment": "SEG-tm7Q1ZoWiS8-0020"
+  },
+  {
+    "evidence_id": "EVI-tm7Q1ZoWiS8-002",
+    "claim_id": "CLM-tm7Q1ZoWiS8-001",
+    "description": "Surat Paulus kepada jemaat di Galatia tentang penebusan dari kutuk hukum Taurat.",
+    "source": "Galatia 3:13",
+    "source_type": "scripture",
+    "speaker_reference": "Dikutip langsung dalam perdebatan Hukum Taurat Kekal vs Peniadaan Hukum oleh Paulus (Matius 5:17 vs Galatia 3:13).",
+    "verification_status": "supported",
+    "reliability": "high",
+    "confidence": 0.96,
+    "source_segment": "SEG-tm7Q1ZoWiS8-0018"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "relation_id": "REL-OMBYffI8VmM-001",
+    "from_entity_or_record": "ENT-PERSON-PAULUS",
+    "to_entity_or_record": "KNOW-REC-CLM-OMBYffI8VmM-005",
+    "type": "asserted_by"
+  },
+  {
+    "relation_id": "REL-OMBYffI8VmM-002",
+    "from_entity_or_record": "ENT-PERSON-PETRUS",
+    "to_entity_or_record": "KNOW-REC-CLM-OMBYffI8VmM-005",
+    "type": "subject_of"
+  },
+  {
+    "relation_id": "REL-OMBYffI8VmM-003",
+    "from_entity_or_record": "KNOW-REC-CLM-OMBYffI8VmM-005",
+    "to_entity_or_record": "KNOW-REC-CLM-OMBYffI8VmM-006",
+    "type": "supports"
+  },
+  {
+    "relation_id": "REL-OMBYffI8VmM-004",
+    "from_entity_or_record": "KNOW-REC-CLM-OMBYffI8VmM-004",
+    "to_entity_or_record": "TOP-APOSTOLIC-AUTHORITY",
+    "type": "categorized_under"
+  }
+]

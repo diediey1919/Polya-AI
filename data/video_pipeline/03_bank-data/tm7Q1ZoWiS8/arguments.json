@@ -1,0 +1,25 @@
+[
+  {
+    "argument_id": "ARG-tm7Q1ZoWiS8-001",
+    "claim_id": "CLM-tm7Q1ZoWiS8-001",
+    "speaker": "ZUMA",
+    "topic": "Hukum Taurat Kekal vs Peniadaan Hukum oleh Paulus (Matius 5:17 vs Galatia 3:13)",
+    "premises": [
+      "Yesus dalam Bible Matius 5:17-19 menegaskan tidak satu iota atau satu titik pun hukum Taurat ditiadakan sampai langit dan bumi lenyap.",
+      "Orang Kristen tidak lagi di bawah hukum Taurat karena Kristus telah menebus orang beriman dari kutuk hukum Taurat (Galatia 3:13)."
+    ],
+    "assumptions": [
+      "Teks naskah kanonik primer menjadi tolok ukur pengujian doktrin."
+    ],
+    "reasoning": "Analisis dialektis membuktikan ketegangan antara teks naskah dan klaim lawan mengenai Hukum Taurat Kekal vs Peniadaan Hukum oleh Paulus (Matius 5:17 vs Galatia 3:13).",
+    "conclusion": "Yesus dalam Bible Matius 5:17-19 menegaskan tidak satu iota atau satu titik pun hukum Taurat ditiadakan sampai langit dan bumi lenyap.",
+    "confidence": 0.92,
+    "evidence_ids": [
+      "EVI-tm7Q1ZoWiS8-001",
+      "EVI-tm7Q1ZoWiS8-002"
+    ],
+    "source_segments": [
+      "SEG-tm7Q1ZoWiS8-0020"
+    ]
+  }
+]

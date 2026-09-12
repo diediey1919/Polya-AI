@@ -1,0 +1,24 @@
+[
+  {
+    "argument_id": "ARG-p0Xhev3gruQ-001",
+    "claim_id": "CLM-p0Xhev3gruQ-001",
+    "speaker": "ZUMA",
+    "topic": "Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika",
+    "premises": [
+      "Bentuk gramatikal kata 'Elohim' dalam Tanakh berakhiran plural -im namun berpasangan dengan kata kerja tunggal (bara), menandakan Pluralis Majestatis bukan politeisme/Trinitas.",
+      "Kata Elohim yang berbentuk jamak membuktikan konsep Trinitas sudah termaktub sejak Kitab Kejadian 1:1."
+    ],
+    "assumptions": [
+      "Teks naskah kanonik primer menjadi tolok ukur pengujian doktrin."
+    ],
+    "reasoning": "Analisis dialektis membuktikan ketegangan antara teks naskah dan klaim lawan mengenai Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika.",
+    "conclusion": "Bentuk gramatikal kata 'Elohim' dalam Tanakh berakhiran plural -im namun berpasangan dengan kata kerja tunggal (bara), menandakan Pluralis Majestatis bukan politeisme/Trinitas.",
+    "confidence": 0.92,
+    "evidence_ids": [
+      "EVI-p0Xhev3gruQ-001"
+    ],
+    "source_segments": [
+      "SEG-p0Xhev3gruQ-0030"
+    ]
+  }
+]

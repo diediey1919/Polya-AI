@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DebateSimulationSchema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "video_id",
+    "motion_or_topic",
+    "participants",
+    "grounding_rules",
+    "rounds",
+    "cross_examination",
+    "epistemic_verdict"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "video_id": {
+      "type": "string"
+    },
+    "motion_or_topic": {
+      "type": "string"
+    },
+    "participants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "participant_id",
+          "name",
+          "role",
+          "core_stance"
+        ],
+        "properties": {
+          "participant_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "core_stance": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "grounding_rules": {
+      "type": "object",
+      "required": [
+        "strict_knowledge_only",
+        "zero_hallucination_enforced",
+        "provenance_required"
+      ],
+      "properties": {
+        "strict_knowledge_only": {
+          "type": "boolean"
+        },
+        "zero_hallucination_enforced": {
+          "type": "boolean"
+        },
+        "provenance_required": {
+          "type": "boolean"
+        }
+      }
+    },
+    "rounds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "round_num",
+          "turn_speaker",
+          "speaker_speech",
+          "speech_type",
+          "knowledge_refs_used",
+          "provenance_citations"
+        ],
+        "properties": {
+          "round_num": {
+            "type": "integer"
+          },
+          "turn_speaker": {
+            "type": "string"
+          },
+          "speaker_speech": {
+            "type": "string"
+          },
+          "speech_type": {
+            "type": "string"
+          },
+          "knowledge_refs_used": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "provenance_citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "claim_id",
+                "segment_id",
+                "timestamp",
+                "video_url"
+              ],
+              "properties": {
+                "claim_id": {
+                  "type": "string"
+                },
+                "segment_id": {
+                  "type": "string"
+                },
+                "timestamp": {
+                  "type": "string"
+                },
+                "video_url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "cross_examination": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "examiner",
+          "target",
+          "socratic_question",
+          "target_dilemma",
+          "presupposition_demolished"
+        ],
+        "properties": {
+          "examiner": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "socratic_question": {
+            "type": "string"
+          },
+          "target_dilemma": {
+            "type": "string"
+          },
+          "presupposition_demolished": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "epistemic_verdict": {
+      "type": "object",
+      "required": [
+        "verdict_summary",
+        "logical_superiority",
+        "unsupported_claims_flagged"
+      ],
+      "properties": {
+        "verdict_summary": {
+          "type": "string"
+        },
+        "logical_superiority": {
+          "type": "string"
+        },
+        "unsupported_claims_flagged": {
+          "type": "array"
+        }
+      }
+    }
+  }
+}

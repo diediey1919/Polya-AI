@@ -1,0 +1,11 @@
+[
+  {
+    "fallacy_id": "FAL-p0Xhev3gruQ-001",
+    "fallacy_type": "Grammatical Morphological Fallacy",
+    "speaker": "OPPONENT",
+    "target_segment": "SEG-p0Xhev3gruQ-0028",
+    "explanation": "Menyimpulkan pluralitas substansi dari bentuk morfem morfologis tanpa memeriksa konkordansi sintaksis verba semitik.",
+    "confidence": 0.94,
+    "is_ai_inference": true
+  }
+]

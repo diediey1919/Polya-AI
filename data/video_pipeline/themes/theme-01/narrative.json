@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "theme_id": "THEME-01",
+  "video_id": "MUesrqdzI90",
+  "title": "Friksi Paulus vs Petrus (Galatia 2 & Roma 15)",
+  "discourse_type": "APOLOGETIC_INTERFAITH_DEBATE",
+  "speaker_perspectives": {
+    "ZUMA": {
+      "speaker_name": "Zulkifli M. Abbas (ZUMA)",
+      "central_thesis": "Kanon Perjanjian Baru dalam Galatia 2:11-14 mencatat pertentangan doktrinal keras dan kemunafikan terbuka antara Paulus dan Petrus yang meruntuhkan klaim infalibilitas apostolik.",
+      "key_arguments": [
+        "Paulus menegur Petrus berhadapan muka di Antiokhia karena kelakuan Petrus tidak lurus menurut kebenaran Bible.",
+        "Pengabaian hukum makan bersama orang bukan Yahudi setelah datangnya utusan Yakobus adalah kemunafikan doktrinal.",
+        "Status sabuk bela diri atau senioritas pastoral tidak relevan dengan validitas eksegesis naskah tertulis."
+      ],
+      "core_presupposition": "Kebenaran teologis harus bertumpu secara ketat pada bunyi teks kanonik tertulis tanpa manipulasi harmonisasi."
+    },
+    "OPPONENT": {
+      "speaker_name": "Interlocutor / Pembela Doktrin",
+      "central_thesis": "Perbedaan pandangan antara Paulus dan Petrus hanya masalah etika pastoral pergaulan meja makan dan telah diselaraskan oleh Konsili Yerusalem (Kisah 15).",
+      "key_arguments": [
+        "Para rasul dipimpin oleh Roh Kudus dalam pewahyuan progresif yang saling melengkapi.",
+        "Paulus dalam Roma 15:20 menghormati batas wilayah pelayanan para rasul.",
+        "Perdebatan teologis hurufiah tidak boleh memecah belah kesaksian batiniah iman jemaat."
+      ],
+      "core_presupposition": "Tradisi gereja dan kesatuan apostolik diasumsikan infalibel sehingga kontradiksi naskah harus dianggap dinamika sekunder."
+    }
+  },
+  "sections": {
+    "A_latar_belakang": "Antiokhia sebagai pusat jemaat multikultural abad pertama memicu ketegangan persekutuan antara orang Kristen Yahudi dan non-Yahudi.",
+    "B_pertanyaan_utama": "Apakah insiden Galatia 2:11-14 sekadar masalah etika makan atau keretakan doktrinal yang meruntuhkan infalibilitas apostolik?",
+    "C_posisi_paulus": "Paulus menolak kompromi kemurnian Taurat dan menegur kemunafikan Petrus secara terbuka demi mempertahankan kebenaran Bible keselamatan cuma-cuma.",
+    "D_posisi_petrus": "Petrus menarik diri demi kehati-hatian pastoral terhadap kaum bersunat dari Yerusalem; pembela mengutip Roma 15:20 dan Kisah 15 sebagai dalih keselarasan.",
+    "E_argumentasi_utama": {
+      "premis_mayor": "Naskah Bible LAI TB adalah otoritas kanonik resmi.",
+      "premis_minor": "Galatia 2:11-14 menyatakan Petrus bersalah dan kelakuannya tidak sesuai kebenaran Bible.",
+      "kesimpulan": "Klaim infalibilitas kepemimpinan apostolik terbantahkan oleh naskah itu sendiri."
+    },
+    "F_titik_konflik": "Integritas kebenaran doktrin Bible tanpa hukum Taurat berbenturan dengan kepatuhan tradisi sunat Yerusalem.",
+    "G_perbedaan_premis": "Afirmatif menguji teks kanonik secara imanen; defensif mengasumsikan infalibilitas apostolik apriori.",
+    "H_counterargument": "Konsili Yerusalem (Kisah 15) dan batasan misi (Roma 15:20) membuktikan rekonsiliasi rasuli.",
+    "I_rebuttal": "Sumpah Paulus di Galatia 1:20 dan istilah 'hypokrisis' membuktikan friksi tak pernah tuntas secara organik.",
+    "J_weak_points": {
+      "opponent": "Ketergantungan pada harmonisasi eksternal dan fallacies otoritas fisik.",
+      "zuma": "Keterbatasan kesaksian satu arah dari pihak Paulus tanpa arsip pembelaan langsung Petrus."
+    },
+    "K_unresolved_questions": [
+      "Kronologi pasti insiden Antiokhia sebelum atau sesudah Konsili Yerusalem Kisah 15.",
+      "Sikap akhir jemaat Antiokhia dalam merespons teguran Paulus."
+    ],
+    "L_kesimpulan": "Data naskah membuktikan adanya friksi nyata di tingkat tertinggi kerasulan, menolak klaim harmonisasi artifisial."
+  },
+  "chronological_flow": [
+    {
+      "phase": "Pembukaan & Penetapan Tema",
+      "timestamp_range": "00:00 - 05:00",
+      "topic": "Urgensi Dialog Iman & Friksi Apostolik Paulus vs Petrus (Galatia 2 & Roma 15)",
+      "speaker_action": "ZUMA membuka tema berdasarkan data tertulis naskah LAI TB.",
+      "summary": "Penetapan batasan dialektika di atas teks tertulis dan penolakan dogma tanpa ayat."
+    },
+    {
+      "phase": "Klaim Pembelaan & Dalih Batas Pelayanan",
+      "timestamp_range": "05:00 - 18:49",
+      "topic": "Roma 15:20 & Amanat Pelayanan",
+      "speaker_action": "Lawan mengutip Roma 15:20 dan mengaku sebagai karateka senior.",
+      "summary": "Upaya memagari perdebatan dengan alasan etika yurisdiksi dan status fisik pribadi."
+    },
+    {
+      "phase": "Pembongkaran Insiden Antiokhia",
+      "timestamp_range": "18:49 - 25:00",
+      "topic": "Galatia 2:11-14 & Tuduhan Kemunafikan",
+      "speaker_action": "ZUMA mendesak pembacaan verbatim Galatia 2 dan meruntuhkan relevansi sabuk bela diri.",
+      "summary": "Konfrontasi langsung terhadap kemunafikan Petrus dan kegagalan lawan membantah teks."
+    }
+  ],
+  "argument_map": {
+    "theses": [
+      "Klaim infalibilitas apostolik runtuh di hadapan fakta Galatia 2:11-14.",
+      "Status fisik bela diri tidak memiliki relevansi epistemik teologis."
+    ],
+    "dialectical_clashes": [
+      {
+        "topic": "Friksi Apostolik Galatia 2",
+        "side_a": "Paulus menegur Petrus karena munafik dan menyimpang dari Bible.",
+        "side_b": "Perbedaan etika pergaulan makan yang sudah didamaikan oleh Roh Kudus.",
+        "resolution": "Superioritas tekstual pihak afirmatif (ZUMA) terbukti karena naskah LAI TB tertulis secara eksplisit."
+      }
+    ]
+  },
+  "synthesis_summary": "Tema 1 membuktikan bahwa perdebatan teologis berlabuh pada uji teks naskah primer, membongkar dogma harmonisasi apriori.",
+  "knowledge_records_referenced": [
+    "KNOW-REC-CLM-MUesrqdzI90-001",
+    "KNOW-REC-CLM-MUesrqdzI90-002",
+    "KNOW-REC-CLM-MUesrqdzI90-003",
+    "KNOW-REC-CLM-MUesrqdzI90-004",
+    "KNOW-REC-CLM-MUesrqdzI90-005",
+    "KNOW-REC-CLM-MUesrqdzI90-006",
+    "KNOW-REC-CLM-MUesrqdzI90-007"
+  ]
+}

@@ -1,0 +1,130 @@
+[
+  {
+    "round_num": 1,
+    "round_name": "ROUND 1 — OPENING",
+    "speaker": "ZUMA",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "persona_strategy": "stepwise_definition_funnel",
+    "persona_evidence": {
+      "video_id": "MAHmgnsHWRs",
+      "timestamp": "02:47",
+      "pattern": "Q-PAT-STEPWISE-FUNNEL"
+    },
+    "knowledge_record_ref": "KNOW-REC-CLM-MAHmgnsHWRs-001",
+    "source_claim": "Surat Paulus mengajarkan bahwa seluruh orang beriman dan anggota gereja adalah tubuh Kristus (1 Kor 12:27, Efesus 5:30).",
+    "source_scripture": "1 Korintus 12:27",
+    "timestamp": "11:53"
+  },
+  {
+    "round_num": 2,
+    "round_name": "ROUND 2 — ARGUMENT",
+    "speaker": "ZUMA",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "persona_strategy": "reductio_ad_absurdum",
+    "persona_evidence": {
+      "video_id": "MAHmgnsHWRs",
+      "timestamp": "07:14",
+      "pattern": "CNT-PAT-REDUCTIO-ABSURDUM"
+    },
+    "knowledge_record_ref": "KNOW-REC-CLM-MAHmgnsHWRs-002",
+    "source_claim": "Yesus dalam Bible Matius 24:24 menubuatkan akan munculnya banyak mesias-mesias atau kristus-kristus palsu (pseudochristoi).",
+    "source_scripture": "1 Korintus 12:27",
+    "timestamp": "6:11"
+  },
+  {
+    "round_num": 3,
+    "round_name": "ROUND 3 — COUNTERARGUMENT",
+    "speaker": "ZUMA",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "persona_strategy": "data_focus_interruption",
+    "persona_evidence": {
+      "video_id": "MAHmgnsHWRs",
+      "timestamp": "12:55",
+      "pattern": "PRS-PAT-INTERRUPTION-CONTROL"
+    },
+    "knowledge_record_ref": "KNOW-REC-CLM-MAHmgnsHWRs-005",
+    "source_claim": "Teks Paulus dalam 1 Korintus 6:15 menggunakan analogi somatis fisik ('tubuhmu adalah anggota Kristus'), membuktikan adanya identifikasi substansial.",
+    "source_scripture": "1 Korintus 12:27",
+    "timestamp": "12:23"
+  },
+  {
+    "round_num": 4,
+    "round_name": "ROUND 4 — REBUTTAL",
+    "speaker": "ZUMA",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "persona_strategy": "verbatim_textual_challenge",
+    "persona_evidence": {
+      "video_id": "MAHmgnsHWRs",
+      "timestamp": "10:49",
+      "pattern": "EVI-PAT-CANONICAL-EXCLUSIVITY"
+    },
+    "knowledge_record_ref": "KNOW-REC-CLM-MAHmgnsHWRs-002",
+    "source_claim": "Yesus dalam Bible Matius 24:24 menubuatkan akan munculnya banyak mesias-mesias atau kristus-kristus palsu (pseudochristoi).",
+    "source_scripture": "1 Korintus 12:27",
+    "timestamp": "6:11"
+  },
+  {
+    "round_num": 5,
+    "round_name": "ROUND 5 — CROSS EXAMINATION",
+    "speaker": "ZUMA",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "persona_strategy": "constructive_fatal_dilemma",
+    "persona_evidence": {
+      "video_id": "MAHmgnsHWRs",
+      "timestamp": "12:23",
+      "pattern": "CRX-PAT-CONSTRUCTIVE-DILEMMA"
+    },
+    "knowledge_record_ref": "KNOW-REC-CLM-MAHmgnsHWRs-003",
+    "source_claim": "Doktrin bahwa pendeta dan jemaat adalah 'tubuh Kristus' secara dialektis membuka penggenapan nubuat Kristus palsu karena mengklaim esensi Kristus di bumi.",
+    "source_scripture": "1 Korintus 12:27",
+    "timestamp": "7:14"
+  },
+  {
+    "round_num": 6,
+    "round_name": "ROUND 6 — DEFENSE",
+    "speaker": "ZUMA",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "persona_strategy": "presupposition_inversion",
+    "persona_evidence": {
+      "video_id": "tm7Q1ZoWiS8",
+      "timestamp": "08:35",
+      "pattern": "PRE-PAT-INVERSION"
+    },
+    "knowledge_record_ref": "KNOW-REC-CLM-MAHmgnsHWRs-001",
+    "source_claim": "Surat Paulus mengajarkan bahwa seluruh orang beriman dan anggota gereja adalah tubuh Kristus (1 Kor 12:27, Efesus 5:30).",
+    "source_scripture": "1 Korintus 12:27",
+    "timestamp": "11:53"
+  },
+  {
+    "round_num": 7,
+    "round_name": "ROUND 7 — FINAL REBUTTAL",
+    "speaker": "ZUMA",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "persona_strategy": "socratic_verbatim_cornering",
+    "persona_evidence": {
+      "video_id": "MUesrqdzI90",
+      "timestamp": "19:53",
+      "pattern": "Q-PAT-VERBATIM-CHALLENGE"
+    },
+    "knowledge_record_ref": "KNOW-REC-CLM-MAHmgnsHWRs-005",
+    "source_claim": "Teks Paulus dalam 1 Korintus 6:15 menggunakan analogi somatis fisik ('tubuhmu adalah anggota Kristus'), membuktikan adanya identifikasi substansial.",
+    "source_scripture": "1 Korintus 12:27",
+    "timestamp": "12:23"
+  },
+  {
+    "round_num": 8,
+    "round_name": "ROUND 8 — CLOSING",
+    "speaker": "ZUMA",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "persona_strategy": "maieutic_epistemic_verdict",
+    "persona_evidence": {
+      "video_id": "hJci2BInAvQ",
+      "timestamp": "2:34:26",
+      "pattern": "CLS-PAT-MAIEUTIC-LOCKDOWN"
+    },
+    "knowledge_record_ref": "KNOW-REC-CLM-MAHmgnsHWRs-002",
+    "source_claim": "Yesus dalam Bible Matius 24:24 menubuatkan akan munculnya banyak mesias-mesias atau kristus-kristus palsu (pseudochristoi).",
+    "source_scripture": "1 Korintus 12:27",
+    "timestamp": "6:11"
+  }
+]

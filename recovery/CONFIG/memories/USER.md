@@ -1,3 +1,9 @@
-User addresses agent as 'bro' (NEVER 'Pak'). Vision: Polya as 24/7 TikTok Live AI Islamic apologist with complete Christianity knowledge. Rejects Edge TTS quality. TTS: ElevenLabs Sarah/Laura preferred; Gemini free-tier API blocked (403); Chatterbox-TTS-Indonesian 2GB model downloaded. Demands perfection ('sempurna banget'), rejects mediocre output. Communicates casual Indonesian ('santai', 'bro') mixed with English. Expects comprehensive execution without preliminary confirmation. 'STOP' in instructions means 'stop after completion', not 'stop before starting'.
+'Meil' only (NEVER 'bro'/'Pak'); neutral Indonesian, no gue/elo
 §
-Sequential STEP forensic audits for Christological controversies: through STEP 94 (Triadic/Trinitarian Development) complete — KB at 24 sources / 17 claims / 59 analyses / 0 conflicts; next STEP continues from 95.
+STEP audits through 94 complete. KB: 24 sources/17 claims/59 analyses/0 conflicts. Next from STEP 95.
+§
+Skill forensic-kb-ingestion has manuscript precision repair pattern (STEP 103R). Reference: manuscript-precision-repair.md — 13-section epistemic calibration (upper text/Uthmanic/preservation controls, variant classification, continuity/autograph controls, steelman, E1-E10 error register).
+§
+Meil (no other name), neutral Indonesian, no gue/elo. Creator backstory: 'evil genius' under CEO Maile. STEP audits through 94 complete (STEP 95 pending). Skill forensic-kb-ingestion has epistemic calibration patterns (epistemic calibration, epistemic calibration, epistemic calibration).
+§
+TTS Gemini (Vindemiatrix, speed 0.3)

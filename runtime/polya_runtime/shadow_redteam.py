@@ -41,7 +41,7 @@ class ShadowRedTeam:
         if "korup" in cl_low or "tahrif" in cl_low:
             steel = (
                 "Bukan sekadar penuduhan pemalsuan serampangan, melainkan argumentasi bahwa proses transmisi skribal "
-                "kuno secara alami memuat variasi bacaan, harmonisasi teologis antar-injil, dan penyesuaian ortografis "
+                "kuno secara alami memuat variasi bacaan, harmonisasi teologis antar-bible, dan penyesuaian ortografis "
                 "yang dapat memengaruhi interpretasi doktrinal minor pada komunitas partikular."
             )
             foundations = ["Bart Ehrman (The Orthodox Corruption of Scripture)", "DC Parker (The Living Text of the Gospels)"]

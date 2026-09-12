@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BasicDataSchema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "video_id",
+    "metadata",
+    "transcript_summary",
+    "segments",
+    "speakers",
+    "references"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "video_id": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "transcript_summary": {
+      "type": "object",
+      "required": [
+        "total_segments",
+        "total_words",
+        "duration_seconds",
+        "language"
+      ],
+      "properties": {
+        "total_segments": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "total_words": {
+          "type": "integer"
+        },
+        "duration_seconds": {
+          "type": "number"
+        },
+        "language": {
+          "type": "string"
+        }
+      }
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "segment_id",
+          "start_time",
+          "end_time",
+          "start_seconds",
+          "end_seconds",
+          "speaker_id",
+          "speaker_name",
+          "text"
+        ],
+        "properties": {
+          "segment_id": {
+            "type": "string"
+          },
+          "start_time": {
+            "type": "string"
+          },
+          "end_time": {
+            "type": "string"
+          },
+          "start_seconds": {
+            "type": "number"
+          },
+          "end_seconds": {
+            "type": "number"
+          },
+          "speaker_id": {
+            "type": "string"
+          },
+          "speaker_name": {
+            "type": "string"
+          },
+          "function": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          "text": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "speakers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "speaker_id",
+          "speaker_name",
+          "role",
+          "identity_confidence"
+        ],
+        "properties": {
+          "speaker_id": {
+            "type": "string"
+          },
+          "speaker_name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "identity_confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          "segment_count": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "ref_id",
+          "raw_text",
+          "ref_type",
+          "segment_id",
+          "timestamp"
+        ],
+        "properties": {
+          "ref_id": {
+            "type": "string"
+          },
+          "raw_text": {
+            "type": "string"
+          },
+          "ref_type": {
+            "type": "string"
+          },
+          "canonical_ref": {
+            "type": "string"
+          },
+          "segment_id": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

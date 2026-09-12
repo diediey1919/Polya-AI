@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "hJci2BInAvQ",
+  "youtube_id": "hJci2BInAvQ",
+  "source_url": "https://www.youtube.com/watch?v=hJci2BInAvQ",
+  "title": "VIRALKAN..PDT. MEDIAMAN krn SOMBONG AKHIRNYA DIBUBUKIN BANGZUMA..KABUR MEMBAWA MALU 7 TURUNAN",
+  "channel": "ZULKIFLI M ABBAS OFFICIAL",
+  "speaker_or_creator": "ZULKIFLI M ABBAS OFFICIAL",
+  "published_date": "2026-08-30",
+  "duration_seconds": 2400.0,
+  "duration_formatted": "40:00",
+  "description": "Debate and theological discussion record.",
+  "language": "id",
+  "extraction_method": {
+    "transcript_source": "youtube-transcript.ai (timed text extraction)",
+    "transcript_method": "timed_text_api",
+    "quality": "high"
+  },
+  "extracted_at": "2026-09-11T10:50:51.086664+00:00",
+  "raw_files": {
+    "transcript_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/hJci2BInAvQ/raw_transcript.txt",
+    "metadata_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/hJci2BInAvQ/metadata.json",
+    "log_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/hJci2BInAvQ/extraction_log.json"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "total_claims": 3,
+  "supported_claims": 2,
+  "unverified_claims": 0,
+  "contested_claims": 1,
+  "fallacies_detected": 1,
+  "provenance_coverage_percent": 100.0,
+  "logical_consistency_score": 0.95
+}

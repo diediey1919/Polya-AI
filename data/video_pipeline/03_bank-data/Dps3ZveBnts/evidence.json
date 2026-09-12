@@ -1,0 +1,14 @@
+[
+  {
+    "evidence_id": "EVI-Dps3ZveBnts-001",
+    "claim_id": "CLM-Dps3ZveBnts-001",
+    "description": "Peristiwa doa di taman Getsemani di mana Yesus mengalami pergumulan dahsyat hingga peluh-Nya menjadi seperti titik-titik darah.",
+    "source": "Matius 26:39 & Lukas 22:42-44",
+    "source_type": "scripture",
+    "speaker_reference": "Dikutip langsung dalam perdebatan Doa Yesus di Getsemani (Matius 26:39): Keterbatasan Ontologis vs Kemahakuasaan.",
+    "verification_status": "supported",
+    "reliability": "high",
+    "confidence": 0.96,
+    "source_segment": "SEG-Dps3ZveBnts-0035"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "argument_id": "ARG-MpF1rb0hOqk-001",
+    "claim_id": "CLM-MpF1rb0hOqk-001",
+    "speaker": "ZUMA",
+    "topic": "Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20)",
+    "premises": [
+      "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+      "Doktrin dosa asal mengharuskan pengorbanan darah pengganti untuk menghapus hutang kutuk dosa Adam."
+    ],
+    "assumptions": [
+      "Teks naskah kanonik primer menjadi tolok ukur pengujian doktrin."
+    ],
+    "reasoning": "Analisis dialektis membuktikan ketegangan antara teks naskah dan klaim lawan mengenai Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20).",
+    "conclusion": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+    "confidence": 0.92,
+    "evidence_ids": [
+      "EVI-MpF1rb0hOqk-001"
+    ],
+    "source_segments": [
+      "SEG-MpF1rb0hOqk-0025"
+    ]
+  }
+]

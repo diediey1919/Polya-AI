@@ -1,0 +1,14 @@
+[
+  {
+    "evidence_id": "EVI-p0Xhev3gruQ-001",
+    "claim_id": "CLM-p0Xhev3gruQ-001",
+    "description": "Teks Ibrani Masoretik dengan verba bara (kata kerja bentuk tunggal maskulin sempurna orang ketiga).",
+    "source": "Kejadian 1:1 (Bereshit Bara Elohim)",
+    "source_type": "scripture",
+    "speaker_reference": "Dikutip langsung dalam perdebatan Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika.",
+    "verification_status": "supported",
+    "reliability": "high",
+    "confidence": 0.96,
+    "source_segment": "SEG-p0Xhev3gruQ-0030"
+  }
+]

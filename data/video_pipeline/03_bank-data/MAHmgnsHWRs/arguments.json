@@ -1,0 +1,48 @@
+[
+  {
+    "argument_id": "ARG-MAHmgnsHWRs-001",
+    "claim_id": "CLM-MAHmgnsHWRs-003",
+    "speaker": "ZUMA",
+    "topic": "Paradoks Eklesiologis Tubuh Kristus vs Nubuatan Kristus Palsu",
+    "premises": [
+      "Paulus mendalilkan jemaat tubuh Kristus.",
+      "Yesus memperingatkan klaim Kristus palsu."
+    ],
+    "assumptions": [
+      "Bahasa tubuh Kristus ditafsirkan literal-identik."
+    ],
+    "reasoning": "Klaim tubuh Kristus memposisikan diri sebagai perwujudan Kristus.",
+    "conclusion": "Gereja terperangkap dalam dilema Matius 24:24.",
+    "confidence": 0.9,
+    "evidence_ids": [
+      "EVI-MAHmgnsHWRs-001",
+      "EVI-MAHmgnsHWRs-002",
+      "EVI-MAHmgnsHWRs-003"
+    ],
+    "source_segments": [
+      "SEG-MAHmgnsHWRs-0010",
+      "SEG-MAHmgnsHWRs-0020"
+    ]
+  },
+  {
+    "argument_id": "ARG-MAHmgnsHWRs-002",
+    "claim_id": "CLM-MAHmgnsHWRs-004",
+    "speaker": "OPPONENT",
+    "topic": "Pembelaan Metafora Komuni Eklesiastik",
+    "premises": [
+      "Gereja Katolik memahami tubuh Kristus sebagai persekutuan mistik.",
+      "Tidak ada pendeta mengaku Tuhan Yesus pribadi."
+    ],
+    "assumptions": [
+      "Metafora teologis berbeda dari identitas personal."
+    ],
+    "reasoning": "Metafora tidak memenuhi definisi nubuat Matius 24:24.",
+    "conclusion": "Tuduhan ZUMA merupakan kesalahan kategori.",
+    "confidence": 0.88,
+    "evidence_ids": [],
+    "source_segments": [
+      "SEG-MAHmgnsHWRs-0006",
+      "SEG-MAHmgnsHWRs-0008"
+    ]
+  }
+]

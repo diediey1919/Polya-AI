@@ -1,0 +1,24 @@
+[
+  {
+    "argument_id": "ARG-hJci2BInAvQ-001",
+    "claim_id": "CLM-hJci2BInAvQ-001",
+    "speaker": "ZUMA",
+    "topic": "Hukum Makanan Halal/Haram (Imamat 11 vs Kisah 10) & Otoritas Perintah Rasuli",
+    "premises": [
+      "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan.",
+      "Penglihatan kain turun dari langit dalam Kisah Para Rasul 10 membatalkan seluruh hukum makanan haram bagi orang Kristen."
+    ],
+    "assumptions": [
+      "Teks naskah kanonik primer menjadi tolok ukur pengujian doktrin."
+    ],
+    "reasoning": "Analisis dialektis membuktikan ketegangan antara teks naskah dan klaim lawan mengenai Hukum Makanan Halal/Haram (Imamat 11 vs Kisah 10) & Otoritas Perintah Rasuli.",
+    "conclusion": "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan.",
+    "confidence": 0.92,
+    "evidence_ids": [
+      "EVI-hJci2BInAvQ-001"
+    ],
+    "source_segments": [
+      "SEG-hJci2BInAvQ-0060"
+    ]
+  }
+]

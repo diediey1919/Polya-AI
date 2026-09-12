@@ -1,0 +1,462 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BankDataSchema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "video_id",
+    "claims",
+    "arguments",
+    "evidence",
+    "counterarguments",
+    "rebuttals",
+    "fallacies",
+    "assumptions",
+    "argument_graph"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "video_id": {
+      "type": "string"
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim_id",
+          "text",
+          "speaker",
+          "claim_type",
+          "verification_status",
+          "review_status",
+          "confidence",
+          "source_segment",
+          "timestamp"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "speaker": {
+            "type": "string"
+          },
+          "claim_type": {
+            "type": "string",
+            "enum": [
+              "FACT_CLAIM",
+              "HISTORICAL_CLAIM",
+              "THEOLOGICAL_CLAIM",
+              "PHILOSOPHICAL_CLAIM",
+              "SCIENTIFIC_CLAIM",
+              "INTERPRETATION",
+              "INFERENCE",
+              "OPINION",
+              "VALUE_JUDGMENT",
+              "PREDICTION",
+              "UNVERIFIED_CLAIM"
+            ]
+          },
+          "verification_status": {
+            "type": "string",
+            "enum": [
+              "unverified",
+              "supported",
+              "contested",
+              "refuted"
+            ]
+          },
+          "review_status": {
+            "type": "string",
+            "enum": [
+              "AUTO_EXTRACTED",
+              "AI_ANALYZED",
+              "HUMAN_REVIEWED",
+              "VERIFIED",
+              "CONTESTED"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          "source_segment": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "arguments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "argument_id",
+          "claim_id",
+          "speaker",
+          "topic",
+          "premises",
+          "conclusion",
+          "confidence",
+          "source_segments"
+        ],
+        "properties": {
+          "argument_id": {
+            "type": "string"
+          },
+          "claim_id": {
+            "type": "string"
+          },
+          "speaker": {
+            "type": "string"
+          },
+          "topic": {
+            "type": "string"
+          },
+          "premises": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "assumptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reasoning": {
+            "type": "string"
+          },
+          "conclusion": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source_segments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "claim_id",
+          "description",
+          "source",
+          "source_type",
+          "verification_status",
+          "reliability",
+          "confidence",
+          "source_segment"
+        ],
+        "properties": {
+          "evidence_id": {
+            "type": "string"
+          },
+          "claim_id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "scripture",
+              "historical_document",
+              "book",
+              "academic_paper",
+              "quotation",
+              "primary_source",
+              "secondary_source",
+              "statistical_data",
+              "archaeological_evidence",
+              "philosophical_argument",
+              "eyewitness_account",
+              "logical_deduction",
+              "unspecified"
+            ]
+          },
+          "speaker_reference": {
+            "type": "string"
+          },
+          "verification_status": {
+            "type": "string",
+            "enum": [
+              "unverified",
+              "supported",
+              "contested",
+              "refuted"
+            ]
+          },
+          "reliability": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low",
+              "unknown"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          "source_segment": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "counterarguments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "counterargument_id",
+          "target_claim_id",
+          "speaker",
+          "text",
+          "source_segment",
+          "confidence"
+        ],
+        "properties": {
+          "counterargument_id": {
+            "type": "string"
+          },
+          "target_claim_id": {
+            "type": "string"
+          },
+          "speaker": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "source_segment": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          }
+        }
+      }
+    },
+    "rebuttals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "rebuttal_id",
+          "target_counterargument_id",
+          "speaker",
+          "text",
+          "source_segment",
+          "confidence"
+        ],
+        "properties": {
+          "rebuttal_id": {
+            "type": "string"
+          },
+          "target_counterargument_id": {
+            "type": "string"
+          },
+          "speaker": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "source_segment": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          }
+        }
+      }
+    },
+    "fallacies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "fallacy_id",
+          "fallacy_type",
+          "speaker",
+          "target_segment",
+          "explanation",
+          "confidence"
+        ],
+        "properties": {
+          "fallacy_id": {
+            "type": "string"
+          },
+          "fallacy_type": {
+            "type": "string"
+          },
+          "speaker": {
+            "type": "string"
+          },
+          "target_segment": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          "is_ai_inference": {
+            "type": "boolean",
+            "const": true
+          }
+        }
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "assumption_id",
+          "argument_id",
+          "text",
+          "is_implicit",
+          "confidence"
+        ],
+        "properties": {
+          "assumption_id": {
+            "type": "string"
+          },
+          "argument_id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "is_implicit": {
+            "type": "boolean"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          }
+        }
+      }
+    },
+    "argument_graph": {
+      "type": "object",
+      "required": [
+        "nodes",
+        "edges"
+      ],
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "type",
+              "label"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "claim",
+                  "argument",
+                  "evidence",
+                  "counterargument",
+                  "rebuttal"
+                ]
+              },
+              "label": {
+                "type": "string"
+              },
+              "speaker": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "source",
+              "target",
+              "relation"
+            ],
+            "properties": {
+              "source": {
+                "type": "string"
+              },
+              "target": {
+                "type": "string"
+              },
+              "relation": {
+                "type": "string",
+                "enum": [
+                  "supports",
+                  "contradicts",
+                  "depends_on",
+                  "derived_from",
+                  "responds_to",
+                  "attacks",
+                  "rebutted_by",
+                  "evidenced_by",
+                  "qualifies",
+                  "extends"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

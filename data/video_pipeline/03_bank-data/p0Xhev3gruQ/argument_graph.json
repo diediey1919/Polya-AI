@@ -1,0 +1,62 @@
+{
+  "nodes": [
+    {
+      "id": "CLM-p0Xhev3gruQ-001",
+      "type": "claim",
+      "label": "Bentuk gramatikal kata 'Elohim' dalam Tanakh berakhiran plural -im namun berpasangan dengan kata kerja tunggal (bara), menandakan Pluralis Majestatis bukan politeisme/Trinitas.",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "CLM-p0Xhev3gruQ-002",
+      "type": "claim",
+      "label": "Kata Elohim yang berbentuk jamak membuktikan konsep Trinitas sudah termaktub sejak Kitab Kejadian 1:1.",
+      "speaker": "OPPONENT"
+    },
+    {
+      "id": "ARG-p0Xhev3gruQ-001",
+      "type": "argument",
+      "label": "Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "EVI-p0Xhev3gruQ-001",
+      "type": "evidence",
+      "label": "Kejadian 1:1 (Bereshit Bara Elohim)",
+      "speaker": "SOURCE"
+    },
+    {
+      "id": "CNT-p0Xhev3gruQ-001",
+      "type": "counterargument",
+      "label": "Kata Elohim yang berbentuk jamak membuktikan konsep Trinitas sudah termaktub sejak Kitab Kejadian 1:1.",
+      "speaker": "OPPONENT"
+    },
+    {
+      "id": "REB-p0Xhev3gruQ-001",
+      "type": "rebuttal",
+      "label": "ZUMA membuktikan ketidakabsahan sanggahan lawan dengan merujuk langsung pada naskah Kejadian 1:1 (Bereshit Bara Elohim).",
+      "speaker": "ZUMA"
+    }
+  ],
+  "edges": [
+    {
+      "source": "EVI-p0Xhev3gruQ-001",
+      "target": "CLM-p0Xhev3gruQ-001",
+      "relation": "evidenced_by"
+    },
+    {
+      "source": "ARG-p0Xhev3gruQ-001",
+      "target": "CLM-p0Xhev3gruQ-001",
+      "relation": "supports"
+    },
+    {
+      "source": "CNT-p0Xhev3gruQ-001",
+      "target": "CLM-p0Xhev3gruQ-001",
+      "relation": "attacks"
+    },
+    {
+      "source": "REB-p0Xhev3gruQ-001",
+      "target": "CNT-p0Xhev3gruQ-001",
+      "relation": "rebutted_by"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "record_id": "KNOW-REC-CLM-MUesrqdzI90-001",
+    "canonical_key": "canon_clm-muesrqdzi90-001",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "THEOLOGICAL_CLAIM",
+    "content": "Ada perintah kitab suci untuk menjadikan seluruh bangsa dan rakyat menjadi penganut agama tertentu.",
+    "verification_status": "contested",
+    "confidence": 0.92,
+    "provenance_chain": {
+      "video_id": "MUesrqdzI90",
+      "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+      "segment_id": "SEG-MUesrqdzI90-0003",
+      "timestamp": "1:37",
+      "speaker": "OPPONENT"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-MUesrqdzI90-002",
+    "canonical_key": "canon_clm-muesrqdzi90-002",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "OPINION",
+    "content": "Perdebatan lintas iman tidak perlu dilakukan bila tidak mengubah nasib eskatologis.",
+    "verification_status": "unverified",
+    "confidence": 0.88,
+    "provenance_chain": {
+      "video_id": "MUesrqdzI90",
+      "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+      "segment_id": "SEG-MUesrqdzI90-0002",
+      "timestamp": "1:06",
+      "speaker": "OPPONENT"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-MUesrqdzI90-003",
+    "canonical_key": "canon_clm-muesrqdzi90-003",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "VALUE_JUDGMENT",
+    "content": "Diskusi teologis dan apologetika adalah pertanggungjawaban kebenaran rasional dan doktrinal yang sah.",
+    "verification_status": "supported",
+    "confidence": 0.95,
+    "provenance_chain": {
+      "video_id": "MUesrqdzI90",
+      "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+      "segment_id": "SEG-MUesrqdzI90-0005",
+      "timestamp": "2:39",
+      "speaker": "ZUMA"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-MUesrqdzI90-004",
+    "canonical_key": "canon_clm-muesrqdzi90-004",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "HISTORICAL_CLAIM",
+    "content": "Paulus dalam Roma 15:20 menyatakan prinsip pelayanan tidak membangun di atas dasar yang diletakkan orang lain.",
+    "verification_status": "supported",
+    "confidence": 0.94,
+    "provenance_chain": {
+      "video_id": "MUesrqdzI90",
+      "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+      "segment_id": "SEG-MUesrqdzI90-0035",
+      "timestamp": "18:49",
+      "speaker": "OPPONENT"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-MUesrqdzI90-005",
+    "canonical_key": "canon_clm-muesrqdzi90-005",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "HISTORICAL_CLAIM",
+    "content": "Paulus dalam Galatia 2 secara terbuka menegur dan menyatakan bahwa Petrus berbuat salah/kemunafikan di Antiokhia.",
+    "verification_status": "supported",
+    "confidence": 0.96,
+    "provenance_chain": {
+      "video_id": "MUesrqdzI90",
+      "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+      "segment_id": "SEG-MUesrqdzI90-0037",
+      "timestamp": "19:53",
+      "speaker": "ZUMA"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-MUesrqdzI90-006",
+    "canonical_key": "canon_clm-muesrqdzi90-006",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "INFERENCE",
+    "content": "Konflik doktrinal dan teologis antara Paulus dan Petrus membuktikan adanya inkonsistensi otoritas apostolik kanonik.",
+    "verification_status": "contested",
+    "confidence": 0.91,
+    "provenance_chain": {
+      "video_id": "MUesrqdzI90",
+      "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+      "segment_id": "SEG-MUesrqdzI90-0038",
+      "timestamp": "20:25",
+      "speaker": "ZUMA"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-MUesrqdzI90-007",
+    "canonical_key": "canon_clm-muesrqdzi90-007",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "PHILOSOPHICAL_CLAIM",
+    "content": "Status keahlian bela diri atau gelar fisik tidak menjamin keabsahan argumen teologis (Irrelevant Authority).",
+    "verification_status": "supported",
+    "confidence": 0.97,
+    "provenance_chain": {
+      "video_id": "MUesrqdzI90",
+      "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+      "segment_id": "SEG-MUesrqdzI90-0042",
+      "timestamp": "22:15",
+      "speaker": "ZUMA"
+    }
+  }
+]

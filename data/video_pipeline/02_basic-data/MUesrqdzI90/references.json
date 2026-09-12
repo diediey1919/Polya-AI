@@ -1,0 +1,42 @@
+[
+  {
+    "ref_id": "REF-MUesrqdzI90-001",
+    "raw_text": "Roma 1520",
+    "ref_type": "scripture_nt",
+    "canonical_ref": "Roma 15:20",
+    "segment_id": "SEG-MUesrqdzI90-0035",
+    "timestamp": "18:49"
+  },
+  {
+    "ref_id": "REF-MUesrqdzI90-002",
+    "raw_text": "Galatia 2",
+    "ref_type": "scripture_nt",
+    "canonical_ref": "Galatia 2",
+    "segment_id": "SEG-MUesrqdzI90-0037",
+    "timestamp": "19:53"
+  },
+  {
+    "ref_id": "REF-MUesrqdzI90-003",
+    "raw_text": "1 Korintus",
+    "ref_type": "scripture_nt",
+    "canonical_ref": "1 Korintus",
+    "segment_id": "SEG-MUesrqdzI90-0141",
+    "timestamp": "1:13:36"
+  },
+  {
+    "ref_id": "REF-MUesrqdzI90-004",
+    "raw_text": "1 Korintus",
+    "ref_type": "scripture_nt",
+    "canonical_ref": "1 Korintus",
+    "segment_id": "SEG-MUesrqdzI90-0142",
+    "timestamp": "1:14:07"
+  },
+  {
+    "ref_id": "REF-MUesrqdzI90-005",
+    "raw_text": "Galatia 2",
+    "ref_type": "scripture_nt",
+    "canonical_ref": "Galatia 2",
+    "segment_id": "SEG-MUesrqdzI90-0243",
+    "timestamp": "2:06:45"
+  }
+]

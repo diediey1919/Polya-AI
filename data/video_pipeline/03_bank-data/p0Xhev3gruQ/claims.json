@@ -1,0 +1,24 @@
+[
+  {
+    "claim_id": "CLM-p0Xhev3gruQ-001",
+    "text": "Bentuk gramatikal kata 'Elohim' dalam Tanakh berakhiran plural -im namun berpasangan dengan kata kerja tunggal (bara), menandakan Pluralis Majestatis bukan politeisme/Trinitas.",
+    "speaker": "ZUMA",
+    "claim_type": "PHILOSOPHICAL_CLAIM",
+    "verification_status": "supported",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.97,
+    "source_segment": "SEG-p0Xhev3gruQ-0030",
+    "timestamp": "14:15"
+  },
+  {
+    "claim_id": "CLM-p0Xhev3gruQ-002",
+    "text": "Kata Elohim yang berbentuk jamak membuktikan konsep Trinitas sudah termaktub sejak Kitab Kejadian 1:1.",
+    "speaker": "OPPONENT",
+    "claim_type": "THEOLOGICAL_CLAIM",
+    "verification_status": "contested",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.85,
+    "source_segment": "SEG-p0Xhev3gruQ-0028",
+    "timestamp": "13:00"
+  }
+]

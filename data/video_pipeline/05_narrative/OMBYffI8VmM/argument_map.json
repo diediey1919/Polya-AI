@@ -1,0 +1,27 @@
+{
+  "theses": [
+    {
+      "speaker": "OPPONENT",
+      "thesis": "Yohanes 10:30 adalah bukti deklarasi eksplisit bahwa Yesus berhakikat ontologis satu dzat dengan Allah Bapa."
+    },
+    {
+      "speaker": "ZUMA",
+      "thesis": "Frasa 'Aku dan Bapa adalah satu' dalam Yohanes 10:30 bermakna kesatuan tujuan dan kehendak keselamatan, sebagaimana Yesus mendoakan para murid menjadi 'satu' dalam Yohanes 17:21-22."
+    }
+  ],
+  "dialectical_clashes": [
+    {
+      "topic": "Integritas Eksegesis: Cherry-Picking Ayat vs Konteks Narasi Utuh (Yohanes 10:30 vs Yohanes 17)",
+      "side_a": {
+        "speaker": "OPPONENT",
+        "argument": "Yohanes 10:30 adalah bukti deklarasi eksplisit bahwa Yesus berhakikat ontologis satu dzat dengan Allah Bapa."
+      },
+      "side_b": {
+        "speaker": "ZUMA",
+        "argument": "Frasa 'Aku dan Bapa adalah satu' dalam Yohanes 10:30 bermakna kesatuan tujuan dan kehendak keselamatan, sebagaimana Yesus mendoakan para murid menjadi 'satu' dalam Yohanes 17:21-22."
+      },
+      "turning_point": "Ketika teks primer Bible dibacakan verbatim.",
+      "resolved_or_deadlock": "Deadlock bagi lawan yang tidak mampu menyelaraskan kontradiksi teks."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "claim_id": "CLM-Dps3ZveBnts-001",
+    "text": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+    "speaker": "ZUMA",
+    "claim_type": "HISTORICAL_CLAIM",
+    "verification_status": "supported",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.99,
+    "source_segment": "SEG-Dps3ZveBnts-0035",
+    "timestamp": "16:40"
+  },
+  {
+    "claim_id": "CLM-Dps3ZveBnts-002",
+    "text": "Yesus berdoa semata-mata memberi contoh keteladanan bagi manusia, bukan karena keterbatasan ontologis keilahian-Nya.",
+    "speaker": "OPPONENT",
+    "claim_type": "INTERPRETATION",
+    "verification_status": "contested",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.86,
+    "source_segment": "SEG-Dps3ZveBnts-0032",
+    "timestamp": "15:10"
+  }
+]

@@ -1,0 +1,479 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "Dps3ZveBnts",
+  "motion_or_topic": "Doa Yesus di Getsemani (Matius 26:39): Keterbatasan Ontologis vs Kemahakuasaan",
+  "debate_mode": "zuma_persona",
+  "persona_id": "zuma_debate_v1",
+  "persona_intensity": 0.8,
+  "participants": [
+    {
+      "participant_id": "PART-ZUMA",
+      "name": "Zulkifli M. Abbas (ZUMA)",
+      "role": "AFFIRMATIVE_CRITIQUE",
+      "core_stance": "Uji naskah primer kanonik LAI TB & penolakan dogma tanpa ayat."
+    },
+    {
+      "participant_id": "PART-OPPONENT",
+      "name": "Interlocutor / Pembela Doktrin",
+      "role": "NEGATIVE_DEFENSE",
+      "core_stance": "Pembelaan tradisi teologis dan penafsiran dogmatis."
+    }
+  ],
+  "grounding_rules": {
+    "strict_knowledge_only": true,
+    "zero_hallucination_enforced": true,
+    "provenance_required": true
+  },
+  "rounds": [
+    {
+      "round_num": 1,
+      "turn_speaker": "ZUMA",
+      "speech_type": "SOCRATIC_OPENING",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Kita masuk pada momen paling krusial dalam Bible: Doa Yesus di Getsemani (Matius 26:39): Keterbatasan Ontologis vs Kemahakuasaan. Mari kita periksa hakikat keberadaan Yesus di taman Getsemani.",
+      "persona_strategy": "verbatim_textual_anchoring",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-001",
+          "segment_id": "SEG-Dps3ZveBnts-0035",
+          "timestamp": "16:40",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    },
+    {
+      "round_num": 1,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "APOLOGETIC_OPENING",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Yesus Kristus adalah 100% manusia dan 100% Allah sejati. Doa-Nya di Getsemani adalah bentuk ketundukan kodrat manusiawi-Nya untuk menjadi teladan ketaatan sempurna bagi kita.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-002",
+          "segment_id": "SEG-Dps3ZveBnts-0032",
+          "timestamp": "15:10",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    },
+    {
+      "round_num": 2,
+      "turn_speaker": "ZUMA",
+      "speech_type": "PRIMARY_TEXT_ARGUMENT",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Mari kita uji teori dua kodrat saudara dengan naskah sejarah! Buka Matius 26:39: Yesus sujud berdoa dengan muka-Nya ke tanah dan berkata: 'Ya Bapa-Ku, jikalau sekiranya mungkin, biarlah cawan ini lalu dari pada-Ku, tetapi janganlah seperti yang Kukehendaki, melainkan seperti yang Engkau kehendaki.' Teks menyatakan ada dua kehendak yang berbeda: kehendak Yesus dan kehendak Bapa! Dan Ibrani 5:7 mencatat Yesus berdoa dengan ratap tangis dan jeritan air mata kepada Dia yang sanggup menyelamatkan-Nya dari maut! Apakah Allah Yang Maha Kuasa menangis ketakutan memohon keselamatan kepada diri-Nya sendiri?",
+      "persona_strategy": "ontological_subordination_proof",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-001",
+          "segment_id": "SEG-Dps3ZveBnts-0035",
+          "timestamp": "16:40",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    },
+    {
+      "round_num": 2,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "DOGMATIC_JUSTIFICATION",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Itu adalah pergumulan daging manusiawi Yesus yang menanggung beban dosa seisi dunia!",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-002",
+          "segment_id": "SEG-Dps3ZveBnts-0032",
+          "timestamp": "15:10",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    },
+    {
+      "round_num": 3,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "DEFENSIVE_OBJECTION",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Sebagai manusia sejati, Yesus mengalami kesedihan dan penderitaan fisik yang amat dahsyat.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-002",
+          "segment_id": "SEG-Dps3ZveBnts-0032",
+          "timestamp": "15:10",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    },
+    {
+      "round_num": 3,
+      "turn_speaker": "ZUMA",
+      "speech_type": "EVASION_INTERRUPTION",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Dengar saudara! Jika kehendak manusiawi-Nya memohon agar cawan itu lalu, di mana keilahian-Nya yang Maha Kuasa saat itu? Mengapa keilahian-Nya tidak sanggup menyelamatkan diri-Nya tanpa sujud menangis meminta pertolongan Bapa?",
+      "persona_strategy": "data_focus_interruption",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-001",
+          "segment_id": "SEG-Dps3ZveBnts-0035",
+          "timestamp": "16:40",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    },
+    {
+      "round_num": 4,
+      "turn_speaker": "ZUMA",
+      "speech_type": "VERBATIM_REBUTTAL",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Saudara terjebak dalam ajaran docetisme tersembunyi! Saudara menganggap penderitaan dan doa itu semacam drama teladan. Naskah Lukas 22:43 mencatat seorang malaikat dari langit turun untuk memberi kekuatan kepada Yesus! Bayangkan hadirin: Allah Maha Kuasa pencipta semesta alam diberi kekuatan oleh malaikat ciptaan-Nya? Ini bukti ontologis tak terbantahkan bahwa Yesus adalah hamba dan utusan Allah yang bergantung mutlak pada Allah!",
+      "persona_strategy": "ontological_subordination_proof",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-001",
+          "segment_id": "SEG-Dps3ZveBnts-0035",
+          "timestamp": "16:40",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    },
+    {
+      "round_num": 4,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "EVASIVE_DEFENSE",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Yesus telah mengosongkan diri-Nya (kenosis) sebagaimana tertulis dalam Filipi 2:7.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-002",
+          "segment_id": "SEG-Dps3ZveBnts-0032",
+          "timestamp": "15:10",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    },
+    {
+      "round_num": 5,
+      "turn_speaker": "ZUMA",
+      "speech_type": "CONSTRUCTIVE_FATAL_DILEMMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Apakah Allah Yang Sejati bisa mati, bisa takut, dan membutuhkan malaikat untuk menguatkan-Nya?",
+      "persona_strategy": "constructive_fatal_dilemma",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-001",
+          "segment_id": "SEG-Dps3ZveBnts-0035",
+          "timestamp": "16:40",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    },
+    {
+      "round_num": 5,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "DILEMMA_RESPONSE",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Secara hakikat ilahi Allah tidak bisa mati, yang mati adalah tubuh jasmani manusia-Nya.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-002",
+          "segment_id": "SEG-Dps3ZveBnts-0032",
+          "timestamp": "15:10",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    },
+    {
+      "round_num": 6,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "THEOLOGICAL_DEFENSE",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Pribadi Kristus adalah satu kesatuan tak terpisahkan dalam persatuan hipostatik.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-002",
+          "segment_id": "SEG-Dps3ZveBnts-0032",
+          "timestamp": "15:10",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    },
+    {
+      "round_num": 6,
+      "turn_speaker": "ZUMA",
+      "speech_type": "COUNTER_DEFENSE",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Persatuan hipostatik adalah istilah spekulasi filsafat Yunani pasca-kitab suci yang tidak pernah diucapkan oleh Yesus di Getsemani! Di Getsemani Yesus bersujud sebagai seorang nabi dan hamba Allah yang taat!",
+      "persona_strategy": "presupposition_inversion",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-001",
+          "segment_id": "SEG-Dps3ZveBnts-0035",
+          "timestamp": "16:40",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    },
+    {
+      "round_num": 7,
+      "turn_speaker": "ZUMA",
+      "speech_type": "SYNTHESIS_REBUTTAL",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Peristiwa Getsemani adalah bukti tak terbantahkan atas subordinasi ontologis Yesus terhadap Allah Yang Maha Esa. Yesus bersujud kepada Allah, bukan kepada diri-Nya sendiri!",
+      "persona_strategy": "canonical_exclusivity_restriction",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-001",
+          "segment_id": "SEG-Dps3ZveBnts-0035",
+          "timestamp": "16:40",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    },
+    {
+      "round_num": 7,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "CONCLUDING_OBJECTION",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Kami tetap menyembah Kristus sebagai Tuhan dan Juruselamat hidup kami.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-002",
+          "segment_id": "SEG-Dps3ZveBnts-0032",
+          "timestamp": "15:10",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    },
+    {
+      "round_num": 8,
+      "turn_speaker": "ZUMA",
+      "speech_type": "MAIEUTIC_CLOSING",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Air mata Getsemani dan sujud nabi agung Yesus di tanah adalah saksi abadi kemanusiaan dan kehambaan-Nya. Doktrin inkarnasi ontologis runtuh di hadapan naskah Bible!",
+      "persona_strategy": "maieutic_epistemic_verdict",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-001",
+          "segment_id": "SEG-Dps3ZveBnts-0035",
+          "timestamp": "16:40",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    },
+    {
+      "round_num": 8,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "FINAL_CLOSING",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Kemuliaan bagi Kristus dari sekarang sampai selama-lamanya.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-Dps3ZveBnts-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-Dps3ZveBnts-002",
+          "segment_id": "SEG-Dps3ZveBnts-0032",
+          "timestamp": "15:10",
+          "video_url": "https://www.youtube.com/watch?v=Dps3ZveBnts"
+        }
+      ]
+    }
+  ],
+  "cross_examination": [
+    {
+      "examiner": "ZUMA",
+      "target": "OPPONENT",
+      "socratic_question": "Apakah saudara bersedia mengakui naskah tertulis kanon Bible Matius 26:39 & Lukas 22:42-44 mengenai tema 'Doa Yesus di Getsemani (Matius 26:39): Keterbatasan Ontologis vs Kemahakuasaan' secara verbatim tanpa menyelundupkan asumsi luar?",
+      "target_dilemma": "Jika mengakui teks apa adanya, premis dogmatis runtuh; jika menolak bunyi teks, saudara mendustai kitab kanon sendiri.",
+      "presupposition_demolished": "Asumsi bahwa doktrin gerejawi kebal dari pengujian filologis dan eksegetis naskah primer."
+    }
+  ],
+  "epistemic_verdict": {
+    "verdict_summary": "Simulasi dialektika ZUMA persona membuktikan bahwa klaim pembelaan dogma lawan dalam topik 'Doa Yesus di Getsemani (Matius 26:39): Keterbatasan Ontologis vs Kemahakuasaan' runtuh saat dihadapkan pada pembacaan verbatim naskah kanonik dan pengujian konsistensi internal.",
+    "logical_superiority": "AFFIRMATIVE_CRITIQUE (ZUMA)",
+    "unsupported_claims_flagged": [
+      "CLM-Dps3ZveBnts-002"
+    ]
+  },
+  "persona_traceability": [
+    {
+      "round_num": 1,
+      "round_name": "ROUND 1 — OPENING",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "verbatim_textual_anchoring",
+      "persona_evidence": {
+        "video_id": "Dps3ZveBnts",
+        "timestamp": "16:40",
+        "pattern": "Q-PAT-VERBATIM-CHALLENGE"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-Dps3ZveBnts-001",
+      "source_claim": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+      "source_scripture": "Matius 26:39 & Lukas 22:42-44",
+      "timestamp": "16:40"
+    },
+    {
+      "round_num": 2,
+      "round_name": "ROUND 2 — ARGUMENT",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "ontological_subordination_proof",
+      "persona_evidence": {
+        "video_id": "Dps3ZveBnts",
+        "timestamp": "16:40",
+        "pattern": "ARG-PAT-ONTOLOGICAL-SUBORDINATION"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-Dps3ZveBnts-001",
+      "source_claim": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+      "source_scripture": "Matius 26:39 & Lukas 22:42-44",
+      "timestamp": "16:40"
+    },
+    {
+      "round_num": 3,
+      "round_name": "ROUND 3 — COUNTERARGUMENT",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "data_focus_interruption",
+      "persona_evidence": {
+        "video_id": "Dps3ZveBnts",
+        "timestamp": "16:40",
+        "pattern": "PRS-PAT-INTERRUPTION-CONTROL"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-Dps3ZveBnts-001",
+      "source_claim": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+      "source_scripture": "Matius 26:39 & Lukas 22:42-44",
+      "timestamp": "16:40"
+    },
+    {
+      "round_num": 4,
+      "round_name": "ROUND 4 — REBUTTAL",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "ontological_subordination_proof",
+      "persona_evidence": {
+        "video_id": "Dps3ZveBnts",
+        "timestamp": "16:40",
+        "pattern": "ARG-PAT-ONTOLOGICAL-SUBORDINATION"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-Dps3ZveBnts-001",
+      "source_claim": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+      "source_scripture": "Matius 26:39 & Lukas 22:42-44",
+      "timestamp": "16:40"
+    },
+    {
+      "round_num": 5,
+      "round_name": "ROUND 5 — CROSS EXAMINATION",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "constructive_fatal_dilemma",
+      "persona_evidence": {
+        "video_id": "Dps3ZveBnts",
+        "timestamp": "16:40",
+        "pattern": "CRX-PAT-CONSTRUCTIVE-DILEMMA"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-Dps3ZveBnts-001",
+      "source_claim": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+      "source_scripture": "Matius 26:39 & Lukas 22:42-44",
+      "timestamp": "16:40"
+    },
+    {
+      "round_num": 6,
+      "round_name": "ROUND 6 — DEFENSE",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "presupposition_inversion",
+      "persona_evidence": {
+        "video_id": "Dps3ZveBnts",
+        "timestamp": "16:40",
+        "pattern": "PRE-PAT-INVERSION"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-Dps3ZveBnts-001",
+      "source_claim": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+      "source_scripture": "Matius 26:39 & Lukas 22:42-44",
+      "timestamp": "16:40"
+    },
+    {
+      "round_num": 7,
+      "round_name": "ROUND 7 — FINAL REBUTTAL",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "canonical_exclusivity_restriction",
+      "persona_evidence": {
+        "video_id": "Dps3ZveBnts",
+        "timestamp": "16:40",
+        "pattern": "EVI-PAT-CANONICAL-EXCLUSIVITY"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-Dps3ZveBnts-001",
+      "source_claim": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+      "source_scripture": "Matius 26:39 & Lukas 22:42-44",
+      "timestamp": "16:40"
+    },
+    {
+      "round_num": 8,
+      "round_name": "ROUND 8 — CLOSING",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "maieutic_epistemic_verdict",
+      "persona_evidence": {
+        "video_id": "Dps3ZveBnts",
+        "timestamp": "16:40",
+        "pattern": "CLS-PAT-MAIEUTIC-LOCKDOWN"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-Dps3ZveBnts-001",
+      "source_claim": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+      "source_scripture": "Matius 26:39 & Lukas 22:42-44",
+      "timestamp": "16:40"
+    }
+  ]
+}

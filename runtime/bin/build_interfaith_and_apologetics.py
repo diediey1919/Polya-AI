@@ -85,7 +85,7 @@ judaism_and_islam = {
 
 tahrif_models = {
     "version": "1.0.0",
-    "definition": "Tahrif (تحريف) is the Islamic theological term for the alteration or corruption of prior divine scriptures (Tawrat and Injil).",
+    "definition": "Tahrif (تحريف) is the Islamic theological term for the alteration or corruption of prior divine scriptures (Tawrat and Bible).",
     "scholarly_distinctions": [
         {
             "category": "Tahrif al-Ma'na (تحريف المعنى)",

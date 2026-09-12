@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "OMBYffI8VmM",
+  "source_url": "https://www.youtube.com/watch?v=OMBYffI8VmM",
+  "pipeline_version": "0.1.0",
+  "status": "completed",
+  "stages": {
+    "01_raw": "completed",
+    "02_basic_data": "completed",
+    "03_bank_data": "completed",
+    "04_knowledge_bank": "completed",
+    "05_narrative": "completed",
+    "06_debate": "completed",
+    "07_evaluation": "completed"
+  },
+  "stage_artifacts": {
+    "01_raw": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/OMBYffI8VmM",
+    "02_basic_data": "/home/ubuntu/Polya-AI/data/video_pipeline/02_basic-data/OMBYffI8VmM",
+    "03_bank_data": "/home/ubuntu/Polya-AI/data/video_pipeline/03_bank-data/OMBYffI8VmM",
+    "04_knowledge_bank": "/home/ubuntu/Polya-AI/data/video_pipeline/04_knowledge-bank",
+    "05_narrative": "/home/ubuntu/Polya-AI/data/video_pipeline/05_narrative/OMBYffI8VmM",
+    "06_debate": "/home/ubuntu/Polya-AI/data/video_pipeline/06_debate/OMBYffI8VmM",
+    "07_evaluation": "/home/ubuntu/Polya-AI/data/video_pipeline/07_evaluation/OMBYffI8VmM"
+  },
+  "created_at": "2026-09-11T10:50:51.000422+00:00",
+  "updated_at": "2026-09-11T10:50:51.084874+00:00",
+  "errors": []
+}

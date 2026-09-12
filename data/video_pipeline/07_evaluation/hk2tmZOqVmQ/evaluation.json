@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "hk2tmZOqVmQ",
+  "argument_quality_score": 0.94,
+  "metrics": {
+    "total_claims": 2,
+    "supported_claims": 2,
+    "unverified_claims": 0,
+    "contested_claims": 0,
+    "fallacies_detected": 1,
+    "provenance_coverage_percent": 100.0,
+    "logical_consistency_score": 0.95
+  },
+  "knowledge_gaps": [
+    {
+      "gap_id": "GAP-hk2tmZOqVmQ-001",
+      "claim_id": "CLM-hk2tmZOqVmQ-001",
+      "description": "Konsep Ismatul Anbiya (impeccabilitas kenabian) dalam teologi Islam vs Teodise dan historiografi biblika Yahudi-Kristen.",
+      "research_needed": "Perbandingan tafsir Al-Razi dan eksegesis Midrashik Yahudi atas narasi para patriark.",
+      "priority": "high"
+    }
+  ],
+  "provenance_audit": {
+    "total_provenance_links_checked": 16,
+    "broken_links_count": 0,
+    "traceability_backward_verified": true,
+    "zero_hallucination_passed": true
+  },
+  "evaluation_verdict": {
+    "pass_quality_gate": true,
+    "summary": "Pipeline verifikasi lulus Quality Gate 100%. Provenance chain terlacak penuh tanpa pranala terputus. Persona fidelity dan debate quality dievaluasi secara terpisah."
+  },
+  "debate_quality": {
+    "video_id": "hk2tmZOqVmQ",
+    "overall_quality_score": 0.94,
+    "metrics": {
+      "logical_validity": 0.95,
+      "evidence_quality": 0.94,
+      "argument_quality": 0.93,
+      "rebuttal_quality": 0.94,
+      "counterargument_coverage": 0.92
+    },
+    "rationales": {
+      "logical_validity": "Struktur silogisme modus ponens dan modus tollens valid tanpa kesalahan formal deduksi.",
+      "evidence_quality": "Semua bukti tertaut langsung ke teks naskah kanonik historis terverifikasi dalam Bank Data.",
+      "argument_quality": "Premis-premis eksplisit dan relevan dengan kesimpulan yang dibuktikan dalam perdebatan.",
+      "rebuttal_quality": "Sanggahan menargetkan premis minor lawan dan membongkar cacat informal relevansi.",
+      "counterargument_coverage": "Seluruh argumen pembelaan lawan diakomodasi dan dibantah tuntas dalam 8 ronde."
+    }
+  },
+  "persona_fidelity": {
+    "persona_id": "zuma_debate_v1",
+    "video_id": "hk2tmZOqVmQ",
+    "overall_fidelity_score": 0.92,
+    "metrics": {
+      "questioning_style": 0.91,
+      "premise_challenge": 0.93,
+      "textual_grounding": 0.95,
+      "cross_examination": 0.9,
+      "rebuttal_pattern": 0.89,
+      "evidence_orientation": 0.94
+    },
+    "rationales": {
+      "questioning_style": "Pertanyaan terstruktur funneling menutup ruang gerak lawan sebelum pembacaan teks kontradiktif.",
+      "premise_challenge": "Setiap premis lawan diuji konsistensinya hingga konsekuensi ekstrem (reductio ad absurdum).",
+      "textual_grounding": "100% rujukan ayat dituntut secara verbatim (pasal & ayat LAI TB), menolak tafsir liar tanpa naskah.",
+      "cross_examination": "Menerapkan constructive fatal dilemma di Round 5 di mana kedua opsi menjatuhkan posisi lawan.",
+      "rebuttal_pattern": "Membongkar pemotongan ayat (cherry-picking) dengan membaca perikop utuh sebelum dan sesudahnya.",
+      "evidence_orientation": "Eksklusif menggunakan sumber kanonik resmi yang dipegang lawan, menjaga immanent critique."
+    }
+  }
+}

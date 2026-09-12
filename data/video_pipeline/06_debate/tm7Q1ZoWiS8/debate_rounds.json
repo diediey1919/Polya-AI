@@ -1,0 +1,306 @@
+[
+  {
+    "round_num": 1,
+    "turn_speaker": "ZUMA",
+    "speech_type": "SOCRATIC_OPENING",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Kita masuk ke inti perdebatan: Hukum Taurat Kekal vs Peniadaan Hukum oleh Paulus (Matius 5:17 vs Galatia 3:13). Apakah ketetapan Taurat yang diajarkan Yesus abadi, ataukah telah dibatalkan oleh rumusan teologi surat Paulus?",
+    "persona_strategy": "verbatim_textual_anchoring",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-001",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0020",
+        "timestamp": "8:35",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  },
+  {
+    "round_num": 1,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "APOLOGETIC_OPENING",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Kristus telah menebus kita dari kutuk hukum Taurat dengan jalan menjadi kutuk karena kita, sebagaimana tertulis dalam Galatia 3:13. Hukum Taurat tidak lagi mengikat orang beriman.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-002",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0018",
+        "timestamp": "7:50",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  },
+  {
+    "round_num": 2,
+    "turn_speaker": "ZUMA",
+    "speech_type": "PRIMARY_TEXT_ARGUMENT",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Saudara bersandar pada Galatia 3:13, tapi mengapa saudara mengabaikan sabda Yesus sendiri di Matius 5:17-19? 'Janganlah kamu menyangka, bahwa Aku datang untuk meniadakan hukum Taurat atau kitab para nabi... satu iota atau satu titik pun tidak akan ditiadakan dari hukum Taurat, sebelum semuanya terjadi!' Siapa yang saudara ikuti: Yesus atau Paulus?",
+    "persona_strategy": "the_pauline_wedge",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-001",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0020",
+        "timestamp": "8:35",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  },
+  {
+    "round_num": 2,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DOGMATIC_JUSTIFICATION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Yesus menggenapi Taurat di kayu salib, sehingga tuntutan hukumannya telah selesai digenapi!",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-002",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0018",
+        "timestamp": "7:50",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  },
+  {
+    "round_num": 3,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DEFENSIVE_OBJECTION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Mengajarkan kewajiban Taurat bagi orang Kristen berarti menolak anugerah keselamatan cuma-cuma melalui iman kepada salib Kristus!",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-002",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0018",
+        "timestamp": "7:50",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  },
+  {
+    "round_num": 3,
+    "turn_speaker": "ZUMA",
+    "speech_type": "EVASION_INTERRUPTION",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Tahan! Mengapa saudara mengadu domba Taurat dengan anugerah? Yesus di Matius 5:19 mengatakan: 'Siapa yang meniadakan salah satu perintah hukum Taurat sekalipun yang paling kecil... ia akan menduduki tempat yang paling rendah di dalam Kerajaan Sorga.' Yesus tidak pernah menyuruh membuang Taurat!",
+    "persona_strategy": "data_focus_interruption",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-001",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0020",
+        "timestamp": "8:35",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  },
+  {
+    "round_num": 4,
+    "turn_speaker": "ZUMA",
+    "speech_type": "VERBATIM_REBUTTAL",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Ini adalah kontradiksi diametral yang nyata dalam kanon saudara! Di satu sisi Yesus menuntut ketetapan abadi hingga langit dan bumi lenyap, di sisi lain Paulus menyatakan Taurat adalah penuntun sementara hingga Kristus datang (Galatia 3:24-25). Ini benturan tak terbantahkan!",
+    "persona_strategy": "socratic_verbatim_cornering",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-001",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0020",
+        "timestamp": "8:35",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  },
+  {
+    "round_num": 4,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "EVASIVE_DEFENSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Itu adalah pembagian dispensasi waktu keselamatan Allah bagi umat manusia.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-002",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0018",
+        "timestamp": "7:50",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  },
+  {
+    "round_num": 5,
+    "turn_speaker": "ZUMA",
+    "speech_type": "CONSTRUCTIVE_FATAL_DILEMMA",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Apakah langit dan bumi sudah lenyap hari ini?",
+    "persona_strategy": "constructive_fatal_dilemma",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-001",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0020",
+        "timestamp": "8:35",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  },
+  {
+    "round_num": 5,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DILEMMA_RESPONSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Belum, langit dan bumi masih ada.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-002",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0018",
+        "timestamp": "7:50",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  },
+  {
+    "round_num": 6,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "THEOLOGICAL_DEFENSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Paulus menerima pewahyuan misteri Bible langsung dari Kristus yang bangkit untuk orang bukan Yahudi.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-002",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0018",
+        "timestamp": "7:50",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  },
+  {
+    "round_num": 6,
+    "turn_speaker": "ZUMA",
+    "speech_type": "COUNTER_DEFENSE",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Pewahyuan mana yang berhak menganulir sabda Yesus historis dalam Bible? Jika rasul menganulir guru agungnya, runtuh integritas pewahyuan itu sendiri!",
+    "persona_strategy": "presupposition_inversion",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-001",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0020",
+        "timestamp": "8:35",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  },
+  {
+    "round_num": 7,
+    "turn_speaker": "ZUMA",
+    "speech_type": "SYNTHESIS_REBUTTAL",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Saudara terjebak dalam The Pauline Wedge. Anda terpaksa memilih antara perkataan Yesus di bukit atau doktrin Paulus di Galatia.",
+    "persona_strategy": "canonical_exclusivity_restriction",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-001",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0020",
+        "timestamp": "8:35",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  },
+  {
+    "round_num": 7,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "CONCLUDING_OBJECTION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Bagi kami seluruh Bible diilhamkan Allah dan saling melengkapi.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-002",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0018",
+        "timestamp": "7:50",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  },
+  {
+    "round_num": 8,
+    "turn_speaker": "ZUMA",
+    "speech_type": "MAIEUTIC_CLOSING",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Teks membuktikan tidak ada keharmonisan artifisial. Hukum Taurat ditegakkan oleh Yesus secara abadi, dan klaim pembatalannya adalah rekayasa teologis belaka!",
+    "persona_strategy": "maieutic_epistemic_verdict",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-001",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0020",
+        "timestamp": "8:35",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  },
+  {
+    "round_num": 8,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "FINAL_CLOSING",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Kami tetap hidup di bawah hukum kasih karunia Kristus.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-tm7Q1ZoWiS8-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-tm7Q1ZoWiS8-002",
+        "segment_id": "SEG-tm7Q1ZoWiS8-0018",
+        "timestamp": "7:50",
+        "video_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8"
+      }
+    ]
+  }
+]

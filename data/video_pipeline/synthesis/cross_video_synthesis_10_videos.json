@@ -1,0 +1,149 @@
+{
+  "synthesis_version": "1.0.0",
+  "videos_synthesized": [
+    "MUesrqdzI90",
+    "MAHmgnsHWRs",
+    "iJ2opoPF5I0",
+    "tm7Q1ZoWiS8",
+    "p0Xhev3gruQ",
+    "hk2tmZOqVmQ",
+    "MpF1rb0hOqk",
+    "Dps3ZveBnts",
+    "OMBYffI8VmM",
+    "hJci2BInAvQ"
+  ],
+  "cumulative_metrics": {
+    "total_videos_analyzed": 10,
+    "total_segments_analyzed": 2761,
+    "total_claims_in_kb": 30,
+    "total_arguments": 12,
+    "total_evidence_records": 15,
+    "total_fallacies_detected": 10,
+    "total_knowledge_gaps_identified": 10,
+    "canonical_entities_count": 7,
+    "canonical_topics_count": 5
+  },
+  "thematic_clusters": [
+    {
+      "cluster_id": "CLUST-01-PAULINE-EPISTLES",
+      "theme": "Corpus Paulinum & Otoritas Kanonik Apostolik",
+      "videos": [
+        "MUesrqdzI90",
+        "MAHmgnsHWRs",
+        "tm7Q1ZoWiS8"
+      ],
+      "core_thesis": "Surat-surat Paulus menjadi titik gesekan dialektis: friksi Paulus vs Petrus (Galatia 2 / Roma 15), jemaat tubuh Kristus (1 Kor 12 / Efesus 5), dan peniadaan kutuk Taurat (Galatia 3:13).",
+      "dialectical_focus": "Mengekspos ketegangan internal antara teologi Paulus dan amanat langsung Yesus dalam Bible sinoptik."
+    },
+    {
+      "cluster_id": "CLUST-02-CHRISTOLOGY-LIMITS",
+      "theme": "Kristologi & Keterbatasan Ontologis Yesus",
+      "videos": [
+        "Dps3ZveBnts",
+        "OMBYffI8VmM",
+        "p0Xhev3gruQ"
+      ],
+      "core_thesis": "Peristiwa Getsemani (Matius 26:39), eksegesis Yohanes 10:30 vs Yohanes 17, dan linguistik Elohim (Kejadian 1:1).",
+      "dialectical_focus": "Membuktikan bahwa sifat kemanusiaan dan kepasrahan Yesus menggugurkan klaim ontologis kemahakuasaan Trinitarian mutlak."
+    },
+    {
+      "cluster_id": "CLUST-03-SOTERIOLOGY-JUSTICE",
+      "theme": "Keadilan Ilahi vs Teori Penebusan & Dosa Asal",
+      "videos": [
+        "MpF1rb0hOqk",
+        "iJ2opoPF5I0"
+      ],
+      "core_thesis": "Prinsip keadilan moral mutlak Allah (Yehezkiel 18:20) berbenturan dengan doktrin penghukuman pihak tidak bersalah dan klaim gelar mesianik Singa Yehuda (Wahyu 5:5).",
+      "dialectical_focus": "Menegakkan tanggung jawab individu atas dosa di hadapan pengadilan ilahi."
+    },
+    {
+      "cluster_id": "CLUST-04-HERMENEUTICS-LAW",
+      "theme": "Integritas Naskah & Keberlakuan Hukum Taurat",
+      "videos": [
+        "hJci2BInAvQ",
+        "hk2tmZOqVmQ"
+      ],
+      "core_thesis": "Hukum makanan halal/haram (Imamat 11 vs Kisah 10) dan standar ganda penilaian moralitas kenabian.",
+      "dialectical_focus": "Menunjukkan bahwa para rasul awal tetap memelihara Taurat dan menolak relativisme hermeneutika modern."
+    }
+  ],
+  "scripture_evidence_network": [
+    {
+      "scripture": "Galatia 2:11-14",
+      "frequency": 1,
+      "topic": "Friksi Apostolik Antiokhia (Paulus vs Petrus)"
+    },
+    {
+      "scripture": "Roma 15:20",
+      "frequency": 1,
+      "topic": "Batas Yurisdiksi Pelayanan Paulus"
+    },
+    {
+      "scripture": "1 Korintus 12:27 & 6:15",
+      "frequency": 1,
+      "topic": "Jemaat Sebagai Tubuh Kristus"
+    },
+    {
+      "scripture": "Matius 24:24",
+      "frequency": 1,
+      "topic": "Nubuatan Kemunculan Mesias / Kristus Palsu"
+    },
+    {
+      "scripture": "Wahyu 5:5",
+      "frequency": 1,
+      "topic": "Eskatologi Singa dari Suku Yehuda"
+    },
+    {
+      "scripture": "Matius 5:17-19",
+      "frequency": 2,
+      "topic": "Keteguhan Hukum Taurat Tanpa Peniadaan"
+    },
+    {
+      "scripture": "Galatia 3:13",
+      "frequency": 1,
+      "topic": "Klaim Penebusan Kutuk Hukum Taurat"
+    },
+    {
+      "scripture": "Kejadian 1:1",
+      "frequency": 1,
+      "topic": "Linguistik Ibrani Bara Elohim (Pluralis Majestatis)"
+    },
+    {
+      "scripture": "Yehezkiel 18:20",
+      "frequency": 1,
+      "topic": "Keadilan Allah: Anak Tidak Menanggung Dosa Ayah"
+    },
+    {
+      "scripture": "Matius 26:39",
+      "frequency": 1,
+      "topic": "Doa Sujud dan Ratapan Yesus di Getsemani"
+    },
+    {
+      "scripture": "Yohanes 10:30 & 17:21",
+      "frequency": 1,
+      "topic": "Makna Kesatuan Kehendak (Hen) vs Hakikat (Heis)"
+    },
+    {
+      "scripture": "Imamat 11 & Kisah 10",
+      "frequency": 1,
+      "topic": "Hukum Makanan Halal/Haram & Penglihatan Petrus"
+    }
+  ],
+  "debate_methodology_patterns": [
+    {
+      "pattern_name": "Socratic Verbatim Cornering",
+      "occurrence": "10/10 Videos",
+      "description": "Menolak debat berbasis retorika abstrak; mengharuskan lawan membuka kitab suci LAI TB terjemahan resmi dan membaca nomor ayat secara eksplisit."
+    },
+    {
+      "pattern_name": "Presupposition Inversion & Fatal Dilemma",
+      "occurrence": "10/10 Videos",
+      "description": "Mengubah klaim yang dibanggakan lawan menjadi jerat logika yang mematikan premis awal lawan."
+    },
+    {
+      "pattern_name": "Demolition of Extraneous Fallacies",
+      "occurrence": "8/10 Videos",
+      "description": "Mendeteksi dan menggugurkan taktik intimidasi fisik (Video 1), gelar khayalan (Video 3), pengalihan personal/keluarga (Video 2, 8), dan cherry-picking (Video 9)."
+    }
+  ]
+}

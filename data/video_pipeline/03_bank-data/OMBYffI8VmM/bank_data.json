@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "OMBYffI8VmM",
+  "claims": [
+    {
+      "claim_id": "CLM-OMBYffI8VmM-001",
+      "text": "Frasa 'Aku dan Bapa adalah satu' dalam Yohanes 10:30 bermakna kesatuan tujuan dan kehendak keselamatan, sebagaimana Yesus mendoakan para murid menjadi 'satu' dalam Yohanes 17:21-22.",
+      "speaker": "ZUMA",
+      "claim_type": "INTERPRETATION",
+      "verification_status": "supported",
+      "review_status": "AUTO_EXTRACTED",
+      "confidence": 0.96,
+      "source_segment": "SEG-OMBYffI8VmM-0050",
+      "timestamp": "26:49"
+    },
+    {
+      "claim_id": "CLM-OMBYffI8VmM-002",
+      "text": "Yohanes 10:30 adalah bukti deklarasi eksplisit bahwa Yesus berhakikat ontologis satu dzat dengan Allah Bapa.",
+      "speaker": "OPPONENT",
+      "claim_type": "THEOLOGICAL_CLAIM",
+      "verification_status": "contested",
+      "review_status": "AUTO_EXTRACTED",
+      "confidence": 0.88,
+      "source_segment": "SEG-OMBYffI8VmM-0048",
+      "timestamp": "25:19"
+    }
+  ],
+  "arguments": [
+    {
+      "argument_id": "ARG-OMBYffI8VmM-001",
+      "claim_id": "CLM-OMBYffI8VmM-001",
+      "speaker": "ZUMA",
+      "topic": "Integritas Eksegesis: Cherry-Picking Ayat vs Konteks Narasi Utuh (Yohanes 10:30 vs Yohanes 17)",
+      "premises": [
+        "Frasa 'Aku dan Bapa adalah satu' dalam Yohanes 10:30 bermakna kesatuan tujuan dan kehendak keselamatan, sebagaimana Yesus mendoakan para murid menjadi 'satu' dalam Yohanes 17:21-22.",
+        "Yohanes 10:30 adalah bukti deklarasi eksplisit bahwa Yesus berhakikat ontologis satu dzat dengan Allah Bapa."
+      ],
+      "assumptions": [
+        "Teks naskah kanonik primer menjadi tolok ukur pengujian doktrin."
+      ],
+      "reasoning": "Analisis dialektis membuktikan ketegangan antara teks naskah dan klaim lawan mengenai Integritas Eksegesis: Cherry-Picking Ayat vs Konteks Narasi Utuh (Yohanes 10:30 vs Yohanes 17).",
+      "conclusion": "Frasa 'Aku dan Bapa adalah satu' dalam Yohanes 10:30 bermakna kesatuan tujuan dan kehendak keselamatan, sebagaimana Yesus mendoakan para murid menjadi 'satu' dalam Yohanes 17:21-22.",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EVI-OMBYffI8VmM-001"
+      ],
+      "source_segments": [
+        "SEG-OMBYffI8VmM-0050"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "EVI-OMBYffI8VmM-001",
+      "claim_id": "CLM-OMBYffI8VmM-001",
+      "description": "Teks Yunani Yohanes menggunakan kata neuter 'hen' (kesatuan tujuan/harmoni), bukan maskulin 'heis' (satu oknum/pribadi).",
+      "source": "Yohanes 10:30 & Yohanes 17:21-22",
+      "source_type": "scripture",
+      "speaker_reference": "Dikutip langsung dalam perdebatan Integritas Eksegesis: Cherry-Picking Ayat vs Konteks Narasi Utuh (Yohanes 10:30 vs Yohanes 17).",
+      "verification_status": "supported",
+      "reliability": "high",
+      "confidence": 0.96,
+      "source_segment": "SEG-OMBYffI8VmM-0050"
+    }
+  ],
+  "counterarguments": [
+    {
+      "counterargument_id": "CNT-OMBYffI8VmM-001",
+      "target_claim_id": "CLM-OMBYffI8VmM-001",
+      "speaker": "OPPONENT",
+      "text": "Yohanes 10:30 adalah bukti deklarasi eksplisit bahwa Yesus berhakikat ontologis satu dzat dengan Allah Bapa.",
+      "source_segment": "SEG-OMBYffI8VmM-0048",
+      "confidence": 0.88
+    }
+  ],
+  "rebuttals": [
+    {
+      "rebuttal_id": "REB-OMBYffI8VmM-001",
+      "target_counterargument_id": "CNT-OMBYffI8VmM-001",
+      "speaker": "ZUMA",
+      "text": "ZUMA membuktikan ketidakabsahan sanggahan lawan dengan merujuk langsung pada naskah Yohanes 10:30 & Yohanes 17:21-22.",
+      "source_segment": "SEG-OMBYffI8VmM-0050",
+      "confidence": 0.95
+    }
+  ],
+  "fallacies": [
+    {
+      "fallacy_id": "FAL-OMBYffI8VmM-001",
+      "fallacy_type": "Decontextualized Cherry-Picking",
+      "speaker": "OPPONENT",
+      "target_segment": "SEG-OMBYffI8VmM-0048",
+      "explanation": "Mengisolasi Yohanes 10:30 dari penjelasan komparatif Yesus sendiri dalam Yohanes 10:34-36 dan doa syafaat Yohanes 17.",
+      "confidence": 0.95,
+      "is_ai_inference": true
+    }
+  ],
+  "assumptions": [
+    {
+      "assumption_id": "ASM-OMBYffI8VmM-001",
+      "argument_id": "ARG-OMBYffI8VmM-001",
+      "text": "Integritas suatu doktrin bergantung pada koherensi internal naskah kanoniknya.",
+      "is_implicit": true,
+      "confidence": 0.92
+    }
+  ],
+  "argument_graph": {
+    "nodes": [
+      {
+        "id": "CLM-OMBYffI8VmM-001",
+        "type": "claim",
+        "label": "Frasa 'Aku dan Bapa adalah satu' dalam Yohanes 10:30 bermakna kesatuan tujuan dan kehendak keselamatan, sebagaimana Yesus mendoakan para murid menjadi 'satu' dalam Yohanes 17:21-22.",
+        "speaker": "ZUMA"
+      },
+      {
+        "id": "CLM-OMBYffI8VmM-002",
+        "type": "claim",
+        "label": "Yohanes 10:30 adalah bukti deklarasi eksplisit bahwa Yesus berhakikat ontologis satu dzat dengan Allah Bapa.",
+        "speaker": "OPPONENT"
+      },
+      {
+        "id": "ARG-OMBYffI8VmM-001",
+        "type": "argument",
+        "label": "Integritas Eksegesis: Cherry-Picking Ayat vs Konteks Narasi Utuh (Yohanes 10:30 vs Yohanes 17)",
+        "speaker": "ZUMA"
+      },
+      {
+        "id": "EVI-OMBYffI8VmM-001",
+        "type": "evidence",
+        "label": "Yohanes 10:30 & Yohanes 17:21-22",
+        "speaker": "SOURCE"
+      },
+      {
+        "id": "CNT-OMBYffI8VmM-001",
+        "type": "counterargument",
+        "label": "Yohanes 10:30 adalah bukti deklarasi eksplisit bahwa Yesus berhakikat ontologis satu dzat dengan Allah Bapa.",
+        "speaker": "OPPONENT"
+      },
+      {
+        "id": "REB-OMBYffI8VmM-001",
+        "type": "rebuttal",
+        "label": "ZUMA membuktikan ketidakabsahan sanggahan lawan dengan merujuk langsung pada naskah Yohanes 10:30 & Yohanes 17:21-22.",
+        "speaker": "ZUMA"
+      }
+    ],
+    "edges": [
+      {
+        "source": "EVI-OMBYffI8VmM-001",
+        "target": "CLM-OMBYffI8VmM-001",
+        "relation": "evidenced_by"
+      },
+      {
+        "source": "ARG-OMBYffI8VmM-001",
+        "target": "CLM-OMBYffI8VmM-001",
+        "relation": "supports"
+      },
+      {
+        "source": "CNT-OMBYffI8VmM-001",
+        "target": "CLM-OMBYffI8VmM-001",
+        "relation": "attacks"
+      },
+      {
+        "source": "REB-OMBYffI8VmM-001",
+        "target": "CNT-OMBYffI8VmM-001",
+        "relation": "rebutted_by"
+      }
+    ]
+  }
+}

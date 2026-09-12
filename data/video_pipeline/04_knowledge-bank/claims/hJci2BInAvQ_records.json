@@ -1,0 +1,50 @@
+[
+  {
+    "record_id": "KNOW-REC-CLM-hJci2BInAvQ-001",
+    "canonical_key": "canon_clm-hjci2binavq-001",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "HISTORICAL_CLAIM",
+    "content": "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan.",
+    "verification_status": "supported",
+    "confidence": 0.98,
+    "provenance_chain": {
+      "video_id": "hJci2BInAvQ",
+      "source_url": "https://www.youtube.com/watch?v=hJci2BInAvQ",
+      "segment_id": "SEG-hJci2BInAvQ-0060",
+      "timestamp": "30:43",
+      "speaker": "ZUMA"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-hJci2BInAvQ-002",
+    "canonical_key": "canon_clm-hjci2binavq-002",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "INTERPRETATION",
+    "content": "Penglihatan kain turun dari langit dalam Kisah Para Rasul 10 membatalkan seluruh hukum makanan haram bagi orang Kristen.",
+    "verification_status": "contested",
+    "confidence": 0.87,
+    "provenance_chain": {
+      "video_id": "hJci2BInAvQ",
+      "source_url": "https://www.youtube.com/watch?v=hJci2BInAvQ",
+      "segment_id": "SEG-hJci2BInAvQ-0055",
+      "timestamp": "28:10",
+      "speaker": "OPPONENT"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-hJci2BInAvQ-003",
+    "canonical_key": "canon_clm-hjci2binavq-003",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "HISTORICAL_CLAIM",
+    "content": "Kisah Para Rasul 10:28 secara eksplisit menjelaskan bahwa arti penglihatan kain tersebut adalah tentang penerimaan manusia bukan tentang penyucian daging babi.",
+    "verification_status": "supported",
+    "confidence": 0.99,
+    "provenance_chain": {
+      "video_id": "hJci2BInAvQ",
+      "source_url": "https://www.youtube.com/watch?v=hJci2BInAvQ",
+      "segment_id": "SEG-hJci2BInAvQ-0065",
+      "timestamp": "33:15",
+      "speaker": "ZUMA"
+    }
+  }
+]

@@ -1,0 +1,62 @@
+{
+  "nodes": [
+    {
+      "id": "CLM-OMBYffI8VmM-001",
+      "type": "claim",
+      "label": "Frasa 'Aku dan Bapa adalah satu' dalam Yohanes 10:30 bermakna kesatuan tujuan dan kehendak keselamatan, sebagaimana Yesus mendoakan para murid menjadi 'satu' dalam Yohanes 17:21-22.",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "CLM-OMBYffI8VmM-002",
+      "type": "claim",
+      "label": "Yohanes 10:30 adalah bukti deklarasi eksplisit bahwa Yesus berhakikat ontologis satu dzat dengan Allah Bapa.",
+      "speaker": "OPPONENT"
+    },
+    {
+      "id": "ARG-OMBYffI8VmM-001",
+      "type": "argument",
+      "label": "Integritas Eksegesis: Cherry-Picking Ayat vs Konteks Narasi Utuh (Yohanes 10:30 vs Yohanes 17)",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "EVI-OMBYffI8VmM-001",
+      "type": "evidence",
+      "label": "Yohanes 10:30 & Yohanes 17:21-22",
+      "speaker": "SOURCE"
+    },
+    {
+      "id": "CNT-OMBYffI8VmM-001",
+      "type": "counterargument",
+      "label": "Yohanes 10:30 adalah bukti deklarasi eksplisit bahwa Yesus berhakikat ontologis satu dzat dengan Allah Bapa.",
+      "speaker": "OPPONENT"
+    },
+    {
+      "id": "REB-OMBYffI8VmM-001",
+      "type": "rebuttal",
+      "label": "ZUMA membuktikan ketidakabsahan sanggahan lawan dengan merujuk langsung pada naskah Yohanes 10:30 & Yohanes 17:21-22.",
+      "speaker": "ZUMA"
+    }
+  ],
+  "edges": [
+    {
+      "source": "EVI-OMBYffI8VmM-001",
+      "target": "CLM-OMBYffI8VmM-001",
+      "relation": "evidenced_by"
+    },
+    {
+      "source": "ARG-OMBYffI8VmM-001",
+      "target": "CLM-OMBYffI8VmM-001",
+      "relation": "supports"
+    },
+    {
+      "source": "CNT-OMBYffI8VmM-001",
+      "target": "CLM-OMBYffI8VmM-001",
+      "relation": "attacks"
+    },
+    {
+      "source": "REB-OMBYffI8VmM-001",
+      "target": "CNT-OMBYffI8VmM-001",
+      "relation": "rebutted_by"
+    }
+  ]
+}

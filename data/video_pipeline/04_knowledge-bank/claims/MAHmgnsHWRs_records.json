@@ -1,0 +1,82 @@
+[
+  {
+    "record_id": "KNOW-REC-CLM-MAHmgnsHWRs-001",
+    "canonical_key": "canon_clm-mahmgnshwrs-001",
+    "topic": "TOP-ECCLESIOLOGY-BODY",
+    "claim_type": "THEOLOGICAL_CLAIM",
+    "content": "Surat Paulus mengajarkan bahwa seluruh orang beriman dan anggota gereja adalah tubuh Kristus (1 Kor 12:27, Efesus 5:30).",
+    "verification_status": "supported",
+    "confidence": 0.98,
+    "provenance_chain": {
+      "video_id": "MAHmgnsHWRs",
+      "source_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
+      "segment_id": "SEG-MAHmgnsHWRs-0020",
+      "timestamp": "11:53",
+      "speaker": "ZUMA"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-MAHmgnsHWRs-002",
+    "canonical_key": "canon_clm-mahmgnshwrs-002",
+    "topic": "TOP-ESCHATOLOGY-FALSE-CHRISTS",
+    "claim_type": "HISTORICAL_CLAIM",
+    "content": "Yesus dalam Bible Matius 24:24 menubuatkan akan munculnya banyak mesias-mesias atau kristus-kristus palsu (pseudochristoi).",
+    "verification_status": "supported",
+    "confidence": 0.97,
+    "provenance_chain": {
+      "video_id": "MAHmgnsHWRs",
+      "source_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
+      "segment_id": "SEG-MAHmgnsHWRs-0010",
+      "timestamp": "6:11",
+      "speaker": "ZUMA"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-MAHmgnsHWRs-003",
+    "canonical_key": "canon_clm-mahmgnshwrs-003",
+    "topic": "TOP-ECCLESIOLOGY-BODY",
+    "claim_type": "INFERENCE",
+    "content": "Doktrin bahwa pendeta dan jemaat adalah 'tubuh Kristus' secara dialektis membuka penggenapan nubuat Kristus palsu karena mengklaim esensi Kristus di bumi.",
+    "verification_status": "contested",
+    "confidence": 0.91,
+    "provenance_chain": {
+      "video_id": "MAHmgnsHWRs",
+      "source_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
+      "segment_id": "SEG-MAHmgnsHWRs-0012",
+      "timestamp": "7:14",
+      "speaker": "ZUMA"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-MAHmgnsHWRs-004",
+    "canonical_key": "canon_clm-mahmgnshwrs-004",
+    "topic": "TOP-ECCLESIOLOGY-BODY",
+    "claim_type": "INTERPRETATION",
+    "content": "Sebutan 'tubuh Kristus' dalam teologi Kristen adalah metafora eklesiologis spiritual, bukan personifikasi ontologis individu sebagai Yesus Sang Mesias.",
+    "verification_status": "supported",
+    "confidence": 0.94,
+    "provenance_chain": {
+      "video_id": "MAHmgnsHWRs",
+      "source_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
+      "segment_id": "SEG-MAHmgnsHWRs-0006",
+      "timestamp": "3:20",
+      "speaker": "OPPONENT"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-MAHmgnsHWRs-005",
+    "canonical_key": "canon_clm-mahmgnshwrs-005",
+    "topic": "TOP-ECCLESIOLOGY-BODY",
+    "claim_type": "THEOLOGICAL_CLAIM",
+    "content": "Teks Paulus dalam 1 Korintus 6:15 menggunakan analogi somatis fisik ('tubuhmu adalah anggota Kristus'), membuktikan adanya identifikasi substansial.",
+    "verification_status": "supported",
+    "confidence": 0.95,
+    "provenance_chain": {
+      "video_id": "MAHmgnsHWRs",
+      "source_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
+      "segment_id": "SEG-MAHmgnsHWRs-0021",
+      "timestamp": "12:23",
+      "speaker": "ZUMA"
+    }
+  }
+]

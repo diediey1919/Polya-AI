@@ -1,0 +1,306 @@
+[
+  {
+    "round_num": 1,
+    "turn_speaker": "ZUMA",
+    "speech_type": "SOCRATIC_OPENING",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Kita bedah secara tuntas: Gelar Eskatologis Singa Yehuda (Wahyu 5:5) & Batas Otoritas Manusia Fana. Gelar eskatologis apokaliptik dalam kitab Wahyu bukanlah mainan atau atribut panggung yang bisa diklaim oleh manusia fana.",
+    "persona_strategy": "verbatim_textual_anchoring",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-001",
+        "segment_id": "SEG-iJ2opoPF5I0-0015",
+        "timestamp": "5:20",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  },
+  {
+    "round_num": 1,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "APOLOGETIC_OPENING",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Sebagai hamba Tuhan yang diurapi, gelar Singa Yehuda merepresentasikan kuasa rohani dan otoritas pelayanan kami di muka bumi.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-002",
+        "segment_id": "SEG-iJ2opoPF5I0-0012",
+        "timestamp": "4:10",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  },
+  {
+    "round_num": 2,
+    "turn_speaker": "ZUMA",
+    "speech_type": "PRIMARY_TEXT_ARGUMENT",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Buka Wahyu 5:5 sekarang juga! 'Jangan engkau menangis! Sesungguhnya, singa dari suku Yehuda, yaitu tunas Daud, telah menang, sehingga Ia dapat membuka gulungan kitab itu...' Tunas Daud itu siapa? Mesias! Berani-beraninya seorang manusia biasa mengklaim gelar yang hanya layak disandang oleh Pembuka Meterai Ilahi?",
+    "persona_strategy": "extraneous_authority_demolition",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-001",
+        "segment_id": "SEG-iJ2opoPF5I0-0015",
+        "timestamp": "5:20",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  },
+  {
+    "round_num": 2,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DOGMATIC_JUSTIFICATION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Itu gelar profetik simbolik yang dialirkan Roh Kudus kepada hamba-hamba-Nya terpilih!",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-002",
+        "segment_id": "SEG-iJ2opoPF5I0-0012",
+        "timestamp": "4:10",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  },
+  {
+    "round_num": 3,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DEFENSIVE_OBJECTION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Anda membatasi kuasa Roh Tuhan dengan kacamata sempit nalar manusia!",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-002",
+        "segment_id": "SEG-iJ2opoPF5I0-0012",
+        "timestamp": "4:10",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  },
+  {
+    "round_num": 3,
+    "turn_speaker": "ZUMA",
+    "speech_type": "EVASION_INTERRUPTION",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Dengar saudara! Ini bukan soal kacamata nalar, ini penghormatan terhadap batasan firman! Mengambil gelar eskatologis Mesias adalah megalomania teologis yang merusak kanon!",
+    "persona_strategy": "data_focus_interruption",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-001",
+        "segment_id": "SEG-iJ2opoPF5I0-0015",
+        "timestamp": "5:20",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  },
+  {
+    "round_num": 4,
+    "turn_speaker": "ZUMA",
+    "speech_type": "VERBATIM_REBUTTAL",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Baca Kejadian 49:9 sampai Wahyu 5:5. Dari nubuatan Yakub sampai penglihatan Yohanes di pulau Patmos, gelar Singa Yehuda terikat eksklusif pada garis Mesianik ilahi. Tidak ada celah satu huruf pun bagi pastor mana pun untuk mencuri gelar ini!",
+    "persona_strategy": "socratic_verbatim_cornering",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-001",
+        "segment_id": "SEG-iJ2opoPF5I0-0015",
+        "timestamp": "5:20",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  },
+  {
+    "round_num": 4,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "EVASIVE_DEFENSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Kami tidak mencuri kemuliaan Tuhan, kami hanya mengobarkan semangat iman jemaat.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-002",
+        "segment_id": "SEG-iJ2opoPF5I0-0012",
+        "timestamp": "4:10",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  },
+  {
+    "round_num": 5,
+    "turn_speaker": "ZUMA",
+    "speech_type": "CONSTRUCTIVE_FATAL_DILEMMA",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Tolong jawab: apakah pastor saudara sanggup dan layak membuka ketujuh meterai penghakiman di hadapan takhta Allah seperti di Wahyu 5?",
+    "persona_strategy": "constructive_fatal_dilemma",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-001",
+        "segment_id": "SEG-iJ2opoPF5I0-0015",
+        "timestamp": "5:20",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  },
+  {
+    "round_num": 5,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DILEMMA_RESPONSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Hanya Anak Domba yang membuka meterai itu secara literal.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-002",
+        "segment_id": "SEG-iJ2opoPF5I0-0012",
+        "timestamp": "4:10",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  },
+  {
+    "round_num": 6,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "THEOLOGICAL_DEFENSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Secara metafora kami memperjuangkan kebenaran Singa Yehuda dalam pertempuran rohani.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-002",
+        "segment_id": "SEG-iJ2opoPF5I0-0012",
+        "timestamp": "4:10",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  },
+  {
+    "round_num": 6,
+    "turn_speaker": "ZUMA",
+    "speech_type": "COUNTER_DEFENSE",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Metafora tidak boleh melanggar batas ortodoksi naskah kanon! Naskah dengan tegas memagari gelar tersebut.",
+    "persona_strategy": "presupposition_inversion",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-001",
+        "segment_id": "SEG-iJ2opoPF5I0-0015",
+        "timestamp": "5:20",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  },
+  {
+    "round_num": 7,
+    "turn_speaker": "ZUMA",
+    "speech_type": "SYNTHESIS_REBUTTAL",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Klaim saudara telah terbongkar di hadapan teks Bible sendiri. Anda tidak memiliki sandaran eksegetis selain kebanggaan semu.",
+    "persona_strategy": "canonical_exclusivity_restriction",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-001",
+        "segment_id": "SEG-iJ2opoPF5I0-0015",
+        "timestamp": "5:20",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  },
+  {
+    "round_num": 7,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "CONCLUDING_OBJECTION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Kami berdiri di atas keyakinan iman gereja kami.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-002",
+        "segment_id": "SEG-iJ2opoPF5I0-0012",
+        "timestamp": "4:10",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  },
+  {
+    "round_num": 8,
+    "turn_speaker": "ZUMA",
+    "speech_type": "MAIEUTIC_CLOSING",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Naskah Wahyu 5:5 berdiri abadi: Singa Yehuda adalah Mesias, bukan pendeta panggung. Simulasi ini membuktikan superioritas pembuktian teks atas klaim megalomanik!",
+    "persona_strategy": "maieutic_epistemic_verdict",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-001",
+        "segment_id": "SEG-iJ2opoPF5I0-0015",
+        "timestamp": "5:20",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  },
+  {
+    "round_num": 8,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "FINAL_CLOSING",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Tuhan yang akan menguji kemurnian hati setiap pelayan-Nya.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-iJ2opoPF5I0-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-iJ2opoPF5I0-002",
+        "segment_id": "SEG-iJ2opoPF5I0-0012",
+        "timestamp": "4:10",
+        "video_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0"
+      }
+    ]
+  }
+]

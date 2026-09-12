@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "p0Xhev3gruQ",
+  "youtube_id": "p0Xhev3gruQ",
+  "source_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ",
+  "title": "VIRALKAN KELICIKAN MISIONARIS INI..BERBAGAI TRIK MENJERAT BANGZUMA TAPI GAGAL..",
+  "channel": "ZULKIFLI M ABBAS OFFICIAL",
+  "speaker_or_creator": "ZULKIFLI M ABBAS OFFICIAL",
+  "published_date": "2026-09-04",
+  "duration_seconds": 2400.0,
+  "duration_formatted": "40:00",
+  "description": "Debate and theological discussion record.",
+  "language": "id",
+  "extraction_method": {
+    "transcript_source": "youtube-transcript.ai (timed text extraction)",
+    "transcript_method": "timed_text_api",
+    "quality": "high"
+  },
+  "extracted_at": "2026-09-11T10:50:50.683967+00:00",
+  "raw_files": {
+    "transcript_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/p0Xhev3gruQ/raw_transcript.txt",
+    "metadata_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/p0Xhev3gruQ/metadata.json",
+    "log_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/p0Xhev3gruQ/extraction_log.json"
+  }
+}

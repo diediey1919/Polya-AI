@@ -1,0 +1,21 @@
+{
+  "persona_id": "zuma_debate_v1",
+  "video_id": "p0Xhev3gruQ",
+  "overall_fidelity_score": 0.92,
+  "metrics": {
+    "questioning_style": 0.91,
+    "premise_challenge": 0.93,
+    "textual_grounding": 0.95,
+    "cross_examination": 0.9,
+    "rebuttal_pattern": 0.89,
+    "evidence_orientation": 0.94
+  },
+  "rationales": {
+    "questioning_style": "Pertanyaan terstruktur funneling menutup ruang gerak lawan sebelum pembacaan teks kontradiktif.",
+    "premise_challenge": "Setiap premis lawan diuji konsistensinya hingga konsekuensi ekstrem (reductio ad absurdum).",
+    "textual_grounding": "100% rujukan ayat dituntut secara verbatim (pasal & ayat LAI TB), menolak tafsir liar tanpa naskah.",
+    "cross_examination": "Menerapkan constructive fatal dilemma di Round 5 di mana kedua opsi menjatuhkan posisi lawan.",
+    "rebuttal_pattern": "Membongkar pemotongan ayat (cherry-picking) dengan membaca perikop utuh sebelum dan sesudahnya.",
+    "evidence_orientation": "Eksklusif menggunakan sumber kanonik resmi yang dipegang lawan, menjaga immanent critique."
+  }
+}

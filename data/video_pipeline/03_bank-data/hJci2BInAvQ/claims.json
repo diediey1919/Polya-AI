@@ -1,0 +1,35 @@
+[
+  {
+    "claim_id": "CLM-hJci2BInAvQ-001",
+    "text": "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan.",
+    "speaker": "ZUMA",
+    "claim_type": "HISTORICAL_CLAIM",
+    "verification_status": "supported",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.98,
+    "source_segment": "SEG-hJci2BInAvQ-0060",
+    "timestamp": "30:43"
+  },
+  {
+    "claim_id": "CLM-hJci2BInAvQ-002",
+    "text": "Penglihatan kain turun dari langit dalam Kisah Para Rasul 10 membatalkan seluruh hukum makanan haram bagi orang Kristen.",
+    "speaker": "OPPONENT",
+    "claim_type": "INTERPRETATION",
+    "verification_status": "contested",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.87,
+    "source_segment": "SEG-hJci2BInAvQ-0055",
+    "timestamp": "28:10"
+  },
+  {
+    "claim_id": "CLM-hJci2BInAvQ-003",
+    "text": "Kisah Para Rasul 10:28 secara eksplisit menjelaskan bahwa arti penglihatan kain tersebut adalah tentang penerimaan manusia bukan tentang penyucian daging babi.",
+    "speaker": "ZUMA",
+    "claim_type": "HISTORICAL_CLAIM",
+    "verification_status": "supported",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.99,
+    "source_segment": "SEG-hJci2BInAvQ-0065",
+    "timestamp": "33:15"
+  }
+]

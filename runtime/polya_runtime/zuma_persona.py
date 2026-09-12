@@ -39,6 +39,38 @@ class ZumaDebatePersona:
                 return {}
         return {}
 
+    @staticmethod
+    def sanitize_bible_terminology(text: str) -> str:
+        """
+        Enforces Polya Terminology Directive:
+        Replaces all occurrences of Alkitab and Injil with Bible.
+        """
+        if not text:
+            return text
+        import re
+        text = re.sub(r"\bAlkitabiah\b", "Biblika", text)
+        text = re.sub(r"\balkitabiyah\b", "biblika", text)
+        text = re.sub(r"\bALKITABNYA\b", "BIBLENYA", text)
+        text = re.sub(r"\bAlkitabnya\b", "Biblenya", text)
+        text = re.sub(r"\balkitabnya\b", "biblenya", text)
+        text = re.sub(r"\bAlkitabmu\b", "Biblemu", text)
+        text = re.sub(r"\balkitabmu\b", "biblemu", text)
+        text = re.sub(r"\bAlkitabku\b", "Bibleku", text)
+        text = re.sub(r"\balkitabku\b", "bibleku", text)
+        text = re.sub(r"\bAlkitabu\b", "Biblemu", text)
+        text = re.sub(r"\bINJILNYA\b", "BIBLENYA", text)
+        text = re.sub(r"\bInjilnya\b", "Biblenya", text)
+        text = re.sub(r"\binjilnya\b", "biblenya", text)
+        text = re.sub(r"\bantar-injil\b", "antar-bible", text)
+        text = re.sub(r"\bantar-Injil\b", "antar-Bible", text)
+        text = re.sub(r"\bALKITAB\b", "BIBLE", text)
+        text = re.sub(r"\bAlkitab\b", "Bible", text)
+        text = re.sub(r"\balkitab\b", "bible", text)
+        text = re.sub(r"\bINJIL\b", "BIBLE", text)
+        text = re.sub(r"\bInjil\b", "Bible", text)
+        text = re.sub(r"\binjil\b", "bible", text)
+        return text
+
     def analyze_claim_strategy(self, claim: str) -> Dict[str, Any]:
         """
         Matches incoming claim to ZUMA's tactical strategy repository.
@@ -93,37 +125,39 @@ class ZumaDebatePersona:
         """
         claim_lower = claim.lower()
         if "tuhan" in claim_lower or "allah" in claim_lower:
-            return [
+            ladder = [
                 "Langkah 1: Konfirmasi otoritas — 'Apakah Anda mendasarkan iman Anda mutlak pada perkataan Yesus sendiri?'",
                 "Langkah 2: Verifikasi teks — 'Buka pasal dan ayatnya: di mana Yesus menyatakan verbatim: \"Akulah Tuhan Yang Maha Kuasa, sembahlah Aku\"?'",
                 "Langkah 3: Paparan kontradiksi — 'Ketika Yesus berdoa semalam-malaman kepada Bapa (Lukas 6:12), kepada siapa Pribadi yang berdoa itu memohon jika Ia adalah Sang Penerima doa?'",
                 "Langkah 4: Kunci zugzwang — 'Apakah Tuhan yang sejati membutuhkan permohonan kepada entitas lain untuk menjalankan kehendak-Nya?'"
             ]
         elif "dosa" in claim_lower or "tebus" in claim_lower or "salib" in claim_lower:
-            return [
+            ladder = [
                 "Langkah 1: Konfirmasi standar keadilan — 'Apakah keadilan sejati menuntut pelaku pertanggungjawaban personal atau penimpalan hukuman kepada orang suci?'",
                 "Langkah 2: Verifikasi teks primer — 'Buka Ulangan 24:16 dan Yehezkiel 18:20: tertulis jelas bahwa anak tidak akan menanggung kesalahan ayah dan setiap orang mati karena dosanya sendiri.'",
                 "Langkah 3: Paparan pertentangan kanonik — 'Mengapa doktrin penebusan ini bertentangan secara diametral dengan hukum keadilan Taurat yang Yesus sendiri tegaskan tidak akan gugur satu iota pun (Matius 5:17-18)?'",
                 "Langkah 4: Kunci zugzwang — 'Manakah yang Anda imani: Ketetapan hukum moral abadi para nabi, atau rekonstruksi teologis luar?'"
             ]
         else:
-            return [
+            ladder = [
                 "Langkah 1: Konfirmasi dasar pembuktian — 'Apakah klaim Anda ini didasarkan pada teks eksplisit atau kesimpulan tafsir manusiawi?'",
                 "Langkah 2: Tuntutan pasal dan ayat — 'Tunjukkan pasal dan nomor ayat primer yang secara literal menyatakan proposisi Anda.'",
                 "Langkah 3: Pemetaan koherensi — 'Bagaimana Anda merekonsiliasi teks tersebut dengan fakta historis dan manuskrip tertua?'",
                 "Langkah 4: Evaluasi deduktif — 'Jika teks primer tidak membunyikan klaim tersebut, atas dasar epistemik apa klaim itu Anda pertahankan?'"
             ]
+        return [self.sanitize_bible_terminology(step) for step in ladder]
 
     def intercept_evasion(self, opponent_response: str, original_question: str) -> str:
         """
         Applies Hard Anchor Topic Recovery (CTL-STRAT-EVASION-KILL) when evasion is detected.
         """
-        return (
+        res = (
             f"Tahan dulu. Mari kita kembali ke data primer dan tidak melebar ke narasi sampingan.\n\n"
             f"Pertanyaan saya sangat spesifik dan belum dijawab:\n"
             f"👉 \"{original_question}\"\n\n"
             f"Mohon jawab langsung pada substansi teks: Ya atau Tidak, beserta pasal dan nomor ayatnya."
         )
+        return self.sanitize_bible_terminology(res)
 
     def apply_persona_delivery(
         self,
@@ -170,7 +204,7 @@ class ZumaDebatePersona:
 
         delivery.append("\n— *Kebenaran tidak memerlukan retorika emosional; ia berdiri tegak di atas ketelitian teks dan bobot faktanya sendiri.*")
 
-        return "\n".join(delivery)
+        return self.sanitize_bible_terminology("\n".join(delivery))
 
 from dataclasses import dataclass, field
 
@@ -212,7 +246,7 @@ class ZumaPersonaEngine(ZumaDebatePersona):
             selected_strategy=f"{strat_id} ({strat_name})",
             reason=prim.get("focus", "Dialectical pressure application"),
             next_action="DEPLOY_SOCRATIC_INTERROGATION",
-            question=ladder[0] if ladder else "Sebutkan pasal dan ayatnya?",
+            question=self.sanitize_bible_terminology(ladder[0] if ladder else "Sebutkan pasal dan ayatnya?"),
             evidence_required=["Primary canonical scripture citation"],
             follow_up_conditions=["Opponent concedes -> lock premise", "Opponent evades -> execute evasion interception"],
             fallback_strategy="STRAT-QUESTION-CHAINING-LADDER"

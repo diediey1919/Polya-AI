@@ -1,0 +1,27 @@
+{
+  "theses": [
+    {
+      "speaker": "OPPONENT",
+      "thesis": "Kata Elohim yang berbentuk jamak membuktikan konsep Trinitas sudah termaktub sejak Kitab Kejadian 1:1."
+    },
+    {
+      "speaker": "ZUMA",
+      "thesis": "Bentuk gramatikal kata 'Elohim' dalam Tanakh berakhiran plural -im namun berpasangan dengan kata kerja tunggal (bara), menandakan Pluralis Majestatis bukan politeisme/Trinitas."
+    }
+  ],
+  "dialectical_clashes": [
+    {
+      "topic": "Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika",
+      "side_a": {
+        "speaker": "OPPONENT",
+        "argument": "Kata Elohim yang berbentuk jamak membuktikan konsep Trinitas sudah termaktub sejak Kitab Kejadian 1:1."
+      },
+      "side_b": {
+        "speaker": "ZUMA",
+        "argument": "Bentuk gramatikal kata 'Elohim' dalam Tanakh berakhiran plural -im namun berpasangan dengan kata kerja tunggal (bara), menandakan Pluralis Majestatis bukan politeisme/Trinitas."
+      },
+      "turning_point": "Ketika teks primer Bible dibacakan verbatim.",
+      "resolved_or_deadlock": "Deadlock bagi lawan yang tidak mampu menyelaraskan kontradiksi teks."
+    }
+  ]
+}

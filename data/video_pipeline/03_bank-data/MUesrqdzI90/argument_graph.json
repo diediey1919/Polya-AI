@@ -1,0 +1,53 @@
+{
+  "nodes": [
+    {
+      "id": "CLM-MUesrqdzI90-001",
+      "type": "claim",
+      "label": "Ada perintah kitab suci untuk menjadikan seluruh bangsa dan rakyat menjadi penganut agama tertentu.",
+      "speaker": "OPPONENT"
+    },
+    {
+      "id": "CLM-MUesrqdzI90-002",
+      "type": "claim",
+      "label": "Perdebatan lintas iman tidak perlu dilakukan bila tidak mengubah nasib eskatologis.",
+      "speaker": "OPPONENT"
+    },
+    {
+      "id": "CLM-MUesrqdzI90-003",
+      "type": "claim",
+      "label": "Diskusi teologis dan apologetika adalah pertanggungjawaban kebenaran rasional dan doktrinal yang sah.",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "CLM-MUesrqdzI90-004",
+      "type": "claim",
+      "label": "Paulus dalam Roma 15:20 menyatakan prinsip pelayanan tidak membangun di atas dasar yang diletakkan orang lain.",
+      "speaker": "OPPONENT"
+    },
+    {
+      "id": "CLM-MUesrqdzI90-005",
+      "type": "claim",
+      "label": "Paulus dalam Galatia 2 secara terbuka menegur dan menyatakan bahwa Petrus berbuat salah/kemunafikan di Antiokhia.",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "CLM-MUesrqdzI90-006",
+      "type": "claim",
+      "label": "Konflik doktrinal dan teologis antara Paulus dan Petrus membuktikan adanya inkonsistensi otoritas apostolik kanonik.",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "CLM-MUesrqdzI90-007",
+      "type": "claim",
+      "label": "Status keahlian bela diri atau gelar fisik tidak menjamin keabsahan argumen teologis (Irrelevant Authority).",
+      "speaker": "ZUMA"
+    }
+  ],
+  "edges": [
+    {
+      "source": "EVI-MUesrqdzI90-001",
+      "target": "CLM-MUesrqdzI90-001",
+      "relation": "evidenced_by"
+    }
+  ]
+}

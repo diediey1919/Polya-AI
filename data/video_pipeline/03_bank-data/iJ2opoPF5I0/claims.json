@@ -1,0 +1,24 @@
+[
+  {
+    "claim_id": "CLM-iJ2opoPF5I0-001",
+    "text": "Gelar 'Singa dari suku Yehuda' dalam Wahyu 5:5 adalah gelar eskatologis eksklusif milik Mesias, bukan manusia fana.",
+    "speaker": "ZUMA",
+    "claim_type": "THEOLOGICAL_CLAIM",
+    "verification_status": "supported",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.98,
+    "source_segment": "SEG-iJ2opoPF5I0-0015",
+    "timestamp": "5:20"
+  },
+  {
+    "claim_id": "CLM-iJ2opoPF5I0-002",
+    "text": "Pemimpin gereja atau pastor dapat menyandang gelar Singa Yehuda sebagai representasi kuasa rohani di bumi.",
+    "speaker": "OPPONENT",
+    "claim_type": "THEOLOGICAL_CLAIM",
+    "verification_status": "contested",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.89,
+    "source_segment": "SEG-iJ2opoPF5I0-0012",
+    "timestamp": "4:10"
+  }
+]

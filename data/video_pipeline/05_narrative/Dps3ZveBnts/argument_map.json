@@ -1,0 +1,27 @@
+{
+  "theses": [
+    {
+      "speaker": "OPPONENT",
+      "thesis": "Yesus berdoa semata-mata memberi contoh keteladanan bagi manusia, bukan karena keterbatasan ontologis keilahian-Nya."
+    },
+    {
+      "speaker": "ZUMA",
+      "thesis": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah."
+    }
+  ],
+  "dialectical_clashes": [
+    {
+      "topic": "Doa Yesus di Getsemani (Matius 26:39): Keterbatasan Ontologis vs Kemahakuasaan",
+      "side_a": {
+        "speaker": "OPPONENT",
+        "argument": "Yesus berdoa semata-mata memberi contoh keteladanan bagi manusia, bukan karena keterbatasan ontologis keilahian-Nya."
+      },
+      "side_b": {
+        "speaker": "ZUMA",
+        "argument": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah."
+      },
+      "turning_point": "Ketika teks primer Bible dibacakan verbatim.",
+      "resolved_or_deadlock": "Deadlock bagi lawan yang tidak mampu menyelaraskan kontradiksi teks."
+    }
+  ]
+}

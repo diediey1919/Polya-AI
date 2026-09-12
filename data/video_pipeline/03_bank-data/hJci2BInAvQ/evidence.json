@@ -1,0 +1,14 @@
+[
+  {
+    "evidence_id": "EVI-hJci2BInAvQ-001",
+    "claim_id": "CLM-hJci2BInAvQ-001",
+    "description": "Teks larangan babi dalam Taurat dan penjelasan langsung Petrus tentang tafsir penglihatannya.",
+    "source": "Imamat 11:7-8, Kisah Para Rasul 10:14, 10:28",
+    "source_type": "scripture",
+    "speaker_reference": "Dikutip langsung dalam perdebatan Hukum Makanan Halal/Haram (Imamat 11 vs Kisah 10) & Otoritas Perintah Rasuli.",
+    "verification_status": "supported",
+    "reliability": "high",
+    "confidence": 0.96,
+    "source_segment": "SEG-hJci2BInAvQ-0060"
+  }
+]

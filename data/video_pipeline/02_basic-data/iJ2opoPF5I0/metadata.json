@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "iJ2opoPF5I0",
+  "youtube_id": "iJ2opoPF5I0",
+  "source_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0",
+  "title": "SPREAD THE WORD!! PASTOR CLAIMING TO BE THE LION OF JUDAH GETS HUMILIATED BY BANGZUMA",
+  "channel": "ZULKIFLI M ABBAS OFFICIAL",
+  "speaker_or_creator": "ZULKIFLI M ABBAS OFFICIAL",
+  "published_date": "2026-09-06",
+  "duration_seconds": 2400.0,
+  "duration_formatted": "40:00",
+  "description": "Debate and theological discussion record.",
+  "language": "id",
+  "extraction_method": {
+    "transcript_source": "youtube-transcript.ai (timed text extraction)",
+    "transcript_method": "timed_text_api",
+    "quality": "high"
+  },
+  "extracted_at": "2026-09-11T10:50:50.566999+00:00",
+  "raw_files": {
+    "transcript_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/iJ2opoPF5I0/raw_transcript.txt",
+    "metadata_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/iJ2opoPF5I0/metadata.json",
+    "log_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/iJ2opoPF5I0/extraction_log.json"
+  }
+}

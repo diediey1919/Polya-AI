@@ -1,0 +1,306 @@
+[
+  {
+    "round_num": 1,
+    "turn_speaker": "ZUMA",
+    "speech_type": "SOCRATIC_OPENING",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Kita masuki pengujian eksegesis teks Yohanes: Integritas Eksegesis: Cherry-Picking Ayat vs Konteks Narasi Utuh (Yohanes 10:30 vs Yohanes 17). Jangan ada pemotongan ayat sepotong-sepotong untuk membangun dogma yang keliru.",
+    "persona_strategy": "verbatim_textual_anchoring",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-001",
+        "segment_id": "SEG-OMBYffI8VmM-0050",
+        "timestamp": "26:49",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  },
+  {
+    "round_num": 1,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "APOLOGETIC_OPENING",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Tuhan Yesus sendiri mendeklarasikan dalam Yohanes 10:30: 'Aku dan Bapa adalah satu.' Ini adalah pernyataan eksplisit keilahian dan kesetaraan ontologis Yesus dengan Allah Bapa!",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-002",
+        "segment_id": "SEG-OMBYffI8VmM-0048",
+        "timestamp": "25:19",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  },
+  {
+    "round_num": 2,
+    "turn_speaker": "ZUMA",
+    "speech_type": "PRIMARY_TEXT_ARGUMENT",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Saudara membaca satu ayat tapi sengaja memenggal konteksnya! Dalam teks asli Yunani, kata 'satu' di Yohanes 10:30 adalah kata neuter 'HEN' (ἕν), bukan kata maskulin 'HEIS' (εἷς)! 'Hen' berarti satu kesatuan tujuan, kesepakatan, dan kehendak keselamatan kawanan domba, bukan satu pribadi atau satu substansi wujud! Kalau satu substansi atau satu oknum, Yohanes pasti menggunakan kata 'heis'!",
+    "persona_strategy": "context_expansion_rebuttal",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-001",
+        "segment_id": "SEG-OMBYffI8VmM-0050",
+        "timestamp": "26:49",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  },
+  {
+    "round_num": 2,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DOGMATIC_JUSTIFICATION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Tetapi orang Yahudi pada saat itu mengerti bahwa Yesus menyamakan diri-Nya dengan Allah sehingga mereka mau melempari-Nya dengan batu (ayat 31-33)!",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-002",
+        "segment_id": "SEG-OMBYffI8VmM-0048",
+        "timestamp": "25:19",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  },
+  {
+    "round_num": 3,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DEFENSIVE_OBJECTION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Reaksi orang Yahudi membuktikan bahwa klaim Yesus itu adalah klaim kesetaraan ilahi dengan Bapa!",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-002",
+        "segment_id": "SEG-OMBYffI8VmM-0048",
+        "timestamp": "25:19",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  },
+  {
+    "round_num": 3,
+    "turn_speaker": "ZUMA",
+    "speech_type": "EVASION_INTERRUPTION",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Dengar dulu! Jangan berhenti di tuduhan orang Yahudi! Mengapa saudara ikut pemahaman orang Yahudi yang gagal paham dan menolak membaca jawaban klarifikasi Yesus di ayat 34-36? Kita buka ayat 34-36 sekarang!",
+    "persona_strategy": "data_focus_interruption",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-001",
+        "segment_id": "SEG-OMBYffI8VmM-0050",
+        "timestamp": "26:49",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  },
+  {
+    "round_num": 4,
+    "turn_speaker": "ZUMA",
+    "speech_type": "VERBATIM_REBUTTAL",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Baca jawaban Yesus di Yohanes 10:34-36: 'Bukankah ada tertulis dalam hukum Tauratmu: Aku telah berfirman: Kamu adalah allah? Jikalau mereka, kepada siapa firman itu disampaikan, dinamai allah... masihkah kamu berkata kepada Dia yang dikuduskan oleh Bapa... Engkau menghujat Allah! Karena Aku telah berkata: Aku Anak Allah?' Yesus membela diri dengan merujuk Mazmur 82 di mana para hakim manusia disebut 'elohim'! Yesus bahkan tidak menyebut diri-Nya Allah, melainkan Anak Allah!",
+    "persona_strategy": "context_expansion_rebuttal",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-001",
+        "segment_id": "SEG-OMBYffI8VmM-0050",
+        "timestamp": "26:49",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  },
+  {
+    "round_num": 4,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "EVASIVE_DEFENSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Yesus menggunakan argumen a fortiori untuk membungkam para penuduh-Nya tanpa mengingkari hakikat-Nya.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-002",
+        "segment_id": "SEG-OMBYffI8VmM-0048",
+        "timestamp": "25:19",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  },
+  {
+    "round_num": 5,
+    "turn_speaker": "ZUMA",
+    "speech_type": "CONSTRUCTIVE_FATAL_DILEMMA",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Sekarang mari kita uji makna kata 'satu' (hen) di Yohanes 17:21. Apa doa Yesus bagi murid-murid-Nya di perikop itu?",
+    "persona_strategy": "constructive_fatal_dilemma",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-001",
+        "segment_id": "SEG-OMBYffI8VmM-0050",
+        "timestamp": "26:49",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  },
+  {
+    "round_num": 5,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DILEMMA_RESPONSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Yesus berdoa: 'supaya mereka semua menjadi satu, sama seperti Engkau, ya Bapa, di dalam Aku dan Aku di dalam Engkau, agar mereka juga di dalam Kita...'",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-002",
+        "segment_id": "SEG-OMBYffI8VmM-0048",
+        "timestamp": "25:19",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  },
+  {
+    "round_num": 6,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "THEOLOGICAL_DEFENSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Tentu kesatuan murid-murid adalah kesatuan kasih dan persekutuan rohani, bukan kesatuan kodrat ilahi.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-002",
+        "segment_id": "SEG-OMBYffI8VmM-0048",
+        "timestamp": "25:19",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  },
+  {
+    "round_num": 6,
+    "turn_speaker": "ZUMA",
+    "speech_type": "COUNTER_DEFENSE",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Tepat sekali saudara mengakui! Kesatuan murid adalah kesatuan tujuan dan kasih! Lalu dengan alasan apa saudara menyimpulkan kata yang sama di Yohanes 10:30 menjadi kesatuan kodrat ilahi Trinitas? Itu inkonsistensi eksegetis yang nyata!",
+    "persona_strategy": "presupposition_inversion",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-001",
+        "segment_id": "SEG-OMBYffI8VmM-0050",
+        "timestamp": "26:49",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  },
+  {
+    "round_num": 7,
+    "turn_speaker": "ZUMA",
+    "speech_type": "SYNTHESIS_REBUTTAL",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Context Expansion Rebuttal telah menuntaskan perdebatan ini: membaca Yohanes 10:30 bersama Yohanes 10:34-36 dan Yohanes 17 membuktikan bahwa doktrin Trinitas dibangun di atas cherry-picking teks!",
+    "persona_strategy": "canonical_exclusivity_restriction",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-001",
+        "segment_id": "SEG-OMBYffI8VmM-0050",
+        "timestamp": "26:49",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  },
+  {
+    "round_num": 7,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "CONCLUDING_OBJECTION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Kami memegang teguh pengakuan iman gereja sepanjang segala abad.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-002",
+        "segment_id": "SEG-OMBYffI8VmM-0048",
+        "timestamp": "25:19",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  },
+  {
+    "round_num": 8,
+    "turn_speaker": "ZUMA",
+    "speech_type": "MAIEUTIC_CLOSING",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Kebenaran bahasa naskah Yunani dan konteks utuh telah membungkam pemotongan ayat. 'Aku dan Bapa adalah satu' adalah harmoni kehendak penyelamatan, bukan Trinitas!",
+    "persona_strategy": "maieutic_epistemic_verdict",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-001",
+        "segment_id": "SEG-OMBYffI8VmM-0050",
+        "timestamp": "26:49",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  },
+  {
+    "round_num": 8,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "FINAL_CLOSING",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Kami tetap percaya pada kesatuan Bapa dan Anak.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-OMBYffI8VmM-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-OMBYffI8VmM-002",
+        "segment_id": "SEG-OMBYffI8VmM-0048",
+        "timestamp": "25:19",
+        "video_url": "https://www.youtube.com/watch?v=OMBYffI8VmM"
+      }
+    ]
+  }
+]

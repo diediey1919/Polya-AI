@@ -1,0 +1,24 @@
+[
+  {
+    "claim_id": "CLM-OMBYffI8VmM-001",
+    "text": "Frasa 'Aku dan Bapa adalah satu' dalam Yohanes 10:30 bermakna kesatuan tujuan dan kehendak keselamatan, sebagaimana Yesus mendoakan para murid menjadi 'satu' dalam Yohanes 17:21-22.",
+    "speaker": "ZUMA",
+    "claim_type": "INTERPRETATION",
+    "verification_status": "supported",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.96,
+    "source_segment": "SEG-OMBYffI8VmM-0050",
+    "timestamp": "26:49"
+  },
+  {
+    "claim_id": "CLM-OMBYffI8VmM-002",
+    "text": "Yohanes 10:30 adalah bukti deklarasi eksplisit bahwa Yesus berhakikat ontologis satu dzat dengan Allah Bapa.",
+    "speaker": "OPPONENT",
+    "claim_type": "THEOLOGICAL_CLAIM",
+    "verification_status": "contested",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.88,
+    "source_segment": "SEG-OMBYffI8VmM-0048",
+    "timestamp": "25:19"
+  }
+]

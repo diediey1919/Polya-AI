@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "MpF1rb0hOqk",
+  "claims": [
+    {
+      "claim_id": "CLM-MpF1rb0hOqk-001",
+      "text": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+      "speaker": "ZUMA",
+      "claim_type": "THEOLOGICAL_CLAIM",
+      "verification_status": "supported",
+      "review_status": "AUTO_EXTRACTED",
+      "confidence": 0.99,
+      "source_segment": "SEG-MpF1rb0hOqk-0025",
+      "timestamp": "11:20"
+    },
+    {
+      "claim_id": "CLM-MpF1rb0hOqk-002",
+      "text": "Doktrin dosa asal mengharuskan pengorbanan darah pengganti untuk menghapus hutang kutuk dosa Adam.",
+      "speaker": "OPPONENT",
+      "claim_type": "THEOLOGICAL_CLAIM",
+      "verification_status": "contested",
+      "review_status": "AUTO_EXTRACTED",
+      "confidence": 0.9,
+      "source_segment": "SEG-MpF1rb0hOqk-0022",
+      "timestamp": "9:50"
+    }
+  ],
+  "arguments": [
+    {
+      "argument_id": "ARG-MpF1rb0hOqk-001",
+      "claim_id": "CLM-MpF1rb0hOqk-001",
+      "speaker": "ZUMA",
+      "topic": "Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20)",
+      "premises": [
+        "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+        "Doktrin dosa asal mengharuskan pengorbanan darah pengganti untuk menghapus hutang kutuk dosa Adam."
+      ],
+      "assumptions": [
+        "Teks naskah kanonik primer menjadi tolok ukur pengujian doktrin."
+      ],
+      "reasoning": "Analisis dialektis membuktikan ketegangan antara teks naskah dan klaim lawan mengenai Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20).",
+      "conclusion": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EVI-MpF1rb0hOqk-001"
+      ],
+      "source_segments": [
+        "SEG-MpF1rb0hOqk-0025"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "EVI-MpF1rb0hOqk-001",
+      "claim_id": "CLM-MpF1rb0hOqk-001",
+      "description": "Prinsip tanggung jawab moral individual dan penolakan terhadap hukum penghukuman pengganti.",
+      "source": "Yehezkiel 18:20 & Ulangan 24:16",
+      "source_type": "scripture",
+      "speaker_reference": "Dikutip langsung dalam perdebatan Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20).",
+      "verification_status": "supported",
+      "reliability": "high",
+      "confidence": 0.96,
+      "source_segment": "SEG-MpF1rb0hOqk-0025"
+    }
+  ],
+  "counterarguments": [
+    {
+      "counterargument_id": "CNT-MpF1rb0hOqk-001",
+      "target_claim_id": "CLM-MpF1rb0hOqk-001",
+      "speaker": "OPPONENT",
+      "text": "Doktrin dosa asal mengharuskan pengorbanan darah pengganti untuk menghapus hutang kutuk dosa Adam.",
+      "source_segment": "SEG-MpF1rb0hOqk-0022",
+      "confidence": 0.88
+    }
+  ],
+  "rebuttals": [
+    {
+      "rebuttal_id": "REB-MpF1rb0hOqk-001",
+      "target_counterargument_id": "CNT-MpF1rb0hOqk-001",
+      "speaker": "ZUMA",
+      "text": "ZUMA membuktikan ketidakabsahan sanggahan lawan dengan merujuk langsung pada naskah Yehezkiel 18:20 & Ulangan 24:16.",
+      "source_segment": "SEG-MpF1rb0hOqk-0025",
+      "confidence": 0.95
+    }
+  ],
+  "fallacies": [
+    {
+      "fallacy_id": "FAL-MpF1rb0hOqk-001",
+      "fallacy_type": "Vicarious Punishment Moral Contradiction",
+      "speaker": "OPPONENT",
+      "target_segment": "SEG-MpF1rb0hOqk-0024",
+      "explanation": "Mendefinisikan keadilan Allah sebagai tindakan menghukum pihak tidak bersalah untuk membebaskan pihak bersalah.",
+      "confidence": 0.92,
+      "is_ai_inference": true
+    }
+  ],
+  "assumptions": [
+    {
+      "assumption_id": "ASM-MpF1rb0hOqk-001",
+      "argument_id": "ARG-MpF1rb0hOqk-001",
+      "text": "Integritas suatu doktrin bergantung pada koherensi internal naskah kanoniknya.",
+      "is_implicit": true,
+      "confidence": 0.92
+    }
+  ],
+  "argument_graph": {
+    "nodes": [
+      {
+        "id": "CLM-MpF1rb0hOqk-001",
+        "type": "claim",
+        "label": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+        "speaker": "ZUMA"
+      },
+      {
+        "id": "CLM-MpF1rb0hOqk-002",
+        "type": "claim",
+        "label": "Doktrin dosa asal mengharuskan pengorbanan darah pengganti untuk menghapus hutang kutuk dosa Adam.",
+        "speaker": "OPPONENT"
+      },
+      {
+        "id": "ARG-MpF1rb0hOqk-001",
+        "type": "argument",
+        "label": "Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20)",
+        "speaker": "ZUMA"
+      },
+      {
+        "id": "EVI-MpF1rb0hOqk-001",
+        "type": "evidence",
+        "label": "Yehezkiel 18:20 & Ulangan 24:16",
+        "speaker": "SOURCE"
+      },
+      {
+        "id": "CNT-MpF1rb0hOqk-001",
+        "type": "counterargument",
+        "label": "Doktrin dosa asal mengharuskan pengorbanan darah pengganti untuk menghapus hutang kutuk dosa Adam.",
+        "speaker": "OPPONENT"
+      },
+      {
+        "id": "REB-MpF1rb0hOqk-001",
+        "type": "rebuttal",
+        "label": "ZUMA membuktikan ketidakabsahan sanggahan lawan dengan merujuk langsung pada naskah Yehezkiel 18:20 & Ulangan 24:16.",
+        "speaker": "ZUMA"
+      }
+    ],
+    "edges": [
+      {
+        "source": "EVI-MpF1rb0hOqk-001",
+        "target": "CLM-MpF1rb0hOqk-001",
+        "relation": "evidenced_by"
+      },
+      {
+        "source": "ARG-MpF1rb0hOqk-001",
+        "target": "CLM-MpF1rb0hOqk-001",
+        "relation": "supports"
+      },
+      {
+        "source": "CNT-MpF1rb0hOqk-001",
+        "target": "CLM-MpF1rb0hOqk-001",
+        "relation": "attacks"
+      },
+      {
+        "source": "REB-MpF1rb0hOqk-001",
+        "target": "CNT-MpF1rb0hOqk-001",
+        "relation": "rebutted_by"
+      }
+    ]
+  }
+}

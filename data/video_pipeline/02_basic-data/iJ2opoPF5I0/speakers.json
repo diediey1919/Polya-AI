@@ -1,0 +1,16 @@
+[
+  {
+    "speaker_id": "spk_zuma",
+    "speaker_name": "Zulkifli M. Abbas (ZUMA)",
+    "role": "Apologist / Host",
+    "identity_confidence": 0.98,
+    "segment_count": 78
+  },
+  {
+    "speaker_id": "spk_opponent",
+    "speaker_name": "Guest / Interlocutor",
+    "role": "Interfaith Interlocutor",
+    "identity_confidence": 0.88,
+    "segment_count": 68
+  }
+]

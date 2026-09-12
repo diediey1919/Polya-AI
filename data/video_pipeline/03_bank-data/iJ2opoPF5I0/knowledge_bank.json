@@ -1,0 +1,508 @@
+{
+  "schema_version": "1.0.0",
+  "canonical_records": [
+    {
+      "record_id": "KNOW-REC-CLM-MUesrqdzI90-001",
+      "canonical_key": "canon_clm-muesrqdzi90-001",
+      "topic": "TOP-APOSTOLIC-AUTHORITY",
+      "claim_type": "THEOLOGICAL_CLAIM",
+      "content": "Ada perintah kitab suci untuk menjadikan seluruh bangsa dan rakyat menjadi penganut agama tertentu.",
+      "verification_status": "contested",
+      "confidence": 0.92,
+      "provenance_chain": {
+        "video_id": "MUesrqdzI90",
+        "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+        "segment_id": "SEG-MUesrqdzI90-0003",
+        "timestamp": "1:37",
+        "speaker": "OPPONENT"
+      }
+    },
+    {
+      "record_id": "KNOW-REC-CLM-MUesrqdzI90-002",
+      "canonical_key": "canon_clm-muesrqdzi90-002",
+      "topic": "TOP-APOSTOLIC-AUTHORITY",
+      "claim_type": "OPINION",
+      "content": "Perdebatan lintas iman tidak perlu dilakukan bila tidak mengubah nasib eskatologis.",
+      "verification_status": "unverified",
+      "confidence": 0.88,
+      "provenance_chain": {
+        "video_id": "MUesrqdzI90",
+        "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+        "segment_id": "SEG-MUesrqdzI90-0002",
+        "timestamp": "1:06",
+        "speaker": "OPPONENT"
+      }
+    },
+    {
+      "record_id": "KNOW-REC-CLM-MUesrqdzI90-003",
+      "canonical_key": "canon_clm-muesrqdzi90-003",
+      "topic": "TOP-APOSTOLIC-AUTHORITY",
+      "claim_type": "VALUE_JUDGMENT",
+      "content": "Diskusi teologis dan apologetika adalah pertanggungjawaban kebenaran rasional dan doktrinal yang sah.",
+      "verification_status": "supported",
+      "confidence": 0.95,
+      "provenance_chain": {
+        "video_id": "MUesrqdzI90",
+        "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+        "segment_id": "SEG-MUesrqdzI90-0005",
+        "timestamp": "2:39",
+        "speaker": "ZUMA"
+      }
+    },
+    {
+      "record_id": "KNOW-REC-CLM-MUesrqdzI90-004",
+      "canonical_key": "canon_clm-muesrqdzi90-004",
+      "topic": "TOP-APOSTOLIC-AUTHORITY",
+      "claim_type": "HISTORICAL_CLAIM",
+      "content": "Paulus dalam Roma 15:20 menyatakan prinsip pelayanan tidak membangun di atas dasar yang diletakkan orang lain.",
+      "verification_status": "supported",
+      "confidence": 0.94,
+      "provenance_chain": {
+        "video_id": "MUesrqdzI90",
+        "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+        "segment_id": "SEG-MUesrqdzI90-0035",
+        "timestamp": "18:49",
+        "speaker": "OPPONENT"
+      }
+    },
+    {
+      "record_id": "KNOW-REC-CLM-MUesrqdzI90-005",
+      "canonical_key": "canon_clm-muesrqdzi90-005",
+      "topic": "TOP-APOSTOLIC-AUTHORITY",
+      "claim_type": "HISTORICAL_CLAIM",
+      "content": "Paulus dalam Galatia 2 secara terbuka menegur dan menyatakan bahwa Petrus berbuat salah/kemunafikan di Antiokhia.",
+      "verification_status": "supported",
+      "confidence": 0.96,
+      "provenance_chain": {
+        "video_id": "MUesrqdzI90",
+        "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+        "segment_id": "SEG-MUesrqdzI90-0037",
+        "timestamp": "19:53",
+        "speaker": "ZUMA"
+      }
+    },
+    {
+      "record_id": "KNOW-REC-CLM-MUesrqdzI90-006",
+      "canonical_key": "canon_clm-muesrqdzi90-006",
+      "topic": "TOP-APOSTOLIC-AUTHORITY",
+      "claim_type": "INFERENCE",
+      "content": "Konflik doktrinal dan teologis antara Paulus dan Petrus membuktikan adanya inkonsistensi otoritas apostolik kanonik.",
+      "verification_status": "contested",
+      "confidence": 0.91,
+      "provenance_chain": {
+        "video_id": "MUesrqdzI90",
+        "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+        "segment_id": "SEG-MUesrqdzI90-0038",
+        "timestamp": "20:25",
+        "speaker": "ZUMA"
+      }
+    },
+    {
+      "record_id": "KNOW-REC-CLM-MUesrqdzI90-007",
+      "canonical_key": "canon_clm-muesrqdzi90-007",
+      "topic": "TOP-APOSTOLIC-AUTHORITY",
+      "claim_type": "PHILOSOPHICAL_CLAIM",
+      "content": "Status keahlian bela diri atau gelar fisik tidak menjamin keabsahan argumen teologis (Irrelevant Authority).",
+      "verification_status": "supported",
+      "confidence": 0.97,
+      "provenance_chain": {
+        "video_id": "MUesrqdzI90",
+        "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+        "segment_id": "SEG-MUesrqdzI90-0042",
+        "timestamp": "22:15",
+        "speaker": "ZUMA"
+      }
+    },
+    {
+      "record_id": "KNOW-REC-CLM-MAHmgnsHWRs-001",
+      "canonical_key": "canon_clm-mahmgnshwrs-001",
+      "topic": "TOP-ECCLESIOLOGY-BODY",
+      "claim_type": "THEOLOGICAL_CLAIM",
+      "content": "Surat Paulus mengajarkan bahwa seluruh orang beriman dan anggota gereja adalah tubuh Kristus (1 Kor 12:27, Efesus 5:30).",
+      "verification_status": "supported",
+      "confidence": 0.98,
+      "provenance_chain": {
+        "video_id": "MAHmgnsHWRs",
+        "source_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
+        "segment_id": "SEG-MAHmgnsHWRs-0020",
+        "timestamp": "11:53",
+        "speaker": "ZUMA"
+      }
+    },
+    {
+      "record_id": "KNOW-REC-CLM-MAHmgnsHWRs-002",
+      "canonical_key": "canon_clm-mahmgnshwrs-002",
+      "topic": "TOP-ESCHATOLOGY-FALSE-CHRISTS",
+      "claim_type": "HISTORICAL_CLAIM",
+      "content": "Yesus dalam Bible Matius 24:24 menubuatkan akan munculnya banyak mesias-mesias atau kristus-kristus palsu (pseudochristoi).",
+      "verification_status": "supported",
+      "confidence": 0.97,
+      "provenance_chain": {
+        "video_id": "MAHmgnsHWRs",
+        "source_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
+        "segment_id": "SEG-MAHmgnsHWRs-0010",
+        "timestamp": "6:11",
+        "speaker": "ZUMA"
+      }
+    },
+    {
+      "record_id": "KNOW-REC-CLM-MAHmgnsHWRs-003",
+      "canonical_key": "canon_clm-mahmgnshwrs-003",
+      "topic": "TOP-ECCLESIOLOGY-BODY",
+      "claim_type": "INFERENCE",
+      "content": "Doktrin bahwa pendeta dan jemaat adalah 'tubuh Kristus' secara dialektis membuka penggenapan nubuat Kristus palsu karena mengklaim esensi Kristus di bumi.",
+      "verification_status": "contested",
+      "confidence": 0.91,
+      "provenance_chain": {
+        "video_id": "MAHmgnsHWRs",
+        "source_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
+        "segment_id": "SEG-MAHmgnsHWRs-0012",
+        "timestamp": "7:14",
+        "speaker": "ZUMA"
+      }
+    },
+    {
+      "record_id": "KNOW-REC-CLM-MAHmgnsHWRs-004",
+      "canonical_key": "canon_clm-mahmgnshwrs-004",
+      "topic": "TOP-ECCLESIOLOGY-BODY",
+      "claim_type": "INTERPRETATION",
+      "content": "Sebutan 'tubuh Kristus' dalam teologi Kristen adalah metafora eklesiologis spiritual, bukan personifikasi ontologis individu sebagai Yesus Sang Mesias.",
+      "verification_status": "supported",
+      "confidence": 0.94,
+      "provenance_chain": {
+        "video_id": "MAHmgnsHWRs",
+        "source_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
+        "segment_id": "SEG-MAHmgnsHWRs-0006",
+        "timestamp": "3:20",
+        "speaker": "OPPONENT"
+      }
+    },
+    {
+      "record_id": "KNOW-REC-CLM-MAHmgnsHWRs-005",
+      "canonical_key": "canon_clm-mahmgnshwrs-005",
+      "topic": "TOP-ECCLESIOLOGY-BODY",
+      "claim_type": "THEOLOGICAL_CLAIM",
+      "content": "Teks Paulus dalam 1 Korintus 6:15 menggunakan analogi somatis fisik ('tubuhmu adalah anggota Kristus'), membuktikan adanya identifikasi substansial.",
+      "verification_status": "supported",
+      "confidence": 0.95,
+      "provenance_chain": {
+        "video_id": "MAHmgnsHWRs",
+        "source_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
+        "segment_id": "SEG-MAHmgnsHWRs-0021",
+        "timestamp": "12:23",
+        "speaker": "ZUMA"
+      }
+    },
+    {
+      "record_id": "KNOW-REC-CLM-iJ2opoPF5I0-001",
+      "canonical_key": "canon_clm-ij2opopf5i0-001",
+      "topic": "TOP-APOSTOLIC-AUTHORITY",
+      "claim_type": "THEOLOGICAL_CLAIM",
+      "content": "Gelar 'Singa dari suku Yehuda' dalam Wahyu 5:5 adalah gelar eskatologis eksklusif milik Mesias, bukan manusia fana.",
+      "verification_status": "supported",
+      "confidence": 0.98,
+      "provenance_chain": {
+        "video_id": "iJ2opoPF5I0",
+        "source_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0",
+        "segment_id": "SEG-iJ2opoPF5I0-0015",
+        "timestamp": "5:20",
+        "speaker": "ZUMA"
+      }
+    },
+    {
+      "record_id": "KNOW-REC-CLM-iJ2opoPF5I0-002",
+      "canonical_key": "canon_clm-ij2opopf5i0-002",
+      "topic": "TOP-APOSTOLIC-AUTHORITY",
+      "claim_type": "THEOLOGICAL_CLAIM",
+      "content": "Pemimpin gereja atau pastor dapat menyandang gelar Singa Yehuda sebagai representasi kuasa rohani di bumi.",
+      "verification_status": "contested",
+      "confidence": 0.89,
+      "provenance_chain": {
+        "video_id": "iJ2opoPF5I0",
+        "source_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0",
+        "segment_id": "SEG-iJ2opoPF5I0-0012",
+        "timestamp": "4:10",
+        "speaker": "OPPONENT"
+      }
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "ENT-PERSON-PAULUS",
+      "canonical_name": "Paulus dari Tarsus",
+      "category": "apostle_author",
+      "aliases": [
+        "Paul",
+        "Saulus",
+        "Apostle Paul",
+        "Paulus"
+      ]
+    },
+    {
+      "entity_id": "ENT-PERSON-PETRUS",
+      "canonical_name": "Simon Petrus (Kefas)",
+      "category": "apostle",
+      "aliases": [
+        "Peter",
+        "Kefas",
+        "Petrus",
+        "Simon"
+      ]
+    },
+    {
+      "entity_id": "ENT-PERSON-YESUS",
+      "canonical_name": "Yesus Kristus / Isa Al-Masih",
+      "category": "central_figure",
+      "aliases": [
+        "Yesus",
+        "Jesus",
+        "Kristus",
+        "Isa"
+      ]
+    },
+    {
+      "entity_id": "ENT-DEBATER-ZUMA",
+      "canonical_name": "Zulkifli M. Abbas",
+      "category": "debater_apologist",
+      "aliases": [
+        "ZUMA",
+        "Bang Zuma",
+        "Zulkifli Abbas"
+      ]
+    },
+    {
+      "entity_id": "ENT-DEBATER-KARATEKA",
+      "canonical_name": "Guest Karateka Senior",
+      "category": "interlocutor",
+      "aliases": [
+        "Karateka Senior",
+        "Siluman Kura-kura",
+        "Opponent"
+      ]
+    },
+    {
+      "entity_id": "ENT-PERSON-KAROLINA",
+      "canonical_name": "Pendeta Karolina",
+      "category": "clergy",
+      "aliases": [
+        "Pdt. Karolina",
+        "Karolina"
+      ]
+    },
+    {
+      "entity_id": "ENT-DEBATER-KATOLIK",
+      "canonical_name": "Guest Katolik Jemaat",
+      "category": "interlocutor",
+      "aliases": [
+        "Katolik Jemaat",
+        "Penelpon Katolik"
+      ]
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "TOP-APOSTOLIC-AUTHORITY",
+      "name": "Otoritas dan Konflik Historis Apostolik",
+      "domain": "CHRISTIAN_THEOLOGY",
+      "description": "Kajian terhadap konsistensi dan friksi doktrinal antara para rasul gereja perdana (khususnya Paulus vs Petrus)."
+    },
+    {
+      "topic_id": "TOP-GREAT-COMMISSION",
+      "name": "Mandat Misi dan Penyebaran Doktrin",
+      "domain": "COMPARATIVE_RELIGION",
+      "description": "Perbandingan mandat penginjilan / dakwah terhadap dialog dialektis terbuka di ruang publik."
+    },
+    {
+      "topic_id": "TOP-APOLOGETICS-EPISTEMOLOGY",
+      "name": "Epistemologi dan Metode Debat Apologetika",
+      "domain": "PHILOSOPHY_OF_RELIGION",
+      "description": "Validitas pengujian rasional terhadap klaim doktrin religius berbanding pendekatan non-konfrontatif."
+    },
+    {
+      "topic_id": "TOP-ECCLESIOLOGY-BODY",
+      "name": "Doktrin Tubuh Kristus (Corpus Christi)",
+      "domain": "CHRISTIAN_ECCLESIOLOGY",
+      "description": "Analisis penafsiran harfiah vs metafora mistik terhadap klaim jemaat sebagai anggota tubuh Kristus (1 Kor 12 & Efesus 5)."
+    },
+    {
+      "topic_id": "TOP-ESCHATOLOGY-FALSE-CHRISTS",
+      "name": "Eskatologi dan Peringatan Kristus Palsu",
+      "domain": "CHRISTIAN_ESCHATOLOGY",
+      "description": "Eksegesis terhadap nubuat Yesus dalam Matius 24:24 tentang kemunculan penyesat bertitel mesianik."
+    }
+  ],
+  "relationships": [
+    {
+      "relation_id": "REL-MUesrqdzI90-001",
+      "from_entity_or_record": "ENT-PERSON-PAULUS",
+      "to_entity_or_record": "KNOW-REC-CLM-MUesrqdzI90-005",
+      "type": "asserted_by"
+    },
+    {
+      "relation_id": "REL-MUesrqdzI90-002",
+      "from_entity_or_record": "ENT-PERSON-PETRUS",
+      "to_entity_or_record": "KNOW-REC-CLM-MUesrqdzI90-005",
+      "type": "subject_of"
+    },
+    {
+      "relation_id": "REL-MUesrqdzI90-003",
+      "from_entity_or_record": "KNOW-REC-CLM-MUesrqdzI90-005",
+      "to_entity_or_record": "KNOW-REC-CLM-MUesrqdzI90-006",
+      "type": "supports"
+    },
+    {
+      "relation_id": "REL-MUesrqdzI90-004",
+      "from_entity_or_record": "KNOW-REC-CLM-MUesrqdzI90-004",
+      "to_entity_or_record": "TOP-APOSTOLIC-AUTHORITY",
+      "type": "categorized_under"
+    },
+    {
+      "relation_id": "REL-MAHmgnsHWRs-001",
+      "from_entity_or_record": "ENT-PERSON-PAULUS",
+      "to_entity_or_record": "KNOW-REC-CLM-MAHmgnsHWRs-001",
+      "type": "asserted_by"
+    },
+    {
+      "relation_id": "REL-MAHmgnsHWRs-002",
+      "from_entity_or_record": "KNOW-REC-CLM-MAHmgnsHWRs-001",
+      "to_entity_or_record": "KNOW-REC-CLM-MAHmgnsHWRs-003",
+      "type": "supports"
+    },
+    {
+      "relation_id": "REL-MAHmgnsHWRs-003",
+      "from_entity_or_record": "KNOW-REC-CLM-MAHmgnsHWRs-004",
+      "to_entity_or_record": "KNOW-REC-CLM-MAHmgnsHWRs-003",
+      "type": "contradicts"
+    },
+    {
+      "relation_id": "REL-MAHmgnsHWRs-004",
+      "from_entity_or_record": "KNOW-REC-CLM-MAHmgnsHWRs-001",
+      "to_entity_or_record": "TOP-ECCLESIOLOGY-BODY",
+      "type": "categorized_under"
+    },
+    {
+      "relation_id": "REL-iJ2opoPF5I0-001",
+      "from_entity_or_record": "ENT-PERSON-PAULUS",
+      "to_entity_or_record": "KNOW-REC-CLM-iJ2opoPF5I0-005",
+      "type": "asserted_by"
+    },
+    {
+      "relation_id": "REL-iJ2opoPF5I0-002",
+      "from_entity_or_record": "ENT-PERSON-PETRUS",
+      "to_entity_or_record": "KNOW-REC-CLM-iJ2opoPF5I0-005",
+      "type": "subject_of"
+    },
+    {
+      "relation_id": "REL-iJ2opoPF5I0-003",
+      "from_entity_or_record": "KNOW-REC-CLM-iJ2opoPF5I0-005",
+      "to_entity_or_record": "KNOW-REC-CLM-iJ2opoPF5I0-006",
+      "type": "supports"
+    },
+    {
+      "relation_id": "REL-iJ2opoPF5I0-004",
+      "from_entity_or_record": "KNOW-REC-CLM-iJ2opoPF5I0-004",
+      "to_entity_or_record": "TOP-APOSTOLIC-AUTHORITY",
+      "type": "categorized_under"
+    }
+  ],
+  "provenance_index": {
+    "KNOW-REC-CLM-MUesrqdzI90-001": {
+      "video_id": "MUesrqdzI90",
+      "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+      "segment_id": "SEG-MUesrqdzI90-0003",
+      "timestamp": "1:37",
+      "speaker": "OPPONENT"
+    },
+    "KNOW-REC-CLM-MUesrqdzI90-002": {
+      "video_id": "MUesrqdzI90",
+      "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+      "segment_id": "SEG-MUesrqdzI90-0002",
+      "timestamp": "1:06",
+      "speaker": "OPPONENT"
+    },
+    "KNOW-REC-CLM-MUesrqdzI90-003": {
+      "video_id": "MUesrqdzI90",
+      "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+      "segment_id": "SEG-MUesrqdzI90-0005",
+      "timestamp": "2:39",
+      "speaker": "ZUMA"
+    },
+    "KNOW-REC-CLM-MUesrqdzI90-004": {
+      "video_id": "MUesrqdzI90",
+      "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+      "segment_id": "SEG-MUesrqdzI90-0035",
+      "timestamp": "18:49",
+      "speaker": "OPPONENT"
+    },
+    "KNOW-REC-CLM-MUesrqdzI90-005": {
+      "video_id": "MUesrqdzI90",
+      "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+      "segment_id": "SEG-MUesrqdzI90-0037",
+      "timestamp": "19:53",
+      "speaker": "ZUMA"
+    },
+    "KNOW-REC-CLM-MUesrqdzI90-006": {
+      "video_id": "MUesrqdzI90",
+      "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+      "segment_id": "SEG-MUesrqdzI90-0038",
+      "timestamp": "20:25",
+      "speaker": "ZUMA"
+    },
+    "KNOW-REC-CLM-MUesrqdzI90-007": {
+      "video_id": "MUesrqdzI90",
+      "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+      "segment_id": "SEG-MUesrqdzI90-0042",
+      "timestamp": "22:15",
+      "speaker": "ZUMA"
+    },
+    "KNOW-REC-CLM-MAHmgnsHWRs-001": {
+      "video_id": "MAHmgnsHWRs",
+      "source_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
+      "segment_id": "SEG-MAHmgnsHWRs-0020",
+      "timestamp": "11:53",
+      "speaker": "ZUMA"
+    },
+    "KNOW-REC-CLM-MAHmgnsHWRs-002": {
+      "video_id": "MAHmgnsHWRs",
+      "source_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
+      "segment_id": "SEG-MAHmgnsHWRs-0010",
+      "timestamp": "6:11",
+      "speaker": "ZUMA"
+    },
+    "KNOW-REC-CLM-MAHmgnsHWRs-003": {
+      "video_id": "MAHmgnsHWRs",
+      "source_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
+      "segment_id": "SEG-MAHmgnsHWRs-0012",
+      "timestamp": "7:14",
+      "speaker": "ZUMA"
+    },
+    "KNOW-REC-CLM-MAHmgnsHWRs-004": {
+      "video_id": "MAHmgnsHWRs",
+      "source_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
+      "segment_id": "SEG-MAHmgnsHWRs-0006",
+      "timestamp": "3:20",
+      "speaker": "OPPONENT"
+    },
+    "KNOW-REC-CLM-MAHmgnsHWRs-005": {
+      "video_id": "MAHmgnsHWRs",
+      "source_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
+      "segment_id": "SEG-MAHmgnsHWRs-0021",
+      "timestamp": "12:23",
+      "speaker": "ZUMA"
+    },
+    "KNOW-REC-CLM-iJ2opoPF5I0-001": {
+      "video_id": "iJ2opoPF5I0",
+      "source_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0",
+      "segment_id": "SEG-iJ2opoPF5I0-0015",
+      "timestamp": "5:20",
+      "speaker": "ZUMA"
+    },
+    "KNOW-REC-CLM-iJ2opoPF5I0-002": {
+      "video_id": "iJ2opoPF5I0",
+      "source_url": "https://www.youtube.com/watch?v=iJ2opoPF5I0",
+      "segment_id": "SEG-iJ2opoPF5I0-0012",
+      "timestamp": "4:10",
+      "speaker": "OPPONENT"
+    }
+  }
+}

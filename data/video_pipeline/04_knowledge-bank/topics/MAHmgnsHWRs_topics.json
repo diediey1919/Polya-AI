@@ -1,0 +1,32 @@
+[
+  {
+    "topic_id": "TOP-APOSTOLIC-AUTHORITY",
+    "name": "Otoritas dan Konflik Historis Apostolik",
+    "domain": "CHRISTIAN_THEOLOGY",
+    "description": "Kajian terhadap konsistensi dan friksi doktrinal antara para rasul gereja perdana (khususnya Paulus vs Petrus)."
+  },
+  {
+    "topic_id": "TOP-GREAT-COMMISSION",
+    "name": "Mandat Misi dan Penyebaran Doktrin",
+    "domain": "COMPARATIVE_RELIGION",
+    "description": "Perbandingan mandat penginjilan / dakwah terhadap dialog dialektis terbuka di ruang publik."
+  },
+  {
+    "topic_id": "TOP-APOLOGETICS-EPISTEMOLOGY",
+    "name": "Epistemologi dan Metode Debat Apologetika",
+    "domain": "PHILOSOPHY_OF_RELIGION",
+    "description": "Validitas pengujian rasional terhadap klaim doktrin religius berbanding pendekatan non-konfrontatif."
+  },
+  {
+    "topic_id": "TOP-ECCLESIOLOGY-BODY",
+    "name": "Doktrin Tubuh Kristus (Corpus Christi)",
+    "domain": "CHRISTIAN_ECCLESIOLOGY",
+    "description": "Analisis penafsiran harfiah vs metafora mistik terhadap klaim jemaat sebagai anggota tubuh Kristus (1 Kor 12 & Efesus 5)."
+  },
+  {
+    "topic_id": "TOP-ESCHATOLOGY-FALSE-CHRISTS",
+    "name": "Eskatologi dan Peringatan Kristus Palsu",
+    "domain": "CHRISTIAN_ESCHATOLOGY",
+    "description": "Eksegesis terhadap nubuat Yesus dalam Matius 24:24 tentang kemunculan penyesat bertitel mesianik."
+  }
+]

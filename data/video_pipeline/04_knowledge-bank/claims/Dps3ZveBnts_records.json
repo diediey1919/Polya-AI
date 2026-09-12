@@ -1,0 +1,34 @@
+[
+  {
+    "record_id": "KNOW-REC-CLM-Dps3ZveBnts-001",
+    "canonical_key": "canon_clm-dps3zvebnts-001",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "HISTORICAL_CLAIM",
+    "content": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+    "verification_status": "supported",
+    "confidence": 0.99,
+    "provenance_chain": {
+      "video_id": "Dps3ZveBnts",
+      "source_url": "https://www.youtube.com/watch?v=Dps3ZveBnts",
+      "segment_id": "SEG-Dps3ZveBnts-0035",
+      "timestamp": "16:40",
+      "speaker": "ZUMA"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-Dps3ZveBnts-002",
+    "canonical_key": "canon_clm-dps3zvebnts-002",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "INTERPRETATION",
+    "content": "Yesus berdoa semata-mata memberi contoh keteladanan bagi manusia, bukan karena keterbatasan ontologis keilahian-Nya.",
+    "verification_status": "contested",
+    "confidence": 0.86,
+    "provenance_chain": {
+      "video_id": "Dps3ZveBnts",
+      "source_url": "https://www.youtube.com/watch?v=Dps3ZveBnts",
+      "segment_id": "SEG-Dps3ZveBnts-0032",
+      "timestamp": "15:10",
+      "speaker": "OPPONENT"
+    }
+  }
+]

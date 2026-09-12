@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "OMBYffI8VmM",
+  "discourse_type": "APOLOGETIC_INTERFAITH_DEBATE",
+  "speaker_perspectives": {
+    "OPPONENT": {
+      "speaker_name": "Guest / Interlocutor",
+      "central_thesis": "Yohanes 10:30 adalah bukti deklarasi eksplisit bahwa Yesus berhakikat ontologis satu dzat dengan Allah Bapa.",
+      "key_arguments": [
+        "Yohanes 10:30 adalah bukti deklarasi eksplisit bahwa Yesus berhakikat ontologis satu dzat dengan Allah Bapa."
+      ],
+      "core_presupposition": "Doktrin yang diterima diyakini benar tanpa pemeriksaan tekstual kritis mendalam."
+    },
+    "ZUMA": {
+      "speaker_name": "Zulkifli M. Abbas (ZUMA)",
+      "central_thesis": "Frasa 'Aku dan Bapa adalah satu' dalam Yohanes 10:30 bermakna kesatuan tujuan dan kehendak keselamatan, sebagaimana Yesus mendoakan para murid menjadi 'satu' dalam Yohanes 17:21-22.",
+      "key_arguments": [
+        "Frasa 'Aku dan Bapa adalah satu' dalam Yohanes 10:30 bermakna kesatuan tujuan dan kehendak keselamatan, sebagaimana Yesus mendoakan para murid menjadi 'satu' dalam Yohanes 17:21-22."
+      ],
+      "core_presupposition": "Kebenaran doktrinal harus koheren secara naskah tanpa kontradiksi internal."
+    }
+  },
+  "chronological_flow": [
+    {
+      "phase": "Pembukaan & Penetapan Tema",
+      "timestamp_range": "00:00 - 05:00",
+      "topic": "Integritas Eksegesis: Cherry-Picking Ayat vs Konteks Narasi Utuh (Yohanes 10:30 vs Yohanes 17)",
+      "speaker_action": "ZUMA membuka tema berdasarkan data tertulis dan menantang lawan.",
+      "summary": "Pembukaan fokus pada topik Integritas Eksegesis: Cherry-Picking Ayat vs Konteks Narasi Utuh (Yohanes 10:30 vs Yohanes 17)."
+    },
+    {
+      "phase": "Interogasi Teks & Konfrontasi Eksegesis",
+      "timestamp_range": "05:00 - 25:00",
+      "topic": "Pembacaan Ayat & Socratic Questioning",
+      "speaker_action": "ZUMA menyodorkan teks Bible LAI TB untuk dibaca lawan.",
+      "summary": "Lawan dihadapkan pada fakta naskah tertulis."
+    },
+    {
+      "phase": "Penguncian Dilema & Penutupan",
+      "timestamp_range": "25:00 - Akhir",
+      "topic": "Kesimpulan Dialektis",
+      "speaker_action": "ZUMA mendemolisi presuposisi lawan dan menetapkan kesimpulan.",
+      "summary": "Lawan terdesak dalam kontradiksi argumennya sendiri."
+    }
+  ],
+  "argument_map": {
+    "theses": [
+      {
+        "speaker": "OPPONENT",
+        "thesis": "Yohanes 10:30 adalah bukti deklarasi eksplisit bahwa Yesus berhakikat ontologis satu dzat dengan Allah Bapa."
+      },
+      {
+        "speaker": "ZUMA",
+        "thesis": "Frasa 'Aku dan Bapa adalah satu' dalam Yohanes 10:30 bermakna kesatuan tujuan dan kehendak keselamatan, sebagaimana Yesus mendoakan para murid menjadi 'satu' dalam Yohanes 17:21-22."
+      }
+    ],
+    "dialectical_clashes": [
+      {
+        "topic": "Integritas Eksegesis: Cherry-Picking Ayat vs Konteks Narasi Utuh (Yohanes 10:30 vs Yohanes 17)",
+        "side_a": {
+          "speaker": "OPPONENT",
+          "argument": "Yohanes 10:30 adalah bukti deklarasi eksplisit bahwa Yesus berhakikat ontologis satu dzat dengan Allah Bapa."
+        },
+        "side_b": {
+          "speaker": "ZUMA",
+          "argument": "Frasa 'Aku dan Bapa adalah satu' dalam Yohanes 10:30 bermakna kesatuan tujuan dan kehendak keselamatan, sebagaimana Yesus mendoakan para murid menjadi 'satu' dalam Yohanes 17:21-22."
+        },
+        "turning_point": "Ketika teks primer Bible dibacakan verbatim.",
+        "resolved_or_deadlock": "Deadlock bagi lawan yang tidak mampu menyelaraskan kontradiksi teks."
+      }
+    ]
+  },
+  "synthesis_summary": "Perdebatan mengenai Integritas Eksegesis: Cherry-Picking Ayat vs Konteks Narasi Utuh (Yohanes 10:30 vs Yohanes 17) memperlihatkan keunggulan pembuktian naskah primer ZUMA berbanding pembelaan asumtif lawan."
+}

@@ -1,0 +1,27 @@
+{
+  "theses": [
+    {
+      "speaker": "OPPONENT",
+      "thesis": "Doktrin dosa asal mengharuskan pengorbanan darah pengganti untuk menghapus hutang kutuk dosa Adam."
+    },
+    {
+      "speaker": "ZUMA",
+      "thesis": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20)."
+    }
+  ],
+  "dialectical_clashes": [
+    {
+      "topic": "Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20)",
+      "side_a": {
+        "speaker": "OPPONENT",
+        "argument": "Doktrin dosa asal mengharuskan pengorbanan darah pengganti untuk menghapus hutang kutuk dosa Adam."
+      },
+      "side_b": {
+        "speaker": "ZUMA",
+        "argument": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20)."
+      },
+      "turning_point": "Ketika teks primer Bible dibacakan verbatim.",
+      "resolved_or_deadlock": "Deadlock bagi lawan yang tidak mampu menyelaraskan kontradiksi teks."
+    }
+  ]
+}

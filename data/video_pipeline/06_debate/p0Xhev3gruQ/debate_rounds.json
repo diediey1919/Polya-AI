@@ -1,0 +1,306 @@
+[
+  {
+    "round_num": 1,
+    "turn_speaker": "ZUMA",
+    "speech_type": "SOCRATIC_OPENING",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Kita uji secara ilmiah dan gramatikal: Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika. Jangan ada ekuivokasi bahasa Semitik dalam forum pembuktian kebenaran ini.",
+    "persona_strategy": "verbatim_textual_anchoring",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-001",
+        "segment_id": "SEG-p0Xhev3gruQ-0030",
+        "timestamp": "14:15",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  },
+  {
+    "round_num": 1,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "APOLOGETIC_OPENING",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Sejak Kejadian 1:1, kata 'Elohim' berbentuk jamak, membuktikan bahwa Allah Tritunggal—Bapa, Anak, dan Roh Kudus—sudah menyatakan kejamakan diri-Nya dalam penciptaan!",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-002",
+        "segment_id": "SEG-p0Xhev3gruQ-0028",
+        "timestamp": "13:00",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  },
+  {
+    "round_num": 2,
+    "turn_speaker": "ZUMA",
+    "speech_type": "PRIMARY_TEXT_ARGUMENT",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Klaim saudara adalah kekeliruan morfologis fatal! Teks Ibrani Kejadian 1:1 berbunyi 'Bereshit Bara Elohim'. Kata 'Elohim' berakhiran -im memang morfem jamak, tetapi kata kerja yang mengikutinya adalah 'bara'—kata kerja bentuk TUNGGAL maskulin perfektum orang ketiga! Dalam tata bahasa Ibrani itu Pluralis Majestatis, bukan jamak bilangan! Jika itu jamak bilangan, verba-nya pasti 'baru' (jamak)!",
+    "persona_strategy": "grammatical_morphological_unpacking",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-001",
+        "segment_id": "SEG-p0Xhev3gruQ-0030",
+        "timestamp": "14:15",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  },
+  {
+    "round_num": 2,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DOGMATIC_JUSTIFICATION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Lalu bagaimana dengan firman 'Baiklah Kita menjadikan manusia menurut gambar dan rupa Kita' di Kejadian 1:26? Kata 'Kita' itu jamak!",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-002",
+        "segment_id": "SEG-p0Xhev3gruQ-0028",
+        "timestamp": "13:00",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  },
+  {
+    "round_num": 3,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DEFENSIVE_OBJECTION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Anda tidak bisa membatasi kemahakuasaan Allah dalam kaidah tata bahasa manusia ciptaan-Nya!",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-002",
+        "segment_id": "SEG-p0Xhev3gruQ-0028",
+        "timestamp": "13:00",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  },
+  {
+    "round_num": 3,
+    "turn_speaker": "ZUMA",
+    "speech_type": "EVASION_INTERRUPTION",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Dengar! Justru firman itu diwahyukan dalam bahasa manusia agar dipahami secara rasional dan teratur! Kalau kaidah tata bahasa ditabrak, bagaimana Anda bisa membaca naskah?",
+    "persona_strategy": "data_focus_interruption",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-001",
+        "segment_id": "SEG-p0Xhev3gruQ-0030",
+        "timestamp": "14:15",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  },
+  {
+    "round_num": 4,
+    "turn_speaker": "ZUMA",
+    "speech_type": "VERBATIM_REBUTTAL",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Mari kita buka Keluaran 7:1: Tuhan berfirman kepada Musa: 'Lihat, Aku mengangkat engkau sebagai Elohim bagi Firaun.' Apakah Musa terdiri dari tiga oknum Trinitas? Di Hakim-hakim 16:23 dewa Dagon disebut 'Elohim' kami. Apakah Dagon juga Trinitas? Bukti ini menghancurkan premis Anda bahwa Elohim otomatis berarti Trinitas!",
+    "persona_strategy": "grammatical_morphological_unpacking",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-001",
+        "segment_id": "SEG-p0Xhev3gruQ-0030",
+        "timestamp": "14:15",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  },
+  {
+    "round_num": 4,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "EVASIVE_DEFENSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Konteks Keluaran 7:1 berbicara tentang perwakilan kuasa Tuhan, bukan hakikat ilahi Musa.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-002",
+        "segment_id": "SEG-p0Xhev3gruQ-0028",
+        "timestamp": "13:00",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  },
+  {
+    "round_num": 5,
+    "turn_speaker": "ZUMA",
+    "speech_type": "CONSTRUCTIVE_FATAL_DILEMMA",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Apakah kata 'Elohim' yang dikenakan kepada Musa di Keluaran 7:1 membuktikan Musa adalah Trinitas?",
+    "persona_strategy": "constructive_fatal_dilemma",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-001",
+        "segment_id": "SEG-p0Xhev3gruQ-0030",
+        "timestamp": "14:15",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  },
+  {
+    "round_num": 5,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DILEMMA_RESPONSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Tentu saja tidak, itu hanya sebutan fungsional.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-002",
+        "segment_id": "SEG-p0Xhev3gruQ-0028",
+        "timestamp": "13:00",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  },
+  {
+    "round_num": 6,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "THEOLOGICAL_DEFENSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Kami menafsirkan Kejadian 1:1 dalam terang seluruh kanon Perjanjian Baru.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-002",
+        "segment_id": "SEG-p0Xhev3gruQ-0028",
+        "timestamp": "13:00",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  },
+  {
+    "round_num": 6,
+    "turn_speaker": "ZUMA",
+    "speech_type": "COUNTER_DEFENSE",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Menafsirkan teks Perjanjian Lama dengan membaca konsep asing yang baru lahir abad ke-4 adalah anakronisme eksegetis yang cacat metodologi!",
+    "persona_strategy": "presupposition_inversion",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-001",
+        "segment_id": "SEG-p0Xhev3gruQ-0030",
+        "timestamp": "14:15",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  },
+  {
+    "round_num": 7,
+    "turn_speaker": "ZUMA",
+    "speech_type": "SYNTHESIS_REBUTTAL",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Data filologi Ibrani telah membuktikan: Elohim dengan verba tunggal adalah monoteisme mutlak pengagungan. Trinitas tidak pernah termaktub dalam teks Bereshit!",
+    "persona_strategy": "canonical_exclusivity_restriction",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-001",
+        "segment_id": "SEG-p0Xhev3gruQ-0030",
+        "timestamp": "14:15",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  },
+  {
+    "round_num": 7,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "CONCLUDING_OBJECTION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Iman Tritunggal kami adalah misteri satu Allah dalam tiga pribadi.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-002",
+        "segment_id": "SEG-p0Xhev3gruQ-0028",
+        "timestamp": "13:00",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  },
+  {
+    "round_num": 8,
+    "turn_speaker": "ZUMA",
+    "speech_type": "MAIEUTIC_CLOSING",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Misteri tidak boleh dijadikan tameng untuk membenarkan kesalahan tata bahasa dasar. Bereshit Bara Elohim menegaskan keesaan mutlak Sang Pencipta!",
+    "persona_strategy": "maieutic_epistemic_verdict",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-001",
+        "segment_id": "SEG-p0Xhev3gruQ-0030",
+        "timestamp": "14:15",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  },
+  {
+    "round_num": 8,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "FINAL_CLOSING",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Kami memuji Bapa, Anak, dan Roh Kudus sepanjang masa.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-p0Xhev3gruQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-p0Xhev3gruQ-002",
+        "segment_id": "SEG-p0Xhev3gruQ-0028",
+        "timestamp": "13:00",
+        "video_url": "https://www.youtube.com/watch?v=p0Xhev3gruQ"
+      }
+    ]
+  }
+]

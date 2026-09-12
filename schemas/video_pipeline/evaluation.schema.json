@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EvaluationSchema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "video_id",
+    "argument_quality_score",
+    "metrics",
+    "knowledge_gaps",
+    "provenance_audit",
+    "evaluation_verdict"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "video_id": {
+      "type": "string"
+    },
+    "argument_quality_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "total_claims",
+        "supported_claims",
+        "unverified_claims",
+        "contested_claims",
+        "fallacies_detected",
+        "provenance_coverage_percent",
+        "logical_consistency_score"
+      ],
+      "properties": {
+        "total_claims": {
+          "type": "integer"
+        },
+        "supported_claims": {
+          "type": "integer"
+        },
+        "unverified_claims": {
+          "type": "integer"
+        },
+        "contested_claims": {
+          "type": "integer"
+        },
+        "fallacies_detected": {
+          "type": "integer"
+        },
+        "provenance_coverage_percent": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 100.0
+        },
+        "logical_consistency_score": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        }
+      }
+    },
+    "knowledge_gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "gap_id",
+          "claim_id",
+          "description",
+          "research_needed",
+          "priority"
+        ],
+        "properties": {
+          "gap_id": {
+            "type": "string"
+          },
+          "claim_id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "research_needed": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          }
+        }
+      }
+    },
+    "provenance_audit": {
+      "type": "object",
+      "required": [
+        "total_provenance_links_checked",
+        "broken_links_count",
+        "traceability_backward_verified",
+        "zero_hallucination_passed"
+      ],
+      "properties": {
+        "total_provenance_links_checked": {
+          "type": "integer"
+        },
+        "broken_links_count": {
+          "type": "integer",
+          "const": 0
+        },
+        "traceability_backward_verified": {
+          "type": "boolean",
+          "const": true
+        },
+        "zero_hallucination_passed": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "evaluation_verdict": {
+      "type": "object",
+      "required": [
+        "pass_quality_gate",
+        "summary"
+      ],
+      "properties": {
+        "pass_quality_gate": {
+          "type": "boolean"
+        },
+        "summary": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

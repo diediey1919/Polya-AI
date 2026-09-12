@@ -1,0 +1,62 @@
+{
+  "nodes": [
+    {
+      "id": "CLM-hk2tmZOqVmQ-001",
+      "type": "claim",
+      "label": "Menguji integritas nabi memerlukan standar moral yang adil tanpa standar ganda terhadap riwayat kitab suci masing-masing.",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "CLM-hk2tmZOqVmQ-002",
+      "type": "claim",
+      "label": "Kitab Perjanjian Lama mencatat perbuatan asusila berat (seperti kisah Lot di Kejadian 19 dan Daud di 2 Samuel 11) yang tidak dapat dibela bila lawan menuntut kesucian absolut para nabi.",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "ARG-hk2tmZOqVmQ-001",
+      "type": "argument",
+      "label": "Standar Moralitas Kenabian: Serangan Hadis vs Catatan Moral Tokoh Bible",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "EVI-hk2tmZOqVmQ-001",
+      "type": "evidence",
+      "label": "Kejadian 19:30-38 & 2 Samuel 11:1-27",
+      "speaker": "SOURCE"
+    },
+    {
+      "id": "CNT-hk2tmZOqVmQ-001",
+      "type": "counterargument",
+      "label": "Kitab Perjanjian Lama mencatat perbuatan asusila berat (seperti kisah Lot di Kejadian 19 dan Daud di 2 Samuel 11) yang tidak dapat dibela bila lawan menuntut kesucian absolut para nabi.",
+      "speaker": "OPPONENT"
+    },
+    {
+      "id": "REB-hk2tmZOqVmQ-001",
+      "type": "rebuttal",
+      "label": "ZUMA membuktikan ketidakabsahan sanggahan lawan dengan merujuk langsung pada naskah Kejadian 19:30-38 & 2 Samuel 11:1-27.",
+      "speaker": "ZUMA"
+    }
+  ],
+  "edges": [
+    {
+      "source": "EVI-hk2tmZOqVmQ-001",
+      "target": "CLM-hk2tmZOqVmQ-001",
+      "relation": "evidenced_by"
+    },
+    {
+      "source": "ARG-hk2tmZOqVmQ-001",
+      "target": "CLM-hk2tmZOqVmQ-001",
+      "relation": "supports"
+    },
+    {
+      "source": "CNT-hk2tmZOqVmQ-001",
+      "target": "CLM-hk2tmZOqVmQ-001",
+      "relation": "attacks"
+    },
+    {
+      "source": "REB-hk2tmZOqVmQ-001",
+      "target": "CNT-hk2tmZOqVmQ-001",
+      "relation": "rebutted_by"
+    }
+  ]
+}

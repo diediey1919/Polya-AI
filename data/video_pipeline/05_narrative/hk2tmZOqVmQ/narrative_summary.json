@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "hk2tmZOqVmQ",
+  "discourse_type": "APOLOGETIC_INTERFAITH_DEBATE",
+  "speaker_perspectives": {
+    "OPPONENT": {
+      "speaker_name": "Guest / Interlocutor",
+      "central_thesis": "Kitab Perjanjian Lama mencatat perbuatan asusila berat (seperti kisah Lot di Kejadian 19 dan Daud di 2 Samuel 11) yang tidak dapat dibela bila lawan menuntut kesucian absolut para nabi.",
+      "key_arguments": [
+        "Kitab Perjanjian Lama mencatat perbuatan asusila berat (seperti kisah Lot di Kejadian 19 dan Daud di 2 Samuel 11) yang tidak dapat dibela bila lawan menuntut kesucian absolut para nabi."
+      ],
+      "core_presupposition": "Doktrin yang diterima diyakini benar tanpa pemeriksaan tekstual kritis mendalam."
+    },
+    "ZUMA": {
+      "speaker_name": "Zulkifli M. Abbas (ZUMA)",
+      "central_thesis": "Menguji integritas nabi memerlukan standar moral yang adil tanpa standar ganda terhadap riwayat kitab suci masing-masing.",
+      "key_arguments": [
+        "Menguji integritas nabi memerlukan standar moral yang adil tanpa standar ganda terhadap riwayat kitab suci masing-masing."
+      ],
+      "core_presupposition": "Kebenaran doktrinal harus koheren secara naskah tanpa kontradiksi internal."
+    }
+  },
+  "chronological_flow": [
+    {
+      "phase": "Pembukaan & Penetapan Tema",
+      "timestamp_range": "00:00 - 05:00",
+      "topic": "Standar Moralitas Kenabian: Serangan Hadis vs Catatan Moral Tokoh Bible",
+      "speaker_action": "ZUMA membuka tema berdasarkan data tertulis dan menantang lawan.",
+      "summary": "Pembukaan fokus pada topik Standar Moralitas Kenabian: Serangan Hadis vs Catatan Moral Tokoh Bible."
+    },
+    {
+      "phase": "Interogasi Teks & Konfrontasi Eksegesis",
+      "timestamp_range": "05:00 - 25:00",
+      "topic": "Pembacaan Ayat & Socratic Questioning",
+      "speaker_action": "ZUMA menyodorkan teks Bible LAI TB untuk dibaca lawan.",
+      "summary": "Lawan dihadapkan pada fakta naskah tertulis."
+    },
+    {
+      "phase": "Penguncian Dilema & Penutupan",
+      "timestamp_range": "25:00 - Akhir",
+      "topic": "Kesimpulan Dialektis",
+      "speaker_action": "ZUMA mendemolisi presuposisi lawan dan menetapkan kesimpulan.",
+      "summary": "Lawan terdesak dalam kontradiksi argumennya sendiri."
+    }
+  ],
+  "argument_map": {
+    "theses": [
+      {
+        "speaker": "OPPONENT",
+        "thesis": "Kitab Perjanjian Lama mencatat perbuatan asusila berat (seperti kisah Lot di Kejadian 19 dan Daud di 2 Samuel 11) yang tidak dapat dibela bila lawan menuntut kesucian absolut para nabi."
+      },
+      {
+        "speaker": "ZUMA",
+        "thesis": "Menguji integritas nabi memerlukan standar moral yang adil tanpa standar ganda terhadap riwayat kitab suci masing-masing."
+      }
+    ],
+    "dialectical_clashes": [
+      {
+        "topic": "Standar Moralitas Kenabian: Serangan Hadis vs Catatan Moral Tokoh Bible",
+        "side_a": {
+          "speaker": "OPPONENT",
+          "argument": "Kitab Perjanjian Lama mencatat perbuatan asusila berat (seperti kisah Lot di Kejadian 19 dan Daud di 2 Samuel 11) yang tidak dapat dibela bila lawan menuntut kesucian absolut para nabi."
+        },
+        "side_b": {
+          "speaker": "ZUMA",
+          "argument": "Menguji integritas nabi memerlukan standar moral yang adil tanpa standar ganda terhadap riwayat kitab suci masing-masing."
+        },
+        "turning_point": "Ketika teks primer Bible dibacakan verbatim.",
+        "resolved_or_deadlock": "Deadlock bagi lawan yang tidak mampu menyelaraskan kontradiksi teks."
+      }
+    ]
+  },
+  "synthesis_summary": "Perdebatan mengenai Standar Moralitas Kenabian: Serangan Hadis vs Catatan Moral Tokoh Bible memperlihatkan keunggulan pembuktian naskah primer ZUMA berbanding pembelaan asumtif lawan."
+}

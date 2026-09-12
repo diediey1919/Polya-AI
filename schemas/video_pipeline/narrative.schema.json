@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NarrativeSchema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "video_id",
+    "discourse_type",
+    "speaker_perspectives",
+    "chronological_flow",
+    "argument_map",
+    "synthesis_summary"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "video_id": {
+      "type": "string"
+    },
+    "discourse_type": {
+      "type": "string"
+    },
+    "speaker_perspectives": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "speaker_name",
+          "central_thesis",
+          "key_arguments",
+          "core_presupposition"
+        ],
+        "properties": {
+          "speaker_name": {
+            "type": "string"
+          },
+          "central_thesis": {
+            "type": "string"
+          },
+          "key_arguments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "core_presupposition": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "chronological_flow": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "phase",
+          "timestamp_range",
+          "topic",
+          "speaker_action",
+          "summary"
+        ],
+        "properties": {
+          "phase": {
+            "type": "string"
+          },
+          "timestamp_range": {
+            "type": "string"
+          },
+          "topic": {
+            "type": "string"
+          },
+          "speaker_action": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "argument_map": {
+      "type": "object",
+      "required": [
+        "theses",
+        "dialectical_clashes"
+      ],
+      "properties": {
+        "theses": {
+          "type": "array"
+        },
+        "dialectical_clashes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "topic",
+              "side_a",
+              "side_b",
+              "turning_point",
+              "resolved_or_deadlock"
+            ],
+            "properties": {
+              "topic": {
+                "type": "string"
+              },
+              "side_a": {
+                "type": "object"
+              },
+              "side_b": {
+                "type": "object"
+              },
+              "turning_point": {
+                "type": "string"
+              },
+              "resolved_or_deadlock": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "synthesis_summary": {
+      "type": "string"
+    }
+  }
+}

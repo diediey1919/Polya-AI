@@ -1,0 +1,38 @@
+[
+  {
+    "evidence_id": "EVI-MUesrqdzI90-001",
+    "claim_id": "CLM-MUesrqdzI90-001",
+    "description": "Perintah pembaptisan bangsa-bangsa (Amanat Agung).",
+    "source": "Matius 28:19",
+    "source_type": "scripture",
+    "speaker_reference": "Dikutip oleh Opponent.",
+    "verification_status": "supported",
+    "reliability": "high",
+    "confidence": 0.95,
+    "source_segment": "SEG-MUesrqdzI90-0003"
+  },
+  {
+    "evidence_id": "EVI-MUesrqdzI90-002",
+    "claim_id": "CLM-MUesrqdzI90-004",
+    "description": "Pernyataan batasan wilayah pekabaran Bible.",
+    "source": "Roma 15:20",
+    "source_type": "scripture",
+    "speaker_reference": "Pengakuan Paulus dalam Roma 15:20.",
+    "verification_status": "supported",
+    "reliability": "high",
+    "confidence": 0.96,
+    "source_segment": "SEG-MUesrqdzI90-0035"
+  },
+  {
+    "evidence_id": "EVI-MUesrqdzI90-003",
+    "claim_id": "CLM-MUesrqdzI90-005",
+    "description": "Catatan biblika tentang insiden Antiokhia.",
+    "source": "Galatia 2:11-14",
+    "source_type": "scripture",
+    "speaker_reference": "Ditegaskan oleh ZUMA.",
+    "verification_status": "supported",
+    "reliability": "high",
+    "confidence": 0.98,
+    "source_segment": "SEG-MUesrqdzI90-0037"
+  }
+]

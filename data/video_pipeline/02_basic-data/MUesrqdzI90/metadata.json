@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "MUesrqdzI90",
+  "youtube_id": "MUesrqdzI90",
+  "source_url": "https://www.youtube.com/watch?v=MUesrqdzI90",
+  "title": "CETAR MEMBAHANA BANGZUMA MEMPERMALUKAN OTEN NGAKU KARATEKA SENIOR..ANCUR DAAH..!!",
+  "channel": "ZULKIFLI M ABBAS OFFICIAL",
+  "speaker_or_creator": "ZULKIFLI M ABBAS OFFICIAL",
+  "published_date": "2026-09-08",
+  "duration_seconds": 1860.0,
+  "duration_formatted": "31:00",
+  "description": "Debate and theological discussion record.",
+  "language": "id",
+  "extraction_method": {
+    "transcript_source": "youtube-transcript.ai (timed text extraction)",
+    "transcript_method": "timed_text_api",
+    "quality": "high"
+  },
+  "extracted_at": "2026-09-11T10:20:11.742606+00:00",
+  "raw_files": {
+    "transcript_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/MUesrqdzI90/raw_transcript.txt",
+    "metadata_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/MUesrqdzI90/metadata.json",
+    "log_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/MUesrqdzI90/extraction_log.json"
+  }
+}

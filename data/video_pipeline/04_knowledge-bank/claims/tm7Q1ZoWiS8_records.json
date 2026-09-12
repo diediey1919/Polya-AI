@@ -1,0 +1,50 @@
+[
+  {
+    "record_id": "KNOW-REC-CLM-tm7Q1ZoWiS8-001",
+    "canonical_key": "canon_clm-tm7q1zowis8-001",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "HISTORICAL_CLAIM",
+    "content": "Yesus dalam Bible Matius 5:17-19 menegaskan tidak satu iota atau satu titik pun hukum Taurat ditiadakan sampai langit dan bumi lenyap.",
+    "verification_status": "supported",
+    "confidence": 0.99,
+    "provenance_chain": {
+      "video_id": "tm7Q1ZoWiS8",
+      "source_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8",
+      "segment_id": "SEG-tm7Q1ZoWiS8-0020",
+      "timestamp": "8:35",
+      "speaker": "ZUMA"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-tm7Q1ZoWiS8-002",
+    "canonical_key": "canon_clm-tm7q1zowis8-002",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "THEOLOGICAL_CLAIM",
+    "content": "Orang Kristen tidak lagi di bawah hukum Taurat karena Kristus telah menebus orang beriman dari kutuk hukum Taurat (Galatia 3:13).",
+    "verification_status": "supported",
+    "confidence": 0.94,
+    "provenance_chain": {
+      "video_id": "tm7Q1ZoWiS8",
+      "source_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8",
+      "segment_id": "SEG-tm7Q1ZoWiS8-0018",
+      "timestamp": "7:50",
+      "speaker": "OPPONENT"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-tm7Q1ZoWiS8-003",
+    "canonical_key": "canon_clm-tm7q1zowis8-003",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "INFERENCE",
+    "content": "Peniadaan hukum Taurat oleh rumusan Paulus bertentangan secara diametral dengan amanat ketetapan abadi Yesus dalam Matius 5:17-19.",
+    "verification_status": "contested",
+    "confidence": 0.93,
+    "provenance_chain": {
+      "video_id": "tm7Q1ZoWiS8",
+      "source_url": "https://www.youtube.com/watch?v=tm7Q1ZoWiS8",
+      "segment_id": "SEG-tm7Q1ZoWiS8-0022",
+      "timestamp": "9:40",
+      "speaker": "ZUMA"
+    }
+  }
+]

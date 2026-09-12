@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "Dps3ZveBnts",
+  "youtube_id": "Dps3ZveBnts",
+  "source_url": "https://www.youtube.com/watch?v=Dps3ZveBnts",
+  "title": "BANGZUMA MAKES THIS PASTOR CRY HIS EYES OUT..MAKE IT VIRAL",
+  "channel": "ZULKIFLI M ABBAS OFFICIAL",
+  "speaker_or_creator": "ZULKIFLI M ABBAS OFFICIAL",
+  "published_date": "2026-09-01",
+  "duration_seconds": 2400.0,
+  "duration_formatted": "40:00",
+  "description": "Debate and theological discussion record.",
+  "language": "id",
+  "extraction_method": {
+    "transcript_source": "youtube-transcript.ai (timed text extraction)",
+    "transcript_method": "timed_text_api",
+    "quality": "high"
+  },
+  "extracted_at": "2026-09-11T10:50:50.941540+00:00",
+  "raw_files": {
+    "transcript_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/Dps3ZveBnts/raw_transcript.txt",
+    "metadata_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/Dps3ZveBnts/metadata.json",
+    "log_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/Dps3ZveBnts/extraction_log.json"
+  }
+}

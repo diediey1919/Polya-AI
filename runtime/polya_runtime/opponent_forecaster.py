@@ -68,7 +68,7 @@ class OpponentForecaster:
             
         # Scriptural Dogmatist: ayat, firman, hadits, sahih, tafsir, dogma, bid'ah, dalil
         dogmatist_score = 0
-        if any(w in text for w in ["ayat", "surat", "pasal", "hadits", "dalil", "tafsir", "dogma", "injil", "taurat", "quran", "kanon", "akidah"]):
+        if any(w in text for w in ["ayat", "surat", "pasal", "hadits", "dalil", "tafsir", "dogma", "bible", "alkitab", "injil", "taurat", "quran", "kanon", "akidah"]):
             dogmatist_score += 4
 
         # Modal Analytic: premis, silogisme, kontradiksi, modal, niscaya, apriori, rasional, validitas

@@ -1,0 +1,68 @@
+{
+  "nodes": [
+    {
+      "id": "CLM-hJci2BInAvQ-001",
+      "type": "claim",
+      "label": "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan.",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "CLM-hJci2BInAvQ-002",
+      "type": "claim",
+      "label": "Penglihatan kain turun dari langit dalam Kisah Para Rasul 10 membatalkan seluruh hukum makanan haram bagi orang Kristen.",
+      "speaker": "OPPONENT"
+    },
+    {
+      "id": "CLM-hJci2BInAvQ-003",
+      "type": "claim",
+      "label": "Kisah Para Rasul 10:28 secara eksplisit menjelaskan bahwa arti penglihatan kain tersebut adalah tentang penerimaan manusia bukan tentang penyucian daging babi.",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "ARG-hJci2BInAvQ-001",
+      "type": "argument",
+      "label": "Hukum Makanan Halal/Haram (Imamat 11 vs Kisah 10) & Otoritas Perintah Rasuli",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "EVI-hJci2BInAvQ-001",
+      "type": "evidence",
+      "label": "Imamat 11:7-8, Kisah Para Rasul 10:14, 10:28",
+      "speaker": "SOURCE"
+    },
+    {
+      "id": "CNT-hJci2BInAvQ-001",
+      "type": "counterargument",
+      "label": "Penglihatan kain turun dari langit dalam Kisah Para Rasul 10 membatalkan seluruh hukum makanan haram bagi orang Kristen.",
+      "speaker": "OPPONENT"
+    },
+    {
+      "id": "REB-hJci2BInAvQ-001",
+      "type": "rebuttal",
+      "label": "ZUMA membuktikan ketidakabsahan sanggahan lawan dengan merujuk langsung pada naskah Imamat 11:7-8, Kisah Para Rasul 10:14, 10:28.",
+      "speaker": "ZUMA"
+    }
+  ],
+  "edges": [
+    {
+      "source": "EVI-hJci2BInAvQ-001",
+      "target": "CLM-hJci2BInAvQ-001",
+      "relation": "evidenced_by"
+    },
+    {
+      "source": "ARG-hJci2BInAvQ-001",
+      "target": "CLM-hJci2BInAvQ-001",
+      "relation": "supports"
+    },
+    {
+      "source": "CNT-hJci2BInAvQ-001",
+      "target": "CLM-hJci2BInAvQ-001",
+      "relation": "attacks"
+    },
+    {
+      "source": "REB-hJci2BInAvQ-001",
+      "target": "CNT-hJci2BInAvQ-001",
+      "relation": "rebutted_by"
+    }
+  ]
+}

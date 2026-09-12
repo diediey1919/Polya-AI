@@ -1,0 +1,41 @@
+{
+  "nodes": [
+    {
+      "id": "CLM-MAHmgnsHWRs-001",
+      "type": "claim",
+      "label": "Surat Paulus mengajarkan bahwa seluruh orang beriman dan anggota gereja adalah tubuh Kristus (1 Kor 12:27, Efesus 5:30).",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "CLM-MAHmgnsHWRs-002",
+      "type": "claim",
+      "label": "Yesus dalam Bible Matius 24:24 menubuatkan akan munculnya banyak mesias-mesias atau kristus-kristus palsu (pseudochristoi).",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "CLM-MAHmgnsHWRs-003",
+      "type": "claim",
+      "label": "Doktrin bahwa pendeta dan jemaat adalah 'tubuh Kristus' secara dialektis membuka penggenapan nubuat Kristus palsu karena mengklaim esensi Kristus di bumi.",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "CLM-MAHmgnsHWRs-004",
+      "type": "claim",
+      "label": "Sebutan 'tubuh Kristus' dalam teologi Kristen adalah metafora eklesiologis spiritual, bukan personifikasi ontologis individu sebagai Yesus Sang Mesias.",
+      "speaker": "OPPONENT"
+    },
+    {
+      "id": "CLM-MAHmgnsHWRs-005",
+      "type": "claim",
+      "label": "Teks Paulus dalam 1 Korintus 6:15 menggunakan analogi somatis fisik ('tubuhmu adalah anggota Kristus'), membuktikan adanya identifikasi substansial.",
+      "speaker": "ZUMA"
+    }
+  ],
+  "edges": [
+    {
+      "source": "EVI-MAHmgnsHWRs-001",
+      "target": "CLM-MAHmgnsHWRs-001",
+      "relation": "evidenced_by"
+    }
+  ]
+}

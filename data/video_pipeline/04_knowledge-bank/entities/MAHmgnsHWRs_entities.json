@@ -1,0 +1,73 @@
+[
+  {
+    "entity_id": "ENT-PERSON-PAULUS",
+    "canonical_name": "Paulus dari Tarsus",
+    "category": "apostle_author",
+    "aliases": [
+      "Paul",
+      "Saulus",
+      "Apostle Paul",
+      "Paulus"
+    ]
+  },
+  {
+    "entity_id": "ENT-PERSON-PETRUS",
+    "canonical_name": "Simon Petrus (Kefas)",
+    "category": "apostle",
+    "aliases": [
+      "Peter",
+      "Kefas",
+      "Petrus",
+      "Simon"
+    ]
+  },
+  {
+    "entity_id": "ENT-PERSON-YESUS",
+    "canonical_name": "Yesus Kristus / Isa Al-Masih",
+    "category": "central_figure",
+    "aliases": [
+      "Yesus",
+      "Jesus",
+      "Kristus",
+      "Isa"
+    ]
+  },
+  {
+    "entity_id": "ENT-DEBATER-ZUMA",
+    "canonical_name": "Zulkifli M. Abbas",
+    "category": "debater_apologist",
+    "aliases": [
+      "ZUMA",
+      "Bang Zuma",
+      "Zulkifli Abbas"
+    ]
+  },
+  {
+    "entity_id": "ENT-DEBATER-KARATEKA",
+    "canonical_name": "Guest Karateka Senior",
+    "category": "interlocutor",
+    "aliases": [
+      "Karateka Senior",
+      "Siluman Kura-kura",
+      "Opponent"
+    ]
+  },
+  {
+    "entity_id": "ENT-PERSON-KAROLINA",
+    "canonical_name": "Pendeta Karolina",
+    "category": "clergy",
+    "aliases": [
+      "Pdt. Karolina",
+      "Karolina"
+    ]
+  },
+  {
+    "entity_id": "ENT-DEBATER-KATOLIK",
+    "canonical_name": "Guest Katolik Jemaat",
+    "category": "interlocutor",
+    "aliases": [
+      "Katolik Jemaat",
+      "Penelpon Katolik"
+    ]
+  }
+]

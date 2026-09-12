@@ -1,0 +1,479 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "MpF1rb0hOqk",
+  "motion_or_topic": "Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20)",
+  "debate_mode": "zuma_persona",
+  "persona_id": "zuma_debate_v1",
+  "persona_intensity": 0.8,
+  "participants": [
+    {
+      "participant_id": "PART-ZUMA",
+      "name": "Zulkifli M. Abbas (ZUMA)",
+      "role": "AFFIRMATIVE_CRITIQUE",
+      "core_stance": "Uji naskah primer kanonik LAI TB & penolakan dogma tanpa ayat."
+    },
+    {
+      "participant_id": "PART-OPPONENT",
+      "name": "Interlocutor / Pembela Doktrin",
+      "role": "NEGATIVE_DEFENSE",
+      "core_stance": "Pembelaan tradisi teologis dan penafsiran dogmatis."
+    }
+  ],
+  "grounding_rules": {
+    "strict_knowledge_only": true,
+    "zero_hallucination_enforced": true,
+    "provenance_required": true
+  },
+  "rounds": [
+    {
+      "round_num": 1,
+      "turn_speaker": "ZUMA",
+      "speech_type": "SOCRATIC_OPENING",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Kita masuk pada pondasi soteriologi: Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20). Apakah keadilan Allah menghukum pihak yang tak bersalah demi membebaskan pihak bersalah, ataukah menegakkan tanggung jawab moral murni?",
+      "persona_strategy": "verbatim_textual_anchoring",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-001",
+          "segment_id": "SEG-MpF1rb0hOqk-0025",
+          "timestamp": "11:20",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    },
+    {
+      "round_num": 1,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "APOLOGETIC_OPENING",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Seluruh manusia telah berdosa di dalam Adam dan kehilangan kemuliaan Allah. Keadilan dan kekudusan Allah menuntut bayaran hutang dosa, yang hanya bisa ditebus oleh darah korban Kristus di kayu salib.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-002",
+          "segment_id": "SEG-MpF1rb0hOqk-0022",
+          "timestamp": "9:50",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    },
+    {
+      "round_num": 2,
+      "turn_speaker": "ZUMA",
+      "speech_type": "PRIMARY_TEXT_ARGUMENT",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Premis saudara menabrak firman tertulis dalam Yehezkiel 18:20! Buka dan baca naskahnya: 'Orang yang berbuat dosa, itu yang harus mati. Anak tidak akan turut menanggung kesalahan ayahnya dan ayah tidak akan turut menanggung kesalahan anaknya. Orang benar akan menerima berkat kebenarannya, dan kefasikan orang fasik akan tertanggung atasnya.' Bagaimana mungkin Allah yang berfirman demikian justru menghukum Yesus yang tak bersalah untuk dosa orang lain?",
+      "persona_strategy": "immanent_dialectical_critique",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-001",
+          "segment_id": "SEG-MpF1rb0hOqk-0025",
+          "timestamp": "11:20",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    },
+    {
+      "round_num": 2,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "DOGMATIC_JUSTIFICATION",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Pengorbanan Kristus adalah inisiatif kasih Allah sendiri yang menggantikan hukuman kutuk dosa kita!",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-002",
+          "segment_id": "SEG-MpF1rb0hOqk-0022",
+          "timestamp": "9:50",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    },
+    {
+      "round_num": 3,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "DEFENSIVE_OBJECTION",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Tanpa penumpahan darah tidak ada pengampunan dosa (Ibrani 9:22). Salib adalah puncak keadilan dan kasih Allah yang bertemu!",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-002",
+          "segment_id": "SEG-MpF1rb0hOqk-0022",
+          "timestamp": "9:50",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    },
+    {
+      "round_num": 3,
+      "turn_speaker": "ZUMA",
+      "speech_type": "EVASION_INTERRUPTION",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Tahan! Jangan lompat ke surat Ibrani sebelum saudara selesaikan prinsip keadilan di Taurat! Ulangan 24:16 berbunyi: 'Janganlah ayah dihukum mati karena anaknya, janganlah juga anak dihukum mati karena ayahnya; setiap orang harus dihukum mati karena dosanya sendiri.' Hukum Bible menolak pertanggungjawaban pengganti!",
+      "persona_strategy": "data_focus_interruption",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-001",
+          "segment_id": "SEG-MpF1rb0hOqk-0025",
+          "timestamp": "11:20",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    },
+    {
+      "round_num": 4,
+      "turn_speaker": "ZUMA",
+      "speech_type": "VERBATIM_REBUTTAL",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Teori Penal Substitution saudara secara filosofis merusak konsep keadilan. Jika seorang hakim membebaskan pembunuh berdarah dingin lalu menjatuhkan hukuman mati kepada anak hakim yang tidak bersalah, apakah hakim itu adil atau lalim? Teologi Anda menggambarkan Allah berbuat sesuatu yang Anda sebut lalim dalam hukum manusia!",
+      "persona_strategy": "socratic_verbatim_cornering",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-001",
+          "segment_id": "SEG-MpF1rb0hOqk-0025",
+          "timestamp": "11:20",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    },
+    {
+      "round_num": 4,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "EVASIVE_DEFENSE",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Kasih Allah melampaui hukum manusia karena Kristus menyerahkan nyawa-Nya secara sukarela.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-002",
+          "segment_id": "SEG-MpF1rb0hOqk-0022",
+          "timestamp": "9:50",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    },
+    {
+      "round_num": 5,
+      "turn_speaker": "ZUMA",
+      "speech_type": "CONSTRUCTIVE_FATAL_DILEMMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Tolong jawab: menurut Yehezkiel 18:20, apakah anak menanggung dosa ayahnya?",
+      "persona_strategy": "constructive_fatal_dilemma",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-001",
+          "segment_id": "SEG-MpF1rb0hOqk-0025",
+          "timestamp": "11:20",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    },
+    {
+      "round_num": 5,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "DILEMMA_RESPONSE",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Teks Yehezkiel menyatakan anak tidak menanggung dosa ayahnya.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-002",
+          "segment_id": "SEG-MpF1rb0hOqk-0022",
+          "timestamp": "9:50",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    },
+    {
+      "round_num": 6,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "THEOLOGICAL_DEFENSE",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Dosa asal adalah kondisi kecenderungan berdosa akibat kejatuhan Adam, bukan dosa personal bayi.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-002",
+          "segment_id": "SEG-MpF1rb0hOqk-0022",
+          "timestamp": "9:50",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    },
+    {
+      "round_num": 6,
+      "turn_speaker": "ZUMA",
+      "speech_type": "COUNTER_DEFENSE",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Jika bukan dosa personal, mengapa bayi membutuhkan baptisan penebusan dosa darah pengganti? Kontradiksi doktrin saudara semakin dalam saat dibongkar lapis demi lapis!",
+      "persona_strategy": "presupposition_inversion",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-001",
+          "segment_id": "SEG-MpF1rb0hOqk-0025",
+          "timestamp": "11:20",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    },
+    {
+      "round_num": 7,
+      "turn_speaker": "ZUMA",
+      "speech_type": "SYNTHESIS_REBUTTAL",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Naskah Yehezkiel 18 dan Ulangan 24 berdiri tegak: keadilan Allah adalah pertanggungjawaban individual, bukan hukum darah manusia pengganti!",
+      "persona_strategy": "canonical_exclusivity_restriction",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-001",
+          "segment_id": "SEG-MpF1rb0hOqk-0025",
+          "timestamp": "11:20",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    },
+    {
+      "round_num": 7,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "CONCLUDING_OBJECTION",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Bagi kami salib Kristus adalah satu-satunya jalan keselamatan kekal.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-002",
+          "segment_id": "SEG-MpF1rb0hOqk-0022",
+          "timestamp": "9:50",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    },
+    {
+      "round_num": 8,
+      "turn_speaker": "ZUMA",
+      "speech_type": "MAIEUTIC_CLOSING",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Kebenaran keadilan ilahi tidak dapat dirusak oleh doktrin anselmian buatan abad pertengahan. Firman tertulis telah membuktikan: setiap jiwa bertanggung jawab langsung kepada Penciptanya!",
+      "persona_strategy": "maieutic_epistemic_verdict",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-001",
+          "segment_id": "SEG-MpF1rb0hOqk-0025",
+          "timestamp": "11:20",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    },
+    {
+      "round_num": 8,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "FINAL_CLOSING",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Kami percaya pada anugerah salib Kristus yang membebaskan.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MpF1rb0hOqk-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MpF1rb0hOqk-002",
+          "segment_id": "SEG-MpF1rb0hOqk-0022",
+          "timestamp": "9:50",
+          "video_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk"
+        }
+      ]
+    }
+  ],
+  "cross_examination": [
+    {
+      "examiner": "ZUMA",
+      "target": "OPPONENT",
+      "socratic_question": "Apakah saudara bersedia mengakui naskah tertulis kanon Bible Yehezkiel 18:20 & Ulangan 24:16 mengenai tema 'Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20)' secara verbatim tanpa menyelundupkan asumsi luar?",
+      "target_dilemma": "Jika mengakui teks apa adanya, premis dogmatis runtuh; jika menolak bunyi teks, saudara mendustai kitab kanon sendiri.",
+      "presupposition_demolished": "Asumsi bahwa doktrin gerejawi kebal dari pengujian filologis dan eksegetis naskah primer."
+    }
+  ],
+  "epistemic_verdict": {
+    "verdict_summary": "Simulasi dialektika ZUMA persona membuktikan bahwa klaim pembelaan dogma lawan dalam topik 'Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20)' runtuh saat dihadapkan pada pembacaan verbatim naskah kanonik dan pengujian konsistensi internal.",
+    "logical_superiority": "AFFIRMATIVE_CRITIQUE (ZUMA)",
+    "unsupported_claims_flagged": [
+      "CLM-MpF1rb0hOqk-002"
+    ]
+  },
+  "persona_traceability": [
+    {
+      "round_num": 1,
+      "round_name": "ROUND 1 — OPENING",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "verbatim_textual_anchoring",
+      "persona_evidence": {
+        "video_id": "MpF1rb0hOqk",
+        "timestamp": "11:20",
+        "pattern": "Q-PAT-VERBATIM-CHALLENGE"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-MpF1rb0hOqk-001",
+      "source_claim": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+      "source_scripture": "Yehezkiel 18:20 & Ulangan 24:16",
+      "timestamp": "11:20"
+    },
+    {
+      "round_num": 2,
+      "round_name": "ROUND 2 — ARGUMENT",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "immanent_dialectical_critique",
+      "persona_evidence": {
+        "video_id": "MpF1rb0hOqk",
+        "timestamp": "11:20",
+        "pattern": "CRX-PAT-CONSTRUCTIVE-DILEMMA"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-MpF1rb0hOqk-001",
+      "source_claim": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+      "source_scripture": "Yehezkiel 18:20 & Ulangan 24:16",
+      "timestamp": "11:20"
+    },
+    {
+      "round_num": 3,
+      "round_name": "ROUND 3 — COUNTERARGUMENT",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "data_focus_interruption",
+      "persona_evidence": {
+        "video_id": "MpF1rb0hOqk",
+        "timestamp": "11:20",
+        "pattern": "PRS-PAT-INTERRUPTION-CONTROL"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-MpF1rb0hOqk-001",
+      "source_claim": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+      "source_scripture": "Yehezkiel 18:20 & Ulangan 24:16",
+      "timestamp": "11:20"
+    },
+    {
+      "round_num": 4,
+      "round_name": "ROUND 4 — REBUTTAL",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "socratic_verbatim_cornering",
+      "persona_evidence": {
+        "video_id": "MpF1rb0hOqk",
+        "timestamp": "11:20",
+        "pattern": "Q-PAT-VERBATIM-CHALLENGE"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-MpF1rb0hOqk-001",
+      "source_claim": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+      "source_scripture": "Yehezkiel 18:20 & Ulangan 24:16",
+      "timestamp": "11:20"
+    },
+    {
+      "round_num": 5,
+      "round_name": "ROUND 5 — CROSS EXAMINATION",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "constructive_fatal_dilemma",
+      "persona_evidence": {
+        "video_id": "MpF1rb0hOqk",
+        "timestamp": "11:20",
+        "pattern": "CRX-PAT-CONSTRUCTIVE-DILEMMA"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-MpF1rb0hOqk-001",
+      "source_claim": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+      "source_scripture": "Yehezkiel 18:20 & Ulangan 24:16",
+      "timestamp": "11:20"
+    },
+    {
+      "round_num": 6,
+      "round_name": "ROUND 6 — DEFENSE",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "presupposition_inversion",
+      "persona_evidence": {
+        "video_id": "MpF1rb0hOqk",
+        "timestamp": "11:20",
+        "pattern": "PRE-PAT-INVERSION"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-MpF1rb0hOqk-001",
+      "source_claim": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+      "source_scripture": "Yehezkiel 18:20 & Ulangan 24:16",
+      "timestamp": "11:20"
+    },
+    {
+      "round_num": 7,
+      "round_name": "ROUND 7 — FINAL REBUTTAL",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "canonical_exclusivity_restriction",
+      "persona_evidence": {
+        "video_id": "MpF1rb0hOqk",
+        "timestamp": "11:20",
+        "pattern": "EVI-PAT-CANONICAL-EXCLUSIVITY"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-MpF1rb0hOqk-001",
+      "source_claim": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+      "source_scripture": "Yehezkiel 18:20 & Ulangan 24:16",
+      "timestamp": "11:20"
+    },
+    {
+      "round_num": 8,
+      "round_name": "ROUND 8 — CLOSING",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "maieutic_epistemic_verdict",
+      "persona_evidence": {
+        "video_id": "MpF1rb0hOqk",
+        "timestamp": "11:20",
+        "pattern": "CLS-PAT-MAIEUTIC-LOCKDOWN"
+      },
+      "knowledge_record_ref": "KNOW-REC-CLM-MpF1rb0hOqk-001",
+      "source_claim": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+      "source_scripture": "Yehezkiel 18:20 & Ulangan 24:16",
+      "timestamp": "11:20"
+    }
+  ]
+}

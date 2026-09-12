@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "hk2tmZOqVmQ",
+  "youtube_id": "hk2tmZOqVmQ",
+  "source_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ",
+  "title": "MANTAN NARAPIDANA INI KEMBALI CARI PANGGUNG NANTANG BANGZUMA..AKHIRNYA TUMBANG DGN MALU",
+  "channel": "ZULKIFLI M ABBAS OFFICIAL",
+  "speaker_or_creator": "ZULKIFLI M ABBAS OFFICIAL",
+  "published_date": "2026-09-03",
+  "duration_seconds": 2400.0,
+  "duration_formatted": "40:00",
+  "description": "Debate and theological discussion record.",
+  "language": "id",
+  "extraction_method": {
+    "transcript_source": "youtube-transcript.ai (timed text extraction)",
+    "transcript_method": "timed_text_api",
+    "quality": "high"
+  },
+  "extracted_at": "2026-09-11T10:50:50.801395+00:00",
+  "raw_files": {
+    "transcript_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/hk2tmZOqVmQ/raw_transcript.txt",
+    "metadata_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/hk2tmZOqVmQ/metadata.json",
+    "log_file": "/home/ubuntu/Polya-AI/data/video_pipeline/01_raw/hk2tmZOqVmQ/extraction_log.json"
+  }
+}

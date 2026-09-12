@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "MpF1rb0hOqk",
+  "discourse_type": "APOLOGETIC_INTERFAITH_DEBATE",
+  "speaker_perspectives": {
+    "OPPONENT": {
+      "speaker_name": "Guest / Interlocutor",
+      "central_thesis": "Doktrin dosa asal mengharuskan pengorbanan darah pengganti untuk menghapus hutang kutuk dosa Adam.",
+      "key_arguments": [
+        "Doktrin dosa asal mengharuskan pengorbanan darah pengganti untuk menghapus hutang kutuk dosa Adam."
+      ],
+      "core_presupposition": "Doktrin yang diterima diyakini benar tanpa pemeriksaan tekstual kritis mendalam."
+    },
+    "ZUMA": {
+      "speaker_name": "Zulkifli M. Abbas (ZUMA)",
+      "central_thesis": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+      "key_arguments": [
+        "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20)."
+      ],
+      "core_presupposition": "Kebenaran doktrinal harus koheren secara naskah tanpa kontradiksi internal."
+    }
+  },
+  "chronological_flow": [
+    {
+      "phase": "Pembukaan & Penetapan Tema",
+      "timestamp_range": "00:00 - 05:00",
+      "topic": "Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20)",
+      "speaker_action": "ZUMA membuka tema berdasarkan data tertulis dan menantang lawan.",
+      "summary": "Pembukaan fokus pada topik Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20)."
+    },
+    {
+      "phase": "Interogasi Teks & Konfrontasi Eksegesis",
+      "timestamp_range": "05:00 - 25:00",
+      "topic": "Pembacaan Ayat & Socratic Questioning",
+      "speaker_action": "ZUMA menyodorkan teks Bible LAI TB untuk dibaca lawan.",
+      "summary": "Lawan dihadapkan pada fakta naskah tertulis."
+    },
+    {
+      "phase": "Penguncian Dilema & Penutupan",
+      "timestamp_range": "25:00 - Akhir",
+      "topic": "Kesimpulan Dialektis",
+      "speaker_action": "ZUMA mendemolisi presuposisi lawan dan menetapkan kesimpulan.",
+      "summary": "Lawan terdesak dalam kontradiksi argumennya sendiri."
+    }
+  ],
+  "argument_map": {
+    "theses": [
+      {
+        "speaker": "OPPONENT",
+        "thesis": "Doktrin dosa asal mengharuskan pengorbanan darah pengganti untuk menghapus hutang kutuk dosa Adam."
+      },
+      {
+        "speaker": "ZUMA",
+        "thesis": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20)."
+      }
+    ],
+    "dialectical_clashes": [
+      {
+        "topic": "Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20)",
+        "side_a": {
+          "speaker": "OPPONENT",
+          "argument": "Doktrin dosa asal mengharuskan pengorbanan darah pengganti untuk menghapus hutang kutuk dosa Adam."
+        },
+        "side_b": {
+          "speaker": "ZUMA",
+          "argument": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20)."
+        },
+        "turning_point": "Ketika teks primer Bible dibacakan verbatim.",
+        "resolved_or_deadlock": "Deadlock bagi lawan yang tidak mampu menyelaraskan kontradiksi teks."
+      }
+    ]
+  },
+  "synthesis_summary": "Perdebatan mengenai Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20) memperlihatkan keunggulan pembuktian naskah primer ZUMA berbanding pembelaan asumtif lawan."
+}

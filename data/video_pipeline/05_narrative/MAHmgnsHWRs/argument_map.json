@@ -1,0 +1,27 @@
+{
+  "theses": [
+    {
+      "speaker": "OPPONENT",
+      "thesis": "Yesus dalam Bible Matius 24:24 menubuatkan akan munculnya banyak mesias-mesias atau kristus-kristus palsu (pseudochristoi)."
+    },
+    {
+      "speaker": "ZUMA",
+      "thesis": "Surat Paulus mengajarkan bahwa seluruh orang beriman dan anggota gereja adalah tubuh Kristus (1 Kor 12:27, Efesus 5:30)."
+    }
+  ],
+  "dialectical_clashes": [
+    {
+      "topic": "Doktrin Tubuh Kristus (1 Korintus 12 / Efesus 5) vs Nubuatan Kristus Palsu (Matius 24)",
+      "side_a": {
+        "speaker": "OPPONENT",
+        "argument": "Yesus dalam Bible Matius 24:24 menubuatkan akan munculnya banyak mesias-mesias atau kristus-kristus palsu (pseudochristoi)."
+      },
+      "side_b": {
+        "speaker": "ZUMA",
+        "argument": "Surat Paulus mengajarkan bahwa seluruh orang beriman dan anggota gereja adalah tubuh Kristus (1 Kor 12:27, Efesus 5:30)."
+      },
+      "turning_point": "Ketika teks primer Bible dibacakan verbatim.",
+      "resolved_or_deadlock": "Deadlock bagi lawan yang tidak mampu menyelaraskan kontradiksi teks."
+    }
+  ]
+}

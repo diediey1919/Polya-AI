@@ -1,0 +1,38 @@
+[
+  {
+    "evidence_id": "EVI-MAHmgnsHWRs-001",
+    "claim_id": "CLM-MAHmgnsHWRs-001",
+    "description": "Teks 1 Kor 12:27.",
+    "source": "1 Korintus 12:27",
+    "source_type": "scripture",
+    "speaker_reference": "Bible LAI TB.",
+    "verification_status": "supported",
+    "reliability": "high",
+    "confidence": 0.99,
+    "source_segment": "SEG-MAHmgnsHWRs-0020"
+  },
+  {
+    "evidence_id": "EVI-MAHmgnsHWRs-002",
+    "claim_id": "CLM-MAHmgnsHWRs-002",
+    "description": "Teks Matius 24:24.",
+    "source": "Matius 24:24",
+    "source_type": "scripture",
+    "speaker_reference": "Bible Matius.",
+    "verification_status": "supported",
+    "reliability": "high",
+    "confidence": 0.97,
+    "source_segment": "SEG-MAHmgnsHWRs-0010"
+  },
+  {
+    "evidence_id": "EVI-MAHmgnsHWRs-003",
+    "claim_id": "CLM-MAHmgnsHWRs-005",
+    "description": "Teks 1 Kor 6:15.",
+    "source": "1 Korintus 6:15",
+    "source_type": "scripture",
+    "speaker_reference": "1 Korintus 6:15.",
+    "verification_status": "supported",
+    "reliability": "high",
+    "confidence": 0.96,
+    "source_segment": "SEG-MAHmgnsHWRs-0021"
+  }
+]

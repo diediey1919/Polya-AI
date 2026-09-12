@@ -1,0 +1,316 @@
+{
+  "schema_version": "1.0.0",
+  "theme_id": "THEME-01",
+  "video_id": "MUesrqdzI90",
+  "motion_or_topic": "Friksi Paulus vs Petrus (Galatia 2 & Roma 15)",
+  "debate_mode": "zuma_persona",
+  "persona_id": "zuma_debate_v1",
+  "persona_intensity": 0.8,
+  "participants": [
+    {
+      "participant_id": "PART-ZUMA",
+      "name": "Zulkifli M. Abbas (ZUMA) / Polya",
+      "role": "AFFIRMATIVE_CRITIQUE",
+      "core_stance": "Uji naskah primer kanonik LAI TB & eksposur ketegangan otoritas apostolik."
+    },
+    {
+      "participant_id": "PART-OPPONENT",
+      "name": "Interlocutor / Pembela Doktrin",
+      "role": "NEGATIVE_DEFENSE",
+      "core_stance": "Pembelaan kesatuan apostolik dan harmonisasi tradisi gereja."
+    }
+  ],
+  "grounding_rules": {
+    "strict_knowledge_only": true,
+    "zero_hallucination_enforced": true,
+    "provenance_required": true
+  },
+  "rounds": [
+    {
+      "round_num": 1,
+      "turn_speaker": "ZUMA",
+      "speech_type": "SOCRATIC_OPENING",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Dengar baik-baik saudara sekalian. Dalam forum terbuka ini kita tidak berdebat dengan dongeng, perasaan emosional, atau prasangka apriori. Tema kita sangat spesifik: Friksi Paulus vs Petrus dalam Galatia 2 dan Roma 15. Kita buka langsung naskah tertulis Bible LAI TB pasal dan ayat.",
+      "persona_strategy": "verbatim_textual_anchoring",
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-003"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-003",
+          "segment_id": "SEG-MUesrqdzI90-0005",
+          "timestamp": "2:39",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    },
+    {
+      "round_num": 1,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "APOLOGETIC_OPENING",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Kami melayani di bawah amanat agung Tuhan Yesus (Matius 28:19). Rasul Paulus sendiri menegaskan dalam Roma 15:20 bahwa ia berusaha memberitakan Bible di tempat di mana nama Kristus belum dikenal, supaya ia tidak membangun di atas dasar yang diletakkan orang lain.",
+      "persona_strategy": null,
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-004"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-004",
+          "segment_id": "SEG-MUesrqdzI90-0035",
+          "timestamp": "18:49",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    },
+    {
+      "round_num": 2,
+      "turn_speaker": "ZUMA",
+      "speech_type": "APOSTOLIC_FRICTION_ARGUMENT",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Saudara mengutip Roma 15:20, tapi sengaja menutup mata dari fakta sejarah di Antiokhia! Buka Galatia 2:11-14 sekarang juga! Siapa yang menegur Petrus terang-terangan karena berlaku munafik? Paulus sendiri! Teks menyatakan ada friksi doktrinal terbuka di antara para rasul.",
+      "persona_strategy": "the_pauline_wedge",
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-005"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-005",
+          "segment_id": "SEG-MUesrqdzI90-0037",
+          "timestamp": "19:53",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    },
+    {
+      "round_num": 2,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "DOGMATIC_JUSTIFICATION",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Konteks insiden Antiokhia itu terjadi karena Petrus menghormati saudara-saudara Yahudi yang datang dari pihak Yakobus. Itu adalah dinamika etika praktis pergaulan komunal gereja mula-mula, sama sekali bukan pertentangan doktrin fundamental keselamatan!",
+      "persona_strategy": null,
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-006"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-006",
+          "segment_id": "SEG-MUesrqdzI90-0038",
+          "timestamp": "20:25",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    },
+    {
+      "round_num": 3,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "AUTHORITY_DEFLECTION",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Anda jangan meragukan kesatuan rasul. Saya ini karateka senior, pemegang sabuk hitam bela diri dan pelayan firman berpengalaman, kami mengerti konteks teologis lebih dalam dari sekadar membaca huruf harfiah.",
+      "persona_strategy": null,
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-007"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-007",
+          "segment_id": "SEG-MUesrqdzI90-0042",
+          "timestamp": "22:15",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    },
+    {
+      "round_num": 3,
+      "turn_speaker": "ZUMA",
+      "speech_type": "AUTHORITY_DEMOLITION",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Tahan dulu! Jangan bawa-bawa sabuk karate atau gelar senioritas ke sini! Gelar sabuk hitam tidak bisa mengubah bunyi ayat Galatia 2:11! Apakah sabuk karate Anda bisa membatalkan kata 'berlaku munafik' yang ditulis Paulus terhadap Petrus? Kita bicara data teks naskah!",
+      "persona_strategy": "extraneous_authority_demolition",
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-007"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-007",
+          "segment_id": "SEG-MUesrqdzI90-0042",
+          "timestamp": "22:15",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    },
+    {
+      "round_num": 4,
+      "turn_speaker": "ZUMA",
+      "speech_type": "TEXTUAL_EXEGESIS_REBUTTAL",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Baca ayat 14: 'Tetapi waktu kulihat, bahwa kelakuan mereka itu tidak sesuai dengan kebenaran Bible, aku berkata kepada Kefas di hadapan mereka semua...' Paulus menuduh tindakan Petrus bertentangan dengan kebenaran Bible! Ini bukan soal menu makanan, ini soal orisinalitas doktrin keselamatan!",
+      "persona_strategy": "socratic_verbatim_cornering",
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-005"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-005",
+          "segment_id": "SEG-MUesrqdzI90-0037",
+          "timestamp": "19:53",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    },
+    {
+      "round_num": 4,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "CONCESSION_EVASION",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Semua rasul dipimpin oleh Roh Kudus, perbedaan pandangan itu dinamika pewahyuan progresif dan adaptasi kontekstual.",
+      "persona_strategy": null,
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-002"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-002",
+          "segment_id": "SEG-MUesrqdzI90-0002",
+          "timestamp": "1:06",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    },
+    {
+      "round_num": 5,
+      "turn_speaker": "ZUMA",
+      "speech_type": "CONSTRUCTIVE_FATAL_DILEMMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Pertanyaan saya dalam cross-examination: Jika naskah Bible LAI TB mencatat Petrus berlaku munafik dan patut dipersalahkan, apakah Petrus benar munafik ataukah Paulus yang memfitnah rekannya sendiri? Pilih salah satu!",
+      "persona_strategy": "constructive_fatal_dilemma",
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-005"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-005",
+          "segment_id": "SEG-MUesrqdzI90-0037",
+          "timestamp": "19:53",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    },
+    {
+      "round_num": 5,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "DILEMMA_RESPONSE",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Dua-duanya tidak ada yang memfitnah dan tidak ada kemunafikan jahat. Itu adalah ketegangan manusiawi yang diselesaikan secara tuntas oleh bimbingan Roh Kudus dalam Konsili Yerusalem di Kisah Para Rasul 15.",
+      "persona_strategy": null,
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-001"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-001",
+          "segment_id": "SEG-MUesrqdzI90-0003",
+          "timestamp": "1:37",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    },
+    {
+      "round_num": 6,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "DEFENSE_ATTEMPT",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Kami membaca Bible secara kanonik terpadu! Dalam Kisah Para Rasul 15, jemaat Antiokhia mengutus Paulus dan Barnabas ke Yerusalem. Di sana Petrus membela orang bukan Yahudi dan Yakobus menetapkan surat keputusan apostolik yang mendamaikan perselisihan.",
+      "persona_strategy": null,
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-004"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-004",
+          "segment_id": "SEG-MUesrqdzI90-0035",
+          "timestamp": "18:49",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    },
+    {
+      "round_num": 6,
+      "turn_speaker": "ZUMA",
+      "speech_type": "COUNTER_DEFENSE",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Jika di Konsili Yerusalem sudah tuntas, mengapa Paulus menulis surat Galatia dengan nada konfrontatif membongkar kemunafikan kelompok Yerusalem? Mengapa ia bersumpah di Galatia 1:20 'apa yang kutuliskan ini, Allah tahu, aku tidak berdusta'? Fakta ini justru membuktikan adanya friksi yurisdiksi yang tak pernah tuntas!",
+      "persona_strategy": "presupposition_inversion",
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-006"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-006",
+          "segment_id": "SEG-MUesrqdzI90-0038",
+          "timestamp": "20:25",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    },
+    {
+      "round_num": 7,
+      "turn_speaker": "ZUMA",
+      "speech_type": "SYNTHESIS_REBUTTAL",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Saudara tidak mampu menjawab teks tertulis karena teologi yang saudara pelajari bertumpu pada dogmatika asumtif, bukan pada naskah sejarah. Setiap kali ayat dibuka, saudara mengalihkan ke retorika sabuk karate dan perasaan pribadi.",
+      "persona_strategy": "canonical_exclusivity_restriction",
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-003"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-003",
+          "segment_id": "SEG-MUesrqdzI90-0005",
+          "timestamp": "2:39",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    },
+    {
+      "round_num": 7,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "CONCLUDING_OBJECTION",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Kami tetap berpegang bahwa keselamatan kami tidak bersandar pada kesempurnaan moral Petrus atau Paulus, melainkan pada karya penebusan Kristus di kayu salib yang melampaui segala polemik huruf naskah.",
+      "persona_strategy": null,
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-002"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-002",
+          "segment_id": "SEG-MUesrqdzI90-0002",
+          "timestamp": "1:06",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    },
+    {
+      "round_num": 8,
+      "turn_speaker": "ZUMA",
+      "speech_type": "MAIEUTIC_CLOSING",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "[SIMULATED ZUMA RESPONSE] Hadirin sekalian, kebenaran naskah tidak bisa ditutupi dengan emosi atau ancaman fisik. Kita telah buktikan dari Galatia 2 dan Roma 15: naskah sendiri yang membantah narasi harmonisasi tanpa cacat. Kebenaran naskah berdiri tegak di atas fakta tertulis!",
+      "persona_strategy": "maieutic_epistemic_verdict",
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-005"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-005",
+          "segment_id": "SEG-MUesrqdzI90-0037",
+          "timestamp": "19:53",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    },
+    {
+      "round_num": 8,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "FINAL_CLOSING",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "[SOURCE QUOTE] Kami tetap setia pada Bible Kristus dan pengajaran gereja para rasul sepanjang masa. Damai sejahtera bagi kita sekalian.",
+      "persona_strategy": null,
+      "knowledge_refs_used": ["KNOW-REC-CLM-MUesrqdzI90-004"],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MUesrqdzI90-004",
+          "segment_id": "SEG-MUesrqdzI90-0035",
+          "timestamp": "18:49",
+          "video_url": "https://www.youtube.com/watch?v=MUesrqdzI90"
+        }
+      ]
+    }
+  ],
+  "cross_examination": [
+    {
+      "examiner": "ZUMA",
+      "target": "OPPONENT",
+      "socratic_question": "Jika naskah kanonik LAI TB mencatat Petrus bersalah dan berlaku munafik di Galatia 2:11-14, apakah Petrus benar-benar bersalah ataukah Paulus yang memfitnah rekannya sendiri?",
+      "target_dilemma": "Jika Petrus bersalah, infalibilitas apostolik runtuh; jika Petrus tidak bersalah, surat Galatia berisi fitnah palsu.",
+      "presupposition_demolished": "Asumsi bahwa kepemimpinan para rasul di gereja mula-mula bebas dari keretakan dan perselisihan doktrinal."
+    }
+  ],
+  "epistemic_verdict": {
+    "verdict_summary": "Simulasi dialektika membuktikan bahwa klaim keselarasan mutlak apostolik terbantahkan oleh naskah kanonik Galatia 2:11-14.",
+    "logical_superiority": "AFFIRMATIVE_CRITIQUE (ZUMA)",
+    "unsupported_claims_flagged": ["CLM-MUesrqdzI90-001", "CLM-MUesrqdzI90-006"]
+  }
+}

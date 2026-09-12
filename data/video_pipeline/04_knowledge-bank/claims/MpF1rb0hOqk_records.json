@@ -1,0 +1,34 @@
+[
+  {
+    "record_id": "KNOW-REC-CLM-MpF1rb0hOqk-001",
+    "canonical_key": "canon_clm-mpf1rb0hoqk-001",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "THEOLOGICAL_CLAIM",
+    "content": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+    "verification_status": "supported",
+    "confidence": 0.99,
+    "provenance_chain": {
+      "video_id": "MpF1rb0hOqk",
+      "source_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk",
+      "segment_id": "SEG-MpF1rb0hOqk-0025",
+      "timestamp": "11:20",
+      "speaker": "ZUMA"
+    }
+  },
+  {
+    "record_id": "KNOW-REC-CLM-MpF1rb0hOqk-002",
+    "canonical_key": "canon_clm-mpf1rb0hoqk-002",
+    "topic": "TOP-APOSTOLIC-AUTHORITY",
+    "claim_type": "THEOLOGICAL_CLAIM",
+    "content": "Doktrin dosa asal mengharuskan pengorbanan darah pengganti untuk menghapus hutang kutuk dosa Adam.",
+    "verification_status": "contested",
+    "confidence": 0.9,
+    "provenance_chain": {
+      "video_id": "MpF1rb0hOqk",
+      "source_url": "https://www.youtube.com/watch?v=MpF1rb0hOqk",
+      "segment_id": "SEG-MpF1rb0hOqk-0022",
+      "timestamp": "9:50",
+      "speaker": "OPPONENT"
+    }
+  }
+]

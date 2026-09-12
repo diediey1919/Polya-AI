@@ -1,0 +1,306 @@
+[
+  {
+    "round_num": 1,
+    "turn_speaker": "ZUMA",
+    "speech_type": "SOCRATIC_OPENING",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Kita dudukkan perkara moralitas secara adil: Standar Moralitas Kenabian: Serangan Hadis vs Catatan Moral Tokoh Bible. Jika Anda menguji nabi dengan standar kesucian moral, maka terapkan timbangan yang adil tanpa standar ganda.",
+    "persona_strategy": "verbatim_textual_anchoring",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-001",
+        "segment_id": "SEG-hk2tmZOqVmQ-0015",
+        "timestamp": "6:45",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  },
+  {
+    "round_num": 1,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "APOLOGETIC_OPENING",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Kami mengkritisi riwayat-riwayat yang mencatat perkawinan dan peperangan nabi yang menurut standar moral modern tidak mencerminkan kesucian seorang utusan Allah.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-002",
+        "segment_id": "SEG-hk2tmZOqVmQ-0020",
+        "timestamp": "9:10",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  },
+  {
+    "round_num": 2,
+    "turn_speaker": "ZUMA",
+    "speech_type": "PRIMARY_TEXT_ARGUMENT",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Baik, saudara ingin menggunakan standar kesucian moral absolut! Sekarang mari kita buka kanon Bible saudara sendiri! Buka Kejadian 19:30-38: apa yang dicatat tentang Nabi Lot bersama kedua putri kandungnya di dalam gua? Buka 2 Samuel 11: apa yang dicatat tentang Nabi Daud yang berzina dengan Batsyeba lalu membunuh Uria suaminya? Mengapa Anda bungkam terhadap naskah Anda sendiri?",
+    "persona_strategy": "tu_quoque_demolition",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-001",
+        "segment_id": "SEG-hk2tmZOqVmQ-0015",
+        "timestamp": "6:45",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  },
+  {
+    "round_num": 2,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DOGMATIC_JUSTIFICATION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Bible mencatat kenyataan apa adanya tanpa menutupi dosa para tokohnya, ini bukti kejujuran naskah Bible!",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-002",
+        "segment_id": "SEG-hk2tmZOqVmQ-0020",
+        "timestamp": "9:10",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  },
+  {
+    "round_num": 3,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DEFENSIVE_OBJECTION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Dosa para tokoh Perjanjian Lama menunjukkan bahwa semua manusia berdosa dan membutuhkan Juruselamat yang tidak berdosa yaitu Yesus!",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-002",
+        "segment_id": "SEG-hk2tmZOqVmQ-0020",
+        "timestamp": "9:10",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  },
+  {
+    "round_num": 3,
+    "turn_speaker": "ZUMA",
+    "speech_type": "EVASION_INTERRUPTION",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Tahan! Jangan berapologi dengan dalih 'kejujuran naskah'! Jika nabi berzina dan berbuat inses saudara sebut nabi sah yang diilhamkan firman, atas hak apa saudara menghakimi nabi lain yang hidup dalam pernikahan sah menurut hukum zamannya?",
+    "persona_strategy": "data_focus_interruption",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-001",
+        "segment_id": "SEG-hk2tmZOqVmQ-0015",
+        "timestamp": "6:45",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  },
+  {
+    "round_num": 4,
+    "turn_speaker": "ZUMA",
+    "speech_type": "VERBATIM_REBUTTAL",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Ini adalah logical fallacy: Special Pleading dan Tu Quoque! Saudara menuntut kesucian mutlak tanpa cela dari luar, tetapi saudara memaklumi riwayat inses dan perzinaan kotor dalam kitab saudara sendiri. Standar moralitas tidak boleh bermuka dua!",
+    "persona_strategy": "socratic_verbatim_cornering",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-001",
+        "segment_id": "SEG-hk2tmZOqVmQ-0015",
+        "timestamp": "6:45",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  },
+  {
+    "round_num": 4,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "EVASIVE_DEFENSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Lot dan Daud ditegur oleh Tuhan dan menerima akibat dari perbuatannya.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-002",
+        "segment_id": "SEG-hk2tmZOqVmQ-0020",
+        "timestamp": "9:10",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  },
+  {
+    "round_num": 5,
+    "turn_speaker": "ZUMA",
+    "speech_type": "CONSTRUCTIVE_FATAL_DILEMMA",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Apakah perbuatan inses anak perempuan kepada ayahnya di Kejadian 19 itu perbuatan bermoral atau perbuatan amoral?",
+    "persona_strategy": "constructive_fatal_dilemma",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-001",
+        "segment_id": "SEG-hk2tmZOqVmQ-0015",
+        "timestamp": "6:45",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  },
+  {
+    "round_num": 5,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DILEMMA_RESPONSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Itu perbuatan dosa dan amoral di mata Tuhan.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-002",
+        "segment_id": "SEG-hk2tmZOqVmQ-0020",
+        "timestamp": "9:10",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  },
+  {
+    "round_num": 6,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "THEOLOGICAL_DEFENSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Perjanjian Baru telah menyempurnakan standar moral melalui teladan Yesus yang tanpa dosa.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-002",
+        "segment_id": "SEG-hk2tmZOqVmQ-0020",
+        "timestamp": "9:10",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  },
+  {
+    "round_num": 6,
+    "turn_speaker": "ZUMA",
+    "speech_type": "COUNTER_DEFENSE",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Jika Perjanjian Baru menyempurnakan, mengapa teks Kejadian 19 dan 2 Samuel 11 tetap dipertahankan sebagai kanon yang diilhamkan Allah tanpa revisi? Standar ganda Anda tetap terbuka lebar!",
+    "persona_strategy": "presupposition_inversion",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-001",
+        "segment_id": "SEG-hk2tmZOqVmQ-0015",
+        "timestamp": "6:45",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  },
+  {
+    "round_num": 7,
+    "turn_speaker": "ZUMA",
+    "speech_type": "SYNTHESIS_REBUTTAL",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Dialektika membuktikan kepalsuan argumen moralitas lawan. Anda tidak bisa melempar batu jika rumah Anda sendiri berdinding kaca!",
+    "persona_strategy": "canonical_exclusivity_restriction",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-001",
+        "segment_id": "SEG-hk2tmZOqVmQ-0015",
+        "timestamp": "6:45",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  },
+  {
+    "round_num": 7,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "CONCLUDING_OBJECTION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Kami memandang semua manusia membutuhkan penebusan salib Kristus.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-002",
+        "segment_id": "SEG-hk2tmZOqVmQ-0020",
+        "timestamp": "9:10",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  },
+  {
+    "round_num": 8,
+    "turn_speaker": "ZUMA",
+    "speech_type": "MAIEUTIC_CLOSING",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Keadilan dialektika telah ditegakkan: penyerangan moralitas yang selektif terbukti runtuh saat dihadapkan pada catatan kitab kanonik sendiri. Integritas kenabian sejati berdiri di atas keadilan objektif!",
+    "persona_strategy": "maieutic_epistemic_verdict",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-001",
+        "segment_id": "SEG-hk2tmZOqVmQ-0015",
+        "timestamp": "6:45",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  },
+  {
+    "round_num": 8,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "FINAL_CLOSING",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Kasih karunia Allah melampaui segala perdebatan hukum.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-hk2tmZOqVmQ-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-hk2tmZOqVmQ-002",
+        "segment_id": "SEG-hk2tmZOqVmQ-0020",
+        "timestamp": "9:10",
+        "video_url": "https://www.youtube.com/watch?v=hk2tmZOqVmQ"
+      }
+    ]
+  }
+]

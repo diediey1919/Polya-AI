@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ManifestSchema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "video_id",
+    "source_url",
+    "pipeline_version",
+    "status",
+    "stages",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "video_id": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "pipeline_version": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "running",
+        "completed",
+        "failed",
+        "partial",
+        "needs_review"
+      ]
+    },
+    "stages": {
+      "type": "object",
+      "required": [
+        "01_raw",
+        "02_basic_data",
+        "03_bank_data",
+        "04_knowledge_bank",
+        "05_narrative",
+        "06_debate",
+        "07_evaluation"
+      ],
+      "properties": {
+        "01_raw": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "running",
+            "completed",
+            "failed",
+            "skipped"
+          ]
+        },
+        "02_basic_data": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "running",
+            "completed",
+            "failed",
+            "skipped"
+          ]
+        },
+        "03_bank_data": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "running",
+            "completed",
+            "failed",
+            "skipped"
+          ]
+        },
+        "04_knowledge_bank": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "running",
+            "completed",
+            "failed",
+            "skipped"
+          ]
+        },
+        "05_narrative": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "running",
+            "completed",
+            "failed",
+            "skipped"
+          ]
+        },
+        "06_debate": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "running",
+            "completed",
+            "failed",
+            "skipped"
+          ]
+        },
+        "07_evaluation": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "running",
+            "completed",
+            "failed",
+            "skipped"
+          ]
+        }
+      }
+    },
+    "stage_artifacts": {
+      "type": "object"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "errors": {
+      "type": "array"
+    }
+  }
+}

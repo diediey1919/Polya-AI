@@ -1,0 +1,11 @@
+[
+  {
+    "fallacy_id": "FAL-OMBYffI8VmM-001",
+    "fallacy_type": "Decontextualized Cherry-Picking",
+    "speaker": "OPPONENT",
+    "target_segment": "SEG-OMBYffI8VmM-0048",
+    "explanation": "Mengisolasi Yohanes 10:30 dari penjelasan komparatif Yesus sendiri dalam Yohanes 10:34-36 dan doa syafaat Yohanes 17.",
+    "confidence": 0.95,
+    "is_ai_inference": true
+  }
+]

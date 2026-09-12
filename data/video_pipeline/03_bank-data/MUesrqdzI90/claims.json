@@ -1,0 +1,79 @@
+[
+  {
+    "claim_id": "CLM-MUesrqdzI90-001",
+    "text": "Ada perintah kitab suci untuk menjadikan seluruh bangsa dan rakyat menjadi penganut agama tertentu.",
+    "speaker": "OPPONENT",
+    "claim_type": "THEOLOGICAL_CLAIM",
+    "verification_status": "contested",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.92,
+    "source_segment": "SEG-MUesrqdzI90-0003",
+    "timestamp": "1:37"
+  },
+  {
+    "claim_id": "CLM-MUesrqdzI90-002",
+    "text": "Perdebatan lintas iman tidak perlu dilakukan bila tidak mengubah nasib eskatologis.",
+    "speaker": "OPPONENT",
+    "claim_type": "OPINION",
+    "verification_status": "unverified",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.88,
+    "source_segment": "SEG-MUesrqdzI90-0002",
+    "timestamp": "1:06"
+  },
+  {
+    "claim_id": "CLM-MUesrqdzI90-003",
+    "text": "Diskusi teologis dan apologetika adalah pertanggungjawaban kebenaran rasional dan doktrinal yang sah.",
+    "speaker": "ZUMA",
+    "claim_type": "VALUE_JUDGMENT",
+    "verification_status": "supported",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.95,
+    "source_segment": "SEG-MUesrqdzI90-0005",
+    "timestamp": "2:39"
+  },
+  {
+    "claim_id": "CLM-MUesrqdzI90-004",
+    "text": "Paulus dalam Roma 15:20 menyatakan prinsip pelayanan tidak membangun di atas dasar yang diletakkan orang lain.",
+    "speaker": "OPPONENT",
+    "claim_type": "HISTORICAL_CLAIM",
+    "verification_status": "supported",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.94,
+    "source_segment": "SEG-MUesrqdzI90-0035",
+    "timestamp": "18:49"
+  },
+  {
+    "claim_id": "CLM-MUesrqdzI90-005",
+    "text": "Paulus dalam Galatia 2 secara terbuka menegur dan menyatakan bahwa Petrus berbuat salah/kemunafikan di Antiokhia.",
+    "speaker": "ZUMA",
+    "claim_type": "HISTORICAL_CLAIM",
+    "verification_status": "supported",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.96,
+    "source_segment": "SEG-MUesrqdzI90-0037",
+    "timestamp": "19:53"
+  },
+  {
+    "claim_id": "CLM-MUesrqdzI90-006",
+    "text": "Konflik doktrinal dan teologis antara Paulus dan Petrus membuktikan adanya inkonsistensi otoritas apostolik kanonik.",
+    "speaker": "ZUMA",
+    "claim_type": "INFERENCE",
+    "verification_status": "contested",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.91,
+    "source_segment": "SEG-MUesrqdzI90-0038",
+    "timestamp": "20:25"
+  },
+  {
+    "claim_id": "CLM-MUesrqdzI90-007",
+    "text": "Status keahlian bela diri atau gelar fisik tidak menjamin keabsahan argumen teologis (Irrelevant Authority).",
+    "speaker": "ZUMA",
+    "claim_type": "PHILOSOPHICAL_CLAIM",
+    "verification_status": "supported",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.97,
+    "source_segment": "SEG-MUesrqdzI90-0042",
+    "timestamp": "22:15"
+  }
+]

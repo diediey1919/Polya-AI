@@ -1,0 +1,62 @@
+{
+  "nodes": [
+    {
+      "id": "CLM-MpF1rb0hOqk-001",
+      "type": "claim",
+      "label": "Keadilan Allah yang mutlak menyatakan bahwa anak tidak menanggung kesalahan ayah dan orang yang berbuat dosa dialah yang harus mati (Yehezkiel 18:20).",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "CLM-MpF1rb0hOqk-002",
+      "type": "claim",
+      "label": "Doktrin dosa asal mengharuskan pengorbanan darah pengganti untuk menghapus hutang kutuk dosa Adam.",
+      "speaker": "OPPONENT"
+    },
+    {
+      "id": "ARG-MpF1rb0hOqk-001",
+      "type": "argument",
+      "label": "Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20)",
+      "speaker": "ZUMA"
+    },
+    {
+      "id": "EVI-MpF1rb0hOqk-001",
+      "type": "evidence",
+      "label": "Yehezkiel 18:20 & Ulangan 24:16",
+      "speaker": "SOURCE"
+    },
+    {
+      "id": "CNT-MpF1rb0hOqk-001",
+      "type": "counterargument",
+      "label": "Doktrin dosa asal mengharuskan pengorbanan darah pengganti untuk menghapus hutang kutuk dosa Adam.",
+      "speaker": "OPPONENT"
+    },
+    {
+      "id": "REB-MpF1rb0hOqk-001",
+      "type": "rebuttal",
+      "label": "ZUMA membuktikan ketidakabsahan sanggahan lawan dengan merujuk langsung pada naskah Yehezkiel 18:20 & Ulangan 24:16.",
+      "speaker": "ZUMA"
+    }
+  ],
+  "edges": [
+    {
+      "source": "EVI-MpF1rb0hOqk-001",
+      "target": "CLM-MpF1rb0hOqk-001",
+      "relation": "evidenced_by"
+    },
+    {
+      "source": "ARG-MpF1rb0hOqk-001",
+      "target": "CLM-MpF1rb0hOqk-001",
+      "relation": "supports"
+    },
+    {
+      "source": "CNT-MpF1rb0hOqk-001",
+      "target": "CLM-MpF1rb0hOqk-001",
+      "relation": "attacks"
+    },
+    {
+      "source": "REB-MpF1rb0hOqk-001",
+      "target": "CNT-MpF1rb0hOqk-001",
+      "relation": "rebutted_by"
+    }
+  ]
+}

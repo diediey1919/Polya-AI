@@ -1,0 +1,57 @@
+[
+  {
+    "claim_id": "CLM-MAHmgnsHWRs-001",
+    "text": "Surat Paulus mengajarkan bahwa seluruh orang beriman dan anggota gereja adalah tubuh Kristus (1 Kor 12:27, Efesus 5:30).",
+    "speaker": "ZUMA",
+    "claim_type": "THEOLOGICAL_CLAIM",
+    "verification_status": "supported",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.98,
+    "source_segment": "SEG-MAHmgnsHWRs-0020",
+    "timestamp": "11:53"
+  },
+  {
+    "claim_id": "CLM-MAHmgnsHWRs-002",
+    "text": "Yesus dalam Bible Matius 24:24 menubuatkan akan munculnya banyak mesias-mesias atau kristus-kristus palsu (pseudochristoi).",
+    "speaker": "ZUMA",
+    "claim_type": "HISTORICAL_CLAIM",
+    "verification_status": "supported",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.97,
+    "source_segment": "SEG-MAHmgnsHWRs-0010",
+    "timestamp": "6:11"
+  },
+  {
+    "claim_id": "CLM-MAHmgnsHWRs-003",
+    "text": "Doktrin bahwa pendeta dan jemaat adalah 'tubuh Kristus' secara dialektis membuka penggenapan nubuat Kristus palsu karena mengklaim esensi Kristus di bumi.",
+    "speaker": "ZUMA",
+    "claim_type": "INFERENCE",
+    "verification_status": "contested",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.91,
+    "source_segment": "SEG-MAHmgnsHWRs-0012",
+    "timestamp": "7:14"
+  },
+  {
+    "claim_id": "CLM-MAHmgnsHWRs-004",
+    "text": "Sebutan 'tubuh Kristus' dalam teologi Kristen adalah metafora eklesiologis spiritual, bukan personifikasi ontologis individu sebagai Yesus Sang Mesias.",
+    "speaker": "OPPONENT",
+    "claim_type": "INTERPRETATION",
+    "verification_status": "supported",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.94,
+    "source_segment": "SEG-MAHmgnsHWRs-0006",
+    "timestamp": "3:20"
+  },
+  {
+    "claim_id": "CLM-MAHmgnsHWRs-005",
+    "text": "Teks Paulus dalam 1 Korintus 6:15 menggunakan analogi somatis fisik ('tubuhmu adalah anggota Kristus'), membuktikan adanya identifikasi substansial.",
+    "speaker": "ZUMA",
+    "claim_type": "THEOLOGICAL_CLAIM",
+    "verification_status": "supported",
+    "review_status": "AUTO_EXTRACTED",
+    "confidence": 0.95,
+    "source_segment": "SEG-MAHmgnsHWRs-0021",
+    "timestamp": "12:23"
+  }
+]

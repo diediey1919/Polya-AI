@@ -1,0 +1,306 @@
+[
+  {
+    "round_num": 1,
+    "turn_speaker": "ZUMA",
+    "speech_type": "SOCRATIC_OPENING",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Kita mulai dengan ketertiban dialektika. Topik kita: Doktrin Tubuh Kristus (1 Korintus 12 / Efesus 5) vs Nubuatan Kristus Palsu (Matius 24). Saya ingin meminta pendeta dan jemaat mendefinisikan secara tegas: saat Anda menyatakan diri Anda dan jemaat adalah 'tubuh Kristus', apakah itu identitas ontologis yang menjadikan Anda berstatus Kristus, atau sekadar perumpamaan kiasan?",
+    "persona_strategy": "stepwise_definition_funnel",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-001",
+        "segment_id": "SEG-MAHmgnsHWRs-0020",
+        "timestamp": "11:53",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  },
+  {
+    "round_num": 1,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "APOLOGETIC_OPENING",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Firman Tuhan di 1 Korintus 12:27 jelas mengatakan: 'Kamu semua adalah tubuh Kristus dan kamu masing-masing adalah anggotanya.' Karena kami tubuh Kristus, maka Roh Kristus tinggal di dalam kami secara berkuasa!",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-004"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-004",
+        "segment_id": "SEG-MAHmgnsHWRs-0006",
+        "timestamp": "3:20",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  },
+  {
+    "round_num": 2,
+    "turn_speaker": "ZUMA",
+    "speech_type": "REDUCTIO_ARGUMENT",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Bagus! Mari kita uji konsekuensi logisnya. Jika jemaat saudara adalah 'tubuh Kristus' dalam pengertian hakiki, dan pendeta saudara mengklaim berkuasa sebagai Kristus di bumi, berarti di ruangan ini ada puluhan bahkan ratusan 'Kristus'? Padahal Yesus menubuatkan dalam Matius 24:24: 'Sebab Mesias-mesias palsu dan nabi-nabi palsu akan muncul...'",
+    "persona_strategy": "reductio_ad_absurdum",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-002",
+        "segment_id": "SEG-MAHmgnsHWRs-0010",
+        "timestamp": "6:11",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  },
+  {
+    "round_num": 2,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DOGMATIC_JUSTIFICATION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Bukan ratusan Kristus! Kristus itu satu, tetapi kami adalah anggota-anggota tubuh-Nya yang disatukan oleh baptisan Roh Kudus!",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-003"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-003",
+        "segment_id": "SEG-MAHmgnsHWRs-0012",
+        "timestamp": "7:14",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  },
+  {
+    "round_num": 3,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DEFENSIVE_OBJECTION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Anda jangan memelintir analogi rasul Paulus untuk menuduh kami sebagai mesias palsu. Itu fitnah teologis yang tidak berdasar pada maksud surat Paulus!",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-003"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-003",
+        "segment_id": "SEG-MAHmgnsHWRs-0012",
+        "timestamp": "7:14",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  },
+  {
+    "round_num": 3,
+    "turn_speaker": "ZUMA",
+    "speech_type": "EVASION_INTERRUPTION",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Dengar dulu! Jangan bicara fitnah! Kita kembali ke teks tertulis! Siapa yang memelintir? Paulus di 1 Korintus 6:15 menulis: 'Tidak tahukah kamu, bahwa tubuhmu adalah anggota Kristus?' Lalu Paulus membuat analogi: 'Akan kuambilkah anggota Kristus untuk menyerahkannya kepada cabul?' Ini bahasa metafora somatik! Tapi pendeta Anda mengklaim titel kemuliaan Kristus untuk memerintah jemaat secara mutlak!",
+    "persona_strategy": "data_focus_interruption",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-005"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-005",
+        "segment_id": "SEG-MAHmgnsHWRs-0021",
+        "timestamp": "12:23",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  },
+  {
+    "round_num": 4,
+    "turn_speaker": "ZUMA",
+    "speech_type": "VERBATIM_REBUTTAL",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Buka Matius 24 ayat 4 dan 5! Yesus sendiri berkata: 'Waspadalah supaya jangan ada orang yang menyesatkan kamu! Sebab banyak orang akan datang dengan memakai nama-Ku dan berkata: Akulah Mesias, dan mereka akan menyesatkan banyak orang.' Bila Anda mengaku perwujudan Kristus di dunia, teks ini sedang menelanjangi posisi Anda!",
+    "persona_strategy": "verbatim_textual_challenge",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-002",
+        "segment_id": "SEG-MAHmgnsHWRs-0010",
+        "timestamp": "6:11",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  },
+  {
+    "round_num": 4,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "EVASIVE_DEFENSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Kami tidak pernah mengaku sebagai Mesias pengganti Yesus dari Nazaret. Kami hanya menjalankan otoritas rohani gereja.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-004"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-004",
+        "segment_id": "SEG-MAHmgnsHWRs-0006",
+        "timestamp": "3:20",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  },
+  {
+    "round_num": 5,
+    "turn_speaker": "ZUMA",
+    "speech_type": "CONSTRUCTIVE_FATAL_DILEMMA",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Saya uji dengan dilema fatal: Jika klaim 'tubuh Kristus' saudara memberi saudara hak ilahi untuk disembah atau ditaati secara mutlak, saudara melanggar monoteisme dan menjadi Kristus palsu; jika itu hanya kiasan persekutuan biasa, mengapa pendeta saudara bersikap seolah memiliki kuasa inkarnasi? Pilih mana?",
+    "persona_strategy": "constructive_fatal_dilemma",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-003"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-003",
+        "segment_id": "SEG-MAHmgnsHWRs-0012",
+        "timestamp": "7:14",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  },
+  {
+    "round_num": 5,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "DILEMMA_RESPONSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Kami tunduk pada kepala gereja yaitu Kristus, bukan menyembah manusia.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-004"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-004",
+        "segment_id": "SEG-MAHmgnsHWRs-0006",
+        "timestamp": "3:20",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  },
+  {
+    "round_num": 6,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "THEOLOGICAL_DEFENSE",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Gereja adalah mempelai Kristus yang kudus sebagaimana tertulis dalam Efesus 5, sehingga kesatuan kami dengan Kristus adalah misteri iman yang kudus.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-001",
+        "segment_id": "SEG-MAHmgnsHWRs-0020",
+        "timestamp": "11:53",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  },
+  {
+    "round_num": 6,
+    "turn_speaker": "ZUMA",
+    "speech_type": "COUNTER_DEFENSE",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Kata 'misteri' selalu dijadikan tempat pelarian setiap kali logika naskah membentur klaim Anda! Mempelai itu dua entitas yang berbeda, bukan peleburan ontologis. Jika mempelai tidak sama dengan mempelai laki-laki, gugur sudah anggapan bahwa jemaat adalah hakikat Kristus itu sendiri!",
+    "persona_strategy": "presupposition_inversion",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-001",
+        "segment_id": "SEG-MAHmgnsHWRs-0020",
+        "timestamp": "11:53",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  },
+  {
+    "round_num": 7,
+    "turn_speaker": "ZUMA",
+    "speech_type": "SYNTHESIS_REBUTTAL",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Semua klaim hiperbolik Anda runtuh begitu kita sandingkan 1 Korintus 12 dengan Matius 24. Anda tidak sanggup menunjukkan satu ayat pun di mana seorang murid diizinkan menyebut dirinya inkarnasi Kristus!",
+    "persona_strategy": "socratic_verbatim_cornering",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-005"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-005",
+        "segment_id": "SEG-MAHmgnsHWRs-0021",
+        "timestamp": "12:23",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  },
+  {
+    "round_num": 7,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "CONCLUDING_OBJECTION",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Kami memiliki pengalaman rohani bersama jemaat yang tidak bisa diukur hanya dengan debat argumen.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-004"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-004",
+        "segment_id": "SEG-MAHmgnsHWRs-0006",
+        "timestamp": "3:20",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  },
+  {
+    "round_num": 8,
+    "turn_speaker": "ZUMA",
+    "speech_type": "MAIEUTIC_CLOSING",
+    "speech_category": "[SIMULATED ZUMA RESPONSE]",
+    "speaker_speech": "[SIMULATED ZUMA RESPONSE] Pengalaman rohani yang menabrak naskah adalah kesesatan subjektif! Naskah telah berbicara jelas: nubuatan Matius 24 memperingatkan kita akan klaim-klaim palsu ini. Dialektika membuktikan bahwa analogi tubuh Kristus adalah metafora, bukan lisensi penjelmaan diri!",
+    "persona_strategy": "maieutic_epistemic_verdict",
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-002"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-002",
+        "segment_id": "SEG-MAHmgnsHWRs-0010",
+        "timestamp": "6:11",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  },
+  {
+    "round_num": 8,
+    "turn_speaker": "OPPONENT",
+    "speech_type": "FINAL_CLOSING",
+    "speech_category": "[SOURCE QUOTE]",
+    "speaker_speech": "[SOURCE QUOTE] Kami tetap setia pada panggilan penggembalaan gereja kami.",
+    "persona_strategy": null,
+    "knowledge_refs_used": [
+      "KNOW-REC-CLM-MAHmgnsHWRs-001"
+    ],
+    "provenance_citations": [
+      {
+        "claim_id": "CLM-MAHmgnsHWRs-001",
+        "segment_id": "SEG-MAHmgnsHWRs-0020",
+        "timestamp": "11:53",
+        "video_url": "https://www.youtube.com/watch?v=MAHmgnsHWRs"
+      }
+    ]
+  }
+]

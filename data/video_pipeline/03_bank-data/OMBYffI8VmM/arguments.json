@@ -1,0 +1,24 @@
+[
+  {
+    "argument_id": "ARG-OMBYffI8VmM-001",
+    "claim_id": "CLM-OMBYffI8VmM-001",
+    "speaker": "ZUMA",
+    "topic": "Integritas Eksegesis: Cherry-Picking Ayat vs Konteks Narasi Utuh (Yohanes 10:30 vs Yohanes 17)",
+    "premises": [
+      "Frasa 'Aku dan Bapa adalah satu' dalam Yohanes 10:30 bermakna kesatuan tujuan dan kehendak keselamatan, sebagaimana Yesus mendoakan para murid menjadi 'satu' dalam Yohanes 17:21-22.",
+      "Yohanes 10:30 adalah bukti deklarasi eksplisit bahwa Yesus berhakikat ontologis satu dzat dengan Allah Bapa."
+    ],
+    "assumptions": [
+      "Teks naskah kanonik primer menjadi tolok ukur pengujian doktrin."
+    ],
+    "reasoning": "Analisis dialektis membuktikan ketegangan antara teks naskah dan klaim lawan mengenai Integritas Eksegesis: Cherry-Picking Ayat vs Konteks Narasi Utuh (Yohanes 10:30 vs Yohanes 17).",
+    "conclusion": "Frasa 'Aku dan Bapa adalah satu' dalam Yohanes 10:30 bermakna kesatuan tujuan dan kehendak keselamatan, sebagaimana Yesus mendoakan para murid menjadi 'satu' dalam Yohanes 17:21-22.",
+    "confidence": 0.92,
+    "evidence_ids": [
+      "EVI-OMBYffI8VmM-001"
+    ],
+    "source_segments": [
+      "SEG-OMBYffI8VmM-0050"
+    ]
+  }
+]

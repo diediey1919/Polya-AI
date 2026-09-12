@@ -1,0 +1,26 @@
+[
+  {
+    "relation_id": "REL-MAHmgnsHWRs-001",
+    "from_entity_or_record": "ENT-PERSON-PAULUS",
+    "to_entity_or_record": "KNOW-REC-CLM-MAHmgnsHWRs-001",
+    "type": "asserted_by"
+  },
+  {
+    "relation_id": "REL-MAHmgnsHWRs-002",
+    "from_entity_or_record": "KNOW-REC-CLM-MAHmgnsHWRs-001",
+    "to_entity_or_record": "KNOW-REC-CLM-MAHmgnsHWRs-003",
+    "type": "supports"
+  },
+  {
+    "relation_id": "REL-MAHmgnsHWRs-003",
+    "from_entity_or_record": "KNOW-REC-CLM-MAHmgnsHWRs-004",
+    "to_entity_or_record": "KNOW-REC-CLM-MAHmgnsHWRs-003",
+    "type": "contradicts"
+  },
+  {
+    "relation_id": "REL-MAHmgnsHWRs-004",
+    "from_entity_or_record": "KNOW-REC-CLM-MAHmgnsHWRs-001",
+    "to_entity_or_record": "TOP-ECCLESIOLOGY-BODY",
+    "type": "categorized_under"
+  }
+]

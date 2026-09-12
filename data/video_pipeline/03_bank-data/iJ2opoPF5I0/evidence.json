@@ -1,0 +1,14 @@
+[
+  {
+    "evidence_id": "EVI-iJ2opoPF5I0-001",
+    "claim_id": "CLM-iJ2opoPF5I0-001",
+    "description": "Teks nubuatan apokaliptik Yohanes mengenai Singa dari suku Yehuda, tunas Daud yang berhak membuka ketujuh meterai.",
+    "source": "Wahyu 5:5",
+    "source_type": "scripture",
+    "speaker_reference": "Dikutip langsung dalam perdebatan Gelar Eskatologis Singa Yehuda (Wahyu 5:5) & Batas Otoritas Manusia Fana.",
+    "verification_status": "supported",
+    "reliability": "high",
+    "confidence": 0.96,
+    "source_segment": "SEG-iJ2opoPF5I0-0015"
+  }
+]

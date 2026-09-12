@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "hJci2BInAvQ",
+  "discourse_type": "APOLOGETIC_INTERFAITH_DEBATE",
+  "speaker_perspectives": {
+    "OPPONENT": {
+      "speaker_name": "Guest / Interlocutor",
+      "central_thesis": "Penglihatan kain turun dari langit dalam Kisah Para Rasul 10 membatalkan seluruh hukum makanan haram bagi orang Kristen.",
+      "key_arguments": [
+        "Penglihatan kain turun dari langit dalam Kisah Para Rasul 10 membatalkan seluruh hukum makanan haram bagi orang Kristen."
+      ],
+      "core_presupposition": "Doktrin yang diterima diyakini benar tanpa pemeriksaan tekstual kritis mendalam."
+    },
+    "ZUMA": {
+      "speaker_name": "Zulkifli M. Abbas (ZUMA)",
+      "central_thesis": "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan.",
+      "key_arguments": [
+        "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan."
+      ],
+      "core_presupposition": "Kebenaran doktrinal harus koheren secara naskah tanpa kontradiksi internal."
+    }
+  },
+  "chronological_flow": [
+    {
+      "phase": "Pembukaan & Penetapan Tema",
+      "timestamp_range": "00:00 - 05:00",
+      "topic": "Hukum Makanan Halal/Haram (Imamat 11 vs Kisah 10) & Otoritas Perintah Rasuli",
+      "speaker_action": "ZUMA membuka tema berdasarkan data tertulis dan menantang lawan.",
+      "summary": "Pembukaan fokus pada topik Hukum Makanan Halal/Haram (Imamat 11 vs Kisah 10) & Otoritas Perintah Rasuli."
+    },
+    {
+      "phase": "Interogasi Teks & Konfrontasi Eksegesis",
+      "timestamp_range": "05:00 - 25:00",
+      "topic": "Pembacaan Ayat & Socratic Questioning",
+      "speaker_action": "ZUMA menyodorkan teks Bible LAI TB untuk dibaca lawan.",
+      "summary": "Lawan dihadapkan pada fakta naskah tertulis."
+    },
+    {
+      "phase": "Penguncian Dilema & Penutupan",
+      "timestamp_range": "25:00 - Akhir",
+      "topic": "Kesimpulan Dialektis",
+      "speaker_action": "ZUMA mendemolisi presuposisi lawan dan menetapkan kesimpulan.",
+      "summary": "Lawan terdesak dalam kontradiksi argumennya sendiri."
+    }
+  ],
+  "argument_map": {
+    "theses": [
+      {
+        "speaker": "OPPONENT",
+        "thesis": "Penglihatan kain turun dari langit dalam Kisah Para Rasul 10 membatalkan seluruh hukum makanan haram bagi orang Kristen."
+      },
+      {
+        "speaker": "ZUMA",
+        "thesis": "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan."
+      }
+    ],
+    "dialectical_clashes": [
+      {
+        "topic": "Hukum Makanan Halal/Haram (Imamat 11 vs Kisah 10) & Otoritas Perintah Rasuli",
+        "side_a": {
+          "speaker": "OPPONENT",
+          "argument": "Penglihatan kain turun dari langit dalam Kisah Para Rasul 10 membatalkan seluruh hukum makanan haram bagi orang Kristen."
+        },
+        "side_b": {
+          "speaker": "ZUMA",
+          "argument": "Petrus menolak memakan binatang haram bertahun-tahun setelah kenaikan Yesus (Kisah Para Rasul 10:14), membuktikan para murid tidak menganggap hukum makanan Imamat 11 telah dibatalkan."
+        },
+        "turning_point": "Ketika teks primer Bible dibacakan verbatim.",
+        "resolved_or_deadlock": "Deadlock bagi lawan yang tidak mampu menyelaraskan kontradiksi teks."
+      }
+    ]
+  },
+  "synthesis_summary": "Perdebatan mengenai Hukum Makanan Halal/Haram (Imamat 11 vs Kisah 10) & Otoritas Perintah Rasuli memperlihatkan keunggulan pembuktian naskah primer ZUMA berbanding pembelaan asumtif lawan."
+}

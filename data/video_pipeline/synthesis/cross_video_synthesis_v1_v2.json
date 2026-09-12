@@ -1,0 +1,121 @@
+{
+  "synthesis_version": "1.0.0",
+  "videos_synthesized": [
+    "MUesrqdzI90",
+    "MAHmgnsHWRs",
+    "iJ2opoPF5I0",
+    "tm7Q1ZoWiS8",
+    "p0Xhev3gruQ",
+    "hk2tmZOqVmQ",
+    "MpF1rb0hOqk",
+    "Dps3ZveBnts",
+    "OMBYffI8VmM",
+    "hJci2BInAvQ"
+  ],
+  "cumulative_metrics": {
+    "total_videos": 10,
+    "total_segments_analyzed": 2761,
+    "total_claims_in_kb": 30,
+    "total_arguments": 12,
+    "total_evidence_records": 15,
+    "total_knowledge_gaps_identified": 10,
+    "canonical_entities_count": 7,
+    "canonical_topics_count": 5
+  },
+  "shared_topics": [
+    {
+      "topic": "Pauline Epistolography & Authority (Surat-Surat Paulus)",
+      "videos_involved": [
+        "MUesrqdzI90",
+        "MAHmgnsHWRs",
+        "iJ2opoPF5I0",
+        "tm7Q1ZoWiS8",
+        "p0Xhev3gruQ",
+        "hk2tmZOqVmQ",
+        "MpF1rb0hOqk",
+        "Dps3ZveBnts",
+        "OMBYffI8VmM",
+        "hJci2BInAvQ"
+      ],
+      "relevance": "Kedua video membedah surat-surat Paulus sebagai bukti primer. Video 1 membedah Galatia 2 & Roma 15 (friksi apostolik); Video 2 membedah 1 Korintus 12, 1 Korintus 6, dan Efesus 5 (doktrin tubuh Kristus).",
+      "dialectical_function": "ZUMA secara konsisten menghadapkan teks eksplisit Paulus dengan teologi dogmatis lawan atau teks Bible kanonik."
+    },
+    {
+      "topic": "Uji Konsistensi Teks Kanonik vs Persepsi Doktrin Awam",
+      "videos_involved": [
+        "MUesrqdzI90",
+        "MAHmgnsHWRs",
+        "iJ2opoPF5I0",
+        "tm7Q1ZoWiS8",
+        "p0Xhev3gruQ",
+        "hk2tmZOqVmQ",
+        "MpF1rb0hOqk",
+        "Dps3ZveBnts",
+        "OMBYffI8VmM",
+        "hJci2BInAvQ"
+      ],
+      "relevance": "Dalam kedua video, lawan debat (Karateka Senior di Video 1, Jemaat Katolik di Video 2) terkejut dan terpojok ketika teks Bible dibuka dan dibacakan kata demi kata.",
+      "dialectical_function": "Mengekspos kesenjangan antara apa yang diyakini jemaat awam dengan apa yang tertulis secara literal dalam naskah biblika."
+    }
+  ],
+  "cross_claims_matrix": [
+    {
+      "cluster_id": "CLUSTER-PAULINE-THEOLOGY",
+      "theme": "Teologi dan Kedudukan Paulus dalam Kanon Perjanjian Baru",
+      "video_claims": [
+        {
+          "video_id": "MUesrqdzI90",
+          "claim_id": "CLM-MUesrqdzI90-0005",
+          "claim_text": "Paulus menegur Petrus secara terbuka di Antiokhia karena berbuat salah/kemunafikan (Galatia 2:11-14).",
+          "role": "Membongkar klaim keharmonisan dan infallibilitas konsensus rasul."
+        },
+        {
+          "video_id": "MAHmgnsHWRs",
+          "claim_id": "CLM-MAHmgnsHWRs-0001",
+          "claim_text": "Paulus mendalilkan bahwa seluruh jemaat dan orang beriman adalah tubuh Kristus (1 Kor 12:27, 6:15).",
+          "role": "Membongkar paradoks eskatologis di hadapan nubuat Kristus palsu (Matius 24:24)."
+        }
+      ],
+      "synthesis_insight": "Surat-surat Paulus menjadi pusat polemik dialektis di mana ZUMA menunjukkan bahwa ajaran Paulus mengandung friksi historis dengan para rasul Yerusalem (Petrus) sekaligus menciptakan paradoks eklesiologis yang membahayakan nubuatan Bible."
+    }
+  ],
+  "shared_scripture_sources": [
+    {
+      "source": "Surat-surat Paulus (Corpus Paulinum)",
+      "frequency": 2,
+      "verses": [
+        "Roma 15:20",
+        "Galatia 2:11-14",
+        "1 Korintus 12:27",
+        "1 Korintus 6:15",
+        "Efesus 5:30",
+        "Roma 8:11"
+      ]
+    },
+    {
+      "source": "Bible Sinoptik (Kanon Bible Matius)",
+      "frequency": 2,
+      "verses": [
+        "Matius 28:19 (Amanat Agung)",
+        "Matius 24:24 (Peringatan Mesias Palsu)"
+      ]
+    }
+  ],
+  "recurring_debate_strategies": [
+    {
+      "technique": "Socratic Textual Cornering (Verbatim LAI Verification)",
+      "presence": "Universal (Video 1 & 2)",
+      "description": "ZUMA tidak memberikan tafsir pribadi di awal; ia menuntun lawan membaca ayat tertentu, meminta konfirmasi pemahaman harfiah, lalu meluncurkan dilema fatal."
+    },
+    {
+      "technique": "Presupposition Inversion",
+      "presence": "Universal (Video 1 & 2)",
+      "description": "Mengubah senjata lawan menjadi bumerang (e.g. lawan mengutip Amanat Agung dibalikkan ke Roma 15; lawan membela iman dibalikkan ke tubuh Kristus vs Matius 24)."
+    },
+    {
+      "technique": "Demolition of External Authority Fallacies",
+      "presence": "Universal (Video 1 & 2)",
+      "description": "Menolak intimidasi fisik bela diri (Video 1) dan penolakan pengalihan ke obrolan personal keluarga (Video 2)."
+    }
+  ]
+}

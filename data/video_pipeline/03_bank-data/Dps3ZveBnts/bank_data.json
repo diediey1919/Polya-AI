@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "Dps3ZveBnts",
+  "claims": [
+    {
+      "claim_id": "CLM-Dps3ZveBnts-001",
+      "text": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+      "speaker": "ZUMA",
+      "claim_type": "HISTORICAL_CLAIM",
+      "verification_status": "supported",
+      "review_status": "AUTO_EXTRACTED",
+      "confidence": 0.99,
+      "source_segment": "SEG-Dps3ZveBnts-0035",
+      "timestamp": "16:40"
+    },
+    {
+      "claim_id": "CLM-Dps3ZveBnts-002",
+      "text": "Yesus berdoa semata-mata memberi contoh keteladanan bagi manusia, bukan karena keterbatasan ontologis keilahian-Nya.",
+      "speaker": "OPPONENT",
+      "claim_type": "INTERPRETATION",
+      "verification_status": "contested",
+      "review_status": "AUTO_EXTRACTED",
+      "confidence": 0.86,
+      "source_segment": "SEG-Dps3ZveBnts-0032",
+      "timestamp": "15:10"
+    }
+  ],
+  "arguments": [
+    {
+      "argument_id": "ARG-Dps3ZveBnts-001",
+      "claim_id": "CLM-Dps3ZveBnts-001",
+      "speaker": "ZUMA",
+      "topic": "Doa Yesus di Getsemani (Matius 26:39): Keterbatasan Ontologis vs Kemahakuasaan",
+      "premises": [
+        "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+        "Yesus berdoa semata-mata memberi contoh keteladanan bagi manusia, bukan karena keterbatasan ontologis keilahian-Nya."
+      ],
+      "assumptions": [
+        "Teks naskah kanonik primer menjadi tolok ukur pengujian doktrin."
+      ],
+      "reasoning": "Analisis dialektis membuktikan ketegangan antara teks naskah dan klaim lawan mengenai Doa Yesus di Getsemani (Matius 26:39): Keterbatasan Ontologis vs Kemahakuasaan.",
+      "conclusion": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EVI-Dps3ZveBnts-001"
+      ],
+      "source_segments": [
+        "SEG-Dps3ZveBnts-0035"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "EVI-Dps3ZveBnts-001",
+      "claim_id": "CLM-Dps3ZveBnts-001",
+      "description": "Peristiwa doa di taman Getsemani di mana Yesus mengalami pergumulan dahsyat hingga peluh-Nya menjadi seperti titik-titik darah.",
+      "source": "Matius 26:39 & Lukas 22:42-44",
+      "source_type": "scripture",
+      "speaker_reference": "Dikutip langsung dalam perdebatan Doa Yesus di Getsemani (Matius 26:39): Keterbatasan Ontologis vs Kemahakuasaan.",
+      "verification_status": "supported",
+      "reliability": "high",
+      "confidence": 0.96,
+      "source_segment": "SEG-Dps3ZveBnts-0035"
+    }
+  ],
+  "counterarguments": [
+    {
+      "counterargument_id": "CNT-Dps3ZveBnts-001",
+      "target_claim_id": "CLM-Dps3ZveBnts-001",
+      "speaker": "OPPONENT",
+      "text": "Yesus berdoa semata-mata memberi contoh keteladanan bagi manusia, bukan karena keterbatasan ontologis keilahian-Nya.",
+      "source_segment": "SEG-Dps3ZveBnts-0032",
+      "confidence": 0.88
+    }
+  ],
+  "rebuttals": [
+    {
+      "rebuttal_id": "REB-Dps3ZveBnts-001",
+      "target_counterargument_id": "CNT-Dps3ZveBnts-001",
+      "speaker": "ZUMA",
+      "text": "ZUMA membuktikan ketidakabsahan sanggahan lawan dengan merujuk langsung pada naskah Matius 26:39 & Lukas 22:42-44.",
+      "source_segment": "SEG-Dps3ZveBnts-0035",
+      "confidence": 0.95
+    }
+  ],
+  "fallacies": [
+    {
+      "fallacy_id": "FAL-Dps3ZveBnts-001",
+      "fallacy_type": "Docetic Anthropomorphism Fallacy",
+      "speaker": "OPPONENT",
+      "target_segment": "SEG-Dps3ZveBnts-0034",
+      "explanation": "Menganggap penderitaan dan doa Yesus di Getsemani hanya sandiwara pura-pura/contoh lahiriah demi menyelamatkan kemahakuasaan ontologis.",
+      "confidence": 0.96,
+      "is_ai_inference": true
+    }
+  ],
+  "assumptions": [
+    {
+      "assumption_id": "ASM-Dps3ZveBnts-001",
+      "argument_id": "ARG-Dps3ZveBnts-001",
+      "text": "Integritas suatu doktrin bergantung pada koherensi internal naskah kanoniknya.",
+      "is_implicit": true,
+      "confidence": 0.92
+    }
+  ],
+  "argument_graph": {
+    "nodes": [
+      {
+        "id": "CLM-Dps3ZveBnts-001",
+        "type": "claim",
+        "label": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+        "speaker": "ZUMA"
+      },
+      {
+        "id": "CLM-Dps3ZveBnts-002",
+        "type": "claim",
+        "label": "Yesus berdoa semata-mata memberi contoh keteladanan bagi manusia, bukan karena keterbatasan ontologis keilahian-Nya.",
+        "speaker": "OPPONENT"
+      },
+      {
+        "id": "ARG-Dps3ZveBnts-001",
+        "type": "argument",
+        "label": "Doa Yesus di Getsemani (Matius 26:39): Keterbatasan Ontologis vs Kemahakuasaan",
+        "speaker": "ZUMA"
+      },
+      {
+        "id": "EVI-Dps3ZveBnts-001",
+        "type": "evidence",
+        "label": "Matius 26:39 & Lukas 22:42-44",
+        "speaker": "SOURCE"
+      },
+      {
+        "id": "CNT-Dps3ZveBnts-001",
+        "type": "counterargument",
+        "label": "Yesus berdoa semata-mata memberi contoh keteladanan bagi manusia, bukan karena keterbatasan ontologis keilahian-Nya.",
+        "speaker": "OPPONENT"
+      },
+      {
+        "id": "REB-Dps3ZveBnts-001",
+        "type": "rebuttal",
+        "label": "ZUMA membuktikan ketidakabsahan sanggahan lawan dengan merujuk langsung pada naskah Matius 26:39 & Lukas 22:42-44.",
+        "speaker": "ZUMA"
+      }
+    ],
+    "edges": [
+      {
+        "source": "EVI-Dps3ZveBnts-001",
+        "target": "CLM-Dps3ZveBnts-001",
+        "relation": "evidenced_by"
+      },
+      {
+        "source": "ARG-Dps3ZveBnts-001",
+        "target": "CLM-Dps3ZveBnts-001",
+        "relation": "supports"
+      },
+      {
+        "source": "CNT-Dps3ZveBnts-001",
+        "target": "CLM-Dps3ZveBnts-001",
+        "relation": "attacks"
+      },
+      {
+        "source": "REB-Dps3ZveBnts-001",
+        "target": "CNT-Dps3ZveBnts-001",
+        "relation": "rebutted_by"
+      }
+    ]
+  }
+}

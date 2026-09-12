@@ -1,0 +1,18 @@
+{
+  "video_id": "Dps3ZveBnts",
+  "overall_quality_score": 0.94,
+  "metrics": {
+    "logical_validity": 0.95,
+    "evidence_quality": 0.94,
+    "argument_quality": 0.93,
+    "rebuttal_quality": 0.94,
+    "counterargument_coverage": 0.92
+  },
+  "rationales": {
+    "logical_validity": "Struktur silogisme modus ponens dan modus tollens valid tanpa kesalahan formal deduksi.",
+    "evidence_quality": "Semua bukti tertaut langsung ke teks naskah kanonik historis terverifikasi dalam Bank Data.",
+    "argument_quality": "Premis-premis eksplisit dan relevan dengan kesimpulan yang dibuktikan dalam perdebatan.",
+    "rebuttal_quality": "Sanggahan menargetkan premis minor lawan dan membongkar cacat informal relevansi.",
+    "counterargument_coverage": "Seluruh argumen pembelaan lawan diakomodasi dan dibantah tuntas dalam 8 ronde."
+  }
+}

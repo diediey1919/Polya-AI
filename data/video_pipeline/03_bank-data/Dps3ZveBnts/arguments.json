@@ -1,0 +1,24 @@
+[
+  {
+    "argument_id": "ARG-Dps3ZveBnts-001",
+    "claim_id": "CLM-Dps3ZveBnts-001",
+    "speaker": "ZUMA",
+    "topic": "Doa Yesus di Getsemani (Matius 26:39): Keterbatasan Ontologis vs Kemahakuasaan",
+    "premises": [
+      "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+      "Yesus berdoa semata-mata memberi contoh keteladanan bagi manusia, bukan karena keterbatasan ontologis keilahian-Nya."
+    ],
+    "assumptions": [
+      "Teks naskah kanonik primer menjadi tolok ukur pengujian doktrin."
+    ],
+    "reasoning": "Analisis dialektis membuktikan ketegangan antara teks naskah dan klaim lawan mengenai Doa Yesus di Getsemani (Matius 26:39): Keterbatasan Ontologis vs Kemahakuasaan.",
+    "conclusion": "Yesus bersujud berdoa dengan ketakutan dan memohon agar cawan penderitaan lalu dari-Nya (Matius 26:39), membuktikan keberadaan kehendak manusiawi yang tunduk kepada Allah.",
+    "confidence": 0.92,
+    "evidence_ids": [
+      "EVI-Dps3ZveBnts-001"
+    ],
+    "source_segments": [
+      "SEG-Dps3ZveBnts-0035"
+    ]
+  }
+]

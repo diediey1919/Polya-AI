@@ -1,0 +1,228 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "MAHmgnsHWRs",
+  "claims": [
+    {
+      "claim_id": "CLM-MAHmgnsHWRs-001",
+      "text": "Surat Paulus mengajarkan bahwa seluruh orang beriman dan anggota gereja adalah tubuh Kristus (1 Kor 12:27, Efesus 5:30).",
+      "speaker": "ZUMA",
+      "claim_type": "THEOLOGICAL_CLAIM",
+      "verification_status": "supported",
+      "review_status": "AUTO_EXTRACTED",
+      "confidence": 0.98,
+      "source_segment": "SEG-MAHmgnsHWRs-0020",
+      "timestamp": "11:53"
+    },
+    {
+      "claim_id": "CLM-MAHmgnsHWRs-002",
+      "text": "Yesus dalam Bible Matius 24:24 menubuatkan akan munculnya banyak mesias-mesias atau kristus-kristus palsu (pseudochristoi).",
+      "speaker": "ZUMA",
+      "claim_type": "HISTORICAL_CLAIM",
+      "verification_status": "supported",
+      "review_status": "AUTO_EXTRACTED",
+      "confidence": 0.97,
+      "source_segment": "SEG-MAHmgnsHWRs-0010",
+      "timestamp": "6:11"
+    },
+    {
+      "claim_id": "CLM-MAHmgnsHWRs-003",
+      "text": "Doktrin bahwa pendeta dan jemaat adalah 'tubuh Kristus' secara dialektis membuka penggenapan nubuat Kristus palsu karena mengklaim esensi Kristus di bumi.",
+      "speaker": "ZUMA",
+      "claim_type": "INFERENCE",
+      "verification_status": "contested",
+      "review_status": "AUTO_EXTRACTED",
+      "confidence": 0.91,
+      "source_segment": "SEG-MAHmgnsHWRs-0012",
+      "timestamp": "7:14"
+    },
+    {
+      "claim_id": "CLM-MAHmgnsHWRs-004",
+      "text": "Sebutan 'tubuh Kristus' dalam teologi Kristen adalah metafora eklesiologis spiritual, bukan personifikasi ontologis individu sebagai Yesus Sang Mesias.",
+      "speaker": "OPPONENT",
+      "claim_type": "INTERPRETATION",
+      "verification_status": "supported",
+      "review_status": "AUTO_EXTRACTED",
+      "confidence": 0.94,
+      "source_segment": "SEG-MAHmgnsHWRs-0006",
+      "timestamp": "3:20"
+    },
+    {
+      "claim_id": "CLM-MAHmgnsHWRs-005",
+      "text": "Teks Paulus dalam 1 Korintus 6:15 menggunakan analogi somatis fisik ('tubuhmu adalah anggota Kristus'), membuktikan adanya identifikasi substansial.",
+      "speaker": "ZUMA",
+      "claim_type": "THEOLOGICAL_CLAIM",
+      "verification_status": "supported",
+      "review_status": "AUTO_EXTRACTED",
+      "confidence": 0.95,
+      "source_segment": "SEG-MAHmgnsHWRs-0021",
+      "timestamp": "12:23"
+    }
+  ],
+  "arguments": [
+    {
+      "argument_id": "ARG-MAHmgnsHWRs-001",
+      "claim_id": "CLM-MAHmgnsHWRs-003",
+      "speaker": "ZUMA",
+      "topic": "Paradoks Eklesiologis Tubuh Kristus vs Nubuatan Kristus Palsu",
+      "premises": [
+        "Paulus mendalilkan jemaat tubuh Kristus.",
+        "Yesus memperingatkan klaim Kristus palsu."
+      ],
+      "assumptions": [
+        "Bahasa tubuh Kristus ditafsirkan literal-identik."
+      ],
+      "reasoning": "Klaim tubuh Kristus memposisikan diri sebagai perwujudan Kristus.",
+      "conclusion": "Gereja terperangkap dalam dilema Matius 24:24.",
+      "confidence": 0.9,
+      "evidence_ids": [
+        "EVI-MAHmgnsHWRs-001",
+        "EVI-MAHmgnsHWRs-002",
+        "EVI-MAHmgnsHWRs-003"
+      ],
+      "source_segments": [
+        "SEG-MAHmgnsHWRs-0010",
+        "SEG-MAHmgnsHWRs-0020"
+      ]
+    },
+    {
+      "argument_id": "ARG-MAHmgnsHWRs-002",
+      "claim_id": "CLM-MAHmgnsHWRs-004",
+      "speaker": "OPPONENT",
+      "topic": "Pembelaan Metafora Komuni Eklesiastik",
+      "premises": [
+        "Gereja Katolik memahami tubuh Kristus sebagai persekutuan mistik.",
+        "Tidak ada pendeta mengaku Tuhan Yesus pribadi."
+      ],
+      "assumptions": [
+        "Metafora teologis berbeda dari identitas personal."
+      ],
+      "reasoning": "Metafora tidak memenuhi definisi nubuat Matius 24:24.",
+      "conclusion": "Tuduhan ZUMA merupakan kesalahan kategori.",
+      "confidence": 0.88,
+      "evidence_ids": [],
+      "source_segments": [
+        "SEG-MAHmgnsHWRs-0006",
+        "SEG-MAHmgnsHWRs-0008"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "EVI-MAHmgnsHWRs-001",
+      "claim_id": "CLM-MAHmgnsHWRs-001",
+      "description": "Teks 1 Kor 12:27.",
+      "source": "1 Korintus 12:27",
+      "source_type": "scripture",
+      "speaker_reference": "Bible LAI TB.",
+      "verification_status": "supported",
+      "reliability": "high",
+      "confidence": 0.99,
+      "source_segment": "SEG-MAHmgnsHWRs-0020"
+    },
+    {
+      "evidence_id": "EVI-MAHmgnsHWRs-002",
+      "claim_id": "CLM-MAHmgnsHWRs-002",
+      "description": "Teks Matius 24:24.",
+      "source": "Matius 24:24",
+      "source_type": "scripture",
+      "speaker_reference": "Bible Matius.",
+      "verification_status": "supported",
+      "reliability": "high",
+      "confidence": 0.97,
+      "source_segment": "SEG-MAHmgnsHWRs-0010"
+    },
+    {
+      "evidence_id": "EVI-MAHmgnsHWRs-003",
+      "claim_id": "CLM-MAHmgnsHWRs-005",
+      "description": "Teks 1 Kor 6:15.",
+      "source": "1 Korintus 6:15",
+      "source_type": "scripture",
+      "speaker_reference": "1 Korintus 6:15.",
+      "verification_status": "supported",
+      "reliability": "high",
+      "confidence": 0.96,
+      "source_segment": "SEG-MAHmgnsHWRs-0021"
+    }
+  ],
+  "counterarguments": [
+    {
+      "counterargument_id": "CNT-MAHmgnsHWRs-001",
+      "target_claim_id": "CLM-MAHmgnsHWRs-003",
+      "speaker": "OPPONENT",
+      "text": "Frasa tubuh Kristus kiasan rohani.",
+      "source_segment": "SEG-MAHmgnsHWRs-0006",
+      "confidence": 0.91
+    }
+  ],
+  "rebuttals": [
+    {
+      "rebuttal_id": "REB-MAHmgnsHWRs-001",
+      "target_counterargument_id": "CNT-MAHmgnsHWRs-001",
+      "speaker": "ZUMA",
+      "text": "Paulus memperlakukannya konkret pada 1 Korintus 6:15.",
+      "source_segment": "SEG-MAHmgnsHWRs-0022",
+      "confidence": 0.94
+    }
+  ],
+  "fallacies": [
+    {
+      "fallacy_id": "FAL-MAHmgnsHWRs-001",
+      "fallacy_type": "Hermeneutical Equivocation",
+      "speaker": "ZUMA",
+      "target_segment": "SEG-MAHmgnsHWRs-0012",
+      "explanation": "Menyamakan metafora jemaat dengan klaim mesianik personal.",
+      "confidence": 0.93,
+      "is_ai_inference": true
+    }
+  ],
+  "assumptions": [
+    {
+      "assumption_id": "ASM-MAHmgnsHWRs-001",
+      "argument_id": "ARG-MAHmgnsHWRs-001",
+      "text": "Bahasa eklesiologi biblika tunduk pada konsistensi literal.",
+      "is_implicit": true,
+      "confidence": 0.91
+    }
+  ],
+  "argument_graph": {
+    "nodes": [
+      {
+        "id": "CLM-MAHmgnsHWRs-001",
+        "type": "claim",
+        "label": "Surat Paulus mengajarkan bahwa seluruh orang beriman dan anggota gereja adalah tubuh Kristus (1 Kor 12:27, Efesus 5:30).",
+        "speaker": "ZUMA"
+      },
+      {
+        "id": "CLM-MAHmgnsHWRs-002",
+        "type": "claim",
+        "label": "Yesus dalam Bible Matius 24:24 menubuatkan akan munculnya banyak mesias-mesias atau kristus-kristus palsu (pseudochristoi).",
+        "speaker": "ZUMA"
+      },
+      {
+        "id": "CLM-MAHmgnsHWRs-003",
+        "type": "claim",
+        "label": "Doktrin bahwa pendeta dan jemaat adalah 'tubuh Kristus' secara dialektis membuka penggenapan nubuat Kristus palsu karena mengklaim esensi Kristus di bumi.",
+        "speaker": "ZUMA"
+      },
+      {
+        "id": "CLM-MAHmgnsHWRs-004",
+        "type": "claim",
+        "label": "Sebutan 'tubuh Kristus' dalam teologi Kristen adalah metafora eklesiologis spiritual, bukan personifikasi ontologis individu sebagai Yesus Sang Mesias.",
+        "speaker": "OPPONENT"
+      },
+      {
+        "id": "CLM-MAHmgnsHWRs-005",
+        "type": "claim",
+        "label": "Teks Paulus dalam 1 Korintus 6:15 menggunakan analogi somatis fisik ('tubuhmu adalah anggota Kristus'), membuktikan adanya identifikasi substansial.",
+        "speaker": "ZUMA"
+      }
+    ],
+    "edges": [
+      {
+        "source": "EVI-MAHmgnsHWRs-001",
+        "target": "CLM-MAHmgnsHWRs-001",
+        "relation": "evidenced_by"
+      }
+    ]
+  }
+}
