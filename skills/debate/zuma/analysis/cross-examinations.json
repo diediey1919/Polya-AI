@@ -1,0 +1,13 @@
+{
+  "cross_examination_patterns": [
+    {
+      "name": "The Sequential Narrowing Ladder",
+      "step_1": "Tanya definisi istilah inti (misal: 'Kristus ada berapa?')",
+      "step_2": "Kunci jawaban tunggal lawan ('Hanya satu')",
+      "step_3": "Bacakan ayat Bible yang mendefinisikan jemaat sebagai entitas yang sama",
+      "step_4": "Hadapkan lawan pada kontradiksi ucapannya sendiri",
+      "frequency": "Observed in 9 of 10 videos",
+      "confidence": "HIGH"
+    }
+  ]
+}

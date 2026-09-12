@@ -1,0 +1,26 @@
+{
+  "category": "CONTEXTUAL_PATTERNS",
+  "description": "Pola perilaku yang hanya muncul pada topik atau lawan spesifik.",
+  "patterns": [
+    {
+      "pattern_id": "PAT-CTX-001",
+      "name": "Reflexive Moral Peritrope (Pembalikan Standar Moral)",
+      "context": "Debat Sirah Nabi Muhammad SAW / Hadis Moralitas",
+      "frequency_observed": "Observed in video-006 & video-001",
+      "confidence": "MEDIUM",
+      "status": "CONTEXTUAL",
+      "description": "Jika lawan menyerang moralitas Nabi, ZUMA membalikkan dengan membacakan skandal moral para nabi di Kitab Kejadian/Samuel.",
+      "decision_rule": "When opponent uses moral attack against Islam -> activate OT patriarchal moral mirrors."
+    },
+    {
+      "pattern_id": "PAT-CTX-002",
+      "name": "Christological Subordination Trap (Jebakan Getsemani)",
+      "context": "Debat Keilahian Yesus & Trinitas",
+      "frequency_observed": "Observed in video-002, video-005, video-008",
+      "confidence": "HIGH",
+      "status": "CONTEXTUAL",
+      "description": "Menghadapkan sifat terbatas Yesus (berdoa, lapar, mati) dengan definisi Tuhan Yang Mahakuasa.",
+      "decision_rule": "When opponent claims Jesus is Almighty God -> cite Gethsemane prayer (Matthew 26:39) or limitation verses."
+    }
+  ]
+}

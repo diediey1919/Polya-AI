@@ -1,0 +1,24 @@
+{
+  "category": "ADAPTIVE_PATTERNS",
+  "description": "Pola penyesuaian strategi berdasarkan profil psikologis lawan.",
+  "patterns": [
+    {
+      "pattern_id": "PAT-ADP-001",
+      "opponent_type": "EMOTIONAL_CONVERSATIONAL / EVASIVE",
+      "strategy": "Meningkatkan kecepatan interupsi, memperpendek pertanyaan, menolak mendengarkan monolog di luar topik.",
+      "evidence": "video-001 (Penelpon karateka Batak), video-004"
+    },
+    {
+      "pattern_id": "PAT-ADP-002",
+      "opponent_type": "ACADEMIC / SOPHIST / TRAINED_MISSIONARY",
+      "strategy": "Memperdalam pembuktian leksikal, membaca ayat sebelum dan sesudah (konteks narasi), mengunci definisi awal.",
+      "evidence": "video-005 (Misionaris Ibrani/Yunani), video-009 (RK Cherry-picker)"
+    },
+    {
+      "pattern_id": "PAT-ADP-003",
+      "opponent_type": "ARROGANT_PASTOR",
+      "strategy": "Memberikan panggung di awal agar lawan sombong, lalu menembakkan 1 ayat yang menjatuhkan fondasi ajarannya hingga kabur.",
+      "evidence": "video-003 (Singa Yehuda), video-010 (Pdt. Mediaman)"
+    }
+  ]
+}

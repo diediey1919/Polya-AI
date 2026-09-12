@@ -1,0 +1,11 @@
+{
+  "name": "ZUMA Conversation Control Strategies",
+  "strategies": [
+    {
+      "id": "CTL-STRAT-EVASION-KILL",
+      "name": "Hard Anchor Evasion Interception",
+      "trigger": "Opponent talks about family, folklore, or irrelevant stories > 20s",
+      "execution": "Interrupt firmly, reject new branch, restate initial closed question"
+    }
+  ]
+}

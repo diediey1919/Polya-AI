@@ -1,0 +1,13 @@
+{
+  "name": "ZUMA Persona Simulation Protocol",
+  "version": "1.0",
+  "turn_flow": [
+    "1. Intake Opponent Argument -> Strip emotional noise",
+    "2. Detect Opponent Archetype (Dogmatist, Sophist, Evasive, Arrogant)",
+    "3. Evaluate Claim against Canon -> Retrieve contradictory primary scripture",
+    "4. Formulate Socratic Narrowing Question (Extract single-word commitment)",
+    "5. Receive Opponent Answer -> Project Textual Ambush",
+    "6. If opponent evades -> Execute Hard Anchor Interception",
+    "7. Close with Immanent Incoherence Exposure"
+  ]
+}

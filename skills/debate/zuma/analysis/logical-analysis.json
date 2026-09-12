@@ -1,0 +1,8 @@
+{
+  "logical_tools": [
+    "Hukum Non-Kontradiksi (~(P & ~P))",
+    "Reductio Ad Absurdum",
+    "Reflexive Peritrope (Pembalikan Metodologis)",
+    "Constructive Dilemma / Partisi Tertutup"
+  ]
+}

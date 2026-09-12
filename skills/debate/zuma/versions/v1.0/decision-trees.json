@@ -1,0 +1,23 @@
+{
+  "decision_trees": [
+    {
+      "id": "TREE-001-OPPONENT-ASSERTION",
+      "name": "Pohon Respon terhadap Klaim Bebas Bukti Lawan",
+      "node_start": "Lawan menyatakan klaim teologis/historis positif.",
+      "branches": [
+        {
+          "condition": "Lawan tidak menyertakan pasal/ayat",
+          "action": "Tuntut dalil primer eksplisit ('Di pasal dan nomor ayat berapa?')"
+        },
+        {
+          "condition": "Lawan mengutip ayat terpotong (cherry-picking)",
+          "action": "Bacakan perikop utuh (ayat sebelum dan sesudah), buktikan distorsi makna"
+        },
+        {
+          "condition": "Lawan mengalihkan topik pembicaraan",
+          "action": "Intersepsi, tolak cabang baru, kunci kembali ke pertanyaan awal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "ZUMA Cross-Examination Strategies",
+  "strategies": [
+    {
+      "id": "CX-STRAT-SEQUENTIAL-LADDER",
+      "name": "5-Step Sequential Interrogation Ladder",
+      "steps": [
+        "Confirm Bible authority",
+        "Extract Jesus supremacy rule",
+        "Cite contradictory Pauline verse",
+        "Ask reconciliation",
+        "Lock contradiction"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "total_control_actions": 10,
+  "actions": [
+    {
+      "id": "CTL-OBS-MUesrqdzI90-0031",
+      "video_id": "video-001",
+      "timestamp": "16:36",
+      "control_action": "Intersepsi pengalihan topik; mengembalikan penantang ke satu premis",
+      "trigger": "Opponent evasion / story telling"
+    },
+    {
+      "id": "CTL-OBS-MUesrqdzI90-0246",
+      "video_id": "video-001",
+      "timestamp": "2:08:18",
+      "control_action": "Intersepsi pengalihan topik; mengembalikan penantang ke satu premis",
+      "trigger": "Opponent evasion / story telling"
+    },
+    {
+      "id": "CTL-OBS-MAHmgnsHWRs-0110",
+      "video_id": "video-002",
+      "timestamp": "59:47",
+      "control_action": "Intersepsi pengalihan topik; mengembalikan penantang ke satu premis",
+      "trigger": "Opponent evasion / story telling"
+    },
+    {
+      "id": "CTL-OBS-MAHmgnsHWRs-0180",
+      "video_id": "video-002",
+      "timestamp": "1:36:40",
+      "control_action": "Intersepsi pengalihan topik; mengembalikan penantang ke satu premis",
+      "trigger": "Opponent evasion / story telling"
+    },
+    {
+      "id": "CTL-OBS-MAHmgnsHWRs-0181",
+      "video_id": "video-002",
+      "timestamp": "1:37:11",
+      "control_action": "Intersepsi pengalihan topik; mengembalikan penantang ke satu premis",
+      "trigger": "Opponent evasion / story telling"
+    },
+    {
+      "id": "CTL-OBS-MAHmgnsHWRs-0239",
+      "video_id": "video-002",
+      "timestamp": "2:08:05",
+      "control_action": "Intersepsi pengalihan topik; mengembalikan penantang ke satu premis",
+      "trigger": "Opponent evasion / story telling"
+    },
+    {
+      "id": "CTL-OBS-p0Xhev3gruQ-0053",
+      "video_id": "video-005",
+      "timestamp": "26:49",
+      "control_action": "Intersepsi pengalihan topik; mengembalikan penantang ke satu premis",
+      "trigger": "Opponent evasion / story telling"
+    },
+    {
+      "id": "CTL-OBS-p0Xhev3gruQ-0065",
+      "video_id": "video-005",
+      "timestamp": "32:58",
+      "control_action": "Intersepsi pengalihan topik; mengembalikan penantang ke satu premis",
+      "trigger": "Opponent evasion / story telling"
+    },
+    {
+      "id": "CTL-OBS-MpF1rb0hOqk-0186",
+      "video_id": "video-007",
+      "timestamp": "1:36:24",
+      "control_action": "Intersepsi pengalihan topik; mengembalikan penantang ke satu premis",
+      "trigger": "Opponent evasion / story telling"
+    },
+    {
+      "id": "CTL-OBS-OMBYffI8VmM-0045",
+      "video_id": "video-009",
+      "timestamp": "23:36",
+      "control_action": "Intersepsi pengalihan topik; mengembalikan penantang ke satu premis",
+      "trigger": "Opponent evasion / story telling"
+    }
+  ]
+}

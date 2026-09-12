@@ -1,0 +1,24 @@
+{
+  "category": "SIGNATURE_PATTERNS",
+  "description": "Ciri khas metodologis paling menonjol dari Mazhab Debat ZUMA.",
+  "patterns": [
+    {
+      "signature_id": "SIG-001",
+      "name": "The 'Full Data' Anchor (Jangkar Pamer Teks Objektif)",
+      "description": "Menampilkan teks Bible di layar atau membacakan pasal dan nomor ayat secara presisi, lalu menegaskan bahwa bukan ZUMA yang menuduh, melainkan kitab lawan sendiri yang bersaksi.",
+      "impact": "Menetralisir tuduhan sentimen pribadi; memindahkan beban konflik menjadi 'Lawan vs Kitabnya Sendiri'."
+    },
+    {
+      "signature_id": "SIG-002",
+      "name": "The Pauline Wedge (Pembelahan Yesus vs Paulus)",
+      "description": "Memisahkan ajaran Yesus dari surat-surat Paulus, menunjukkan bahwa doktrin gereja modern mayoritas bersumber dari konstruksi Paulus yang bertentangan dengan pernyataan Yesus.",
+      "impact": "Memecah fondasi teologi lawan dari dalam kanon mereka sendiri."
+    },
+    {
+      "signature_id": "SIG-003",
+      "name": "The Irresistible Concession Extraction (Pencabutan Pengakuan Tanpa Sadar)",
+      "description": "Meminta lawan menyepakati suatu premis umum yang tampak tidak berbahaya, yang 10 detik kemudian menjadi pisau eksekusi argumennya.",
+      "impact": "Lawan tidak bisa menyangkal karena ia sendiri yang baru saja mengonfirmasi premis tersebut."
+    }
+  ]
+}

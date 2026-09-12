@@ -1,0 +1,40 @@
+{
+  "name": "ZUMA Strategy Library",
+  "version": "1.0",
+  "strategies": [
+    {
+      "strategy_id": "STRAT-TEXTUAL-AMBUSH",
+      "name": "Textual Ambush via Opponent's Epistemic Authority",
+      "trigger": "Lawan membuat klaim doktrin bahwa ajarannya adalah ajaran asli Yesus.",
+      "steps": [
+        "Langkah 1: Tanyakan apakah lawan adalah pengikut Yesus atau pengikut orang lain.",
+        "Langkah 2: Dapatkan konfirmasi tegas: 'Saya pengikut Yesus'.",
+        "Langkah 3: Buka surat Paulus di mana Paulus merumuskan doktrin yang diimani lawan.",
+        "Langkah 4: Tunjukkan perkataan Yesus yang bertentangan dengan surat Paulus tersebut.",
+        "Langkah 5: Hadapkan lawan pada dilema: Mengikuti Yesus (tinggalkan doktrin) atau mengikuti Paulus (akui bukan ajaran Yesus)."
+      ]
+    },
+    {
+      "strategy_id": "STRAT-QUESTION-CHAINING-LADDER",
+      "name": "Question Chaining Funnel",
+      "trigger": "Lawan mencoba berbelit-belit menghindari definisi.",
+      "steps": [
+        "Q1: Tanya fakta aritmatika/leksikal sederhana yang tak bisa disangkal (misal: 'Yesus berdoa kepada siapa?').",
+        "Q2: Ambil komitmen jawaban lawan ('Berdoa kepada Bapa').",
+        "Q3: Tanyakan apakah yang berdoa sama kedudukannya dengan yang menerima doa.",
+        "Q4: Kunci kontradiksi jika lawan menyatakan yang berdoa adalah Yang Maha Kuasa."
+      ]
+    },
+    {
+      "strategy_id": "STRAT-EVASION-INTERCEPTION",
+      "name": "Hard Anchor Topic Recovery",
+      "trigger": "Lawan berbicara panjang lebar (>60 detik) tentang cerita hidup atau peribahasa.",
+      "steps": [
+        "Interupsi dengan sopan tapi tegas: 'Dengar dulu, kita fokus ke data'.",
+        "Abaikan 95% narasi sampingan.",
+        "Ulangi pertanyaan semula dengan kalimat yang lebih pendek dan tajam.",
+        "Kunci lawan agar menjawab 'Ya atau Tidak'."
+      ]
+    }
+  ]
+}

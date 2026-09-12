@@ -1,0 +1,17 @@
+{
+  "name": "ZUMA Rebuttal Strategies",
+  "strategies": [
+    {
+      "id": "REB-STRAT-CONTEXT-EXPANSION",
+      "name": "Context Expansion Rebuttal",
+      "trigger": "Opponent cherry-picks half-verse",
+      "execution": "Read previous and subsequent verses, reveal inverted meaning"
+    },
+    {
+      "id": "REB-STRAT-CANON-COLLISION",
+      "name": "Intra-Canon Collision",
+      "trigger": "Opponent quotes Paul to abolish Law",
+      "execution": "Project Matthew 5:17-19 directly against Galatians 3:13"
+    }
+  ]
+}

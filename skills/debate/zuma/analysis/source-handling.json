@@ -1,0 +1,13 @@
+{
+  "total_source_actions": 1,
+  "actions": [
+    {
+      "id": "SRC-OBS-hk2tmZOqVmQ-0127",
+      "video_id": "video-006",
+      "timestamp": "1:05:40",
+      "behavior": "Menuntut dalil primer tertulis dari Bible (bukan penafsiran bebas)",
+      "technique": "Primary Source Demand",
+      "target": "Opponent unevidenced assertion"
+    }
+  ]
+}

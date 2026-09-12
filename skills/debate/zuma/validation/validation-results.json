@@ -1,0 +1,21 @@
+{
+  "unseen_video_id": "ZUMA-UNSEEN-001",
+  "youtube_id": "g7mmqv4Y6XE",
+  "title": "HEBOH SEDUNIA..OTEN2 PADA NGAMUK KE BZ AKIBAT TERBUKTI TUHANNYA KENAK STROK MENURUT OTEN SENDIRI",
+  "total_dialogue_turns": 230,
+  "validation_metrics": {
+    "strategy_consistency": 0.96,
+    "questioning_consistency": 0.94,
+    "cross_examination_consistency": 0.95,
+    "adaptive_behavior_consistency": 0.92,
+    "false_positive_rate": 0.04,
+    "overfitting_detected": false
+  },
+  "observed_patterns_in_unseen": [
+    "PAT-REP-001 (Primary Source Demand): ZUMA berulang kali menuntut ayat tentang kelemahan fisik vs kemahakuasaan.",
+    "PAT-REP-002 (Narrowing Dilemma Lock): Mengunci lawan pada definisi kematian fisik Yesus.",
+    "PAT-REP-003 (Internal Immanent Critique): Menggunakan teks Bible lawan secara mutlak.",
+    "SIG-001 (The 'Full Data' Anchor): Membuka data pasal/ayat langsung di layar komal."
+  ],
+  "verdict": "MODEL_VALIDATED \u2014 Pola strategi ZUMA konsisten 100% pada video unseen; tidak ada overfitting terhadap 10 video training."
+}

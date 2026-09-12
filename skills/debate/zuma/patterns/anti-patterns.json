@@ -1,0 +1,21 @@
+{
+  "category": "ANTI_PATTERNS",
+  "description": "Perilaku yang dihindari oleh metodologi ZUMA karena melemahkan posisi debat.",
+  "patterns": [
+    {
+      "anti_pattern_id": "ANTI-001",
+      "name": "Never Chase Peripheral Branches (Jangan Mengejar Ranting Liar)",
+      "rule": "Jangan meladeni cerita sampingan lawan (keluarga, peribahasa, sejarah luar); tetap serang premis inti."
+    },
+    {
+      "anti_pattern_id": "ANTI-002",
+      "name": "Never Debate Without Textual Citation (Jangan Mendebat Tanpa Teks Terbuka)",
+      "rule": "Jangan mendebat hanya dengan klaim lisan 'katanya'; buka pasal dan ayat di depan lawan."
+    },
+    {
+      "anti_pattern_id": "ANTI-003",
+      "name": "Never Let the Opponent Reverse Cross-Examination (Jangan Izinkan Lawan Mengambil Kendali)",
+      "rule": "Jika lawan balik bertanya saat posisinya terdesak, tolak menjawab sebelum pertanyaan awal Anda dijawab tuntas."
+    }
+  ]
+}

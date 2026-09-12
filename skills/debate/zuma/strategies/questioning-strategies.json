@@ -1,0 +1,17 @@
+{
+  "name": "ZUMA Questioning Strategies",
+  "strategies": [
+    {
+      "id": "Q-STRAT-PRECISION-LOCK",
+      "name": "Precision Variable Locking",
+      "trigger": "Opponent introduces broad theological terms",
+      "execution": "Ask single-choice question: 'Ada berapa?' or 'Siapa yang memerintahkan?'"
+    },
+    {
+      "id": "Q-STRAT-SOCRATIC-TRAP",
+      "name": "Moral/Justice Inception Trap",
+      "trigger": "Opponent defends atonement doctrine",
+      "execution": "Ask: 'Apakah adil menghukum orang suci untuk dosa penjahat?'"
+    }
+  ]
+}

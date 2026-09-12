@@ -1,0 +1,18 @@
+{
+  "zuma_syllogism_models": [
+    {
+      "model_id": "SYLLOGISM-CORPUS-CHRISTI",
+      "premise_1": "Paulus menyatakan jemaat Kristen adalah tubuh Kristus / Kristus (1 Kor 12:12, 12:27).",
+      "premise_2_opponent_concession": "Lawan mengakui Kristus yang sah hanya satu (Yesus).",
+      "conclusion": "Maka orang-orang yang mengaku Kristus selain Yesus terbukti memenuhi kriteria Kristus Palsu.",
+      "status": "FATAL_DILEMMA"
+    },
+    {
+      "model_id": "SYLLOGISM-TORAH-FULFILLMENT",
+      "premise_1": "Yesus menegaskan tidak satu iota pun hukum Taurat ditiadakan sampai langit lenyap (Matius 5:18).",
+      "premise_2": "Teologi Paulus mengajarkan hukum Taurat adalah kutuk yang telah dibatalkan (Galatia 3:13).",
+      "conclusion": "Terjadi kontradiksi internal tak terdamaikan antara ajaran Yesus dan formulasi Paulus.",
+      "status": "INTERNAL_CONTRADICTION_LOCK"
+    }
+  ]
+}

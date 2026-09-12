@@ -1,0 +1,42 @@
+{
+  "category": "REPEATED_PATTERNS",
+  "description": "Pola perilaku argumentatif yang terobservasi secara berulang (>= 6 dari 10 video).",
+  "patterns": [
+    {
+      "pattern_id": "PAT-REP-001",
+      "name": "Primary Source Demand (Tuntutan Dalil Primer Eksplisit)",
+      "frequency_observed": "10/10 videos",
+      "confidence": "HIGH",
+      "status": "CORE",
+      "description": "ZUMA tidak meladeni argumen konseptual atau teologis spekulatif sebelum lawan menyodorkan teks ayat eksplisit.",
+      "decision_rule": "WHEN opponent makes factual/theological assertion THEN demand exact scripture reference before evaluating inference."
+    },
+    {
+      "pattern_id": "PAT-REP-002",
+      "name": "Narrowing Dilemma Lock (Penguncian Jawaban Tunggal Menuju Dilema)",
+      "frequency_observed": "9/10 videos",
+      "confidence": "HIGH",
+      "status": "CORE",
+      "description": "Mengajukan pertanyaan dikotomis sederhana ('Ada berapa?', 'Boleh atau tidak?'), mengunci jawaban lawan, lalu menembakkan teks yang bertentangan dengan jawaban tersebut.",
+      "decision_rule": "Extract single-word commitment from opponent -> project contradictory scripture."
+    },
+    {
+      "pattern_id": "PAT-REP-003",
+      "name": "Internal Immanent Critique (Kritik dari Dalam Kerangka Lawan)",
+      "frequency_observed": "10/10 videos",
+      "confidence": "HIGH",
+      "status": "CORE",
+      "description": "Menggunakan Bible terjemahan LAI (Perjanjian Baru & Lama) milik lawan untuk meruntuhkan kesimpulan lawan tanpa membawa dogma eksternal di awal.",
+      "decision_rule": "Always fight inside opponent's canon to disarm their defensive bias."
+    },
+    {
+      "pattern_id": "PAT-REP-004",
+      "name": "Topic Evasion Interception (Pemotongan Dongeng / Pelarian Topik)",
+      "frequency_observed": "8/10 videos",
+      "confidence": "HIGH",
+      "status": "CORE",
+      "description": "Ketika lawan mulai menceritakan riwayat keluarga, status sosial, kekayaan, atau peribahasa untuk mengulur waktu, ZUMA langsung memotong dan mengembalikan ke premis utama.",
+      "decision_rule": "Detect semantic drift > 50% -> interrupt firmly -> restate original question."
+    }
+  ]
+}
