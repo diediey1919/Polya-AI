@@ -1,0 +1,25 @@
+{
+  "fixture_id": "DEBATE_ARENA_GOLDEN_MATCH_001",
+  "topic": "Regulasi Forensik Kecerdasan Buatan dan Pertanggungjawaban Algoritmik",
+  "participants": [
+    "C1",
+    "C2",
+    "P1",
+    "C3",
+    "P3",
+    "P2"
+  ],
+  "total_immutable_events": 57,
+  "winner": "PROPOSITION",
+  "clashes": [
+    "CLASH-001",
+    "CLASH-002",
+    "CLASH-003"
+  ],
+  "arguments": [
+    "PRO-ARG-001",
+    "PRO-ARG-003",
+    "CON-ARG-002"
+  ],
+  "p2_persona": "ZUMA_APOLOGETICS"
+}
