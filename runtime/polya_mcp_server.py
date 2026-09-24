@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Polya MCP Server & Knowledge Retrieval Hub
-Exposes Polya's FTS5 Knowledge Base, Zuma Video Corpus, and TaskObserver Queue.
+Exposes Polya's FTS5 Knowledge Base, Zuma Video Corpus, and TaskObserver Queue
+via Model Context Protocol (MCP) and Command Line Interface (CLI).
 """
 
 import os
@@ -23,8 +24,6 @@ def search_corpus(query: str, limit: int = 5) -> List[Dict[str, Any]]:
     """Search videos and transcripts by keyword/theme in FTS5 index."""
     conn = get_db()
     cur = conn.cursor()
-    
-    # Try FTS search on youtube_catalog_fts
     try:
         sanitized_query = "".join(c for c in query if c.isalnum() or c in " *\"_-").strip()
         if not sanitized_query:
@@ -124,14 +123,43 @@ def queue_status() -> Dict[str, Any]:
         "progress_percentage": round((completed / total * 100) if total else 0, 2)
     }
 
+# Setup MCP Server
+try:
+    from mcp.server.mcpserver import MCPServer
+    mcp_app = MCPServer("polya-mcp")
+
+    @mcp_app.tool()
+    def mcp_search_corpus(query: str, limit: int = 5) -> str:
+        """Search videos and transcripts by keyword or theological theme in Polya's FTS5 catalog."""
+        return json.dumps(search_corpus(query, limit), indent=2)
+
+    @mcp_app.tool()
+    def mcp_get_transcript(video_number: int, max_segments: int = 20) -> str:
+        """Retrieve full metadata and timed dialogue segments for a video in the Zuma corpus."""
+        return json.dumps(get_transcript(video_number, max_segments), indent=2)
+
+    @mcp_app.tool()
+    def mcp_search_exegesis(query: str, limit: int = 5) -> str:
+        """Search academic knowledge, patristics, textual variants, and exegesis records."""
+        return json.dumps(search_exegesis(query, limit), indent=2)
+
+    @mcp_app.tool()
+    def mcp_queue_status() -> str:
+        """Get live telemetry and progress metrics for the TaskObserver video ingestion queue."""
+        return json.dumps(queue_status(), indent=2)
+
+except ImportError:
+    mcp_app = None
+
 def main():
     parser = argparse.ArgumentParser(description="Polya MCP Knowledge Server CLI")
     parser.add_argument("--search-corpus", type=str, help="Search video debate corpus")
     parser.add_argument("--get-transcript", type=int, help="Get transcript by video number")
     parser.add_argument("--search-exegesis", type=str, help="Search theological exegesis knowledge")
     parser.add_argument("--status", action="store_true", help="Get queue status")
+    parser.add_argument("--stdio", action="store_true", help="Run as stdio MCP server")
     
-    args = parser.parse_args()
+    args, unknown = parser.parse_known_args()
     
     if args.status:
         print(json.dumps(queue_status(), indent=2))
@@ -142,7 +170,12 @@ def main():
     elif args.search_exegesis:
         print(json.dumps(search_exegesis(args.search_exegesis), indent=2))
     else:
-        parser.print_help()
+        # Default behavior when run by MCP client (Claude, Codex, Hermes, AGY)
+        if mcp_app is not None:
+            mcp_app.run(transport="stdio")
+        else:
+            print("Error: MCP package not installed in environment.", file=sys.stderr)
+            sys.exit(1)
 
 if __name__ == "__main__":
     main()
