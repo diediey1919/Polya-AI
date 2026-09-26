@@ -31,7 +31,8 @@ import urllib.error
 import requests
 
 # Add runtime directory to sys.path for polya_runtime debate engine
-sys.path.insert(0, '/home/ubuntu/Polya-AI/runtime')
+runtime_dir = os.environ.get("POLYA_RUNTIME_DIR", str(Path(__file__).resolve().parent.parent / "runtime"))
+sys.path.insert(0, runtime_dir)
 from polya_runtime.debate_engine.api import arena_service
 from polya_runtime.debate_engine.training_api import DebateTrainingService
 
@@ -47,8 +48,8 @@ from groq import Groq
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("polya.arena")
 
-DB_PATH = "/home/ubuntu/.polya/polya_index.db"
-NINE_ROUTER_URL = "http://localhost:20128/v1/chat/completions"
+DB_PATH = os.environ.get("POLYA_DB_PATH", "/home/ubuntu/.polya/polya_index.db")
+NINE_ROUTER_URL = os.environ.get("NINE_ROUTER_URL", "http://localhost:20128/v1/chat/completions")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "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")
 
 # Load GEMINI_API_KEY for Google Gemini Indonesian TTS
@@ -63,7 +64,7 @@ if not GEMINI_API_KEY and os.path.exists("/home/ubuntu/.env.gemini"):
     except Exception as _e:
         logger.warning(f"Error loading .env.gemini: {_e}")
 
-AUDIO_CACHE_DIR = Path("/home/ubuntu/.polya/audio_cache")
+AUDIO_CACHE_DIR = Path(os.environ.get("POLYA_AUDIO_CACHE", "/home/ubuntu/.polya/audio_cache"))
 AUDIO_CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
 groq_client = None

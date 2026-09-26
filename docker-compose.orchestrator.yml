@@ -1,0 +1,85 @@
+services:
+  # 1. 9Router: Central AI Model Gateway & Reverse Proxy
+  9router:
+    build:
+      context: /home/ubuntu/9router
+      dockerfile: Dockerfile
+    container_name: orchestrator-9router
+    restart: unless-stopped
+    ports:
+      - "20128:20128"
+    environment:
+      - NODE_ENV=${NODE_ENV:-production}
+      - HOSTNAME=${HOSTNAME:-0.0.0.0}
+      - PORT=${PORT:-20128}
+      - INITIAL_PASSWORD=${INITIAL_PASSWORD:-19191919}
+    networks:
+      - polya-mesh-net
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://127.0.0.1:20128/ || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # 2. Polya-AI: Dialectical Live Web Arena Backend
+  polya-ai:
+    build:
+      context: /home/ubuntu/Polya-AI
+      dockerfile: Dockerfile
+    container_name: orchestrator-polya-ai
+    restart: unless-stopped
+    depends_on:
+      9router:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - POLYA_DB_PATH=/data/polya/polya_index.db
+      - POLYA_AUDIO_CACHE=/data/polya/audio_cache
+      - NINE_ROUTER_URL=http://9router:20128/v1/chat/completions
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+    volumes:
+      - /home/ubuntu/.polya:/data/polya
+    networks:
+      - polya-mesh-net
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://127.0.0.1:8000/ || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+  # 3. Loker: Automated Job Curation, Dispatcher & API Service
+  loker:
+    build:
+      context: /home/ubuntu/Loker
+      dockerfile: Dockerfile
+    container_name: orchestrator-loker
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    env_file:
+      - /home/ubuntu/Loker/.env
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app
+    volumes:
+      - /home/ubuntu/Loker/data:/app/Loker/data
+      - /home/ubuntu/Loker/logs:/app/Loker/logs
+      - /home/ubuntu/Loker/storage:/app/Loker/storage
+    networks:
+      - polya-mesh-net
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://127.0.0.1:8080/docs || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+networks:
+  polya-mesh-net:
+    driver: bridge
+    name: polya-mesh-net

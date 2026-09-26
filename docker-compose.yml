@@ -1,0 +1,24 @@
+services:
+  polya-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: polya-web-arena
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - POLYA_DB_PATH=/data/polya/polya_index.db
+      - POLYA_AUDIO_CACHE=/data/polya/audio_cache
+      - NINE_ROUTER_URL=${NINE_ROUTER_URL:-http://9router:20128/v1/chat/completions}
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+    volumes:
+      - /home/ubuntu/.polya:/data/polya
+    networks:
+      - polya-net
+
+networks:
+  polya-net:
+    driver: bridge

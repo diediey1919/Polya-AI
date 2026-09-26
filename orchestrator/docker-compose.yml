@@ -1,0 +1,72 @@
+services:
+  hermes:
+    build:
+      context: ./agents/hermes
+      dockerfile: Dockerfile
+    container_name: orchestrator_hermes
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+      - AGENT_NAME=hermes
+      - ROLE=gateway_supervisor
+    volumes:
+      - ./agents/hermes:/app
+    networks:
+      - orchestrator_net
+
+  codex:
+    build:
+      context: ./agents/codex
+      dockerfile: Dockerfile
+    container_name: orchestrator_codex
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+      - AGENT_NAME=codex
+      - ROLE=android_dicoding
+    volumes:
+      - ./agents/codex:/app
+    networks:
+      - orchestrator_net
+    depends_on:
+      - hermes
+
+  cloud_code:
+    build:
+      context: ./agents/cloud_code
+      dockerfile: Dockerfile
+    container_name: orchestrator_cloud_code
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+      - AGENT_NAME=cloud_code
+      - ROLE=ai_debate_polya
+    volumes:
+      - ./agents/cloud_code:/app
+      - /home/ubuntu/.polya:/home/ubuntu/.polya:ro
+    networks:
+      - orchestrator_net
+    depends_on:
+      - hermes
+
+  anti_gravity:
+    build:
+      context: ./agents/anti_gravity
+      dockerfile: Dockerfile
+    container_name: orchestrator_anti_gravity
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+      - AGENT_NAME=anti_gravity
+      - ROLE=infra_docker_deploy
+    volumes:
+      - ./agents/anti_gravity:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - orchestrator_net
+    depends_on:
+      - cloud_code
+
+networks:
+  orchestrator_net:
+    driver: bridge
