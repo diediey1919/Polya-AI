@@ -1,8 +1,8 @@
 # SCHEMA DESIGN DOCUMENT: POLYA PHILOLOGICAL BIBLE ENGINE
 **Version**: Architecture v2.0 — FROZEN  
-**Phase**: Phase 1, Task 1.1 (Schema Foundation)  
+**Phase**: Phase 1, Task 1.1B (Schema Reconciliation Patch)  
 **Schema Implementation**: [`schemas/bible_engine/001_initial_schema.sql`](file:///home/ubuntu/Polya-AI/schemas/bible_engine/001_initial_schema.sql)  
-**Status**: VALIDATED & IN-MEMORY TESTED  
+**Status**: VALIDATED & IN-MEMORY TESTED (Reconciled E0–E12 & Identity/Token Anchors)  
 **Date**: 2026-09-30  
 
 ---
@@ -19,17 +19,17 @@ The database schema strictly partitions data into four ontological tiers to prev
          │
          ▼
 [TIER 2: DERIVED LINGUISTIC ANNOTATIONS] (Level 2)
-  ├── tokens (Surface original, clean form, position offset)
+  ├── tokens (Surface original, clean form, position offset, primary lemma_id)
   ├── lemmas (Lexicon mapping: BDAG, BDB, HALOT, Thayer, LSJ)
   ├── morphology_annotations (BibleHub standard grammatical tags)
   ├── clauses (Structural boundaries)
-  └── syntax_trees (Head-dependent relational graphs)
+  └── syntax_trees (Head-dependent relational graphs with alternative parses)
          │
          ▼
 [TIER 3: EVIDENCE & REFERENTIAL IDENTITIES] (Level 3)
-  ├── evidence_ledger (Classes E1-E11, Epistemic Tiers T0-T4, status tags)
+  ├── evidence_ledger (Classes E0-E12, Epistemic Tiers T0-T4, optional token_id anchor)
   ├── entities & entity_mentions (Distinguishes entity types & ontological classes)
-  └── referential_relations (REFERENTIAL FIREWALL: blocks association -> identity)
+  └── referential_relations (REFERENTIAL FIREWALL: STRICT_IDENTITY requires evidence_id)
          │
          ▼
 [TIER 4: INTERPRETATION, EXEGESIS & SYNTHESIS] (Level 4 / Level 5)
@@ -61,21 +61,44 @@ The database schema strictly partitions data into four ontological tiers to prev
 
 ### 2.3 Linguistics: Tokens, Morphology, Syntax
 13. **`lemmas`**: Normalized lexical dictionary forms mapped to academic lexicons.
-14. **`tokens`**: Token-level stream preserving original punctuation, whitespace, and cleaned strings.
+14. **`tokens`**: Token-level stream preserving original punctuation, whitespace, and cleaned strings.  
+    *Important Architectural Note on Polysemy*: `tokens.lemma_id` stores the primary/selected lexical assignment for baseline parsing. Genuine lexical or morphological ambiguity is preserved via `variant_readings` or alternative syntax trees, and never collapsed into a single dogmatic gloss.
 15. **`morphology_annotations`**: BibleHub/academic standard tags (Tense, Voice, Mood, Case, Gender, Number, Aspect) with analyzer provenance.
 16. **`clauses`**: Clause units and subordinating conjunctions.
-17. **`syntax_trees`**: Hierarchical dependency nodes separating grammatical roles (e.g. subject, predicate, modifier, genitive of source/possession).
+17. **`syntax_trees`**: Hierarchical dependency nodes separating grammatical roles with support for competing interpretations (`is_alternative_parse = 1`).
 
 ### 2.4 Referential Engine & Identity Firewall
 18. **`semantic_senses`**: Historical contextual sense definitions distinguishing Koine/Hebrew contemporary usage from modern doctrinal assumptions.
 19. **`entities`**: Formal entity catalog categorizing ontological status (e.g. `LITERAL_ENTITY`, `PERSONIFICATION`, `METAPHOR`, `SYMBOL`).
 20. **`entity_mentions`**: Mapping of tokens to entities.
-21. **`referential_relations`**: **REFERENTIAL FIREWALL**. Enforces check constraint: `CHECK(relation_type != 'STRICT_IDENTITY' OR is_identity_established = 1)`. Blocks treating associative symbolism as grammatical identity without explicit copula/apposition.
+21. **`referential_relations`**: **REFERENTIAL FIREWALL**. Enforces check constraint:
+    ```sql
+    CHECK(relation_type != 'STRICT_IDENTITY' OR (is_identity_established = 1 AND evidence_id IS NOT NULL))
+    ```
+    and foreign key:
+    ```sql
+    FOREIGN KEY (evidence_id) REFERENCES evidence_ledger(evidence_id) ON DELETE RESTRICT
+    ```
+    This prevents treating associative symbolism as grammatical identity without explicit, traceable empirical evidence recorded in the ledger.
 
 ### 2.5 Evidence Ledger, Claims, & Exegesis Reports
-22. **`evidence_ledger`**: Relational ledger categorizing evidence `E1`–`E11`, epistemic tiers `TIER_0`–`TIER_4`, status tags (`[EXPLICIT]`, `[GRAMMATICALLY ESTABLISHED]`, etc.), and counter-evidence flags.
+22. **`evidence_ledger`**: Relational ledger categorizing evidence into the exact 13-tier Architecture v2.0 hierarchy:
+    - `E0_DIRECT_TEXT`
+    - `E1_TEXTUAL_MANUSCRIPT`
+    - `E2_MORPHOLOGY`
+    - `E3_SYNTAX`
+    - `E4_LEXICAL`
+    - `E5_DISCOURSE`
+    - `E6_IMMEDIATE_CONTEXT`
+    - `E7_BOOK_CONTEXT`
+    - `E8_CORPUS_CONTEXT`
+    - `E9_HISTORICAL_LINGUISTIC`
+    - `E10_INTERTEXTUAL`
+    - `E11_EARLY_RECEPTION`
+    - `E12_LATER_INTERPRETATION`  
+    *Direct Linguistic Anchor*: Optional `token_id TEXT REFERENCES tokens(token_id) ON DELETE RESTRICT`. Word-level evidence anchors directly to a token. `ON DELETE RESTRICT` guarantees evidence provenance cannot accidentally disappear due to upstream token deletions.
 23. **`claims`**: Discrete claims tested against the text, tracking independence from dogma (`is_theology_independent`).
-24. **`claim_evidence_links`**: Symmetrical linking of claims to supporting or contradictory evidence.
+24. **`claim_evidence_links`**: Symmetrical linking of claims to supporting or contradictory evidence (`SUPPORTS`, `CONTRADICTS`, `QUALIFIES`).
 25. **`translations`**: Target translations with explicit constraint `is_primary_source = 0` to prevent translations from masquerading as source data.
 26. **`exegesis_reports`**: Exegesis reports strictly adhering to the 20-section response template, with structured fields for Sections 16, 17, 18, and 19.
 27. **`validation_gate_results`**: Audit records for the 10 validation gates (`V1_SOURCE_INTEGRITY` through `V10_20_SECTION_TEMPLATE_COMPLIANCE`).
@@ -90,8 +113,10 @@ The database schema strictly partitions data into four ontological tiers to prev
 | :--- | :--- | :--- |
 | **Source Immutability** | `CHECK(is_immutable = 1)` and `UNIQUE(sha256_hash)` | Prevents AI or human users from altering canonical Greek/Hebrew strings. |
 | **Translation Firewall** | `CHECK(is_primary_source = 0)` | Prevents modern translations (LAI TB, KJV, Vulgata) from overriding source grammar. |
-| **Identity Firewall** | `CHECK(relation_type != 'STRICT_IDENTITY' OR is_identity_established = 1)` | Prevents conflating symbolic association (e.g. clothing = righteous deeds) into ontological identity. |
-| **Epistemic Type Separation** | Explicit `epistemic_tier` and `evidence_class` ENUMs | Prevents theological interpretations (`TIER_4`) from masquerading as linguistic facts (`TIER_1`). |
+| **Identity Firewall Evidence Anchor** | `CHECK(relation_type != 'STRICT_IDENTITY' OR (is_identity_established = 1 AND evidence_id IS NOT NULL))` + `FOREIGN KEY (evidence_id)` | Prevents conflating symbolic association into ontological identity without verified evidence. |
+| **Token Linguistic Evidence Anchor** | `token_id TEXT REFERENCES tokens(token_id) ON DELETE RESTRICT` | Directly binds word-level morphological/syntactic evidence to the exact token. |
+| **13-Tier Evidence Hierarchy** | Explicit ENUM `E0_DIRECT_TEXT` to `E12_LATER_INTERPRETATION` | Formally aligns DDL with Architecture v2.0 epistemic levels. |
+| **Epistemic Type Separation** | Explicit `epistemic_tier` (`TIER_0`–`TIER_4`) ENUMs | Prevents theological interpretations (`TIER_4`) from masquerading as linguistic facts (`TIER_1`). |
 | **Boundary Uncertainty** | `boundary_confidence` ENUM containing `BOUNDARY_UNCERTAIN` | Prevents manufacturing artificial certainty on ambiguous pericope boundaries. |
 | **Counter-Evidence Enforcement** | `is_counter_evidence INTEGER NOT NULL CHECK(is_counter_evidence IN (0,1))` | Requires explicit tracking and retrieval of contradictory witnesses. |
 | **Audit Provenance** | `audit_log` table with `agent_id`, `model_name`, `old_hash`, `new_hash` | Ensures complete forensic reproducibility across multi-agent executions. |

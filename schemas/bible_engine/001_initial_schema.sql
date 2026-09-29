@@ -287,42 +287,30 @@ CREATE TABLE IF NOT EXISTS entity_mentions (
     FOREIGN KEY (passage_id) REFERENCES passages(passage_id) ON DELETE RESTRICT
 );
 
--- Referential Firewall: Prevents illicit association -> identity collapse (Clause 20, 25)
-CREATE TABLE IF NOT EXISTS referential_relations (
-    relation_id TEXT PRIMARY KEY,
-    source_entity_id TEXT NOT NULL,
-    target_entity_id TEXT NOT NULL,
-    passage_id TEXT NOT NULL,
-    relation_type TEXT NOT NULL CHECK(relation_type IN ('MENTION', 'REFERENCE', 'ASSOCIATION', 'REPRESENTATION', 'STRICT_IDENTITY')),
-    grammatical_justification TEXT NOT NULL,
-    evidence_status TEXT NOT NULL CHECK(evidence_status IN ('[EXPLICIT]', '[GRAMMATICALLY ESTABLISHED]', '[INFERRED]', '[PLAUSIBLE]', '[AMBIGUOUS]', '[UNSUPPORTED]', '[CONTRADICTED]')),
-    is_identity_established INTEGER NOT NULL DEFAULT 0 CHECK(is_identity_established IN (0, 1)),
-    FOREIGN KEY (source_entity_id) REFERENCES entities(entity_id) ON DELETE RESTRICT,
-    FOREIGN KEY (target_entity_id) REFERENCES entities(entity_id) ON DELETE RESTRICT,
-    FOREIGN KEY (passage_id) REFERENCES passages(passage_id) ON DELETE RESTRICT,
-    CHECK(relation_type != 'STRICT_IDENTITY' OR is_identity_established = 1)
-);
-
 -- ----------------------------------------------------------------------------
--- 7. EVIDENCE LEDGER & EPISTEMIC TYPING (LEVEL 3 / LEVEL 4)
+-- 6.5 EVIDENCE LEDGER & EPISTEMIC TYPING (LEVEL 3 / LEVEL 4)
+-- Defined before referential_relations to support foreign key evidence anchoring
 -- ----------------------------------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS evidence_ledger (
     evidence_id TEXT PRIMARY KEY,           -- e.g. "EVID-REV-19-08-001"
     pericope_id TEXT NOT NULL,
     passage_id TEXT NOT NULL,
+    token_id TEXT,                          -- Optional: Direct linguistic anchor for word-level evidence
     evidence_class TEXT NOT NULL CHECK(evidence_class IN (
-        'E1_DIRECT_SOURCE_STRING',
-        'E2_MANUSCRIPT_WITNESS',
-        'E3_MORPHOLOGICAL_FORM',
-        'E4_SYNTACTIC_STRUCTURE',
-        'E5_LEXICAL_SEMANTIC_RANGE',
-        'E6_CONTEMPORARY_LINGUISTIC',
-        'E7_HISTORICAL_CULTURAL',
-        'E8_LITERARY_CONTEXT',
-        'E9_INTERTEXTUAL_ALLUSION',
-        'E10_SECONDARY_SCHOLARSHIP',
-        'E11_THEOLOGICAL_INTERPRETATION'
+        'E0_DIRECT_TEXT',
+        'E1_TEXTUAL_MANUSCRIPT',
+        'E2_MORPHOLOGY',
+        'E3_SYNTAX',
+        'E4_LEXICAL',
+        'E5_DISCOURSE',
+        'E6_IMMEDIATE_CONTEXT',
+        'E7_BOOK_CONTEXT',
+        'E8_CORPUS_CONTEXT',
+        'E9_HISTORICAL_LINGUISTIC',
+        'E10_INTERTEXTUAL',
+        'E11_EARLY_RECEPTION',
+        'E12_LATER_INTERPRETATION'
     )),
     epistemic_tier TEXT NOT NULL CHECK(epistemic_tier IN (
         'TIER_0_RAW_OBSERVATION',
@@ -349,7 +337,26 @@ CREATE TABLE IF NOT EXISTS evidence_ledger (
     created_at TEXT NOT NULL,
     provenance_hash TEXT NOT NULL,
     FOREIGN KEY (pericope_id) REFERENCES pericopes(pericope_id) ON DELETE RESTRICT,
-    FOREIGN KEY (passage_id) REFERENCES passages(passage_id) ON DELETE RESTRICT
+    FOREIGN KEY (passage_id) REFERENCES passages(passage_id) ON DELETE RESTRICT,
+    FOREIGN KEY (token_id) REFERENCES tokens(token_id) ON DELETE RESTRICT
+);
+
+-- Referential Firewall: Prevents illicit association -> identity collapse (Clause 20, 25)
+CREATE TABLE IF NOT EXISTS referential_relations (
+    relation_id TEXT PRIMARY KEY,
+    source_entity_id TEXT NOT NULL,
+    target_entity_id TEXT NOT NULL,
+    passage_id TEXT NOT NULL,
+    relation_type TEXT NOT NULL CHECK(relation_type IN ('MENTION', 'REFERENCE', 'ASSOCIATION', 'REPRESENTATION', 'STRICT_IDENTITY')),
+    evidence_id TEXT,                       -- Explicit relational anchor to evidence ledger
+    grammatical_justification TEXT NOT NULL,
+    evidence_status TEXT NOT NULL CHECK(evidence_status IN ('[EXPLICIT]', '[GRAMMATICALLY ESTABLISHED]', '[INFERRED]', '[PLAUSIBLE]', '[AMBIGUOUS]', '[UNSUPPORTED]', '[CONTRADICTED]')),
+    is_identity_established INTEGER NOT NULL DEFAULT 0 CHECK(is_identity_established IN (0, 1)),
+    FOREIGN KEY (source_entity_id) REFERENCES entities(entity_id) ON DELETE RESTRICT,
+    FOREIGN KEY (target_entity_id) REFERENCES entities(entity_id) ON DELETE RESTRICT,
+    FOREIGN KEY (passage_id) REFERENCES passages(passage_id) ON DELETE RESTRICT,
+    FOREIGN KEY (evidence_id) REFERENCES evidence_ledger(evidence_id) ON DELETE RESTRICT,
+    CHECK(relation_type != 'STRICT_IDENTITY' OR (is_identity_established = 1 AND evidence_id IS NOT NULL))
 );
 
 CREATE TABLE IF NOT EXISTS claims (
@@ -462,7 +469,9 @@ CREATE INDEX IF NOT EXISTS idx_tokens_passage ON tokens(passage_id, position);
 CREATE INDEX IF NOT EXISTS idx_source_texts_hash ON source_texts(sha256_hash);
 CREATE INDEX IF NOT EXISTS idx_syntax_trees_clause ON syntax_trees(clause_id);
 CREATE INDEX IF NOT EXISTS idx_evidence_ledger_pericope ON evidence_ledger(pericope_id, evidence_class);
+CREATE INDEX IF NOT EXISTS idx_evidence_ledger_token ON evidence_ledger(token_id);
 CREATE INDEX IF NOT EXISTS idx_claim_evidence_claim ON claim_evidence_links(claim_id);
 CREATE INDEX IF NOT EXISTS idx_referential_relations ON referential_relations(source_entity_id, target_entity_id);
+CREATE INDEX IF NOT EXISTS idx_referential_relations_evidence ON referential_relations(evidence_id);
 CREATE INDEX IF NOT EXISTS idx_variant_units_passage ON variant_units(passage_id);
 CREATE INDEX IF NOT EXISTS idx_validation_report ON validation_gate_results(report_id, gate_layer);
