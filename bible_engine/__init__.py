@@ -218,6 +218,30 @@ __all__ = [
     "SourceTextInvalidProvenanceError",
     "SourceTextInvalidVersionError",
     "SourceTextOrphanError",
+    # Tokenization (Task 2.2)
+    "TokenType",
+    "TokenOffsetUnit",
+    "TokenRecord",
+    "TokenizationRunRecord",
+    "TokenizerConfig",
+    "TokenizationResult",
+    "TokenizationManager",
+    "tokenize_text",
+    "reconstruct_source_span",
+    "reconstruct_text_from_tokens",
+    "compute_tokens_output_hash",
+    "TokenError",
+    "TokenNotFoundError",
+    "DuplicateTokenError",
+    "TokenImmutabilityError",
+    "TokenSourceNotFoundError",
+    "TokenOffsetError",
+    "TokenReconstructionError",
+    "TokenLanguageMismatchError",
+    "InvalidTokenTypeError",
+    "TokenNormalizationFirewallError",
+    "TokenInvalidProvenanceError",
+    "TokenInvalidVersionError",
 ]
 
 from bible_engine.source_text import (
@@ -230,10 +254,25 @@ from bible_engine.source_text import (
     normalize_unicode_text,
     validate_content_hash,
 )
+from bible_engine.tokenization import (
+    TokenOffsetUnit,
+    TokenRecord,
+    TokenType,
+    TokenizationManager,
+    TokenizationResult,
+    TokenizationRunRecord,
+    TokenizerConfig,
+    compute_tokens_output_hash,
+    reconstruct_source_span,
+    reconstruct_text_from_tokens,
+    tokenize_text,
+)
 from bible_engine.errors import (
     DuplicateSourceTextError,
+    DuplicateTokenError,
     InvalidRepresentationTypeError,
     InvalidSourceTextLanguageError,
+    InvalidTokenTypeError,
     MalformedContentHashError,
     SourceTextError,
     SourceTextHashMismatchError,
@@ -243,6 +282,16 @@ from bible_engine.errors import (
     SourceTextNotFoundError,
     SourceTextOrphanError,
     SourceTextTranslationFirewallError,
+    TokenError,
+    TokenImmutabilityError,
+    TokenInvalidProvenanceError,
+    TokenInvalidVersionError,
+    TokenLanguageMismatchError,
+    TokenNormalizationFirewallError,
+    TokenNotFoundError,
+    TokenOffsetError,
+    TokenReconstructionError,
+    TokenSourceNotFoundError,
 )
 
 

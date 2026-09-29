@@ -301,3 +301,67 @@ class SourceTextInvalidVersionError(SourceTextError):
 class SourceTextOrphanError(SourceTextError):
     """Raised when attempting to register or persist a source text without a valid registered source."""
     pass
+
+
+# =============================================================================
+# TOKENIZATION SUBSYSTEM EXCEPTIONS (Task 2.2)
+# =============================================================================
+
+class TokenError(BibleEngineDatabaseError):
+    """Base exception for all Tokenization subsystem errors."""
+    pass
+
+
+class TokenNotFoundError(TokenError):
+    """Raised when a requested token or tokenization run does not exist."""
+    pass
+
+
+class DuplicateTokenError(TokenError):
+    """Raised when registering a token with a duplicate identifier or colliding position."""
+    pass
+
+
+class TokenImmutabilityError(TokenError):
+    """Raised when an illegal modification or deletion of a token or tokenization run is attempted."""
+    pass
+
+
+class TokenSourceNotFoundError(TokenError):
+    """Raised when a referenced source text for tokenization does not exist."""
+    pass
+
+
+class TokenOffsetError(TokenError):
+    """Raised when token character/byte offsets are invalid, negative, out of bounds, or inverted."""
+    pass
+
+
+class TokenReconstructionError(TokenError):
+    """Raised when token surface form does not match the source text slice at the specified offsets."""
+    pass
+
+
+class TokenLanguageMismatchError(TokenError):
+    """Raised when tokenization language conflicts with source text language."""
+    pass
+
+
+class InvalidTokenTypeError(TokenError):
+    """Raised when an invalid or unclassified token type is specified."""
+    pass
+
+
+class TokenNormalizationFirewallError(TokenError):
+    """Raised when normalization firewall rules are violated during tokenization."""
+    pass
+
+
+class TokenInvalidProvenanceError(TokenError):
+    """Raised when a referenced provenance record does not exist or fails validation."""
+    pass
+
+
+class TokenInvalidVersionError(TokenError):
+    """Raised when a referenced object version does not exist or fails validation."""
+    pass
