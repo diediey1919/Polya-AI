@@ -119,3 +119,54 @@ class ProvenanceChainBrokenError(ProvenanceIntegrityError):
     """Raised when an object's lineage chain is broken, disconnected, or unverified."""
     pass
 
+
+class VersioningError(BibleEngineDatabaseError):
+    """Base exception for all versioning subsystem errors."""
+    pass
+
+
+class VersionNotFoundError(VersioningError):
+    """Raised when a requested object version does not exist."""
+    pass
+
+
+class VersionIntegrityError(VersioningError):
+    """Raised when a version integrity check fails."""
+    pass
+
+
+class DuplicateVersionError(VersionIntegrityError):
+    """Raised when attempting to create a duplicate version or version number for an object."""
+    pass
+
+
+class VersionInvalidParentError(VersionIntegrityError):
+    """Raised when a referenced parent version does not exist or violates lineage rules."""
+    pass
+
+
+class VersionInvalidProvenanceError(VersionIntegrityError):
+    """Raised when a referenced provenance record does not exist or fails validation."""
+    pass
+
+
+class VersionHashMismatchError(VersionIntegrityError):
+    """Raised when content verification fails against the recorded content hash."""
+    pass
+
+
+class IllegalStateTransitionError(VersionIntegrityError):
+    """Raised when an illegal version status transition is attempted."""
+    pass
+
+
+class VersionImmutabilityError(VersionIntegrityError):
+    """Raised when an illegal modification or deletion of an immutable version is attempted."""
+    pass
+
+
+class VersionConcurrencyConflictError(VersioningError):
+    """Raised when concurrent writers conflict during atomic version creation."""
+    pass
+
+

@@ -49,6 +49,8 @@ from bible_engine.provenance import (
     verify_hash,
 )
 from bible_engine.errors import (
+    DuplicateVersionError,
+    IllegalStateTransitionError,
     ProvenanceChainBrokenError,
     ProvenanceError,
     ProvenanceHashMismatchError,
@@ -56,6 +58,26 @@ from bible_engine.errors import (
     ProvenanceIntegrityError,
     ProvenanceMissingParentError,
     ProvenanceRecordNotFoundError,
+    VersionConcurrencyConflictError,
+    VersionHashMismatchError,
+    VersionImmutabilityError,
+    VersioningError,
+    VersionIntegrityError,
+    VersionInvalidParentError,
+    VersionInvalidProvenanceError,
+    VersionNotFoundError,
+)
+from bible_engine.versioning import (
+    ChangeReason,
+    ObjectVersion,
+    VersionComparisonResult,
+    VersionIntegrityResult,
+    VersionManager,
+    VersionRelation,
+    VersionRelationType,
+    VersionStatus,
+    generate_relation_id,
+    generate_version_id,
 )
 
 __all__ = [
@@ -104,6 +126,27 @@ __all__ = [
     "ProvenanceHashMismatchError",
     "ProvenanceMissingParentError",
     "ProvenanceChainBrokenError",
+    "VersionManager",
+    "ObjectVersion",
+    "VersionRelation",
+    "VersionComparisonResult",
+    "VersionIntegrityResult",
+    "VersionStatus",
+    "ChangeReason",
+    "VersionRelationType",
+    "generate_version_id",
+    "generate_relation_id",
+    "VersioningError",
+    "VersionNotFoundError",
+    "VersionIntegrityError",
+    "DuplicateVersionError",
+    "VersionInvalidParentError",
+    "VersionInvalidProvenanceError",
+    "VersionHashMismatchError",
+    "IllegalStateTransitionError",
+    "VersionImmutabilityError",
+    "VersionConcurrencyConflictError",
 ]
+
 
 

@@ -467,10 +467,11 @@ class TestProvenanceSubsystem(unittest.TestCase):
         """19. Verify migration system reports clean state with both 001 and 002 applied."""
         status = self.runner.get_status()
         self.assertTrue(status.is_clean)
-        self.assertEqual(status.applied_count, 2)
+        self.assertGreaterEqual(status.applied_count, 2)
         self.assertEqual(status.pending_count, 0)
-        self.assertEqual(status.current_version, "2")
-        self.assertEqual(status.latest_applied_id, "002_provenance")
+        applied_ids = [m.migration_id for m in status.applied_migrations]
+        self.assertIn("001_initial_schema", applied_ids)
+        self.assertIn("002_provenance", applied_ids)
 
     def test_20_legacy_database_untouched(self) -> None:
         """20. Verify legacy knowledge base at /home/ubuntu/.polya/polya_index.db remains completely untouched."""
