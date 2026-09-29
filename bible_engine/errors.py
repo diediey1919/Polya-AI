@@ -170,3 +170,70 @@ class VersionConcurrencyConflictError(VersioningError):
     pass
 
 
+# =============================================================================
+# SOURCE REGISTRY ERRORS (Task 1.6)
+# =============================================================================
+
+class SourceRegistryError(BibleEngineDatabaseError):
+    """Base exception for all source registry subsystem errors."""
+    pass
+
+
+class SourceNotFoundError(SourceRegistryError):
+    """Raised when a requested registered source does not exist."""
+    pass
+
+
+class DuplicateSourceError(SourceRegistryError):
+    """Raised when registering a source with a duplicate identifier or canonical name."""
+    pass
+
+
+class InvalidSourceTypeError(SourceRegistryError):
+    """Raised when an invalid or unclassified source type is specified."""
+    pass
+
+
+class InvalidSourceLanguageError(SourceRegistryError):
+    """Raised when an invalid or unclassified source language is specified."""
+    pass
+
+
+class InvalidSourceAuthorityError(SourceRegistryError):
+    """Raised when an invalid functional authority level is specified."""
+    pass
+
+
+class InvalidVerificationStatusError(SourceRegistryError):
+    """Raised when an invalid verification status is specified."""
+    pass
+
+
+class SourceTranslationFirewallError(SourceRegistryError):
+    """Raised when translation firewall invariants are violated (e.g. translation marked as primary witness)."""
+    pass
+
+
+class SourceImmutabilityError(SourceRegistryError):
+    """Raised when an illegal modification or deletion of source registry records is attempted."""
+    pass
+
+
+class SourceInvalidProvenanceError(SourceRegistryError):
+    """Raised when a referenced provenance record does not exist or fails validation."""
+    pass
+
+
+class SourceInvalidVersionError(SourceRegistryError):
+    """Raised when a referenced object version does not exist or fails validation."""
+    pass
+
+
+class SourceHashMismatchError(SourceRegistryError):
+    """Raised when content hash validation fails against source artifact."""
+    pass
+
+
+class IllegalSourceStateTransitionError(SourceRegistryError):
+    """Raised when an illegal verification status transition is attempted."""
+    pass

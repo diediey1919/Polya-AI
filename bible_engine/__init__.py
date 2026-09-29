@@ -80,6 +80,34 @@ from bible_engine.versioning import (
     generate_version_id,
 )
 
+from bible_engine.source_registry import (
+    ExternalIdentifierType,
+    SourceAuditRecord,
+    SourceAuthorityLevel,
+    SourceLanguage,
+    SourceRecord,
+    SourceRegistry,
+    SourceType,
+    SourceVerificationStatus,
+    generate_audit_id,
+    generate_source_id,
+)
+from bible_engine.errors import (
+    DuplicateSourceError,
+    IllegalSourceStateTransitionError,
+    InvalidSourceAuthorityError,
+    InvalidSourceLanguageError,
+    InvalidSourceTypeError,
+    InvalidVerificationStatusError,
+    SourceHashMismatchError,
+    SourceImmutabilityError,
+    SourceInvalidProvenanceError,
+    SourceInvalidVersionError,
+    SourceNotFoundError,
+    SourceRegistryError,
+    SourceTranslationFirewallError,
+)
+
 __all__ = [
     "DatabaseConfig",
     "DEFAULT_DB_PATH",
@@ -146,7 +174,31 @@ __all__ = [
     "IllegalStateTransitionError",
     "VersionImmutabilityError",
     "VersionConcurrencyConflictError",
+    "SourceRegistry",
+    "SourceRecord",
+    "SourceAuditRecord",
+    "SourceType",
+    "SourceLanguage",
+    "SourceAuthorityLevel",
+    "SourceVerificationStatus",
+    "ExternalIdentifierType",
+    "generate_source_id",
+    "generate_audit_id",
+    "SourceRegistryError",
+    "SourceNotFoundError",
+    "DuplicateSourceError",
+    "InvalidSourceTypeError",
+    "InvalidSourceLanguageError",
+    "InvalidSourceAuthorityError",
+    "InvalidVerificationStatusError",
+    "SourceTranslationFirewallError",
+    "SourceImmutabilityError",
+    "SourceInvalidProvenanceError",
+    "SourceInvalidVersionError",
+    "SourceHashMismatchError",
+    "IllegalSourceStateTransitionError",
 ]
+
 
 
 
