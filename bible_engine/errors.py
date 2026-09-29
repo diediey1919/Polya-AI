@@ -365,3 +365,78 @@ class TokenInvalidProvenanceError(TokenError):
 class TokenInvalidVersionError(TokenError):
     """Raised when a referenced object version does not exist or fails validation."""
     pass
+
+
+# =============================================================================
+# MORPHOLOGY SUBSYSTEM EXCEPTIONS (Task 2.3)
+# =============================================================================
+
+class MorphologyError(BibleEngineDatabaseError):
+    """Base exception for all Morphology subsystem errors."""
+    pass
+
+
+class MorphologyNotFoundError(MorphologyError):
+    """Raised when a requested morphology observation or run does not exist."""
+    pass
+
+
+class DuplicateMorphologyError(MorphologyError):
+    """Raised when registering a duplicate morphology annotation or conflicting parse index."""
+    pass
+
+
+class MorphologyImmutabilityError(MorphologyError):
+    """Raised when an illegal modification or deletion of a morphology observation or run is attempted."""
+    pass
+
+
+class MorphologyTokenNotFoundError(MorphologyError):
+    """Raised when a referenced token for morphology analysis does not exist."""
+    pass
+
+
+class MorphologyLanguageMismatchError(MorphologyError):
+    """Raised when morphological features or analysis language conflict with source text/token language."""
+    pass
+
+
+class MorphologyFeatureValidationError(MorphologyError):
+    """Raised when an invalid, cross-language, or contradictory morphological feature is supplied."""
+    pass
+
+
+class MorphologyConfidenceError(MorphologyError):
+    """Raised when confidence scores are out of bounds or confidence is erroneously treated as evidence."""
+    pass
+
+
+class MorphologyNormalizationFirewallError(MorphologyError):
+    """Raised when normalization firewall rules are violated during morphological analysis."""
+    pass
+
+
+class MorphologyInvalidProvenanceError(MorphologyError):
+    """Raised when a referenced provenance record does not exist or fails validation."""
+    pass
+
+
+class MorphologyInvalidVersionError(MorphologyError):
+    """Raised when a referenced object version does not exist or fails validation."""
+    pass
+
+
+class MorphologyOrphanError(MorphologyError):
+    """Raised when attempting to record morphology without an authoritative token linkage."""
+    pass
+
+
+class LemmaNotFoundError(MorphologyError):
+    """Raised when a referenced lemma does not exist in the lemma registry."""
+    pass
+
+
+class DuplicateLemmaError(MorphologyError):
+    """Raised when attempting to register an identical lemma string in the same language."""
+    pass
+
