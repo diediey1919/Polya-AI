@@ -440,3 +440,102 @@ class DuplicateLemmaError(MorphologyError):
     """Raised when attempting to register an identical lemma string in the same language."""
     pass
 
+
+# =============================================================================
+# SYNTAX SUBSYSTEM EXCEPTIONS (Task 2.4)
+# =============================================================================
+
+class SyntaxSubsystemError(BibleEngineDatabaseError):
+    """Base exception for all Syntax subsystem errors."""
+    pass
+
+
+class SyntaxNotFoundError(SyntaxSubsystemError):
+    """Raised when a requested syntax run, clause, constituent, or dependency relation is not found."""
+    pass
+
+
+class DuplicateSyntaxError(SyntaxSubsystemError):
+    """Raised when registering duplicate syntax structures or conflicting parse index."""
+    pass
+
+
+class SyntaxImmutabilityError(SyntaxSubsystemError):
+    """Raised when an illegal modification or deletion of a syntax run, clause, constituent, or dependency is attempted."""
+    pass
+
+
+class SyntaxTokenNotFoundError(SyntaxSubsystemError):
+    """Raised when a referenced token for syntax analysis does not exist."""
+    pass
+
+
+class SyntaxClauseNotFoundError(SyntaxSubsystemError):
+    """Raised when a referenced clause does not exist."""
+    pass
+
+
+class SyntaxConstituentNotFoundError(SyntaxSubsystemError):
+    """Raised when a referenced syntactic constituent does not exist."""
+    pass
+
+
+class SyntaxCycleError(SyntaxSubsystemError):
+    """Raised when an illegal directed cycle is detected in a syntax dependency graph."""
+    pass
+
+
+class SyntaxSpanValidationError(SyntaxSubsystemError):
+    """Raised when constituent or clause token span boundaries are inverted or out of order."""
+    pass
+
+
+class SyntaxLanguageMismatchError(SyntaxSubsystemError):
+    """Raised when syntactic structures or tags conflict with source text/token language."""
+    pass
+
+
+class SyntaxFeatureValidationError(SyntaxSubsystemError):
+    """Raised when an invalid, illegal, or contradictory syntactic relation is supplied."""
+    pass
+
+
+class SyntaxConfidenceError(SyntaxSubsystemError):
+    """Raised when confidence scores are out of bounds or confidence is erroneously substituted for evidence."""
+    pass
+
+
+class SyntaxInvalidProvenanceError(SyntaxSubsystemError):
+    """Raised when a referenced provenance record does not exist or fails validation."""
+    pass
+
+
+class SyntaxInvalidVersionError(SyntaxSubsystemError):
+    """Raised when a referenced object version does not exist or fails validation."""
+    pass
+
+
+class SyntaxOrphanError(SyntaxSubsystemError):
+    """Raised when attempting to record syntax without an authoritative token or constituent linkage."""
+    pass
+
+
+class SyntaxSemanticsFirewallError(SyntaxSubsystemError):
+    """Raised when an illegal attempt is made to automatically collapse syntactic structure into semantic roles."""
+    pass
+
+
+class SyntaxTheologyFirewallError(SyntaxSubsystemError):
+    """Raised when an illegal attempt is made to generate theological or doctrinal claims from syntax."""
+    pass
+
+
+class SyntaxIdentityFirewallError(SyntaxSubsystemError):
+    """Raised when an illegal attempt is made to automatically infer strict referential identity from syntax."""
+    pass
+
+
+class SyntaxMorphologyFirewallError(SyntaxSubsystemError):
+    """Raised when syntax attempts to illegally overwrite or mutate morphology observations."""
+    pass
+
