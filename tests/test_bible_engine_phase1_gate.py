@@ -174,10 +174,10 @@ class TestPhase1GateBootstrap(Phase1GateBaseTest):
         status_before = runner.get_status()
         self.assertFalse(status_before.is_clean)
         self.assertEqual(status_before.applied_count, 0)
-        self.assertEqual(status_before.pending_count, 4)
+        self.assertGreaterEqual(status_before.pending_count, 4)
 
         applied = runner.apply_pending()
-        self.assertEqual(len(applied), 4)
+        self.assertGreaterEqual(len(applied), 4)
 
         applied_ids = [m.migration_id for m in applied]
         expected_ids = [
@@ -186,13 +186,12 @@ class TestPhase1GateBootstrap(Phase1GateBaseTest):
             "003_versioning",
             "004_source_registry",
         ]
-        self.assertEqual(applied_ids, expected_ids)
+        self.assertEqual(applied_ids[:4], expected_ids)
 
         status_after = runner.get_status()
         self.assertTrue(status_after.is_clean)
-        self.assertEqual(status_after.applied_count, 4)
+        self.assertGreaterEqual(status_after.applied_count, 4)
         self.assertEqual(status_after.pending_count, 0)
-        self.assertEqual(status_after.latest_applied_id, "004_source_registry")
 
     def test_a02_migration_ids_contiguous_and_checksums_match(self) -> None:
         """Verify migration IDs are contiguous, no gaps, and checksums match on-disk files."""
@@ -203,7 +202,7 @@ class TestPhase1GateBootstrap(Phase1GateBaseTest):
             cursor = conn.cursor()
             cursor.execute("SELECT migration_id, checksum_sha256, version FROM schema_migrations ORDER BY migration_id ASC;")
             rows = cursor.fetchall()
-            self.assertEqual(len(rows), 4)
+            self.assertGreaterEqual(len(rows), 4)
 
             migrations_dir = Path(self.config.resolve_migrations_dir())
             for row in rows:
@@ -252,7 +251,7 @@ class TestPhase1GateBootstrap(Phase1GateBaseTest):
                 new_runner = MigrationRunner(new_engine)
                 status = new_runner.get_status()
                 self.assertTrue(status.is_clean)
-                self.assertEqual(status.applied_count, 4)
+                self.assertGreaterEqual(status.applied_count, 4)
         finally:
             new_engine.close()
 

@@ -237,3 +237,67 @@ class SourceHashMismatchError(SourceRegistryError):
 class IllegalSourceStateTransitionError(SourceRegistryError):
     """Raised when an illegal verification status transition is attempted."""
     pass
+
+
+# =============================================================================
+# SOURCE TEXT SUBSYSTEM EXCEPTIONS (Task 2.1)
+# =============================================================================
+
+class SourceTextError(BibleEngineDatabaseError):
+    """Base exception for all Source Text subsystem errors."""
+    pass
+
+
+class SourceTextNotFoundError(SourceTextError):
+    """Raised when a requested source text record does not exist."""
+    pass
+
+
+class DuplicateSourceTextError(SourceTextError):
+    """Raised when registering a source text with a duplicate identifier or conflicting unique key."""
+    pass
+
+
+class SourceTextImmutabilityError(SourceTextError):
+    """Raised when an illegal modification, update of raw content/hash, or deletion of source text is attempted."""
+    pass
+
+
+class SourceTextTranslationFirewallError(SourceTextError):
+    """Raised when translation firewall invariants are violated in source text operations."""
+    pass
+
+
+class SourceTextHashMismatchError(SourceTextError):
+    """Raised when content hash validation fails against source text artifact."""
+    pass
+
+
+class MalformedContentHashError(SourceTextError):
+    """Raised when a provided content hash violates the required 64-character lowercase hexadecimal format."""
+    pass
+
+
+class InvalidSourceTextLanguageError(SourceTextError):
+    """Raised when an invalid or unclassified source text language is specified."""
+    pass
+
+
+class InvalidRepresentationTypeError(SourceTextError):
+    """Raised when an invalid or unclassified representation type is specified."""
+    pass
+
+
+class SourceTextInvalidProvenanceError(SourceTextError):
+    """Raised when a referenced provenance record does not exist or fails validation."""
+    pass
+
+
+class SourceTextInvalidVersionError(SourceTextError):
+    """Raised when a referenced object version does not exist or fails validation."""
+    pass
+
+
+class SourceTextOrphanError(SourceTextError):
+    """Raised when attempting to register or persist a source text without a valid registered source."""
+    pass

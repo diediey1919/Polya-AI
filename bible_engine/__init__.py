@@ -197,7 +197,53 @@ __all__ = [
     "SourceInvalidVersionError",
     "SourceHashMismatchError",
     "IllegalSourceStateTransitionError",
+    # Source Text (Task 2.1)
+    "SourceTextManager",
+    "SourceTextRecord",
+    "RepresentationType",
+    "SourceTextLanguage",
+    "compute_content_hash",
+    "validate_content_hash",
+    "normalize_unicode_text",
+    "generate_source_text_id",
+    "SourceTextError",
+    "SourceTextNotFoundError",
+    "DuplicateSourceTextError",
+    "SourceTextImmutabilityError",
+    "SourceTextTranslationFirewallError",
+    "SourceTextHashMismatchError",
+    "MalformedContentHashError",
+    "InvalidSourceTextLanguageError",
+    "InvalidRepresentationTypeError",
+    "SourceTextInvalidProvenanceError",
+    "SourceTextInvalidVersionError",
+    "SourceTextOrphanError",
 ]
+
+from bible_engine.source_text import (
+    RepresentationType,
+    SourceTextLanguage,
+    SourceTextManager,
+    SourceTextRecord,
+    compute_content_hash,
+    generate_source_text_id,
+    normalize_unicode_text,
+    validate_content_hash,
+)
+from bible_engine.errors import (
+    DuplicateSourceTextError,
+    InvalidRepresentationTypeError,
+    InvalidSourceTextLanguageError,
+    MalformedContentHashError,
+    SourceTextError,
+    SourceTextHashMismatchError,
+    SourceTextImmutabilityError,
+    SourceTextInvalidProvenanceError,
+    SourceTextInvalidVersionError,
+    SourceTextNotFoundError,
+    SourceTextOrphanError,
+    SourceTextTranslationFirewallError,
+)
 
 
 
