@@ -34,3 +34,53 @@ class ReadOnlyViolationError(BibleEngineDatabaseError):
 class SchemaInitializationError(BibleEngineDatabaseError):
     """Raised when schema bootstrap from 001_initial_schema.sql fails."""
     pass
+
+
+class MigrationError(BibleEngineDatabaseError):
+    """Base exception for all migration runner errors."""
+    pass
+
+
+class MigrationIntegrityError(MigrationError):
+    """Raised on migration integrity violations (e.g. checksum mismatch, pragma tampering)."""
+    pass
+
+
+class MigrationChecksumMismatchError(MigrationIntegrityError):
+    """Raised when an already-applied migration script differs from its recorded database checksum."""
+    pass
+
+
+class MissingMigrationFileError(MigrationError):
+    """Raised when a recorded applied migration file is absent from the filesystem."""
+    pass
+
+
+class DuplicateMigrationError(MigrationError):
+    """Raised when duplicate migration sequence numbers or IDs are discovered."""
+    pass
+
+
+class MalformedMigrationNameError(MigrationError):
+    """Raised when a migration filename violates the strict NNN_name.sql naming convention."""
+    pass
+
+
+class AmbiguousMigrationOrderError(MigrationError):
+    """Raised on ambiguous ordering, out-of-order pending migrations, or unexpected sequence gaps."""
+    pass
+
+
+class MigrationExecutionError(MigrationError):
+    """Raised when executing a migration script fails, wrapping the underlying database error."""
+
+    def __init__(self, migration_id: str, cause: Exception, statement: str = "") -> None:
+        self.migration_id = migration_id
+        self.cause = cause
+        self.statement = statement
+        msg = f"Failed to execute migration '{migration_id}': {cause}"
+        if statement:
+            stmt_snippet = statement.strip().replace("\n", " ")[:80]
+            msg += f" (at statement: {stmt_snippet}...)"
+        super().__init__(msg)
+

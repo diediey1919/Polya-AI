@@ -11,12 +11,28 @@ from bible_engine.database import (
     init_schema,
 )
 from bible_engine.errors import (
+    AmbiguousMigrationOrderError,
     BibleEngineDatabaseError,
     DatabaseConfigurationError,
     DatabaseConnectionError,
     DatabaseTransactionError,
+    DuplicateMigrationError,
+    MalformedMigrationNameError,
+    MigrationChecksumMismatchError,
+    MigrationError,
+    MigrationExecutionError,
+    MigrationIntegrityError,
+    MissingMigrationFileError,
     ReadOnlyViolationError,
     SchemaInitializationError,
+)
+from bible_engine.migrations import (
+    MigrationFile,
+    MigrationRecord,
+    MigrationRunner,
+    MigrationStatus,
+    compute_sha256,
+    split_sql_statements,
 )
 
 __all__ = [
@@ -32,4 +48,19 @@ __all__ = [
     "DatabaseTransactionError",
     "ReadOnlyViolationError",
     "SchemaInitializationError",
+    "MigrationError",
+    "MigrationIntegrityError",
+    "MigrationChecksumMismatchError",
+    "MissingMigrationFileError",
+    "DuplicateMigrationError",
+    "MalformedMigrationNameError",
+    "AmbiguousMigrationOrderError",
+    "MigrationExecutionError",
+    "MigrationFile",
+    "MigrationRecord",
+    "MigrationRunner",
+    "MigrationStatus",
+    "compute_sha256",
+    "split_sql_statements",
 ]
+

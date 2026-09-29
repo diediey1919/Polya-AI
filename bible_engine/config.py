@@ -26,6 +26,7 @@ class DatabaseConfig:
     synchronous: str = "NORMAL"
     foreign_keys: bool = True
     schema_path: Optional[str] = None
+    migrations_dir: Optional[str] = None
 
     def __post_init__(self) -> None:
         if not self.foreign_keys:
@@ -45,10 +46,12 @@ class DatabaseConfig:
             or DEFAULT_DB_PATH
         )
         schema_path = os.environ.get("BIBLE_SCHEMA_PATH")
+        migrations_dir = os.environ.get("BIBLE_MIGRATIONS_DIR")
         return cls(
             db_path=db_path,
             read_only=read_only,
             schema_path=schema_path,
+            migrations_dir=migrations_dir,
         )
 
     def is_in_memory(self) -> bool:
@@ -102,3 +105,25 @@ class DatabaseConfig:
             f"Authoritative schema file '001_initial_schema.sql' not found. "
             f"Searched candidates: {[str(c) for c in candidates]}"
         )
+
+    def resolve_migrations_dir(self) -> str:
+        """
+        Resolve absolute path to directory containing migration scripts.
+        Defaults to parent directory of the resolved schema file.
+        """
+        if self.migrations_dir:
+            p = Path(self.migrations_dir).expanduser().resolve()
+            if p.is_dir():
+                return str(p)
+            raise SchemaInitializationError(
+                f"Specified migrations_dir does not exist: {self.migrations_dir}"
+            )
+
+        env_dir = os.environ.get("BIBLE_MIGRATIONS_DIR")
+        if env_dir:
+            p = Path(env_dir).expanduser().resolve()
+            if p.is_dir():
+                return str(p)
+
+        schema_file = self.resolve_schema_path()
+        return str(Path(schema_file).parent.resolve())
