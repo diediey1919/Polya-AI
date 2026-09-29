@@ -34,6 +34,29 @@ from bible_engine.migrations import (
     compute_sha256,
     split_sql_statements,
 )
+from bible_engine.provenance import (
+    ChainIntegrityResult,
+    HashStatus,
+    HashVerificationResult,
+    ProvenanceChain,
+    ProvenanceRecord,
+    ProvenanceRelation,
+    ProvenanceTracker,
+    RelationType,
+    TargetType,
+    TransformationType,
+    compute_canonical_hash,
+    verify_hash,
+)
+from bible_engine.errors import (
+    ProvenanceChainBrokenError,
+    ProvenanceError,
+    ProvenanceHashMismatchError,
+    ProvenanceImmutabilityError,
+    ProvenanceIntegrityError,
+    ProvenanceMissingParentError,
+    ProvenanceRecordNotFoundError,
+)
 
 __all__ = [
     "DatabaseConfig",
@@ -62,5 +85,25 @@ __all__ = [
     "MigrationStatus",
     "compute_sha256",
     "split_sql_statements",
+    "ProvenanceTracker",
+    "ProvenanceRecord",
+    "ProvenanceRelation",
+    "ProvenanceChain",
+    "TargetType",
+    "TransformationType",
+    "RelationType",
+    "HashStatus",
+    "HashVerificationResult",
+    "ChainIntegrityResult",
+    "compute_canonical_hash",
+    "verify_hash",
+    "ProvenanceError",
+    "ProvenanceRecordNotFoundError",
+    "ProvenanceIntegrityError",
+    "ProvenanceImmutabilityError",
+    "ProvenanceHashMismatchError",
+    "ProvenanceMissingParentError",
+    "ProvenanceChainBrokenError",
 ]
+
 

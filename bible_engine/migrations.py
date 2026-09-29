@@ -35,9 +35,11 @@ from bible_engine.errors import (
 _MIGRATION_FILE_PATTERN = re.compile(r"^(\d{3,})_([a-zA-Z0-9_\-]+)\.sql$")
 
 
-def compute_sha256(content: str) -> str:
-    """Compute deterministic SHA-256 hash of text content."""
-    return hashlib.sha256(content.encode("utf-8")).hexdigest()
+def compute_sha256(content: Union[str, bytes]) -> str:
+    """Compute deterministic SHA-256 hash of text or binary content."""
+    if isinstance(content, str):
+        content = content.encode("utf-8")
+    return hashlib.sha256(content).hexdigest().lower()
 
 
 def split_sql_statements(sql_text: str) -> List[str]:
@@ -52,6 +54,7 @@ def split_sql_statements(sql_text: str) -> List[str]:
     in_double_quote = False
     in_line_comment = False
     in_block_comment = False
+    block_depth = 0
     i = 0
     n = len(sql_text)
 
@@ -106,13 +109,27 @@ def split_sql_statements(sql_text: str) -> List[str]:
             continue
 
         # Statement delimiter outside quotes/comments
-        if c == ";" and not in_single_quote and not in_double_quote:
-            stmt = "".join(current).strip()
-            if stmt:
-                statements.append(stmt)
-            current = []
-            i += 1
-            continue
+        if not in_single_quote and not in_double_quote:
+            # Detect BEGIN / END boundaries for compound statements like triggers
+            word_match = re.match(r"^(BEGIN|END)\b", sql_text[i:], re.IGNORECASE)
+            if word_match:
+                word = word_match.group(1).upper()
+                prev_char = current[-1] if current else " "
+                if not prev_char.isalnum() and prev_char != "_":
+                    if word == "BEGIN":
+                        curr_upper = "".join(current).upper()
+                        if "TRIGGER" in curr_upper:
+                            block_depth += 1
+                    elif word == "END" and block_depth > 0:
+                        block_depth -= 1
+
+            if c == ";" and block_depth == 0:
+                stmt = "".join(current).strip()
+                if stmt:
+                    statements.append(stmt)
+                current = []
+                i += 1
+                continue
 
         current.append(c)
         i += 1

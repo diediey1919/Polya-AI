@@ -84,3 +84,38 @@ class MigrationExecutionError(MigrationError):
             msg += f" (at statement: {stmt_snippet}...)"
         super().__init__(msg)
 
+
+class ProvenanceError(BibleEngineDatabaseError):
+    """Base exception for all provenance subsystem errors."""
+    pass
+
+
+class ProvenanceRecordNotFoundError(ProvenanceError):
+    """Raised when a requested provenance record does not exist."""
+    pass
+
+
+class ProvenanceIntegrityError(ProvenanceError):
+    """Raised when a provenance integrity check fails."""
+    pass
+
+
+class ProvenanceImmutabilityError(ProvenanceIntegrityError):
+    """Raised when an illegal modification or deletion of provenance records is attempted."""
+    pass
+
+
+class ProvenanceHashMismatchError(ProvenanceIntegrityError):
+    """Raised when content verification fails against the recorded SHA-256 provenance hash."""
+    pass
+
+
+class ProvenanceMissingParentError(ProvenanceIntegrityError):
+    """Raised when a referenced parent provenance record is missing or unresolved."""
+    pass
+
+
+class ProvenanceChainBrokenError(ProvenanceIntegrityError):
+    """Raised when an object's lineage chain is broken, disconnected, or unverified."""
+    pass
+
