@@ -539,3 +539,102 @@ class SyntaxMorphologyFirewallError(SyntaxSubsystemError):
     """Raised when syntax attempts to illegally overwrite or mutate morphology observations."""
     pass
 
+
+# =============================================================================
+# SEMANTICS SUBSYSTEM EXCEPTIONS (Task 2.5)
+# =============================================================================
+
+class SemanticSubsystemError(BibleEngineDatabaseError):
+    """Base exception for all Semantics subsystem errors."""
+    pass
+
+
+class SemanticNotFoundError(SemanticSubsystemError):
+    """Raised when a requested semantic entity, sense, lexeme, or run does not exist."""
+    pass
+
+
+class DuplicateSemanticError(SemanticSubsystemError):
+    """Raised when attempting to insert a duplicate lexeme, sense, relation, or candidate."""
+    pass
+
+
+class SemanticImmutabilityError(SemanticSubsystemError):
+    """Raised when attempting to update or delete immutable semantic records."""
+    pass
+
+
+class LexemeNotFoundError(SemanticSubsystemError):
+    """Raised when a referenced lexeme does not exist."""
+    pass
+
+
+class SemanticSenseNotFoundError(SemanticSubsystemError):
+    """Raised when a referenced semantic sense does not exist."""
+    pass
+
+
+class SemanticDomainNotFoundError(SemanticSubsystemError):
+    """Raised when a referenced semantic domain does not exist."""
+    pass
+
+
+class SemanticTokenNotFoundError(SemanticSubsystemError):
+    """Raised when contextual semantic analysis references a nonexistent token."""
+    pass
+
+
+class SemanticLanguageMismatchError(SemanticSubsystemError):
+    """Raised when lexemes, senses, or contextual candidates conflict with source text language."""
+    pass
+
+
+class SemanticRelationError(SemanticSubsystemError):
+    """Raised when an invalid semantic relation (e.g. self-relation) is attempted."""
+    pass
+
+
+class SemanticConfidenceError(SemanticSubsystemError):
+    """Raised when confidence score or level is invalid or confidence is substituted for evidence."""
+    pass
+
+
+class SemanticInvalidProvenanceError(SemanticSubsystemError):
+    """Raised when a referenced provenance record does not exist or fails validation."""
+    pass
+
+
+class SemanticInvalidVersionError(SemanticSubsystemError):
+    """Raised when a referenced object version does not exist or fails validation."""
+    pass
+
+
+class SemanticOrphanError(SemanticSubsystemError):
+    """Raised when contextual sense analysis has no token or source text linkage."""
+    pass
+
+
+class SemanticTranslationFirewallError(SemanticSubsystemError):
+    """Raised when translation glosses or target-language idioms are substituted for source-language lexical senses."""
+    pass
+
+
+class SemanticMorphologyFirewallError(SemanticSubsystemError):
+    """Raised when semantics attempts to modify or dictate morphological parses."""
+    pass
+
+
+class SemanticSyntaxFirewallError(SemanticSubsystemError):
+    """Raised when semantics attempts to equate syntactic relations with semantic roles without justification."""
+    pass
+
+
+class SemanticTheologyFirewallError(SemanticSubsystemError):
+    """Raised when an illegal attempt is made to generate theological or dogmatic claims from semantic analysis."""
+    pass
+
+
+class SemanticIdentityFirewallError(SemanticSubsystemError):
+    """Raised when an illegal attempt is made to infer strict ontological or referential identity directly from semantic senses."""
+    pass
+
