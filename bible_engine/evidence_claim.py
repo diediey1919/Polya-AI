@@ -828,9 +828,9 @@ class EvidenceClaimManager:
     def record_evidence_and_claims(
         self,
         source_text_id: Optional[str],
-        evidence_defs: Sequence[EvidenceDefinition],
-        claim_defs: Sequence[ClaimDefinition],
-        link_defs: Sequence[ClaimEvidenceLinkDefinition],
+        evidence_defs: Sequence[EvidenceDefinition] = (),
+        claim_defs: Sequence[ClaimDefinition] = (),
+        link_defs: Sequence[ClaimEvidenceLinkDefinition] = (),
         config: Optional[EvidenceClaimConfig] = None,
         run_id: Optional[str] = None,
         provenance_id: Optional[str] = None,
