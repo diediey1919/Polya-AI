@@ -742,3 +742,117 @@ class ReferentialIdentityFirewallError(ReferentialSubsystemError):
     """Raised when associative symbolism is collapsed into ontological identity without explicit, traceable evidence and grammatical justification."""
     pass
 
+
+# =============================================================================
+# DISCOURSE & CONTEXT SUBSYSTEM (Task 2.7)
+# =============================================================================
+
+class DiscourseSubsystemError(BibleEngineDatabaseError):
+    """Base class for discourse and context foundation subsystem violations."""
+    pass
+
+
+class DiscourseNotFoundError(DiscourseSubsystemError):
+    """Raised when a discourse run or discourse artifact cannot be located."""
+    pass
+
+
+class DuplicateDiscourseError(DiscourseSubsystemError):
+    """Raised when a discourse artifact violates a uniqueness constraint."""
+    pass
+
+
+class DiscourseImmutabilityError(DiscourseSubsystemError):
+    """Raised when an attempt is made to mutate an immutable discourse record."""
+    pass
+
+
+class DiscourseConfidenceError(DiscourseSubsystemError):
+    """Raised when a discourse confidence score or level is malformed or unsupported."""
+    pass
+
+
+class DiscourseInvalidProvenanceError(DiscourseSubsystemError):
+    """Raised when discourse provenance linkage is absent or invalid."""
+    pass
+
+
+class DiscourseInvalidVersionError(DiscourseSubsystemError):
+    """Raised when discourse version linkage is absent or invalid."""
+    pass
+
+
+class DiscourseOrphanError(DiscourseSubsystemError):
+    """Raised when a discourse record references a nonexistent parent artifact."""
+    pass
+
+
+class DiscourseTokenNotFoundError(DiscourseSubsystemError):
+    """Raised when a discourse anchor cites a token absent from the source text."""
+    pass
+
+
+class DiscourseSpanValidationError(DiscourseSubsystemError):
+    """Raised when a discourse unit or segment span is reversed or otherwise invalid."""
+    pass
+
+
+class DiscourseRelationAnchorError(DiscourseSubsystemError):
+    """Raised when a discourse relation declares an unsupported unit/segment anchor kind."""
+    pass
+
+
+class DiscourseRelationNotFoundError(DiscourseSubsystemError):
+    """Raised when a discourse relation cannot be located."""
+    pass
+
+
+class DiscourseAmbiguityFirewallError(DiscourseSubsystemError):
+    """Raised when unresolved ambiguity is collapsed, or resolution is claimed without evidence."""
+    pass
+
+
+class DiscourseContextFirewallError(DiscourseSubsystemError):
+    """Raised when a context-layer observation is promoted into evidence. CONTEXT IS NOT AUTOMATICALLY EVIDENCE."""
+    pass
+
+
+class DiscourseLanguageMismatchError(DiscourseSubsystemError):
+    """Raised when discourse language conflicts with the source text language."""
+    pass
+
+
+class DiscourseNoMorphologyAloneFirewallError(DiscourseSubsystemError):
+    """Raised when a discourse relation is derived from morphology alone without a cited connector token."""
+    pass
+
+
+class DiscourseMorphologyFirewallError(DiscourseNoMorphologyAloneFirewallError):
+    """Raised when a discourse observation is asserted on a morphological basis alone."""
+    pass
+
+
+class DiscourseTranslationFirewallError(DiscourseSubsystemError):
+    """Raised when discourse meaning is derived from a modern translation rather than the source text."""
+    pass
+
+
+class DiscourseSyntaxFirewallError(DiscourseSubsystemError):
+    """Raised when a discourse anchor cites a syntactic artifact belonging to another source text."""
+    pass
+
+
+class DiscourseTheologyFirewallError(DiscourseSubsystemError):
+    """Raised when a discourse observation is used to assert a theological or doctrinal claim."""
+    pass
+
+
+class DiscourseIdentityFirewallError(DiscourseSubsystemError):
+    """Raised when a discourse participant or antecedent candidate asserts ontological or strict identity."""
+    pass
+
+
+class DiscourseFrequencyFirewallError(DiscourseSubsystemError):
+    """Raised when discourse meaning or truth is derived from contextual frequency or statistical majority."""
+    pass
+
