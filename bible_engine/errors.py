@@ -1142,3 +1142,107 @@ class ExegesisEntityIdentityFirewallError(ReferentialSubsystemError, ExegesisSub
     """Raised when entity association alone is used to directly establish theological identity."""
     pass
 
+
+# =============================================================================
+# TEXTUAL CRITICISM SUBSYSTEM ERRORS (Task 3.1)
+# =============================================================================
+
+class TextualCriticismSubsystemError(BibleEngineDatabaseError):
+    """Base exception for all textual criticism subsystem and apparatus errors."""
+    pass
+
+
+class VariantUnitNotFoundError(TextualCriticismSubsystemError):
+    """Raised when a requested variant unit cannot be found."""
+    pass
+
+
+class VariantReadingNotFoundError(TextualCriticismSubsystemError):
+    """Raised when a requested variant reading cannot be found."""
+    pass
+
+
+class WitnessNotFoundError(TextualCriticismSubsystemError):
+    """Raised when a cited manuscript or version witness is unknown or unregistered."""
+    pass
+
+
+class TranslationAsWitnessFirewallError(TextualCriticismSubsystemError):
+    """Raised when a secondary translation is illicitly cited as direct manuscript evidence."""
+    pass
+
+
+class ModernTranslationAsAttestationFirewallError(TextualCriticismSubsystemError):
+    """Raised when a modern translation is illicitly submitted as ancient witness attestation."""
+    pass
+
+
+class AITextualEvidenceFirewallError(TextualCriticismSubsystemError):
+    """Raised when AI-generated text is illicitly submitted as primary manuscript evidence."""
+    pass
+
+
+class ConfidenceTextualUpgradeFirewallError(TextualCriticismSubsystemError):
+    """Raised when statistical/model confidence is illicitly used to upgrade textual evidence class."""
+    pass
+
+
+class AutomaticPriorityCriterionFirewallError(TextualCriticismSubsystemError):
+    """Raised when an isolated textual-critical criterion is asserted as an automatic selection formula."""
+    pass
+
+
+class WitnessAgePriorityFirewallError(AutomaticPriorityCriterionFirewallError):
+    """Raised when witness age alone is asserted to determine textual priority."""
+    pass
+
+
+class WitnessCountPriorityFirewallError(AutomaticPriorityCriterionFirewallError):
+    """Raised when number of witnesses alone is asserted to determine textual priority."""
+    pass
+
+
+class TextualFamilyPriorityFirewallError(AutomaticPriorityCriterionFirewallError):
+    """Raised when textual family alone is asserted to determine textual priority."""
+    pass
+
+
+class LectioDifficiliorPriorityFirewallError(AutomaticPriorityCriterionFirewallError):
+    """Raised when lectio difficilior is asserted as an automatic truth formula without contextual balance."""
+    pass
+
+
+class LectioBreviorPriorityFirewallError(AutomaticPriorityCriterionFirewallError):
+    """Raised when lectio brevior is asserted as an automatic truth formula without contextual balance."""
+    pass
+
+
+class SuppressionOfAlternativeReadingsFirewallError(TextualCriticismSubsystemError):
+    """Raised when alternative or competing textual readings are suppressed or omitted."""
+    pass
+
+
+class PreferredAsCertainOriginalFirewallError(TextualCriticismSubsystemError):
+    """Raised when a preferred reading is dogmatically asserted as certain original without epistemic warrant."""
+    pass
+
+
+class TextualCriticismImmutabilityError(TextualCriticismSubsystemError):
+    """Raised when an immutable textual criticism run or decision record is modified."""
+    pass
+
+
+class TextualCriticismInvalidProvenanceError(TextualCriticismSubsystemError):
+    """Raised when textual criticism provenance metadata is missing, broken, or hash-mismatched."""
+    pass
+
+
+class TextualCriticismInvalidVersionError(TextualCriticismSubsystemError):
+    """Raised when textual criticism versioning constraints or relations are violated."""
+    pass
+
+
+class TextualCriticismConcurrencyError(TextualCriticismSubsystemError):
+    """Raised when concurrent operations collide on a textual criticism run or variant unit."""
+    pass
+
