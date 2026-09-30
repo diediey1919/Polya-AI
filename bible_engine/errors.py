@@ -856,3 +856,142 @@ class DiscourseFrequencyFirewallError(DiscourseSubsystemError):
     """Raised when discourse meaning or truth is derived from contextual frequency or statistical majority."""
     pass
 
+
+# =============================================================================
+# EVIDENCE & CLAIM SUBSYSTEM (Task 2.8)
+# =============================================================================
+
+class EvidenceClaimSubsystemError(BibleEngineDatabaseError):
+    """Base class for evidence and claim foundation subsystem violations."""
+    pass
+
+
+class EvidenceNotFoundError(EvidenceClaimSubsystemError):
+    """Raised when an evidence item or evidence run cannot be located."""
+    pass
+
+
+class ClaimNotFoundError(EvidenceClaimSubsystemError):
+    """Raised when a claim record cannot be located."""
+    pass
+
+
+class ClaimEvidenceLinkNotFoundError(EvidenceClaimSubsystemError):
+    """Raised when a claim-evidence link cannot be located."""
+    pass
+
+
+class DuplicateEvidenceError(EvidenceClaimSubsystemError):
+    """Raised when an evidence ID violates a uniqueness constraint."""
+    pass
+
+
+class DuplicateClaimError(EvidenceClaimSubsystemError):
+    """Raised when a claim ID violates a uniqueness constraint."""
+    pass
+
+
+class DuplicateClaimEvidenceLinkError(EvidenceClaimSubsystemError):
+    """Raised when a claim-evidence link violates uniqueness constraints."""
+    pass
+
+
+class EvidenceClaimImmutabilityError(EvidenceClaimSubsystemError):
+    """Raised when an attempt is made to mutate an immutable evidence or claim record."""
+    pass
+
+
+class InvalidEvidenceClassError(EvidenceClaimSubsystemError):
+    """Raised when an evidence record specifies an invalid or unapproved evidence class."""
+    pass
+
+
+class InvalidClaimTierError(EvidenceClaimSubsystemError):
+    """Raised when a claim record specifies an invalid or unapproved claim tier."""
+    pass
+
+
+class InvalidEpistemicTypeError(EvidenceClaimSubsystemError):
+    """Raised when an evidence or claim record specifies an invalid epistemic type."""
+    pass
+
+
+class InvalidEvidenceRelationshipError(EvidenceClaimSubsystemError):
+    """Raised when an evidence-to-claim link specifies an invalid relationship."""
+    pass
+
+
+class EvidenceConfidenceError(EvidenceClaimSubsystemError):
+    """Raised when a confidence score or level is malformed, out of bounds, or substituted for evidence."""
+    pass
+
+
+class EvidenceClaimInvalidProvenanceError(EvidenceClaimSubsystemError):
+    """Raised when evidence or claim provenance linkage is absent or invalid."""
+    pass
+
+
+class EvidenceClaimInvalidVersionError(EvidenceClaimSubsystemError):
+    """Raised when evidence or claim version linkage is absent or invalid."""
+    pass
+
+
+class EvidenceClaimOrphanError(EvidenceClaimSubsystemError):
+    """Raised when an evidence or claim record references a nonexistent parent artifact."""
+    pass
+
+
+class TranslationToE0FirewallError(EvidenceClaimSubsystemError):
+    """Raised when translation output is illicitly classified as E0 DIRECT_TEXT."""
+    pass
+
+
+class AIPrimaryEvidenceFirewallError(EvidenceClaimSubsystemError):
+    """Raised when AI model output is illicitly asserted as primary evidence (E0-E12)."""
+    pass
+
+
+class ConfidenceUpgradeFirewallError(EvidenceClaimSubsystemError):
+    """Raised when model confidence is used to upgrade E-level, upgrade claim tier, or establish theology/identity/fact."""
+    pass
+
+
+class MorphologyTheologyFirewallError(EvidenceClaimSubsystemError):
+    """Raised when morphology alone is used to directly create a T3 or T4 interpretive/theological claim."""
+    pass
+
+
+class SyntaxTheologyFirewallError(SyntaxSubsystemError, EvidenceClaimSubsystemError):
+    """Raised when syntax alone is used to directly create a T3 or T4 interpretive/theological claim."""
+    pass
+
+
+class SemanticTheologyFirewallError(SemanticSubsystemError, EvidenceClaimSubsystemError):
+    """Raised when semantic sense alone is used to directly create a T3 or T4 interpretive/theological claim."""
+    pass
+
+
+class DiscourseTheologyFirewallError(DiscourseSubsystemError, EvidenceClaimSubsystemError):
+    """Raised when discourse relation alone is used to directly create a T3 or T4 interpretive/theological claim."""
+    pass
+
+
+class IdentityFirewallError(EvidenceClaimSubsystemError):
+    """Raised when entity association is illicitly promoted to STRICT_IDENTITY without explicit justification and evidence."""
+    pass
+
+
+class UnsupportedClaimError(EvidenceClaimSubsystemError):
+    """Raised when a claim has zero supporting evidence or is unsupported by primary evidence."""
+    pass
+
+
+class MissingProvenanceError(EvidenceClaimSubsystemError):
+    """Raised when evidence or claim records lack mandatory provenance metadata."""
+    pass
+
+
+class UnresolvedContradictionFirewallError(EvidenceClaimSubsystemError):
+    """Raised when a claim with unresolved contradiction is marked established or verified fact."""
+    pass
+
