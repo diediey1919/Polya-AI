@@ -995,3 +995,150 @@ class UnresolvedContradictionFirewallError(EvidenceClaimSubsystemError):
     """Raised when a claim with unresolved contradiction is marked established or verified fact."""
     pass
 
+
+# =============================================================================
+# EXEGESIS FOUNDATION SUBSYSTEM (Task 2.9)
+# =============================================================================
+
+class ExegesisSubsystemError(BibleEngineDatabaseError):
+    """Base exception for all exegesis foundation subsystem violations."""
+    pass
+
+
+class ExegesisRunNotFoundError(ExegesisSubsystemError):
+    """Raised when an exegesis run record cannot be located."""
+    pass
+
+
+class ObservationNotFoundError(ExegesisSubsystemError):
+    """Raised when an exegesis observation cannot be located."""
+    pass
+
+
+class HypothesisNotFoundError(ExegesisSubsystemError):
+    """Raised when an interpretive hypothesis cannot be located."""
+    pass
+
+
+class CompetingInterpretationNotFoundError(ExegesisSubsystemError):
+    """Raised when a competing interpretation record cannot be located."""
+    pass
+
+
+class EvidenceAuditNotFoundError(ExegesisSubsystemError):
+    """Raised when an evidence audit record cannot be located."""
+    pass
+
+
+class CalibratedConclusionNotFoundError(ExegesisSubsystemError):
+    """Raised when a calibrated conclusion record cannot be located."""
+    pass
+
+
+class UnresolvedIssueNotFoundError(ExegesisSubsystemError):
+    """Raised when an unresolved issue record cannot be located."""
+    pass
+
+
+class DuplicateExegesisError(ExegesisSubsystemError):
+    """Raised when an exegesis artifact violates uniqueness constraints."""
+    pass
+
+
+class ExegesisImmutabilityError(ExegesisSubsystemError):
+    """Raised when an attempt is made to mutate an immutable exegesis record."""
+    pass
+
+
+class ExegesisInvalidProvenanceError(ExegesisSubsystemError):
+    """Raised when exegesis provenance linkage is absent or invalid."""
+    pass
+
+
+class ExegesisInvalidVersionError(ExegesisSubsystemError):
+    """Raised when exegesis version linkage is absent or invalid."""
+    pass
+
+
+class ExegesisOrphanError(ExegesisSubsystemError):
+    """Raised when an exegesis record references a nonexistent parent artifact."""
+    pass
+
+
+class PericopePrimaryUnitFirewallError(ExegesisSubsystemError):
+    """Raised when pericope is bypassed or verse is substituted for pericope as primary unit."""
+    pass
+
+
+class UnsupportedConclusionFirewallError(ExegesisSubsystemError):
+    """Raised when a conclusion lacks supporting evidence or is unsupported by primary evidence."""
+    pass
+
+
+class InterpretationWithoutEvidenceFirewallError(ExegesisSubsystemError):
+    """Raised when an interpretation or hypothesis is asserted without supporting evidence."""
+    pass
+
+
+class SuppressionOfCompetingInterpretationFirewallError(ExegesisSubsystemError):
+    """Raised when competing interpretations or alternative readings are suppressed."""
+    pass
+
+
+class SuppressionOfCounterEvidenceFirewallError(ExegesisSubsystemError):
+    """Raised when counter-evidence is silently omitted or suppressed."""
+    pass
+
+
+class SilentAmbiguityResolutionFirewallError(ExegesisSubsystemError):
+    """Raised when textual, syntactic, semantic, or referential ambiguity is silently resolved."""
+    pass
+
+
+class ModelMajorityTruthFirewallError(ExegesisSubsystemError):
+    """Raised when model agreement or majority consensus is asserted as truth without evidence."""
+    pass
+
+
+class ConfidenceAsEvidenceFirewallError(ExegesisSubsystemError):
+    """Raised when model confidence is substituted for evidence or used to upgrade epistemic certainty."""
+    pass
+
+
+class TranslationAsSourceFirewallError(ExegesisSubsystemError):
+    """Raised when translation output is illicitly treated as source evidence."""
+    pass
+
+
+class StrictIdentityEvidenceFirewallError(ExegesisSubsystemError):
+    """Raised when entity association is promoted to STRICT_IDENTITY without independent evidence."""
+    pass
+
+
+MorphologySubsystemError = MorphologyError
+
+
+class ExegesisMorphologyTheologyFirewallError(MorphologyError, ExegesisSubsystemError):
+    """Raised when morphology alone is used to directly establish theological conclusions."""
+    pass
+
+
+class ExegesisSyntaxTheologyFirewallError(SyntaxSubsystemError, ExegesisSubsystemError):
+    """Raised when syntax alone is used to directly establish theological conclusions."""
+    pass
+
+
+class ExegesisSemanticTheologyFirewallError(SemanticSubsystemError, ExegesisSubsystemError):
+    """Raised when semantic sense alone is used to directly establish theological conclusions."""
+    pass
+
+
+class ExegesisDiscourseTheologyFirewallError(DiscourseSubsystemError, ExegesisSubsystemError):
+    """Raised when discourse relation alone is used to directly establish theological conclusions."""
+    pass
+
+
+class ExegesisEntityIdentityFirewallError(ReferentialSubsystemError, ExegesisSubsystemError):
+    """Raised when entity association alone is used to directly establish theological identity."""
+    pass
+
