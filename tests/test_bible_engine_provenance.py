@@ -245,8 +245,14 @@ class TestProvenanceSubsystem(unittest.TestCase):
                 "'APOCALYPTIC', 'NA28', 'HIGH', 'VALIDATED', '2.0.0', '2026-09-30');"
             )
             conn.execute("INSERT INTO passages VALUES ('REV-19-08', 'PER-REV-19', 'REV', 19, 8, 1);")
-            conn.execute("INSERT INTO entities VALUES ('ENT-BRIDE', 'The Bride', 'SYMBOLIC_FIGURE', 'SYMBOL', 'The bride of the Lamb');")
-            conn.execute("INSERT INTO entities VALUES ('ENT-SAINTS', 'The Saints', 'CORPORATE_COMMUNITY', 'LITERAL_ENTITY', 'The saints community');")
+            conn.execute(
+                "INSERT INTO entities (entity_id, standard_name, entity_type, ontological_category, description) "
+                "VALUES ('ENT-BRIDE', 'The Bride', 'SYMBOLIC_FIGURE', 'SYMBOL', 'The bride of the Lamb');"
+            )
+            conn.execute(
+                "INSERT INTO entities (entity_id, standard_name, entity_type, ontological_category, description) "
+                "VALUES ('ENT-SAINTS', 'The Saints', 'CORPORATE_COMMUNITY', 'LITERAL_ENTITY', 'The saints community');"
+            )
 
             # Insert evidence into evidence_ledger
             conn.execute(
@@ -450,8 +456,14 @@ class TestProvenanceSubsystem(unittest.TestCase):
                 "'APOCALYPTIC', 'NA28', 'HIGH', 'VALIDATED', '2.0.0', '2026-09-30');"
             )
             conn.execute("INSERT INTO passages VALUES ('REV-19-08', 'PER-REV-19', 'REV', 19, 8, 1);")
-            conn.execute("INSERT INTO entities VALUES ('E1', 'Entity 1', 'HUMAN_INDIVIDUAL', 'LITERAL_ENTITY', 'First');")
-            conn.execute("INSERT INTO entities VALUES ('E2', 'Entity 2', 'HUMAN_INDIVIDUAL', 'LITERAL_ENTITY', 'Second');")
+            conn.execute(
+                "INSERT INTO entities (entity_id, standard_name, entity_type, ontological_category, description) "
+                "VALUES ('E1', 'Entity 1', 'HUMAN_INDIVIDUAL', 'LITERAL_ENTITY', 'First');"
+            )
+            conn.execute(
+                "INSERT INTO entities (entity_id, standard_name, entity_type, ontological_category, description) "
+                "VALUES ('E2', 'Entity 2', 'HUMAN_INDIVIDUAL', 'LITERAL_ENTITY', 'Second');"
+            )
 
             # Attempt STRICT_IDENTITY without evidence_id -> must fail CHECK constraint
             with self.assertRaises(sqlite3.IntegrityError):

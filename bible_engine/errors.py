@@ -638,3 +638,107 @@ class SemanticIdentityFirewallError(SemanticSubsystemError):
     """Raised when an illegal attempt is made to infer strict ontological or referential identity directly from semantic senses."""
     pass
 
+
+# =============================================================================
+# REFERENTIAL & ENTITY SUBSYSTEM (Task 2.6)
+# =============================================================================
+
+class ReferentialSubsystemError(BibleEngineDatabaseError):
+    """Base class for referential and entity foundation subsystem violations."""
+    pass
+
+
+class ReferentialNotFoundError(ReferentialSubsystemError):
+    """Raised when a referential run or relation cannot be located."""
+    pass
+
+
+class DuplicateReferentialError(ReferentialSubsystemError):
+    """Raised when a referential artifact violates uniqueness constraints."""
+    pass
+
+
+class ReferentialImmutabilityError(ReferentialSubsystemError):
+    """Raised when an attempt is made to mutate an immutable referential record."""
+    pass
+
+
+class EntityNotFoundError(ReferentialSubsystemError):
+    """Raised when a referenced entity does not exist."""
+    pass
+
+
+class DuplicateEntityError(ReferentialSubsystemError):
+    """Raised when an entity ID or standard name is already registered."""
+    pass
+
+
+class EntityMentionNotFoundError(ReferentialSubsystemError):
+    """Raised when an entity mention cannot be located."""
+    pass
+
+
+class ReferentialRelationNotFoundError(ReferentialSubsystemError):
+    """Raised when a referential relation cannot be located."""
+    pass
+
+
+class ReferentialTokenNotFoundError(ReferentialSubsystemError):
+    """Raised when an entity mention anchors to a nonexistent token."""
+    pass
+
+
+class ReferentialLanguageMismatchError(ReferentialSubsystemError):
+    """Raised when entity or mention language conflicts with the source text language."""
+    pass
+
+
+class ReferentialConfidenceError(ReferentialSubsystemError):
+    """Raised when a referential confidence score or level is malformed or unsupported."""
+    pass
+
+
+class ReferentialInvalidProvenanceError(ReferentialSubsystemError):
+    """Raised when referential provenance linkage is absent or invalid."""
+    pass
+
+
+class ReferentialInvalidVersionError(ReferentialSubsystemError):
+    """Raised when referential version linkage is absent or invalid."""
+    pass
+
+
+class ReferentialOrphanError(ReferentialSubsystemError):
+    """Raised when a referential record references a nonexistent parent artifact."""
+    pass
+
+
+class ReferentialEvidenceNotFoundError(ReferentialSubsystemError):
+    """Raised when a relation cites an evidence_id absent from the evidence ledger."""
+    pass
+
+
+class ReferentialTranslationFirewallError(ReferentialSubsystemError):
+    """Raised when translation-layer glosses or target-language idioms are substituted for referential analysis."""
+    pass
+
+
+class ReferentialMorphologyFirewallError(ReferentialSubsystemError):
+    """Raised when the referential engine attempts to alter or dictate morphological parses."""
+    pass
+
+
+class ReferentialSyntaxFirewallError(ReferentialSubsystemError):
+    """Raised when a referential relation cites a syntactic clause belonging to another text."""
+    pass
+
+
+class ReferentialTheologyFirewallError(ReferentialSubsystemError):
+    """Raised when a referential relation or entity is used to assert theological or dogmatic claims."""
+    pass
+
+
+class ReferentialIdentityFirewallError(ReferentialSubsystemError):
+    """Raised when associative symbolism is collapsed into ontological identity without explicit, traceable evidence and grammatical justification."""
+    pass
+

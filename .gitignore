@@ -63,3 +63,6 @@ temp/
 *.bin
 *.pt
 *.pth
+
+# Test scratch dirs
+tests/_test_tmp_*/

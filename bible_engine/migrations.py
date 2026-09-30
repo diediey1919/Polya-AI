@@ -341,7 +341,7 @@ class MigrationRunner:
 
         cursor.execute(
             "SELECT migration_id, version, applied_at, checksum_sha256, description "
-            "FROM schema_migrations ORDER BY version ASC, migration_id ASC;"
+            "FROM schema_migrations ORDER BY CAST(version AS INTEGER) ASC, migration_id ASC;"
         )
         rows = cursor.fetchall()
         return [
