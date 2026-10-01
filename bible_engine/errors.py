@@ -1336,3 +1336,138 @@ class HistoricalObservationNotFoundError(HistoricalLinguisticSubsystemError):
     pass
 
 
+# =============================================================================
+# INTERTEXTUAL SUBSYSTEM ERRORS (Task 3.3 - E10)
+# =============================================================================
+
+class IntertextualSubsystemError(BibleEngineDatabaseError):
+    """Base exception for all intertextual analysis subsystem errors."""
+    pass
+
+
+class LexicalSimilarityNotIntertextualityFirewallError(IntertextualSubsystemError):
+    """Raised when lexical similarity or shared vocabulary is illicitly asserted as intertextual dependence."""
+    pass
+
+
+class ThematicSimilarityNotIntertextualityFirewallError(IntertextualSubsystemError):
+    """Raised when thematic similarity or shared motif is illicitly asserted as direct intertextual dependence."""
+    pass
+
+
+class ChronologyNotDependenceFirewallError(IntertextualSubsystemError):
+    """Raised when chronological proximity or precedence is illicitly asserted as textual dependence."""
+    pass
+
+
+class SameWordingNotAutomaticQuotationFirewallError(IntertextualSubsystemError):
+    """Raised when same wording or lexical overlap is asserted as direct quotation without supporting evidence."""
+    pass
+
+
+class SharedTraditionNotDirectQuotationFirewallError(IntertextualSubsystemError):
+    """Raised when traditional parallel or common motif is illicitly asserted as direct quotation."""
+    pass
+
+
+class E9ParallelNotE10IntertextFirewallError(IntertextualSubsystemError):
+    """Raised when an E9 historical-linguistic parallel is automatically upgraded to E10 intertextual evidence."""
+    pass
+
+
+class TranslationNotOriginalSourceFirewallError(IntertextualSubsystemError):
+    """Raised when a translation is treated as original source text or translation mediation is suppressed."""
+    pass
+
+
+class ReceptionSourceNotAuthorialSourceFirewallError(IntertextualSubsystemError):
+    """Raised when a later commentary/reception source is illicitly asserted as authorial source of an earlier text."""
+    pass
+
+
+class EntityIdentityNotTextualDependenceFirewallError(IntertextualSubsystemError):
+    """Raised when shared entity, person, title, or divine name is illicitly asserted as textual dependence."""
+    pass
+
+
+class UnknownDirectionPreservationFirewallError(IntertextualSubsystemError):
+    """Raised when unknown direction is illicitly forced into source->target or target->source without evidence."""
+    pass
+
+
+class AIIntertextualEvidenceFirewallError(IntertextualSubsystemError):
+    """Raised when AI-generated proposal is illicitly submitted as primary E10 intertextual evidence."""
+    pass
+
+
+class ModernCommentaryNotAncientSourceFirewallError(IntertextualSubsystemError):
+    """Raised when modern commentary is illicitly submitted as ancient intertextual source."""
+    pass
+
+
+class ConfidenceNotEvidenceUpgradeFirewallError(IntertextualSubsystemError):
+    """Raised when confidence score or level is illicitly used to manufacture or upgrade evidence tier."""
+    pass
+
+
+class RetrievalRankingNotTruthFirewallError(IntertextualSubsystemError):
+    """Raised when retrieval score or ranking is illicitly treated as truth or used to force a single winner."""
+    pass
+
+
+class CounterEvidencePreservationFirewallError(IntertextualSubsystemError):
+    """Raised when counter-evidence is suppressed or discarded."""
+    pass
+
+
+class QuotationEvidenceRequiredFirewallError(IntertextualSubsystemError):
+    """Raised when direct quotation is asserted without explicit quotation formula or high-confidence evidence."""
+    pass
+
+
+class ChronologyOnlyRelationFirewallError(IntertextualSubsystemError):
+    """Raised when an intertextual relationship is established solely on chronological grounds."""
+    pass
+
+
+class IntertextualNotTheologicalClaimFirewallError(IntertextualSubsystemError):
+    """Raised when an intertextual claim or observation is illicitly escalated directly into a T4 theological claim."""
+    pass
+
+
+class UnverifiedIdentifierPreservationFirewallError(IntertextualSubsystemError):
+    """Raised when an unverified external identifier is illicitly marked or treated as verified."""
+    pass
+
+
+class IntertextualImmutabilityError(IntertextualSubsystemError):
+    """Raised when an immutable intertextual record is updated or deleted."""
+    pass
+
+
+class IntertextualInvalidProvenanceError(IntertextualSubsystemError):
+    """Raised when intertextual provenance metadata is missing, broken, or hash-mismatched."""
+    pass
+
+
+class IntertextualInvalidVersionError(IntertextualSubsystemError):
+    """Raised when intertextual versioning constraints or relations are violated."""
+    pass
+
+
+class IntertextualConcurrencyError(IntertextualSubsystemError):
+    """Raised when concurrent operations collide on an intertextual run or entity."""
+    pass
+
+
+class IntertextualSourceNotFoundError(IntertextualSubsystemError):
+    """Raised when a referenced intertextual source metadata record is not found."""
+    pass
+
+
+class IntertextualRelationshipNotFoundError(IntertextualSubsystemError):
+    """Raised when a referenced intertextual relationship is not found."""
+    pass
+
+
+
