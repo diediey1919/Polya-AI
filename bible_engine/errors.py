@@ -2081,6 +2081,55 @@ class DeterministicHashMismatchError(RetrievalSubsystemError):
     pass
 
 
+# =============================================================================
+# TASK 4.0: EPISTEMIC VALIDATION ENGINE SUBSYSTEM ERRORS (V1-V10)
+# =============================================================================
+
+class ValidationEngineSubsystemError(BibleEngineDatabaseError):
+    """Base error for all Epistemic Validation Engine subsystem failures."""
+    pass
 
 
+class ValidationExecutionError(ValidationEngineSubsystemError):
+    """Raised when validation execution encounters an unhandled internal failure."""
+    pass
 
+
+class ValidationImmutabilityError(ValidationEngineSubsystemError):
+    """Raised when an attempt is made to update or delete immutable validation records."""
+    pass
+
+
+class ValidationConcurrencyError(ValidationEngineSubsystemError):
+    """Raised when concurrent operations collide during validation execution."""
+    pass
+
+
+class DeterministicValidationHashMismatchError(ValidationEngineSubsystemError):
+    """Raised when canonical input hash or validation identity fails deterministic check."""
+    pass
+
+
+class ValidationTargetNotFoundError(ValidationEngineSubsystemError):
+    """Raised when a validation target or candidate artifact cannot be resolved."""
+    pass
+
+
+class ValidationLineageError(ValidationEngineSubsystemError):
+    """Raised when lineage, provenance, or version references in validation input are invalid."""
+    pass
+
+
+class ValidationIntegrityError(ValidationEngineSubsystemError):
+    """Raised when validation records or layer summaries fail structural consistency."""
+    pass
+
+
+class CertificateGenerationError(ValidationEngineSubsystemError):
+    """Raised when certificate generation is attempted for an ineligible run or invalid state."""
+    pass
+
+
+class EpistemicFirewallViolationError(ValidationEngineSubsystemError):
+    """Raised when a validation operation attempts an illegal epistemic promotion or conflation."""
+    pass
