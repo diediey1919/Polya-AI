@@ -1644,3 +1644,94 @@ class ReceptionValidationError(ReceptionHistorySubsystemError):
     """Raised when a reception history definition or relation fails structural validation."""
     pass
 
+
+# =============================================================================
+# TASK 3.5: EVIDENCE ADJUDICATION SUBSYSTEM ERRORS (E0-E12 Adjudication & Fallacies)
+# =============================================================================
+
+class EvidenceAdjudicationSubsystemError(BibleEngineDatabaseError):
+    """Base error for all Evidence Adjudication subsystem failures."""
+    pass
+
+
+
+class FallacyDetectedError(EvidenceAdjudicationSubsystemError):
+    """Base error raised when a hermeneutical or dialectical fallacy is detected."""
+    pass
+
+
+class IllegitimateTotalityTransferError(FallacyDetectedError):
+    """Raised when all potential meanings of a lexeme are illicitly transferred into a single passage."""
+    pass
+
+
+class RootFallacyError(FallacyDetectedError):
+    """Raised when an etymological root is asserted as the determinative meaning in context."""
+    pass
+
+
+class AnachronisticSemanticInjectionError(FallacyDetectedError):
+    """Raised when later theological development or semantics are injected back into ancient text."""
+    pass
+
+
+class UnwarrantedGeneralizationError(FallacyDetectedError):
+    """Raised when a specific contextual finding is illegitimately generalized across all contexts."""
+    pass
+
+
+class SuppressedCounterEvidenceError(EvidenceAdjudicationSubsystemError):
+    """Raised when relevant counter-evidence is suppressed, ignored, or omitted in adjudication."""
+    pass
+
+
+class MajorityVoteEpistemologyError(EvidenceAdjudicationSubsystemError):
+    """Raised when majority vote or source popularity is illicitly asserted as truth."""
+    pass
+
+
+class ConsensusAsTruthError(EvidenceAdjudicationSubsystemError):
+    """Raised when scholarly or ecclesial consensus is illicitly equated to textual truth."""
+    pass
+
+
+class ConfidenceEscalationError(EvidenceAdjudicationSubsystemError):
+    """Raised when confidence score escalates beyond the weakest critical evidence dependency."""
+    pass
+
+
+class UnresolvedConflictSuppressionError(EvidenceAdjudicationSubsystemError):
+    """Raised when an unresolved dialectical conflict is suppressed or prematurely decided."""
+    pass
+
+
+class AdjudicationNotFoundError(EvidenceAdjudicationSubsystemError):
+    """Raised when an adjudication run, hypothesis, conflict, or verdict cannot be found."""
+    pass
+
+
+class AdjudicationValidationError(EvidenceAdjudicationSubsystemError):
+    """Raised when an adjudication definition fails structural or semantic validation."""
+    pass
+
+
+class AdjudicationImmutabilityError(EvidenceAdjudicationSubsystemError):
+    """Raised when an immutable adjudication record is illicitly modified or deleted."""
+    pass
+
+
+class AdjudicationInvalidProvenanceError(EvidenceAdjudicationSubsystemError):
+    """Raised when adjudication provenance metadata is missing, broken, or hash-mismatched."""
+    pass
+
+
+class AdjudicationInvalidVersionError(EvidenceAdjudicationSubsystemError):
+    """Raised when adjudication versioning constraints or relations are violated."""
+    pass
+
+
+class AdjudicationConcurrencyError(EvidenceAdjudicationSubsystemError):
+    """Raised when concurrent operations collide on an adjudication run or entity."""
+    pass
+
+
