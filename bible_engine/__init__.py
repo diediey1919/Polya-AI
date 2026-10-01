@@ -1691,3 +1691,37 @@ from bible_engine.errors import (
     ValidationLineageError,
     ValidationTargetNotFoundError,
 )
+
+from bible_engine.cross_corpus import (
+    BoundaryFindings,
+    CrossCorpusCalibrationRun,
+    CrossCorpusComparison,
+    CrossCorpusRelationshipType,
+    IdentityBoundary,
+    SemanticBoundary,
+    SupportingEvidenceLink,
+    SupportingEvidenceRole,
+    TemporalBoundary,
+    compute_calibration_identity,
+    compute_run_input_content_hash,
+    compute_run_output_hash,
+)
+from bible_engine.pipeline import (
+    ExegeticalPipeline,
+    PipelineCandidatePack,
+    PipelineConfig,
+    PipelineExecutionResult,
+    PipelineStage,
+    STAGE_ORDER,
+)
+from bible_engine.errors import (
+    CrossCorpusBoundaryViolationError,
+    CrossCorpusConcurrencyError,
+    CrossCorpusDeterminismError,
+    CrossCorpusImmutabilityError,
+    CrossCorpusSubsystemError,
+    InvalidCrossCorpusOntologyError,
+    PipelineBlockedValidationError,
+    PipelineOrderingViolationError,
+    PipelinePersistenceError,
+)

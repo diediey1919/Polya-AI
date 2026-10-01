@@ -2133,3 +2133,52 @@ class CertificateGenerationError(ValidationEngineSubsystemError):
 class EpistemicFirewallViolationError(ValidationEngineSubsystemError):
     """Raised when a validation operation attempts an illegal epistemic promotion or conflation."""
     pass
+
+
+# =============================================================================
+# TASK 4.1: CROSS-CORPUS CALIBRATION & EXEGETICAL PIPELINE SUBSYSTEM ERRORS
+# =============================================================================
+
+class CrossCorpusSubsystemError(BibleEngineDatabaseError):
+    """Base error for all Cross-Corpus Calibration subsystem failures."""
+    pass
+
+
+class InvalidCrossCorpusOntologyError(CrossCorpusSubsystemError):
+    """Raised when an invalid or non-canonical relationship type is provided."""
+    pass
+
+
+class CrossCorpusBoundaryViolationError(CrossCorpusSubsystemError):
+    """Raised when boundary findings violate categorical rules or contain illegal scores."""
+    pass
+
+
+class CrossCorpusDeterminismError(CrossCorpusSubsystemError):
+    """Raised when canonical comparison hash or calibration identity fails determinism check."""
+    pass
+
+
+class CrossCorpusImmutabilityError(CrossCorpusSubsystemError):
+    """Raised when an attempt is made to update or delete immutable cross-corpus records."""
+    pass
+
+
+class CrossCorpusConcurrencyError(CrossCorpusSubsystemError):
+    """Raised when concurrent operations collide during cross-corpus calibration execution."""
+    pass
+
+
+class PipelineOrderingViolationError(CrossCorpusSubsystemError):
+    """Raised when pipeline stages are executed out of order or violate dependency directions."""
+    pass
+
+
+class PipelineBlockedValidationError(CrossCorpusSubsystemError):
+    """Raised when candidate artifacts are blocked by epistemic validation."""
+    pass
+
+
+class PipelinePersistenceError(CrossCorpusSubsystemError):
+    """Raised when atomic transaction persistence fails across pipeline artifacts."""
+    pass
