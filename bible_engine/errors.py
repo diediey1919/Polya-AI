@@ -1987,5 +1987,100 @@ class TheologicalConcurrencyError(TheologicalComparisonSubsystemError):
     pass
 
 
+# =============================================================================
+# HYBRID SYMMETRICAL RETRIEVAL SUBSYSTEM ERRORS (Task 3.9)
+# =============================================================================
+
+class RetrievalSubsystemError(BibleEngineDatabaseError):
+    """Base exception for all Retrieval Subsystem errors."""
+    pass
+
+
+class CounterSearchSuppressionError(RetrievalSubsystemError):
+    """Raised when an attempt is made to disable, suppress, or bypass counter-search."""
+    pass
+
+
+class AsymmetricalRetrievalError(RetrievalSubsystemError):
+    """Raised when search symmetry obligations between primary and counter branches are violated."""
+    pass
+
+
+class EpistemicTierConfusionError(RetrievalSubsystemError):
+    """Raised when E-tier and T-tier are conflated or standalone T-tier is directly assigned to retrieval items."""
+    pass
+
+
+class DogmaticContaminationError(RetrievalSubsystemError):
+    """Raised when a T4 dogmatic claim is illicitly retrojected or used as evidence for T0–T3 claims."""
+    pass
+
+
+class GraphEpistemicLeakageError(RetrievalSubsystemError):
+    """Raised when graph connectivity, node degree, or path length is illicitly treated as truth or confidence."""
+    pass
+
+
+class AbsenceOfEvidenceConflationError(RetrievalSubsystemError):
+    """Raised when NOT_FOUND is illicitly converted or interpreted as NO_COUNTER_EVIDENCE_EXISTS."""
+    pass
+
+
+class RetrievalConfidenceInflationError(RetrievalSubsystemError):
+    """Raised when retrieval ranking, BM25 score, or frequency inflates epistemic confidence."""
+    pass
+
+
+class FTS5HostileInputError(RetrievalSubsystemError):
+    """Raised when FTS5 input contains malicious or unparsable syntax that cannot be sanitized."""
+    pass
+
+
+class RetrievalImmutabilityError(RetrievalSubsystemError):
+    """Raised when an immutable retrieval query, run, coverage, pack, or item is modified or deleted."""
+    pass
+
+
+class RetrievalQueryNotFoundError(RetrievalSubsystemError):
+    """Raised when a requested retrieval query record does not exist."""
+    pass
+
+
+class RetrievalRunNotFoundError(RetrievalSubsystemError):
+    """Raised when a requested retrieval run record does not exist."""
+    pass
+
+
+class RetrievalContextPackNotFoundError(RetrievalSubsystemError):
+    """Raised when a requested retrieval context pack does not exist."""
+    pass
+
+
+class RetrievalValidationError(RetrievalSubsystemError):
+    """Raised when retrieval parameters or pack structures fail validation."""
+    pass
+
+
+class RetrievalInvalidProvenanceError(RetrievalSubsystemError):
+    """Raised when retrieval provenance records are missing or invalid."""
+    pass
+
+
+class RetrievalInvalidVersionError(RetrievalSubsystemError):
+    """Raised when retrieval version records are missing or invalid."""
+    pass
+
+
+class RetrievalConcurrencyError(RetrievalSubsystemError):
+    """Raised when concurrent operations collide on a retrieval run or pack."""
+    pass
+
+
+class DeterministicHashMismatchError(RetrievalSubsystemError):
+    """Raised when a computed pack hash does not match canonical deterministic serialization."""
+    pass
+
+
+
 
 
