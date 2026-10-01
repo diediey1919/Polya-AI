@@ -1735,3 +1735,78 @@ class AdjudicationConcurrencyError(EvidenceAdjudicationSubsystemError):
     pass
 
 
+# =============================================================================
+# TASK 3.6: CROSS-PERICOPE EVIDENCE KNOWLEDGE GRAPH ERRORS
+# =============================================================================
+
+class GraphSubsystemError(BibleEngineDatabaseError):
+    """Base error for all Knowledge Graph subsystem failures."""
+    pass
+
+
+class GraphCycleDetectedError(GraphSubsystemError):
+    """Raised when an edge creation would introduce a cycle in dependency paths (violating DAG)."""
+    pass
+
+
+class GraphValidationError(GraphSubsystemError):
+    """Raised when a graph node, edge, or configuration fails validation."""
+    pass
+
+
+class GraphNodeNotFoundError(GraphSubsystemError):
+    """Raised when a specified graph node does not exist."""
+    pass
+
+
+class GraphEdgeNotFoundError(GraphSubsystemError):
+    """Raised when a specified graph edge does not exist."""
+    pass
+
+
+class GraphConfidenceViolationError(GraphSubsystemError):
+    """Raised when path confidence exceeds the weakest critical edge confidence."""
+    pass
+
+
+class GraphEvidenceTierViolationError(GraphSubsystemError):
+    """Raised when an edge or node attempts to illicitly upgrade evidence class or claim tier."""
+    pass
+
+
+class GraphIdentityFirewallError(GraphSubsystemError):
+    """Raised when EQUATED_WITH edge is asserted without explicit justification or provenance."""
+    pass
+
+
+class GraphReceptionAuthorialFirewallError(GraphSubsystemError):
+    """Raised when E11/E12 reception is illicitly converted into E0-E5 authorial intent."""
+    pass
+
+
+class GraphCounterEvidenceSuppressionError(GraphSubsystemError):
+    """Raised when contrary or competing edges are omitted or filtered out."""
+    pass
+
+
+class GraphImmutabilityError(GraphSubsystemError):
+    """Raised when an immutable graph record is illicitly modified or deleted."""
+    pass
+
+
+class GraphInvalidProvenanceError(GraphSubsystemError):
+    """Raised when graph provenance metadata is missing, broken, or hash-mismatched."""
+    pass
+
+
+class GraphInvalidVersionError(GraphSubsystemError):
+    """Raised when graph versioning constraints or relations are violated."""
+    pass
+
+
+class GraphConcurrencyError(GraphSubsystemError):
+    """Raised when concurrent operations collide on a graph run, node, or edge."""
+    pass
+
+
+

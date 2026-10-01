@@ -770,7 +770,36 @@ __all__ = [
     "AdjudicationInvalidProvenanceError",
     "AdjudicationInvalidVersionError",
     "AdjudicationConcurrencyError",
+    # Task 3.6: Cross-Pericope Evidence Knowledge Graph
+    "GraphRunStatus",
+    "GraphNodeType",
+    "GraphEdgeType",
+    "GraphNodeStatus",
+    "GraphEdgeStatus",
+    "GraphRunConfig",
+    "GraphNodeDefinition",
+    "GraphEdgeDefinition",
+    "GraphNodeRecord",
+    "GraphEdgeRecord",
+    "GraphPathResult",
+    "GraphRunResult",
+    "EvidenceKnowledgeGraphManager",
+    "GraphSubsystemError",
+    "GraphCycleDetectedError",
+    "GraphValidationError",
+    "GraphNodeNotFoundError",
+    "GraphEdgeNotFoundError",
+    "GraphConfidenceViolationError",
+    "GraphEvidenceTierViolationError",
+    "GraphIdentityFirewallError",
+    "GraphReceptionAuthorialFirewallError",
+    "GraphCounterEvidenceSuppressionError",
+    "GraphImmutabilityError",
+    "GraphInvalidProvenanceError",
+    "GraphInvalidVersionError",
+    "GraphConcurrencyError",
 ]
+
 
 
 from bible_engine.source_text import (
@@ -1390,5 +1419,37 @@ from bible_engine.errors import (
     UnresolvedConflictSuppressionError,
     UnwarrantedGeneralizationError,
 )
+from bible_engine.graph import (
+    EvidenceKnowledgeGraphManager,
+    GraphEdgeDefinition,
+    GraphEdgeRecord,
+    GraphEdgeStatus,
+    GraphEdgeType,
+    GraphNodeDefinition,
+    GraphNodeRecord,
+    GraphNodeStatus,
+    GraphNodeType,
+    GraphPathResult,
+    GraphRunConfig,
+    GraphRunResult,
+    GraphRunStatus,
+)
+from bible_engine.errors import (
+    GraphConcurrencyError,
+    GraphConfidenceViolationError,
+    GraphCounterEvidenceSuppressionError,
+    GraphCycleDetectedError,
+    GraphEdgeNotFoundError,
+    GraphEvidenceTierViolationError,
+    GraphIdentityFirewallError,
+    GraphImmutabilityError,
+    GraphInvalidProvenanceError,
+    GraphInvalidVersionError,
+    GraphNodeNotFoundError,
+    GraphReceptionAuthorialFirewallError,
+    GraphSubsystemError,
+    GraphValidationError,
+)
+
 
 
