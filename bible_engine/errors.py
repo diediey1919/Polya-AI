@@ -1246,3 +1246,93 @@ class TextualCriticismConcurrencyError(TextualCriticismSubsystemError):
     """Raised when concurrent operations collide on a textual criticism run or variant unit."""
     pass
 
+
+# =============================================================================
+# HISTORICAL-LINGUISTIC & DIACHRONIC SUBSYSTEM ERRORS (Task 3.2)
+# =============================================================================
+
+class HistoricalLinguisticSubsystemError(BibleEngineDatabaseError):
+    """Base exception for all historical-linguistic and diachronic engine errors."""
+    pass
+
+
+class LexicalSimilarityNotBorrowingFirewallError(HistoricalLinguisticSubsystemError):
+    """Raised when lexical similarity is illicitly asserted as borrowing without evidence."""
+    pass
+
+
+class LexicalSimilarityNotCausationFirewallError(HistoricalLinguisticSubsystemError):
+    """Raised when lexical similarity is illicitly asserted as historical causation."""
+    pass
+
+
+class ChronologicalProximityNotCausationFirewallError(HistoricalLinguisticSubsystemError):
+    """Raised when chronological proximity is illicitly asserted as causal influence."""
+    pass
+
+
+class SharedRootNotSameSourceFirewallError(HistoricalLinguisticSubsystemError):
+    """Raised when shared root is illicitly asserted to demonstrate identical historical source."""
+    pass
+
+
+class LaterFormEarlierReadingFirewallError(HistoricalLinguisticSubsystemError):
+    """Raised when a later linguistic form is illicitly treated as an automatic earlier reading."""
+    pass
+
+
+class ModernTerminologyAuthorialIntentFirewallError(HistoricalLinguisticSubsystemError):
+    """Raised when modern linguistic/theological terminology is illicitly retrofitted to ancient authorial intent."""
+    pass
+
+
+class AIHistoricalEvidenceFirewallError(HistoricalLinguisticSubsystemError):
+    """Raised when AI-generated etymology or historical parallel is illicitly submitted as primary evidence."""
+    pass
+
+
+class TranslationHistoricalSourceFirewallError(HistoricalLinguisticSubsystemError):
+    """Raised when a translation is illicitly submitted as historical-linguistic source evidence."""
+    pass
+
+
+class ParallelNotIntertextualFirewallError(HistoricalLinguisticSubsystemError):
+    """Raised when an epigraphic/papyrological parallel is automatically upgraded to E10 intertextuality."""
+    pass
+
+
+class BorrowingEvidenceRequiredFirewallError(HistoricalLinguisticSubsystemError):
+    """Raised when loanword borrowing is registered without supporting evidence."""
+    pass
+
+
+class HistoricalLinguisticImmutabilityError(HistoricalLinguisticSubsystemError):
+    """Raised when an immutable historical-linguistic record is updated or deleted."""
+    pass
+
+
+class HistoricalLinguisticInvalidProvenanceError(HistoricalLinguisticSubsystemError):
+    """Raised when historical-linguistic provenance metadata is missing, broken, or hash-mismatched."""
+    pass
+
+
+class HistoricalLinguisticInvalidVersionError(HistoricalLinguisticSubsystemError):
+    """Raised when historical-linguistic versioning constraints or relations are violated."""
+    pass
+
+
+class HistoricalLinguisticConcurrencyError(HistoricalLinguisticSubsystemError):
+    """Raised when concurrent operations collide on a historical-linguistic run or entity."""
+    pass
+
+
+class StratumNotFoundError(HistoricalLinguisticSubsystemError):
+    """Raised when a referenced diachronic stratum is not found."""
+    pass
+
+
+class HistoricalObservationNotFoundError(HistoricalLinguisticSubsystemError):
+    """Raised when a referenced historical-linguistic observation is not found."""
+    pass
+
+
