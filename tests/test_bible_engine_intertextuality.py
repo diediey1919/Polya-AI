@@ -358,28 +358,49 @@ class TestIntertextualAnalysisEngine(unittest.TestCase):
     # 5. SAME WORDING != AUTOMATIC QUOTATION & QUOTATION REQUIRES EVIDENCE
     # -------------------------------------------------------------------------
     def test_05_wording_without_quotation_formula_and_evidence(self) -> None:
-        """Firewall: Direct quotation requires explicit quotation formula or high confidence."""
-        # 5a. Missing quotation formula and low confidence
-        bad_rel1 = IntertextualRelationshipDefinition(
-            relationship_id="REL-QUOT-NO-EV-FAIL",
+        """Firewall: Direct quotation strictly requires explicit quotation formula/evidence; confidence/score cannot manufacture evidence."""
+        # 5a. Missing quotation formula even with CERTAIN / 1.0 confidence must be rejected
+        bad_rel_high_conf = IntertextualRelationshipDefinition(
+            relationship_id="REL-QUOT-HIGH-CONF-FAIL",
             source_metadata_id="SRC-MICAH-HEB",
             relationship_type=IntertextualRelationType.DIRECT_QUOTATION.value,
             epistemic_classification=EpistemicClassification.DIRECT_QUOTATION.value,
             target_passage_id="PAS-MAT-2-6",
             has_explicit_quotation_formula=False,
-            confidence=ConfidenceLevel.LOW.value,
-            confidence_score=0.3,
+            confidence=ConfidenceLevel.CERTAIN.value,
+            confidence_score=1.0,
             evidence_id="EV-IT-SEED-01",
         )
         with self.assertRaises(QuotationEvidenceRequiredFirewallError):
             self.it_manager.execute_analysis_run(
-                run_id="RUN-IT-QUOT-FAIL",
+                run_id="RUN-IT-QUOT-HIGH-CONF-FAIL",
                 target_passage_id="PAS-MAT-2-6",
-                relationships=[bad_rel1],
+                relationships=[bad_rel_high_conf],
             )
 
-        # 5b. Same wording (lexical parallel) cannot automatically assert DIRECT_QUOTATION
-        bad_rel2 = IntertextualRelationshipDefinition(
+        # 5b. Missing quotation formula with high retrieval score (0.99) and rank 1 must be rejected
+        bad_rel_retrieval = IntertextualRelationshipDefinition(
+            relationship_id="REL-QUOT-RETRIEVAL-FAIL",
+            source_metadata_id="SRC-MICAH-HEB",
+            relationship_type=IntertextualRelationType.DIRECT_QUOTATION.value,
+            epistemic_classification=EpistemicClassification.DIRECT_QUOTATION.value,
+            target_passage_id="PAS-MAT-2-6",
+            has_explicit_quotation_formula=False,
+            retrieval_rank=1,
+            retrieval_score=0.99,
+            confidence=ConfidenceLevel.VERY_HIGH.value,
+            confidence_score=0.95,
+            evidence_id="EV-IT-SEED-01",
+        )
+        with self.assertRaises(QuotationEvidenceRequiredFirewallError):
+            self.it_manager.execute_analysis_run(
+                run_id="RUN-IT-QUOT-RETRIEVAL-FAIL",
+                target_passage_id="PAS-MAT-2-6",
+                relationships=[bad_rel_retrieval],
+            )
+
+        # 5c. Strong lexical similarity without quotation formula cannot automatically assert DIRECT_QUOTATION
+        bad_rel_lex = IntertextualRelationshipDefinition(
             relationship_id="REL-WORDING-NO-QUOT",
             source_metadata_id="SRC-MICAH-HEB",
             relationship_type=IntertextualRelationType.LEXICAL_PARALLEL.value,
@@ -394,8 +415,67 @@ class TestIntertextualAnalysisEngine(unittest.TestCase):
             self.it_manager.execute_analysis_run(
                 run_id="RUN-IT-WORDING-FAIL",
                 target_passage_id="PAS-MAT-2-6",
-                relationships=[bad_rel2],
+                relationships=[bad_rel_lex],
             )
+
+        # 5d. Chronological precedence without quotation formula cannot assert DIRECT_QUOTATION
+        bad_rel_chrono = IntertextualRelationshipDefinition(
+            relationship_id="REL-QUOT-CHRONO-FAIL",
+            source_metadata_id="SRC-MICAH-HEB",
+            relationship_type=IntertextualRelationType.UNKNOWN.value,
+            epistemic_classification=EpistemicClassification.DIRECT_QUOTATION.value,
+            target_passage_id="PAS-MAT-2-6",
+            chronological_precedence_demonstrated=True,
+            has_explicit_quotation_formula=False,
+            evidence_id="EV-IT-SEED-01",
+        )
+        with self.assertRaises(ChronologyNotDependenceFirewallError):
+            self.it_manager.execute_analysis_run(
+                run_id="RUN-IT-QUOT-CHRONO-FAIL",
+                target_passage_id="PAS-MAT-2-6",
+                relationships=[bad_rel_chrono],
+            )
+
+        # 5e. AI-generated assertion without quotation evidence is rejected
+        bad_rel_ai = IntertextualRelationshipDefinition(
+            relationship_id="REL-QUOT-AI-FAIL",
+            source_metadata_id="SRC-MICAH-HEB",
+            relationship_type=IntertextualRelationType.DIRECT_QUOTATION.value,
+            epistemic_classification=EpistemicClassification.DIRECT_QUOTATION.value,
+            target_passage_id="PAS-MAT-2-6",
+            is_ai_generated=True,
+            has_explicit_quotation_formula=False,
+            evidence_id="EV-IT-SEED-01",
+        )
+        with self.assertRaises(AIIntertextualEvidenceFirewallError):
+            self.it_manager.execute_analysis_run(
+                run_id="RUN-IT-QUOT-AI-FAIL",
+                target_passage_id="PAS-MAT-2-6",
+                relationships=[bad_rel_ai],
+            )
+
+        # 5f. Explicit quotation formula AND evidence successfully establishes DIRECT_QUOTATION
+        good_rel = IntertextualRelationshipDefinition(
+            relationship_id="REL-QUOT-EXPLICIT-OK",
+            source_metadata_id="SRC-MICAH-HEB",
+            relationship_type=IntertextualRelationType.DIRECT_QUOTATION.value,
+            epistemic_classification=EpistemicClassification.DIRECT_QUOTATION.value,
+            target_passage_id="PAS-MAT-2-6",
+            has_explicit_quotation_formula=True,
+            quotation_formula_text="γέγραπται γὰρ διὰ τοῦ προφήτου",
+            confidence=ConfidenceLevel.HIGH.value,
+            confidence_score=0.85,
+            evidence_id="EV-IT-SEED-01",
+        )
+        res = self.it_manager.execute_analysis_run(
+            run_id="RUN-IT-QUOT-EXPLICIT-OK",
+            target_passage_id="PAS-MAT-2-6",
+            relationships=[good_rel],
+        )
+        self.assertEqual(res.relationships_count, 1)
+        saved = self.it_manager.get_relationships_for_run("RUN-IT-QUOT-EXPLICIT-OK")
+        self.assertEqual(saved[0]["relationship_type"], "DIRECT_QUOTATION")
+        self.assertEqual(saved[0]["has_explicit_quotation_formula"], 1)
 
     # -------------------------------------------------------------------------
     # 6. SHARED TRADITION != DIRECT QUOTATION
@@ -950,7 +1030,7 @@ class TestIntertextualAnalysisEngine(unittest.TestCase):
         actual_016_hash = hashlib.sha256(m016.read_bytes()).hexdigest().lower()
         self.assertEqual(
             actual_016_hash,
-            "aa6e55d6e09a3d18f5153a6a6949b46dd369d6bc8776d2344ea9be68888e3d1c",
+            "ff15c7ce8d885d33588c4ff8d048d28c4f0c07ce9b21a57f53931490baa650dd",
             "Migration 016 checksum altered!",
         )
 

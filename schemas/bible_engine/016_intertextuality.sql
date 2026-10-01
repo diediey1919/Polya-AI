@@ -170,8 +170,8 @@ CREATE TABLE IF NOT EXISTS intertextual_relationships (
     is_immutable INTEGER NOT NULL DEFAULT 1 CHECK(is_immutable = 1),
     notes TEXT,
 
-    -- Epistemic Firewall: Direct quotation requires explicit quotation evidence / formula or high confidence
-    CHECK((relationship_type != 'DIRECT_QUOTATION' AND epistemic_classification != 'DIRECT_QUOTATION') OR has_explicit_quotation_formula = 1 OR confidence IN ('CERTAIN', 'VERY_HIGH', 'HIGH')),
+    -- Epistemic Firewall: Direct quotation strictly requires explicit quotation evidence / formula (confidence cannot create evidence)
+    CHECK((relationship_type != 'DIRECT_QUOTATION' AND epistemic_classification != 'DIRECT_QUOTATION') OR has_explicit_quotation_formula = 1),
     -- Epistemic Firewall: Shared tradition != direct quotation
     CHECK(relationship_type != 'TRADITIONAL_PARALLEL' OR epistemic_classification != 'DIRECT_QUOTATION'),
     -- Epistemic Firewall: Lexical parallel cannot assert direct quotation or strong allusion

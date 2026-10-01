@@ -479,22 +479,22 @@ class IntertextualManager:
                     f"Relationship '{r.relationship_id}': Chronological precedence alone cannot assert textual dependence."
                 )
 
-            # Firewall 4 & 17: Same wording != automatic quotation / Quotation requires explicit evidence
-            if rel_type == IntertextualRelationType.DIRECT_QUOTATION.value or epist_class == EpistemicClassification.DIRECT_QUOTATION.value:
-                if not r.has_explicit_quotation_formula and conf not in ("CERTAIN", "VERY_HIGH", "HIGH"):
-                    raise QuotationEvidenceRequiredFirewallError(
-                        f"Relationship '{r.relationship_id}': DIRECT_QUOTATION requires explicit quotation formula or high-confidence evidence."
-                    )
-                if not r.has_explicit_quotation_formula and rel_type == IntertextualRelationType.LEXICAL_PARALLEL.value:
-                    raise SameWordingNotAutomaticQuotationFirewallError(
-                        f"Relationship '{r.relationship_id}': Same wording or lexical overlap cannot automatically assert DIRECT_QUOTATION."
-                    )
-
             # Firewall 5: Shared tradition != direct quotation
             if rel_type == IntertextualRelationType.TRADITIONAL_PARALLEL.value and epist_class == EpistemicClassification.DIRECT_QUOTATION.value:
                 raise SharedTraditionNotDirectQuotationFirewallError(
                     f"Relationship '{r.relationship_id}': Shared tradition cannot be classified as DIRECT_QUOTATION."
                 )
+
+            # Firewall 4 & 17: Same wording != automatic quotation / Quotation requires explicit evidence
+            if rel_type == IntertextualRelationType.DIRECT_QUOTATION.value or epist_class == EpistemicClassification.DIRECT_QUOTATION.value:
+                if not r.has_explicit_quotation_formula:
+                    if rel_type == IntertextualRelationType.LEXICAL_PARALLEL.value:
+                        raise SameWordingNotAutomaticQuotationFirewallError(
+                            f"Relationship '{r.relationship_id}': Same wording or lexical overlap cannot automatically assert DIRECT_QUOTATION without explicit quotation formula."
+                        )
+                    raise QuotationEvidenceRequiredFirewallError(
+                        f"Relationship '{r.relationship_id}': DIRECT_QUOTATION strictly requires explicit quotation formula or evidence; confidence cannot create evidence."
+                    )
 
             # Firewall 8: Reception source != authorial source
             if r.is_reception_history_source and direction == SourceDirection.SOURCE_TO_TARGET.value:
