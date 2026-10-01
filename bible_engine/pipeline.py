@@ -152,6 +152,7 @@ class PipelineExecutionResult:
     calibration_identity: Optional[str]
     total_comparisons: int
     validation_outcome: ValidationOutcome
+    validation_run_id: Optional[str]
     certificate_id: Optional[str]
     executed_stages: Tuple[PipelineStage, ...]
     committed: bool
@@ -442,8 +443,8 @@ class ExegeticalPipeline:
         # ---------------------------------------------------------------------
         val_input = ValidationInput(
             target=ValidationTarget(
-                target_type=tgt_type,
-                target_id=tgt_id,
+                target_type="CROSS_CORPUS_CALIBRATION",
+                target_id=calib_run_id,
                 target_version_id=tgt_ver_id,
             ),
             retrieval_lineage=ret_lineage,
@@ -491,6 +492,7 @@ class ExegeticalPipeline:
             calibration_identity=calib_ident,
             total_comparisons=len(comps),
             validation_outcome=val_run.final_outcome,
+            validation_run_id=val_run.run_id,
             certificate_id=cert_id,
             executed_stages=tuple(executed_stages),
             committed=True,

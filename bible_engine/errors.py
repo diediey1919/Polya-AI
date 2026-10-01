@@ -2182,3 +2182,33 @@ class PipelineBlockedValidationError(CrossCorpusSubsystemError):
 class PipelinePersistenceError(CrossCorpusSubsystemError):
     """Raised when atomic transaction persistence fails across pipeline artifacts."""
     pass
+
+
+# =============================================================================
+# TASK 4.2 BATCH PROCESSING SUBSYSTEM ERRORS (Clause 15–20)
+# =============================================================================
+
+class BatchSubsystemError(BibleEngineDatabaseError):
+    """Base error for all Pericope Batch Processing Engine failures."""
+    pass
+
+
+class BatchJobStateError(BatchSubsystemError):
+    """Raised when an illegal job or run state transition is attempted."""
+    pass
+
+
+class BatchConcurrencyError(BatchSubsystemError):
+    """Raised when worker lock contention or atomic claim failure occurs."""
+    pass
+
+
+class BatchReconciliationError(BatchSubsystemError):
+    """Raised when crash recovery or fast-path reconciliation fails."""
+    pass
+
+
+class BatchUnitIntegrityError(BatchSubsystemError):
+    """Raised when a processing unit violates immutability or identity hashing."""
+    pass
+

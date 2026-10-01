@@ -1714,7 +1714,23 @@ from bible_engine.pipeline import (
     PipelineStage,
     STAGE_ORDER,
 )
+from bible_engine.batch import (
+    AuthoritativePipelineCompletion,
+    BatchJobRecord,
+    BatchJobStatus,
+    BatchProcessingEngine,
+    BatchProgress,
+    BatchRunRecord,
+    BatchRunStatus,
+    ProcessingUnit,
+    compute_processing_unit_hash,
+)
 from bible_engine.errors import (
+    BatchConcurrencyError,
+    BatchJobStateError,
+    BatchReconciliationError,
+    BatchSubsystemError,
+    BatchUnitIntegrityError,
     CrossCorpusBoundaryViolationError,
     CrossCorpusConcurrencyError,
     CrossCorpusDeterminismError,
@@ -1725,3 +1741,4 @@ from bible_engine.errors import (
     PipelineOrderingViolationError,
     PipelinePersistenceError,
 )
+
