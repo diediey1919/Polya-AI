@@ -1470,4 +1470,177 @@ class IntertextualRelationshipNotFoundError(IntertextualSubsystemError):
     pass
 
 
+# =============================================================================
+# RECEPTION HISTORY ERRORS (Task 3.4)
+# Evidence Classes: E11_EARLY_RECEPTION, E12_LATER_INTERPRETATION
+# =============================================================================
+
+class ReceptionHistorySubsystemError(BibleEngineDatabaseError):
+    """Base exception for all reception history engine errors."""
+    pass
+
+
+class ReceptionActorNotFoundError(ReceptionHistorySubsystemError):
+    """Raised when a referenced reception actor is not found."""
+    pass
+
+
+class ReceptionSourceNotFoundError(ReceptionHistorySubsystemError):
+    """Raised when a referenced reception source is not found."""
+    pass
+
+
+class ReceptionRecordNotFoundError(ReceptionHistorySubsystemError):
+    """Raised when a referenced reception record is not found."""
+    pass
+
+
+class ReceptionClaimNotFoundError(ReceptionHistorySubsystemError):
+    """Raised when a referenced reception claim is not found."""
+    pass
+
+
+class ReceptionRelationNotFoundError(ReceptionHistorySubsystemError):
+    """Raised when a referenced reception relation is not found."""
+    pass
+
+
+class ReceptionAuthorialIntentFirewallError(ReceptionHistorySubsystemError):
+    """Raised when later reception or interpretation is illicitly equated to original authorial intent."""
+    pass
+
+
+class ReceptionTheologicalTruthFirewallError(ReceptionHistorySubsystemError):
+    """Raised when reception history is illicitly equated to absolute theological truth or T4 dogma."""
+    pass
+
+
+class ReceptionEarlyNotApostolicFirewallError(ReceptionHistorySubsystemError):
+    """Raised when early or patristic reception is automatically equated to apostolic/authorial meaning."""
+    pass
+
+
+class ReceptionRabbinicNotSecondTempleFirewallError(ReceptionHistorySubsystemError):
+    """Raised when rabbinic interpretation is automatically equated to Second Temple intent."""
+    pass
+
+
+class ReceptionMedievalNotBiblicalFirewallError(ReceptionHistorySubsystemError):
+    """Raised when medieval interpretation is automatically equated to ancient biblical meaning."""
+    pass
+
+
+class ReceptionScholarlyNotTextualFirewallError(ReceptionHistorySubsystemError):
+    """Raised when modern scholarly consensus is treated as primary textual evidence."""
+    pass
+
+
+class ReceptionDenominationalNotAuthorialFirewallError(ReceptionHistorySubsystemError):
+    """Raised when denominational doctrine is treated as ancient authorial intent."""
+    pass
+
+
+class ReceptionChronologyNotInfluenceFirewallError(ReceptionHistorySubsystemError):
+    """Raised when temporal proximity alone is asserted as causal influence or dependence."""
+    pass
+
+
+class ReceptionCitationNotInterpretationFirewallError(ReceptionHistorySubsystemError):
+    """Raised when mere quotation/citation is treated as full interpretive consensus or agreement."""
+    pass
+
+
+class ReceptionAllusionNotQuotationFirewallError(ReceptionHistorySubsystemError):
+    """Raised when an allusion is illicitly classified as direct quotation without textual quotation formula."""
+    pass
+
+
+class ReceptionTranslationNotOriginalFirewallError(ReceptionHistorySubsystemError):
+    """Raised when translation mediation is ignored or translation text is asserted as original source."""
+    pass
+
+
+class ReceptionLexicalNotReceptionFirewallError(ReceptionHistorySubsystemError):
+    """Raised when lexical similarity alone is asserted as reception history connection."""
+    pass
+
+
+class ReceptionThematicNotReceptionFirewallError(ReceptionHistorySubsystemError):
+    """Raised when thematic parallel alone is asserted as reception history connection."""
+    pass
+
+
+class ReceptionDoctrinalNotTextualReadingFirewallError(ReceptionHistorySubsystemError):
+    """Raised when doctrinal formulation is treated as an explicit textual reading of the passage."""
+    pass
+
+
+class ReceptionSourceNotAuthorialSourceFirewallError(ReceptionHistorySubsystemError):
+    """Raised when later reception source is asserted as authorial source of the ancient text."""
+    pass
+
+
+class ReceptionNotCanonicalAuthorityFirewallError(ReceptionHistorySubsystemError):
+    """Raised when reception history is illicitly endowed with canonical authority."""
+    pass
+
+
+class ReceptionMajorityNotFactFirewallError(ReceptionHistorySubsystemError):
+    """Raised when majority or consensus reception is asserted as verified textual fact."""
+    pass
+
+
+class ReceptionAISummaryNotPrimarySourceFirewallError(ReceptionHistorySubsystemError):
+    """Raised when AI-generated summary is submitted as primary E11/E12 reception evidence."""
+    pass
+
+
+class ReceptionModernCommentaryNotWitnessFirewallError(ReceptionHistorySubsystemError):
+    """Raised when modern commentary is submitted as ancient historical witness."""
+    pass
+
+
+class ReceptionUnverifiedIdentifierFirewallError(ReceptionHistorySubsystemError):
+    """Raised when an unverified external identifier is illicitly treated as verified."""
+    pass
+
+
+class ReceptionConfidenceNotUpgradeFirewallError(ReceptionHistorySubsystemError):
+    """Raised when confidence score is used to manufacture or upgrade evidence class or tier."""
+    pass
+
+
+class ReceptionTemporalDirectionFirewallError(ReceptionHistorySubsystemError):
+    """Raised when temporal direction is reversed or asserted without chronological verification."""
+    pass
+
+
+class ReceptionCounterEvidencePreservationFirewallError(ReceptionHistorySubsystemError):
+    """Raised when counter-evidence or competing interpretations are suppressed or omitted."""
+    pass
+
+
+class ReceptionImmutabilityError(ReceptionHistorySubsystemError):
+    """Raised when an immutable reception record is updated or deleted."""
+    pass
+
+
+class ReceptionInvalidProvenanceError(ReceptionHistorySubsystemError):
+    """Raised when reception provenance metadata is missing, broken, or hash-mismatched."""
+    pass
+
+
+class ReceptionInvalidVersionError(ReceptionHistorySubsystemError):
+    """Raised when reception versioning constraints or relations are violated."""
+    pass
+
+
+class ReceptionConcurrencyError(ReceptionHistorySubsystemError):
+    """Raised when concurrent operations collide on a reception run or entity."""
+    pass
+
+
+class ReceptionValidationError(ReceptionHistorySubsystemError):
+    """Raised when a reception history definition or relation fails structural validation."""
+    pass
 
