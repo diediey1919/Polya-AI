@@ -1893,5 +1893,99 @@ class SynthesisConcurrencyError(SynthesisSubsystemError):
     pass
 
 
+# =============================================================================
+# TASK 3.8: THEOLOGICAL COMPARISON & ILZAM AL-KHASM SUBSYSTEM ERRORS
+# =============================================================================
+
+class TheologicalComparisonSubsystemError(BibleEngineDatabaseError):
+    """Base error for all Theological Comparison and Ilzam al-Khasm subsystem failures."""
+    pass
+
+
+class TheologyFirewallError(TheologicalComparisonSubsystemError):
+    """Base error for violations of the directional boundary between T4 dogma and T0-T3 evidence."""
+    pass
+
+
+class DogmaticEvidenceContaminationError(TheologyFirewallError):
+    """Raised when a T4 dogmatic claim attempts to modify, rewrite, upgrade, or define T0-T3 evidence."""
+    pass
+
+
+class CircularProofStructureError(TheologicalComparisonSubsystemError):
+    """Raised when a theological proposition serves as evidence for its own underlying premises (petitio principii)."""
+    pass
+
+
+class IlzamCritiqueDetectedError(TheologicalComparisonSubsystemError):
+    """Raised or used when an internal critique demonstrates a fatal contradiction within opponent's premises."""
+    pass
+
+
+class AnachronisticRetrojectionError(TheologicalComparisonSubsystemError):
+    """Raised when later theological terminology is retrojected into ancient texts without contemporary warrant."""
+    pass
+
+
+class IdentityCollapseError(TheologicalComparisonSubsystemError):
+    """Raised when metaphorical agency or divine representation is illicitly equated to ontological identity."""
+    pass
+
+
+class TheologicalConfidenceInflationError(TheologicalComparisonSubsystemError):
+    """Raised when comparison confidence exceeds the weakest critical dependency or uses popularity/consensus."""
+    pass
+
+
+class AsymmetricalFrameworkEvaluationError(TheologicalComparisonSubsystemError):
+    """Raised when theological frameworks are evaluated under non-symmetrical criteria or majority voting."""
+    pass
+
+
+class TheologicalHarmonizationError(TheologicalComparisonSubsystemError):
+    """Raised when genuine tensions between dogma and biblical text are illicitly harmonized without warrant."""
+    pass
+
+
+class FrameworkNotFoundError(TheologicalComparisonSubsystemError):
+    """Raised when a referenced theological framework is not found."""
+    pass
+
+
+class PropositionNotFoundError(TheologicalComparisonSubsystemError):
+    """Raised when a referenced dogmatic proposition is not found."""
+    pass
+
+
+class ComparisonRunNotFoundError(TheologicalComparisonSubsystemError):
+    """Raised when a referenced comparison run is not found."""
+    pass
+
+
+class TheologicalValidationError(TheologicalComparisonSubsystemError):
+    """Raised when comparison inputs fail structural, schema, or invariant validation."""
+    pass
+
+
+class TheologicalImmutabilityError(TheologicalComparisonSubsystemError):
+    """Raised when an immutable comparison record is updated or deleted."""
+    pass
+
+
+class TheologicalInvalidProvenanceError(TheologicalComparisonSubsystemError):
+    """Raised when theological comparison provenance metadata is missing, broken, or hash-mismatched."""
+    pass
+
+
+class TheologicalInvalidVersionError(TheologicalComparisonSubsystemError):
+    """Raised when theological comparison versioning constraints or relations are violated."""
+    pass
+
+
+class TheologicalConcurrencyError(TheologicalComparisonSubsystemError):
+    """Raised when concurrent operations collide on a comparison run or proposition."""
+    pass
+
+
 
 
