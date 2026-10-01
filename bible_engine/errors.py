@@ -1809,4 +1809,89 @@ class GraphConcurrencyError(GraphSubsystemError):
     pass
 
 
+# =============================================================================
+# TASK 3.7: HIERARCHICAL SYNTHESIS SUBSYSTEM ERRORS
+# =============================================================================
+
+class SynthesisSubsystemError(BibleEngineDatabaseError):
+    """Base error for all Hierarchical Synthesis subsystem failures."""
+    pass
+
+
+class SynthesisScopeJumpError(SynthesisSubsystemError):
+    """Raised when synthesis jumps scope levels improperly or skips hierarchical progression."""
+    pass
+
+
+class SynthesisReverseScopeError(SynthesisSubsystemError):
+    """Raised when higher scope is used as constituent/proof for lower scope (violating directionality)."""
+    pass
+
+
+class SynthesisCircularDependencyError(SynthesisSubsystemError):
+    """Raised when a synthesis run attempts to feed itself or introduces circular dependencies."""
+    pass
+
+
+class SynthesisConfidenceInflationError(SynthesisSubsystemError):
+    """Raised when synthesis confidence exceeds the weakest critical constituent dependency."""
+    pass
+
+
+class SynthesisHarmonizationError(SynthesisSubsystemError):
+    """Raised when divergent authors or conflicting evidence are illicitly harmonized without tension."""
+    pass
+
+
+class SynthesisAuthorialDistinctiveViolationError(SynthesisSubsystemError):
+    """Raised when distinct authorial theology/tradition is collapsed without explicit dependency."""
+    pass
+
+
+class SynthesisReceptionAuthorialFirewallError(SynthesisSubsystemError):
+    """Raised when E11/E12 reception history is converted into authorial corpus theology."""
+    pass
+
+
+class SynthesisEvidenceTierViolationError(SynthesisSubsystemError):
+    """Raised when synthesis attempts to escalate evidence class or claim tier."""
+    pass
+
+
+class SynthesisMissingConstituentError(SynthesisSubsystemError):
+    """Raised when synthesis claim lacks required constituent evidence or adjudication linkages."""
+    pass
+
+
+class SynthesisNotFoundError(SynthesisSubsystemError):
+    """Raised when a referenced synthesis run, claim, tension, or constituent is not found."""
+    pass
+
+
+class SynthesisValidationError(SynthesisSubsystemError):
+    """Raised when synthesis inputs fail structural, schema, or invariant validation."""
+    pass
+
+
+class SynthesisImmutabilityError(SynthesisSubsystemError):
+    """Raised when an immutable synthesis record is illicitly modified or deleted."""
+    pass
+
+
+class SynthesisInvalidProvenanceError(SynthesisSubsystemError):
+    """Raised when synthesis provenance metadata is missing, broken, or hash-mismatched."""
+    pass
+
+
+class SynthesisInvalidVersionError(SynthesisSubsystemError):
+    """Raised when synthesis versioning constraints or relations are violated."""
+    pass
+
+
+class SynthesisConcurrencyError(SynthesisSubsystemError):
+    """Raised when concurrent synthesis operations collide or fail serialization."""
+    pass
+
+
+
 

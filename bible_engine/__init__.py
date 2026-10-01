@@ -798,7 +798,40 @@ __all__ = [
     "GraphInvalidProvenanceError",
     "GraphInvalidVersionError",
     "GraphConcurrencyError",
+    # Task 3.7: Hierarchical Synthesis Engine
+    "SynthesisScope",
+    "SynthesisRunStatus",
+    "SynthesisClaimStatus",
+    "SynthesisTensionType",
+    "SynthesisTensionResolution",
+    "ConstituentInput",
+    "SynthesisClaimInput",
+    "SynthesisTensionInput",
+    "SynthesisRunConfig",
+    "SynthesisRunRecord",
+    "SynthesisClaimRecord",
+    "SynthesisTensionRecord",
+    "SynthesisConstituentRecord",
+    "SynthesisRunResult",
+    "HierarchicalSynthesisManager",
+    "SynthesisSubsystemError",
+    "SynthesisScopeJumpError",
+    "SynthesisReverseScopeError",
+    "SynthesisCircularDependencyError",
+    "SynthesisConfidenceInflationError",
+    "SynthesisHarmonizationError",
+    "SynthesisAuthorialDistinctiveViolationError",
+    "SynthesisReceptionAuthorialFirewallError",
+    "SynthesisEvidenceTierViolationError",
+    "SynthesisMissingConstituentError",
+    "SynthesisNotFoundError",
+    "SynthesisValidationError",
+    "SynthesisImmutabilityError",
+    "SynthesisInvalidProvenanceError",
+    "SynthesisInvalidVersionError",
+    "SynthesisConcurrencyError",
 ]
+
 
 
 
@@ -1450,6 +1483,42 @@ from bible_engine.errors import (
     GraphSubsystemError,
     GraphValidationError,
 )
+from bible_engine.synthesis import (
+    ConstituentInput,
+    HierarchicalSynthesisManager,
+    SynthesisClaimInput,
+    SynthesisClaimRecord,
+    SynthesisClaimStatus,
+    SynthesisConstituentRecord,
+    SynthesisRunConfig,
+    SynthesisRunRecord,
+    SynthesisRunResult,
+    SynthesisRunStatus,
+    SynthesisScope,
+    SynthesisTensionInput,
+    SynthesisTensionRecord,
+    SynthesisTensionResolution,
+    SynthesisTensionType,
+)
+from bible_engine.errors import (
+    SynthesisAuthorialDistinctiveViolationError,
+    SynthesisCircularDependencyError,
+    SynthesisConcurrencyError,
+    SynthesisConfidenceInflationError,
+    SynthesisEvidenceTierViolationError,
+    SynthesisHarmonizationError,
+    SynthesisImmutabilityError,
+    SynthesisInvalidProvenanceError,
+    SynthesisInvalidVersionError,
+    SynthesisMissingConstituentError,
+    SynthesisNotFoundError,
+    SynthesisReceptionAuthorialFirewallError,
+    SynthesisReverseScopeError,
+    SynthesisScopeJumpError,
+    SynthesisSubsystemError,
+    SynthesisValidationError,
+)
+
 
 
 
