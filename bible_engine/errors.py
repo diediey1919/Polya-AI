@@ -2261,8 +2261,7 @@ class CanonBlockedValidationError(PipelineBlockedValidationError, CanonSubsystem
     pass
 
 
-
-
+# =============================================================================
 # TASK 4.5 AUTHORITATIVE KNOWLEDGE RETRIEVAL ERRORS
 # =============================================================================
 
@@ -2317,3 +2316,46 @@ class KnowledgeTheologicalContaminationError(KnowledgeRetrievalSubsystemError):
 
 
 # =============================================================================
+# TASK 4.6 ANSWER CONSTRUCTION ERRORS
+# =============================================================================
+
+class AnswerConstructionSubsystemError(BibleEngineDatabaseError):
+    """Base exception for all answer construction subsystem errors."""
+    pass
+
+
+class InvalidKnowledgePackError(AnswerConstructionSubsystemError):
+    """Raised when knowledge pack is None or of incorrect type."""
+    pass
+
+
+class KnowledgeIntegrityViolationError(AnswerConstructionSubsystemError):
+    """Raised when input knowledge pack content_hash fails canonical recomputation."""
+    pass
+
+
+class KnowledgeConfidenceRangeError(AnswerConstructionSubsystemError):
+    """Raised when knowledge pack aggregate_confidence falls outside [0.0, 1.0]."""
+    pass
+
+
+class AnswerEpistemicTierViolationError(AnswerConstructionSubsystemError):
+    """Raised when an attempt is made to mutate, promote, or conflate claim tiers."""
+    pass
+
+
+class AnswerConfidenceMutationError(AnswerConstructionSubsystemError):
+    """Raised when projected confidence deviates from pack aggregate confidence."""
+    pass
+
+
+class AnswerSerializationError(AnswerConstructionSubsystemError):
+    """Raised when canonical serialization fails or produces non-deterministic output."""
+    pass
+
+
+class AnswerFreshnessInspectionError(AnswerConstructionSubsystemError):
+    """Raised when freshness inspection encounters database access errors."""
+    pass
+
+

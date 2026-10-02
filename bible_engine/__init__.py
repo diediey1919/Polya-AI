@@ -1791,4 +1791,29 @@ from bible_engine.errors import (
     SupersededKnowledgeRetrievalError,
     UnvalidatedKnowledgeRetrievalError,
 )
+from bible_engine.answer_construction import (
+    AnswerArtifact,
+    AnswerClaimBlock,
+    AnswerConstructor,
+    AnswerEvidenceBlock,
+    AnswerFreshnessInspector,
+    AnswerFreshnessReport,
+    AnswerLineageSummary,
+    AnswerTensionBlock,
+    compute_answer_content_hash,
+    compute_answer_id,
+    record_answer_provenance,
+    record_answer_version,
+)
+from bible_engine.errors import (
+    AnswerConfidenceMutationError,
+    AnswerConstructionSubsystemError,
+    AnswerEpistemicTierViolationError,
+    AnswerFreshnessInspectionError,
+    AnswerSerializationError,
+    InvalidKnowledgePackError,
+    KnowledgeConfidenceRangeError,
+    KnowledgeIntegrityViolationError,
+)
+
 
