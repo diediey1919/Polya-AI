@@ -2237,3 +2237,27 @@ class CorpusBlockedValidationError(PipelineBlockedValidationError, CorpusSubsyst
     pass
 
 
+# =============================================================================
+# TASK 4.4 CANON-LEVEL SYNTHESIS AGGREGATOR ERRORS
+# =============================================================================
+
+class CanonSubsystemError(BibleEngineDatabaseError):
+    """Base error for all Canon Aggregator failures."""
+    pass
+
+
+class CanonIncompleteError(CanonSubsystemError):
+    """Raised when a canon is incomplete, missing corpora, or has unvalidated constituents."""
+    pass
+
+
+class CanonHierarchyViolationError(CanonSubsystemError):
+    """Raised when canon synthesis violates hierarchical bottom-up directionality."""
+    pass
+
+
+class CanonBlockedValidationError(PipelineBlockedValidationError, CanonSubsystemError):
+    """Raised when canon synthesis fails epistemic validation."""
+    pass
+
+

@@ -1756,5 +1756,19 @@ from bible_engine.errors import (
     CorpusIncompleteError,
     CorpusSubsystemError,
 )
+from bible_engine.canon_aggregator import (
+    CanonAggregationResult,
+    CanonAggregator,
+    CanonCompletenessReport,
+    CorpusCompletenessStatus,
+    compute_canon_synthesis_identity,
+    get_canonical_corpora_for_canon,
+)
+from bible_engine.errors import (
+    CanonBlockedValidationError,
+    CanonHierarchyViolationError,
+    CanonIncompleteError,
+    CanonSubsystemError,
+)
 
 
