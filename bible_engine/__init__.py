@@ -1815,5 +1815,25 @@ from bible_engine.errors import (
     KnowledgeConfidenceRangeError,
     KnowledgeIntegrityViolationError,
 )
-
+from bible_engine.query_planning import (
+    COLON_MAPPINGS,
+    DASH_MAPPINGS,
+    OUTER_DELIMITER_PAIRS,
+    QueryPlan,
+    QueryPlanner,
+    compute_plan_hash,
+    normalize_query,
+)
+from bible_engine.service import (
+    AnswerApplicationService,
+    AnswerRequest,
+    AnswerResponse,
+)
+from bible_engine.errors import (
+    AmbiguousTargetError,
+    QueryPlanningError,
+    QuerySyntaxError,
+    ScopeResolutionError,
+    ServiceOrchestrationError,
+)
 

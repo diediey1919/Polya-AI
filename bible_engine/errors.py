@@ -2359,3 +2359,30 @@ class AnswerFreshnessInspectionError(AnswerConstructionSubsystemError):
     pass
 
 
+# =============================================================================
+# TASK 4.7 QUERY PLANNING AND APPLICATION SERVICE EXCEPTIONS
+# =============================================================================
+
+class QueryPlanningError(BibleEngineDatabaseError):
+    """Base exception for all query planning subsystem errors."""
+    pass
+
+
+class QuerySyntaxError(QueryPlanningError):
+    """Raised when raw query violates deterministic grammar or structure."""
+    pass
+
+
+class ScopeResolutionError(QueryPlanningError):
+    """Raised when query targets an unresolvable or missing catalog entity."""
+    pass
+
+
+class AmbiguousTargetError(QueryPlanningError):
+    """Raised when a query matches multiple conflicting catalog entities."""
+    pass
+
+
+class ServiceOrchestrationError(BibleEngineDatabaseError):
+    """Raised when answer application service encounters infrastructure/orchestration failures."""
+    pass
