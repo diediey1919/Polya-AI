@@ -2261,3 +2261,59 @@ class CanonBlockedValidationError(PipelineBlockedValidationError, CanonSubsystem
     pass
 
 
+
+
+# TASK 4.5 AUTHORITATIVE KNOWLEDGE RETRIEVAL ERRORS
+# =============================================================================
+
+class KnowledgeRetrievalSubsystemError(BibleEngineDatabaseError):
+    """Base exception for authoritative knowledge retrieval subsystem errors."""
+    pass
+
+
+class KnowledgeNotFoundError(KnowledgeRetrievalSubsystemError):
+    """Raised when requested synthesis or knowledge artifact does not exist."""
+    pass
+
+
+class UnvalidatedKnowledgeRetrievalError(KnowledgeRetrievalSubsystemError):
+    """Raised when synthesis is not COMPLETED or failed/blocked validation."""
+    pass
+
+
+class MissingValidationCertificateError(KnowledgeRetrievalSubsystemError):
+    """Raised when synthesis lacks an authoritative validation certificate."""
+    pass
+
+
+class SupersededKnowledgeRetrievalError(KnowledgeRetrievalSubsystemError):
+    """Raised when synthesis or its validation certificate has been superseded."""
+    pass
+
+
+class KnowledgeVersionMismatchError(KnowledgeRetrievalSubsystemError):
+    """Raised when requested version or configuration boundaries do not match."""
+    pass
+
+
+class KnowledgeHierarchyViolationError(KnowledgeRetrievalSubsystemError):
+    """Raised when query or traversal violates hierarchical synthesis boundaries."""
+    pass
+
+
+class KnowledgeQueryValidationError(KnowledgeRetrievalSubsystemError):
+    """Raised when knowledge query parameters are invalid."""
+    pass
+
+
+class KnowledgeConfidenceInflationError(KnowledgeRetrievalSubsystemError):
+    """Raised when an attempt is made to inflate or recalculate authoritative confidence."""
+    pass
+
+
+class KnowledgeTheologicalContaminationError(KnowledgeRetrievalSubsystemError):
+    """Raised when T4 theological claims are improperly used as evidentiary support."""
+    pass
+
+
+# =============================================================================

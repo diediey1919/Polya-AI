@@ -1770,5 +1770,25 @@ from bible_engine.errors import (
     CanonIncompleteError,
     CanonSubsystemError,
 )
-
+from bible_engine.knowledge_retrieval import (
+    AuthoritativeClaimItem,
+    AuthoritativeEvidenceItem,
+    AuthoritativeKnowledgeRetrievalEngine,
+    AuthoritativeTensionItem,
+    ConstituentLineageNode,
+    KnowledgePackResult,
+    KnowledgeQuery,
+)
+from bible_engine.errors import (
+    KnowledgeConfidenceInflationError,
+    KnowledgeHierarchyViolationError,
+    KnowledgeNotFoundError,
+    KnowledgeQueryValidationError,
+    KnowledgeRetrievalSubsystemError,
+    KnowledgeTheologicalContaminationError,
+    KnowledgeVersionMismatchError,
+    MissingValidationCertificateError,
+    SupersededKnowledgeRetrievalError,
+    UnvalidatedKnowledgeRetrievalError,
+)
 
