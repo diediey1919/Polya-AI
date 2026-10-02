@@ -1435,14 +1435,32 @@ class V10EpistemicTierValidator(BaseValidator):
 
         for c_id in val_input.evidence_dependencies.linked_claim_ids:
             cur = target_conn.execute(
-                "SELECT claim_tier, confidence FROM claims WHERE claim_id = ?",
+                "SELECT claim_tier FROM claims WHERE claim_id = ?",
                 (c_id,),
             )
             row = cur.fetchone()
             if row:
                 referenced_tiers.append(str(row["claim_tier"]))
-                if row["confidence"] is not None:
-                    confidences.append(float(row["confidence"]))
+            else:
+                cur = target_conn.execute(
+                    "SELECT claim_tier, synthesized_confidence AS confidence FROM synthesis_claims WHERE claim_id = ?",
+                    (c_id,),
+                )
+                row = cur.fetchone()
+                if row:
+                    referenced_tiers.append(str(row["claim_tier"]))
+                    if row["confidence"] is not None:
+                        confidences.append(float(row["confidence"]))
+                else:
+                    cur = target_conn.execute(
+                        "SELECT claim_tier, confidence_score AS confidence FROM claims_v2 WHERE claim_id = ?",
+                        (c_id,),
+                    )
+                    row = cur.fetchone()
+                    if row:
+                        referenced_tiers.append(str(row["claim_tier"]))
+                        if row["confidence"] is not None:
+                            confidences.append(float(row["confidence"]))
 
         # Also inspect candidate_payload for declared evidence tiers/confidences
         for item in payload.get("evidence_items", []):

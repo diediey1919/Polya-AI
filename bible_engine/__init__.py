@@ -1741,4 +1741,20 @@ from bible_engine.errors import (
     PipelineOrderingViolationError,
     PipelinePersistenceError,
 )
+from bible_engine.corpus_aggregator import (
+    CorpusAggregationResult,
+    CorpusAggregator,
+    CorpusCompletenessReport,
+    PericopeCompletenessStatus,
+    compute_corpus_synthesis_identity,
+    get_canonical_books_for_corpus,
+    get_canonical_pericopes_for_corpus,
+)
+from bible_engine.errors import (
+    CorpusBlockedValidationError,
+    CorpusHierarchyViolationError,
+    CorpusIncompleteError,
+    CorpusSubsystemError,
+)
+
 

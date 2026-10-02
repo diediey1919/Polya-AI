@@ -2212,3 +2212,28 @@ class BatchUnitIntegrityError(BatchSubsystemError):
     """Raised when a processing unit violates immutability or identity hashing."""
     pass
 
+
+# =============================================================================
+# TASK 4.3 CORPUS-LEVEL SYNTHESIS AGGREGATOR ERRORS
+# =============================================================================
+
+class CorpusSubsystemError(BibleEngineDatabaseError):
+    """Base error for all Corpus Aggregator failures."""
+    pass
+
+
+class CorpusIncompleteError(CorpusSubsystemError):
+    """Raised when a corpus is incomplete, missing pericopes, or has unvalidated constituents."""
+    pass
+
+
+class CorpusHierarchyViolationError(CorpusSubsystemError):
+    """Raised when corpus synthesis violates hierarchical bottom-up directionality."""
+    pass
+
+
+class CorpusBlockedValidationError(PipelineBlockedValidationError, CorpusSubsystemError):
+    """Raised when corpus synthesis fails epistemic validation."""
+    pass
+
+
