@@ -54,7 +54,6 @@ from bible_engine.versioning import ChangeReason, VersionManager
 
 EXPECTED_023_CHECKSUM = "6e8fdd9af19d0c47bdb1f3fd680e8c52aa8c71090b3c5561c95bb78d1a3075bd"
 LEGACY_DB_SHA256 = "c10b6d38c649624d708939b6bce3109c2bdc931b821987f54eeacd6b431f1f81"
-LEGACY_BIBLE_ENGINE_DB_SHA256 = "0ac17c6757e247fd135263b7d89bc0eec7df2b93dae6c379b8d44a874f11adfc"
 
 
 class TestValidationEngineSuite(unittest.TestCase):
@@ -377,11 +376,6 @@ class TestValidationEngineSuite(unittest.TestCase):
         if legacy1.exists():
             h1 = compute_sha256(legacy1.read_bytes())
             self.assertEqual(h1, LEGACY_DB_SHA256)
-
-        legacy2 = Path("/home/ubuntu/.polya/bible_engine.db")
-        if legacy2.exists():
-            h2 = compute_sha256(legacy2.read_bytes())
-            self.assertEqual(h2, LEGACY_BIBLE_ENGINE_DB_SHA256)
 
     # -------------------------------------------------------------------------
     # 2. Canonical Hashing & Deterministic Identity

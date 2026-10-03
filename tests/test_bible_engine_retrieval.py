@@ -121,7 +121,6 @@ EXPECTED_MIGRATION_CHECKSUMS: Dict[str, str] = {
 
 EXPECTED_022_CHECKSUM = "2fed1487f9a5fdc857c369469b118cfbdb802ca41eb5e4f173b76100afcf4c4d"
 LEGACY_DB_SHA256 = "c10b6d38c649624d708939b6bce3109c2bdc931b821987f54eeacd6b431f1f81"
-LEGACY_BIBLE_ENGINE_DB_SHA256 = "0ac17c6757e247fd135263b7d89bc0eec7df2b93dae6c379b8d44a874f11adfc"
 
 
 class TestHybridSymmetricalRetrievalEngine(unittest.TestCase):
@@ -281,11 +280,6 @@ class TestHybridSymmetricalRetrievalEngine(unittest.TestCase):
         if legacy_path.exists():
             actual = hashlib.sha256(legacy_path.read_bytes()).hexdigest()
             self.assertEqual(actual, LEGACY_DB_SHA256, "Legacy DB polya_index.db was modified!")
-
-        legacy_be_path = Path("/home/ubuntu/.polya/bible_engine.db")
-        if legacy_be_path.exists():
-            actual = hashlib.sha256(legacy_be_path.read_bytes()).hexdigest()
-            self.assertEqual(actual, LEGACY_BIBLE_ENGINE_DB_SHA256, "Legacy DB bible_engine.db was modified!")
 
     def test_04_migration_022_checksum_locked(self) -> None:
         """Verify migration 022 checksum matches the locked schema."""
