@@ -249,6 +249,13 @@ async def generate_gemini_tts(text: str, voice: str = "Kore") -> Optional[str]:
 
 app = FastAPI(title="Polya Dialectical Live Arena")
 
+# Mount Foundation API Router (Phase-1 Web Foundation)
+try:
+    from api_foundation import router as foundation_router
+    app.include_router(foundation_router)
+except Exception as e:
+    logger.error(f"Failed to mount foundation_router: {e}")
+
 # Ensure static directories exist
 STATIC_DIR = os.path.join(os.path.dirname(__file__), "static")
 os.makedirs(STATIC_DIR, exist_ok=True)
@@ -2013,6 +2020,25 @@ async def get_user_training_stats_endpoint(user_id: str):
 # Serve Main Frontend HTML
 # ---------------------------------------------------------------------------
 @app.get("/")
+@app.get("/login")
+@app.get("/checkout")
+@app.get("/checkout/success")
+@app.get("/checkout/pending")
+@app.get("/checkout/failed")
+@app.get("/dashboard")
+@app.get("/calculator")
+@app.get("/themes")
+@app.get("/themes/{theme_id:path}")
+@app.get("/knowledge")
+@app.get("/knowledge/{subpath:path}")
+@app.get("/persona")
+@app.get("/persona/{subpath:path}")
+@app.get("/pipeline")
+@app.get("/pipeline/{subpath:path}")
+@app.get("/search")
+@app.get("/settings")
+@app.get("/account")
+@app.get("/account/{subpath:path}")
 async def get_index():
     index_file = os.path.join(STATIC_DIR, "index.html")
     if os.path.exists(index_file):
