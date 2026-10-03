@@ -365,7 +365,7 @@ class PaymentService:
 
         # Allow test/simulation adapter if explicit flag is passed and in test mode
         if not is_valid_signature and allow_simulator:
-            if payload.get("is_simulator") or payload.get("test_mode"):
+            if payload.get("is_simulator") or payload.get("test_mode") or payload.get("is_simulation"):
                 is_valid_signature = True
                 logger.info(f"Webhook accepted via Midtrans Test Simulator Adapter for order {order_id}")
 

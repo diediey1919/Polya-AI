@@ -154,6 +154,7 @@ async def create_checkout(req: CheckoutRequest):
 
 
 @router.post("/payment/webhook")
+@router.post("/payment/midtrans/webhook")
 async def midtrans_webhook(req: Request):
     try:
         body = await req.json()
@@ -163,7 +164,7 @@ async def midtrans_webhook(req: Request):
     success, msg = PaymentService.process_webhook(body, allow_simulator=True)
     if not success:
         raise HTTPException(status_code=400, detail=msg)
-    return {"status": "OK", "message": msg}
+    return {"status": "settled", "message": msg}
 
 
 @router.get("/account/billing")

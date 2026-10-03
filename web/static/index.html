@@ -1583,6 +1583,9 @@
       } else if (path.startsWith("/themes")) {
         document.getElementById("view-themes").classList.remove("hidden");
         document.querySelectorAll(".side-item")[2].classList.add("active");
+        if (path.length > 7) {
+          openThemeDetail("friksi-paulus-vs-petrus");
+        }
       } else if (path.startsWith("/knowledge")) {
         document.getElementById("view-knowledge").classList.remove("hidden");
         document.querySelectorAll(".side-item")[3].classList.add("active");

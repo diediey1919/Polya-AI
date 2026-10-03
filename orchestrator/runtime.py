@@ -19,7 +19,7 @@ from typing import Any, Dict, List, Optional
 
 
 class AgentResponse:
-    """Standardized Agent Response Contract."""
+    """Standardized Agent Response Contract conforming to MP1.1 Section 6.5 & 6.6."""
     def __init__(
         self,
         agent_name: str,
@@ -30,32 +30,54 @@ class AgentResponse:
         raw_response: Any,
         execution_time_ms: int,
         timestamp: str,
+        run_id: Optional[str] = None,
+        thread_id: Optional[str] = None,
+        task_id: Optional[str] = None,
+        started_at: Optional[str] = None,
+        completed_at: Optional[str] = None,
         metadata: Optional[Dict[str, Any]] = None,
         error: Optional[str] = None
     ):
         self.agent_name = agent_name
-        self.status = status
+        self.agent = agent_name
+        self.status = status.upper()
         self.live_dispatched = live_dispatched
         self.correlation_id = correlation_id
         self.output = output
         self.raw_response = raw_response
         self.execution_time_ms = execution_time_ms
         self.timestamp = timestamp
+        self.run_id = run_id or f"run_{correlation_id}"
+        self.thread_id = thread_id or f"thread_{correlation_id}"
+        self.task_id = task_id or f"task_{correlation_id}"
+        self.started_at = started_at or timestamp
+        self.completed_at = completed_at or datetime.now(timezone.utc).isoformat()
         self.metadata = metadata or {}
         self.error = error
 
     def to_dict(self) -> Dict[str, Any]:
         return {
-            "agent_name": self.agent_name,
+            # Canonical MP1.1 Section 6.5 contract
+            "run_id": self.run_id,
+            "thread_id": self.thread_id,
+            "task_id": self.task_id,
+            "agent": self.agent_name,
             "status": self.status,
+            "started_at": self.started_at,
+            "completed_at": self.completed_at,
+            "output": {
+                "text": self.output,
+                "summary": self.output[:200] if self.output else ""
+            },
+            "error": self.error,
+            # Extended audit fields
+            "agent_name": self.agent_name,
             "live_dispatched": self.live_dispatched,
             "correlation_id": self.correlation_id,
-            "output": self.output,
-            "raw_response": self.raw_response,
             "execution_time_ms": self.execution_time_ms,
             "timestamp": self.timestamp,
-            "metadata": self.metadata,
-            "error": self.error
+            "raw_response": self.raw_response,
+            "metadata": self.metadata
         }
 
 
