@@ -27,6 +27,7 @@ try:
     from fastapi.exceptions import RequestValidationError
     from fastapi.responses import JSONResponse
     from pydantic import BaseModel, Field
+    from starlette.concurrency import run_in_threadpool
 except ImportError as err:
     raise ImportError(
         "FastAPI and Pydantic are required to use bible_engine.api. "
@@ -394,7 +395,7 @@ def create_app(
             check_freshness=body.check_freshness,
             record_ledger=body.record_ledger,
         )
-        resp = engine_service.execute(req)
+        resp = await run_in_threadpool(engine_service.execute, req)
         return {
             "success": True,
             "data": serialize_answer_response_transport(resp),
@@ -404,7 +405,8 @@ def create_app(
     async def post_plans(body: PlanRequestBody, request: Request) -> Dict[str, Any]:
         engine_service: AnswerApplicationService = request.app.state.service
         scope = SynthesisScope(body.requested_scope) if body.requested_scope else None
-        plan = engine_service.planner.plan(
+        plan = await run_in_threadpool(
+            engine_service.planner.plan,
             query_text=body.query_text,
             requested_scope=scope,
             explicit_target_id=body.explicit_target_id,

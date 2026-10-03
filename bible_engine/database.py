@@ -9,6 +9,7 @@ import contextlib
 import os
 import re
 import sqlite3
+import threading
 import uuid
 from pathlib import Path
 from typing import Any, Dict, Iterator, List, Optional, Sequence, Tuple, Union
@@ -212,9 +213,26 @@ class DatabaseEngine:
 
     def __init__(self, config: Optional[DatabaseConfig] = None) -> None:
         self.config = config or DatabaseConfig()
-        self._write_conn: Optional[sqlite3.Connection] = None
-        self._read_conn: Optional[sqlite3.Connection] = None
+        self._local = threading.local()
+        self._lock = threading.Lock()
+        self._all_conns: set[sqlite3.Connection] = set()
         self._extra_conns: List[sqlite3.Connection] = []
+
+    @property
+    def _write_conn(self) -> Optional[sqlite3.Connection]:
+        return getattr(self._local, "write_conn", None)
+
+    @_write_conn.setter
+    def _write_conn(self, val: Optional[sqlite3.Connection]) -> None:
+        self._local.write_conn = val
+
+    @property
+    def _read_conn(self) -> Optional[sqlite3.Connection]:
+        return getattr(self._local, "read_conn", None)
+
+    @_read_conn.setter
+    def _read_conn(self, val: Optional[sqlite3.Connection]) -> None:
+        self._local.read_conn = val
 
     def get_write_connection(self) -> sqlite3.Connection:
         """Obtain primary read/write connection. Reuses open connection if healthy."""
@@ -223,13 +241,30 @@ class DatabaseEngine:
                 "DatabaseEngine is configured as read-only; cannot acquire write connection."
             )
 
-        if self._write_conn is None:
-            self._write_conn = create_connection(self.config)
-        return self._write_conn
+        conn = self._write_conn
+        if conn is not None:
+            try:
+                conn.execute("SELECT 1;")
+            except (sqlite3.ProgrammingError, sqlite3.OperationalError):
+                conn = None
+
+        if conn is None:
+            conn = create_connection(self.config)
+            self._write_conn = conn
+            with self._lock:
+                self._all_conns.add(conn)
+        return conn
 
     def get_read_connection(self) -> sqlite3.Connection:
         """Obtain read-only connection with PRAGMA query_only = ON enforced. Reuses cached connection."""
-        if self._read_conn is None:
+        conn = self._read_conn
+        if conn is not None:
+            try:
+                conn.execute("SELECT 1;")
+            except (sqlite3.ProgrammingError, sqlite3.OperationalError):
+                conn = None
+
+        if conn is None:
             read_config = DatabaseConfig(
                 db_path=self.config.db_path,
                 read_only=True,
@@ -238,8 +273,11 @@ class DatabaseEngine:
                 synchronous=self.config.synchronous,
                 schema_path=self.config.schema_path,
             )
-            self._read_conn = create_connection(read_config)
-        return self._read_conn
+            conn = create_connection(read_config)
+            self._read_conn = conn
+            with self._lock:
+                self._all_conns.add(conn)
+        return conn
 
     @contextlib.contextmanager
     def connect(self, read_only: Optional[bool] = None) -> Iterator[sqlite3.Connection]:
@@ -255,7 +293,9 @@ class DatabaseEngine:
                 schema_path=self.config.schema_path,
             )
             conn = create_connection(read_config)
-            self._extra_conns.append(conn)
+            with self._lock:
+                self._extra_conns.append(conn)
+                self._all_conns.add(conn)
             try:
                 yield conn
             finally:
@@ -263,8 +303,10 @@ class DatabaseEngine:
                     conn.close()
                 except sqlite3.Error:
                     pass
-                if conn in self._extra_conns:
-                    self._extra_conns.remove(conn)
+                with self._lock:
+                    if conn in self._extra_conns:
+                        self._extra_conns.remove(conn)
+                    self._all_conns.discard(conn)
         else:
             conn = self.get_write_connection()
             yield conn
@@ -379,23 +421,13 @@ class DatabaseEngine:
 
     def close(self) -> None:
         """Close all managed write and read connections cleanly."""
-        if self._write_conn is not None:
-            try:
-                self._write_conn.close()
-            except sqlite3.Error:
-                pass
-            self._write_conn = None
-
-        if self._read_conn is not None:
-            try:
-                self._read_conn.close()
-            except sqlite3.Error:
-                pass
-            self._read_conn = None
-
-        for conn in self._extra_conns:
-            try:
-                conn.close()
-            except sqlite3.Error:
-                pass
-        self._extra_conns.clear()
+        with self._lock:
+            for conn in list(self._all_conns):
+                try:
+                    conn.close()
+                except sqlite3.Error:
+                    pass
+            self._all_conns.clear()
+            self._extra_conns.clear()
+        self._write_conn = None
+        self._read_conn = None
