@@ -12,7 +12,7 @@ from pathlib import Path
 
 # Seamless auto-switch ke venv python jika dipanggil menggunakan system python
 VENV_PYTHON = Path.home() / "venv" / "bin" / "python3"
-if VENV_PYTHON.exists() and sys.executable != str(VENV_PYTHON):
+if VENV_PYTHON.exists() and Path(sys.executable).resolve() != VENV_PYTHON.resolve():
     os.execv(str(VENV_PYTHON), [str(VENV_PYTHON)] + sys.argv)
 
 from typing import Annotated, Any, Dict, List, Optional
@@ -92,8 +92,18 @@ def route_after_cloud_code(state: AgentState) -> str:
     return END
 
 
-def build_orchestrator_graph():
-    """Membangun StateGraph dinamis dengan conditional routing."""
+from langgraph.checkpoint.memory import MemorySaver
+
+# Default checkpointer for production graph
+default_checkpointer = MemorySaver()
+
+
+def build_orchestrator_graph(
+    checkpointer: Any = default_checkpointer,
+    interrupt_before: Optional[List[str]] = None,
+    interrupt_after: Optional[List[str]] = None
+):
+    """Membangun StateGraph dinamis dengan conditional routing dan checkpointer."""
     workflow = StateGraph(AgentState)
 
     # Registrasi 4 Nodes
@@ -138,25 +148,55 @@ def build_orchestrator_graph():
 
     workflow.add_edge("anti_gravity", END)
 
-    return workflow.compile()
+    compile_kwargs: Dict[str, Any] = {}
+    if checkpointer is not None:
+        compile_kwargs["checkpointer"] = checkpointer
+    if interrupt_before:
+        compile_kwargs["interrupt_before"] = interrupt_before
+    if interrupt_after:
+        compile_kwargs["interrupt_after"] = interrupt_after
+
+    return workflow.compile(**compile_kwargs)
 
 
-app = build_orchestrator_graph()
+app = build_orchestrator_graph(checkpointer=default_checkpointer)
 
 
-def execute_orchestrator(task: str, domain: str = "all", **kwargs) -> Dict[str, Any]:
-    """Entrypoint fungsi programatik untuk mengeksekusi graf orkestrator."""
+def execute_orchestrator(
+    task: Optional[str] = None,
+    domain: str = "all",
+    thread_id: Optional[str] = None,
+    config: Optional[Dict[str, Any]] = None,
+    state_update: Optional[Dict[str, Any]] = None,
+    **kwargs
+) -> Dict[str, Any]:
+    """Entrypoint fungsi programatik untuk mengeksekusi graf orkestrator atau me-resume state."""
+    import uuid
+    cfg = dict(config) if config else {}
+    configurable = cfg.get("configurable", {})
+    if thread_id:
+        configurable["thread_id"] = thread_id
+    elif "thread_id" not in configurable:
+        configurable["thread_id"] = f"run_{uuid.uuid4().hex[:12]}"
+    cfg["configurable"] = configurable
+
+    if task is None and state_update is None:
+        return app.invoke(None, config=cfg)
+
     initial_state: AgentState = {
-        "task": task,
+        "task": task or "",
         "sender": "user",
         "target_domain": domain,
         "route_plan": [],
         "next_step": None,
-        "messages": [{"role": "user", "content": f"Task: {task} | Domain: {domain}"}],
+        "messages": [{"role": "user", "content": f"Task: {task} | Domain: {domain}"}] if task else [],
         "agent_outputs": {},
         "errors": []
     }
-    return app.invoke(initial_state)
+    if state_update:
+        initial_state.update(state_update)
+
+    return app.invoke(initial_state, config=cfg)
 
 
 if __name__ == "__main__":

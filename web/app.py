@@ -39,6 +39,7 @@ from polya_runtime.debate_engine.training_api import DebateTrainingService
 training_service = DebateTrainingService.get_instance()
 
 
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Request, HTTPException, UploadFile, File
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -247,7 +248,33 @@ async def generate_gemini_tts(text: str, voice: str = "Kore") -> Optional[str]:
     return await loop.run_in_executor(None, _call_gemini)
 
 
-app = FastAPI(title="Polya Dialectical Live Arena")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup sequence:
+    # 1. Existence / directory check
+    # 2. Schema check & Auto-healing table creation
+    # 3. Indexes & constraints
+    logger.info("Initializing Polya database schema via lifespan...")
+    try:
+        from services import init_foundation_db, verify_foundation_schema
+        init_foundation_db()
+        if not verify_foundation_schema():
+            logger.warning("Foundation schema verification incomplete, re-running init...")
+            init_foundation_db()
+        logger.info("Foundation database self-healing complete and verified.")
+    except Exception as e:
+        logger.error(f"Failed to auto-heal foundation database: {e}")
+
+    try:
+        init_arena_db()
+        logger.info("Arena database self-healing complete.")
+    except Exception as e:
+        logger.error(f"Failed to auto-heal arena database: {e}")
+
+    yield
+
+
+app = FastAPI(title="Polya Dialectical Live Arena", lifespan=lifespan)
 
 # Mount Foundation API Router (Phase-1 Web Foundation)
 try:

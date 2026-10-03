@@ -10,7 +10,7 @@ from pathlib import Path
 
 # Seamless auto-switch ke venv python
 VENV_PYTHON = Path.home() / "venv" / "bin" / "python3"
-if VENV_PYTHON.exists() and sys.executable != str(VENV_PYTHON):
+if VENV_PYTHON.exists() and Path(sys.executable).resolve() != VENV_PYTHON.resolve():
     os.execv(str(VENV_PYTHON), [str(VENV_PYTHON)] + sys.argv)
 
 from graph import execute_orchestrator

@@ -31,16 +31,38 @@ DB_PATH = os.environ.get("POLYA_DB_PATH", os.path.join(os.path.dirname(__file__)
 os.makedirs(os.path.dirname(os.path.abspath(DB_PATH)), exist_ok=True)
 
 
-def get_db():
-    conn = sqlite3.connect(DB_PATH, check_same_thread=False)
+def get_db(target_db_path: Optional[str] = None):
+    target = target_db_path or DB_PATH
+    conn = sqlite3.connect(target, check_same_thread=False)
     conn.row_factory = sqlite3.Row
     return conn
 
 
-def init_foundation_db():
-    """Initializes tables required by the Web Foundation."""
-    conn = get_db()
+def init_foundation_db(target_db_path: Optional[str] = None):
+    """Initializes tables required by the Web Foundation and Arena Auth."""
+    target = target_db_path or DB_PATH
+    os.makedirs(os.path.dirname(os.path.abspath(target)), exist_ok=True)
+    conn = get_db(target)
     cursor = conn.cursor()
+
+    # 0. Arena Users (required by auth session & arena foundation)
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS arena_users (
+        user_id TEXT PRIMARY KEY,
+        email TEXT UNIQUE,
+        name TEXT,
+        avatar_url TEXT,
+        bio TEXT,
+        role TEXT DEFAULT 'visitor',
+        dana TEXT DEFAULT '',
+        gopay TEXT DEFAULT '',
+        shopeepay TEXT DEFAULT '',
+        ovo TEXT DEFAULT '',
+        qris_url TEXT DEFAULT '',
+        total_donations_received INTEGER DEFAULT 0,
+        created_at TEXT
+    )
+    """)
     
     # 1. User Entitlements
     cursor.execute("""
@@ -103,7 +125,26 @@ def init_foundation_db():
     conn.close()
 
 
+def verify_foundation_schema(target_db_path: Optional[str] = None) -> bool:
+    """Verifies that all required foundation tables exist in the target database."""
+    target = target_db_path or DB_PATH
+    if not os.path.exists(target) or os.path.getsize(target) == 0:
+        return False
+    try:
+        conn = get_db(target)
+        cursor = conn.cursor()
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+        tables = {row[0] for row in cursor.fetchall()}
+        conn.close()
+        required = {"user_entitlements", "usage_entitlement_records", "payment_transactions", "user_apologetics_context", "arena_users"}
+        return required.issubset(tables)
+    except Exception as e:
+        logger.error(f"Error checking foundation schema: {e}")
+        return False
+
+
 init_foundation_db()
+
 
 
 class FeatureRegistry:

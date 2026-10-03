@@ -35,6 +35,8 @@ state.db-wal
 state.db-shm
 kanban.db
 verification_evidence.db
+data/*.db
+*.db
 
 # TTS models (5GB - download separately)
 tts-models/

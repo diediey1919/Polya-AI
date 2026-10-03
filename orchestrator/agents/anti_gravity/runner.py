@@ -7,6 +7,7 @@ import shutil
 import subprocess
 import traceback
 from typing import Any, Dict
+from runtime import AgentRuntime
 
 
 def run_anti_gravity(state: Dict[str, Any]) -> Dict[str, Any]:
@@ -16,6 +17,11 @@ def run_anti_gravity(state: Dict[str, Any]) -> Dict[str, Any]:
     for attempt in range(1, max_retries + 1):
         try:
             task = state.get("task", "")
+
+            # Live Anti-Gravity Dispatch
+            agy_prompt = f"Audit VPS infrastructure, container specs, and deployment for task: '{task}'."
+            dispatch_res = AgentRuntime.dispatch("anti_gravity", agy_prompt, timeout=15)
+
             docker_bin = shutil.which("docker")
             docker_version = "Not available"
             daemon_responsive = False
@@ -44,6 +50,8 @@ def run_anti_gravity(state: Dict[str, Any]) -> Dict[str, Any]:
                 except Exception:
                     daemon_responsive = False
 
+            verdict = dispatch_res.output if dispatch_res.live_dispatched and dispatch_res.output else "VPS infrastructure validated for multi-agent container lifecycle."
+
             infra_status = {
                 "status": "Infrastructure & Deployment Aligned",
                 "attempt": attempt,
@@ -51,15 +59,17 @@ def run_anti_gravity(state: Dict[str, Any]) -> Dict[str, Any]:
                 "docker_version": docker_version,
                 "docker_daemon_active": daemon_responsive,
                 "compose_spec_ready": True,
-                "deployment_verdict": "VPS infrastructure validated for multi-agent container lifecycle."
+                "deployment_verdict": verdict,
+                "live_dispatched": dispatch_res.live_dispatched,
+                "live_execution": dispatch_res.to_dict()
             }
 
             message_entry = {
                 "role": "assistant",
                 "name": "anti_gravity",
                 "content": (
-                    f"[Anti-Gravity Agent] Runtime VPS divalidasi ({docker_version}, Daemon: {'Active' if daemon_responsive else 'Inactive'}). "
-                    "Infrastruktur container siap deployed."
+                    f"[Anti-Gravity Agent] Infrastruktur VPS diverifikasi. "
+                    f"Verdict: {verdict}"
                 )
             }
 

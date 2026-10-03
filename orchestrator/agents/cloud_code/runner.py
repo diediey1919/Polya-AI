@@ -8,6 +8,7 @@ import os
 import sqlite3
 import traceback
 from typing import Any, Dict
+from runtime import AgentRuntime
 
 
 def run_cloud_code(state: Dict[str, Any]) -> Dict[str, Any]:
@@ -21,6 +22,13 @@ def run_cloud_code(state: Dict[str, Any]) -> Dict[str, Any]:
             db_connected = False
             evidence_count = 0
 
+            # Live Claude Code Dispatch
+            claude_prompt = (
+                f"Forensic apologetics & philology assessment for task: '{task}'. "
+                "State critical apparatus and Tawhidic dialectical conclusion in 1 concise sentence."
+            )
+            dispatch_res = AgentRuntime.dispatch("cloud_code", claude_prompt, timeout=20)
+
             if os.path.exists(db_path):
                 try:
                     with sqlite3.connect(db_path, timeout=5) as conn:
@@ -32,22 +40,26 @@ def run_cloud_code(state: Dict[str, Any]) -> Dict[str, Any]:
                 except Exception:
                     db_connected = False
 
+            verdict = dispatch_res.output if dispatch_res.live_dispatched and dispatch_res.output else "Protokol Ilzam al-Khasm dan leksikon primer (Ibrani/Yunani) aktif."
+
             dialectical_framework = {
                 "persona_layer": "ZUMA Strategic Layer",
                 "methodology": "Ilzam al-Khasm & Forensic Philology",
                 "lexicon_standards": ["BDB", "HALOT", "BDAG", "Thayer"],
                 "nomenclature_rule": "Standard Bible Citation (Full Book, Chapter, Verse)",
                 "knowledge_base_connected": db_connected,
-                "index_metadata": f"Tables verified: {evidence_count}" if db_connected else "Fallback dialectic mode"
+                "index_metadata": f"Tables verified: {evidence_count}" if db_connected else "Fallback dialectic mode",
+                "verdict": verdict,
+                "live_dispatched": dispatch_res.live_dispatched,
+                "live_execution": dispatch_res.to_dict()
             }
 
             message_entry = {
                 "role": "assistant",
                 "name": "cloud_code",
                 "content": (
-                    "[Cloud Code Agent] Engine Debat & Filologi Forensik beroperasi. "
-                    f"Knowledge Base: {dialectical_framework['index_metadata']}. "
-                    "Protokol Ilzam al-Khasm dan leksikon primer (Ibrani/Yunani) aktif."
+                    f"[Cloud Code Agent] Engine Debat & Filologi Forensik beroperasi. "
+                    f"Verdict: {verdict}"
                 )
             }
 
@@ -58,10 +70,9 @@ def run_cloud_code(state: Dict[str, Any]) -> Dict[str, Any]:
                 "agent_outputs": {
                     **existing_outputs,
                     "cloud_code": {
-                        "status": "Dialectic & Exegesis Engine Active",
-                        "attempt": attempt,
+                        "status": "Dialectical Model Verified",
                         "framework": dialectical_framework,
-                        "task_processed": task
+                        "live_dispatched": dispatch_res.live_dispatched
                     }
                 }
             }

@@ -2,6 +2,7 @@
 Polya Apologetika — Foundation API Router
 Phase-1 Web Foundation
 """
+import uuid
 from typing import Dict, Any, Optional, List
 from fastapi import APIRouter, HTTPException, Request, Response, status
 from pydantic import BaseModel, Field
@@ -197,16 +198,19 @@ async def auth_session(req: SessionAuthRequest):
     usage = UsageEntitlementService.get_usage(user_id)
     entitlement = EntitlementService.get_entitlement(user_id)
 
+    user_data = {
+        "user_id": user_id,
+        "email": req.email,
+        "name": req.name,
+        "avatar": req.avatar,
+        "role": "apologist"
+    }
+
     return {
         "success": True,
         "session_token": f"polya_tok_{uuid.uuid4().hex}",
-        "user": {
-            "user_id": user_id,
-            "email": req.email,
-            "name": req.name,
-            "avatar": req.avatar,
-            "role": "apologist"
-        },
+        "user": user_data,
+        "profile": user_data,
         "usage": usage,
         "entitlement": entitlement,
         "auth_provider": "google",

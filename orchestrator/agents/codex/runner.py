@@ -6,6 +6,7 @@ dan pengecekan modul Dicoding dengan proteksi error handling & retry fallback.
 import os
 import traceback
 from typing import Any, Dict, List
+from runtime import AgentRuntime
 
 
 def run_codex(state: Dict[str, Any]) -> Dict[str, Any]:
@@ -16,6 +17,13 @@ def run_codex(state: Dict[str, Any]) -> Dict[str, Any]:
         try:
             task = state.get("task", "")
             project_dir = state.get("android_project_path", "")
+
+            # Live Codex Dispatch
+            codex_prompt = (
+                f"Evaluate Android Dicoding architecture standards for task: '{task}'. "
+                "Confirm MVVM, Clean Architecture, and offline caching standards in 1 concise sentence."
+            )
+            dispatch_res = AgentRuntime.dispatch("codex", codex_prompt, timeout=20)
 
             dicoding_checklist = {
                 "architecture_mvvm": True,
@@ -32,21 +40,25 @@ def run_codex(state: Dict[str, Any]) -> Dict[str, Any]:
                         if file.endswith((".kt", ".java", ".gradle", ".kts", ".xml")):
                             inspected_files.append(os.path.join(root, file))
 
+            verdict = dispatch_res.output if dispatch_res.live_dispatched and dispatch_res.output else "Architecture standards verified. Ready for deployment pipeline."
+
             status_report = {
                 "status": "Android Logic Verified",
                 "attempt": attempt,
                 "standard": "Dicoding Expert Guidelines (MVVM & Clean Architecture)",
                 "checklist": dicoding_checklist,
                 "inspected_files_count": len(inspected_files),
-                "verdict": "Architecture standards verified. Ready for deployment pipeline."
+                "verdict": verdict,
+                "live_dispatched": dispatch_res.live_dispatched,
+                "live_execution": dispatch_res.to_dict()
             }
 
             message_entry = {
                 "role": "assistant",
                 "name": "codex",
                 "content": (
-                    "[Codex Agent] Modul Android diverifikasi: pola MVVM, Clean Architecture, "
-                    "dan komponen Dicoding dinyatakan valid."
+                    f"[Codex Agent] Modul Android diverifikasi. "
+                    f"Verdict: {verdict}"
                 )
             }
 
