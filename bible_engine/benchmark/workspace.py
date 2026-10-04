@@ -4,7 +4,7 @@ Task 4.9: Isolated Benchmark Workspace Subsystem
 
 Manages isolated, ephemeral SQLite databases for end-to-end benchmarking:
 - Strictly prevents access to production database paths.
-- Bootstraps schemas 001 through 025 only (Migration 026 strictly forbidden).
+- Bootstraps schemas 001 through 026 only (Migration 027 strictly forbidden).
 - Enforces proper connection shutdown and WAL checkpoint before recursive cleanup.
 - Asserts workspace removal without assumptions about WAL/SHM file existence.
 """
@@ -58,7 +58,7 @@ class IsolatedBenchmarkWorkspace:
         self.cleanup()
 
     def setup(self) -> None:
-        """Create temp workspace, bootstrap SQLite database, and apply migrations 001-025."""
+        """Create temp workspace, bootstrap SQLite database, and apply migrations 001-026."""
         self.temp_dir = tempfile.TemporaryDirectory(dir=self.base_dir)
         self.workspace_path = Path(self.temp_dir.name).resolve()
         self.db_path = self.workspace_path / "benchmark.db"
@@ -76,15 +76,15 @@ class IsolatedBenchmarkWorkspace:
         )
         self.engine = DatabaseEngine(db_config)
 
-        # Apply authoritative migrations 001-025
+        # Apply authoritative migrations 001-026
         self.runner = MigrationRunner(self.engine, self.migrations_dir)
         applied = self.runner.apply_pending()
 
-        # Epistemic invariant: Migration 026 is strictly forbidden
+        # Epistemic invariant: Migration 027+ is strictly forbidden
         for mig in applied:
             mig_name = mig.migration_id if hasattr(mig, "migration_id") else str(mig)
-            if "026" in mig_name:
-                raise RuntimeError(f"Forbidden migration 026 detected and applied: {mig_name}")
+            if "027" in mig_name:
+                raise RuntimeError(f"Forbidden migration 027 detected and applied: {mig_name}")
 
     def cleanup(self) -> None:
         """

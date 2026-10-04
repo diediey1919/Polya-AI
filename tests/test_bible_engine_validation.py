@@ -116,8 +116,23 @@ class TestValidationEngineSuite(unittest.TestCase):
             conn.execute("INSERT OR IGNORE INTO books VALUES ('GEN', 'TEST_OT', 1, 'Kejadian', 'Genesis', 'HEBREW', 50);")
             conn.execute(
                 """
-                INSERT OR IGNORE INTO pericopes VALUES (
-                    'PER_GEN_1_1', 'GEN', 'Kejadian 1:1-3', 1, 1, 1, 3,
+                INSERT OR IGNORE INTO pericopes (
+                    pericope_id,
+                    book_id,
+                    segmentation_id,
+                    reference,
+                    start_chapter,
+                    start_verse,
+                    end_chapter,
+                    end_verse,
+                    genre,
+                    boundary_source,
+                    boundary_confidence,
+                    status,
+                    version,
+                    created_at
+                ) VALUES (
+                    'PER_GEN_1_1', 'GEN', 'WIT-SEG-PROVISIONAL-CHAPTER', 'Kejadian 1:1-3', 1, 1, 1, 3,
                     'NARRATIVE', 'NA28_SECTION', 'HIGH', 'VALIDATED', '1.0.0', ?
                 )
                 """,
@@ -369,7 +384,7 @@ class TestValidationEngineSuite(unittest.TestCase):
     def test_02_migration_status_clean(self) -> None:
         status = self.runner.get_status()
         self.assertTrue(status.is_clean)
-        self.assertEqual(status.current_version, "25")
+        self.assertEqual(status.current_version, "26")
 
     def test_03_legacy_database_hashes_unchanged(self) -> None:
         legacy1 = Path("/home/ubuntu/.polya/polya_index.db")

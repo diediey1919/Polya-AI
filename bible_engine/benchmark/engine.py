@@ -208,12 +208,15 @@ class BenchmarkEngine:
             # Pericopes
             conn.execute(
                 """
-                INSERT OR IGNORE INTO pericopes (pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse, genre, boundary_source, boundary_confidence, status, version, created_at)
-                VALUES
-                    ('PER-GEN-001', 'GEN', 'Kejadian 1:1-2:3', 1, 1, 2, 3, 'NARRATIVE', 'BHS', 'HIGH', 'VALIDATED', '1', '2026-10-02T00:00:00Z'),
-                    ('PER-DAN-007', 'DAN', 'Daniel 7:13-14', 7, 13, 7, 14, 'APOCALYPTIC', 'BHS', 'HIGH', 'VALIDATED', '1', '2026-10-02T00:00:00Z'),
-                    ('PER-ROM-003', 'ROM', 'Roma 3:1-31', 3, 1, 3, 31, 'EPISTLE', 'NA28', 'HIGH', 'VALIDATED', '1', '2026-10-02T00:00:00Z'),
-                    ('PER-TEST-SUPER', 'ROM', 'Roma 3:99', 3, 99, 3, 99, 'EPISTLE', 'NA28', 'HIGH', 'VALIDATED', '1', '2026-10-02T00:00:00Z');
+                INSERT OR IGNORE INTO pericopes (
+                    pericope_id, book_id, segmentation_id, reference, start_chapter, start_verse,
+                    end_chapter, end_verse, genre, boundary_source, boundary_confidence,
+                    status, version, created_at
+                ) VALUES
+                    ('PER-GEN-001', 'GEN', 'WIT-SEG-PROVISIONAL-CHAPTER', 'Kejadian 1:1-2:3', 1, 1, 2, 3, 'NARRATIVE', 'BHS', 'HIGH', 'VALIDATED', '1', '2026-10-02T00:00:00Z'),
+                    ('PER-DAN-007', 'DAN', 'WIT-SEG-PROVISIONAL-CHAPTER', 'Daniel 7:13-14', 7, 13, 7, 14, 'APOCALYPTIC', 'BHS', 'HIGH', 'VALIDATED', '1', '2026-10-02T00:00:00Z'),
+                    ('PER-ROM-003', 'ROM', 'WIT-SEG-PROVISIONAL-CHAPTER', 'Roma 3:1-31', 3, 1, 3, 31, 'EPISTLE', 'NA28', 'HIGH', 'VALIDATED', '1', '2026-10-02T00:00:00Z'),
+                    ('PER-TEST-SUPER', 'ROM', 'WIT-SEG-PROVISIONAL-CHAPTER', 'Roma 3:99', 3, 99, 3, 99, 'EPISTLE', 'NA28', 'HIGH', 'VALIDATED', '1', '2026-10-02T00:00:00Z');
                 """
             )
             # Canon Hierarchy Testing Infrastructure

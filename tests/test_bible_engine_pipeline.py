@@ -317,14 +317,30 @@ class TestCrossCorpusAndPipelineIntegration(unittest.TestCase):
         conn.execute("INSERT OR IGNORE INTO testaments VALUES ('TEST-NT', 'CANON-NT', 'New Testament', 2);")
         conn.execute("INSERT OR IGNORE INTO books VALUES ('JHN', 'TEST-NT', 43, 'Yohanes', 'John', 'GREEK', 21);")
 
+        # Ensure segmentation witness baseline is present
+        conn.execute(
+            """
+            INSERT OR IGNORE INTO segmentation_witnesses (
+                segmentation_id, witness_name, witness_type, authority_level,
+                license, description, is_active_baseline, source_provenance, created_at
+            ) VALUES (
+                'WIT-SEG-PROVISIONAL-CHAPTER', 'Provisional Chapter Baseline',
+                'CANONICAL_PARTITION', 'PROVISIONAL', 'Public Domain',
+                'Provisional mechanical chapter partition. Carries zero scholarly or exegetical boundary authority.',
+                1, 'CANONICAL_CHAPTER_FALLBACK', ?
+            );
+            """,
+            (now,),
+        )
+
         # Seed Pericope & Passage
         conn.execute(
             """
             INSERT OR IGNORE INTO pericopes (
-                pericope_id, book_id, reference, start_chapter, start_verse,
+                pericope_id, book_id, segmentation_id, reference, start_chapter, start_verse,
                 end_chapter, end_verse, genre, boundary_source, boundary_confidence,
                 status, version, created_at
-            ) VALUES ('PERI-JHN-01', 'JHN', 'Yohanes 1:1-18', 1, 1, 1, 18, 'PROLOGUE', 'NA28', 'HIGH',
+            ) VALUES ('PERI-JHN-01', 'JHN', 'WIT-SEG-PROVISIONAL-CHAPTER', 'Yohanes 1:1-18', 1, 1, 1, 18, 'PROLOGUE', 'NA28', 'HIGH',
                       'VALIDATED', '1.0.0', ?)
             """,
             (now,),

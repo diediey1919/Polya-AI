@@ -42,6 +42,136 @@ def compute_sha256(content: Union[str, bytes]) -> str:
     return hashlib.sha256(content).hexdigest().lower()
 
 
+def compute_association_id(segmentation_id: str, pericope_id: str, passage_id: str) -> str:
+    """
+    Deterministic Canonical Association ID Generator for Pericope-Passage bindings.
+    Contract: SHA256(segmentation_id + ":" + pericope_id + ":" + passage_id)
+    """
+    canonical_input = f"{segmentation_id}:{pericope_id}:{passage_id}".encode("utf-8")
+    return hashlib.sha256(canonical_input).hexdigest().lower()
+
+
+def _backfill_and_validate_migration_026(
+    conn: sqlite3.Connection,
+    segmentation_id: str = "WIT-SEG-PROVISIONAL-CHAPTER",
+) -> None:
+    """
+    Migration 026 Python migration helper.
+    Performs:
+    1. Deterministic pericope_passages backfill for existing passages
+    2. Projection parity validation
+    3. Foreign key integrity validation (PRAGMA foreign_key_check)
+    4. Active baseline & partition integrity validation
+    5. Database integrity check (PRAGMA integrity_check)
+    """
+    cursor = conn.cursor()
+
+    # 1. Deterministic association backfill
+    passages = cursor.execute(
+        "SELECT passage_id, pericope_id, sort_order FROM passages ORDER BY pericope_id, sort_order ASC;"
+    ).fetchall()
+
+    if passages:
+        pericope_groups: Dict[str, List[Tuple[str, int]]] = {}
+        for row in passages:
+            pid = row["passage_id"] if isinstance(row, sqlite3.Row) else row[0]
+            per_id = row["pericope_id"] if isinstance(row, sqlite3.Row) else row[1]
+            s_order = row["sort_order"] if isinstance(row, sqlite3.Row) else row[2]
+            pericope_groups.setdefault(per_id, []).append((pid, s_order))
+
+        records = []
+        now_iso = "2026-10-04T00:00:00Z"
+        for per_id, pas_list in pericope_groups.items():
+            total = len(pas_list)
+            for idx, (pid, _) in enumerate(pas_list, start=1):
+                assoc_id = compute_association_id(segmentation_id, per_id, pid)
+                if total == 1:
+                    b_pos = "SINGLE_VERSE_PERICOPE"
+                elif idx == 1:
+                    b_pos = "START_BOUNDARY"
+                elif idx == total:
+                    b_pos = "END_BOUNDARY"
+                else:
+                    b_pos = "INTERNAL"
+                records.append((
+                    assoc_id,
+                    segmentation_id,
+                    per_id,
+                    pid,
+                    idx,
+                    "FULL_VERSE",
+                    b_pos,
+                    now_iso,
+                ))
+
+        cursor.executemany(
+            """
+            INSERT INTO pericope_passages (
+                association_id, segmentation_id, pericope_id, passage_id, ordinal,
+                containment_type, boundary_position, created_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+            """,
+            records,
+        )
+
+    # 2. Projection parity validation
+    parity_violations = cursor.execute(
+        """
+        SELECT p.passage_id, p.pericope_id
+        FROM passages p
+        LEFT JOIN pericope_passages pp
+          ON pp.passage_id = p.passage_id
+         AND pp.pericope_id = p.pericope_id
+         AND pp.segmentation_id = ?
+        WHERE pp.association_id IS NULL;
+        """,
+        (segmentation_id,),
+    ).fetchall()
+    if parity_violations:
+        raise MigrationIntegrityError(
+            f"Projection parity validation failed for migration 026: {len(parity_violations)} unlinked passages."
+        )
+
+    # 3. Foreign key validation
+    fk_violations = cursor.execute("PRAGMA foreign_key_check;").fetchall()
+    if fk_violations:
+        raise MigrationIntegrityError(
+            f"Foreign key integrity check failed for migration 026: {fk_violations}"
+        )
+
+    # 4. Active baseline validation
+    baseline_count = cursor.execute(
+        "SELECT count(*) FROM segmentation_witnesses WHERE is_active_baseline = 1;"
+    ).fetchone()[0]
+    if baseline_count != 1:
+        raise MigrationIntegrityError(
+            f"Active baseline validation failed: expected exactly 1 active baseline, found {baseline_count}."
+        )
+
+    # 5. Partition overlap validation
+    partition_overlaps = cursor.execute(
+        """
+        SELECT passage_id, count(*) as cnt
+        FROM pericope_passages
+        WHERE segmentation_id = ?
+        GROUP BY passage_id
+        HAVING cnt > 1;
+        """,
+        (segmentation_id,),
+    ).fetchall()
+    if partition_overlaps:
+        raise MigrationIntegrityError(
+            f"Partition validation failed: overlapping passages found in baseline partition: {partition_overlaps}"
+        )
+
+    # 6. Database integrity check
+    integrity_rows = cursor.execute("PRAGMA integrity_check;").fetchall()
+    if not integrity_rows or integrity_rows[0][0] != "ok":
+        raise MigrationIntegrityError(
+            f"Database integrity check failed after migration 026: {integrity_rows}"
+        )
+
+
 def split_sql_statements(sql_text: str) -> List[str]:
     """
     Split SQL script into discrete executable statements.
@@ -465,6 +595,10 @@ class MigrationRunner:
                     with self.engine.transaction(conn=conn, savepoint=True):
                         for stmt in statements:
                             conn.execute(stmt)
+
+                        # Migration-specific Python helper execution
+                        if pending.sequence_num == 26 or pending.migration_id == "026_pericope_segmentation":
+                            _backfill_and_validate_migration_026(conn)
 
                         # Post-execution foreign key verification
                         fk_check = conn.execute("PRAGMA foreign_keys;").fetchone()[0]

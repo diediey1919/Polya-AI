@@ -79,7 +79,7 @@ class TestBibleEngineBenchmark(unittest.TestCase):
         self.assertEqual(report_hash_1, report_hash_2)
 
     def test_isolated_benchmark_workspace_lifecycle(self) -> None:
-        """Verify workspace lifecycle, schema application (001-025, no 026), and clean disposal."""
+        """Verify workspace lifecycle, schema application (001-026, no 027), and clean disposal."""
         with IsolatedBenchmarkWorkspace() as ws:
             self.assertIsNotNone(ws.engine)
             self.assertIsNotNone(ws.workspace_path)
@@ -90,9 +90,9 @@ class TestBibleEngineBenchmark(unittest.TestCase):
             with ws.engine.connect() as conn:
                 cur = conn.execute("SELECT migration_id FROM schema_migrations ORDER BY migration_id;")
                 migrations = [row[0] for row in cur.fetchall()]
-                self.assertGreaterEqual(len(migrations), 25)
-                # Migration 026 strictly forbidden
-                self.assertFalse(any("026" in m for m in migrations))
+                self.assertGreaterEqual(len(migrations), 26)
+                # Migration 027+ strictly forbidden
+                self.assertFalse(any("027" in m for m in migrations))
 
             saved_path = ws.workspace_path
 
