@@ -68,3 +68,7 @@ temp/
 
 # Test scratch dirs
 tests/_test_tmp_*/
+
+# Transient web reports and upload artifacts
+web/static/*.txt
+web/static/uploads/*.txt
