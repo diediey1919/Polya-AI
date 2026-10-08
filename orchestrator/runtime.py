@@ -123,26 +123,30 @@ class HermesAdapter(BaseAgentAdapter):
             )
 
         cmd = [self.binary_path, "-z", prompt, "--safe-mode"]
+        proc = None
+        pid = None
         try:
-            res = subprocess.run(
+            proc = subprocess.Popen(
                 cmd,
-                capture_output=True,
-                text=True,
-                timeout=timeout
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True
             )
+            pid = proc.pid
+            stdout, stderr = proc.communicate(timeout=timeout)
             duration_ms = int((time.perf_counter() - start) * 1000)
-            if res.returncode == 0:
-                output_text = res.stdout.strip()
+            if proc.returncode == 0:
+                output_text = stdout.strip()
                 return AgentResponse(
                     agent_name=self.agent_name,
                     status="COMPLETED",
                     live_dispatched=True,
                     correlation_id=cid,
                     output=output_text,
-                    raw_response=res.stdout,
+                    raw_response=stdout,
                     execution_time_ms=duration_ms,
                     timestamp=now_iso,
-                    metadata={"returncode": res.returncode, "command": " ".join(cmd[:3])}
+                    metadata={"returncode": proc.returncode, "command": " ".join(cmd[:3]), "binary_path": self.binary_path, "pid": pid}
                 )
             else:
                 return AgentResponse(
@@ -150,13 +154,17 @@ class HermesAdapter(BaseAgentAdapter):
                     status="FAILED",
                     live_dispatched=False,
                     correlation_id=cid,
-                    output=res.stdout.strip(),
-                    raw_response=res.stderr,
+                    output=stdout.strip(),
+                    raw_response=stderr,
                     execution_time_ms=duration_ms,
                     timestamp=now_iso,
-                    error=f"Hermes exited with code {res.returncode}: {res.stderr.strip()}"
+                    metadata={"returncode": proc.returncode, "binary_path": self.binary_path, "pid": pid},
+                    error=f"Hermes exited with code {proc.returncode}: {stderr.strip()}"
                 )
         except subprocess.TimeoutExpired:
+            if proc is not None:
+                proc.kill()
+                proc.wait()
             duration_ms = int((time.perf_counter() - start) * 1000)
             return AgentResponse(
                 agent_name=self.agent_name,
@@ -167,6 +175,7 @@ class HermesAdapter(BaseAgentAdapter):
                 raw_response=None,
                 execution_time_ms=duration_ms,
                 timestamp=now_iso,
+                metadata={"binary_path": self.binary_path, "pid": pid},
                 error=f"Hermes invocation timed out after {timeout}s"
             )
         except Exception as exc:
@@ -215,16 +224,20 @@ class CodexAdapter(BaseAgentAdapter):
             "--skip-git-repo-check",
             prompt
         ]
+        proc = None
+        pid = None
         try:
-            res = subprocess.run(
+            proc = subprocess.Popen(
                 cmd,
-                capture_output=True,
-                text=True,
-                timeout=timeout
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True
             )
+            pid = proc.pid
+            stdout, stderr = proc.communicate(timeout=timeout)
             duration_ms = int((time.perf_counter() - start) * 1000)
-            if res.returncode == 0:
-                raw = res.stdout.strip()
+            if proc.returncode == 0:
+                raw = stdout.strip()
                 # Parse output following 'codex\n' marker if present
                 if "codex\n" in raw:
                     output_text = raw.split("codex\n", 1)[1].strip()
@@ -239,7 +252,7 @@ class CodexAdapter(BaseAgentAdapter):
                     raw_response=raw,
                     execution_time_ms=duration_ms,
                     timestamp=now_iso,
-                    metadata={"returncode": res.returncode}
+                    metadata={"returncode": proc.returncode, "binary_path": self.binary_path, "pid": pid}
                 )
             else:
                 return AgentResponse(
@@ -248,12 +261,16 @@ class CodexAdapter(BaseAgentAdapter):
                     live_dispatched=False,
                     correlation_id=cid,
                     output="",
-                    raw_response=res.stderr,
+                    raw_response=stderr,
                     execution_time_ms=duration_ms,
                     timestamp=now_iso,
-                    error=f"Codex exited with code {res.returncode}: {res.stderr.strip()}"
+                    metadata={"returncode": proc.returncode, "binary_path": self.binary_path, "pid": pid},
+                    error=f"Codex exited with code {proc.returncode}: {stderr.strip()}"
                 )
         except subprocess.TimeoutExpired:
+            if proc is not None:
+                proc.kill()
+                proc.wait()
             duration_ms = int((time.perf_counter() - start) * 1000)
             return AgentResponse(
                 agent_name=self.agent_name,
@@ -264,6 +281,7 @@ class CodexAdapter(BaseAgentAdapter):
                 raw_response=None,
                 execution_time_ms=duration_ms,
                 timestamp=now_iso,
+                metadata={"binary_path": self.binary_path, "pid": pid},
                 error=f"Codex invocation timed out after {timeout}s"
             )
         except Exception as exc:
@@ -306,16 +324,20 @@ class ClaudeCodeAdapter(BaseAgentAdapter):
             )
 
         cmd = [self.binary_path, "-p", prompt]
+        proc = None
+        pid = None
         try:
-            res = subprocess.run(
+            proc = subprocess.Popen(
                 cmd,
-                capture_output=True,
-                text=True,
-                timeout=timeout
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True
             )
+            pid = proc.pid
+            stdout, stderr = proc.communicate(timeout=timeout)
             duration_ms = int((time.perf_counter() - start) * 1000)
-            if res.returncode == 0:
-                raw = res.stdout.strip()
+            if proc.returncode == 0:
+                raw = stdout.strip()
                 # Filter out warning lines
                 lines = [l for l in raw.split("\n") if not l.startswith("[claude-code:")]
                 output_text = "\n".join(lines).strip()
@@ -328,7 +350,7 @@ class ClaudeCodeAdapter(BaseAgentAdapter):
                     raw_response=raw,
                     execution_time_ms=duration_ms,
                     timestamp=now_iso,
-                    metadata={"returncode": res.returncode}
+                    metadata={"returncode": proc.returncode, "binary_path": self.binary_path, "pid": pid}
                 )
             else:
                 return AgentResponse(
@@ -337,12 +359,16 @@ class ClaudeCodeAdapter(BaseAgentAdapter):
                     live_dispatched=False,
                     correlation_id=cid,
                     output="",
-                    raw_response=res.stderr,
+                    raw_response=stderr,
                     execution_time_ms=duration_ms,
                     timestamp=now_iso,
-                    error=f"Claude Code exited with code {res.returncode}: {res.stderr.strip()}"
+                    metadata={"returncode": proc.returncode, "binary_path": self.binary_path, "pid": pid},
+                    error=f"Claude Code exited with code {proc.returncode}: {stderr.strip()}"
                 )
         except subprocess.TimeoutExpired:
+            if proc is not None:
+                proc.kill()
+                proc.wait()
             duration_ms = int((time.perf_counter() - start) * 1000)
             return AgentResponse(
                 agent_name=self.agent_name,
@@ -353,6 +379,7 @@ class ClaudeCodeAdapter(BaseAgentAdapter):
                 raw_response=None,
                 execution_time_ms=duration_ms,
                 timestamp=now_iso,
+                metadata={"binary_path": self.binary_path, "pid": pid},
                 error=f"Claude Code invocation timed out after {timeout}s"
             )
         except Exception as exc:
@@ -438,7 +465,7 @@ class AgentRuntimeManager:
     def get_adapter(self, agent_name: str) -> Optional[BaseAgentAdapter]:
         return self.adapters.get(agent_name)
 
-    def dispatch(self, agent_name: str, prompt: str, timeout: int = 30, **kwargs) -> AgentResponse:
+    def dispatch(self, agent_name: str, prompt: str, timeout: int = 30, max_retries: int = 0, **kwargs) -> AgentResponse:
         adapter = self.get_adapter(agent_name)
         if not adapter:
             now_iso = datetime.now(timezone.utc).isoformat()
@@ -453,7 +480,17 @@ class AgentRuntimeManager:
                 timestamp=now_iso,
                 error=f"No adapter registered for agent '{agent_name}'"
             )
-        return adapter.dispatch(prompt, timeout=timeout, **kwargs)
+
+        attempts = 0
+        res = None
+        while attempts <= max_retries:
+            attempts += 1
+            res = adapter.dispatch(prompt, timeout=timeout, **kwargs)
+            if res.status == "COMPLETED":
+                break
+        if res and res.metadata is not None:
+            res.metadata["attempts"] = attempts
+        return res
 
 
 # Global singleton instance

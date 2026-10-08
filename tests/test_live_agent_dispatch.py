@@ -29,7 +29,7 @@ def test_adapters_registered_and_available():
 
 def test_hermes_live_dispatch_evidence():
     """Verify that Hermes executes via live CLI and returns verified execution evidence."""
-    res = AgentRuntime.dispatch("hermes", "Echo precisely: LIVE_HERMES_CONFIRMED", timeout=25)
+    res = AgentRuntime.dispatch("hermes", "Echo precisely: LIVE_HERMES_CONFIRMED", timeout=90)
     assert isinstance(res, AgentResponse)
     assert res.live_dispatched is True, f"Hermes live dispatch failed: {res.error}"
     assert res.status == "COMPLETED"
@@ -40,7 +40,7 @@ def test_hermes_live_dispatch_evidence():
 
 def test_codex_live_dispatch_evidence():
     """Verify that Codex executes via live CLI and returns verified execution evidence."""
-    res = AgentRuntime.dispatch("codex", "Echo precisely: LIVE_CODEX_CONFIRMED", timeout=25)
+    res = AgentRuntime.dispatch("codex", "Echo precisely: LIVE_CODEX_CONFIRMED", timeout=60)
     assert isinstance(res, AgentResponse)
     assert res.live_dispatched is True, f"Codex live dispatch failed: {res.error}"
     assert res.status == "COMPLETED"

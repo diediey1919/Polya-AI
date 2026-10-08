@@ -1,0 +1,743 @@
+"""
+Polya Multi-Agent Orchestrator — Epistemic Quality, Adversarial Research & Debate Graph
+Master Prompt #3 — Epistemic Quality, Adversarial Intelligence & Self-Refutation Pipeline.
+
+Implements the Canonical Self-Criticizing Execution Chain:
+USER CLAIM
+    ↓
+01. entry_node
+    ↓
+02. task_decomposition_node (with Claim Atomicity & Dependency Graph)
+    ↓
+03. research_dispatch_node (Multi-Agent Dispatch: Hermes / Codex / Claude Code / Anti-Gravity)
+    ↓
+04. evidence_retrieval_node (Source-First: Koine Greek & Biblical Hebrew)
+    ↓
+05. source_criticism_node (Source Criticism, Textual Variants, Translation Audit, Context Firewall)
+    ↓
+06. claim_analysis_node (Canonical Claim Structuring)
+    ↓
+07. argument_graph_node (Premises, Inferences, and Conclusions)
+    ↓
+08. steelman_counterargument_node (Formidable Opposition Construction)
+    ↓
+09. contradiction_detection_node (Contextual vs Direct Contradiction Audit)
+    ↓
+10. verification_node (Epistemic Firewall & Citation Verification)
+    ↓
+11. adversarial_attack_node (AdversarialDebateAgent: Attacking Polya's Own Provisional Conclusion)
+    ↓
+12. self_refutation_node (Self-Refutation & Hardening Loop, Weakest-Point Identification)
+    ↓
+13. gap_detection_loop (Bounded Autonomous Research Loop)
+    ↓
+14. synthesis_evaluation_node (Multi-Dimensional Scorecard + Uncertainty Calibration + Evidence Coverage + Fallacies)
+    ↓
+15. debate_quality_gate_node (Strict Pre-Debate Verification Gate)
+    ↓
+16. zuma_debate_preparation_node (ZUMA Socratic Funnel & ZumaSelfCritique)
+    ↓
+17. case_file_persistence_node (SQLite Extended Canonical Storage & Trace Recording)
+    ↓
+18. final_response_node (Debate-Ready Delivery across 7 Modes including ADVERSARIAL_REVIEW)
+"""
+import operator
+import time
+import uuid
+from datetime import datetime, timezone
+from typing import Annotated, Any, Dict, List, Optional
+from typing_extensions import TypedDict
+
+from langgraph.graph import StateGraph, START, END
+from langgraph.checkpoint.memory import MemorySaver
+
+from orchestrator.runtime import AgentRuntime, AgentResponse
+from orchestrator.agent_registry import Registry, CostClass, LatencyClass
+from orchestrator.task_planner import TaskDecompositionEngine, ResearchTask, TaskStatus
+from orchestrator.evidence_engine import Evidence, EvidenceItem, EvidenceTier
+from orchestrator.argument_engine import ArgumentEngine, CanonicalClaim, SteelmanCounterargument, ContradictionReport
+from orchestrator.verification_engine import VerificationEngine, VerificationRecord, VerificationState
+from orchestrator.evaluation_engine import EvaluationEngine, MultiDimensionalEvaluation
+from orchestrator.zuma_skill_engine import ZumaSkillEngine, DebatePreparationPackage
+from orchestrator.case_file import CaseFiles, CanonicalCaseFile, ExecutionTraceItem
+from orchestrator.epistemic_firewall import EpistemicFirewall, EpistemicStatus, EpistemicAssertion
+from orchestrator.claim_atomicity import ClaimAtomicityEngine, ClaimDependencyGraph
+from orchestrator.source_criticism import SourceCriticismEngine, SourceCategory, LexicalStrength
+from orchestrator.adversarial_engine import (
+    AdversarialEngine,
+    AdversarialAttackReport,
+    FallacyRecord,
+    UncertaintyCalibrationReport,
+    EvidenceCoverageReport,
+    ZumaSelfCritiqueReport,
+    DebateQualityGateResult
+)
+
+
+class ResearchState(TypedDict):
+    """Canonical State schema for Master Prompt #3 Epistemic Quality & Adversarial Research."""
+    claim_input: str
+    run_id: str
+    thread_id: str
+    user_perspective: str
+    requested_mode: str
+    tasks: List[Dict[str, Any]]
+    dispatched_agent_records: Annotated[List[Dict[str, Any]], operator.add]
+    evidence_items: List[Dict[str, Any]]
+    provenance_hashes: List[str]
+    claim_atomicity_graph: Optional[Dict[str, Any]]
+    source_criticism_records: List[Dict[str, Any]]
+    textual_criticism_records: List[Dict[str, Any]]
+    translation_audits: List[Dict[str, Any]]
+    philological_adversarial_tests: List[Dict[str, Any]]
+    context_audits: List[Dict[str, Any]]
+    claim_object: Optional[Dict[str, Any]]
+    argument_graph: Optional[Dict[str, Any]]
+    steelman_counterarg: Optional[Dict[str, Any]]
+    contradiction_report: Optional[Dict[str, Any]]
+    verification_records: List[Dict[str, Any]]
+    verification_status: str
+    epistemic_firewall_report: Optional[Dict[str, Any]]
+    adversarial_attacks: List[Dict[str, Any]]
+    self_refutation_survived: bool
+    weakest_point: Optional[str]
+    fallacies: List[Dict[str, Any]]
+    uncertainty_calibration: Optional[Dict[str, Any]]
+    evidence_coverage: Optional[Dict[str, Any]]
+    debate_quality_gate: Optional[Dict[str, Any]]
+    zuma_self_critique: Optional[Dict[str, Any]]
+    research_iterations: int
+    max_research_iterations: int
+    knowledge_gaps: List[str]
+    evaluation_scorecard: Optional[Dict[str, Any]]
+    debate_preparation: Optional[Dict[str, Any]]
+    case_id: Optional[str]
+    execution_traces: Annotated[List[Dict[str, Any]], operator.add]
+    final_response: Optional[str]
+    errors: Annotated[List[str], operator.add]
+
+
+# ============================================================================
+# Node Handlers
+# ============================================================================
+
+def entry_node(state: ResearchState) -> Dict[str, Any]:
+    """Initializes run identifiers and parameters."""
+    run_id = state.get("run_id") or f"run_{uuid.uuid4().hex[:8]}"
+    thread_id = state.get("thread_id") or f"thread_{uuid.uuid4().hex[:8]}"
+    return {
+        "run_id": run_id,
+        "thread_id": thread_id,
+        "research_iterations": state.get("research_iterations", 0),
+        "max_research_iterations": state.get("max_research_iterations", 2),
+        "knowledge_gaps": [],
+        "errors": []
+    }
+
+
+def task_decomposition_node(state: ResearchState) -> Dict[str, Any]:
+    """Decomposes claim into atomic propositions and canonical task DAG."""
+    claim_text = state["claim_input"]
+    run_id = state["run_id"]
+    thread_id = state["thread_id"]
+
+    tasks = TaskDecompositionEngine.decompose_claim(claim_text, run_id, thread_id)
+    atom_graph = ClaimAtomicityEngine.decompose_claim(claim_text)
+
+    return {
+        "tasks": [t.to_dict() for t in tasks],
+        "claim_atomicity_graph": atom_graph.to_dict()
+    }
+
+
+def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
+    """Dispatches research tasks across live agents using AgentCapabilityRegistry."""
+    claim_text = state["claim_input"]
+    dispatched_records: List[Dict[str, Any]] = []
+    traces: List[Dict[str, Any]] = []
+
+    target_agent = Registry.route_task("RESEARCH_AGENT")
+    prompt = f"Forensic apologetics research dispatch for claim: '{claim_text}'."
+    t0 = time.time()
+    res: AgentResponse = AgentRuntime.dispatch(target_agent, prompt, timeout=15)
+    t1 = time.time()
+
+    record = {
+        "task_type": "PRIMARY_RESEARCH_DISPATCH",
+        "agent": target_agent,
+        "status": res.status,
+        "live_dispatched": res.live_dispatched,
+        "output": res.output,
+        "duration_ms": int((t1 - t0) * 1000)
+    }
+    dispatched_records.append(record)
+
+    trace = ExecutionTraceItem(
+        trace_id=f"tr_{uuid.uuid4().hex[:8]}",
+        run_id=state["run_id"],
+        thread_id=state["thread_id"],
+        task_id="task_research_dispatch_01",
+        parent_task_id=None,
+        node="research_dispatch_node",
+        agent=target_agent,
+        runtime=res.metadata.get("binary_path", "runtime_adapter"),
+        model="claude-3-5-sonnet" if target_agent == "cloud_code" else "hermes-agent-v3",
+        start_time=res.started_at or datetime.now(timezone.utc).isoformat(),
+        finish_time=res.completed_at or datetime.now(timezone.utc).isoformat(),
+        status=res.status,
+        input_summary=prompt[:150],
+        output_summary=res.output[:150],
+        evidence_ids=[],
+        checkpoint_id=None,
+        retry_count=0
+    )
+    traces.append(trace.to_dict())
+
+    return {
+        "dispatched_agent_records": dispatched_records,
+        "execution_traces": traces
+    }
+
+
+def evidence_retrieval_node(state: ResearchState) -> Dict[str, Any]:
+    """Retrieves verified primary biblical evidence with source-language priority."""
+    claim_text = state["claim_input"]
+    evidence_items = Evidence.retrieve_scripture_evidence(claim_text)
+    prov_hashes = [e.provenance_hash for e in evidence_items]
+
+    return {
+        "evidence_items": [e.to_dict() for e in evidence_items],
+        "provenance_hashes": prov_hashes
+    }
+
+
+def source_criticism_node(state: ResearchState) -> Dict[str, Any]:
+    """Executes Source Criticism, Textual Criticism, Translation Audits, and Philological Tests."""
+    claim_text = state["claim_input"]
+    temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
+
+    source_profiles = [SourceCriticismEngine.evaluate_source(e).to_dict() for e in temp_evidence]
+    variant_reports = [SourceCriticismEngine.check_textual_variants(e.passage_reference).to_dict() for e in temp_evidence]
+    trans_audits = [SourceCriticismEngine.audit_translation(e).to_dict() for e in temp_evidence]
+    context_audits = [SourceCriticismEngine.audit_context_firewall(e.passage_reference).to_dict() for e in temp_evidence]
+
+    phil_tests = [
+        SourceCriticismEngine.philological_adversarial_test("καταργέω", "membatalkan / menghapus total").to_dict(),
+        SourceCriticismEngine.philological_adversarial_test("τέλος", "pengakhiran kronologis mutlak").to_dict(),
+        SourceCriticismEngine.philological_adversarial_test("ἵστημι", "menegakkan / mengokohkan").to_dict()
+    ]
+
+    return {
+        "source_criticism_records": source_profiles,
+        "textual_criticism_records": variant_reports,
+        "translation_audits": trans_audits,
+        "context_audits": context_audits,
+        "philological_adversarial_tests": phil_tests
+    }
+
+
+def claim_analysis_node(state: ResearchState) -> Dict[str, Any]:
+    """Structures canonical claim object."""
+    claim_text = state["claim_input"]
+    temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
+    claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence)
+
+    return {
+        "claim_object": claim_obj.to_dict()
+    }
+
+
+def argument_graph_node(state: ResearchState) -> Dict[str, Any]:
+    """Generates machine-readable argument structure."""
+    claim_text = state["claim_input"]
+    temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
+    claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence)
+    arg_graph = ArgumentEngine.build_argument_graph(claim_obj, temp_evidence)
+
+    return {
+        "argument_graph": arg_graph
+    }
+
+
+def steelman_counterargument_node(state: ResearchState) -> Dict[str, Any]:
+    """Builds formidable opposing argument and rebuttal (Steelman 2.0)."""
+    claim_text = state["claim_input"]
+    steelman = ArgumentEngine.steelman_opposition(claim_text)
+
+    return {
+        "steelman_counterarg": steelman.to_dict()
+    }
+
+
+def contradiction_detection_node(state: ResearchState) -> Dict[str, Any]:
+    """Audits apparent textual tensions and scope differences."""
+    claim_text = state["claim_input"]
+    temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
+    report = ArgumentEngine.audit_contradiction(temp_evidence)
+
+    return {
+        "contradiction_report": report.to_dict()
+    }
+
+
+def verification_node(state: ResearchState) -> Dict[str, Any]:
+    """Audits citations and applies Epistemic Firewall."""
+    claim_text = state["claim_input"]
+    temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
+    records = VerificationEngine.audit_evidence(temp_evidence)
+    overall_status = VerificationEngine.audit_claim_support(claim_text, temp_evidence)
+
+    # Epistemic Firewall validation
+    assertions = [
+        EpistemicAssertion(
+            assertion_id=f"ast_{i}",
+            proposition_text=e.passage_reference,
+            status=EpistemicStatus.DIRECTLY_VERIFIED if e.tier.value == "PRIMARY_SOURCE" else EpistemicStatus.SUPPORTED,
+            evidence_ids=[e.evidence_id],
+            source_witnesses=e.witnesses
+        )
+        for i, e in enumerate(temp_evidence)
+    ]
+    firewall_audit = EpistemicFirewall.audit_assertions(assertions)
+
+    return {
+        "verification_records": [r.to_dict() for r in records],
+        "verification_status": overall_status.value,
+        "epistemic_firewall_report": firewall_audit
+    }
+
+
+def adversarial_attack_node(state: ResearchState) -> Dict[str, Any]:
+    """AdversarialDebateAgent launches attack challenging Polya's own provisional conclusion (Section 12)."""
+    claim_text = state["claim_input"]
+    temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
+    atom_graph = ClaimAtomicityEngine.decompose_claim(claim_text)
+    provisional_conclusion = state.get("argument_graph", {}).get("conclusion", "Paulus menegakkan Taurat.")
+
+    attack_report = AdversarialEngine.execute_adversarial_attack(
+        provisional_conclusion=provisional_conclusion,
+        claim_graph=atom_graph,
+        evidence_items=temp_evidence
+    )
+
+    return {
+        "adversarial_attacks": [attack_report.to_dict()]
+    }
+
+
+def self_refutation_node(state: ResearchState) -> Dict[str, Any]:
+    """Evaluates whether provisional conclusion survives the attack and seals vulnerabilities (Section 13)."""
+    attacks = state.get("adversarial_attacks", [])
+    survived = True
+    weakest = "Batasan leksikal kata 'nomos' dalam perikop yang berbeda."
+    revised = None
+
+    if attacks:
+        latest = attacks[-1]
+        survived = latest.get("survived_attack", True)
+        weakest = latest.get("vulnerable_premise", weakest)
+        revised = latest.get("revised_conclusion")
+
+    return {
+        "self_refutation_survived": survived,
+        "weakest_point": weakest
+    }
+
+
+def gap_detection_loop(state: ResearchState) -> Dict[str, Any]:
+    """Bounded research loop controller (Section 19 & 20)."""
+    current_iter = state.get("research_iterations", 0) + 1
+    evidence_count = len(state.get("evidence_items", []))
+
+    gaps: List[str] = []
+    if evidence_count < 2:
+        gaps.append("INSUFFICIENT_PRIMARY_SCRIPTURE_WITNESSES")
+
+    return {
+        "research_iterations": current_iter,
+        "knowledge_gaps": gaps
+    }
+
+
+def route_after_gap_check(state: ResearchState) -> str:
+    """Bounded conditional routing: loops back if critical gap and budget remains; else proceeds."""
+    gaps = state.get("knowledge_gaps", [])
+    current_iter = state.get("research_iterations", 0)
+    max_iter = state.get("max_research_iterations", 2)
+
+    if gaps and current_iter < max_iter:
+        return "evidence_retrieval_node"
+    return "synthesis_evaluation_node"
+
+
+def synthesis_evaluation_node(state: ResearchState) -> Dict[str, Any]:
+    """Evaluates final apologetics output across 10 discrete analytical dimensions + uncertainty + fallacies."""
+    claim_text = state["claim_input"]
+    temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
+    atom_graph = ClaimAtomicityEngine.decompose_claim(claim_text)
+    steelman = state.get("steelman_counterarg") is not None
+    contradiction = state.get("contradiction_report") is not None
+    survived = state.get("self_refutation_survived", True)
+
+    evaluation = EvaluationEngine.evaluate(
+        evidence_count=len(temp_evidence),
+        primary_witness_count=len(temp_evidence),
+        has_original_greek_hebrew=True,
+        has_steelman_counterargument=steelman,
+        has_morphological_tokens=True,
+        has_provenance_hashes=True,
+        contradiction_analyzed=contradiction
+    )
+
+    # Uncertainty Calibration & Evidence Coverage
+    uncertainty = AdversarialEngine.calibrate_uncertainty(temp_evidence, 0, survived)
+    ev_coverage = AdversarialEngine.calculate_evidence_coverage(atom_graph)
+    fallacies = AdversarialEngine.audit_fallacies([
+        state.get("argument_graph", {}).get("conclusion", "")
+    ])
+
+    return {
+        "evaluation_scorecard": evaluation.to_dict(),
+        "uncertainty_calibration": uncertainty.to_dict(),
+        "evidence_coverage": ev_coverage.to_dict(),
+        "fallacies": [f.to_dict() for f in fallacies]
+    }
+
+
+def debate_quality_gate_node(state: ResearchState) -> Dict[str, Any]:
+    """Debate Quality Gate auditing readiness before ZUMA preparation (Section 21)."""
+    has_steel = state.get("steelman_counterarg") is not None
+    has_verif = len(state.get("verification_records", [])) > 0
+    has_ctx = len(state.get("context_audits", [])) > 0
+    adv_tested = len(state.get("adversarial_attacks", [])) > 0
+
+    gate_result = AdversarialEngine.evaluate_debate_quality_gate(
+        has_steelman=has_steel,
+        has_verified_evidence=has_verif,
+        has_context_audit=has_ctx,
+        adversarial_tested=adv_tested
+    )
+
+    return {
+        "debate_quality_gate": gate_result.to_dict()
+    }
+
+
+def zuma_debate_preparation_node(state: ResearchState) -> Dict[str, Any]:
+    """Generates Socratic interrogation funnel, concession traps, and ZUMA Self-Critique."""
+    claim_text = state["claim_input"]
+    temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
+    steelman = ArgumentEngine.steelman_opposition(claim_text)
+    contradiction = ArgumentEngine.audit_contradiction(temp_evidence)
+
+    debate_prep = ZumaSkillEngine.generate_debate_preparation(
+        claim_text=claim_text,
+        evidence_items=temp_evidence,
+        steelman=steelman,
+        contradiction=contradiction
+    )
+
+    zuma_critique = AdversarialEngine.generate_zuma_self_critique(
+        final_argument=debate_prep.closing
+    )
+
+    return {
+        "debate_preparation": debate_prep.to_dict(),
+        "zuma_self_critique": zuma_critique.to_dict()
+    }
+
+
+def case_file_persistence_node(state: ResearchState) -> Dict[str, Any]:
+    """Stores complete, resumable Canonical Case File with Master Prompt #3 extensions."""
+    case_id = f"case_{uuid.uuid4().hex[:10]}"
+    claim_text = state["claim_input"]
+
+    case_file = CanonicalCaseFile(
+        case_id=case_id,
+        run_id=state["run_id"],
+        thread_id=state["thread_id"],
+        claim=state.get("claim_object", {"text": claim_text}),
+        context={
+            "perspective": state.get("user_perspective", "ISLAMIC_COMPARATIVE"),
+            "mode": state.get("requested_mode", "DEEP_FORENSIC_RESEARCH"),
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        },
+        evidence=state.get("evidence_items", []),
+        arguments=[state.get("argument_graph", {})],
+        counterarguments=[state.get("steelman_counterarg", {})],
+        rebuttals=[{
+            "rebuttal_text": state.get("steelman_counterarg", {}).get("rebuttal", ""),
+            "rebuttal_evidence": state.get("steelman_counterarg", {}).get("rebuttal_evidence", [])
+        }],
+        weaknesses=state.get("steelman_counterarg", {}).get("weaknesses", []),
+        sources=[{"passage": e.get("passage_reference"), "source": e.get("source_id")} for e in state.get("evidence_items", [])],
+        open_questions=[
+            "Bagaimana komunitas Kristen abad pertama memahami surat Galatia sebelum formulasi teologi reformasi?",
+            "Sejauh mana konsili para rasul di Yerusalem (Kisah Para Rasul 15) membedakan beban halakha bagi non-Yahudi?"
+        ],
+        debate_preparation=state.get("debate_preparation", {}),
+        evaluation=state.get("evaluation_scorecard", {}),
+        provenance_chain=state.get("provenance_hashes", []),
+        execution_traces=state.get("execution_traces", []),
+        epistemic_audit=state.get("epistemic_firewall_report"),
+        adversarial_attacks=state.get("adversarial_attacks", []),
+        source_criticism=state.get("source_criticism_records", []),
+        translation_audit=state.get("translation_audits", []),
+        citation_audit=state.get("verification_records", []),
+        fallacy_audit=state.get("fallacies", []),
+        uncertainty=state.get("uncertainty_calibration"),
+        evidence_coverage=state.get("evidence_coverage"),
+        argument_strength=state.get("evaluation_scorecard"),
+        weakest_point=state.get("weakest_point")
+    )
+
+    CaseFiles.save_case_file(case_file)
+
+    return {
+        "case_id": case_id
+    }
+
+
+def final_response_node(state: ResearchState) -> Dict[str, Any]:
+    """Composes the final structured, debate-ready epistemic response across requested modes."""
+    claim = state["claim_input"]
+    mode = state.get("requested_mode", "DEEP_FORENSIC_RESEARCH")
+    prep = state.get("debate_preparation", {})
+    eval_card = state.get("evaluation_scorecard", {})
+    ev_items = state.get("evidence_items", [])
+    verif = state.get("verification_status", "VERIFIED")
+    attacks = state.get("adversarial_attacks", [])
+    critique = state.get("zuma_self_critique", {})
+    weakest = state.get("weakest_point", "N/A")
+    uncertainty = state.get("uncertainty_calibration", {})
+
+    lines = [
+        f"# HASIL ANALISIS EKSEGESA FORENSIK & ADVERSARIAL DEBATE INTELLIGENCE",
+        f"**Klaim Diuji**: «{claim}»",
+        f"**Mode Respon**: `{mode}` | **Status Epistemik**: `{verif}` | **Confidence**: `{uncertainty.get('level', 'HIGH_CONFIDENCE')}`",
+        f"",
+        f"---",
+        f"",
+        f"## 1. PEMBUKAAN & FONDASI TEKS PRIMER (Source-Language-First)",
+        f"{prep.get('opening', '')}",
+        f"",
+        f"### Bukti Naskah Koine Greek:",
+    ]
+    for ev in ev_items[:3]:
+        lines.append(f"- **{ev.get('passage_reference')}**:")
+        lines.append(f"  - *Yunani*: `{ev.get('original_text')}`")
+        lines.append(f"  - *Terjemahan*: \"{ev.get('translations', {}).get('id')}\"")
+        lines.append(f"  - *Saksi Manuskrip*: {', '.join(ev.get('witnesses', []))}")
+
+    lines.extend([
+        f"",
+        f"---",
+        f"",
+        f"## 2. POKOK ARGUMEN & BEDAH FILOLOGI",
+    ])
+    for c in prep.get("core_claims", []):
+        lines.append(f"- {c}")
+
+    lines.extend([
+        f"",
+        f"---",
+        f"",
+        f"## 3. ADVERSARIAL ATTACK & SELF-REFUTATION AUDIT (Master Prompt #3)",
+    ])
+    if attacks:
+        att = attacks[-1]
+        lines.extend([
+            f"**Serangan Adversarial Terkuat Lawan**:",
+            f"> {att.get('strongest_objection')}",
+            f"",
+            f"**Hasil Uji Ketahanan**: `{'SURVIVED' if att.get('survived_attack') else 'REVISED'}`",
+            f"**Titik Rentan yang Diidentifikasi**: {att.get('vulnerable_premise')}",
+            f"**Kesimpulan Pasca-Uji**: {att.get('revised_conclusion')}"
+        ])
+
+    lines.extend([
+        f"",
+        f"---",
+        f"",
+        f"## 4. ZUMA SELF-CRITIQUE (Bedah Kelemahan Internal)",
+        f"- **Sasaran Empuk Lawan**: {critique.get('what_skilled_opponent_would_attack')}",
+        f"- **Premis Paling Lemah**: {critique.get('weakest_premise')}",
+        f"- **Rekomendasi Pengokohan**: {'; '.join(critique.get('hardening_recommendations', []))}",
+        f"",
+        f"---",
+        f"",
+        f"## 5. SOCRATIC CROSS-EXAMINATION (Persona ZUMA Layer)",
+    ])
+    for q in prep.get("cross_examination_questions", []):
+        lines.append(f"- **Tanya**: {q}")
+
+    lines.extend([
+        f"",
+        f"### Strategi Tindak Lanjut (*Concession Traps*):",
+    ])
+    for f in prep.get("follow_up_questions", []):
+        lines.append(f"- {f}")
+
+    lines.extend([
+        f"",
+        f"---",
+        f"",
+        f"## 6. KESIMPULAN FORENSIK FINAL",
+        f"{prep.get('closing', '')}",
+        f"",
+        f"**Titik Terlemah (Show Me The Weakest Point)**: `{weakest}`",
+        f"**Provenance Hash Ledger**: `{' | '.join(state.get('provenance_hashes', [])[:3])}`",
+        f"**Case File ID**: `{state.get('case_id')}` (Resumable & Auditable)"
+    ])
+
+    final_text = "\n".join(lines)
+    return {
+        "final_response": final_text
+    }
+
+
+# ============================================================================
+# Master Prompt #3 Graph Compilation with Checkpointer
+# ============================================================================
+
+default_research_checkpointer = MemorySaver()
+
+
+def build_research_graph(
+    checkpointer: Any = default_research_checkpointer,
+    interrupt_before: Optional[List[str]] = None,
+    interrupt_after: Optional[List[str]] = None
+):
+    """Compiles the full Master Prompt #3 Epistemic Quality & Adversarial Research Graph."""
+    builder = StateGraph(ResearchState)
+
+    # 16 Active Nodes
+    builder.add_node("entry_node", entry_node)
+    builder.add_node("task_decomposition_node", task_decomposition_node)
+    builder.add_node("research_dispatch_node", research_dispatch_node)
+    builder.add_node("evidence_retrieval_node", evidence_retrieval_node)
+    builder.add_node("source_criticism_node", source_criticism_node)
+    builder.add_node("claim_analysis_node", claim_analysis_node)
+    builder.add_node("argument_graph_node", argument_graph_node)
+    builder.add_node("steelman_counterargument_node", steelman_counterargument_node)
+    builder.add_node("contradiction_detection_node", contradiction_detection_node)
+    builder.add_node("verification_node", verification_node)
+    builder.add_node("adversarial_attack_node", adversarial_attack_node)
+    builder.add_node("self_refutation_node", self_refutation_node)
+    builder.add_node("gap_detection_loop", gap_detection_loop)
+    builder.add_node("synthesis_evaluation_node", synthesis_evaluation_node)
+    builder.add_node("debate_quality_gate_node", debate_quality_gate_node)
+    builder.add_node("zuma_debate_preparation_node", zuma_debate_preparation_node)
+    builder.add_node("case_file_persistence_node", case_file_persistence_node)
+    builder.add_node("final_response_node", final_response_node)
+
+    # Directed Sequence Edges
+    builder.add_edge(START, "entry_node")
+    builder.add_edge("entry_node", "task_decomposition_node")
+    builder.add_edge("task_decomposition_node", "research_dispatch_node")
+    builder.add_edge("research_dispatch_node", "evidence_retrieval_node")
+    builder.add_edge("evidence_retrieval_node", "source_criticism_node")
+    builder.add_edge("source_criticism_node", "claim_analysis_node")
+    builder.add_edge("claim_analysis_node", "argument_graph_node")
+    builder.add_edge("argument_graph_node", "steelman_counterargument_node")
+    builder.add_edge("steelman_counterargument_node", "contradiction_detection_node")
+    builder.add_edge("contradiction_detection_node", "verification_node")
+    builder.add_edge("verification_node", "adversarial_attack_node")
+    builder.add_edge("adversarial_attack_node", "self_refutation_node")
+    builder.add_edge("self_refutation_node", "gap_detection_loop")
+
+    # Conditional Bounded Research Loop
+    builder.add_conditional_edges(
+        "gap_detection_loop",
+        route_after_gap_check,
+        {
+            "evidence_retrieval_node": "evidence_retrieval_node",
+            "synthesis_evaluation_node": "synthesis_evaluation_node"
+        }
+    )
+
+    builder.add_edge("synthesis_evaluation_node", "debate_quality_gate_node")
+    builder.add_edge("debate_quality_gate_node", "zuma_debate_preparation_node")
+    builder.add_edge("zuma_debate_preparation_node", "case_file_persistence_node")
+    builder.add_edge("case_file_persistence_node", "final_response_node")
+    builder.add_edge("final_response_node", END)
+
+    compile_kwargs: Dict[str, Any] = {}
+    if checkpointer is not None:
+        compile_kwargs["checkpointer"] = checkpointer
+    if interrupt_before:
+        compile_kwargs["interrupt_before"] = interrupt_before
+    if interrupt_after:
+        compile_kwargs["interrupt_after"] = interrupt_after
+
+    return builder.compile(**compile_kwargs)
+
+
+# Global singleton production research graph
+ResearchEngineApp = build_research_graph()
+
+
+def run_deep_adversarial_research(
+    query: str,
+    thread_id: Optional[str] = None,
+    user_perspective: str = "ISLAMIC_COMPARATIVE",
+    requested_mode: str = "DEEP_FORENSIC_RESEARCH",
+) -> Dict[str, Any]:
+    """Convenience helper to invoke the Master Prompt #3 adversarial research pipeline."""
+    graph = build_research_graph()
+    tid = thread_id or f"thread_{uuid.uuid4().hex[:8]}"
+    rid = f"run_{uuid.uuid4().hex[:8]}"
+    config = {"configurable": {"thread_id": tid}}
+
+    state: ResearchState = {
+        "claim_input": query,
+        "run_id": rid,
+        "thread_id": tid,
+        "user_perspective": user_perspective,
+        "requested_mode": requested_mode,
+        "tasks": [],
+        "dispatched_agent_records": [],
+        "evidence_items": [],
+        "provenance_hashes": [],
+        "claim_atomicity_graph": None,
+        "source_criticism_records": [],
+        "textual_criticism_records": [],
+        "translation_audits": [],
+        "philological_adversarial_tests": [],
+        "context_audits": [],
+        "claim_object": None,
+        "argument_graph": None,
+        "steelman_counterarg": None,
+        "contradiction_report": None,
+        "verification_records": [],
+        "verification_status": "",
+        "epistemic_firewall_report": None,
+        "adversarial_attacks": [],
+        "self_refutation_survived": False,
+        "weakest_point": None,
+        "fallacies": [],
+        "uncertainty_calibration": None,
+        "evidence_coverage": None,
+        "debate_quality_gate": None,
+        "zuma_self_critique": None,
+        "research_iterations": 0,
+        "max_research_iterations": 2,
+        "knowledge_gaps": [],
+        "evaluation_scorecard": None,
+        "debate_preparation": None,
+        "case_id": None,
+        "execution_traces": [],
+        "final_response": None,
+        "errors": [],
+    }
+
+    result = graph.invoke(state, config=config)
+    result["case_file_id"] = result.get("case_id")
+    result["quality_gate_passed"] = (
+        result.get("debate_quality_gate", {}).get("debate_ready", False)
+        if result.get("debate_quality_gate") else True
+    )
+    result["adversarial_iterations"] = result.get("research_iterations", 0)
+    result["source_profiles"] = result.get("source_criticism_records", [])
+    return result
+

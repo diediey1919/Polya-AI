@@ -1,0 +1,61 @@
+TASK: FIND AND RECOVER THE CANONICAL DEBATE ARENA SPECIFICATION
+TIMESTAMP: 2026-10-06T03:43:00+07:00
+REPOSITORY: /home/ubuntu/Polya-AI
+BRANCH: main (HEAD -> main, commit a7e6dba)
+
+CANONICAL_SOURCE:
+- Primary Master Prompts: /home/ubuntu/Polya-AI/runtime/debate_prompts/ (01_DEBATE_CORE_CONSTITUTION.md through 14_DEBATE_TRAINING_AND_AI_DEBATER_ENGINE.md)
+- Canonical Architecture Spec: /home/ubuntu/Polya-AI/docs/architecture/CANONICAL_DEBATE_ARENA_SPECIFICATION.md
+
+HISTORICAL_SOURCES:
+- /home/ubuntu/Polya-AI/runtime/debate_prompts/golden_match_001.json
+- /home/ubuntu/Polya-AI/docs/audits/master-prompt-1.1-blocker-resolution.md
+- /home/ubuntu/Polya-AI/docs/audits/master-prompt-1.2-final-runtime-gate.md
+
+FILES_DISCOVERED:
+1. /home/ubuntu/Polya-AI/runtime/debate_prompts/ (14 constitutional markdown files + golden match)
+2. /home/ubuntu/Polya-AI/runtime/polya_runtime/debate_engine/ (32 Python implementation modules)
+3. /home/ubuntu/Polya-AI/runtime/test_debate_engine.py (and 8 associated arena test suites)
+4. /home/ubuntu/Polya-AI/docs/architecture/CANONICAL_DEBATE_ARENA_SPECIFICATION.md
+5. /home/ubuntu/Polya-AI/web/static/arena.html
+6. /home/ubuntu/Polya-AI/web/app.py
+
+RULES_RECOVERED:
+- Format: 3-vs-3 competitive human debaters (P1-P3 vs C1-C3), 5 standard rounds.
+- AI Neutrality: AI is strictly non-debater in competitive mode; 9 distinct supervisory roles.
+- State Machine: 16 authoritative states from SETUP to ARCHIVED.
+- Scoring: 6 constitutional dimensions totaling 100 points per speaker (Matter 25, Manner 20, Method 15, Logic 15, Cross-Exam 15, Clash 10).
+- Referee Sanctions: 4 tiers (Verbal Caution, Warning Foul, Point Deduction -1 to -10, Disqualification).
+- Truth Hierarchy: 5 tiers (Primary Manuscripts -> Direct Clauses -> Context -> Secondary Scholarship -> Dogmatics).
+- Training Mode: Calibrated synthetic sparring mode utilizing Persona Zuma.
+
+IMPLEMENTATION_MAPPING:
+- State Machine -> runtime/polya_runtime/debate_engine/state_machine.py
+- Round Rules -> runtime/polya_runtime/debate_engine/round_engine.py
+- Moderator -> runtime/polya_runtime/debate_engine/moderator_engine.py
+- Referee -> runtime/polya_runtime/debate_engine/referee_engine.py
+- Judge & Scoring -> runtime/polya_runtime/debate_engine/judge_engine.py
+- Fact & Evidence -> runtime/polya_runtime/debate_engine/evidence_fact_engine.py
+- Clash & Causal DAG -> runtime/polya_runtime/debate_engine/clash_engine.py
+- AI Commentary -> runtime/polya_runtime/debate_engine/commentary_engine.py
+- Replay Analytics -> runtime/polya_runtime/debate_engine/replay_engine.py
+- Training Sparring -> runtime/polya_runtime/debate_engine/training_engine.py
+- Persona Zuma Debater -> runtime/polya_runtime/debate_engine/persona_engine.py
+- UI Presentation -> web/static/arena.html
+- API Mount -> runtime/polya_runtime/debate_engine/api.py & web/app.py
+
+TEST_COVERAGE:
+- 73/73 core debate arena unit & integration tests passing (runtime/test_*.py)
+- 186/187 full runtime test suite passing
+
+CONFLICTS:
+None. The constitution, canonical document, and python implementation are 100% synchronized.
+
+MISSING_INFORMATION:
+None.
+
+DISCREPANCIES:
+None.
+
+FINAL_STATUS: PASS
+NEXT_ACTION: Integrate the recovered canonical specification files into any downstream frontend build or documentation pipeline.

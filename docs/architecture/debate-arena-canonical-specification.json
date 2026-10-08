@@ -1,0 +1,192 @@
+{
+  "system_identity": "Polya Debate Arena Engine",
+  "authoritative_sources": {
+    "constitution_prompts": "runtime/debate_prompts/01_DEBATE_CORE_CONSTITUTION.md through 14_DEBATE_TRAINING_AND_AI_DEBATER_ENGINE.md",
+    "canonical_specification_doc": "docs/architecture/CANONICAL_DEBATE_ARENA_SPECIFICATION.md",
+    "engine_source_dir": "runtime/polya_runtime/debate_engine/",
+    "ui_presentation": "web/static/arena.html"
+  },
+  "format": {
+    "type": "3-vs-3",
+    "style": "Competitive Parliamentary Theological Debate",
+    "total_debaters": 6,
+    "teams": {
+      "proposition": ["P1", "P2", "P3"],
+      "opposition": ["C1", "C2", "C3"]
+    },
+    "rounds_count": 5,
+    "rounds": [
+      {
+        "round_number": 1,
+        "name": "Constructive Speeches",
+        "speakers": ["P1", "C1"],
+        "purpose": "Frame motion, define parameters, present substantive cases 1 & 2"
+      },
+      {
+        "round_number": 2,
+        "name": "Cross-Examination / POI Arena",
+        "speakers": ["Alternating cross-examination"],
+        "purpose": "Targeted interrogations with strict floor rights and direct answer requirements"
+      },
+      {
+        "round_number": 3,
+        "name": "Rebuttal Speeches",
+        "speakers": ["P2", "C2"],
+        "purpose": "Direct clash on core substantive points; defense of original framework"
+      },
+      {
+        "round_number": 4,
+        "name": "Defense & Consolidation",
+        "speakers": ["P2/P1", "C2/C1"],
+        "purpose": "Deep textual defense, historical substantiation, exposure of opponents' structural fallacies"
+      },
+      {
+        "round_number": 5,
+        "name": "Whip / Summary Speeches",
+        "speakers": ["C3", "P3"],
+        "purpose": "Crystallized clash summary; zero new arguments permitted"
+      }
+    ]
+  },
+  "ai_roles": {
+    "supervisory_roles": [
+      "Host",
+      "Moderator",
+      "Timekeeper",
+      "Referee",
+      "Fact-Checker & Evidence Analyst",
+      "Argument & Clash Analyst",
+      "Judge & Score Engine",
+      "Commentator",
+      "Post-Debate Analyst"
+    ],
+    "neutrality_axiom": {
+      "ai_is_debater": false,
+      "prohibitions": [
+        "Introduce arguments for either team",
+        "Defend or attack a team on its own behalf",
+        "Inject personal, partisan, or doctrinal opinions",
+        "Replace a human debater or act as P4/C4 in competitive matches",
+        "Favor one team's case over the other"
+      ]
+    },
+    "modes": {
+      "live_match": "AI is strictly supervisory; 6 human debaters required",
+      "training_sparring": "AI Debater acts as synthetic sparring partner (Persona Zuma)"
+    }
+  },
+  "state_machine": {
+    "states": [
+      "SETUP",
+      "READY",
+      "EVENT_START",
+      "ROUND_INTRO",
+      "SPEECH_ACTIVE",
+      "POI_ACTIVE",
+      "CROSS_EXAM",
+      "SPEECH_CONCLUSION",
+      "ROUND_REVIEW",
+      "INTERMISSION",
+      "NEXT_ROUND",
+      "DEBATE_CONCLUSION",
+      "ADJUDICATION",
+      "RESULTS_ANNOUNCED",
+      "EVENT_CLOSED",
+      "ARCHIVED"
+    ]
+  },
+  "scoring": {
+    "total_points_per_debater": 100,
+    "dimensions": [
+      {
+        "name": "Matter",
+        "weight": 25,
+        "description": "Depth of argument, factual accuracy, textual evidence grounding"
+      },
+      {
+        "name": "Manner",
+        "weight": 20,
+        "description": "Persuasiveness, rhetorical control, composure, professional delivery"
+      },
+      {
+        "name": "Method",
+        "weight": 15,
+        "description": "Structural coherence, time allocation, team role fulfillment"
+      },
+      {
+        "name": "Logic & Reasoning",
+        "weight": 15,
+        "description": "Absence of fallacies, valid deductive/inductive soundness"
+      },
+      {
+        "name": "Cross-Examination & Responsiveness",
+        "weight": 15,
+        "description": "Directness in answering, precision in questioning"
+      },
+      {
+        "name": "Clash & Rebuttal",
+        "weight": 10,
+        "description": "Success in engaging and neutralizing opposing core arguments"
+      }
+    ]
+  },
+  "referee_sanctions": [
+    {
+      "level": "Verbal Caution",
+      "penalty": 0,
+      "description": "Informal warning without point deduction"
+    },
+    {
+      "level": "Formal Warning (Foul)",
+      "penalty": 0,
+      "description": "Recorded in match ledger, displayed on UI"
+    },
+    {
+      "level": "Minor Point Deduction",
+      "penalty": "-1 to -3 points",
+      "description": "Deducted from speaker score"
+    },
+    {
+      "level": "Major Point Deduction",
+      "penalty": "-5 to -10 points",
+      "description": "Deducted from speaker score"
+    },
+    {
+      "level": "Disqualification / Forfeit",
+      "penalty": "Forfeit match",
+      "description": "Gross ad-hominem, hate speech, or sustained insubordination"
+    }
+  ],
+  "evidence_truth_hierarchy": [
+    {
+      "tier": 1,
+      "category": "Primary Text",
+      "sources": ["Biblical manuscripts (Codex Sinaiticus, Vaticanus, Papyri P46, P66, P75, DSS)", "Critical editions (NA28, BHS)"]
+    },
+    {
+      "tier": 2,
+      "category": "Direct Evidence",
+      "sources": ["Explicit lexical or syntactic clauses directly addressing the motion"]
+    },
+    {
+      "tier": 3,
+      "category": "Contextual Evidence",
+      "sources": ["Pericope discourse context, historical situation"]
+    },
+    {
+      "tier": 4,
+      "category": "Secondary Scholarship",
+      "sources": ["Patristic commentaries, peer-reviewed academic monographs, academic lexicons (BDB, HALOT, BDAG)"]
+    },
+    {
+      "tier": 5,
+      "category": "Interpretive",
+      "sources": ["Systematic theological dogmatics"]
+    }
+  ],
+  "winner_determination": {
+    "mechanism": "Highest cumulative net score across all 3 debaters after deducting referee penalties",
+    "maximum_team_score": 300,
+    "awards": ["Best Speaker", "Best Inquirer", "Best Respondent"]
+  }
+}

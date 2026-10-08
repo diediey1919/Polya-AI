@@ -142,7 +142,98 @@ async def analyze_claim(req: AnalyzeRequest):
         "success": True,
         "case_file": case_file.model_dump(),
         "usage": usage,
-        "notice": "DEMO / MOCK DATA — Strictly for testing UI and structure"
+        "notice": case_file.notice
+    }
+
+
+@router.get("/calculator/source")
+async def show_source_endpoint(passage: str):
+    """Show Me The Source endpoint conforming to Master Prompt #3 Section 30."""
+    from orchestrator.evidence_engine import Evidence
+    src = Evidence.show_source(passage)
+    if not src:
+        raise HTTPException(status_code=404, detail=f"Source provenance for '{passage}' not found in canonical apparatus.")
+    return {"success": True, "source": src}
+
+
+@router.post("/calculator/challenge")
+async def challenge_argument_endpoint(req: AnalyzeRequest):
+    """Challenge My Argument endpoint running the Adversarial Attack pipeline (Section 30)."""
+    from orchestrator.research_graph import build_research_graph
+    graph = build_research_graph()
+    run_id = f"run_chal_{uuid.uuid4().hex[:8]}"
+    thread_id = f"thread_chal_{uuid.uuid4().hex[:8]}"
+
+    state = {
+        "claim_input": req.claim,
+        "run_id": run_id,
+        "thread_id": thread_id,
+        "user_perspective": "CHRISTIAN",
+        "requested_mode": "ADVERSARIAL_REVIEW",
+        "tasks": [],
+        "dispatched_agent_records": [],
+        "evidence_items": [],
+        "provenance_hashes": [],
+        "claim_atomicity_graph": None,
+        "source_criticism_records": [],
+        "textual_criticism_records": [],
+        "translation_audits": [],
+        "philological_adversarial_tests": [],
+        "context_audits": [],
+        "claim_object": None,
+        "argument_graph": None,
+        "steelman_counterarg": None,
+        "contradiction_report": None,
+        "verification_records": [],
+        "verification_status": "",
+        "epistemic_firewall_report": None,
+        "adversarial_attacks": [],
+        "self_refutation_survived": True,
+        "weakest_point": None,
+        "fallacies": [],
+        "uncertainty_calibration": None,
+        "evidence_coverage": None,
+        "debate_quality_gate": None,
+        "zuma_self_critique": None,
+        "research_iterations": 0,
+        "max_research_iterations": 2,
+        "knowledge_gaps": [],
+        "evaluation_scorecard": None,
+        "debate_preparation": None,
+        "case_id": None,
+        "execution_traces": [],
+        "final_response": None,
+        "errors": []
+    }
+    result = graph.invoke(state, config={"configurable": {"thread_id": thread_id}})
+    return {
+        "success": True,
+        "mode": "ADVERSARIAL_REVIEW",
+        "claim": req.claim,
+        "adversarial_attacks": result.get("adversarial_attacks", []),
+        "self_refutation_survived": result.get("self_refutation_survived", True),
+        "weakest_point": result.get("weakest_point"),
+        "zuma_self_critique": result.get("zuma_self_critique"),
+        "final_response": result.get("final_response")
+    }
+
+
+@router.post("/calculator/weakest-point")
+async def show_weakest_point_endpoint(req: AnalyzeRequest):
+    """Show Me The Weakest Point endpoint identifying the most vulnerable premise (Section 30)."""
+    from orchestrator.claim_atomicity import ClaimAtomicityEngine
+    atom_graph = ClaimAtomicityEngine.decompose_claim(req.claim)
+    integrity = ClaimAtomicityEngine.audit_graph_integrity(atom_graph)
+    from orchestrator.adversarial_engine import AdversarialEngine
+    critique = AdversarialEngine.generate_zuma_self_critique(req.claim)
+
+    return {
+        "success": True,
+        "claim": req.claim,
+        "weakest_premise": critique.weakest_premise,
+        "easiest_sentence_to_refute": critique.easiest_sentence_to_refute,
+        "broken_premises": integrity.get("broken_premises", []),
+        "hardening_recommendations": critique.hardening_recommendations
     }
 
 

@@ -31,7 +31,7 @@ def run_hermes(state: Dict[str, Any]) -> Dict[str, Any]:
             f"Supervisor evaluation for task: '{task}' with domain target: '{domain}'. "
             f"Planned pipeline: {' -> '.join(['hermes'] + route_plan)}. Provide a 1-sentence validation verdict."
         )
-        dispatch_res = AgentRuntime.dispatch("hermes", prompt, timeout=20)
+        dispatch_res = AgentRuntime.dispatch("hermes", prompt, timeout=60)
 
         verdict = dispatch_res.output if dispatch_res.live_dispatched and dispatch_res.output else "Validation passed. Routing schedule active."
 
