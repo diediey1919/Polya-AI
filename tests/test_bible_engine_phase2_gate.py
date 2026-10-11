@@ -245,7 +245,10 @@ class TestBibleEnginePhase2Gate(unittest.TestCase):
             # Pericopes
             conn.execute(
                 """
-                INSERT INTO pericopes VALUES (
+                INSERT INTO pericopes (
+                    pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse,
+                    genre, boundary_source, boundary_confidence, status, version, created_at
+                ) VALUES (
                     'PER-REV-19', 'REV', 'Wahyu 19:7-9', 19, 7, 19, 9,
                     'APOCALYPTIC', 'NA28_SECTION', 'HIGH', 'VALIDATED', '1.0', '2026-10-01T00:00:00Z'
                 );
@@ -253,7 +256,10 @@ class TestBibleEnginePhase2Gate(unittest.TestCase):
             )
             conn.execute(
                 """
-                INSERT INTO pericopes VALUES (
+                INSERT INTO pericopes (
+                    pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse,
+                    genre, boundary_source, boundary_confidence, status, version, created_at
+                ) VALUES (
                     'PER-GEN-01', 'GEN', 'Kejadian 1:1-3', 1, 1, 1, 3,
                     'NARRATIVE', 'BHS_SECTION', 'HIGH', 'VALIDATED', '1.0', '2026-10-01T00:00:00Z'
                 );
@@ -261,7 +267,10 @@ class TestBibleEnginePhase2Gate(unittest.TestCase):
             )
             conn.execute(
                 """
-                INSERT INTO pericopes VALUES (
+                INSERT INTO pericopes (
+                    pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse,
+                    genre, boundary_source, boundary_confidence, status, version, created_at
+                ) VALUES (
                     'PER-DAN-02', 'DAN', 'Daniel 2:4-6', 2, 4, 2, 6,
                     'APOCALYPTIC', 'BHS_SECTION', 'HIGH', 'VALIDATED', '1.0', '2026-10-01T00:00:00Z'
                 );
@@ -1134,7 +1143,10 @@ class TestBibleEnginePhase2Gate(unittest.TestCase):
                     rconn.execute("INSERT INTO books VALUES ('REV', 'NT', 66, 'Wahyu', 'Revelation', 'GREEK', 22);")
                     rconn.execute(
                         """
-                        INSERT INTO pericopes VALUES (
+                        INSERT INTO pericopes (
+                            pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse,
+                            genre, boundary_source, boundary_confidence, status, version, created_at
+                        ) VALUES (
                             'PER-REV-19', 'REV', 'Wahyu 19:7-9', 19, 7, 19, 9,
                             'APOCALYPTIC', 'NA28_SECTION', 'HIGH', 'VALIDATED', '1.0', '2026-10-01T00:00:00Z'
                         );

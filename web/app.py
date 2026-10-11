@@ -40,7 +40,7 @@ training_service = DebateTrainingService.get_instance()
 
 
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Request, HTTPException, UploadFile, File
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Request, HTTPException, UploadFile, File, Depends, Header
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -188,7 +188,7 @@ async def generate_gemini_tts(text: str, voice: str = "Kore") -> Optional[str]:
             logger.warning(f"Error reading TTS cache: {e}")
 
     prompt = f"Hanya ucapkan TRANSKRIP dengan pelafalan dan intonasi penutur asli Bahasa Indonesia.\n\n#### TRANSCRIPT\n{clean_text}"
-    
+
     models_to_try = [
         "gemini-3.1-flash-tts-preview",
         "gemini-2.5-flash-preview-tts"
@@ -256,7 +256,7 @@ async def lifespan(app: FastAPI):
     # 3. Indexes & constraints
     logger.info("Initializing Polya database schema via lifespan...")
     try:
-        from services import init_foundation_db, verify_foundation_schema
+        from services import init_foundation_db, verify_foundation_schema, SessionService
         init_foundation_db()
         if not verify_foundation_schema():
             logger.warning("Foundation schema verification incomplete, re-running init...")
@@ -278,10 +278,16 @@ app = FastAPI(title="Polya Dialectical Live Arena", lifespan=lifespan)
 
 # Mount Foundation API Router (Phase-1 Web Foundation)
 try:
-    from api_foundation import router as foundation_router
+    from api_foundation import router as foundation_router, get_current_user_id
+    from services import SessionService, GoogleAuthVerifier
     app.include_router(foundation_router)
-except Exception as e:
-    logger.error(f"Failed to mount foundation_router: {e}")
+except Exception:
+    try:
+        from web.api_foundation import router as foundation_router, get_current_user_id
+        from web.services import SessionService, GoogleAuthVerifier
+        app.include_router(foundation_router)
+    except Exception as e:
+        logger.error(f"Failed to mount foundation_router: {e}")
 
 # Ensure static directories exist
 STATIC_DIR = os.path.join(os.path.dirname(__file__), "static")
@@ -299,7 +305,7 @@ def get_db():
 def init_arena_db():
     conn = get_db()
     cursor = conn.cursor()
-    
+
     # Users table with E-Wallets
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS arena_users (
@@ -318,7 +324,7 @@ def init_arena_db():
         created_at TEXT
     )
     """)
-    
+
     # Donations table with 10% / 90% split
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS arena_donations (
@@ -337,7 +343,7 @@ def init_arena_db():
         timestamp TEXT
     )
     """)
-    
+
     # User Wallet Balances
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS arena_wallet_balances (
@@ -347,7 +353,7 @@ def init_arena_db():
         updated_at TEXT
     )
     """)
-    
+
     # Platform Treasury (10% Fee Pool)
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS arena_platform_treasury (
@@ -357,7 +363,7 @@ def init_arena_db():
     )
     """)
     cursor.execute("INSERT OR IGNORE INTO arena_platform_treasury (id, total_fee_collected, updated_at) VALUES (1, 0, datetime('now'))")
-    
+
     # Chat Messages History
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS arena_chat_messages (
@@ -388,7 +394,7 @@ def init_arena_db():
         datetime('now')
     )
     """)
-    
+
     # Seed Demo Guest Profiles
     demo_guests = [
         ('user_markus', 'markus@gmail.com', 'Markus_P', 'https://api.dicebear.com/7.x/avataaars/svg?seed=Markus', 'Pengkaji Teologi Perjanjian Baru', '081211112222', '081211112222', '081211112222', '081211112222'),
@@ -546,7 +552,7 @@ def init_arena_db():
             INSERT INTO social_stories (id, user_id, user_name, user_avatar, content, media_url, media_type, bg_gradient, created_at)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, st)
-        
+
     conn.commit()
     conn.close()
 
@@ -559,7 +565,7 @@ class ArenaManager:
     def __init__(self):
         self.active_connections: Set[WebSocket] = set()
         self.moderator_active: bool = False # Temporarily disabled so human debaters speak without AI interruption
-        
+
         # Referee & Moderator Entity (Polya System)
         self.referee = {
             "user_id": "polya_referee",
@@ -570,8 +576,8 @@ class ArenaManager:
             "status": "standby_passive",
             "title": "⚖️ Wasit & Moderator (Mendengarkan Diskusi Bebas Tanpa Jeda)"
         }
-        
-        # 6 Seats Stage for 3 vs 3: 
+
+        # 6 Seats Stage for 3 vs 3:
         # Seats 0..2 = Tim Biru (Team A), Seats 3..5 = Tim Merah (Team B)
         self.seats = [
             # TIM BIRU (Kubu A) - 3 Kursi
@@ -661,7 +667,7 @@ class ArenaManager:
                 "status": "empty"
             }
         ]
-        
+
         self.queue: List[Dict] = []
         self.current_topic = "Debat 3 vs 3: Diskusi Terbuka Bebas Tanpa Jeda Waktu"
         self.pk_state = {
@@ -884,40 +890,74 @@ arena_manager = ArenaManager()
 # ---------------------------------------------------------------------------
 
 class GoogleAuthRequest(BaseModel):
-    name: str
-    email: str
+    credential: Optional[str] = None
+    name: Optional[str] = None
+    email: Optional[str] = None
     avatar_url: Optional[str] = None
 
 @app.post("/api/auth/google")
 async def google_auth(req: GoogleAuthRequest):
-    user_id = f"usr_{uuid.uuid5(uuid.NAMESPACE_DNS, req.email).hex[:8]}"
-    avatar = req.avatar_url or f"https://api.dicebear.com/7.x/avataaars/svg?seed={req.name}"
-    
+    # Enforce verified Google ID token / provider assertion
+    verified = None
+    if req.credential:
+        verified = GoogleAuthVerifier.verify_credential(req.credential)
+
+    if not verified:
+        raise HTTPException(status_code=401, detail="Google authentication failed: invalid or missing ID token credential")
+
+    email = verified["email"]
+    name = verified.get("name") or req.name or "Google User"
+    avatar = verified.get("avatar_url") or req.avatar_url or f"https://api.dicebear.com/7.x/avataaars/svg?seed={name}"
+    google_sub = verified.get("sub", "")
+
+    # Consistent canonical identity mapping across routes anchored to provider subject
+    user_id = f"usr_{uuid.uuid5(uuid.NAMESPACE_URL, f'google:{google_sub}').hex[:12]}"
+
     conn = get_db()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM arena_users WHERE user_id = ?", (user_id,))
     row = cursor.fetchone()
-    
+
     if not row:
+        # Check if user with same email exists under older schema, link if found
+        cursor.execute("SELECT * FROM arena_users WHERE email = ?", (email,))
+        email_row = cursor.fetchone()
+        if email_row:
+            user_id = email_row["user_id"]
+            row = email_row
+        else:
+            cursor.execute("""
+            INSERT INTO arena_users (user_id, email, name, avatar_url, bio, role, created_at)
+            VALUES (?, ?, ?, ?, ?, 'visitor', datetime('now'))
+            """, (user_id, email, name, avatar, "Pengunjung Dialectical Arena"))
+            cursor.execute("""
+            INSERT OR IGNORE INTO arena_wallet_balances (user_id, balance_net, total_withdrawn, updated_at)
+            VALUES (?, 0, 0, datetime('now'))
+            """, (user_id,))
+            conn.commit()
+            cursor.execute("SELECT * FROM arena_users WHERE user_id = ?", (user_id,))
+            row = cursor.fetchone()
+    else:
+        # Update user details if email or name updated at provider, preserving user_id and role
         cursor.execute("""
-        INSERT INTO arena_users (user_id, email, name, avatar_url, bio, role, created_at)
-        VALUES (?, ?, ?, ?, ?, 'visitor', datetime('now'))
-        """, (user_id, req.email, req.name, avatar, "Pengunjung Dialectical Arena"))
-        cursor.execute("""
-        INSERT INTO arena_wallet_balances (user_id, balance_net, total_withdrawn, updated_at)
-        VALUES (?, 0, 0, datetime('now'))
-        """, (user_id,))
+        UPDATE arena_users
+        SET email = ?, name = COALESCE(?, name), avatar_url = COALESCE(?, avatar_url)
+        WHERE user_id = ?
+        """, (email, name, avatar, user_id))
         conn.commit()
         cursor.execute("SELECT * FROM arena_users WHERE user_id = ?", (user_id,))
         row = cursor.fetchone()
-        
+
     user_data = dict(row)
     conn.close()
-    return {"status": "ok", "user": user_data}
+
+    # Issue signed session token based on server-policy role
+    token = SessionService.create_token(user_id, role=user_data.get("role", "visitor"))
+    return {"status": "ok", "user": user_data, "session_token": token}
 
 
 class UpdateProfileRequest(BaseModel):
-    user_id: str
+    user_id: Optional[str] = None
     name: Optional[str] = None
     bio: Optional[str] = None
     dana: Optional[str] = None
@@ -926,7 +966,14 @@ class UpdateProfileRequest(BaseModel):
     ovo: Optional[str] = None
 
 @app.post("/api/profile/update")
-async def update_profile(req: UpdateProfileRequest):
+async def update_profile(
+    req: UpdateProfileRequest,
+    current_user_id: str = Depends(get_current_user_id)
+):
+    target_user_id = req.user_id or current_user_id
+    if target_user_id != current_user_id:
+        raise HTTPException(status_code=403, detail="Forbidden: cannot update another user's profile")
+
     conn = get_db()
     cursor = conn.cursor()
     cursor.execute("""
@@ -938,9 +985,9 @@ async def update_profile(req: UpdateProfileRequest):
         shopeepay = COALESCE(?, shopeepay),
         ovo = COALESCE(?, ovo)
     WHERE user_id = ?
-    """, (req.name, req.bio, req.dana, req.gopay, req.shopeepay, req.ovo, req.user_id))
+    """, (req.name, req.bio, req.dana, req.gopay, req.shopeepay, req.ovo, current_user_id))
     conn.commit()
-    cursor.execute("SELECT * FROM arena_users WHERE user_id = ?", (req.user_id,))
+    cursor.execute("SELECT * FROM arena_users WHERE user_id = ?", (current_user_id,))
     row = cursor.fetchone()
     conn.close()
     if not row:
@@ -949,8 +996,8 @@ async def update_profile(req: UpdateProfileRequest):
 
 
 class DonationRequest(BaseModel):
-    donor_user_id: str
-    donor_name: str
+    donor_user_id: Optional[str] = None
+    donor_name: Optional[str] = "Debater Supporter"
     donor_avatar: Optional[str] = None
     recipient_user_id: str
     gross_amount: int
@@ -958,7 +1005,15 @@ class DonationRequest(BaseModel):
     message: Optional[str] = ""
 
 @app.post("/api/donate")
-async def process_donation(req: DonationRequest):
+async def process_donation(
+    req: DonationRequest,
+    current_user_id: str = Depends(get_current_user_id)
+):
+    # Enforce donor authentication: donor cannot forge another user's identity
+    effective_donor_user_id = current_user_id
+    if req.donor_user_id and req.donor_user_id != current_user_id:
+        raise HTTPException(status_code=403, detail="Forbidden: cannot process donation on behalf of another donor")
+
     if req.gross_amount <= 0:
         raise HTTPException(status_code=400, detail="Nominal donasi harus lebih besar dari 0")
 
@@ -966,47 +1021,47 @@ async def process_donation(req: DonationRequest):
     platform_fee = int(req.gross_amount * 0.10)
     recipient_net = req.gross_amount - platform_fee
     trx_id = f"TRX-{int(time.time())}-{uuid.uuid4().hex[:4].upper()}"
-    
+
     conn = get_db()
     cursor = conn.cursor()
-    
+
     # Check recipient
     cursor.execute("SELECT name FROM arena_users WHERE user_id = ?", (req.recipient_user_id,))
     rec = cursor.fetchone()
     recipient_name = rec["name"] if rec else "Debater"
-    
-    # Record transaction
+
+    # Record transaction with authenticated donor
     cursor.execute("""
     INSERT INTO arena_donations (
         id, donor_user_id, donor_name, donor_avatar, recipient_user_id, recipient_name,
         gross_amount, platform_fee_10pct, recipient_net_90pct, payment_method, message, status, timestamp
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'PAID', datetime('now'))
     """, (
-        trx_id, req.donor_user_id, req.donor_name, req.donor_avatar,
+        trx_id, effective_donor_user_id, req.donor_name, req.donor_avatar,
         req.recipient_user_id, recipient_name, req.gross_amount,
         platform_fee, recipient_net, req.payment_method, req.message
     ))
-    
+
     # Update recipient balance & total received
     cursor.execute("""
     UPDATE arena_users
     SET total_donations_received = total_donations_received + ?
     WHERE user_id = ?
     """, (recipient_net, req.recipient_user_id))
-    
+
     cursor.execute("""
     UPDATE arena_wallet_balances
     SET balance_net = balance_net + ?, updated_at = datetime('now')
     WHERE user_id = ?
     """, (recipient_net, req.recipient_user_id))
-    
+
     # Update platform treasury pool (10%)
     cursor.execute("""
     UPDATE arena_platform_treasury
     SET total_fee_collected = total_fee_collected + ?, updated_at = datetime('now')
     WHERE id = 1
     """, (platform_fee,))
-    
+
     conn.commit()
     conn.close()
 
@@ -1028,7 +1083,7 @@ async def process_donation(req: DonationRequest):
         "message": req.message
     }
     asyncio.create_task(arena_manager.broadcast_donation_alert(alert_payload))
-    
+
     # Also inject a system highlight message into chat
     system_chat = {
         "id": f"msg_{uuid.uuid4().hex[:8]}",
@@ -1040,7 +1095,7 @@ async def process_donation(req: DonationRequest):
         "timestamp": time.strftime("%H:%M")
     }
     asyncio.create_task(arena_manager.broadcast_chat(system_chat))
-    
+
     return {
         "status": "ok",
         "transaction_id": trx_id,
@@ -1052,7 +1107,13 @@ async def process_donation(req: DonationRequest):
 
 
 @app.get("/api/user/{user_id}/wallet")
-async def get_user_wallet(user_id: str):
+async def get_user_wallet(
+    user_id: str,
+    current_user_id: str = Depends(get_current_user_id)
+):
+    if user_id != current_user_id:
+        raise HTTPException(status_code=403, detail="Forbidden: cannot access another user's wallet")
+
     conn = get_db()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM arena_users WHERE user_id = ?", (user_id,))
@@ -1060,22 +1121,22 @@ async def get_user_wallet(user_id: str):
     if not user_row:
         conn.close()
         raise HTTPException(status_code=404, detail="User not found")
-        
+
     cursor.execute("SELECT * FROM arena_wallet_balances WHERE user_id = ?", (user_id,))
     wallet_row = cursor.fetchone()
-    
+
     cursor.execute("""
     SELECT * FROM arena_donations
     WHERE recipient_user_id = ? OR donor_user_id = ?
     ORDER BY timestamp DESC LIMIT 20
     """, (user_id, user_id))
     trx_rows = [dict(r) for r in cursor.fetchall()]
-    
+
     cursor.execute("SELECT total_fee_collected FROM arena_platform_treasury WHERE id = 1")
     treasury_row = cursor.fetchone()
-    
+
     conn.close()
-    
+
     return {
         "user": dict(user_row),
         "balance_net": wallet_row["balance_net"] if wallet_row else 0,
@@ -1180,20 +1241,20 @@ async def handle_feed_upload(file: UploadFile = File(...)):
         ext = os.path.splitext(file.filename)[1].lower() or ".jpg"
         unique_name = f"up_{uuid.uuid4().hex[:10]}{ext}"
         target_path = os.path.join(UPLOAD_DIR, unique_name)
-        
+
         with open(target_path, "wb") as f:
             content = await file.read()
             f.write(content)
-            
+
         url = f"/static/uploads/{unique_name}"
-        
+
         # Determine media type
         media_type = "photo"
         if ext in [".mp4", ".webm", ".ogg", ".mov"]:
             media_type = "video"
         elif ext in [".mp3", ".wav", ".m4a", ".aac"]:
             media_type = "audio"
-            
+
         return {
             "success": True,
             "url": url,
@@ -1210,7 +1271,7 @@ async def get_social_feed(tab: str = "all", user_id: Optional[str] = None, limit
     """Retrieves social media feed filtered by tab (all, media, video, status)."""
     conn = get_db()
     cursor = conn.cursor()
-    
+
     where_clauses = []
     if tab == "media":
         where_clauses.append("media_type = 'photo'")
@@ -1218,11 +1279,11 @@ async def get_social_feed(tab: str = "all", user_id: Optional[str] = None, limit
         where_clauses.append("media_type = 'video'")
     elif tab == "status":
         where_clauses.append("media_type = 'text'")
-        
+
     where_sql = f"WHERE {' AND '.join(where_clauses)}" if where_clauses else ""
-    
+
     query = f"""
-    SELECT p.*, 
+    SELECT p.*,
            EXISTS(SELECT 1 FROM social_likes l WHERE l.post_id = p.id AND l.user_id = ?) as has_liked
     FROM social_posts p
     {where_sql}
@@ -1232,7 +1293,7 @@ async def get_social_feed(tab: str = "all", user_id: Optional[str] = None, limit
     params = [user_id or "", limit, offset]
     cursor.execute(query, params)
     raw_posts = [dict(r) for r in cursor.fetchall()]
-    
+
     posts = []
     for post in raw_posts:
         post["has_liked"] = bool(post.get("has_liked", 0))
@@ -1245,7 +1306,7 @@ async def get_social_feed(tab: str = "all", user_id: Optional[str] = None, limit
         post["like_count"] = post["likes_count"]
         post["comment_count"] = post["comments_count"]
         post["timestamp"] = post["created_at"]
-        
+
         cursor.execute("""
         SELECT * FROM social_comments WHERE post_id = ? ORDER BY created_at ASC LIMIT 3
         """, (post["id"],))
@@ -1258,7 +1319,7 @@ async def get_social_feed(tab: str = "all", user_id: Optional[str] = None, limit
         post["top_comments"] = recent_comments
         post["recent_comments"] = recent_comments
         posts.append(post)
-        
+
     conn.close()
     return {"status": "ok", "posts": posts}
 
@@ -1272,7 +1333,7 @@ async def create_social_post(req: CreateSocialPostRequest):
     avatar = req.user_avatar or req.author_avatar or f"https://api.dicebear.com/7.x/avataaars/svg?seed={name}"
     badge = req.user_badge or req.author_badge or "Debater"
     caption_text = req.caption or req.content or ""
-    
+
     conn = get_db()
     cursor = conn.cursor()
     cursor.execute("""
@@ -1299,7 +1360,7 @@ async def create_social_post(req: CreateSocialPostRequest):
     row["recent_comments"] = []
     row["timestamp"] = row["created_at"]
     conn.close()
-    
+
     return {"status": "ok", "success": True, "post": row}
 
 
@@ -1308,10 +1369,10 @@ async def toggle_post_like(post_id: str, req: LikePostRequest):
     """Toggles like on a post and returns updated count."""
     conn = get_db()
     cursor = conn.cursor()
-    
+
     cursor.execute("SELECT * FROM social_likes WHERE user_id = ? AND post_id = ?", (req.user_id, post_id))
     already_liked = cursor.fetchone()
-    
+
     if already_liked:
         cursor.execute("DELETE FROM social_likes WHERE user_id = ? AND post_id = ?", (req.user_id, post_id))
         cursor.execute("UPDATE social_posts SET likes_count = MAX(0, likes_count - 1) WHERE id = ?", (post_id,))
@@ -1322,13 +1383,13 @@ async def toggle_post_like(post_id: str, req: LikePostRequest):
         cursor.execute("UPDATE social_posts SET likes_count = likes_count + 1 WHERE id = ?", (post_id,))
         has_liked = True
         action = "liked"
-        
+
     conn.commit()
     cursor.execute("SELECT likes_count FROM social_posts WHERE id = ?", (post_id,))
     res = cursor.fetchone()
     likes_count = res["likes_count"] if res else 0
     conn.close()
-    
+
     return {"status": "ok", "success": True, "has_liked": has_liked, "action": action, "like_count": likes_count, "likes_count": likes_count}
 
 
@@ -1358,17 +1419,17 @@ async def add_post_comment(post_id: str, req: CreateSocialCommentRequest):
     name = req.user_name or req.author_name or "Debater"
     avatar = req.user_avatar or req.author_avatar or f"https://api.dicebear.com/7.x/avataaars/svg?seed={name}"
     comment_text = req.comment or req.content or ""
-    
+
     conn = get_db()
     cursor = conn.cursor()
     cursor.execute("""
     INSERT INTO social_comments (id, post_id, user_id, user_name, user_avatar, comment, created_at)
     VALUES (?, ?, ?, ?, ?, ?, ?)
     """, (comment_id, post_id, req.user_id, name, avatar, comment_text, created_at))
-    
+
     cursor.execute("UPDATE social_posts SET comments_count = comments_count + 1 WHERE id = ?", (post_id,))
     conn.commit()
-    
+
     cursor.execute("SELECT * FROM social_comments WHERE id = ?", (comment_id,))
     new_comment = dict(cursor.fetchone())
     new_comment["content"] = new_comment["comment"]
@@ -1376,7 +1437,7 @@ async def add_post_comment(post_id: str, req: CreateSocialCommentRequest):
     cursor.execute("SELECT comments_count FROM social_posts WHERE id = ?", (post_id,))
     cnt_row = cursor.fetchone()
     conn.close()
-    
+
     return {"status": "ok", "success": True, "comment": new_comment, "comment_count": cnt_row["comments_count"] if cnt_row else 1, "comments_count": cnt_row["comments_count"] if cnt_row else 1}
 
 
@@ -1407,7 +1468,7 @@ async def create_story(req: CreateStoryRequest):
     name = req.user_name or req.author_name or "Debater"
     avatar = req.user_avatar or req.author_avatar or f"https://api.dicebear.com/7.x/avataaars/svg?seed={name}"
     content_text = req.content or req.caption or ""
-    
+
     conn = get_db()
     cursor = conn.cursor()
     cursor.execute("""
@@ -1421,7 +1482,7 @@ async def create_story(req: CreateStoryRequest):
     row["author_avatar"] = row["user_avatar"]
     row["timestamp"] = row["created_at"]
     conn.close()
-    
+
     return {"status": "ok", "success": True, "story": row}
 
 
@@ -1437,7 +1498,7 @@ async def websocket_arena(websocket: WebSocket):
             try:
                 msg = json.loads(data_text)
                 msg_type = msg.get("type")
-                
+
                 if msg_type == "SEND_CHAT":
                     chat_id = f"msg_{uuid.uuid4().hex[:8]}"
                     timestamp_str = time.strftime("%H:%M")
@@ -1458,9 +1519,9 @@ async def websocket_arena(websocket: WebSocket):
                     """, (chat_id, chat_obj["user_id"], chat_obj["user_name"], chat_obj["user_avatar"], chat_obj["message"]))
                     conn.commit()
                     conn.close()
-                    
+
                     await arena_manager.broadcast_chat(chat_obj)
-                    
+
                     # If moderator is active, Polya AI actively provides ruling; otherwise human debaters speak uninterrupted
                     if arena_manager.moderator_active and chat_obj["user_id"] != "polya_referee" and chat_obj["user_id"] != "zuma_ai" and chat_obj["user_id"] != "system" and chat_obj["message"].strip():
                         asyncio.create_task(generate_ai_rebuttal(chat_obj["message"], chat_obj["user_name"]))
@@ -1471,7 +1532,7 @@ async def websocket_arena(websocket: WebSocket):
                     sender_name = msg.get("user_name", "Debater")
                     seat_id = msg.get("seat_id", 0)
                     sample_rate = msg.get("sample_rate", 44100)
-                    
+
                     if pcm_b64:
                         payload = json.dumps({
                             "type": "USER_PCM_AUDIO",
@@ -1497,7 +1558,7 @@ async def websocket_arena(websocket: WebSocket):
                     sender_name = msg.get("user_name", "Debater")
                     sender_avatar = msg.get("user_avatar", "https://api.dicebear.com/7.x/avataaars/svg?seed=debater")
                     seat_id = msg.get("seat_id", 1)
-                    
+
                     if audio_b64:
                         # Direct ultra-low latency audio conference pass-through to all debaters & visitors!
                         voice_payload = {
@@ -1590,12 +1651,12 @@ async def websocket_arena(websocket: WebSocket):
 async def generate_ai_rebuttal(user_message: str, user_name: str):
     """Generates a sharp Persona ZUMA Socratic referee & moderator ruling with Bible citations."""
     clean_sender = user_name.replace("🎙️", "").strip()
-    
+
     # Fallback pre-crafted moderator response
     ai_rebuttal_text = (
         f"@{clean_sender} [PUTUSAN WASIT]: Dalam debat 3 vs 3 ini, kedua tim wajib bersandar murni pada naskah primer Bible. Perhatikan Yohanes 17:3 di mana Yesus menyebut Bapa sebagai 'satu-satunya Allah yang benar' (τὸν μόνον ἀληθινὸν θεόν), diselaraskan dengan 1 Korintus 8:6. Tim lawan dipersilakan merespons klausa anarthrous pada Yohanes 1:1!"
     )
-    
+
     # Attempt high-speed LLM generation via Groq Qwen
     if groq_client:
         try:
@@ -1629,7 +1690,7 @@ async def generate_ai_rebuttal(user_message: str, user_name: str):
                 ai_rebuttal_text = f"@{clean_sender} {clean_llm}"
         except Exception as e:
             logger.warning(f"Groq LLM generation error: {e}")
-        
+
     # Generate Gemini Indonesian TTS Audio for Polya Referee
     gemini_audio = await generate_gemini_tts(ai_rebuttal_text, voice="Kore")
 
@@ -1908,10 +1969,10 @@ async def create_training_session_endpoint(request: Request):
     user_id = body.get("user_id", "user-default")
     topic = body.get("topic", "Uji Konsistensi Ontologis dan Integritas Leksikal Teks Kuno")
     desc = body.get("description", "Sesi latihan dialektika dan pembuktian forensik melawan AI Debater")
-    
+
     from polya_runtime.debate_engine.models import TeamSide
     from polya_runtime.debate_engine.training_models import TrainingType, TrainingDifficulty, TrainingPersona
-    
+
     user_pos = TeamSide(body.get("user_position", "PROPOSITION"))
     t_type = TrainingType(body.get("training_type", "PRACTICE_DEBATE"))
     diff = TrainingDifficulty(body.get("difficulty", "NORMAL"))
@@ -2066,6 +2127,8 @@ async def get_user_training_stats_endpoint(user_id: str):
 @app.get("/settings")
 @app.get("/account")
 @app.get("/account/{subpath:path}")
+@app.get("/audit")
+@app.get("/report")
 async def get_index():
     index_file = os.path.join(STATIC_DIR, "index.html")
     if os.path.exists(index_file):
@@ -2076,6 +2139,18 @@ async def get_index():
         with open(arena_file, "r", encoding="utf-8") as f:
             return HTMLResponse(content=f.read())
     return HTMLResponse("<h1>Polya Arena Loading...</h1>")
+
+@app.get("/audit.txt")
+@app.get("/report.txt")
+@app.get("/website-integration-audit.txt")
+async def get_audit_report():
+    txt_file = os.path.join(STATIC_DIR, "website-integration-audit.txt")
+    if os.path.exists(txt_file):
+        with open(txt_file, "r", encoding="utf-8") as f:
+            from fastapi.responses import PlainTextResponse
+            return PlainTextResponse(content=f.read())
+    from fastapi.responses import PlainTextResponse
+    return PlainTextResponse("Report not found", status_code=404)
 
 if __name__ == "__main__":
     import uvicorn

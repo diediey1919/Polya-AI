@@ -133,7 +133,10 @@ class TestTextualCriticismEngine(unittest.TestCase):
             conn.execute("INSERT INTO books VALUES ('JHN', 'NT', 43, 'Yohanes', 'John', 'GREEK', 21);")
             conn.execute(
                 """
-                INSERT INTO pericopes VALUES (
+                INSERT INTO pericopes (
+                    pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse,
+                    genre, boundary_source, boundary_confidence, status, version, created_at
+                ) VALUES (
                     'PER-JHN-1', 'JHN', 'Yohanes 1:14-18', 1, 14, 1, 18,
                     'PROLOGUE', 'NA28_SECTION', 'HIGH', 'VALIDATED', '1.0', '2026-10-01T00:00:00Z'
                 );

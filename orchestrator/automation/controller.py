@@ -22,6 +22,7 @@ from orchestrator.automation.job_store import (
     ApprovalStore,
     DatabaseManager,
     ExecutionStore,
+    FencedCommitRejected,
     JobStore,
     LeaseLockStore,
 )
@@ -55,7 +56,8 @@ class AutomationController:
         config_data: Any,
         created_by: str,
         correlation_id: Optional[str] = None,
-        job_id: Optional[str] = None
+        job_id: Optional[str] = None,
+        initial_state: JobState = JobState.PLANNING,
     ) -> AutomationJob:
         """Creates a new automation job anchored to current Git commit and deterministic plan hash."""
         git_identity = self.git_guard.get_current_identity()
@@ -69,7 +71,7 @@ class AutomationController:
             commit_sha=git_identity.commit_sha,
             plan_hash=plan_hash,
             config_hash=config_hash,
-            state=JobState.PLANNING,
+            state=initial_state,
             created_at=now_iso,
             created_by=created_by,
             correlation_id=correlation_id,
@@ -82,12 +84,52 @@ class AutomationController:
     def release_job_lease(self, job_id: str, worker_id: str) -> bool:
         return self.lease_store.release_lease(job_id, worker_id)
 
+    def current_fencing_token(self, job_id: str) -> Optional[int]:
+        """Returns the fencing token currently stored for the job's lease, or None."""
+        with self.db_manager._get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT fencing_token FROM automation_job_leases WHERE job_id = ?",
+                (job_id,),
+            )
+            row = cursor.fetchone()
+        if row is None:
+            return None
+        return int(row["fencing_token"] or 0)
+
+    def _worker_for_execution(self, execution_id: str) -> str:
+        """Resolves the worker_id that owns a given execution record."""
+        record = self.execution_store.get_execution(execution_id)
+        if record is None:
+            raise ValueError(f"Execution {execution_id} does not exist.")
+        return record.worker_id
+
+    def fenced_transition(
+        self,
+        job_id: str,
+        new_state: JobState,
+        worker_id: str,
+        fencing_token: Optional[int],
+    ) -> AutomationJob:
+        """Worker-originated state transition guarded by lease ownership + fencing token."""
+        if fencing_token is None:
+            raise FencedCommitRejected(
+                f"Worker transition of job {job_id} to {new_state} requires a fencing token."
+            )
+        return self.job_store.transition_state(
+            job_id,
+            new_state,
+            worker_id=worker_id,
+            require_lease=True,
+            fencing_token=fencing_token,
+        )
+
     def start_running(self, job_id: str, worker_id: str) -> Tuple[AutomationJob, ExecutionRecord]:
         """Transitions job from PLANNING to RUNNING and records execution record."""
         if not self.acquire_job_lease(job_id, worker_id):
             raise PermissionError(f"Cannot run job {job_id}: worker {worker_id} failed to acquire lease (concurrency locked).")
 
-        job = self.job_store.transition_state(job_id, JobState.RUNNING, worker_id=worker_id)
+        job = self.fenced_transition(job_id, JobState.RUNNING, worker_id, self.current_fencing_token(job_id))
         exec_id = f"exec_{uuid.uuid4().hex[:12]}"
         now_iso = datetime.now(timezone.utc).isoformat()
         exec_rec = ExecutionRecord(
@@ -97,20 +139,49 @@ class AutomationController:
             started_at=now_iso,
             status=ExecutionStatus.STARTED,
             worker_id=worker_id,
+            fencing_token=self.current_fencing_token(job_id),
         )
         self.execution_store.record_start(exec_rec)
         return job, exec_rec
 
-    def complete_running(self, execution_id: str, success: bool, error: Optional[str] = None):
+    def complete_running(
+        self,
+        execution_id: str,
+        success: bool,
+        error: Optional[str] = None,
+        job_id: Optional[str] = None,
+        fencing_token: Optional[int] = None,
+    ) -> Optional[ExecutionRecord]:
+        """Completes a RUNNING execution.
+
+        Fenced whenever job_id is supplied: a fencing token is mandatory, and the token
+        is validated against the live lease in the same transaction as the write.
+        """
         status = ExecutionStatus.SUCCESS if success else ExecutionStatus.FAILED
-        self.execution_store.record_completion(execution_id, status, error_summary=error)
+        if job_id is not None:
+            if fencing_token is None:
+                raise FencedCommitRejected(
+                    f"Fenced completion for job {job_id} requires a fencing token; none supplied."
+                )
+            return self.execution_store.complete_execution_fenced(
+                execution_id=execution_id,
+                job_id=job_id,
+                worker_id=self._worker_for_execution(execution_id),
+                fencing_token=fencing_token,
+                status=status,
+                error_summary=error,
+            )
+        raise FencedCommitRejected(
+            f"Worker completion of {execution_id} refused: job_id and fencing_token are "
+            "required. There is no unfenced worker completion path."
+        )
 
     def start_verifying(self, job_id: str, worker_id: str) -> Tuple[AutomationJob, ExecutionRecord]:
         """Transitions job from RUNNING to VERIFYING."""
         if not self.acquire_job_lease(job_id, worker_id):
             raise PermissionError(f"Cannot verify job {job_id}: lease not acquired.")
 
-        job = self.job_store.transition_state(job_id, JobState.VERIFYING, worker_id=worker_id)
+        job = self.fenced_transition(job_id, JobState.VERIFYING, worker_id, self.current_fencing_token(job_id))
         exec_id = f"exec_{uuid.uuid4().hex[:12]}"
         now_iso = datetime.now(timezone.utc).isoformat()
         exec_rec = ExecutionRecord(
@@ -120,13 +191,43 @@ class AutomationController:
             started_at=now_iso,
             status=ExecutionStatus.STARTED,
             worker_id=worker_id,
+            fencing_token=self.current_fencing_token(job_id),
         )
         self.execution_store.record_start(exec_rec)
         return job, exec_rec
 
-    def complete_verifying(self, execution_id: str, success: bool, error: Optional[str] = None):
+    def complete_verifying(
+        self,
+        execution_id: str,
+        success: bool,
+        error: Optional[str] = None,
+        job_id: Optional[str] = None,
+        fencing_token: Optional[int] = None,
+    ) -> Optional[ExecutionRecord]:
+        """Completes a VERIFYING execution.
+
+        When job_id and fencing_token are supplied the write is fenced: the token is
+        validated against the live lease inside the same transaction as the write,
+        so a worker that lost its lease can never persist an outcome.
+        """
         status = ExecutionStatus.SUCCESS if success else ExecutionStatus.FAILED
-        self.execution_store.record_completion(execution_id, status, error_summary=error)
+        if job_id is not None:
+            if fencing_token is None:
+                raise FencedCommitRejected(
+                    f"Fenced completion for job {job_id} requires a fencing token; none supplied."
+                )
+            return self.execution_store.complete_execution_fenced(
+                execution_id=execution_id,
+                job_id=job_id,
+                worker_id=self._worker_for_execution(execution_id),
+                fencing_token=fencing_token,
+                status=status,
+                error_summary=error,
+            )
+        raise FencedCommitRejected(
+            f"Worker completion of {execution_id} refused: job_id and fencing_token are "
+            "required. There is no unfenced worker completion path."
+        )
 
     def mark_ready_for_approval(self, job_id: str) -> AutomationJob:
         return self.job_store.transition_state(job_id, JobState.READY_FOR_APPROVAL)
@@ -217,6 +318,7 @@ class AutomationController:
             started_at=now_iso,
             status=ExecutionStatus.STARTED,
             worker_id=worker_id,
+            fencing_token=self.current_fencing_token(job_id),
         )
         self.execution_store.record_start(exec_rec)
         return True, "Authorized and Started PRODUCTION_EXECUTION", exec_rec
@@ -227,10 +329,32 @@ class AutomationController:
         execution_id: str,
         success: bool,
         worker_id: str,
-        error: Optional[str] = None
+        error: Optional[str] = None,
+        fencing_token: Optional[int] = None,
     ) -> AutomationJob:
+        """Completes a PRODUCTION_EXECUTION run under fencing enforcement.
+
+        A fencing token is mandatory: production results must never be writable by a
+        worker that does not hold the current lease token. Callers read the token from
+        the ExecutionRecord returned by initiate_production_execution.
+        """
+        if fencing_token is None:
+            record = self.execution_store.get_execution(execution_id)
+            if record is None or record.fencing_token is None:
+                raise FencedCommitRejected(
+                    f"Production completion for job {job_id} requires a fencing token; none available."
+                )
+            fencing_token = record.fencing_token
+
         status = ExecutionStatus.SUCCESS if success else ExecutionStatus.FAILED
-        self.execution_store.record_completion(execution_id, status, error_summary=error)
+        self.execution_store.complete_execution_fenced(
+            execution_id=execution_id,
+            job_id=job_id,
+            worker_id=worker_id,
+            fencing_token=fencing_token,
+            status=status,
+            error_summary=error,
+        )
 
         if success:
             return self.job_store.transition_state(job_id, JobState.PRODUCTION_VERIFICATION, worker_id=worker_id)
@@ -241,9 +365,99 @@ class AutomationController:
         self,
         job_id: str,
         success: bool,
-        worker_id: str
+        worker_id: str,
+        operator_identity: Optional[str] = None,
     ) -> AutomationJob:
+        """Operator-only terminal transition out of PRODUCTION_VERIFICATION.
+
+        Entering COMPLETED is the most consequential write in the system, so it is NOT
+        fenced on a worker token: it is gated on an explicit, non-agent operator
+        identity and verified approval binding instead. A caller that merely labels itself
+        "admin"/"operator" is not enough -- the identity must be supplied, must not be an
+        agent/cron/scheduler/worker/supervisor identity, and must correspond to an active,
+        matching APPROVED record in ApprovalStore. The lease release is token-guarded so a
+        stale holder cannot delete a newer owner's lease.
+        """
+        if not operator_identity:
+            raise PermissionError(
+                f"complete_production_verification for job {job_id} requires an explicit "
+                "operator_identity. This transition cannot be performed by an autonomous worker."
+            )
+        identity = operator_identity.lower()
+        if (
+            identity.startswith("agent")
+            or identity.startswith("cron")
+            or identity.startswith("scheduler")
+            or identity.startswith("worker")
+            or identity.startswith("sup")
+            or identity.startswith("pipeline")
+            or identity.startswith("autom")
+        ):
+            raise PermissionError(
+                f"Security Violation: identity '{operator_identity}' is not permitted to "
+                "complete production verification."
+            )
+
+        # Must actually be in PRODUCTION_VERIFICATION; the state machine enforces the
+        # rest. This also blocks any attempt to reach COMPLETED from an earlier state.
+        job = self.job_store.get_job(job_id)
+        if job is None:
+            raise ValueError(f"Job {job_id} not found.")
+        if job.state != JobState.PRODUCTION_VERIFICATION:
+            raise ValueError(
+                f"Cannot complete production verification for job {job_id} in state "
+                f"{job.state.value}; must be PRODUCTION_VERIFICATION."
+            )
+
         if success:
+            # Enforce strict approval binding before allowing transition to COMPLETED
+            approval = self.approval_store.get_approval_for_job(job_id)
+            if approval is None:
+                raise PermissionError(
+                    f"Security Violation: Cannot complete production verification for job {job_id}. "
+                    "No approval record found in ApprovalStore."
+                )
+
+            decision_val = approval.decision.value if hasattr(approval.decision, "value") else approval.decision
+            if decision_val != ApprovalDecision.APPROVED.value:
+                raise PermissionError(
+                    f"Security Violation: Cannot complete production verification for job {job_id}. "
+                    f"Approval status is '{decision_val}', expected '{ApprovalDecision.APPROVED.value}'."
+                )
+
+            approver_lower = (approval.approved_by or "").lower()
+            if (
+                not approver_lower
+                or approver_lower.startswith("agent")
+                or approver_lower.startswith("cron")
+                or approver_lower.startswith("scheduler")
+                or approver_lower.startswith("worker")
+                or approver_lower.startswith("sup")
+                or approver_lower.startswith("pipeline")
+                or approver_lower.startswith("autom")
+            ):
+                raise PermissionError(
+                    f"Security Violation: Approval for job {job_id} was submitted by unauthorized "
+                    f"or non-human identity '{approval.approved_by}'."
+                )
+
+            if approval.job_id != job.job_id:
+                raise PermissionError(
+                    f"Security Violation: Approval job_id mismatch ({approval.job_id} != {job.job_id})."
+                )
+
+            if approval.plan_hash != job.plan_hash:
+                raise PermissionError(
+                    f"Security Violation: Approval plan_hash mismatch for job {job_id}. "
+                    f"Approved: {approval.plan_hash}, Job: {job.plan_hash}."
+                )
+
+            if approval.commit_sha != job.commit_sha:
+                raise PermissionError(
+                    f"Security Violation: Approval commit_sha mismatch for job {job_id}. "
+                    f"Approved: {approval.commit_sha}, Job: {job.commit_sha}."
+                )
+
             job = self.job_store.transition_state(job_id, JobState.COMPLETED, worker_id=worker_id)
         else:
             job = self.job_store.transition_state(job_id, JobState.FAILED, worker_id=worker_id)

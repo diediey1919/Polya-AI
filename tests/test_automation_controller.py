@@ -108,12 +108,14 @@ def test_valid_state_transitions(controller):
     # PLANNING -> RUNNING
     job, exec_rec = controller.start_running(job.job_id, worker_id="w1")
     assert job.state == JobState.RUNNING
-    controller.complete_running(exec_rec.execution_id, success=True)
+    tok1 = controller.current_fencing_token(job.job_id)
+    controller.complete_running(exec_rec.execution_id, success=True, job_id=job.job_id, fencing_token=tok1)
 
     # RUNNING -> VERIFYING
     job, exec_rec2 = controller.start_verifying(job.job_id, worker_id="w1")
     assert job.state == JobState.VERIFYING
-    controller.complete_verifying(exec_rec2.execution_id, success=True)
+    tok2 = controller.current_fencing_token(job.job_id)
+    controller.complete_verifying(exec_rec2.execution_id, success=True, job_id=job.job_id, fencing_token=tok2)
 
     # VERIFYING -> READY_FOR_APPROVAL
     job = controller.mark_ready_for_approval(job.job_id)
@@ -142,7 +144,9 @@ def test_valid_state_transitions(controller):
     assert job.state == JobState.PRODUCTION_VERIFICATION
 
     # PRODUCTION_VERIFICATION -> COMPLETED
-    job = controller.complete_production_verification(job.job_id, success=True, worker_id="w1")
+    job = controller.complete_production_verification(
+        job.job_id, success=True, worker_id="w1", operator_identity="sec_human_reviewer"
+    )
     assert job.state == JobState.COMPLETED
 
 
@@ -902,7 +906,9 @@ def test_sec_p1_01_worker_owns_lease_and_auth_succeeds(controller):
     j_ver = controller.complete_production_execution(job.job_id, exec_rec.execution_id, success=True, worker_id="worker_valid")
     assert j_ver.state == JobState.PRODUCTION_VERIFICATION
 
-    j_comp = controller.complete_production_verification(job.job_id, success=True, worker_id="worker_valid")
+    j_comp = controller.complete_production_verification(
+        job.job_id, success=True, worker_id="worker_valid", operator_identity="sec_human_reviewer"
+    )
     assert j_comp.state == JobState.COMPLETED
 
 

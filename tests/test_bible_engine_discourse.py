@@ -124,7 +124,8 @@ class TestBibleEngineDiscourse(unittest.TestCase):
                 "INSERT INTO books VALUES ('JOH', 'NT', 43, 'Yohanes', 'John', 'GREEK', 21);"
             )
             conn.execute(
-                "INSERT INTO pericopes VALUES ('PER-JOH-01', 'JOH', 'Yohanes 1:1-3', 1, 1, 1, 3, "
+                "INSERT INTO pericopes (pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse, genre, boundary_source, boundary_confidence, status, version, created_at) "
+                "VALUES ('PER-JOH-01', 'JOH', 'Yohanes 1:1-3', 1, 1, 1, 3, "
                 "'NARRATIVE', 'NA28_SECTION', 'HIGH', 'VALIDATED', '2.0.0', '2026-09-30');"
             )
             conn.execute("INSERT INTO passages VALUES ('JOH-01-01', 'PER-JOH-01', 'JOH', 1, 1, 1);")

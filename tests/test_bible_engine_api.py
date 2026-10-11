@@ -197,7 +197,7 @@ class TestBibleEngineAPI(unittest.TestCase):
         self.db_config = DatabaseConfig(db_path=self.db_path)
         self.engine = DatabaseEngine(self.db_config)
         self.runner = MigrationRunner(self.engine, self.migrations_dir)
-        self.runner.apply_pending()
+        self.runner.apply_pending("025_pericope_batch_processing")
 
         self._seed_catalog()
 

@@ -1,0 +1,209 @@
+{
+  "system": "Polya AI Website Integration Audit",
+  "timestamp": "2026-10-11T22:05:00+07:00",
+  "baseline": {
+    "repository": "/home/ubuntu/Polya-AI",
+    "branch": "main",
+    "head_commit": "d364600",
+    "frontend_stack": "Vanilla HTML5 / Vanilla CSS3 / Vanilla JS SPA + arena.html",
+    "backend_stack": "Python 3.11 / FastAPI / Starlette / LangGraph / Uvicorn",
+    "database": "SQLite (data/polya_arena.db)"
+  },
+  "routes": [
+    {
+      "route": "/",
+      "file": "web/static/index.html",
+      "purpose": "Landing & Calculator",
+      "status": "REAL",
+      "backend_connected": true,
+      "mock_data": false,
+      "tested": true
+    },
+    {
+      "route": "/dashboard",
+      "file": "web/static/index.html",
+      "purpose": "Research Dashboard Overview",
+      "status": "PARTIAL",
+      "backend_connected": true,
+      "mock_data": true,
+      "tested": true
+    },
+    {
+      "route": "/calculator",
+      "file": "web/static/index.html",
+      "purpose": "Apologetics AI Calculator",
+      "status": "REAL",
+      "backend_connected": true,
+      "mock_data": false,
+      "tested": true
+    },
+    {
+      "route": "/themes",
+      "file": "web/static/index.html",
+      "purpose": "Themes Explorer & Case Files",
+      "status": "STATIC",
+      "backend_connected": false,
+      "mock_data": true,
+      "tested": false
+    },
+    {
+      "route": "/knowledge",
+      "file": "web/static/index.html",
+      "purpose": "Ontology & Argument Graph",
+      "status": "STATIC",
+      "backend_connected": false,
+      "mock_data": true,
+      "tested": false
+    },
+    {
+      "route": "/persona",
+      "file": "web/static/index.html",
+      "purpose": "Strategic Zuma Telemetry",
+      "status": "STATIC",
+      "backend_connected": false,
+      "mock_data": true,
+      "tested": false
+    },
+    {
+      "route": "/pipeline",
+      "file": "web/static/index.html",
+      "purpose": "Autonomous Research Pipeline",
+      "status": "STATIC",
+      "backend_connected": false,
+      "mock_data": true,
+      "tested": false
+    },
+    {
+      "route": "/settings",
+      "file": "web/static/index.html",
+      "purpose": "Research & Language Settings",
+      "status": "REAL",
+      "backend_connected": true,
+      "mock_data": false,
+      "tested": true
+    },
+    {
+      "route": "/account",
+      "file": "web/static/index.html",
+      "purpose": "Quota, Tier & Billing Ledger",
+      "status": "REAL",
+      "backend_connected": true,
+      "mock_data": false,
+      "tested": true
+    },
+    {
+      "route": "/arena",
+      "file": "web/static/arena.html",
+      "purpose": "3v3 Parliamentary Debate Arena",
+      "status": "REAL",
+      "backend_connected": true,
+      "mock_data": false,
+      "tested": true
+    }
+  ],
+  "capabilities": [
+    {
+      "capability": "Apologetics Calculator",
+      "engine": "LangGraph ResearchGraph",
+      "api": "POST /api/v1/calculator/analyze",
+      "frontend": "web/static/index.html",
+      "test": "test_browser_and_quota_regression.py",
+      "status": "COMPLETE"
+    },
+    {
+      "capability": "Challenge My Argument",
+      "engine": "AdversarialDebateAgent",
+      "api": "POST /api/v1/calculator/challenge",
+      "frontend": "MISSING",
+      "test": "test_master_prompt_3_pipeline.py",
+      "status": "PARTIAL"
+    },
+    {
+      "capability": "Weakest Point Analysis",
+      "engine": "AdversarialDebateAgent",
+      "api": "POST /api/v1/calculator/weakest-point",
+      "frontend": "MISSING",
+      "test": "test_master_prompt_3_pipeline.py",
+      "status": "PARTIAL"
+    },
+    {
+      "capability": "Show Me The Source",
+      "engine": "EvidenceEngine",
+      "api": "GET /api/v1/calculator/source",
+      "frontend": "STATIC_DRAWER",
+      "test": "test_master_prompt_2_pipeline.py",
+      "status": "PARTIAL"
+    },
+    {
+      "capability": "Debate Arena 3v3 Live",
+      "engine": "DebateArenaEngine",
+      "api": "WS /api/arena/ws",
+      "frontend": "web/static/arena.html",
+      "test": "runtime/test_debate_engine.py",
+      "status": "COMPLETE"
+    },
+    {
+      "capability": "Zuma Debater Training",
+      "engine": "DebateTrainingService",
+      "api": "POST /api/training/session/*",
+      "frontend": "MISSING",
+      "test": "runtime/test_training_debate_engine.py",
+      "status": "PARTIAL"
+    },
+    {
+      "capability": "Research Pipeline Telemetry",
+      "engine": "LangGraph DAG",
+      "api": "MISSING_STREAM",
+      "frontend": "STATIC_PILLS",
+      "test": "test_master_prompt_2_pipeline.py",
+      "status": "PARTIAL"
+    },
+    {
+      "capability": "Case File Persistence",
+      "engine": "CaseFileStore",
+      "api": "EPHEMERAL_RESPONSE",
+      "frontend": "DOM_ONLY",
+      "test": "test_master_prompt_2_pipeline.py",
+      "status": "PARTIAL"
+    },
+    {
+      "capability": "Knowledge Graph",
+      "engine": "BibleEngine Graph",
+      "api": "GET /api/corpus/search",
+      "frontend": "STATIC_SVG",
+      "test": "test_bible_engine_knowledge_graph.py",
+      "status": "PARTIAL"
+    },
+    {
+      "capability": "Quota & Midtrans Billing",
+      "engine": "UsageEntitlementService",
+      "api": "POST /api/v1/payment/*",
+      "frontend": "web/static/index.html",
+      "test": "test_web_api_foundation.py",
+      "status": "COMPLETE"
+    }
+  ],
+  "backlog": {
+    "P0": [
+      "Wire Calculator Adversarial Controls in Frontend (Challenge, Weakest Point, Dynamic Source)",
+      "Fix Case File Missing Fields in UI (counterargument, open_questions, debate_prep)",
+      "Persist Case Files to SQLite case_files_v2 table and provide retrieval endpoints",
+      "Add Debate Arena link in main navigation to connect arena.html"
+    ],
+    "P1": [
+      "Dynamic Knowledge Base Graph powered by bible_engine/graph.py",
+      "Dynamic Themes Explorer powered by video_pipeline/themes",
+      "SSE / WebSocket streaming for real-time Pipeline stage advancement",
+      "ZUMA Sparring interface connected to /api/training/session/*"
+    ],
+    "P2": [
+      "Dynamic Global Search wired to /api/corpus/search",
+      "Epistemic Firewall status tags on individual propositions",
+      "Translation distortion comparison inspector"
+    ],
+    "P3": [
+      "Debate Arena bell audio cue integration",
+      "Full 17-language UI label localization"
+    ]
+  }
+}

@@ -7,6 +7,7 @@ from typing import Dict, Set
 
 
 class JobState(str, Enum):
+    STAGED = "STAGED"
     PLANNING = "PLANNING"
     RUNNING = "RUNNING"
     VERIFYING = "VERIFYING"
@@ -43,6 +44,11 @@ class ExecutionStatus(str, Enum):
 
 # Explicit valid state transition map
 ALLOWED_TRANSITIONS: Dict[JobState, Set[JobState]] = {
+    JobState.STAGED: {
+        JobState.PLANNING,
+        JobState.ABORTED,
+        JobState.REJECTED,
+    },
     JobState.PLANNING: {
         JobState.RUNNING,
         JobState.FAILED,

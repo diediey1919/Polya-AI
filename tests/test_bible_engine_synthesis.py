@@ -142,7 +142,10 @@ class TestHierarchicalSynthesisEngine(unittest.TestCase):
             conn.execute("INSERT OR IGNORE INTO sections VALUES ('SEC-JAS-02', 'JAS', 'Faith and Works', 2, 14, 2, 26, 'EPISTLE');")
             conn.execute(
                 """
-                INSERT OR IGNORE INTO pericopes VALUES (
+                INSERT OR IGNORE INTO pericopes (
+                    pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse,
+                    genre, boundary_source, boundary_confidence, status, version, created_at
+                ) VALUES (
                     'PER-ROM-03-21-26', 'ROM', 'Roma 3:21-26', 3, 21, 3, 26,
                     'EPISTLE', 'NA28', 'HIGH', 'VALIDATED', '2.0.0', '2026-09-30'
                 );
@@ -150,7 +153,10 @@ class TestHierarchicalSynthesisEngine(unittest.TestCase):
             )
             conn.execute(
                 """
-                INSERT OR IGNORE INTO pericopes VALUES (
+                INSERT OR IGNORE INTO pericopes (
+                    pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse,
+                    genre, boundary_source, boundary_confidence, status, version, created_at
+                ) VALUES (
                     'PER-JAS-02-14-26', 'JAS', 'Yakobus 2:14-26', 2, 14, 2, 26,
                     'EPISTLE', 'NA28', 'HIGH', 'VALIDATED', '2.0.0', '2026-09-30'
                 );

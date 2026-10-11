@@ -8,6 +8,8 @@ Contains:
 - CaseFileGenerator (Source-first mock/fixture case files)
 """
 import hashlib
+import hmac
+import base64
 import json
 import logging
 import os
@@ -25,17 +27,76 @@ from models import (
     UserPerspective
 )
 
+from contextlib import contextmanager
+import time
+import requests
+
 logger = logging.getLogger("polya.services")
+
+# Auto-load .env from directory
+_env_path = os.path.join(os.path.dirname(__file__), ".env")
+if os.path.exists(_env_path):
+    try:
+        with open(_env_path) as _ef:
+            for _line in _ef:
+                _line = _line.strip()
+                if _line and not _line.startswith("#") and "=" in _line:
+                    _k, _v = _line.split("=", 1)
+                    os.environ.setdefault(_k.strip(), _v.strip())
+    except Exception as _e:
+        logger.warning(f"Failed to load .env: {_e}")
 
 DB_PATH = os.environ.get("POLYA_DB_PATH", os.path.join(os.path.dirname(__file__), "..", "data", "polya_arena.db"))
 os.makedirs(os.path.dirname(os.path.abspath(DB_PATH)), exist_ok=True)
+SQLITE_TIMEOUT = float(os.environ.get("POLYA_SQLITE_TIMEOUT", "30.0"))
 
 
 def get_db(target_db_path: Optional[str] = None):
     target = target_db_path or DB_PATH
-    conn = sqlite3.connect(target, check_same_thread=False)
+    conn = sqlite3.connect(target, timeout=SQLITE_TIMEOUT, check_same_thread=False)
     conn.row_factory = sqlite3.Row
+    try:
+        conn.execute(f"PRAGMA busy_timeout = {int(SQLITE_TIMEOUT * 1000)};")
+    except Exception:
+        pass
     return conn
+
+
+@contextmanager
+def db_transaction(target_db_path: Optional[str] = None, exclusive: bool = False):
+    """Safe database context manager ensuring commit/rollback and connection close."""
+    target = target_db_path or DB_PATH
+    conn = get_db(target)
+    try:
+        if exclusive:
+            conn.execute("BEGIN IMMEDIATE")
+        yield conn
+        conn.commit()
+    except Exception:
+        try:
+            conn.rollback()
+        except Exception:
+            pass
+        raise
+    finally:
+        try:
+            conn.close()
+        except Exception:
+            pass
+
+
+def execute_with_retry(fn, max_retries: int = 3, retry_delay: float = 0.05):
+    """Executes a database operation callback with limited retries for transient locks."""
+    attempts = 0
+    while True:
+        attempts += 1
+        try:
+            return fn()
+        except sqlite3.OperationalError as e:
+            if "locked" in str(e).lower() and attempts <= max_retries:
+                time.sleep(retry_delay * attempts)
+                continue
+            raise
 
 
 def init_foundation_db(target_db_path: Optional[str] = None):
@@ -164,6 +225,162 @@ class FeatureRegistry:
         return feature.get("min_state") == EntitlementState.PREMIUM_ACTIVE
 
 
+class GoogleAuthVerifier:
+    """Verifies Google ID tokens or mock credentials under strict environment gates."""
+    ALLOWED_MOCK_ENVIRONMENTS = {"test", "development", "local"}
+    VALID_GOOGLE_ISSUERS = {"accounts.google.com", "https://accounts.google.com"}
+
+    @classmethod
+    def is_mock_allowed(cls) -> bool:
+        env = os.environ.get("POLYA_ENV", "").strip().lower()
+        return env in cls.ALLOWED_MOCK_ENVIRONMENTS
+
+    @classmethod
+    def verify_credential(cls, credential: str) -> Optional[Dict[str, Any]]:
+        """Verifies Google OAuth ID Token.
+
+        In production, verifies cryptographically via Google certs / tokeninfo endpoint.
+        Returns payload dict: {'sub': google_sub_id, 'email': verified_email, 'name': verified_name, 'avatar_url': ...}
+        """
+        if not credential or not credential.strip():
+            return None
+
+        # Check for test/mock credential format: mock-google-token:<email>:<sub_id>:<name>
+        if credential.startswith("mock-google-token:"):
+            # Enforce strict positive allowlist gate
+            if not cls.is_mock_allowed():
+                logger.warning("Rejected mock-google-token: environment not in positive allowlist")
+                return None
+            parts = credential.split(":")
+            if len(parts) >= 4:
+                return {
+                    "email": parts[1].strip().lower(),
+                    "sub": parts[2].strip(),
+                    "name": parts[3].strip(),
+                    "avatar_url": parts[4].strip() if len(parts) > 4 else f"https://api.dicebear.com/7.x/avataaars/svg?seed={parts[3].strip()}"
+                }
+            return None
+
+        # Real Google ID Token verification
+        try:
+            import requests
+            # Verify against Google OAuth2 tokeninfo endpoint (safe, TLS-verified, fail-closed)
+            resp = requests.get(
+                f"https://oauth2.googleapis.com/tokeninfo?id_token={credential}",
+                timeout=5.0
+            )
+            if resp.status_code != 200:
+                logger.warning("Google tokeninfo verification failed with status %d", resp.status_code)
+                return None
+            info = resp.json()
+
+            # 1. Issuer verification (must be accounts.google.com or https://accounts.google.com)
+            iss = info.get("iss", "")
+            if iss not in cls.VALID_GOOGLE_ISSUERS:
+                logger.warning("Google ID token issuer invalid: %s", iss)
+                return None
+
+            # 2. Audience verification (MANDATORY in production and staging, exact match if configured)
+            expected_aud = os.environ.get("GOOGLE_CLIENT_ID", "").strip()
+            app_env = os.environ.get("POLYA_ENV", "production").lower()
+            if not expected_aud and app_env in ("production", "staging"):
+                logger.error("GOOGLE_CLIENT_ID is not configured in production or staging mode; refusing authentication fail-closed")
+                return None
+
+            if expected_aud and info.get("aud") != expected_aud:
+                logger.warning("Google ID token audience verification failed: received audience does not match configured GOOGLE_CLIENT_ID")
+                return None
+
+            # 3. Subject and email mandatory check
+            sub = info.get("sub")
+            email = info.get("email")
+            if not sub or not email:
+                logger.warning("Google ID token missing sub or email claim")
+                return None
+
+            # 4. Email verification check (must be verified by Google)
+            email_verified = info.get("email_verified")
+            if email_verified not in (True, "true", "True", 1):
+                logger.warning("Google ID token email is not verified by Google")
+                return None
+
+            # 5. Expiration check (if exp provided in payload)
+            exp_val = info.get("exp")
+            if exp_val is not None:
+                try:
+                    if int(exp_val) <= int(datetime.now(timezone.utc).timestamp()):
+                        logger.warning("Google ID token is expired")
+                        return None
+                except Exception:
+                    return None
+
+            return {
+                "sub": sub,
+                "email": email.strip().lower(),
+                "name": info.get("name", "Google User"),
+                "avatar_url": info.get("picture", "")
+            }
+        except Exception as e:
+            logger.warning(f"Error during Google ID token verification: {e}")
+            return None
+
+
+class SessionService:
+    """Manages cryptographically signed and verifiable session tokens with TTL."""
+    TOKEN_TTL_SECONDS = 86400 * 7  # 7 days
+
+    @classmethod
+    def get_secret(cls) -> str:
+        secret = os.environ.get("POLYA_AUTH_SECRET", "").strip()
+        if not secret:
+            raise RuntimeError("POLYA_AUTH_SECRET is not configured or empty; refusing fail-open execution")
+        return secret
+
+    @classmethod
+    def create_token(cls, user_id: str, role: str = "visitor") -> str:
+        secret = cls.get_secret()
+        header = base64.urlsafe_b64encode(json.dumps({"alg": "HS256", "typ": "JWT"}).encode()).decode().rstrip("=")
+        exp = int(datetime.now(timezone.utc).timestamp()) + cls.TOKEN_TTL_SECONDS
+        payload_data = {
+            "sub": user_id,
+            "role": role,
+            "exp": exp,
+            "iat": int(datetime.now(timezone.utc).timestamp())
+        }
+        payload = base64.urlsafe_b64encode(json.dumps(payload_data).encode()).decode().rstrip("=")
+        unsigned = f"{header}.{payload}"
+        sig = hmac.new(secret.encode("utf-8"), unsigned.encode("utf-8"), hashlib.sha256).digest()
+        signature = base64.urlsafe_b64encode(sig).decode().rstrip("=")
+        return f"{unsigned}.{signature}"
+
+    @classmethod
+    def verify_token(cls, token: str) -> Optional[Dict[str, Any]]:
+        try:
+            secret = cls.get_secret()
+            parts = token.split(".")
+            if len(parts) != 3:
+                return None
+            header_b64, payload_b64, signature_b64 = parts
+            unsigned = f"{header_b64}.{payload_b64}"
+            expected_sig = hmac.new(secret.encode("utf-8"), unsigned.encode("utf-8"), hashlib.sha256).digest()
+            expected_sig_b64 = base64.urlsafe_b64encode(expected_sig).decode().rstrip("=")
+            if not hmac.compare_digest(signature_b64, expected_sig_b64):
+                return None
+
+            # Pad payload if needed
+            pad_len = 4 - (len(payload_b64) % 4)
+            if pad_len != 4:
+                payload_b64 += "=" * pad_len
+            payload_data = json.loads(base64.urlsafe_b64decode(payload_b64.encode()).decode())
+
+            # Check expiration
+            if payload_data.get("exp", 0) < int(datetime.now(timezone.utc).timestamp()):
+                return None
+            return payload_data
+        except Exception:
+            return None
+
+
 class EntitlementService:
     """Manages subscription tier states and premium authorizations."""
 
@@ -264,65 +481,163 @@ class UsageEntitlementService:
         """Atomically consumes one analysis unit with idempotency protection.
         Returns: (success: bool, message: str)
         """
-        # 1. Check if request_id already consumed (Idempotency)
-        conn = get_db()
-        cursor = conn.cursor()
-        cursor.execute("SELECT id FROM usage_entitlement_records WHERE request_id = ?", (request_id,))
-        if cursor.fetchone():
-            conn.close()
-            return True, "Request ID already verified (idempotent call)."
+        def _operation():
+            with db_transaction(exclusive=True) as conn:
+                cursor = conn.cursor()
+                # 1. Check if request_id already consumed (Idempotency)
+                cursor.execute("SELECT id FROM usage_entitlement_records WHERE request_id = ?", (request_id,))
+                if cursor.fetchone():
+                    return True, "Request ID already verified (idempotent call)."
 
-        # 2. Check if user is eligible to analyze
-        if not cls.can_analyze(user_id):
-            conn.close()
-            return False, "5 analisis gratis kamu telah digunakan. Lanjutkan dengan Polya Premium."
+                # 2. Check entitlement inside the transaction
+                cursor.execute("SELECT state FROM user_entitlements WHERE user_id = ?", (user_id,))
+                ent_row = cursor.fetchone()
+                is_premium = (ent_row and ent_row["state"] == EntitlementState.PREMIUM_ACTIVE.value)
 
-        # 3. Consume
-        record_id = str(uuid.uuid4())
-        now_iso = datetime.now(timezone.utc).isoformat()
-        try:
-            cursor.execute("""
-            INSERT INTO usage_entitlement_records (id, user_id, request_id, feature, consumed_at)
-            VALUES (?, ?, ?, 'calculator.claim_analysis', ?)
-            """, (record_id, user_id, request_id, now_iso))
-            conn.commit()
-            conn.close()
+                if not is_premium:
+                    cursor.execute(
+                        "SELECT COUNT(*) AS cnt FROM usage_entitlement_records WHERE user_id = ? AND feature = 'calculator.claim_analysis'",
+                        (user_id,)
+                    )
+                    used_cnt = cursor.fetchone()["cnt"]
+                    if used_cnt >= cls.MAX_FREE_ANALYSES:
+                        return False, "5 analisis gratis kamu telah digunakan. Lanjutkan dengan Polya Premium."
+
+                # 3. Consume
+                record_id = str(uuid.uuid4())
+                now_iso = datetime.now(timezone.utc).isoformat()
+                cursor.execute("""
+                INSERT INTO usage_entitlement_records (id, user_id, request_id, feature, consumed_at)
+                VALUES (?, ?, ?, 'calculator.claim_analysis', ?)
+                """, (record_id, user_id, request_id, now_iso))
             return True, "Analysis usage unit consumed successfully."
+
+        try:
+            return execute_with_retry(_operation, max_retries=3, retry_delay=0.05)
         except sqlite3.IntegrityError:
-            conn.close()
             return True, "Request already recorded (idempotent conflict handled)."
+        except sqlite3.OperationalError as e:
+            if "locked" in str(e).lower():
+                logger.error(f"Database lock contention during consume_analysis: {e}")
+                return False, "DATABASE_LOCKED"
+            return False, f"Database operational error: {str(e)}"
         except Exception as e:
-            conn.close()
             logger.error(f"Error consuming usage: {e}")
             return False, f"Usage deduction failed: {str(e)}"
 
 
+class PaymentGatewayError(Exception):
+    """Raised when payment gateway rejects request or token unavailable."""
+    def __init__(self, message: str = "Payment gateway unavailable or rejected request", status_code: int = 502):
+        super().__init__(message)
+        self.message = message
+        self.status_code = status_code
+
+
 class PaymentService:
-    """Midtrans Payment Service with SHA-512 Signature verification and mock simulation adapter."""
-    MIDTRANS_SERVER_KEY = os.environ.get("MIDTRANS_SERVER_KEY", "SB-Mid-server-test-polya-key-2026")
+    """Midtrans Payment Service with strict SHA-512 Signature verification."""
     DEFAULT_AMOUNT = 99000
+
+    @classmethod
+    def get_server_key(cls) -> str:
+        return os.environ.get("MIDTRANS_SERVER_KEY", "").strip()
+
+    @classmethod
+    def get_client_key(cls) -> str:
+        return os.environ.get("MIDTRANS_CLIENT_KEY", "").strip()
+
+    @classmethod
+    def is_production(cls) -> bool:
+        server_key = cls.get_server_key()
+        if server_key.startswith("SB-"):
+            return False
+        if server_key.startswith("Mid-"):
+            return True
+        return os.environ.get("MIDTRANS_IS_PRODUCTION", "true").lower() in ("true", "1", "yes")
+
+    @classmethod
+    def get_snap_api_url(cls) -> str:
+        return "https://app.midtrans.com/snap/v1/transactions" if cls.is_production() else "https://app.sandbox.midtrans.com/snap/v1/transactions"
 
     @classmethod
     def create_checkout(cls, user_id: str, idempotency_key: Optional[str] = None) -> Dict[str, Any]:
         order_id = f"POLYA-{int(datetime.now().timestamp())}-{uuid.uuid4().hex[:6].upper()}"
         tx_id = f"TX-{uuid.uuid4().hex}"
         now_iso = datetime.now(timezone.utc).isoformat()
+        server_key = cls.get_server_key()
+        client_key = cls.get_client_key()
 
-        conn = get_db()
-        cursor = conn.cursor()
-        cursor.execute("""
-        INSERT INTO payment_transactions (
-            transaction_id, user_id, order_id, amount, currency, provider,
-            provider_status, internal_status, idempotency_key, metadata_json,
-            created_at, updated_at
-        ) VALUES (?, ?, ?, ?, 'IDR', 'midtrans', 'pending', 'PAYMENT_PENDING', ?, ?, ?, ?)
-        """, (
-            tx_id, user_id, order_id, cls.DEFAULT_AMOUNT, idempotency_key or tx_id,
-            json.dumps({"plan": "polya_premium_unlimited", "user_id": user_id}),
-            now_iso, now_iso
-        ))
-        conn.commit()
-        conn.close()
+        snap_token = None
+        redirect_url = None
+        metadata = {
+            "plan": "polya_premium_unlimited",
+            "user_id": user_id
+        }
+
+        # Request genuine Midtrans Snap Token if Server Key is configured
+        if server_key:
+            try:
+                auth_header = "Basic " + base64.b64encode(f"{server_key}:".encode("utf-8")).decode("utf-8")
+                headers = {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                    "Authorization": auth_header
+                }
+                payload = {
+                    "transaction_details": {
+                        "order_id": order_id,
+                        "gross_amount": cls.DEFAULT_AMOUNT
+                    },
+                    "item_details": [
+                        {
+                            "id": "polya_premium_unlimited",
+                            "price": cls.DEFAULT_AMOUNT,
+                            "quantity": 1,
+                            "name": "Polya Premium Access (Full Capability)"
+                        }
+                    ],
+                    "customer_details": {
+                        "first_name": user_id,
+                        "email": f"{user_id}@polya.org" if "@" not in user_id else user_id
+                    }
+                }
+                resp = requests.post(
+                    cls.get_snap_api_url(),
+                    headers=headers,
+                    json=payload,
+                    timeout=10.0
+                )
+                if resp.status_code in (200, 201):
+                    res_data = resp.json()
+                    snap_token = res_data.get("token")
+                    redirect_url = res_data.get("redirect_url")
+                    metadata["snap_token"] = snap_token
+                    metadata["redirect_url"] = redirect_url
+                    logger.info(f"Midtrans Snap token acquired successfully for {order_id}: {snap_token}")
+                else:
+                    logger.error(f"Midtrans Snap API error [status_code={resp.status_code}]")
+            except requests.Timeout:
+                logger.error("Midtrans Snap API request timed out")
+            except Exception as e:
+                logger.error(f"Failed to communicate with Midtrans Snap API: {type(e).__name__}")
+
+        if not snap_token:
+            logger.error("Checkout aborted: Midtrans Snap token not available or rejected by gateway.")
+            raise PaymentGatewayError("Payment gateway unavailable or rejected request", status_code=502)
+
+        with db_transaction() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+            INSERT INTO payment_transactions (
+                transaction_id, user_id, order_id, amount, currency, provider,
+                provider_status, internal_status, idempotency_key, metadata_json,
+                created_at, updated_at
+            ) VALUES (?, ?, ?, ?, 'IDR', 'midtrans', 'pending', 'PAYMENT_PENDING', ?, ?, ?, ?)
+            """, (
+                tx_id, user_id, order_id, cls.DEFAULT_AMOUNT, idempotency_key or tx_id,
+                json.dumps(metadata),
+                now_iso, now_iso
+            ))
 
         # Update user entitlement to PAYMENT_PENDING
         EntitlementService.set_entitlement_state(user_id, EntitlementState.PAYMENT_PENDING)
@@ -334,21 +649,31 @@ class PaymentService:
             "currency": "IDR",
             "formatted_amount": "Rp99.000",
             "status": "PAYMENT_PENDING",
-            "redirect_url": f"/checkout?order_id={order_id}",
-            "snap_token": f"mock-snap-token-{order_id}"
+            "redirect_url": redirect_url,
+            "snap_token": snap_token,
+            "client_key": client_key,
+            "is_production": cls.is_production()
         }
 
     @classmethod
-    def verify_midtrans_signature(cls, order_id: str, status_code: str, gross_amount: str, signature_key: str) -> bool:
+    def verify_midtrans_signature(
+        cls, order_id: str, status_code: str, gross_amount: str, signature_key: str, server_key: Optional[str] = None
+    ) -> bool:
         """Verifies Midtrans SHA-512 signature hash:
         SHA512(order_id + status_code + gross_amount + ServerKey)
         """
-        raw_payload = f"{order_id}{status_code}{gross_amount}{cls.MIDTRANS_SERVER_KEY}"
+        key = server_key if server_key is not None else cls.get_server_key()
+        if not key:
+            logger.error("MIDTRANS_SERVER_KEY not configured. Webhook signature verification rejected.")
+            return False
+        # Normalize gross_amount to handle decimal .00 formatting from Midtrans
+        amount_clean = gross_amount.strip()
+        raw_payload = f"{order_id.strip()}{status_code.strip()}{amount_clean}{key}"
         expected = hashlib.sha512(raw_payload.encode("utf-8")).hexdigest()
-        return expected.lower() == signature_key.lower()
+        return expected.lower() == signature_key.strip().lower()
 
     @classmethod
-    def process_webhook(cls, payload: Dict[str, Any], allow_simulator: bool = True) -> Tuple[bool, str]:
+    def process_webhook(cls, payload: Dict[str, Any], server_key: Optional[str] = None) -> Tuple[bool, str]:
         order_id = payload.get("order_id")
         status_code = str(payload.get("status_code", ""))
         gross_amount = str(payload.get("gross_amount", ""))
@@ -358,21 +683,17 @@ class PaymentService:
         if not order_id:
             return False, "Missing order_id in webhook payload"
 
-        # Signature verification
-        is_valid_signature = False
-        if signature_key and status_code and gross_amount:
-            is_valid_signature = cls.verify_midtrans_signature(order_id, status_code, gross_amount, signature_key)
+        if not signature_key:
+            return False, "Missing signature_key in webhook payload"
 
-        # Allow test/simulation adapter if explicit flag is passed and in test mode
-        if not is_valid_signature and allow_simulator:
-            if payload.get("is_simulator") or payload.get("test_mode") or payload.get("is_simulation"):
-                is_valid_signature = True
-                logger.info(f"Webhook accepted via Midtrans Test Simulator Adapter for order {order_id}")
-
+        # 1. Strict signature verification
+        is_valid_signature = cls.verify_midtrans_signature(
+            order_id, status_code, gross_amount, signature_key, server_key=server_key
+        )
         if not is_valid_signature:
             return False, "Invalid SHA-512 signature key"
 
-        # Determine Internal Status
+        # 2. Determine target status
         if transaction_status in ["capture", "settlement"]:
             new_internal_state = EntitlementState.PREMIUM_ACTIVE
         elif transaction_status in ["pending"]:
@@ -385,26 +706,62 @@ class PaymentService:
             new_internal_state = EntitlementState.PAYMENT_PENDING
 
         now_iso = datetime.now(timezone.utc).isoformat()
-        conn = get_db()
-        cursor = conn.cursor()
-        cursor.execute("SELECT user_id, amount FROM payment_transactions WHERE order_id = ?", (order_id,))
-        tx_row = cursor.fetchone()
 
-        if not tx_row:
-            conn.close()
-            return False, f"Transaction for order {order_id} not found"
+        # 3. Transactional update with idempotency & out-of-order protection
+        with db_transaction() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT user_id, amount, internal_status FROM payment_transactions WHERE order_id = ?", (order_id,))
+            tx_row = cursor.fetchone()
 
-        user_id = tx_row["user_id"]
-        cursor.execute("""
-        UPDATE payment_transactions
-        SET provider_status = ?, internal_status = ?, updated_at = ?, verified_at = ?
-        WHERE order_id = ?
-        """, (transaction_status, new_internal_state.value, now_iso, now_iso, order_id))
-        conn.commit()
-        conn.close()
+            if not tx_row:
+                return False, f"Transaction for order {order_id} not found"
 
-        # Update Entitlement state
-        EntitlementService.set_entitlement_state(user_id, new_internal_state)
+            user_id = tx_row["user_id"]
+            current_status = tx_row["internal_status"]
+
+            # Out-of-order protection: once settled, do not downgrade to pending or failed
+            if current_status == EntitlementState.PREMIUM_ACTIVE.value and new_internal_state != EntitlementState.PREMIUM_ACTIVE:
+                logger.warning(f"Ignoring out-of-order webhook for settled order {order_id}: attempted downgrade to {new_internal_state.value}")
+                return True, f"Transaction {order_id} already settled; downgrade ignored."
+
+            # Gross amount validation against stored transaction
+            try:
+                stored_amount = float(tx_row["amount"])
+                webhook_amount = float(gross_amount)
+                if abs(stored_amount - webhook_amount) > 0.01:
+                    return False, f"Gross amount mismatch: expected {stored_amount}, got {webhook_amount}"
+            except ValueError:
+                return False, "Invalid gross_amount number in payload"
+
+            # Check if user entitlement is also in sync
+            cursor.execute("SELECT state FROM user_entitlements WHERE user_id = ?", (user_id,))
+            ent_row = cursor.fetchone()
+            is_entitlement_settled = (ent_row and ent_row["state"] == EntitlementState.PREMIUM_ACTIVE.value)
+
+            # Duplicate settlement idempotency: do not re-process if already settled AND entitlement in sync
+            if current_status == EntitlementState.PREMIUM_ACTIVE.value and new_internal_state == EntitlementState.PREMIUM_ACTIVE:
+                if is_entitlement_settled:
+                    logger.info(f"Duplicate settlement webhook received for {order_id}; idempotent success.")
+                    return True, f"Transaction {order_id} already settled (idempotent duplicate)."
+                logger.warning(f"Order {order_id} marked settled but entitlement out-of-sync ({ent_row['state'] if ent_row else 'none'}); re-synchronizing.")
+
+            cursor.execute("""
+            UPDATE payment_transactions
+            SET provider_status = ?, internal_status = ?, updated_at = ?, verified_at = ?
+            WHERE order_id = ?
+            """, (transaction_status, new_internal_state.value, now_iso, now_iso, order_id))
+
+            # Update entitlement state inside the transaction; preserve existing activated_at timestamp
+            cursor.execute("""
+            INSERT INTO user_entitlements (user_id, state, plan, activated_at, updated_at)
+            VALUES (?, ?, 'premium', ?, ?)
+            ON CONFLICT(user_id) DO UPDATE SET
+                state = excluded.state,
+                plan = excluded.plan,
+                activated_at = CASE WHEN excluded.state = 'PREMIUM_ACTIVE' THEN COALESCE(user_entitlements.activated_at, excluded.activated_at) ELSE user_entitlements.activated_at END,
+                updated_at = excluded.updated_at
+            """, (user_id, new_internal_state.value, now_iso, now_iso))
+
         return True, f"Transaction {order_id} updated to {new_internal_state.value}"
 
     @classmethod
@@ -437,7 +794,7 @@ class CaseFileGenerator:
     """Produces canonical 10-point Case Files using the Master Prompt #2 Autonomous Intelligence Engine."""
 
     @classmethod
-    def generate_case_file(cls, claim: str, context: Optional[UserApologeticsContext] = None) -> CaseFile:
+    def generate_case_file(cls, claim: str, context: Optional[UserApologeticsContext] = None, user_id: str = "guest_user") -> CaseFile:
         ctx = context or UserApologeticsContext()
         persp = ctx.user_perspective.value if hasattr(ctx.user_perspective, "value") else str(ctx.user_perspective)
 
@@ -451,6 +808,7 @@ class CaseFileGenerator:
                 "claim_input": claim,
                 "run_id": run_id,
                 "thread_id": thread_id,
+                "user_id": user_id,
                 "user_perspective": persp,
                 "requested_mode": "DEEP_FORENSIC_RESEARCH",
                 "tasks": [],
@@ -477,6 +835,14 @@ class CaseFileGenerator:
             result = graph.invoke(initial_state, config=config)
 
             case_id = result.get("case_id") or f"CASE-{hashlib.md5(claim.encode('utf-8')).hexdigest()[:8].upper()}"
+            # Ensure case_files_v2 record is directly linked to user_id
+            try:
+                conn_cf = sqlite3.connect(DB_PATH)
+                conn_cf.execute("UPDATE case_files_v2 SET user_id = ? WHERE case_id = ?", (user_id, case_id))
+                conn_cf.commit()
+                conn_cf.close()
+            except Exception as e_cf:
+                logger.warning(f"Direct case_file user_id update notice: {e_cf}")
             ev_list = []
             for e in result.get("evidence_items", []):
                 ev_list.append({

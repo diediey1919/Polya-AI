@@ -372,7 +372,9 @@ class JobPipeline:
         self.controller.complete_running(
             exec_rec.execution_id,
             success=is_success,
-            error=agent_resp.error
+            error=agent_resp.error,
+            job_id=job.job_id,
+            fencing_token=exec_rec.fencing_token,
         )
 
         stages.append(StageResult(
@@ -386,7 +388,12 @@ class JobPipeline:
         ))
 
         if not is_success:
-            self.controller.job_store.transition_state(job.job_id, JobState.FAILED, worker_id=worker_id)
+            self.controller.fenced_transition(
+                job.job_id,
+                JobState.FAILED,
+                worker_id,
+                exec_rec.fencing_token,
+            )
             self.controller.release_job_lease(job.job_id, worker_id)
             return JobExecutionResult(
                 job_id=job.job_id,
@@ -544,7 +551,9 @@ class JobPipeline:
         self.controller.complete_verifying(
             v_rec.execution_id,
             success=all_passed,
-            error=None if all_passed else "One or more verification checks failed"
+            error=None if all_passed else "One or more verification checks failed",
+            job_id=job.job_id,
+            fencing_token=v_rec.fencing_token,
         )
 
         stages.append(StageResult(
@@ -561,11 +570,21 @@ class JobPipeline:
         # STAGE 6: REPORT & READY_FOR_APPROVAL
         # ==========================================
         if all_passed:
-            job = self.controller.mark_ready_for_approval(job.job_id)
+            job = self.controller.fenced_transition(
+                job.job_id,
+                JobState.READY_FOR_APPROVAL,
+                worker_id,
+                v_rec.fencing_token,
+            )
             final_status = JobState.READY_FOR_APPROVAL
             final_error = None
         else:
-            job = self.controller.job_store.transition_state(job.job_id, JobState.FAILED, worker_id=worker_id)
+            job = self.controller.fenced_transition(
+                job.job_id,
+                JobState.FAILED,
+                worker_id,
+                v_rec.fencing_token,
+            )
             final_status = JobState.FAILED
             final_error = "Verification failed; blocked from READY_FOR_APPROVAL"
 

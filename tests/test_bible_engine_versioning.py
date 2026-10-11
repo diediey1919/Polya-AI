@@ -614,7 +614,10 @@ class TestVersioningSubsystem(unittest.TestCase):
             conn.execute("INSERT OR IGNORE INTO books VALUES ('REV', 'TEST_NT', 66, 'Wahyu', 'Revelation', 'GREEK', 22);")
             conn.execute(
                 """
-                INSERT OR IGNORE INTO pericopes VALUES (
+                INSERT OR IGNORE INTO pericopes (
+                    pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse,
+                    genre, boundary_source, boundary_confidence, status, version, created_at
+                ) VALUES (
                     'PER-REV-19-07-09', 'REV', 'Wahyu 19:7-9', 19, 7, 19, 9,
                     'APOCALYPTIC', 'NA28_SECTION', 'HIGH', 'REGISTERED', '1.0', '2026-09-30'
                 );
@@ -676,7 +679,10 @@ class TestVersioningSubsystem(unittest.TestCase):
             conn.execute("INSERT OR IGNORE INTO books VALUES ('REV', 'TEST_NT', 66, 'Wahyu', 'Revelation', 'GREEK', 22);")
             conn.execute(
                 """
-                INSERT OR IGNORE INTO pericopes VALUES (
+                INSERT OR IGNORE INTO pericopes (
+                    pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse,
+                    genre, boundary_source, boundary_confidence, status, version, created_at
+                ) VALUES (
                     'PER-REV-19-07-09', 'REV', 'Wahyu 19:7-9', 19, 7, 19, 9,
                     'APOCALYPTIC', 'NA28_SECTION', 'HIGH', 'REGISTERED', '1.0', '2026-09-30'
                 );

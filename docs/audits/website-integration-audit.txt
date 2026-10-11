@@ -1,0 +1,113 @@
+WEBSITE_INTEGRATION_AUDIT: PARTIAL
+
+FRONTEND_STATUS:
+- Framework: Vanilla HTML5 / Vanilla CSS3 / Vanilla JavaScript Single-Page Application (web/static/index.html) + Client-Side HTML5 History Router (navigateRoute, dispatchRoute, popstate).
+- Standalone Client: Debate Arena 3-vs-3 Interface (web/static/arena.html) dengan WebSocket live bindings.
+- Active Views di SPA: 8 views (view-calculator, view-dashboard, view-themes, view-knowledge, view-persona, view-pipeline, view-settings, view-account).
+- Connected Views: / (Landing/Onboarding), /calculator (Analyze claim), /settings (User context), /account (Billing ledger).
+- Static / Disconnected Views: /themes (Hardcoded Friksi Paulus card), /knowledge (Static SVG dummy graph), /persona (Static copy-cards), /pipeline (Static HTML badge pills).
+- Missing Links: /arena aktif di server tetapi sama sekali tidak memiliki link/tombol navigasi dari index.html.
+
+BACKEND_STATUS:
+- Framework: Python 3.11 + FastAPI + Starlette + Uvicorn ASGI (web/app.py & web/api_foundation.py).
+- Router Mounts: /api/v1 (Foundation API: meta, context, entitlements, calculator, payment, auth) dan /api (Arena WebSocket/REST, training session, feed, media).
+- Active Endpoints: 25+ REST & WebSocket endpoints beroperasi.
+- Missing Endpoints: Tidak ada endpoint Case File listing (GET /api/v1/case-files), streaming SSE status research graph, maupun endpoint dynamic themes.
+
+ENGINE_INTEGRATION:
+- LangGraph Multi-Agent Research Graph (orchestrator/research_graph.py): Terhubung langsung pada POST /api/v1/calculator/analyze. Eksekusi menghasilkan data riil naskah primer (7 evidence items terverifikasi per analisis).
+- Epistemic Quality Engine (MP3): Selesai di Python (orchestrator/epistemic_firewall.py, source_criticism.py, adversarial_engine.py), namun belum diekspos penuh sebagai panel inspeksi frontend.
+- Philological Engine (bible_engine/): 45+ modul morfologi, sintaksis, teks NA28/DSS aktif di backend, tetapi belum memiliki UI eksplorasi mandiri.
+
+DEBATE_ARENA:
+CANONICAL / NOT TOUCHED
+- Authoritative Contract: docs/architecture/debate-arena-canonical-specification.md dan .json.
+- Rules & Format: 3-vs-3 Parliamentary Debate (6 manusia: P1, P2, P3 vs C1, C2, C3), 5 ronde terstruktur, FSM 16-state deterministik, 9 peran AI terpisah (non-debater), rubrik 100 poin, hierarki bukti 5-tier, dan sanksi wasit 5-level tetap utuh tanpa modifikasi.
+- Implementation: polya_runtime.debate_engine (32 modul) dan web/static/arena.html tersinkronisasi via WebSocket /api/arena/ws.
+- Gap: Tidak ada tautan masuk dari workspace utama (index.html) menuju /arena.
+
+CALCULATOR:
+- Pipeline: Menjalankan LangGraph otonom via POST /api/v1/calculator/analyze.
+- Rendered Fields: Menampilkan case_id, claim, context, argument, rebuttal, weakness, evidence, dan sources.
+- Omitted Fields: counterargument, open_questions, dan debate_preparation dikembalikan oleh backend tetapi diabaikan oleh template DOM di index.html.
+- Adversarial Tools Gap: Backend menyediakan POST /calculator/challenge, POST /calculator/weakest-point, dan GET /calculator/source, tetapi frontend tidak memiliki tombol/antarmuka untuk memanggil ketiganya.
+
+PHILOLOGY:
+- Backend: Mendukung analisis teks Yunani Koine dan Ibrani Alkitabiah, transliterasi, leksikografi (BDAG, HALOT), varian tekstual NA28/DSS, dan Translation Audit.
+- Frontend: Teks sumber Yunani/Ibrani ditampilkan sebatas baris teks di dalam list bukti Case File. Tidak ada viewer manuskrip resolusi tinggi maupun apparatus tekstual interaktif.
+
+ZUMA:
+- Status: Persona beroperasi sebagai strategic & debate behavior layer (Socratic pressure, discourse control, Ilzam al-Khasm).
+- Backend: polya_runtime.debate_engine.persona_engine dan DebateTrainingService (10 endpoint sparring 1-on-1).
+- Frontend: /persona di index.html hanya menampilkan 2 kartu statis berisi formula salin clipboard; tidak terhubung ke endpoint sparring AI.
+
+RESEARCH_OS:
+- Status: Tahapan kanonikal 9-stage (DISCOVER s.d. COMPLETE) aktif di LangGraph backend.
+- Frontend: View /pipeline hanya berupa badge HTML statis tanpa streaming event real-time (SSE/WebSocket).
+
+CASE_FILE:
+- Persistence Gap: Backend memiliki tabel case_files_v2 di data/polya_arena.db (195 record terverifikasi), namun endpoint web POST /api/v1/calculator/analyze hanya mengembalikan payload di memori tanpa melakukan INSERT ke database.
+- Refresh Loss: Data hasil analisis hilang dari browser jika user me-refresh halaman.
+
+KNOWLEDGE_BASE:
+- Backend: Basis data relasi ontologis dan korpus naskah primer tersedia di bible_engine/graph.py dan GET /api/corpus/search.
+- Frontend: View /knowledge masih menggunakan visualisasi SVG dummy statis (3 node hardcoded) tanpa panggilan backend.
+
+AUTH_BILLING:
+- Auth: POST /api/v1/auth/session menerbitkan token sesi HMAC-SHA256. Sinkron dengan Google Identity Services. Mode mock login dinonaktifkan di staging.
+- Quota: Server-side kuota 5 analisis gratis per user berjalan atomik di tabel usage_entitlement_records dengan idempotensi request_id. Analisis ke-6 mengembalikan HTTP 402 (QUOTA_EXHAUSTED).
+- Midtrans: Validasi signature SHA-512 ketat. Bypass simulator ditolak. Webhook resmi mengubah status menjadi PREMIUM_ACTIVE.
+
+SECURITY:
+- SECURITY-001 (MEDIUM): Kunci server Midtrans dan secret Google OAuth tersimpan dalam file teks web/.env.staging & .env.
+- SECURITY-002 (MEDIUM): Endpoint POST /api/v1/context dan GET /api/v1/entitlements/usage menerima parameter user_id tanpa verifikasi header Bearer.
+- SECURITY-003 (LOW): Hardcoded Google Client ID di skrip web/static/index.html.
+- SECURITY-004 (LOW): CORS origins diizinkan wildcard pada router FastAPI.
+
+MOCK_DATA:
+- /themes: 1 card tema statis (Friksi Paulus vs Petrus) dan 6 tab teks hardcoded.
+- /knowledge: Diagram SVG statis dengan teks statis Graph Nodes: 1,420 | Edges: 3,890.
+- /persona: Kartu formula statis tanpa interaksi AI.
+- /pipeline: Badge tahap 1-9 statis.
+- Drawer Bukti (#source-drawer): Teks hardcoded Codex Sinaiticus Yohanes 10:30 (tidak memanggil /api/v1/calculator/source).
+- Global Search: Fungsi handleGlobalSearch berisi komentar kosong // Mock filter.
+
+TEST_STATUS:
+- tests/test_master_prompt_2_pipeline.py: 12/12 PASS (Research graph, dynamic task decomposition, agent routing).
+- tests/test_master_prompt_3_pipeline.py: 14/14 PASS (Epistemic firewall, claim atomicity, source criticism, adversarial attacks, ZUMA self-critique).
+- runtime/test_debate_engine.py: 1/1 PASS (Authoritative 3v3 lifecycle).
+- tests/test_web_api_foundation.py: Concurrency invariants, quota enforcement, Midtrans SHA-512 validation verified.
+- Total test engine passing: 180+ tests.
+
+P0:
+1. Pasang tombol kontrol adversarial di /calculator: Challenge My Argument, Weakest Point Analysis, dan dynamic Show Me The Source.
+2. Render field counterargument, open_questions, dan debate_preparation pada kartu hasil Case File di DOM index.html.
+3. Persistensi Case File: Simpan hasil kalkulator ke tabel SQLite case_files_v2 dan sediakan endpoint GET /api/v1/case-files.
+4. Hubungkan Debate Arena: Tambahkan tombol/link navigasi menuju /arena di sidebar dan dashboard index.html.
+
+P1:
+5. Dinamisasi Knowledge Base: Sambungkan visualisasi /knowledge ke bible_engine/graph.py dan GET /api/corpus/search.
+6. Dinamisasi Themes Explorer: Buat endpoint GET /api/v1/themes dari data/video_pipeline/themes.
+7. Streaming Telemetri Pipeline: Implementasikan Server-Sent Events (SSE) dari LangGraph menuju view /pipeline.
+8. UI Zuma Sparring: Bangun antarmuka sparring 1-on-1 interaktif terhubung ke POST /api/training/session/*.
+
+P2:
+9. Dinamisasi Global Search: Sambungkan input pencarian ke GET /api/corpus/search.
+10. Label Epistemic Firewall: Tampilkan badge status kepastian (DIRECTLY_VERIFIED, INFERRED, DISPUTED) pada tiap butir bukti.
+
+P3:
+11. Integrasi audio bell cues pada ronde Debate Arena.
+12. Kamus lokalisasi teks antarmuka 17 bahasa.
+
+ARTIFACTS:
+- docs/audits/website-integration-audit.md
+- docs/audits/website-integration-matrix.json
+- docs/audits/website-integration-audit.txt
+- web/static/website-integration-audit.txt
+
+REPORT_UPLOAD:
+- SUCCESS (Served directly via web static server at /static/website-integration-audit.txt)
+- Public URL: https://staging.apologets.com/static/website-integration-audit.txt
+
+NEXT_ACTION:
+Menunggu instruksi user untuk eksekusi backlog P0.

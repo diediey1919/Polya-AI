@@ -138,7 +138,10 @@ class TestEvidenceAdjudicationSubsystem(unittest.TestCase):
             conn.execute("INSERT OR IGNORE INTO books VALUES ('ROM', 'TEST_NT', 45, 'Roma', 'Romans', 'GREEK', 16);")
             conn.execute(
                 """
-                INSERT OR IGNORE INTO pericopes VALUES (
+                INSERT OR IGNORE INTO pericopes (
+                    pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse,
+                    genre, boundary_source, boundary_confidence, status, version, created_at
+                ) VALUES (
                     'PER-ROM-03-27-31', 'ROM', 'Roma 3:27-31', 3, 27, 3, 31,
                     'EPISTLE', 'NA28_SECTION', 'HIGH', 'REGISTERED', '1.0', '2026-09-30'
                 );

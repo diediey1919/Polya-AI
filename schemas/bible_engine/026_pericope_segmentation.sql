@@ -66,7 +66,7 @@ INSERT INTO segmentation_witnesses (
 CREATE TABLE pericopes_new (
     pericope_id         TEXT PRIMARY KEY,
     book_id             TEXT NOT NULL,
-    segmentation_id     TEXT NOT NULL REFERENCES segmentation_witnesses(segmentation_id) ON DELETE RESTRICT,
+    segmentation_id     TEXT NOT NULL DEFAULT 'WIT-SEG-PROVISIONAL-CHAPTER' REFERENCES segmentation_witnesses(segmentation_id) ON DELETE RESTRICT,
     reference           TEXT NOT NULL,
     start_chapter       INTEGER NOT NULL,
     start_verse         INTEGER NOT NULL,

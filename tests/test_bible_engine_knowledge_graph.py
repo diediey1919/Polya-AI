@@ -127,7 +127,10 @@ class TestCrossPericopeEvidenceKnowledgeGraph(unittest.TestCase):
             conn.execute("INSERT OR IGNORE INTO books VALUES ('GAL', 'TEST_NT', 48, 'Galatia', 'Galatians', 'GREEK', 6);")
             conn.execute(
                 """
-                INSERT OR IGNORE INTO pericopes VALUES (
+                INSERT OR IGNORE INTO pericopes (
+                    pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse,
+                    genre, boundary_source, boundary_confidence, status, version, created_at
+                ) VALUES (
                     'PER-ROM-01', 'ROM', 'Roma 1:1-7', 1, 1, 1, 7,
                     'EPISTLE', 'SECTION', 'HIGH', 'VALIDATED', '1.0', '2026-09-30'
                 );
@@ -135,7 +138,10 @@ class TestCrossPericopeEvidenceKnowledgeGraph(unittest.TestCase):
             )
             conn.execute(
                 """
-                INSERT OR IGNORE INTO pericopes VALUES (
+                INSERT OR IGNORE INTO pericopes (
+                    pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse,
+                    genre, boundary_source, boundary_confidence, status, version, created_at
+                ) VALUES (
                     'PER-GAL-03', 'GAL', 'Galatia 3:1-14', 3, 1, 3, 14,
                     'EPISTLE', 'SECTION', 'HIGH', 'VALIDATED', '1.0', '2026-09-30'
                 );

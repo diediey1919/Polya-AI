@@ -149,7 +149,10 @@ class TestIntertextualAnalysisEngine(unittest.TestCase):
 
             conn.execute(
                 """
-                INSERT INTO pericopes VALUES (
+                INSERT INTO pericopes (
+                    pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse,
+                    genre, boundary_source, boundary_confidence, status, version, created_at
+                ) VALUES (
                     'PER-MAT-2', 'MAT', 'Matius 2:1-12', 2, 1, 2, 12,
                     'NARRATIVE', 'NA28_SECTION', 'HIGH', 'VALIDATED', '1.0', '2026-10-01T00:00:00Z'
                 );

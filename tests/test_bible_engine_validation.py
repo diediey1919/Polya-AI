@@ -384,7 +384,7 @@ class TestValidationEngineSuite(unittest.TestCase):
     def test_02_migration_status_clean(self) -> None:
         status = self.runner.get_status()
         self.assertTrue(status.is_clean)
-        self.assertEqual(status.current_version, "26")
+        self.assertEqual(status.current_version, "27")
 
     def test_03_legacy_database_hashes_unchanged(self) -> None:
         legacy1 = Path("/home/ubuntu/.polya/polya_index.db")

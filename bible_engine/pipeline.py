@@ -208,6 +208,10 @@ class ExegeticalPipeline:
         intra_synthesis_inputs: Optional[List[Dict[str, Any]]] = None,
         theological_inputs: Optional[List[Dict[str, Any]]] = None,
         config: Optional[PipelineConfig] = None,
+        checkpoint_store: Optional[Any] = None,
+        job_id: Optional[str] = None,
+        contract_hash: Optional[str] = None,
+        fence_token: int = 1,
     ) -> PipelineExecutionResult:
         """
         Execute full 9-step pipeline adhering to exact dependency direction:
@@ -225,14 +229,54 @@ class ExegeticalPipeline:
         executed_stages: List[PipelineStage] = []
         candidates = PipelineCandidatePack()
 
+        # Checkpoint Resume Resolution
+        resume_from_stage: int = 1
+        cached_ret_result = None
+        if checkpoint_store and job_id and contract_hash:
+            res_stage, _ = checkpoint_store.get_latest_valid_stage(job_id, contract_hash)
+            if res_stage:
+                resume_from_stage = res_stage.value + 1
+
+        def _record_checkpoint(stage_enum_val: int, stage_name: str, payload_dict: Dict[str, Any]) -> None:
+            if checkpoint_store and job_id and contract_hash:
+                from orchestrator.automation.pericope_checkpoint import ExegesisStage
+                st = ExegesisStage.from_value(stage_enum_val)
+                p_id = (
+                    retrieval_target.target_id
+                    if hasattr(retrieval_target, "target_id")
+                    else str(retrieval_target)
+                )
+                checkpoint_store.save_checkpoint(
+                    job_id=job_id,
+                    pericope_id=p_id,
+                    stage=st,
+                    contract_hash=contract_hash,
+                    input_data={"job_id": job_id, "stage": stage_name},
+                    output_data=payload_dict,
+                    engine_version=cfg.engine_version,
+                    prompt_config_hash=cfg.configuration_hash or "default",
+                    model_identity="hermes",
+                    fence_token=fence_token,
+                    worker_id="pipeline_worker",
+                )
+
         # ---------------------------------------------------------------------
         # STAGE 1: Retrieval
         # ---------------------------------------------------------------------
-        ret_result = self.retrieval_engine.execute_retrieval(
-            query=query,
-            target=retrieval_target,
-        )
-        candidates.retrieval_pack = ret_result
+        if resume_from_stage <= 1 or not hasattr(self, "_cached_ret_result"):
+            ret_result = self.retrieval_engine.execute_retrieval(
+                query=query,
+                target=retrieval_target,
+            )
+            candidates.retrieval_pack = ret_result
+            _record_checkpoint(
+                1,
+                "retrieval",
+                {"query_id": ret_result.query_id, "run_id": ret_result.run_id, "items_count": len(ret_result.items)},
+            )
+        else:
+            ret_result = getattr(self, "_cached_ret_result")
+            candidates.retrieval_pack = ret_result
         executed_stages.append(PipelineStage.RETRIEVAL)
 
         # Resolve target entity version from object_versions
@@ -315,13 +359,30 @@ class ExegeticalPipeline:
                 f"Pipeline Stage 2 (V9 Retrieval Validation) failed: {v9_result.summary_notes}"
             )
         executed_stages.append(PipelineStage.V9_VALIDATION)
+        _record_checkpoint(
+            2,
+            "v9_validation",
+            {"outcome": v9_result.outcome.value, "gate_status": "PASS"},
+        )
 
         # ---------------------------------------------------------------------
         # STAGE 3: Evidence / Claim Assembly
         # ---------------------------------------------------------------------
-        # Extract evidence IDs from retrieval pack items
-        ev_ids = [item.evidence_id for item in ret_result.items if item.evidence_id]
-        candidates.evidence_ids = sorted(list(set(ev_ids)))
+        if resume_from_stage <= 3:
+            # Extract evidence IDs from retrieval pack items
+            ev_ids = [item.evidence_id for item in ret_result.items if item.evidence_id]
+            candidates.evidence_ids = sorted(list(set(ev_ids)))
+            _record_checkpoint(
+                3,
+                "evidence_assembly",
+                {"evidence_ids": candidates.evidence_ids},
+            )
+        else:
+            if checkpoint_store:
+                from orchestrator.automation.pericope_checkpoint import ExegesisStage
+                st3 = checkpoint_store.get_stage_checkpoint(job_id, ExegesisStage.EVIDENCE_ASSEMBLY)
+                if st3:
+                    candidates.evidence_ids = st3.stage_data.get("evidence_ids", [])
         executed_stages.append(PipelineStage.EVIDENCE_ASSEMBLY)
 
         # ---------------------------------------------------------------------
@@ -349,6 +410,11 @@ class ExegeticalPipeline:
             adj_verdicts.extend([r[0] for r in cur2.fetchall()])
         candidates.adjudication_verdict_ids = sorted(list(set(adj_verdicts)))
         executed_stages.append(PipelineStage.INTRA_CORPUS_ADJUDICATION)
+        _record_checkpoint(
+            4,
+            "intra_corpus_adjudication",
+            {"verdict_ids": candidates.adjudication_verdict_ids},
+        )
 
         # ---------------------------------------------------------------------
         # STAGE 5: Intra-corpus Synthesis (PERICOPE -> SECTION -> BOOK)
@@ -369,6 +435,11 @@ class ExegeticalPipeline:
                 )
                 candidates.intra_corpus_synthesis_results.append(s_result)
         executed_stages.append(PipelineStage.INTRA_CORPUS_SYNTHESIS)
+        _record_checkpoint(
+            5,
+            "intra_corpus_synthesis",
+            {"synthesis_count": len(candidates.intra_corpus_synthesis_results)},
+        )
 
         # ---------------------------------------------------------------------
         # STAGE 6: Cross-Corpus Calibration
@@ -423,6 +494,11 @@ class ExegeticalPipeline:
         )
         candidates.calibration_run = run_record
         executed_stages.append(PipelineStage.CROSS_CORPUS_CALIBRATION)
+        _record_checkpoint(
+            6,
+            "cross_corpus_calibration",
+            {"calibration_run_id": calib_run_id, "identity": calib_ident},
+        )
 
         # ---------------------------------------------------------------------
         # STAGE 7: Cross-corpus Synthesis / Theological Comparison
@@ -437,6 +513,11 @@ class ExegeticalPipeline:
                 )
                 candidates.theological_comparison_results.append(t_res)
         executed_stages.append(PipelineStage.CROSS_CORPUS_SYNTHESIS)
+        _record_checkpoint(
+            7,
+            "cross_corpus_synthesis",
+            {"theological_count": len(candidates.theological_comparison_results)},
+        )
 
         # ---------------------------------------------------------------------
         # STAGE 8: Final V1–V10 Epistemic Validation
@@ -473,12 +554,22 @@ class ExegeticalPipeline:
                 f"Checks failed: {val_run.checks_failed}, violations: {len(val_run.violations)}."
             )
         executed_stages.append(PipelineStage.FINAL_VALIDATION)
+        _record_checkpoint(
+            8,
+            "final_validation",
+            {"validation_run_id": val_run.run_id, "outcome": val_run.final_outcome.value},
+        )
 
         # ---------------------------------------------------------------------
         # STAGE 9: Single Atomic Immutable Persistence (BEGIN IMMEDIATE)
         # ---------------------------------------------------------------------
         self._persist_atomic_pipeline(candidates, cfg)
         executed_stages.append(PipelineStage.ATOMIC_PERSISTENCE)
+        _record_checkpoint(
+            9,
+            "atomic_persistence",
+            {"committed": True, "calibration_run_id": calib_run_id},
+        )
 
         cert_id = None
         cert = self.validation_engine.get_certificate_by_identity(val_run.validation_identity)

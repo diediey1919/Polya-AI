@@ -71,6 +71,7 @@ class ExecutionRecord:
     completed_at: Optional[str] = None
     error_summary: Optional[str] = None
     metadata: Optional[Dict[str, Any]] = None
+    fencing_token: Optional[int] = None
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -83,4 +84,5 @@ class ExecutionRecord:
             "completed_at": self.completed_at,
             "error_summary": self.error_summary,
             "metadata": self.metadata or {},
+            "fencing_token": self.fencing_token,
         }

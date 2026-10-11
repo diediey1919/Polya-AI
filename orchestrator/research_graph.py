@@ -79,6 +79,7 @@ class ResearchState(TypedDict):
     claim_input: str
     run_id: str
     thread_id: str
+    user_id: Optional[str]
     user_perspective: str
     requested_mode: str
     tasks: List[Dict[str, Any]]
@@ -488,7 +489,8 @@ def case_file_persistence_node(state: ResearchState) -> Dict[str, Any]:
         uncertainty=state.get("uncertainty_calibration"),
         evidence_coverage=state.get("evidence_coverage"),
         argument_strength=state.get("evaluation_scorecard"),
-        weakest_point=state.get("weakest_point")
+        weakest_point=state.get("weakest_point"),
+        user_id=state.get("user_id", "")
     )
 
     CaseFiles.save_case_file(case_file)

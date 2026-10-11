@@ -78,6 +78,7 @@ class CanonicalCaseFile:
     evidence_coverage: Optional[Dict[str, Any]] = None
     argument_strength: Optional[Dict[str, Any]] = None
     weakest_point: Optional[str] = None
+    user_id: str = ""
     created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     updated_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
@@ -125,8 +126,13 @@ class CaseFileManager:
             created_at TEXT NOT NULL
         )
         """)
+        try:
+            cur.execute("ALTER TABLE case_files_v2 ADD COLUMN user_id TEXT DEFAULT ''")
+        except sqlite3.OperationalError:
+            pass  # column already present
         cur.execute("CREATE INDEX IF NOT EXISTS idx_case_run ON case_files_v2(run_id)")
         cur.execute("CREATE INDEX IF NOT EXISTS idx_case_thread ON case_files_v2(thread_id)")
+        cur.execute("CREATE INDEX IF NOT EXISTS idx_case_user ON case_files_v2(user_id)")
         cur.execute("CREATE INDEX IF NOT EXISTS idx_trace_run ON execution_traces(run_id)")
         conn.commit()
         conn.close()
@@ -135,18 +141,21 @@ class CaseFileManager:
         conn = self._get_connection()
         cur = conn.cursor()
         now_iso = datetime.now(timezone.utc).isoformat()
+        claim_str = case_file.claim.get("text", "") if isinstance(case_file.claim, dict) else str(case_file.claim)
+        uid_str = getattr(case_file, "user_id", "") or ""
         cur.execute("""
         INSERT OR REPLACE INTO case_files_v2 (
-            case_id, run_id, thread_id, claim_text, case_data_json, created_at, updated_at
-        ) VALUES (?, ?, ?, ?, ?, ?, ?)
+            case_id, run_id, thread_id, claim_text, case_data_json, created_at, updated_at, user_id
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             case_file.case_id,
             case_file.run_id,
             case_file.thread_id,
-            case_file.claim.get("text", ""),
+            claim_str,
             json.dumps(case_file.to_dict(), ensure_ascii=False),
             case_file.created_at,
-            now_iso
+            now_iso,
+            uid_str
         ))
 
         # Also persist traces
@@ -190,6 +199,40 @@ class CaseFileManager:
         if not row:
             return None
         data = json.loads(row["case_data_json"])
+        return CanonicalCaseFile(**data)
+
+
+    def list_case_files(self, user_id: str, limit: int = 50) -> List[Dict[str, Any]]:
+        conn = self._get_connection()
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT case_id, run_id, thread_id, claim_text, created_at, updated_at, user_id
+            FROM case_files_v2
+            WHERE user_id = ? OR (user_id = '' AND ? = 'guest_user')
+            ORDER BY created_at DESC
+            LIMIT ?
+        """, (user_id, user_id, limit))
+        rows = [dict(r) for r in cur.fetchall()]
+        conn.close()
+        return rows
+
+    def get_case_file_for_user(self, case_id: str, user_id: str) -> Optional[CanonicalCaseFile]:
+        conn = self._get_connection()
+        cur = conn.cursor()
+        cur.execute("SELECT case_data_json, user_id FROM case_files_v2 WHERE case_id = ?", (case_id,))
+        row = cur.fetchone()
+        conn.close()
+        if not row:
+            return None
+        row_uid = row["user_id"] or ""
+        # Check authorization: user can only access their own case file
+        # (or guest can access unassigned/guest files)
+        if row_uid and row_uid != user_id and not (row_uid == "guest_user" and user_id == "guest_user"):
+            return None  # Forbidden: cross-user access
+        data = json.loads(row["case_data_json"])
+        # Ensure user_id field is populated
+        if "user_id" not in data:
+            data["user_id"] = row_uid
         return CanonicalCaseFile(**data)
 
 

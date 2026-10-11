@@ -161,7 +161,10 @@ class TestBibleEngineExegesis(unittest.TestCase):
             )
             conn.execute(
                 """
-                INSERT INTO pericopes VALUES (
+                INSERT INTO pericopes (
+                    pericope_id, book_id, reference, start_chapter, start_verse, end_chapter, end_verse,
+                    genre, boundary_source, boundary_confidence, status, version, created_at
+                ) VALUES (
                     'PER-REV-19', 'REV', 'Wahyu 19:7-9', 19, 7, 19, 9,
                     'APOCALYPTIC', 'NA28_SECTION', 'HIGH', 'VALIDATED', '1.0', '2026-10-01T00:00:00Z'
                 );
