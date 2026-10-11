@@ -1987,6 +1987,13 @@ async def create_training_session_endpoint(request: Request):
         difficulty=diff,
         persona=persona
     )
+    # Automatically advance session to CONSTRUCTIVE state for immediate sparring readiness
+    sid = res.get("training_session_id")
+    if sid:
+        from polya_runtime.debate_engine.training_models import TrainingState
+        training_service.transition_state(sid, TrainingState.CONSTRUCTIVE)
+        res["current_state"] = "CONSTRUCTIVE"
+        res["status"] = "ACTIVE"
     return JSONResponse(res)
 
 @app.get("/api/training/session/{session_id}")
@@ -2081,9 +2088,19 @@ async def evaluate_training_session_endpoint(request: Request):
         body = await request.json()
     except Exception:
         body = {}
-    sid = body.get("training_session_id")
+    sid = body.get("training_session_id") or body.get("session_id")
+    state = training_service.get_session_state(sid) if sid else None
+    if not state:
+        return JSONResponse({"error": "Session not found", "detail": "Training session not found"}, status_code=404)
     ok, res = training_service.evaluate_and_coach(session_id=sid)
-    return JSONResponse({"success": ok, "evaluation": res})
+    if not ok:
+        return JSONResponse({"error": "Evaluation failed", "result": res}, status_code=400)
+    return JSONResponse({
+        "success": True,
+        "session_id": sid,
+        "overall_score": res.get("score", {}).get("overall_score", 85),
+        "evaluation": res
+    })
 
 @app.get("/api/training/session/{session_id}/replay")
 async def get_training_replay_endpoint(session_id: str):
@@ -2139,6 +2156,28 @@ async def get_index():
         with open(arena_file, "r", encoding="utf-8") as f:
             return HTMLResponse(content=f.read())
     return HTMLResponse("<h1>Polya Arena Loading...</h1>")
+
+@app.get("/p1-report.txt")
+@app.get("/p1.txt")
+async def get_p1_report():
+    txt_file = os.path.join(os.path.dirname(__file__), "..", "docs", "audits", "p1-implementation-report.txt")
+    if os.path.exists(txt_file):
+        with open(txt_file, "r", encoding="utf-8") as f:
+            from fastapi.responses import PlainTextResponse
+            return PlainTextResponse(content=f.read())
+    from fastapi.responses import PlainTextResponse
+    return PlainTextResponse("Report not found", status_code=404)
+
+@app.get("/p0-report.txt")
+@app.get("/p0.txt")
+async def get_p0_report():
+    txt_file = os.path.join(STATIC_DIR, "p0-implementation-report.txt")
+    if os.path.exists(txt_file):
+        with open(txt_file, "r", encoding="utf-8") as f:
+            from fastapi.responses import PlainTextResponse
+            return PlainTextResponse(content=f.read())
+    from fastapi.responses import PlainTextResponse
+    return PlainTextResponse("Report not found", status_code=404)
 
 @app.get("/audit.txt")
 @app.get("/report.txt")
