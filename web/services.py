@@ -229,6 +229,8 @@ class GoogleAuthVerifier:
     """Verifies Google ID tokens or mock credentials under strict environment gates."""
     ALLOWED_MOCK_ENVIRONMENTS = {"test", "development", "local"}
     VALID_GOOGLE_ISSUERS = {"accounts.google.com", "https://accounts.google.com"}
+    JWKS_URL = "https://www.googleapis.com/oauth2/v3/certs"
+    _jwks_client = None
 
     @classmethod
     def is_mock_allowed(cls) -> bool:
@@ -236,10 +238,19 @@ class GoogleAuthVerifier:
         return env in cls.ALLOWED_MOCK_ENVIRONMENTS
 
     @classmethod
+    def get_jwks_client(cls):
+        if cls._jwks_client is None:
+            import jwt
+            cls._jwks_client = jwt.PyJWKClient(cls.JWKS_URL, cache_keys=True, lifespan=3600)
+        return cls._jwks_client
+
+    @classmethod
     def verify_credential(cls, credential: str) -> Optional[Dict[str, Any]]:
         """Verifies Google OAuth ID Token.
 
-        In production, verifies cryptographically via Google certs / tokeninfo endpoint.
+        Performs primary cryptographic RS256 signature verification via Google Public JWKS,
+        with tokeninfo evaluation fallback.
+        Strictly validates issuer, audience, subject, expiration, and email_verified.
         Returns payload dict: {'sub': google_sub_id, 'email': verified_email, 'name': verified_name, 'avatar_url': ...}
         """
         if not credential or not credential.strip():
@@ -247,7 +258,7 @@ class GoogleAuthVerifier:
 
         # Check for test/mock credential format: mock-google-token:<email>:<sub_id>:<name>
         if credential.startswith("mock-google-token:"):
-            # Enforce strict positive allowlist gate
+            # Enforce strict positive allowlist gate (disallowed on staging/production)
             if not cls.is_mock_allowed():
                 logger.warning("Rejected mock-google-token: environment not in positive allowlist")
                 return None
@@ -261,10 +272,49 @@ class GoogleAuthVerifier:
                 }
             return None
 
-        # Real Google ID Token verification
+        allowed_auds = cls.get_allowed_client_ids()
+        if not allowed_auds:
+            logger.error("GOOGLE_CLIENT_ID is not configured or empty; refusing authentication fail-closed")
+            return None
+
+        # 1. Primary: Cryptographic RS256 JWKS verification using Google public certificates
+        try:
+            import jwt
+            jwk_client = cls.get_jwks_client()
+            signing_key = jwk_client.get_signing_key_from_jwt(credential)
+            payload = jwt.decode(
+                credential,
+                signing_key.key,
+                algorithms=["RS256"],
+                audience=allowed_auds if allowed_auds else None,
+                issuer=list(cls.VALID_GOOGLE_ISSUERS),
+                options={"verify_exp": True}
+            )
+
+            # Validate mandatory claims
+            sub = payload.get("sub")
+            email = payload.get("email")
+            if not sub or not email:
+                logger.warning("Google ID token missing sub or email claim in verified payload")
+                return None
+
+            email_verified = payload.get("email_verified")
+            if email_verified not in (True, "true", "True", 1):
+                logger.warning("Google ID token rejected: email is not verified by Google")
+                return None
+
+            return {
+                "sub": str(sub),
+                "email": str(email).strip().lower(),
+                "name": payload.get("name", "Google User"),
+                "avatar_url": payload.get("picture", "")
+            }
+        except Exception as jwks_err:
+            logger.info("JWKS verification note: %s. Evaluating tokeninfo endpoint...", jwks_err)
+
+        # 2. Secondary fallback: Tokeninfo endpoint with strict claim validation
         try:
             import requests
-            # Verify against Google OAuth2 tokeninfo endpoint (safe, TLS-verified, fail-closed)
             resp = requests.get(
                 f"https://oauth2.googleapis.com/tokeninfo?id_token={credential}",
                 timeout=5.0
@@ -274,37 +324,32 @@ class GoogleAuthVerifier:
                 return None
             info = resp.json()
 
-            # 1. Issuer verification (must be accounts.google.com or https://accounts.google.com)
+            # Issuer verification
             iss = info.get("iss", "")
             if iss not in cls.VALID_GOOGLE_ISSUERS:
                 logger.warning("Google ID token issuer invalid: %s", iss)
                 return None
 
-            # 2. Audience verification (MANDATORY in production and staging, exact match if configured)
-            expected_aud = os.environ.get("GOOGLE_CLIENT_ID", "").strip()
-            app_env = os.environ.get("POLYA_ENV", "production").lower()
-            if not expected_aud and app_env in ("production", "staging"):
-                logger.error("GOOGLE_CLIENT_ID is not configured in production or staging mode; refusing authentication fail-closed")
+            # Audience verification
+            aud = info.get("aud")
+            if not allowed_auds or aud not in allowed_auds:
+                logger.warning("Google ID token audience verification failed: %s not in allowed client IDs", aud)
                 return None
 
-            if expected_aud and info.get("aud") != expected_aud:
-                logger.warning("Google ID token audience verification failed: received audience does not match configured GOOGLE_CLIENT_ID")
-                return None
-
-            # 3. Subject and email mandatory check
+            # Subject and email mandatory check
             sub = info.get("sub")
             email = info.get("email")
             if not sub or not email:
                 logger.warning("Google ID token missing sub or email claim")
                 return None
 
-            # 4. Email verification check (must be verified by Google)
+            # Email verification check
             email_verified = info.get("email_verified")
             if email_verified not in (True, "true", "True", 1):
                 logger.warning("Google ID token email is not verified by Google")
                 return None
 
-            # 5. Expiration check (if exp provided in payload)
+            # Expiration check
             exp_val = info.get("exp")
             if exp_val is not None:
                 try:
@@ -324,10 +369,22 @@ class GoogleAuthVerifier:
             logger.warning(f"Error during Google ID token verification: {e}")
             return None
 
+    @classmethod
+    def get_expected_client_id(cls) -> str:
+        return os.environ.get("GOOGLE_CLIENT_ID", "").strip()
+
+    @classmethod
+    def get_allowed_client_ids(cls) -> List[str]:
+        configured = os.environ.get("GOOGLE_CLIENT_ID", "").strip()
+        if configured:
+            return [configured]
+        return []
+
 
 class SessionService:
     """Manages cryptographically signed and verifiable session tokens with TTL."""
     TOKEN_TTL_SECONDS = 86400 * 7  # 7 days
+    GUEST_TOKEN_TTL_SECONDS = 86400 * 30  # 30 days
 
     @classmethod
     def get_secret(cls) -> str:
@@ -337,10 +394,11 @@ class SessionService:
         return secret
 
     @classmethod
-    def create_token(cls, user_id: str, role: str = "visitor") -> str:
+    def create_token(cls, user_id: str, role: str = "visitor", ttl: Optional[int] = None) -> str:
         secret = cls.get_secret()
         header = base64.urlsafe_b64encode(json.dumps({"alg": "HS256", "typ": "JWT"}).encode()).decode().rstrip("=")
-        exp = int(datetime.now(timezone.utc).timestamp()) + cls.TOKEN_TTL_SECONDS
+        token_ttl = ttl if ttl is not None else cls.TOKEN_TTL_SECONDS
+        exp = int(datetime.now(timezone.utc).timestamp()) + token_ttl
         payload_data = {
             "sub": user_id,
             "role": role,
@@ -352,6 +410,13 @@ class SessionService:
         sig = hmac.new(secret.encode("utf-8"), unsigned.encode("utf-8"), hashlib.sha256).digest()
         signature = base64.urlsafe_b64encode(sig).decode().rstrip("=")
         return f"{unsigned}.{signature}"
+
+    @classmethod
+    def create_guest_token(cls, guest_id: Optional[str] = None) -> Tuple[str, str]:
+        if not guest_id or not guest_id.startswith("guest_"):
+            guest_id = f"guest_{uuid.uuid4().hex[:16]}"
+        token = cls.create_token(user_id=guest_id, role="guest", ttl=cls.GUEST_TOKEN_TTL_SECONDS)
+        return token, guest_id
 
     @classmethod
     def verify_token(cls, token: str) -> Optional[Dict[str, Any]]:

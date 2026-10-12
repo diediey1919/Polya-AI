@@ -20,13 +20,36 @@
         snapScript.src = "https://app.midtrans.com/snap/snap.js";
         snapScript.setAttribute("data-client-key", "Mid-client-Qlw0KoT7R9eWvQRH");
       }
+      snapScript.onload = () => { window.__snapLoaded = true; };
+      snapScript.onerror = () => {
+        console.error("Gagal memuat SDK Midtrans Snap. Periksa koneksi atau blocker.");
+        window.__snapLoadError = true;
+      };
       document.head.appendChild(snapScript);
 
-      if (window.location.origin === "https://staging.apologets.com") {
+      const isGoogleOrigin = window.location.origin === "https://staging.apologets.com" ||
+                             window.location.origin === "https://apologets.com" ||
+                             window.location.origin === "https://www.apologets.com" ||
+                             window.location.hostname === "staging.apologets.com" ||
+                             window.location.hostname === "apologets.com" ||
+                             window.location.hostname === "www.apologets.com" ||
+                             window.location.hostname === "127.0.0.1" ||
+                             window.location.hostname === "localhost";
+      if (isGoogleOrigin) {
         const gisScript = document.createElement("script");
         gisScript.src = "https://accounts.google.com/gsi/client";
         gisScript.async = true;
         gisScript.defer = true;
+        gisScript.onload = () => {
+          window.__gisLoaded = true;
+          if (typeof initGoogleIdentity === "function") {
+            initGoogleIdentity();
+          }
+        };
+        gisScript.onerror = () => {
+          console.error("Failed to load Google Identity Services script from https://accounts.google.com/gsi/client");
+          window.__gisLoadError = true;
+        };
         document.head.appendChild(gisScript);
       }
     })();
@@ -333,6 +356,54 @@
       to {
         rotate: 360deg;
       }
+    }
+
+
+    /* Google Sign-in Dark Button with Logo-Style Animated Border Beam */
+    .g-signin-border-beam {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      overflow: hidden;
+      padding: 2px;
+      background: #1d1d1d;
+      box-sizing: border-box;
+      max-width: 100%;
+    }
+
+    .g-signin-border-beam::before {
+      content: "";
+      position: absolute;
+      inset: -100%;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0 290deg,
+        #ffaa40 310deg,
+        #9c40ff 330deg,
+        #00c0ff 350deg,
+        transparent 360deg
+      );
+      animation: border-beam-spin 5s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .g-signin-border-beam::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      background: #0d0d0f;
+      border-radius: 6px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .g-signin-border-beam > * {
+      position: relative;
+      z-index: 2;
+      display: flex;
     }
 
     /* Minimal Top Command Bar (Clay + Deepgram Console) */
@@ -666,7 +737,7 @@
     }
 
     .sidebar-profile-card.open .sidebar-profile-menu {
-      max-height: 280px;
+      max-height: 400px;
       opacity: 1;
       padding: 0.45rem 0.45rem 0.6rem 0.45rem;
       border-top-color: rgba(255, 255, 255, 0.06);
@@ -1745,6 +1816,7 @@
       </div>
     </a>
     <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <div id="mobile-hdr-g-signin-container" class="g-signin-border-beam" style="display: flex; align-items: center;"></div>
       <button type="button" class="header-search-btn" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.3rem 0.6rem; cursor: pointer;" onclick="openSearchModal()">
         <span style="color: var(--text-dim); font-size: 0.78rem;">🔍</span>
       </button>
@@ -1766,6 +1838,7 @@
           </div>
         </a>
       </div>
+      <div style="display: flex; justify-content: center; margin-bottom: 0.5rem;"><div id="desktop-hdr-g-signin-container" class="g-signin-border-beam" style="min-height: 40px;"></div></div>
       <!-- Sidebar Quick Search -->
       <div style="margin-bottom: 0.5rem;">
         <button type="button" class="header-search-btn" style="display: flex; align-items: center; gap: 0.5rem; width: 100%; background: #141822; border: 1px solid var(--border-subtle); border-radius: 10px; padding: 0.45rem 0.75rem; cursor: pointer; text-align: left; transition: all 0.15s ease;" onclick="openSearchModal()">
@@ -1811,6 +1884,13 @@
           <a class="sidebar-profile-item" onclick="navigateRoute(event, '/settings')">
             <span>Settings</span>
           </a>
+          <div id="sb-switch-action" class="sidebar-profile-item hidden" style="cursor: pointer; color: var(--primary);" onclick="handleSwitchAccount()">
+            <span style="display: flex; align-items: center; gap: 0.4rem;">
+              <span>🔄</span>
+              <span>Ganti Akun</span>
+            </span>
+          </div>
+          <div id="g-signin-btn-container" style="display: flex; justify-content: center; margin: 0.35rem 0 0.15rem 0; min-height: 40px;"></div>
           <div id="sb-auth-action" class="sidebar-profile-logout" onclick="triggerGoogleAuth()">
             <span id="sb-auth-text">🔑 Sign In</span>
           </div>
@@ -1819,12 +1899,11 @@
 
       </div>
       <div class="sidebar-heading">Research Workspace</div>
-      <a class="side-item active" onclick="navigateRoute(event, '/dashboard')">Dashboard</a>
-      <a class="side-item" onclick="navigateRoute(event, '/calculator')">Claim Calculator</a>
+      <a class="side-item" onclick="navigateRoute(event, '/calculator')">Apologetics Machine</a>
+      <a class="side-item active" onclick="navigateRoute(event, '/dashboard')">Workspace</a>
       <a class="side-item" onclick="navigateRoute(event, '/themes')">Themes & Case Files</a>
 
       <div class="sidebar-heading">Evidence Lab</div>
-      <a class="side-item" href="/arena" style="color: #dfb15b; font-weight: 600;">Debate Arena (3-vs-3)</a>
       <a class="side-item" onclick="navigateRoute(event, '/knowledge')">Knowledge Base</a>
       <a class="side-item" onclick="navigateRoute(event, '/persona')">Persona Dialektika</a>
       <a class="side-item" onclick="navigateRoute(event, '/pipeline')">Exegesis Pipeline</a>
@@ -1832,6 +1911,7 @@
       <div class="sidebar-heading">Preparation & User</div>
       <a class="side-item" onclick="navigateRoute(event, '/settings')">Settings</a>
       <a class="side-item" onclick="navigateRoute(event, '/account')">Billing & Quota</a>
+      <a class="side-item" href="/arena" style="color: #dfb15b; font-weight: 600;">Debate Arena (3-vs-3)</a>
     </aside>
 
     <!-- Main Content Area -->
@@ -2644,6 +2724,14 @@ Menunggu instruksi user untuk eksekusi backlog P0.
             <p><strong>Nama:</strong> <span id="acc-name">Researcher</span></p>
             <p><strong>Email:</strong> <span id="acc-email">scholar@polya-apologetika.org</span></p>
             <p><strong>Role:</strong> Apologist / Debater</p>
+            <div id="acc-auth-actions" style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+              <button id="acc-btn-switch" type="button" class="btn-secondary hidden" style="font-size: 0.75rem; padding: 0.35rem 0.75rem;" onclick="handleSwitchAccount()">
+                🔄 Ganti Akun Google
+              </button>
+              <button id="acc-btn-signout" type="button" class="btn-secondary hidden" style="font-size: 0.75rem; padding: 0.35rem 0.75rem; color: #f43f5e;" onclick="handleSignOut()">
+                🚪 Sign Out
+              </button>
+            </div>
           </div>
 
           <div class="case-card">
@@ -2712,6 +2800,9 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
     document.addEventListener("DOMContentLoaded", async () => {
       restoreSession();
+      if (typeof initGoogleIdentity === "function") {
+        initGoogleIdentity();
+      }
       await fetchLanguages();
       await fetchUsage();
       renderDemoClaims();
@@ -2765,7 +2856,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       languages.forEach(l => {
         const btn = document.createElement("button");
         btn.className = `choice-btn ${l.code === userContext.ui_locale ? 'active' : ''}`;
-        btn.innerHTML = `<span class="native-label">${l.native}</span><span class="sub-label">${l.name} (${l.dir.toUpperCase()})</span>`;
+        const dirStr = (l.dir || 'ltr').toUpperCase();
+        btn.innerHTML = `<span class="native-label">${l.native || l.name}</span><span class="sub-label">${l.name} (${dirStr})</span>`;
         btn.onclick = () => selectLanguage(l.code, l.dir);
         container.appendChild(btn);
       });
@@ -2774,9 +2866,12 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     function selectLanguage(code, dir) {
       userContext.ui_locale = code;
       document.querySelectorAll(".choice-btn").forEach(b => b.classList.remove("active"));
-      event.currentTarget.classList.add("active");
+      if (typeof event !== "undefined" && event && event.currentTarget) {
+        event.currentTarget.classList.add("active");
+      }
       document.documentElement.dir = dir || "ltr";
-      document.getElementById("badge-lang").textContent = code.toUpperCase();
+      const bLang = document.getElementById("badge-lang");
+      if (bLang) bLang.textContent = code.toUpperCase();
     }
 
     function proceedToPerspectiveStep() {
@@ -2826,9 +2921,12 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       applyContextToUI();
 
       try {
-        await fetch(`/api/v1/context?user_id=${currentUserId}`, {
+        const token = getStoredToken();
+        const headers = { "Content-Type": "application/json" };
+        if (token) headers["Authorization"] = `Bearer ${token}`;
+        await fetch(`/api/v1/context?user_id=${encodeURIComponent(currentUserId)}`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: headers,
           body: JSON.stringify(userContext)
         });
       } catch(e){}
@@ -2842,9 +2940,12 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     function applyContextToUI() {
       const p = userContext.user_perspective;
       const label = (p === "christian") ? "✝ Kristen" : "☪ Islam";
-      document.getElementById("badge-perspective").textContent = label;
-      document.getElementById("badge-lang").textContent = userContext.ui_locale.toUpperCase();
-      document.getElementById("dash-persp-val").textContent = (p === "christian") ? "✝ Apologetics Kristen" : "☪ Apologetics Islam";
+      const bPersp = document.getElementById("badge-perspective");
+      if (bPersp) bPersp.textContent = label;
+      const bLang = document.getElementById("badge-lang");
+      if (bLang) bLang.textContent = (userContext.ui_locale || "id").toUpperCase();
+      const dPersp = document.getElementById("dash-persp-val");
+      if (dPersp) dPersp.textContent = (p === "christian") ? "✝ Apologetics Kristen" : "☪ Apologetics Islam";
     }
 
     function renderDemoClaims() {
@@ -2880,22 +2981,34 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
     async function fetchUsage() {
       try {
-        const res = await fetch(`/api/v1/entitlements/usage?user_id=${currentUserId}`);
-        const data = await res.json();
-        currentUsage = data;
-        updateUsageUI();
+        const token = getStoredToken();
+        const headers = {};
+        if (token) headers["Authorization"] = `Bearer ${token}`;
+
+        const res = await fetch(`/api/v1/entitlements/usage?user_id=${encodeURIComponent(currentUserId)}`, { headers });
+        if (res.ok) {
+          const data = await res.json();
+          currentUsage = data;
+          updateUsageUI();
+        } else if (res.status === 401 || res.status === 403) {
+          console.warn("Usage telemetry access denied (status " + res.status + "); maintaining local usage estimate.");
+        } else {
+          console.warn("Usage telemetry non-200 status: " + res.status);
+        }
       } catch (e) {
-        console.error("Usage fetch failed:", e);
+        console.warn("Usage fetch network/telemetry failure:", e);
       }
     }
 
     function updateUsageUI() {
+      if (!currentUsage) return;
       const pill = document.getElementById("badge-quota-display");
       const calcPill = document.getElementById("calc-quota-pill");
       const dashPill = document.getElementById("dash-quota-val");
       const accUsed = document.getElementById("acc-used-count");
       const accTier = document.getElementById("acc-tier-display");
       const heroCta = document.getElementById("hero-cta-btn");
+      const dashPlan = document.getElementById("dash-plan-val");
 
       const sbSub = document.getElementById("sb-sub-badge");
       if (sbSub) {
@@ -2903,42 +3016,54 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         sbSub.className = currentUsage.is_premium ? "sidebar-profile-badge badge-sub" : "sidebar-profile-badge badge-model";
       }
       if (currentUsage.is_premium) {
-        pill.textContent = "PREMIUM";
-        pill.className = "badge-pill badge-premium";
-        calcPill.textContent = "Polya Premium (Unlimited)";
-        calcPill.className = "badge-pill badge-premium";
-        dashPill.textContent = "UNLIMITED";
-        dashPill.style.color = "var(--gold)";
-        document.getElementById("dash-plan-val").textContent = "PREMIUM ACTIVE";
-        accTier.textContent = "PREMIUM ACTIVE";
-        accUsed.textContent = "Unlimited";
+        if (pill) {
+          pill.textContent = "PREMIUM";
+          pill.className = "badge-pill badge-premium";
+        }
+        if (calcPill) {
+          calcPill.textContent = "Polya Premium (Unlimited)";
+          calcPill.className = "badge-pill badge-premium";
+          calcPill.style.display = "";
+        }
+        if (dashPill) {
+          dashPill.textContent = "UNLIMITED";
+          dashPill.style.color = "var(--gold)";
+        }
+        if (dashPlan) dashPlan.textContent = "PREMIUM ACTIVE";
+        if (accTier) accTier.textContent = "PREMIUM ACTIVE";
+        if (accUsed) accUsed.textContent = "Unlimited";
         if (heroCta) {
           heroCta.textContent = "Mulai Analisis Premium";
           heroCta.onclick = focusCalculator;
         }
       } else {
         const rem = (currentUsage.remaining !== undefined) ? currentUsage.remaining : (5 - (currentUsage.used || 0));
-        pill.textContent = `${rem}/5 Free`;
-        pill.className = "badge-pill badge-quota";
-        if (rem <= 0) {
-          calcPill.textContent = "";
-          calcPill.style.display = "none";
-          if (heroCta) {
+        if (pill) {
+          pill.textContent = `${rem}/5 Free`;
+          pill.className = "badge-pill badge-quota";
+        }
+        if (calcPill) {
+          if (rem <= 0) {
+            calcPill.textContent = "";
+            calcPill.style.display = "none";
+          } else {
+            calcPill.textContent = `${rem} Free`;
+            calcPill.style.display = "";
+            calcPill.className = "badge-pill badge-quota";
+          }
+        }
+        if (heroCta) {
+          if (rem <= 0) {
             heroCta.textContent = "Berlangganan Polya Premium";
             heroCta.onclick = openCheckoutModal;
-          }
-        } else {
-          calcPill.textContent = `${rem} Free`;
-          calcPill.style.display = "";
-          calcPill.className = "badge-pill badge-quota";
-          if (heroCta) {
+          } else {
             heroCta.textContent = `Coba ${rem} Analisis Gratis`;
             heroCta.onclick = focusCalculator;
           }
         }
-        dashPill.textContent = `${rem} / 5 Free`;
-        accUsed.textContent = currentUsage.used;
-        accTier.textContent = "FREE TIER";
+        if (dashPill) dashPill.textContent = `${rem} / 5 Free`;
+        if (accUsed) accUsed.textContent = (currentUsage.used !== undefined) ? currentUsage.used : 0;
+        if (accTier) accTier.textContent = "FREE TIER";
       }
     }
 
@@ -2951,149 +3076,310 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       const btn = document.getElementById("btn-calc-analyze");
       const loader = document.getElementById("btn-calc-loader");
       const btnText = document.getElementById("btn-calc-text");
-      const btnArrow = document.getElementById("btn-calc-arrow");
-
       if (btn) btn.disabled = true;
       if (loader) loader.style.display = "inline-flex";
-      if (btnText) btnText.textContent = "Menganalisis Klaim...";
-      if (btnArrow) btnArrow.style.display = "none";
+      if (btnText) btnText.style.display = "none";
 
-      const requestId = `req_${Date.now()}_${Math.random().toString(36).substring(7)}`;
       const token = getStoredToken();
       const headers = { "Content-Type": "application/json" };
       if (token) headers["Authorization"] = `Bearer ${token}`;
 
+      let res = null;
+      let rawText = "";
+
+      // Step 1: Send claim analysis request
       try {
-        const res = await fetch("/api/v1/calculator/analyze", {
+        res = await fetch("/api/v1/calculator/analyze", {
           method: "POST",
           headers: headers,
           body: JSON.stringify({
             claim: claim,
-            request_id: requestId,
-            user_id: currentUserId,
-            context: userContext
+            context: userContext,
+            request_id: "req_" + Math.random().toString(36).substring(2, 14),
+            user_id: currentUserId
           })
         });
+      } catch (networkErr) {
+        console.error("Network connectivity failure during analysis:", networkErr);
+        alert("Gagal terhubung ke engine kalkulator. Periksa koneksi internet Anda dan silakan coba kembali.");
+        if (btn) btn.disabled = false;
+        if (loader) loader.style.display = "none";
+        if (btnText) btnText.style.display = "inline";
+        return;
+      }
 
+      // Step 2: Validate and parse response
+      let data = null;
+      try {
+        rawText = await res.text();
+        data = JSON.parse(rawText);
+      } catch (parseErr) {
+        console.error("Malformed JSON response from calculator API:", parseErr, rawText);
+        alert("Engine kalkulator mengembalikan respons yang tidak valid (format data rusak).");
+        if (btn) btn.disabled = false;
+        if (loader) loader.style.display = "none";
+        if (btnText) btnText.style.display = "inline";
+        return;
+      }
+
+      // Step 3: Handle HTTP status codes
+      if (!res.ok) {
         if (res.status === 402) {
-          document.getElementById("premium-gate-modal").classList.remove("hidden");
-          return;
+          const errMsg = (data && data.detail && data.detail.message) ? data.detail.message : "Kuota 5 analisis gratis kamu telah habis. Lanjutkan dengan Polya Premium.";
+          alert(errMsg);
+          if (typeof openCheckoutModal === "function") openCheckoutModal();
+        } else if (res.status === 401 || res.status === 403) {
+          const authMsg = (data && data.detail) ? (typeof data.detail === "string" ? data.detail : JSON.stringify(data.detail)) : "Sesi autentikasi tidak valid atau kedaluwarsa. Silakan login ulang.";
+          alert("Autentikasi ditolak (" + res.status + "): " + authMsg);
+        } else if (res.status === 429) {
+          alert("Terlalu banyak permintaan analisis dalam waktu singkat. Silakan tunggu beberapa saat.");
+        } else if (res.status >= 500) {
+          const srvMsg = (data && data.detail) ? (typeof data.detail === "string" ? data.detail : JSON.stringify(data.detail)) : "Terjadi kesalahan internal pada engine kalkulator.";
+          alert("Kesalahan server (" + res.status + "): " + srvMsg);
+        } else {
+          const detailMsg = (data && data.detail) ? (typeof data.detail === "string" ? data.detail : JSON.stringify(data.detail)) : "Gagal memproses analisis klaim.";
+          alert("Gagal menganalisis klaim (" + res.status + "): " + detailMsg);
         }
 
-        const data = await res.json();
-        if (data.success && data.case_file) {
+        if (btn) btn.disabled = false;
+        if (loader) loader.style.display = "none";
+        if (btnText) btnText.style.display = "inline";
+        return;
+      }
+
+      // Step 4: Process successful analysis payload
+      try {
+        if (data && data.success && data.case_file) {
           currentActiveCaseFile = data.case_file;
           try {
             sessionStorage.setItem("polya_active_case_file", JSON.stringify(data.case_file));
-          } catch(e){}
-          renderCaseFile(data.case_file);
-          currentUsage = data.usage;
-          updateUsageUI();
+          } catch(storageErr){
+            console.warn("Could not cache case file in sessionStorage:", storageErr);
+          }
+
+          // Defensive Render Execution
+          try {
+            renderCaseFile(data.case_file);
+          } catch (renderErr) {
+            console.error("Non-fatal error in renderCaseFile wrapper:", renderErr);
+          }
+
+          if (data.usage) {
+            currentUsage = data.usage;
+            try {
+              updateUsageUI();
+            } catch (usageErr) {
+              console.warn("Non-fatal usage telemetry UI update warning:", usageErr);
+            }
+          } else {
+            // Independent background usage telemetry refresh (failure does not cancel Case File)
+            fetchUsage().catch(err => console.warn("Background usage fetch error:", err));
+          }
         } else {
-          alert("Gagal menganalisis klaim: " + (data.detail || "Kesalahan server"));
+          alert("Respons analisis diterima tetapi tidak memiliki data Case File yang valid.");
         }
-      } catch (err) {
-        console.error("Analysis execution error:", err);
-        alert("Gagal terhubung ke engine kalkulator. Silakan coba kembali.");
+      } catch (procErr) {
+        console.error("Error processing analysis response:", procErr);
+        alert("Terjadi kesalahan saat memproses data analisis: " + (procErr.message || procErr));
       } finally {
         if (btn) btn.disabled = false;
         if (loader) loader.style.display = "none";
-        if (btnText) btnText.textContent = "Hitung & Analisis Klaim";
-        if (btnArrow) btnArrow.style.display = "inline";
+        if (btnText) btnText.style.display = "inline";
       }
     }
 
+    // Helper Utilities for Defensive Rendering
+    function safeArray(val) {
+      if (!val) return [];
+      if (Array.isArray(val)) return val;
+      return [];
+    }
+
+    function safeJoin(val, separator = ", ") {
+      if (!val) return "";
+      if (Array.isArray(val)) {
+        return val.map(v => (v !== null && typeof v === "object") ? JSON.stringify(v) : String(v)).join(separator);
+      }
+      if (typeof val === "string") return val;
+      if (typeof val === "object") return JSON.stringify(val);
+      return String(val);
+    }
+
+    function safeEscapeText(str) {
+      if (str === null || str === undefined) return "";
+      const div = document.createElement("div");
+      div.textContent = String(str);
+      return div.innerHTML;
+    }
+
     function renderCaseFile(cf) {
-      if (!cf) return;
+      if (!cf || typeof cf !== "object") return;
       currentActiveCaseFile = cf;
       const resCard = document.getElementById("case-file-result");
-      resCard.classList.remove("hidden");
+      if (resCard) resCard.classList.remove("hidden");
 
-      document.getElementById("case-id-display").textContent = cf.case_id || "CASE-FILE";
-      document.getElementById("case-claim-display").textContent = cf.claim || "";
-      document.getElementById("case-context-display").textContent = cf.context || "";
-      document.getElementById("case-argument-content").textContent = cf.argument || "";
-      document.getElementById("case-counter-content").textContent = cf.counterargument || "Pihak lawan mendalilkan keberatan tanpa verifikasi naskah primer.";
-      document.getElementById("case-rebuttal-content").textContent = cf.rebuttal || "";
-      document.getElementById("case-weakness-content").textContent = cf.weakness || "";
+      // 1. Core Header and Arguments Rendering (Critical)
+      try {
+        const idEl = document.getElementById("case-id-display");
+        if (idEl) idEl.textContent = cf.case_id || "CASE-FILE";
 
-      // Dynamic verification status badge
-      const statusBadge = document.getElementById("case-status-badge");
-      if (statusBadge) {
-        if (cf.is_demo) {
-          statusBadge.textContent = "DEMO / MOCK DATA";
-          statusBadge.className = "badge-pill badge-quota";
-          statusBadge.style.color = "var(--rose)";
-          statusBadge.style.borderColor = "var(--rose)";
-          statusBadge.style.background = "rgba(244, 63, 94, 0.15)";
-        } else {
-          statusBadge.textContent = "VERIFIED REAL INTEL";
-          statusBadge.className = "badge-pill";
-          statusBadge.style.color = "var(--emerald)";
-          statusBadge.style.borderColor = "var(--emerald)";
-          statusBadge.style.background = "rgba(16, 185, 129, 0.15)";
+        const claimEl = document.getElementById("case-claim-display");
+        if (claimEl) claimEl.textContent = cf.claim || "";
+
+        const ctxEl = document.getElementById("case-context-display");
+        if (ctxEl) ctxEl.textContent = cf.context || "";
+
+        const argEl = document.getElementById("case-argument-content");
+        if (argEl) argEl.textContent = cf.argument || "";
+
+        const counterEl = document.getElementById("case-counter-content");
+        if (counterEl) counterEl.textContent = cf.counterargument || "Pihak lawan mendalilkan keberatan tanpa verifikasi naskah primer.";
+
+        const rebEl = document.getElementById("case-rebuttal-content");
+        if (rebEl) rebEl.textContent = cf.rebuttal || "";
+
+        const weakEl = document.getElementById("case-weakness-content");
+        if (weakEl) weakEl.textContent = cf.weakness || "";
+      } catch (errHeader) {
+        console.warn("Subpanel error (core header/arguments):", errHeader);
+      }
+
+      // 2. Status Badge Rendering
+      try {
+        const statusBadge = document.getElementById("case-status-badge");
+        if (statusBadge) {
+          if (cf.is_demo) {
+            statusBadge.textContent = "DEMO / MOCK DATA";
+            statusBadge.className = "badge-pill badge-quota";
+            statusBadge.style.color = "var(--rose)";
+            statusBadge.style.borderColor = "var(--rose)";
+            statusBadge.style.background = "rgba(244, 63, 94, 0.15)";
+          } else {
+            statusBadge.textContent = "VERIFIED REAL INTEL";
+            statusBadge.className = "badge-pill";
+            statusBadge.style.color = "var(--emerald)";
+            statusBadge.style.borderColor = "var(--emerald)";
+            statusBadge.style.background = "rgba(16, 185, 129, 0.15)";
+          }
         }
+      } catch (errBadge) {
+        console.warn("Subpanel error (status badge):", errBadge);
       }
 
-      // Evidence Rendering
-      const evBox = document.getElementById("case-evidence-content");
-      if (cf.evidence && cf.evidence.length > 0) {
-        evBox.innerHTML = cf.evidence.map(e => `
-          <div style="margin-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.04); padding-bottom: 0.5rem;">
-            <span class="evidence-badge badge-primary-source">${e.language || 'PRIMARY SOURCE'}</span>
-            <p class="greek-text" style="margin-top: 0.25rem;">${e.source_text || ''}</p>
-            <p style="font-size: 0.8rem; color: var(--text-dim); font-family: var(--font-mono);">${e.transliteration || ''}</p>
-            <p style="font-size: 0.85rem; margin-top: 0.25rem;">${e.morphology || ''}</p>
-            ${e.critical_apparatus ? `<p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.2rem; font-family: var(--font-mono);">${e.critical_apparatus}</p>` : ''}
-          </div>
-        `).join('');
-      } else {
-        evBox.innerHTML = `<p style="font-size: 0.85rem; color: var(--text-dim);">Nihil bukti primer tercatat.</p>`;
-      }
+      // 3. Primary Evidence Rendering
+      try {
+        const evBox = document.getElementById("case-evidence-content");
+        if (evBox) {
+          const evidenceList = safeArray(cf.evidence);
+          if (evidenceList.length > 0) {
+            evBox.innerHTML = evidenceList.map(e => {
+              if (!e || typeof e !== "object") return "";
+              const lang = safeEscapeText(e.language || "PRIMARY SOURCE");
+              const srcText = safeEscapeText(e.source_text || "");
+              const translit = safeEscapeText(e.transliteration || "");
+              const morph = safeEscapeText(e.morphology || "");
+              const critApp = e.critical_apparatus ? `<p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.2rem; font-family: var(--font-mono);">${safeEscapeText(e.critical_apparatus)}</p>` : "";
+              const mss = e.manuscripts ? `<p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.15rem;">Saksi: ${safeEscapeText(safeJoin(e.manuscripts))}</p>` : "";
 
-      // Open Questions Rendering
-      const qBox = document.getElementById("case-questions-content");
-      if (qBox) {
-        const questions = Array.isArray(cf.open_questions) ? cf.open_questions : [];
-        if (questions.length > 0) {
-          qBox.innerHTML = questions.map(q => `<li>${q}</li>`).join('');
-        } else {
-          qBox.innerHTML = `<li>Bagaimana lawan membuktikan klaim tanpa rujukan naskah primer?</li><li>Apakah leksikon akademik standar mendukung pemaknaan lawan?</li>`;
+              return `
+                <div style="margin-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.04); padding-bottom: 0.5rem;">
+                  <span class="evidence-badge badge-primary-source">${lang}</span>
+                  <p class="greek-text" style="margin-top: 0.25rem;">${srcText}</p>
+                  ${translit ? `<p style="font-size: 0.8rem; color: var(--text-dim); font-family: var(--font-mono);">${translit}</p>` : ""}
+                  ${morph ? `<p style="font-size: 0.85rem; margin-top: 0.25rem;">${morph}</p>` : ""}
+                  ${mss}
+                  ${critApp}
+                </div>
+              `;
+            }).join("");
+          } else {
+            evBox.innerHTML = `<p style="font-size: 0.85rem; color: var(--text-dim);">Nihil bukti primer tercatat.</p>`;
+          }
         }
+      } catch (errEvidence) {
+        console.warn("Subpanel error (evidence):", errEvidence);
       }
 
-      // Debate Preparation Rendering
-      const prepBox = document.getElementById("case-prep-content");
-      if (prepBox) {
-        const prep = cf.debate_preparation || {};
-        const trap = prep.cross_examination_trap || "Buka pasal dan ayatnya dalam bahasa sumber asli (Yunani/Ibrani).";
-        const tempo = prep.recommended_tempo || "Ajukan pertanyaan Sokratik pendek, kunci lawan pada konsesi naskah primer.";
-        prepBox.innerHTML = `
-          <p><strong>🎯 Cross-Examination Trap:</strong> ${trap}</p>
-          <p style="margin-top: 0.5rem;"><strong>⏱ Recommended Tempo:</strong> ${tempo}</p>
-        `;
+      // 4. Open Questions Rendering
+      try {
+        const qBox = document.getElementById("case-questions-content");
+        if (qBox) {
+          const rawQ = cf.open_questions;
+          let questions = [];
+          if (Array.isArray(rawQ)) {
+            questions = rawQ.filter(q => q !== null && q !== undefined).map(q => typeof q === "object" ? JSON.stringify(q) : String(q));
+          } else if (typeof rawQ === "string" && rawQ.trim().length > 0) {
+            questions = [rawQ.trim()];
+          }
+
+          if (questions.length > 0) {
+            qBox.innerHTML = questions.map(q => `<li>${safeEscapeText(q)}</li>`).join("");
+          } else {
+            qBox.innerHTML = `<li>Bagaimana lawan membuktikan klaim tanpa rujukan naskah primer?</li><li>Apakah leksikon akademik standar mendukung pemaknaan lawan?</li>`;
+          }
+        }
+      } catch (errQuestions) {
+        console.warn("Subpanel error (open questions):", errQuestions);
       }
 
-      // Sources Table Rendering with Dynamic Inspect
-      const sBody = document.getElementById("case-sources-body");
-      if (sBody) {
-        sBody.innerHTML = (cf.sources || []).map(s => {
-          const passageQuery = s.citation ? s.citation.split('(')[0].trim() : "Roma 3:31";
-          return `
-            <tr>
-              <td>${s.citation}</td>
-              <td><span class="evidence-badge badge-direct">${s.type || 'Witness'}</span></td>
-              <td>
-                <button class="btn-primary" style="padding: 0.2rem 0.55rem; font-size: 0.75rem;" onclick="openSourceDrawer('${encodeURIComponent(passageQuery)}')">
-                  Inspect 🔍
-                </button>
-              </td>
-            </tr>
+      // 5. Debate Preparation & Socratic Strategy Rendering
+      try {
+        const prepBox = document.getElementById("case-prep-content");
+        if (prepBox) {
+          const prep = cf.debate_preparation;
+          let trap = "Buka pasal dan ayatnya dalam bahasa sumber asli (Yunani/Ibrani).";
+          let tempo = "Ajukan pertanyaan Sokratik pendek, kunci lawan pada konsesi naskah primer.";
+
+          if (prep && typeof prep === "object" && !Array.isArray(prep)) {
+            if (prep.cross_examination_trap) trap = String(prep.cross_examination_trap);
+            if (prep.recommended_tempo) tempo = String(prep.recommended_tempo);
+          } else if (typeof prep === "string" && prep.trim().length > 0) {
+            trap = prep.trim();
+          }
+
+          prepBox.innerHTML = `
+            <p><strong>🎯 Cross-Examination Trap:</strong> ${safeEscapeText(trap)}</p>
+            <p style="margin-top: 0.5rem;"><strong>⏱ Recommended Tempo:</strong> ${safeEscapeText(tempo)}</p>
           `;
-        }).join('');
+        }
+      } catch (errPrep) {
+        console.warn("Subpanel error (debate preparation):", errPrep);
       }
 
-      resCard.scrollIntoView({ behavior: "smooth" });
+      // 6. Sources Table Rendering with Dynamic Inspect
+      try {
+        const sBody = document.getElementById("case-sources-body");
+        if (sBody) {
+          const sourcesList = safeArray(cf.sources);
+          sBody.innerHTML = sourcesList.map(s => {
+            if (!s || typeof s !== "object") return "";
+            const citation = safeEscapeText(s.citation || "Sumber Primer");
+            const rawCit = s.citation || "Roma 3:31";
+            const typeStr = safeEscapeText(s.type || "Witness");
+            const passageQuery = String(rawCit).split("(")[0].trim() || "Roma 3:31";
+
+            return `
+              <tr>
+                <td>${citation}</td>
+                <td><span class="evidence-badge badge-direct">${typeStr}</span></td>
+                <td>
+                  <button class="btn-primary" style="padding: 0.2rem 0.55rem; font-size: 0.75rem;" onclick="openSourceDrawer('${encodeURIComponent(passageQuery)}')">
+                    Inspect 🔍
+                  </button>
+                </td>
+              </tr>
+            `;
+          }).join("");
+        }
+      } catch (errSources) {
+        console.warn("Subpanel error (sources table):", errSources);
+      }
+
+      if (resCard && typeof resCard.scrollIntoView === "function") {
+        try {
+          resCard.scrollIntoView({ behavior: "smooth" });
+        } catch(e){}
+      }
     }
 
     function triggerShowActiveSource() {
@@ -3188,11 +3474,15 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       const content = document.getElementById("adv-content");
       const btn = document.getElementById("btn-challenge-arg");
 
-      box.classList.remove("hidden");
-      box.scrollIntoView({ behavior: "smooth" });
-      title.textContent = "⚔ Adversarial Attack & Self-Critique Report";
-      loader.style.display = "block";
-      content.innerHTML = "";
+      if (box) {
+        box.classList.remove("hidden");
+        if (typeof box.scrollIntoView === "function") {
+          try { box.scrollIntoView({ behavior: "smooth" }); } catch(e){}
+        }
+      }
+      if (title) title.textContent = "⚔ Adversarial Attack & Self-Critique Report";
+      if (loader) loader.style.display = "block";
+      if (content) content.innerHTML = "";
       if (btn) btn.disabled = true;
 
       const token = getStoredToken();
@@ -3281,11 +3571,15 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       const content = document.getElementById("adv-content");
       const btn = document.getElementById("btn-weakest-point");
 
-      box.classList.remove("hidden");
-      box.scrollIntoView({ behavior: "smooth" });
-      title.textContent = "🎯 Weakest Point & Premise Vulnerability Analysis";
-      loader.style.display = "block";
-      content.innerHTML = "";
+      if (box) {
+        box.classList.remove("hidden");
+        if (typeof box.scrollIntoView === "function") {
+          try { box.scrollIntoView({ behavior: "smooth" }); } catch(e){}
+        }
+      }
+      if (title) title.textContent = "🎯 Weakest Point & Premise Vulnerability Analysis";
+      if (loader) loader.style.display = "block";
+      if (content) content.innerHTML = "";
       if (btn) btn.disabled = true;
 
       const token = getStoredToken();
@@ -3428,16 +3722,18 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       container.classList.remove("hidden");
       container.scrollIntoView({ behavior: "smooth" });
 
-      document.getElementById("theme-detail-title").textContent = "Memuat detail tema...";
-      document.getElementById("theme-overview-content").textContent = "Mengambil data naskah, ronde, dan aparatus...";
+      const thTitle = document.getElementById("theme-detail-title");
+      if (thTitle) thTitle.textContent = "Memuat detail tema...";
+      const thOver = document.getElementById("theme-overview-content");
+      if (thOver) thOver.textContent = "Mengambil data naskah, ronde, dan aparatus...";
 
       try {
         const res = await fetch(`/api/v1/themes/${themeId}`);
         const data = await res.json();
         if (res.ok && data.success) {
           currentActiveTheme = data;
-          document.getElementById("theme-detail-title").textContent = data.title;
-          document.getElementById("theme-detail-badge").textContent = `THEME ID: ${data.theme_id}`;
+          if (thTitle) thTitle.textContent = data.title;
+          const thBadge = document.getElementById("theme-detail-badge"); if (thBadge) thBadge.textContent = `THEME ID: ${data.theme_id}`;
 
           // Tab 1: Overview
           document.getElementById("theme-overview-content").innerHTML = `
@@ -3610,9 +3906,12 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       box.classList.remove("hidden");
       box.scrollIntoView({ behavior: "smooth" });
 
-      document.getElementById("node-detail-type").textContent = node.type;
-      document.getElementById("node-detail-title").textContent = node.label;
-      document.getElementById("node-detail-text").textContent = node.full_text || node.text || node.label;
+      const nType = document.getElementById("node-detail-type");
+      if (nType) nType.textContent = node.type;
+      const nTitle = document.getElementById("node-detail-title");
+      if (nTitle) nTitle.textContent = node.label;
+      const nText = document.getElementById("node-detail-text");
+      if (nText) nText.textContent = node.full_text || node.text || node.label;
       document.getElementById("node-detail-meta").innerHTML = `
         Status: <strong>${node.status || 'VERIFIED'}</strong> | Confidence: <strong>${((node.confidence || 0.95)*100).toFixed(1)}%</strong>
         ${node.provenance_hash ? ` | Provenance: <code>${node.provenance_hash}</code>` : ''}
@@ -3818,9 +4117,12 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           document.getElementById("zuma-active-box").classList.remove("hidden");
           document.getElementById("zuma-scorecard-box").classList.add("hidden");
 
-          document.getElementById("zuma-session-badge").textContent = activeTrainingSessionId;
-          document.getElementById("zuma-active-topic").textContent = topic;
-          document.getElementById("zuma-state-badge").textContent = data.current_state || "CONSTRUCTIVE";
+          const zSess = document.getElementById("zuma-session-badge");
+          if (zSess) zSess.textContent = activeTrainingSessionId;
+          const zTopic = document.getElementById("zuma-active-topic");
+          if (zTopic) zTopic.textContent = topic;
+          const zState = document.getElementById("zuma-state-badge");
+          if (zState) zState.textContent = data.current_state || "CONSTRUCTIVE";
 
           const feed = document.getElementById("zuma-dialogue-feed");
           feed.innerHTML = `
@@ -3990,24 +4292,51 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     async function openCheckoutModal() {
       closeGateModal();
       document.getElementById("checkout-modal").classList.remove("hidden");
-      document.getElementById("checkout-order-id").textContent = "Membuat pesanan...";
+      const orderIdEl = document.getElementById("checkout-order-id");
+      if (orderIdEl) orderIdEl.textContent = "Membuat pesanan...";
       const payBtn = document.getElementById("btn-snap-pay");
-      if (payBtn) payBtn.disabled = true;
+      if (payBtn) {
+        payBtn.disabled = true;
+        payBtn.textContent = "⌛ Menyiapkan Pembayaran...";
+      }
+      currentSnapToken = null;
 
       try {
+        const token = getStoredToken();
+        const headers = { "Content-Type": "application/json" };
+        if (token) headers["Authorization"] = `Bearer ${token}`;
+
         const res = await fetch("/api/v1/payment/checkout", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: headers,
           body: JSON.stringify({ user_id: currentUserId })
         });
         const tx = await res.json();
-        activeOrderId = tx.order_id;
-        currentSnapToken = tx.snap_token;
-        document.getElementById("checkout-order-id").textContent = tx.order_id;
-        if (payBtn) payBtn.disabled = false;
+        if (res.ok && tx.snap_token) {
+          activeOrderId = tx.order_id;
+          currentSnapToken = tx.snap_token;
+          if (orderIdEl) orderIdEl.textContent = tx.order_id;
+          if (payBtn) {
+            payBtn.disabled = false;
+            payBtn.textContent = "💳 Bayar Sekarang (Midtrans Snap)";
+          }
+        } else {
+          const errMsg = tx.detail?.message || tx.detail || "Gagal membuat token pembayaran Midtrans";
+          if (orderIdEl) orderIdEl.textContent = "Gagal membuat pesanan";
+          if (payBtn) {
+            payBtn.disabled = true;
+            payBtn.textContent = "Gagal Memuat Pembayaran";
+          }
+          console.error("Checkout error:", tx);
+          alert("Gagal menyiapkan transaksi Midtrans (" + res.status + "): " + errMsg);
+        }
       } catch (e) {
         console.error("Checkout initiation failed:", e);
-        document.getElementById("checkout-order-id").textContent = "Gagal membuat pesanan";
+        if (orderIdEl) orderIdEl.textContent = "Gagal membuat pesanan";
+        if (payBtn) {
+          payBtn.disabled = true;
+          payBtn.textContent = "Koneksi Terputus";
+        }
       }
     }
 
@@ -4050,7 +4379,44 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     }
 
     function getStoredToken() {
-      return sessionStorage.getItem("polya_session_token") || localStorage.getItem("polya_session_token");
+      return sessionStorage.getItem("polya_session_token") || 
+             localStorage.getItem("polya_session_token") || 
+             localStorage.getItem("polya_guest_token");
+    }
+
+    async function ensureGuestSession() {
+      const userToken = sessionStorage.getItem("polya_session_token") || localStorage.getItem("polya_session_token");
+      if (userToken) {
+        return userToken;
+      }
+      let guestToken = localStorage.getItem("polya_guest_token");
+      let guestId = localStorage.getItem("polya_guest_id");
+      if (guestToken && guestId) {
+        currentUserId = guestId;
+        return guestToken;
+      }
+      try {
+        const res = await fetch("/api/v1/auth/guest", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" }
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.session_token && data.user_id) {
+            localStorage.setItem("polya_guest_token", data.session_token);
+            localStorage.setItem("polya_guest_id", data.user_id);
+            currentUserId = data.user_id;
+            if (data.usage) {
+              currentUsage = data.usage;
+              updateUsageUI();
+            }
+            return data.session_token;
+          }
+        }
+      } catch (e) {
+        console.warn("Guest session issuance error:", e);
+      }
+      return null;
     }
 
     function setAuthSession(token, user) {
@@ -4067,13 +4433,183 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       }
     }
 
+    let isGisInitialized = false;
+    let authSafetyTimer = null;
+
+    function getGoogleClientId() {
+      const isProduction = window.location.hostname === "apologets.com" || window.location.hostname === "www.apologets.com";
+      return isProduction 
+        ? "953116755250-qomlk1eh2q01u62nlfemm68td1ca2bbu.apps.googleusercontent.com"
+        : "953116755250-p8n0eqgrsb84k7tfakptmb3nuccjn6vr.apps.googleusercontent.com";
+    }
+
+    function clearGoogleCoolDownCookies() {
+      try {
+        const expireStr = "expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
+        document.cookie = "g_state=; " + expireStr;
+        document.cookie = "g_state=; " + expireStr + " domain=" + window.location.hostname;
+        const parts = window.location.hostname.split('.');
+        if (parts.length > 2) {
+          const parentDomain = parts.slice(1).join('.');
+          document.cookie = "g_state=; " + expireStr + " domain=." + parentDomain;
+        }
+      } catch (e) {
+        console.warn("Could not clear g_state cookie:", e);
+      }
+    }
+
+    function initGoogleIdentity() {
+      if (!window.google?.accounts?.id || isGisInitialized) return;
+      try {
+        const clientId = getGoogleClientId();
+        google.accounts.id.initialize({
+          client_id: clientId,
+          callback: handleGoogleCredentialResponse,
+          auto_select: false,
+          cancel_on_tap_outside: false
+        });
+        isGisInitialized = true;
+        renderGoogleButtons();
+      } catch (e) {
+        console.error("GIS initialization error:", e);
+      }
+    }
+
+    function renderGoogleButtons() {
+      if (!window.google?.accounts?.id || !isGisInitialized) return;
+
+      const isGuest = !currentUserId || currentUserId === "guest_user" || currentUserId.startsWith("guest_");
+
+      const sbContainer = document.getElementById("g-signin-btn-container");
+      if (sbContainer) {
+        sbContainer.innerHTML = "";
+        if (isGuest) {
+          try {
+            google.accounts.id.renderButton(sbContainer, {
+              theme: "filled_black",
+              size: "medium",
+              type: "standard",
+              shape: "rectangular",
+              text: "signin_with",
+              logo_alignment: "left",
+              width: 210
+            });
+          } catch (e) {
+            console.warn("Could not render sidebar GIS button:", e);
+          }
+        }
+      }
+
+      const desktopHdrContainer = document.getElementById("desktop-hdr-g-signin-container");
+      if (desktopHdrContainer) {
+        desktopHdrContainer.innerHTML = "";
+        if (isGuest) {
+          try {
+            google.accounts.id.renderButton(desktopHdrContainer, {
+              theme: "filled_black",
+              size: "medium",
+              type: "standard",
+              shape: "rectangular",
+              text: "signin_with",
+              logo_alignment: "left",
+              width: 210
+            });
+          } catch (e) {
+            console.warn("Could not render desktop header GIS button:", e);
+          }
+        }
+      }
+
+      const mobileHdrContainer = document.getElementById("mobile-hdr-g-signin-container");
+      if (mobileHdrContainer) {
+        mobileHdrContainer.innerHTML = "";
+        if (isGuest) {
+          try {
+            google.accounts.id.renderButton(mobileHdrContainer, {
+              theme: "filled_black",
+              size: "small",
+              type: "standard",
+              shape: "rectangular",
+              text: "signin",
+              logo_alignment: "left"
+            });
+          } catch (e) {
+            console.warn("Could not render mobile header GIS button:", e);
+          }
+        }
+      }
+    }
+
+    async function handleGoogleCredentialResponse(resp) {
+      if (authSafetyTimer) {
+        clearTimeout(authSafetyTimer);
+        authSafetyTimer = null;
+      }
+      const btn = document.getElementById("btn-auth-header");
+      const sbAuthText = document.getElementById("sb-auth-text");
+
+      if (!resp || !resp.credential) {
+        if (sbAuthText) sbAuthText.textContent = "🔑 Sign In";
+        alert("Autentikasi dibatalkan atau token tidak diterima dari Google.");
+        return;
+      }
+
+      if (btn) btn.textContent = "Authenticating...";
+      if (sbAuthText) sbAuthText.textContent = "⌛ Memverifikasi...";
+
+      try {
+        const res = await fetch("/api/v1/auth/session", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            credential: resp.credential,
+            is_mock: false
+          })
+        });
+
+        const data = await res.json();
+        if (res.ok && data.success) {
+          setAuthSession(data.session_token, data.user);
+          await fetchUsage();
+          await fetchBillingHistory();
+        } else {
+          if (btn) btn.textContent = "Google Sign-In";
+          if (sbAuthText) sbAuthText.textContent = "🔑 Sign In";
+          alert("Login gagal (" + res.status + "): " + (data.detail || data.message || "Verifikasi ID token Google ditolak backend"));
+        }
+      } catch (err) {
+        if (btn) btn.textContent = "Google Sign-In";
+        if (sbAuthText) sbAuthText.textContent = "🔑 Sign In";
+        console.error("Auth error:", err);
+        alert("Koneksi ke backend gagal: " + err.message);
+      }
+    }
+
     function handleSignOut() {
       sessionStorage.removeItem("polya_session_token");
       localStorage.removeItem("polya_session_token");
       sessionStorage.removeItem("polya_user");
       localStorage.removeItem("polya_user");
       currentUserId = "guest_user";
+
+      if (window.google?.accounts?.id) {
+        try {
+          google.accounts.id.disableAutoSelect();
+        } catch(e){}
+      }
+      clearGoogleCoolDownCookies();
+
       updateAuthUI(null);
+      ensureGuestSession();
+    }
+
+    function handleSwitchAccount() {
+      handleSignOut();
+      const card = document.getElementById("sidebar-profile-card");
+      if (card && !card.classList.contains("open")) {
+        card.classList.add("open");
+      }
+      triggerGoogleAuth();
     }
 
     function updateAuthUI(user) {
@@ -4085,8 +4621,15 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       const sbAvatar = document.getElementById("sb-user-avatar");
       const sbAuthAction = document.getElementById("sb-auth-action");
       const sbAuthText = document.getElementById("sb-auth-text");
-      const sbSubBadge = document.getElementById("sb-sub-badge");
+      const sbSwitchAction = document.getElementById("sb-switch-action");
+      const sbGContainer = document.getElementById("g-signin-btn-container");
 
+      const accSwitchBtn = document.getElementById("acc-btn-switch");
+      const accSignOutBtn = document.getElementById("acc-btn-signout");
+      const desktopHdrGContainer = document.getElementById("desktop-hdr-g-signin-container");
+      const mobileHdrGContainer = document.getElementById("mobile-hdr-g-signin-container");
+
+      const sbSubBadge = document.getElementById("sb-sub-badge");
       const isPremium = currentUsage && currentUsage.is_premium;
       if (sbSubBadge) {
         sbSubBadge.textContent = isPremium ? "PRO" : "FREE";
@@ -4119,14 +4662,23 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         if (sbName) sbName.textContent = user.name;
         if (sbEmail) sbEmail.textContent = user.email || "user@apologets.com";
         if (sbAvatar) sbAvatar.src = pic;
-        if (hdrName) hdrName.textContent = user.name;
-        if (hdrMenuName) hdrMenuName.textContent = user.name;
-        if (hdrMenuEmail) hdrMenuEmail.textContent = user.email || "user@apologets.com";
-        if (hdrAvatar) hdrAvatar.src = pic;
+
         if (sbAuthAction) {
           sbAuthAction.onclick = handleSignOut;
           if (sbAuthText) sbAuthText.textContent = "🚪 Sign Out";
         }
+        if (sbSwitchAction) {
+          sbSwitchAction.classList.remove("hidden");
+        }
+        if (sbGContainer) {
+          sbGContainer.style.display = "none";
+        }
+
+        if (accSwitchBtn) accSwitchBtn.classList.remove("hidden");
+        if (accSignOutBtn) accSignOutBtn.classList.remove("hidden");
+        if (desktopHdrGContainer) desktopHdrGContainer.style.display = "none";
+        if (mobileHdrGContainer) mobileHdrGContainer.style.display = "none";
+
         if (hdrAuthAction) {
           hdrAuthAction.onclick = () => { closeHeaderProfileDropdown(); handleSignOut(); };
           if (hdrAuthText) hdrAuthText.textContent = "🚪 Sign Out";
@@ -4144,23 +4696,34 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         if (sbName) sbName.textContent = "Guest Researcher";
         if (sbEmail) sbEmail.textContent = "guest@polya.org";
         if (sbAvatar) sbAvatar.src = defaultPic;
-        if (hdrName) hdrName.textContent = "Guest Researcher";
-        if (hdrMenuName) hdrMenuName.textContent = "Guest Researcher";
-        if (hdrMenuEmail) hdrMenuEmail.textContent = "guest@polya.org";
-        if (hdrAvatar) hdrAvatar.src = defaultPic;
+
         if (sbAuthAction) {
           sbAuthAction.onclick = triggerGoogleAuth;
           if (sbAuthText) sbAuthText.textContent = "🔑 Sign In";
         }
+        if (sbSwitchAction) {
+          sbSwitchAction.classList.add("hidden");
+        }
+        if (sbGContainer) {
+          sbGContainer.style.display = "flex";
+        }
+
+        if (accSwitchBtn) accSwitchBtn.classList.add("hidden");
+        if (accSignOutBtn) accSignOutBtn.classList.add("hidden");
+        if (desktopHdrGContainer) desktopHdrGContainer.style.display = "flex";
+        if (mobileHdrGContainer) mobileHdrGContainer.style.display = "flex";
+
         if (hdrAuthAction) {
           hdrAuthAction.onclick = () => { closeHeaderProfileDropdown(); triggerGoogleAuth(); };
           if (hdrAuthText) hdrAuthText.textContent = "🔑 Sign In";
         }
+
+        renderGoogleButtons();
       }
     }
 
-    function restoreSession() {
-      const token = getStoredToken();
+    async function restoreSession() {
+      const token = sessionStorage.getItem("polya_session_token") || localStorage.getItem("polya_session_token");
       const rawUser = sessionStorage.getItem("polya_user") || localStorage.getItem("polya_user");
       if (token && rawUser) {
         try {
@@ -4172,6 +4735,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         }
       } else {
         updateAuthUI(null);
+        await ensureGuestSession();
       }
 
       // Restore active case file from session storage if present
@@ -4214,61 +4778,82 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       } catch (e){}
     }
 
-    // Google Auth
+    // Google Auth & One Tap
     async function triggerGoogleAuth() {
-      const btn = document.getElementById("btn-auth-header");
-      const isStagingOrigin = window.location.origin === "https://staging.apologets.com";
+      const sbAuthText = document.getElementById("sb-auth-text");
+      const isProduction = window.location.hostname === "apologets.com" || window.location.hostname === "www.apologets.com";
+      const isStaging = window.location.hostname === "staging.apologets.com";
+      const isSecureWeb = window.location.protocol === "https:" || isProduction || isStaging;
 
-      if (isStagingOrigin) {
+      // If user is already authenticated, clicking auth action triggers clean sign out
+      if (currentUserId && currentUserId !== "guest_user" && !currentUserId.startsWith("guest_")) {
+        handleSignOut();
+        return;
+      }
+
+      if (isSecureWeb || window.google?.accounts?.id) {
         if (!window.google || !window.google.accounts || !window.google.accounts.id) {
-          alert("Google Identity Services belum dimuat atau diblokir. Pastikan koneksi aman dan tidak ada blocker yang memblokir accounts.google.com.");
+          if (sbAuthText) sbAuthText.textContent = "🔑 Sign In";
+          alert("Google Identity Services (GIS) belum dimuat atau diblokir. Pastikan koneksi aman dan tidak ada blocker yang memblokir accounts.google.com.");
           return;
         }
 
-        google.accounts.id.initialize({
-          client_id: "953116755250-p8n0eqgrsb84k7tfakptmb3nuccjn6vr.apps.googleusercontent.com",
-          callback: async (resp) => {
-            if (!resp || !resp.credential) {
-              alert("Autentikasi dibatalkan atau token tidak diterima dari Google.");
-              return;
-            }
-            if (btn) btn.textContent = "Authenticating...";
-            try {
-              const res = await fetch("/api/v1/auth/session", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  credential: resp.credential,
-                  is_mock: false
-                })
-              });
-              const data = await res.json();
-              if (res.ok && data.success) {
-                setAuthSession(data.session_token, data.user);
-                await fetchUsage();
-                await fetchBillingHistory();
-              } else {
-                if (btn) btn.textContent = "Google Sign-In";
-                alert("Login gagal (" + res.status + "): " + (data.detail || data.message || "Verifikasi ID token Google ditolak backend"));
-              }
-            } catch (err) {
-              if (btn) btn.textContent = "Google Sign-In";
-              console.error("Auth error:", err);
-              alert("Koneksi ke backend gagal: " + err.message);
+        // Initialize GIS idempotently if not already done
+        initGoogleIdentity();
+
+        // Clear cooldown cookie so repeated clicks are not suppressed by client-side cooldown
+        clearGoogleCoolDownCookies();
+
+        // Cancel any pending GIS prompt before re-issuing
+        try {
+          google.accounts.id.cancel();
+        } catch(e){}
+
+        if (sbAuthText) sbAuthText.textContent = "⌛ Menghubungkan...";
+
+        if (authSafetyTimer) clearTimeout(authSafetyTimer);
+        authSafetyTimer = setTimeout(() => {
+          if (sbAuthText && sbAuthText.textContent.includes("Menghubungkan")) {
+            sbAuthText.textContent = "🔑 Sign In";
+          }
+        }, 5000);
+
+        google.accounts.id.prompt((notification) => {
+          if (notification.isDisplayed && notification.isDisplayed()) {
+            console.info("Google One Tap prompt displayed.");
+          }
+          if (notification.isNotDisplayed && notification.isNotDisplayed()) {
+            if (authSafetyTimer) { clearTimeout(authSafetyTimer); authSafetyTimer = null; }
+            if (sbAuthText) sbAuthText.textContent = "🔑 Sign In";
+            const reason = notification.getNotDisplayedReason ? notification.getNotDisplayedReason() : "suppressed";
+            console.warn("Google One Tap not displayed:", reason);
+            if (reason === "suppressed_by_user" || reason === "opt_out_or_no_session") {
+              renderGoogleButtons();
+              alert("Google One Tap dalam masa jeda atau dinonaktifkan (" + reason + "). Silakan gunakan tombol resmi 'Sign in with Google' di menu profil.");
             }
           }
+          if (notification.isDismissedMoment && notification.isDismissedMoment()) {
+            if (authSafetyTimer) { clearTimeout(authSafetyTimer); authSafetyTimer = null; }
+            if (sbAuthText) sbAuthText.textContent = "🔑 Sign In";
+            console.info("Google One Tap dismissed by user.");
+          }
+          if (notification.isSkippedMoment && notification.isSkippedMoment()) {
+            if (authSafetyTimer) { clearTimeout(authSafetyTimer); authSafetyTimer = null; }
+            if (sbAuthText) sbAuthText.textContent = "🔑 Sign In";
+            console.info("Google One Tap skipped.");
+          }
         });
-        google.accounts.id.prompt();
         return;
       }
 
       // Local / Dev environment only: mock auth strictly disallowed on staging or production
-      if (window.location.hostname === "staging.apologets.com" || window.location.protocol === "https:") {
+      if (isSecureWeb || window.location.hostname.includes("apologets")) {
         alert("Mock authentication dinonaktifkan pada lingkungan staging/produksi.");
         return;
       }
 
-      if (btn) btn.textContent = "Signing In (Dev)...";
+      // Fallback dev mock auth
+      if (sbAuthText) sbAuthText.textContent = "Signing In (Dev)...";
       try {
         const res = await fetch("/api/v1/auth/session", {
           method: "POST",
@@ -4287,11 +4872,11 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           await fetchUsage();
           await fetchBillingHistory();
         } else {
-          if (btn) btn.textContent = "Google Sign-In";
+          if (sbAuthText) sbAuthText.textContent = "🔑 Sign In";
           alert("Login dev gagal: " + (data.detail || "Verifikasi gagal"));
         }
       } catch (err) {
-        if (btn) btn.textContent = "Google Sign-In";
+        if (sbAuthText) sbAuthText.textContent = "🔑 Sign In";
         console.error("Auth error:", err);
       }
     }
@@ -4321,9 +4906,10 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
       if (path === "/" || path === "/calculator") {
         document.getElementById("view-calculator").classList.remove("hidden");
+        document.querySelectorAll(".side-item")[0].classList.add("active");
       } else if (path === "/dashboard") {
         document.getElementById("view-dashboard").classList.remove("hidden");
-        document.querySelectorAll(".side-item")[0].classList.add("active");
+        document.querySelectorAll(".side-item")[1].classList.add("active");
       } else if (path.startsWith("/themes")) {
         document.getElementById("view-themes").classList.remove("hidden");
         document.querySelectorAll(".side-item")[2].classList.add("active");

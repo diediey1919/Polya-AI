@@ -61,11 +61,14 @@ router = APIRouter(prefix="/api/v1", tags=["Foundation"])
 
 def verify_user_access(requested_user_id: str, authorization: Optional[str] = Header(None)) -> str:
     """Enforces authorization across user boundaries:
-    1. If user_id is \x27guest_user\x27 and no auth header, permits guest.
-    2. If auth header is provided, verifies Bearer token.
-       If requested_user_id != token[\x27sub\x27] and requested_user_id != \x27guest_user\x27, raises HTTP 403 Forbidden.
+    1. If user_id is 'guest_user' and no auth header, permits legacy anonymous guest.
+    2. If auth header is provided, verifies Bearer token HMAC signature and expiration.
+       - Rejects manipulated tokens, bad signatures, and expired tokens (HTTP 401).
+       - Enforces cross-user isolation: requested_user_id must match token sub (HTTP 403).
+       - Guest role tokens cannot impersonate registered users (HTTP 403).
        Returns verified user ID from token subject.
-    3. If requested_user_id is a specific user (not \x27guest_user\x27) and no auth header, raises HTTP 401 Unauthorized.
+    3. If requested_user_id is a specific user (not 'guest_user') and no auth header:
+       Rejects unauthenticated access (HTTP 401), preventing arbitrary guest_<uuid> assertion.
     """
     if authorization:
         parts = authorization.split(" ")
@@ -75,12 +78,20 @@ def verify_user_access(requested_user_id: str, authorization: Optional[str] = He
         if not claims or "sub" not in claims:
             raise HTTPException(status_code=401, detail="Invalid or expired session token")
         authenticated_id = claims["sub"]
+        role = claims.get("role", "visitor")
+
+        if role == "guest" and requested_user_id.startswith("usr_"):
+            raise HTTPException(status_code=403, detail="Forbidden: guest session cannot access registered user account")
+
         if requested_user_id != "guest_user" and requested_user_id != authenticated_id:
             raise HTTPException(status_code=403, detail="Forbidden: cross-user access denied")
         return authenticated_id
 
     if requested_user_id != "guest_user":
-        raise HTTPException(status_code=401, detail="Authentication required to access user account")
+        raise HTTPException(
+            status_code=401,
+            detail="Authentication required: client-declared identity rejected without server-signed session token"
+        )
 
     return "guest_user"
 
@@ -121,6 +132,10 @@ class SessionAuthRequest(BaseModel):
     name: Optional[str] = None
     avatar: Optional[str] = None
     is_mock: bool = False
+
+
+class GuestAuthRequest(BaseModel):
+    client_id: Optional[str] = None
 
 
 @router.get("/meta/languages")
@@ -381,10 +396,11 @@ async def show_weakest_point_endpoint(req: AnalyzeRequest):
 
 
 @router.post("/payment/checkout")
-async def create_checkout(req: CheckoutRequest):
+async def create_checkout(req: CheckoutRequest, authorization: Optional[str] = Header(None)):
     user_id = req.user_id or "guest_user"
+    effective_user_id = verify_user_access(user_id, authorization)
     try:
-        tx = PaymentService.create_checkout(user_id, req.idempotency_key)
+        tx = PaymentService.create_checkout(effective_user_id, req.idempotency_key)
         return tx
     except PaymentGatewayError as e:
         raise HTTPException(status_code=e.status_code, detail={"error": "PAYMENT_GATEWAY_ERROR", "message": e.message})
@@ -423,6 +439,23 @@ async def get_account_billing(
         "entitlement": entitlement,
         "usage": usage,
         "transactions": transactions
+    }
+
+
+@router.post("/auth/guest")
+async def auth_guest(req: Optional[GuestAuthRequest] = None):
+    """Issues a cryptographically signed guest session token with isolated guest identity."""
+    token, guest_id = SessionService.create_guest_token()
+    usage = UsageEntitlementService.get_usage(guest_id)
+    entitlement = EntitlementService.get_entitlement(guest_id)
+    return {
+        "success": True,
+        "session_token": token,
+        "user_id": guest_id,
+        "role": "guest",
+        "usage": usage,
+        "entitlement": entitlement,
+        "expires_in": SessionService.GUEST_TOKEN_TTL_SECONDS
     }
 
 
