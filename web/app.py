@@ -2157,6 +2157,17 @@ async def get_index():
             return HTMLResponse(content=f.read())
     return HTMLResponse("<h1>Polya Arena Loading...</h1>")
 
+@app.get("/calculator-report.txt")
+@app.get("/report.txt")
+async def get_calculator_report():
+    txt_file = os.path.join(STATIC_DIR, "calculator-end-to-end-repair-report.txt")
+    if os.path.exists(txt_file):
+        with open(txt_file, "r", encoding="utf-8") as f:
+            from fastapi.responses import PlainTextResponse
+            return PlainTextResponse(content=f.read())
+    from fastapi.responses import PlainTextResponse
+    return PlainTextResponse("Report not found", status_code=404)
+
 @app.get("/p1-report.txt")
 @app.get("/p1.txt")
 async def get_p1_report():
