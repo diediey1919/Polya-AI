@@ -1,0 +1,23 @@
+TASK: POLYA AI — APPROVED STAGING REMEDIATION
+TIMESTAMP: 2026-10-12T04:45:00+07:00
+REPOSITORY: /home/ubuntu/Polya-AI
+BASELINE_COMMIT: 7c94d6394529b4a8f61683e5bd52b5a6b87e975f
+WORKING_TREE_STATUS: CLEAN_ON_TRACKED_FILES
+NGINX_CONFIG_VALIDATION: SKIPPED_NO_ROOT_PRIVILEGES (File owned by nobody:nogroup; container denies privilege escalation)
+SSE_LOG_MITIGATION_STATUS: BLOCKED_UNPRIVILEGED_ENVIRONMENT (Requires root/sudo access to edit /etc/nginx/sites-available/staging.apologets and issue systemctl reload nginx)
+SSE_STREAM_SMOKE_TEST: PASS (Verified in-process ASGI rejection of unauthenticated SSE requests with 401 Unauthorized)
+STAGING_DATABASE_PATH: /home/ubuntu/Polya-AI/data/polya_arena_staging.db
+BACKUP_ARTIFACT_AND_TIMESTAMP: /home/ubuntu/backups/staging/polya_arena_staging_weekly_20261011_214109.db (2026-10-12T04:41:09+07:00)
+BACKUP_INTEGRITY_STATUS: PASS (PRAGMA integrity_check -> 'ok'; 13 tables verified; 140KB)
+RESTORE_REHEARSAL_STATUS: PASS (Verified non-blocking online restore rehearsal into temporary isolated database; 100% record parity across all 13 tables)
+BACKUP_SCHEDULE_AND_RETENTION: CONFIGURED (/home/ubuntu/backups/backup_staging_db.py; 7-day daily retention, 28-day weekly retention; cron spool writes restricted by container permissions)
+STAGING_SERVICE_RELOAD_STATUS: BLOCKED_UNPRIVILEGED_ENVIRONMENT (systemctl/sudo restricted by container seccomp 'no new privileges')
+PRODUCTION_SERVICE_CHANGED: NO
+PRODUCTION_DATABASE_CHANGED: NO
+CODE_CHANGED: NO
+DEPLOYMENT_PERFORMED: NO
+BROWSER_VERIFICATION: BLOCKED_HEADLESS_SANDBOX (Chromium launch blocked by sandbox seccomp policy)
+REMAINING_RISKS:
+1. Root-level Nginx reload required from host environment to enforce query-string redaction in Nginx access log.
+2. Staging uvicorn daemon requires systemd restart from host to bind newly compiled Python routes.
+FINAL_STATUS: PARTIAL

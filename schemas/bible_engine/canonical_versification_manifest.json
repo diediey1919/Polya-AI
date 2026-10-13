@@ -1,0 +1,5368 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "MANIFEST-CANONICAL-KJV-STANDARD",
+  "canon_id": "CANON-PROTESTANT-66",
+  "versification_system": "PROTESTANT_KJV_STANDARD",
+  "source_name": "CrossWire SWORD Tools canon_kjv.h",
+  "source_version": "SVN-r568",
+  "source_url": "https://crosswire.org/svn/sword-tools/trunk/versification/basicv11ns/canon_kjv.h",
+  "license": "GPL-2.0",
+  "source_checksum_sha256": "cf2f2844f0f8c8c1c66988c90dffff7708aada634b89d31e5e1ab1bcbb5fd88e",
+  "total_books": 66,
+  "total_chapters": 1189,
+  "total_verses": 31102,
+  "normalization_method": "DETERMINISTIC_EXTRACTION_VM_KJV_HEADER_PARSER",
+  "books": [
+    {
+      "book_id": "GEN",
+      "canonical_order": 1,
+      "standard_name": "Kejadian",
+      "chapter_count": 50,
+      "total_verses": 1533,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 31
+        },
+        {
+          "chapter": 2,
+          "verse_count": 25
+        },
+        {
+          "chapter": 3,
+          "verse_count": 24
+        },
+        {
+          "chapter": 4,
+          "verse_count": 26
+        },
+        {
+          "chapter": 5,
+          "verse_count": 32
+        },
+        {
+          "chapter": 6,
+          "verse_count": 22
+        },
+        {
+          "chapter": 7,
+          "verse_count": 24
+        },
+        {
+          "chapter": 8,
+          "verse_count": 22
+        },
+        {
+          "chapter": 9,
+          "verse_count": 29
+        },
+        {
+          "chapter": 10,
+          "verse_count": 32
+        },
+        {
+          "chapter": 11,
+          "verse_count": 32
+        },
+        {
+          "chapter": 12,
+          "verse_count": 20
+        },
+        {
+          "chapter": 13,
+          "verse_count": 18
+        },
+        {
+          "chapter": 14,
+          "verse_count": 24
+        },
+        {
+          "chapter": 15,
+          "verse_count": 21
+        },
+        {
+          "chapter": 16,
+          "verse_count": 16
+        },
+        {
+          "chapter": 17,
+          "verse_count": 27
+        },
+        {
+          "chapter": 18,
+          "verse_count": 33
+        },
+        {
+          "chapter": 19,
+          "verse_count": 38
+        },
+        {
+          "chapter": 20,
+          "verse_count": 18
+        },
+        {
+          "chapter": 21,
+          "verse_count": 34
+        },
+        {
+          "chapter": 22,
+          "verse_count": 24
+        },
+        {
+          "chapter": 23,
+          "verse_count": 20
+        },
+        {
+          "chapter": 24,
+          "verse_count": 67
+        },
+        {
+          "chapter": 25,
+          "verse_count": 34
+        },
+        {
+          "chapter": 26,
+          "verse_count": 35
+        },
+        {
+          "chapter": 27,
+          "verse_count": 46
+        },
+        {
+          "chapter": 28,
+          "verse_count": 22
+        },
+        {
+          "chapter": 29,
+          "verse_count": 35
+        },
+        {
+          "chapter": 30,
+          "verse_count": 43
+        },
+        {
+          "chapter": 31,
+          "verse_count": 55
+        },
+        {
+          "chapter": 32,
+          "verse_count": 32
+        },
+        {
+          "chapter": 33,
+          "verse_count": 20
+        },
+        {
+          "chapter": 34,
+          "verse_count": 31
+        },
+        {
+          "chapter": 35,
+          "verse_count": 29
+        },
+        {
+          "chapter": 36,
+          "verse_count": 43
+        },
+        {
+          "chapter": 37,
+          "verse_count": 36
+        },
+        {
+          "chapter": 38,
+          "verse_count": 30
+        },
+        {
+          "chapter": 39,
+          "verse_count": 23
+        },
+        {
+          "chapter": 40,
+          "verse_count": 23
+        },
+        {
+          "chapter": 41,
+          "verse_count": 57
+        },
+        {
+          "chapter": 42,
+          "verse_count": 38
+        },
+        {
+          "chapter": 43,
+          "verse_count": 34
+        },
+        {
+          "chapter": 44,
+          "verse_count": 34
+        },
+        {
+          "chapter": 45,
+          "verse_count": 28
+        },
+        {
+          "chapter": 46,
+          "verse_count": 34
+        },
+        {
+          "chapter": 47,
+          "verse_count": 31
+        },
+        {
+          "chapter": 48,
+          "verse_count": 22
+        },
+        {
+          "chapter": 49,
+          "verse_count": 33
+        },
+        {
+          "chapter": 50,
+          "verse_count": 26
+        }
+      ]
+    },
+    {
+      "book_id": "EXO",
+      "canonical_order": 2,
+      "standard_name": "Keluaran",
+      "chapter_count": 40,
+      "total_verses": 1213,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 22
+        },
+        {
+          "chapter": 2,
+          "verse_count": 25
+        },
+        {
+          "chapter": 3,
+          "verse_count": 22
+        },
+        {
+          "chapter": 4,
+          "verse_count": 31
+        },
+        {
+          "chapter": 5,
+          "verse_count": 23
+        },
+        {
+          "chapter": 6,
+          "verse_count": 30
+        },
+        {
+          "chapter": 7,
+          "verse_count": 25
+        },
+        {
+          "chapter": 8,
+          "verse_count": 32
+        },
+        {
+          "chapter": 9,
+          "verse_count": 35
+        },
+        {
+          "chapter": 10,
+          "verse_count": 29
+        },
+        {
+          "chapter": 11,
+          "verse_count": 10
+        },
+        {
+          "chapter": 12,
+          "verse_count": 51
+        },
+        {
+          "chapter": 13,
+          "verse_count": 22
+        },
+        {
+          "chapter": 14,
+          "verse_count": 31
+        },
+        {
+          "chapter": 15,
+          "verse_count": 27
+        },
+        {
+          "chapter": 16,
+          "verse_count": 36
+        },
+        {
+          "chapter": 17,
+          "verse_count": 16
+        },
+        {
+          "chapter": 18,
+          "verse_count": 27
+        },
+        {
+          "chapter": 19,
+          "verse_count": 25
+        },
+        {
+          "chapter": 20,
+          "verse_count": 26
+        },
+        {
+          "chapter": 21,
+          "verse_count": 36
+        },
+        {
+          "chapter": 22,
+          "verse_count": 31
+        },
+        {
+          "chapter": 23,
+          "verse_count": 33
+        },
+        {
+          "chapter": 24,
+          "verse_count": 18
+        },
+        {
+          "chapter": 25,
+          "verse_count": 40
+        },
+        {
+          "chapter": 26,
+          "verse_count": 37
+        },
+        {
+          "chapter": 27,
+          "verse_count": 21
+        },
+        {
+          "chapter": 28,
+          "verse_count": 43
+        },
+        {
+          "chapter": 29,
+          "verse_count": 46
+        },
+        {
+          "chapter": 30,
+          "verse_count": 38
+        },
+        {
+          "chapter": 31,
+          "verse_count": 18
+        },
+        {
+          "chapter": 32,
+          "verse_count": 35
+        },
+        {
+          "chapter": 33,
+          "verse_count": 23
+        },
+        {
+          "chapter": 34,
+          "verse_count": 35
+        },
+        {
+          "chapter": 35,
+          "verse_count": 35
+        },
+        {
+          "chapter": 36,
+          "verse_count": 38
+        },
+        {
+          "chapter": 37,
+          "verse_count": 29
+        },
+        {
+          "chapter": 38,
+          "verse_count": 31
+        },
+        {
+          "chapter": 39,
+          "verse_count": 43
+        },
+        {
+          "chapter": 40,
+          "verse_count": 38
+        }
+      ]
+    },
+    {
+      "book_id": "LEV",
+      "canonical_order": 3,
+      "standard_name": "Imamat",
+      "chapter_count": 27,
+      "total_verses": 859,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 17
+        },
+        {
+          "chapter": 2,
+          "verse_count": 16
+        },
+        {
+          "chapter": 3,
+          "verse_count": 17
+        },
+        {
+          "chapter": 4,
+          "verse_count": 35
+        },
+        {
+          "chapter": 5,
+          "verse_count": 19
+        },
+        {
+          "chapter": 6,
+          "verse_count": 30
+        },
+        {
+          "chapter": 7,
+          "verse_count": 38
+        },
+        {
+          "chapter": 8,
+          "verse_count": 36
+        },
+        {
+          "chapter": 9,
+          "verse_count": 24
+        },
+        {
+          "chapter": 10,
+          "verse_count": 20
+        },
+        {
+          "chapter": 11,
+          "verse_count": 47
+        },
+        {
+          "chapter": 12,
+          "verse_count": 8
+        },
+        {
+          "chapter": 13,
+          "verse_count": 59
+        },
+        {
+          "chapter": 14,
+          "verse_count": 57
+        },
+        {
+          "chapter": 15,
+          "verse_count": 33
+        },
+        {
+          "chapter": 16,
+          "verse_count": 34
+        },
+        {
+          "chapter": 17,
+          "verse_count": 16
+        },
+        {
+          "chapter": 18,
+          "verse_count": 30
+        },
+        {
+          "chapter": 19,
+          "verse_count": 37
+        },
+        {
+          "chapter": 20,
+          "verse_count": 27
+        },
+        {
+          "chapter": 21,
+          "verse_count": 24
+        },
+        {
+          "chapter": 22,
+          "verse_count": 33
+        },
+        {
+          "chapter": 23,
+          "verse_count": 44
+        },
+        {
+          "chapter": 24,
+          "verse_count": 23
+        },
+        {
+          "chapter": 25,
+          "verse_count": 55
+        },
+        {
+          "chapter": 26,
+          "verse_count": 46
+        },
+        {
+          "chapter": 27,
+          "verse_count": 34
+        }
+      ]
+    },
+    {
+      "book_id": "NUM",
+      "canonical_order": 4,
+      "standard_name": "Bilangan",
+      "chapter_count": 36,
+      "total_verses": 1288,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 54
+        },
+        {
+          "chapter": 2,
+          "verse_count": 34
+        },
+        {
+          "chapter": 3,
+          "verse_count": 51
+        },
+        {
+          "chapter": 4,
+          "verse_count": 49
+        },
+        {
+          "chapter": 5,
+          "verse_count": 31
+        },
+        {
+          "chapter": 6,
+          "verse_count": 27
+        },
+        {
+          "chapter": 7,
+          "verse_count": 89
+        },
+        {
+          "chapter": 8,
+          "verse_count": 26
+        },
+        {
+          "chapter": 9,
+          "verse_count": 23
+        },
+        {
+          "chapter": 10,
+          "verse_count": 36
+        },
+        {
+          "chapter": 11,
+          "verse_count": 35
+        },
+        {
+          "chapter": 12,
+          "verse_count": 16
+        },
+        {
+          "chapter": 13,
+          "verse_count": 33
+        },
+        {
+          "chapter": 14,
+          "verse_count": 45
+        },
+        {
+          "chapter": 15,
+          "verse_count": 41
+        },
+        {
+          "chapter": 16,
+          "verse_count": 50
+        },
+        {
+          "chapter": 17,
+          "verse_count": 13
+        },
+        {
+          "chapter": 18,
+          "verse_count": 32
+        },
+        {
+          "chapter": 19,
+          "verse_count": 22
+        },
+        {
+          "chapter": 20,
+          "verse_count": 29
+        },
+        {
+          "chapter": 21,
+          "verse_count": 35
+        },
+        {
+          "chapter": 22,
+          "verse_count": 41
+        },
+        {
+          "chapter": 23,
+          "verse_count": 30
+        },
+        {
+          "chapter": 24,
+          "verse_count": 25
+        },
+        {
+          "chapter": 25,
+          "verse_count": 18
+        },
+        {
+          "chapter": 26,
+          "verse_count": 65
+        },
+        {
+          "chapter": 27,
+          "verse_count": 23
+        },
+        {
+          "chapter": 28,
+          "verse_count": 31
+        },
+        {
+          "chapter": 29,
+          "verse_count": 40
+        },
+        {
+          "chapter": 30,
+          "verse_count": 16
+        },
+        {
+          "chapter": 31,
+          "verse_count": 54
+        },
+        {
+          "chapter": 32,
+          "verse_count": 42
+        },
+        {
+          "chapter": 33,
+          "verse_count": 56
+        },
+        {
+          "chapter": 34,
+          "verse_count": 29
+        },
+        {
+          "chapter": 35,
+          "verse_count": 34
+        },
+        {
+          "chapter": 36,
+          "verse_count": 13
+        }
+      ]
+    },
+    {
+      "book_id": "DEU",
+      "canonical_order": 5,
+      "standard_name": "Ulangan",
+      "chapter_count": 34,
+      "total_verses": 959,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 46
+        },
+        {
+          "chapter": 2,
+          "verse_count": 37
+        },
+        {
+          "chapter": 3,
+          "verse_count": 29
+        },
+        {
+          "chapter": 4,
+          "verse_count": 49
+        },
+        {
+          "chapter": 5,
+          "verse_count": 33
+        },
+        {
+          "chapter": 6,
+          "verse_count": 25
+        },
+        {
+          "chapter": 7,
+          "verse_count": 26
+        },
+        {
+          "chapter": 8,
+          "verse_count": 20
+        },
+        {
+          "chapter": 9,
+          "verse_count": 29
+        },
+        {
+          "chapter": 10,
+          "verse_count": 22
+        },
+        {
+          "chapter": 11,
+          "verse_count": 32
+        },
+        {
+          "chapter": 12,
+          "verse_count": 32
+        },
+        {
+          "chapter": 13,
+          "verse_count": 18
+        },
+        {
+          "chapter": 14,
+          "verse_count": 29
+        },
+        {
+          "chapter": 15,
+          "verse_count": 23
+        },
+        {
+          "chapter": 16,
+          "verse_count": 22
+        },
+        {
+          "chapter": 17,
+          "verse_count": 20
+        },
+        {
+          "chapter": 18,
+          "verse_count": 22
+        },
+        {
+          "chapter": 19,
+          "verse_count": 21
+        },
+        {
+          "chapter": 20,
+          "verse_count": 20
+        },
+        {
+          "chapter": 21,
+          "verse_count": 23
+        },
+        {
+          "chapter": 22,
+          "verse_count": 30
+        },
+        {
+          "chapter": 23,
+          "verse_count": 25
+        },
+        {
+          "chapter": 24,
+          "verse_count": 22
+        },
+        {
+          "chapter": 25,
+          "verse_count": 19
+        },
+        {
+          "chapter": 26,
+          "verse_count": 19
+        },
+        {
+          "chapter": 27,
+          "verse_count": 26
+        },
+        {
+          "chapter": 28,
+          "verse_count": 68
+        },
+        {
+          "chapter": 29,
+          "verse_count": 29
+        },
+        {
+          "chapter": 30,
+          "verse_count": 20
+        },
+        {
+          "chapter": 31,
+          "verse_count": 30
+        },
+        {
+          "chapter": 32,
+          "verse_count": 52
+        },
+        {
+          "chapter": 33,
+          "verse_count": 29
+        },
+        {
+          "chapter": 34,
+          "verse_count": 12
+        }
+      ]
+    },
+    {
+      "book_id": "JOS",
+      "canonical_order": 6,
+      "standard_name": "Yosua",
+      "chapter_count": 24,
+      "total_verses": 658,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 18
+        },
+        {
+          "chapter": 2,
+          "verse_count": 24
+        },
+        {
+          "chapter": 3,
+          "verse_count": 17
+        },
+        {
+          "chapter": 4,
+          "verse_count": 24
+        },
+        {
+          "chapter": 5,
+          "verse_count": 15
+        },
+        {
+          "chapter": 6,
+          "verse_count": 27
+        },
+        {
+          "chapter": 7,
+          "verse_count": 26
+        },
+        {
+          "chapter": 8,
+          "verse_count": 35
+        },
+        {
+          "chapter": 9,
+          "verse_count": 27
+        },
+        {
+          "chapter": 10,
+          "verse_count": 43
+        },
+        {
+          "chapter": 11,
+          "verse_count": 23
+        },
+        {
+          "chapter": 12,
+          "verse_count": 24
+        },
+        {
+          "chapter": 13,
+          "verse_count": 33
+        },
+        {
+          "chapter": 14,
+          "verse_count": 15
+        },
+        {
+          "chapter": 15,
+          "verse_count": 63
+        },
+        {
+          "chapter": 16,
+          "verse_count": 10
+        },
+        {
+          "chapter": 17,
+          "verse_count": 18
+        },
+        {
+          "chapter": 18,
+          "verse_count": 28
+        },
+        {
+          "chapter": 19,
+          "verse_count": 51
+        },
+        {
+          "chapter": 20,
+          "verse_count": 9
+        },
+        {
+          "chapter": 21,
+          "verse_count": 45
+        },
+        {
+          "chapter": 22,
+          "verse_count": 34
+        },
+        {
+          "chapter": 23,
+          "verse_count": 16
+        },
+        {
+          "chapter": 24,
+          "verse_count": 33
+        }
+      ]
+    },
+    {
+      "book_id": "JDG",
+      "canonical_order": 7,
+      "standard_name": "Hakim-hakim",
+      "chapter_count": 21,
+      "total_verses": 618,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 36
+        },
+        {
+          "chapter": 2,
+          "verse_count": 23
+        },
+        {
+          "chapter": 3,
+          "verse_count": 31
+        },
+        {
+          "chapter": 4,
+          "verse_count": 24
+        },
+        {
+          "chapter": 5,
+          "verse_count": 31
+        },
+        {
+          "chapter": 6,
+          "verse_count": 40
+        },
+        {
+          "chapter": 7,
+          "verse_count": 25
+        },
+        {
+          "chapter": 8,
+          "verse_count": 35
+        },
+        {
+          "chapter": 9,
+          "verse_count": 57
+        },
+        {
+          "chapter": 10,
+          "verse_count": 18
+        },
+        {
+          "chapter": 11,
+          "verse_count": 40
+        },
+        {
+          "chapter": 12,
+          "verse_count": 15
+        },
+        {
+          "chapter": 13,
+          "verse_count": 25
+        },
+        {
+          "chapter": 14,
+          "verse_count": 20
+        },
+        {
+          "chapter": 15,
+          "verse_count": 20
+        },
+        {
+          "chapter": 16,
+          "verse_count": 31
+        },
+        {
+          "chapter": 17,
+          "verse_count": 13
+        },
+        {
+          "chapter": 18,
+          "verse_count": 31
+        },
+        {
+          "chapter": 19,
+          "verse_count": 30
+        },
+        {
+          "chapter": 20,
+          "verse_count": 48
+        },
+        {
+          "chapter": 21,
+          "verse_count": 25
+        }
+      ]
+    },
+    {
+      "book_id": "RUT",
+      "canonical_order": 8,
+      "standard_name": "Rut",
+      "chapter_count": 4,
+      "total_verses": 85,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 22
+        },
+        {
+          "chapter": 2,
+          "verse_count": 23
+        },
+        {
+          "chapter": 3,
+          "verse_count": 18
+        },
+        {
+          "chapter": 4,
+          "verse_count": 22
+        }
+      ]
+    },
+    {
+      "book_id": "1SA",
+      "canonical_order": 9,
+      "standard_name": "1 Samuel",
+      "chapter_count": 31,
+      "total_verses": 810,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 28
+        },
+        {
+          "chapter": 2,
+          "verse_count": 36
+        },
+        {
+          "chapter": 3,
+          "verse_count": 21
+        },
+        {
+          "chapter": 4,
+          "verse_count": 22
+        },
+        {
+          "chapter": 5,
+          "verse_count": 12
+        },
+        {
+          "chapter": 6,
+          "verse_count": 21
+        },
+        {
+          "chapter": 7,
+          "verse_count": 17
+        },
+        {
+          "chapter": 8,
+          "verse_count": 22
+        },
+        {
+          "chapter": 9,
+          "verse_count": 27
+        },
+        {
+          "chapter": 10,
+          "verse_count": 27
+        },
+        {
+          "chapter": 11,
+          "verse_count": 15
+        },
+        {
+          "chapter": 12,
+          "verse_count": 25
+        },
+        {
+          "chapter": 13,
+          "verse_count": 23
+        },
+        {
+          "chapter": 14,
+          "verse_count": 52
+        },
+        {
+          "chapter": 15,
+          "verse_count": 35
+        },
+        {
+          "chapter": 16,
+          "verse_count": 23
+        },
+        {
+          "chapter": 17,
+          "verse_count": 58
+        },
+        {
+          "chapter": 18,
+          "verse_count": 30
+        },
+        {
+          "chapter": 19,
+          "verse_count": 24
+        },
+        {
+          "chapter": 20,
+          "verse_count": 42
+        },
+        {
+          "chapter": 21,
+          "verse_count": 15
+        },
+        {
+          "chapter": 22,
+          "verse_count": 23
+        },
+        {
+          "chapter": 23,
+          "verse_count": 29
+        },
+        {
+          "chapter": 24,
+          "verse_count": 22
+        },
+        {
+          "chapter": 25,
+          "verse_count": 44
+        },
+        {
+          "chapter": 26,
+          "verse_count": 25
+        },
+        {
+          "chapter": 27,
+          "verse_count": 12
+        },
+        {
+          "chapter": 28,
+          "verse_count": 25
+        },
+        {
+          "chapter": 29,
+          "verse_count": 11
+        },
+        {
+          "chapter": 30,
+          "verse_count": 31
+        },
+        {
+          "chapter": 31,
+          "verse_count": 13
+        }
+      ]
+    },
+    {
+      "book_id": "2SA",
+      "canonical_order": 10,
+      "standard_name": "2 Samuel",
+      "chapter_count": 24,
+      "total_verses": 695,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 27
+        },
+        {
+          "chapter": 2,
+          "verse_count": 32
+        },
+        {
+          "chapter": 3,
+          "verse_count": 39
+        },
+        {
+          "chapter": 4,
+          "verse_count": 12
+        },
+        {
+          "chapter": 5,
+          "verse_count": 25
+        },
+        {
+          "chapter": 6,
+          "verse_count": 23
+        },
+        {
+          "chapter": 7,
+          "verse_count": 29
+        },
+        {
+          "chapter": 8,
+          "verse_count": 18
+        },
+        {
+          "chapter": 9,
+          "verse_count": 13
+        },
+        {
+          "chapter": 10,
+          "verse_count": 19
+        },
+        {
+          "chapter": 11,
+          "verse_count": 27
+        },
+        {
+          "chapter": 12,
+          "verse_count": 31
+        },
+        {
+          "chapter": 13,
+          "verse_count": 39
+        },
+        {
+          "chapter": 14,
+          "verse_count": 33
+        },
+        {
+          "chapter": 15,
+          "verse_count": 37
+        },
+        {
+          "chapter": 16,
+          "verse_count": 23
+        },
+        {
+          "chapter": 17,
+          "verse_count": 29
+        },
+        {
+          "chapter": 18,
+          "verse_count": 33
+        },
+        {
+          "chapter": 19,
+          "verse_count": 43
+        },
+        {
+          "chapter": 20,
+          "verse_count": 26
+        },
+        {
+          "chapter": 21,
+          "verse_count": 22
+        },
+        {
+          "chapter": 22,
+          "verse_count": 51
+        },
+        {
+          "chapter": 23,
+          "verse_count": 39
+        },
+        {
+          "chapter": 24,
+          "verse_count": 25
+        }
+      ]
+    },
+    {
+      "book_id": "1KI",
+      "canonical_order": 11,
+      "standard_name": "1 Raja-raja",
+      "chapter_count": 22,
+      "total_verses": 816,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 53
+        },
+        {
+          "chapter": 2,
+          "verse_count": 46
+        },
+        {
+          "chapter": 3,
+          "verse_count": 28
+        },
+        {
+          "chapter": 4,
+          "verse_count": 34
+        },
+        {
+          "chapter": 5,
+          "verse_count": 18
+        },
+        {
+          "chapter": 6,
+          "verse_count": 38
+        },
+        {
+          "chapter": 7,
+          "verse_count": 51
+        },
+        {
+          "chapter": 8,
+          "verse_count": 66
+        },
+        {
+          "chapter": 9,
+          "verse_count": 28
+        },
+        {
+          "chapter": 10,
+          "verse_count": 29
+        },
+        {
+          "chapter": 11,
+          "verse_count": 43
+        },
+        {
+          "chapter": 12,
+          "verse_count": 33
+        },
+        {
+          "chapter": 13,
+          "verse_count": 34
+        },
+        {
+          "chapter": 14,
+          "verse_count": 31
+        },
+        {
+          "chapter": 15,
+          "verse_count": 34
+        },
+        {
+          "chapter": 16,
+          "verse_count": 34
+        },
+        {
+          "chapter": 17,
+          "verse_count": 24
+        },
+        {
+          "chapter": 18,
+          "verse_count": 46
+        },
+        {
+          "chapter": 19,
+          "verse_count": 21
+        },
+        {
+          "chapter": 20,
+          "verse_count": 43
+        },
+        {
+          "chapter": 21,
+          "verse_count": 29
+        },
+        {
+          "chapter": 22,
+          "verse_count": 53
+        }
+      ]
+    },
+    {
+      "book_id": "2KI",
+      "canonical_order": 12,
+      "standard_name": "2 Raja-raja",
+      "chapter_count": 25,
+      "total_verses": 719,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 18
+        },
+        {
+          "chapter": 2,
+          "verse_count": 25
+        },
+        {
+          "chapter": 3,
+          "verse_count": 27
+        },
+        {
+          "chapter": 4,
+          "verse_count": 44
+        },
+        {
+          "chapter": 5,
+          "verse_count": 27
+        },
+        {
+          "chapter": 6,
+          "verse_count": 33
+        },
+        {
+          "chapter": 7,
+          "verse_count": 20
+        },
+        {
+          "chapter": 8,
+          "verse_count": 29
+        },
+        {
+          "chapter": 9,
+          "verse_count": 37
+        },
+        {
+          "chapter": 10,
+          "verse_count": 36
+        },
+        {
+          "chapter": 11,
+          "verse_count": 21
+        },
+        {
+          "chapter": 12,
+          "verse_count": 21
+        },
+        {
+          "chapter": 13,
+          "verse_count": 25
+        },
+        {
+          "chapter": 14,
+          "verse_count": 29
+        },
+        {
+          "chapter": 15,
+          "verse_count": 38
+        },
+        {
+          "chapter": 16,
+          "verse_count": 20
+        },
+        {
+          "chapter": 17,
+          "verse_count": 41
+        },
+        {
+          "chapter": 18,
+          "verse_count": 37
+        },
+        {
+          "chapter": 19,
+          "verse_count": 37
+        },
+        {
+          "chapter": 20,
+          "verse_count": 21
+        },
+        {
+          "chapter": 21,
+          "verse_count": 26
+        },
+        {
+          "chapter": 22,
+          "verse_count": 20
+        },
+        {
+          "chapter": 23,
+          "verse_count": 37
+        },
+        {
+          "chapter": 24,
+          "verse_count": 20
+        },
+        {
+          "chapter": 25,
+          "verse_count": 30
+        }
+      ]
+    },
+    {
+      "book_id": "1CH",
+      "canonical_order": 13,
+      "standard_name": "1 Tawarikh",
+      "chapter_count": 29,
+      "total_verses": 942,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 54
+        },
+        {
+          "chapter": 2,
+          "verse_count": 55
+        },
+        {
+          "chapter": 3,
+          "verse_count": 24
+        },
+        {
+          "chapter": 4,
+          "verse_count": 43
+        },
+        {
+          "chapter": 5,
+          "verse_count": 26
+        },
+        {
+          "chapter": 6,
+          "verse_count": 81
+        },
+        {
+          "chapter": 7,
+          "verse_count": 40
+        },
+        {
+          "chapter": 8,
+          "verse_count": 40
+        },
+        {
+          "chapter": 9,
+          "verse_count": 44
+        },
+        {
+          "chapter": 10,
+          "verse_count": 14
+        },
+        {
+          "chapter": 11,
+          "verse_count": 47
+        },
+        {
+          "chapter": 12,
+          "verse_count": 40
+        },
+        {
+          "chapter": 13,
+          "verse_count": 14
+        },
+        {
+          "chapter": 14,
+          "verse_count": 17
+        },
+        {
+          "chapter": 15,
+          "verse_count": 29
+        },
+        {
+          "chapter": 16,
+          "verse_count": 43
+        },
+        {
+          "chapter": 17,
+          "verse_count": 27
+        },
+        {
+          "chapter": 18,
+          "verse_count": 17
+        },
+        {
+          "chapter": 19,
+          "verse_count": 19
+        },
+        {
+          "chapter": 20,
+          "verse_count": 8
+        },
+        {
+          "chapter": 21,
+          "verse_count": 30
+        },
+        {
+          "chapter": 22,
+          "verse_count": 19
+        },
+        {
+          "chapter": 23,
+          "verse_count": 32
+        },
+        {
+          "chapter": 24,
+          "verse_count": 31
+        },
+        {
+          "chapter": 25,
+          "verse_count": 31
+        },
+        {
+          "chapter": 26,
+          "verse_count": 32
+        },
+        {
+          "chapter": 27,
+          "verse_count": 34
+        },
+        {
+          "chapter": 28,
+          "verse_count": 21
+        },
+        {
+          "chapter": 29,
+          "verse_count": 30
+        }
+      ]
+    },
+    {
+      "book_id": "2CH",
+      "canonical_order": 14,
+      "standard_name": "2 Tawarikh",
+      "chapter_count": 36,
+      "total_verses": 822,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 17
+        },
+        {
+          "chapter": 2,
+          "verse_count": 18
+        },
+        {
+          "chapter": 3,
+          "verse_count": 17
+        },
+        {
+          "chapter": 4,
+          "verse_count": 22
+        },
+        {
+          "chapter": 5,
+          "verse_count": 14
+        },
+        {
+          "chapter": 6,
+          "verse_count": 42
+        },
+        {
+          "chapter": 7,
+          "verse_count": 22
+        },
+        {
+          "chapter": 8,
+          "verse_count": 18
+        },
+        {
+          "chapter": 9,
+          "verse_count": 31
+        },
+        {
+          "chapter": 10,
+          "verse_count": 19
+        },
+        {
+          "chapter": 11,
+          "verse_count": 23
+        },
+        {
+          "chapter": 12,
+          "verse_count": 16
+        },
+        {
+          "chapter": 13,
+          "verse_count": 22
+        },
+        {
+          "chapter": 14,
+          "verse_count": 15
+        },
+        {
+          "chapter": 15,
+          "verse_count": 19
+        },
+        {
+          "chapter": 16,
+          "verse_count": 14
+        },
+        {
+          "chapter": 17,
+          "verse_count": 19
+        },
+        {
+          "chapter": 18,
+          "verse_count": 34
+        },
+        {
+          "chapter": 19,
+          "verse_count": 11
+        },
+        {
+          "chapter": 20,
+          "verse_count": 37
+        },
+        {
+          "chapter": 21,
+          "verse_count": 20
+        },
+        {
+          "chapter": 22,
+          "verse_count": 12
+        },
+        {
+          "chapter": 23,
+          "verse_count": 21
+        },
+        {
+          "chapter": 24,
+          "verse_count": 27
+        },
+        {
+          "chapter": 25,
+          "verse_count": 28
+        },
+        {
+          "chapter": 26,
+          "verse_count": 23
+        },
+        {
+          "chapter": 27,
+          "verse_count": 9
+        },
+        {
+          "chapter": 28,
+          "verse_count": 27
+        },
+        {
+          "chapter": 29,
+          "verse_count": 36
+        },
+        {
+          "chapter": 30,
+          "verse_count": 27
+        },
+        {
+          "chapter": 31,
+          "verse_count": 21
+        },
+        {
+          "chapter": 32,
+          "verse_count": 33
+        },
+        {
+          "chapter": 33,
+          "verse_count": 25
+        },
+        {
+          "chapter": 34,
+          "verse_count": 33
+        },
+        {
+          "chapter": 35,
+          "verse_count": 27
+        },
+        {
+          "chapter": 36,
+          "verse_count": 23
+        }
+      ]
+    },
+    {
+      "book_id": "EZR",
+      "canonical_order": 15,
+      "standard_name": "Ezra",
+      "chapter_count": 10,
+      "total_verses": 280,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 11
+        },
+        {
+          "chapter": 2,
+          "verse_count": 70
+        },
+        {
+          "chapter": 3,
+          "verse_count": 13
+        },
+        {
+          "chapter": 4,
+          "verse_count": 24
+        },
+        {
+          "chapter": 5,
+          "verse_count": 17
+        },
+        {
+          "chapter": 6,
+          "verse_count": 22
+        },
+        {
+          "chapter": 7,
+          "verse_count": 28
+        },
+        {
+          "chapter": 8,
+          "verse_count": 36
+        },
+        {
+          "chapter": 9,
+          "verse_count": 15
+        },
+        {
+          "chapter": 10,
+          "verse_count": 44
+        }
+      ]
+    },
+    {
+      "book_id": "NEH",
+      "canonical_order": 16,
+      "standard_name": "Nehemia",
+      "chapter_count": 13,
+      "total_verses": 406,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 11
+        },
+        {
+          "chapter": 2,
+          "verse_count": 20
+        },
+        {
+          "chapter": 3,
+          "verse_count": 32
+        },
+        {
+          "chapter": 4,
+          "verse_count": 23
+        },
+        {
+          "chapter": 5,
+          "verse_count": 19
+        },
+        {
+          "chapter": 6,
+          "verse_count": 19
+        },
+        {
+          "chapter": 7,
+          "verse_count": 73
+        },
+        {
+          "chapter": 8,
+          "verse_count": 18
+        },
+        {
+          "chapter": 9,
+          "verse_count": 38
+        },
+        {
+          "chapter": 10,
+          "verse_count": 39
+        },
+        {
+          "chapter": 11,
+          "verse_count": 36
+        },
+        {
+          "chapter": 12,
+          "verse_count": 47
+        },
+        {
+          "chapter": 13,
+          "verse_count": 31
+        }
+      ]
+    },
+    {
+      "book_id": "EST",
+      "canonical_order": 17,
+      "standard_name": "Ester",
+      "chapter_count": 10,
+      "total_verses": 167,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 22
+        },
+        {
+          "chapter": 2,
+          "verse_count": 23
+        },
+        {
+          "chapter": 3,
+          "verse_count": 15
+        },
+        {
+          "chapter": 4,
+          "verse_count": 17
+        },
+        {
+          "chapter": 5,
+          "verse_count": 14
+        },
+        {
+          "chapter": 6,
+          "verse_count": 14
+        },
+        {
+          "chapter": 7,
+          "verse_count": 10
+        },
+        {
+          "chapter": 8,
+          "verse_count": 17
+        },
+        {
+          "chapter": 9,
+          "verse_count": 32
+        },
+        {
+          "chapter": 10,
+          "verse_count": 3
+        }
+      ]
+    },
+    {
+      "book_id": "JOB",
+      "canonical_order": 18,
+      "standard_name": "Ayub",
+      "chapter_count": 42,
+      "total_verses": 1070,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 22
+        },
+        {
+          "chapter": 2,
+          "verse_count": 13
+        },
+        {
+          "chapter": 3,
+          "verse_count": 26
+        },
+        {
+          "chapter": 4,
+          "verse_count": 21
+        },
+        {
+          "chapter": 5,
+          "verse_count": 27
+        },
+        {
+          "chapter": 6,
+          "verse_count": 30
+        },
+        {
+          "chapter": 7,
+          "verse_count": 21
+        },
+        {
+          "chapter": 8,
+          "verse_count": 22
+        },
+        {
+          "chapter": 9,
+          "verse_count": 35
+        },
+        {
+          "chapter": 10,
+          "verse_count": 22
+        },
+        {
+          "chapter": 11,
+          "verse_count": 20
+        },
+        {
+          "chapter": 12,
+          "verse_count": 25
+        },
+        {
+          "chapter": 13,
+          "verse_count": 28
+        },
+        {
+          "chapter": 14,
+          "verse_count": 22
+        },
+        {
+          "chapter": 15,
+          "verse_count": 35
+        },
+        {
+          "chapter": 16,
+          "verse_count": 22
+        },
+        {
+          "chapter": 17,
+          "verse_count": 16
+        },
+        {
+          "chapter": 18,
+          "verse_count": 21
+        },
+        {
+          "chapter": 19,
+          "verse_count": 29
+        },
+        {
+          "chapter": 20,
+          "verse_count": 29
+        },
+        {
+          "chapter": 21,
+          "verse_count": 34
+        },
+        {
+          "chapter": 22,
+          "verse_count": 30
+        },
+        {
+          "chapter": 23,
+          "verse_count": 17
+        },
+        {
+          "chapter": 24,
+          "verse_count": 25
+        },
+        {
+          "chapter": 25,
+          "verse_count": 6
+        },
+        {
+          "chapter": 26,
+          "verse_count": 14
+        },
+        {
+          "chapter": 27,
+          "verse_count": 23
+        },
+        {
+          "chapter": 28,
+          "verse_count": 28
+        },
+        {
+          "chapter": 29,
+          "verse_count": 25
+        },
+        {
+          "chapter": 30,
+          "verse_count": 31
+        },
+        {
+          "chapter": 31,
+          "verse_count": 40
+        },
+        {
+          "chapter": 32,
+          "verse_count": 22
+        },
+        {
+          "chapter": 33,
+          "verse_count": 33
+        },
+        {
+          "chapter": 34,
+          "verse_count": 37
+        },
+        {
+          "chapter": 35,
+          "verse_count": 16
+        },
+        {
+          "chapter": 36,
+          "verse_count": 33
+        },
+        {
+          "chapter": 37,
+          "verse_count": 24
+        },
+        {
+          "chapter": 38,
+          "verse_count": 41
+        },
+        {
+          "chapter": 39,
+          "verse_count": 30
+        },
+        {
+          "chapter": 40,
+          "verse_count": 24
+        },
+        {
+          "chapter": 41,
+          "verse_count": 34
+        },
+        {
+          "chapter": 42,
+          "verse_count": 17
+        }
+      ]
+    },
+    {
+      "book_id": "PSA",
+      "canonical_order": 19,
+      "standard_name": "Mazmur",
+      "chapter_count": 150,
+      "total_verses": 2461,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 6
+        },
+        {
+          "chapter": 2,
+          "verse_count": 12
+        },
+        {
+          "chapter": 3,
+          "verse_count": 8
+        },
+        {
+          "chapter": 4,
+          "verse_count": 8
+        },
+        {
+          "chapter": 5,
+          "verse_count": 12
+        },
+        {
+          "chapter": 6,
+          "verse_count": 10
+        },
+        {
+          "chapter": 7,
+          "verse_count": 17
+        },
+        {
+          "chapter": 8,
+          "verse_count": 9
+        },
+        {
+          "chapter": 9,
+          "verse_count": 20
+        },
+        {
+          "chapter": 10,
+          "verse_count": 18
+        },
+        {
+          "chapter": 11,
+          "verse_count": 7
+        },
+        {
+          "chapter": 12,
+          "verse_count": 8
+        },
+        {
+          "chapter": 13,
+          "verse_count": 6
+        },
+        {
+          "chapter": 14,
+          "verse_count": 7
+        },
+        {
+          "chapter": 15,
+          "verse_count": 5
+        },
+        {
+          "chapter": 16,
+          "verse_count": 11
+        },
+        {
+          "chapter": 17,
+          "verse_count": 15
+        },
+        {
+          "chapter": 18,
+          "verse_count": 50
+        },
+        {
+          "chapter": 19,
+          "verse_count": 14
+        },
+        {
+          "chapter": 20,
+          "verse_count": 9
+        },
+        {
+          "chapter": 21,
+          "verse_count": 13
+        },
+        {
+          "chapter": 22,
+          "verse_count": 31
+        },
+        {
+          "chapter": 23,
+          "verse_count": 6
+        },
+        {
+          "chapter": 24,
+          "verse_count": 10
+        },
+        {
+          "chapter": 25,
+          "verse_count": 22
+        },
+        {
+          "chapter": 26,
+          "verse_count": 12
+        },
+        {
+          "chapter": 27,
+          "verse_count": 14
+        },
+        {
+          "chapter": 28,
+          "verse_count": 9
+        },
+        {
+          "chapter": 29,
+          "verse_count": 11
+        },
+        {
+          "chapter": 30,
+          "verse_count": 12
+        },
+        {
+          "chapter": 31,
+          "verse_count": 24
+        },
+        {
+          "chapter": 32,
+          "verse_count": 11
+        },
+        {
+          "chapter": 33,
+          "verse_count": 22
+        },
+        {
+          "chapter": 34,
+          "verse_count": 22
+        },
+        {
+          "chapter": 35,
+          "verse_count": 28
+        },
+        {
+          "chapter": 36,
+          "verse_count": 12
+        },
+        {
+          "chapter": 37,
+          "verse_count": 40
+        },
+        {
+          "chapter": 38,
+          "verse_count": 22
+        },
+        {
+          "chapter": 39,
+          "verse_count": 13
+        },
+        {
+          "chapter": 40,
+          "verse_count": 17
+        },
+        {
+          "chapter": 41,
+          "verse_count": 13
+        },
+        {
+          "chapter": 42,
+          "verse_count": 11
+        },
+        {
+          "chapter": 43,
+          "verse_count": 5
+        },
+        {
+          "chapter": 44,
+          "verse_count": 26
+        },
+        {
+          "chapter": 45,
+          "verse_count": 17
+        },
+        {
+          "chapter": 46,
+          "verse_count": 11
+        },
+        {
+          "chapter": 47,
+          "verse_count": 9
+        },
+        {
+          "chapter": 48,
+          "verse_count": 14
+        },
+        {
+          "chapter": 49,
+          "verse_count": 20
+        },
+        {
+          "chapter": 50,
+          "verse_count": 23
+        },
+        {
+          "chapter": 51,
+          "verse_count": 19
+        },
+        {
+          "chapter": 52,
+          "verse_count": 9
+        },
+        {
+          "chapter": 53,
+          "verse_count": 6
+        },
+        {
+          "chapter": 54,
+          "verse_count": 7
+        },
+        {
+          "chapter": 55,
+          "verse_count": 23
+        },
+        {
+          "chapter": 56,
+          "verse_count": 13
+        },
+        {
+          "chapter": 57,
+          "verse_count": 11
+        },
+        {
+          "chapter": 58,
+          "verse_count": 11
+        },
+        {
+          "chapter": 59,
+          "verse_count": 17
+        },
+        {
+          "chapter": 60,
+          "verse_count": 12
+        },
+        {
+          "chapter": 61,
+          "verse_count": 8
+        },
+        {
+          "chapter": 62,
+          "verse_count": 12
+        },
+        {
+          "chapter": 63,
+          "verse_count": 11
+        },
+        {
+          "chapter": 64,
+          "verse_count": 10
+        },
+        {
+          "chapter": 65,
+          "verse_count": 13
+        },
+        {
+          "chapter": 66,
+          "verse_count": 20
+        },
+        {
+          "chapter": 67,
+          "verse_count": 7
+        },
+        {
+          "chapter": 68,
+          "verse_count": 35
+        },
+        {
+          "chapter": 69,
+          "verse_count": 36
+        },
+        {
+          "chapter": 70,
+          "verse_count": 5
+        },
+        {
+          "chapter": 71,
+          "verse_count": 24
+        },
+        {
+          "chapter": 72,
+          "verse_count": 20
+        },
+        {
+          "chapter": 73,
+          "verse_count": 28
+        },
+        {
+          "chapter": 74,
+          "verse_count": 23
+        },
+        {
+          "chapter": 75,
+          "verse_count": 10
+        },
+        {
+          "chapter": 76,
+          "verse_count": 12
+        },
+        {
+          "chapter": 77,
+          "verse_count": 20
+        },
+        {
+          "chapter": 78,
+          "verse_count": 72
+        },
+        {
+          "chapter": 79,
+          "verse_count": 13
+        },
+        {
+          "chapter": 80,
+          "verse_count": 19
+        },
+        {
+          "chapter": 81,
+          "verse_count": 16
+        },
+        {
+          "chapter": 82,
+          "verse_count": 8
+        },
+        {
+          "chapter": 83,
+          "verse_count": 18
+        },
+        {
+          "chapter": 84,
+          "verse_count": 12
+        },
+        {
+          "chapter": 85,
+          "verse_count": 13
+        },
+        {
+          "chapter": 86,
+          "verse_count": 17
+        },
+        {
+          "chapter": 87,
+          "verse_count": 7
+        },
+        {
+          "chapter": 88,
+          "verse_count": 18
+        },
+        {
+          "chapter": 89,
+          "verse_count": 52
+        },
+        {
+          "chapter": 90,
+          "verse_count": 17
+        },
+        {
+          "chapter": 91,
+          "verse_count": 16
+        },
+        {
+          "chapter": 92,
+          "verse_count": 15
+        },
+        {
+          "chapter": 93,
+          "verse_count": 5
+        },
+        {
+          "chapter": 94,
+          "verse_count": 23
+        },
+        {
+          "chapter": 95,
+          "verse_count": 11
+        },
+        {
+          "chapter": 96,
+          "verse_count": 13
+        },
+        {
+          "chapter": 97,
+          "verse_count": 12
+        },
+        {
+          "chapter": 98,
+          "verse_count": 9
+        },
+        {
+          "chapter": 99,
+          "verse_count": 9
+        },
+        {
+          "chapter": 100,
+          "verse_count": 5
+        },
+        {
+          "chapter": 101,
+          "verse_count": 8
+        },
+        {
+          "chapter": 102,
+          "verse_count": 28
+        },
+        {
+          "chapter": 103,
+          "verse_count": 22
+        },
+        {
+          "chapter": 104,
+          "verse_count": 35
+        },
+        {
+          "chapter": 105,
+          "verse_count": 45
+        },
+        {
+          "chapter": 106,
+          "verse_count": 48
+        },
+        {
+          "chapter": 107,
+          "verse_count": 43
+        },
+        {
+          "chapter": 108,
+          "verse_count": 13
+        },
+        {
+          "chapter": 109,
+          "verse_count": 31
+        },
+        {
+          "chapter": 110,
+          "verse_count": 7
+        },
+        {
+          "chapter": 111,
+          "verse_count": 10
+        },
+        {
+          "chapter": 112,
+          "verse_count": 10
+        },
+        {
+          "chapter": 113,
+          "verse_count": 9
+        },
+        {
+          "chapter": 114,
+          "verse_count": 8
+        },
+        {
+          "chapter": 115,
+          "verse_count": 18
+        },
+        {
+          "chapter": 116,
+          "verse_count": 19
+        },
+        {
+          "chapter": 117,
+          "verse_count": 2
+        },
+        {
+          "chapter": 118,
+          "verse_count": 29
+        },
+        {
+          "chapter": 119,
+          "verse_count": 176
+        },
+        {
+          "chapter": 120,
+          "verse_count": 7
+        },
+        {
+          "chapter": 121,
+          "verse_count": 8
+        },
+        {
+          "chapter": 122,
+          "verse_count": 9
+        },
+        {
+          "chapter": 123,
+          "verse_count": 4
+        },
+        {
+          "chapter": 124,
+          "verse_count": 8
+        },
+        {
+          "chapter": 125,
+          "verse_count": 5
+        },
+        {
+          "chapter": 126,
+          "verse_count": 6
+        },
+        {
+          "chapter": 127,
+          "verse_count": 5
+        },
+        {
+          "chapter": 128,
+          "verse_count": 6
+        },
+        {
+          "chapter": 129,
+          "verse_count": 8
+        },
+        {
+          "chapter": 130,
+          "verse_count": 8
+        },
+        {
+          "chapter": 131,
+          "verse_count": 3
+        },
+        {
+          "chapter": 132,
+          "verse_count": 18
+        },
+        {
+          "chapter": 133,
+          "verse_count": 3
+        },
+        {
+          "chapter": 134,
+          "verse_count": 3
+        },
+        {
+          "chapter": 135,
+          "verse_count": 21
+        },
+        {
+          "chapter": 136,
+          "verse_count": 26
+        },
+        {
+          "chapter": 137,
+          "verse_count": 9
+        },
+        {
+          "chapter": 138,
+          "verse_count": 8
+        },
+        {
+          "chapter": 139,
+          "verse_count": 24
+        },
+        {
+          "chapter": 140,
+          "verse_count": 13
+        },
+        {
+          "chapter": 141,
+          "verse_count": 10
+        },
+        {
+          "chapter": 142,
+          "verse_count": 7
+        },
+        {
+          "chapter": 143,
+          "verse_count": 12
+        },
+        {
+          "chapter": 144,
+          "verse_count": 15
+        },
+        {
+          "chapter": 145,
+          "verse_count": 21
+        },
+        {
+          "chapter": 146,
+          "verse_count": 10
+        },
+        {
+          "chapter": 147,
+          "verse_count": 20
+        },
+        {
+          "chapter": 148,
+          "verse_count": 14
+        },
+        {
+          "chapter": 149,
+          "verse_count": 9
+        },
+        {
+          "chapter": 150,
+          "verse_count": 6
+        }
+      ]
+    },
+    {
+      "book_id": "PRO",
+      "canonical_order": 20,
+      "standard_name": "Amsal",
+      "chapter_count": 31,
+      "total_verses": 915,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 33
+        },
+        {
+          "chapter": 2,
+          "verse_count": 22
+        },
+        {
+          "chapter": 3,
+          "verse_count": 35
+        },
+        {
+          "chapter": 4,
+          "verse_count": 27
+        },
+        {
+          "chapter": 5,
+          "verse_count": 23
+        },
+        {
+          "chapter": 6,
+          "verse_count": 35
+        },
+        {
+          "chapter": 7,
+          "verse_count": 27
+        },
+        {
+          "chapter": 8,
+          "verse_count": 36
+        },
+        {
+          "chapter": 9,
+          "verse_count": 18
+        },
+        {
+          "chapter": 10,
+          "verse_count": 32
+        },
+        {
+          "chapter": 11,
+          "verse_count": 31
+        },
+        {
+          "chapter": 12,
+          "verse_count": 28
+        },
+        {
+          "chapter": 13,
+          "verse_count": 25
+        },
+        {
+          "chapter": 14,
+          "verse_count": 35
+        },
+        {
+          "chapter": 15,
+          "verse_count": 33
+        },
+        {
+          "chapter": 16,
+          "verse_count": 33
+        },
+        {
+          "chapter": 17,
+          "verse_count": 28
+        },
+        {
+          "chapter": 18,
+          "verse_count": 24
+        },
+        {
+          "chapter": 19,
+          "verse_count": 29
+        },
+        {
+          "chapter": 20,
+          "verse_count": 30
+        },
+        {
+          "chapter": 21,
+          "verse_count": 31
+        },
+        {
+          "chapter": 22,
+          "verse_count": 29
+        },
+        {
+          "chapter": 23,
+          "verse_count": 35
+        },
+        {
+          "chapter": 24,
+          "verse_count": 34
+        },
+        {
+          "chapter": 25,
+          "verse_count": 28
+        },
+        {
+          "chapter": 26,
+          "verse_count": 28
+        },
+        {
+          "chapter": 27,
+          "verse_count": 27
+        },
+        {
+          "chapter": 28,
+          "verse_count": 28
+        },
+        {
+          "chapter": 29,
+          "verse_count": 27
+        },
+        {
+          "chapter": 30,
+          "verse_count": 33
+        },
+        {
+          "chapter": 31,
+          "verse_count": 31
+        }
+      ]
+    },
+    {
+      "book_id": "ECC",
+      "canonical_order": 21,
+      "standard_name": "Pengkhotbah",
+      "chapter_count": 12,
+      "total_verses": 222,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 18
+        },
+        {
+          "chapter": 2,
+          "verse_count": 26
+        },
+        {
+          "chapter": 3,
+          "verse_count": 22
+        },
+        {
+          "chapter": 4,
+          "verse_count": 16
+        },
+        {
+          "chapter": 5,
+          "verse_count": 20
+        },
+        {
+          "chapter": 6,
+          "verse_count": 12
+        },
+        {
+          "chapter": 7,
+          "verse_count": 29
+        },
+        {
+          "chapter": 8,
+          "verse_count": 17
+        },
+        {
+          "chapter": 9,
+          "verse_count": 18
+        },
+        {
+          "chapter": 10,
+          "verse_count": 20
+        },
+        {
+          "chapter": 11,
+          "verse_count": 10
+        },
+        {
+          "chapter": 12,
+          "verse_count": 14
+        }
+      ]
+    },
+    {
+      "book_id": "SNG",
+      "canonical_order": 22,
+      "standard_name": "Kidung Agung",
+      "chapter_count": 8,
+      "total_verses": 117,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 17
+        },
+        {
+          "chapter": 2,
+          "verse_count": 17
+        },
+        {
+          "chapter": 3,
+          "verse_count": 11
+        },
+        {
+          "chapter": 4,
+          "verse_count": 16
+        },
+        {
+          "chapter": 5,
+          "verse_count": 16
+        },
+        {
+          "chapter": 6,
+          "verse_count": 13
+        },
+        {
+          "chapter": 7,
+          "verse_count": 13
+        },
+        {
+          "chapter": 8,
+          "verse_count": 14
+        }
+      ]
+    },
+    {
+      "book_id": "ISA",
+      "canonical_order": 23,
+      "standard_name": "Yesaya",
+      "chapter_count": 66,
+      "total_verses": 1292,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 31
+        },
+        {
+          "chapter": 2,
+          "verse_count": 22
+        },
+        {
+          "chapter": 3,
+          "verse_count": 26
+        },
+        {
+          "chapter": 4,
+          "verse_count": 6
+        },
+        {
+          "chapter": 5,
+          "verse_count": 30
+        },
+        {
+          "chapter": 6,
+          "verse_count": 13
+        },
+        {
+          "chapter": 7,
+          "verse_count": 25
+        },
+        {
+          "chapter": 8,
+          "verse_count": 22
+        },
+        {
+          "chapter": 9,
+          "verse_count": 21
+        },
+        {
+          "chapter": 10,
+          "verse_count": 34
+        },
+        {
+          "chapter": 11,
+          "verse_count": 16
+        },
+        {
+          "chapter": 12,
+          "verse_count": 6
+        },
+        {
+          "chapter": 13,
+          "verse_count": 22
+        },
+        {
+          "chapter": 14,
+          "verse_count": 32
+        },
+        {
+          "chapter": 15,
+          "verse_count": 9
+        },
+        {
+          "chapter": 16,
+          "verse_count": 14
+        },
+        {
+          "chapter": 17,
+          "verse_count": 14
+        },
+        {
+          "chapter": 18,
+          "verse_count": 7
+        },
+        {
+          "chapter": 19,
+          "verse_count": 25
+        },
+        {
+          "chapter": 20,
+          "verse_count": 6
+        },
+        {
+          "chapter": 21,
+          "verse_count": 17
+        },
+        {
+          "chapter": 22,
+          "verse_count": 25
+        },
+        {
+          "chapter": 23,
+          "verse_count": 18
+        },
+        {
+          "chapter": 24,
+          "verse_count": 23
+        },
+        {
+          "chapter": 25,
+          "verse_count": 12
+        },
+        {
+          "chapter": 26,
+          "verse_count": 21
+        },
+        {
+          "chapter": 27,
+          "verse_count": 13
+        },
+        {
+          "chapter": 28,
+          "verse_count": 29
+        },
+        {
+          "chapter": 29,
+          "verse_count": 24
+        },
+        {
+          "chapter": 30,
+          "verse_count": 33
+        },
+        {
+          "chapter": 31,
+          "verse_count": 9
+        },
+        {
+          "chapter": 32,
+          "verse_count": 20
+        },
+        {
+          "chapter": 33,
+          "verse_count": 24
+        },
+        {
+          "chapter": 34,
+          "verse_count": 17
+        },
+        {
+          "chapter": 35,
+          "verse_count": 10
+        },
+        {
+          "chapter": 36,
+          "verse_count": 22
+        },
+        {
+          "chapter": 37,
+          "verse_count": 38
+        },
+        {
+          "chapter": 38,
+          "verse_count": 22
+        },
+        {
+          "chapter": 39,
+          "verse_count": 8
+        },
+        {
+          "chapter": 40,
+          "verse_count": 31
+        },
+        {
+          "chapter": 41,
+          "verse_count": 29
+        },
+        {
+          "chapter": 42,
+          "verse_count": 25
+        },
+        {
+          "chapter": 43,
+          "verse_count": 28
+        },
+        {
+          "chapter": 44,
+          "verse_count": 28
+        },
+        {
+          "chapter": 45,
+          "verse_count": 25
+        },
+        {
+          "chapter": 46,
+          "verse_count": 13
+        },
+        {
+          "chapter": 47,
+          "verse_count": 15
+        },
+        {
+          "chapter": 48,
+          "verse_count": 22
+        },
+        {
+          "chapter": 49,
+          "verse_count": 26
+        },
+        {
+          "chapter": 50,
+          "verse_count": 11
+        },
+        {
+          "chapter": 51,
+          "verse_count": 23
+        },
+        {
+          "chapter": 52,
+          "verse_count": 15
+        },
+        {
+          "chapter": 53,
+          "verse_count": 12
+        },
+        {
+          "chapter": 54,
+          "verse_count": 17
+        },
+        {
+          "chapter": 55,
+          "verse_count": 13
+        },
+        {
+          "chapter": 56,
+          "verse_count": 12
+        },
+        {
+          "chapter": 57,
+          "verse_count": 21
+        },
+        {
+          "chapter": 58,
+          "verse_count": 14
+        },
+        {
+          "chapter": 59,
+          "verse_count": 21
+        },
+        {
+          "chapter": 60,
+          "verse_count": 22
+        },
+        {
+          "chapter": 61,
+          "verse_count": 11
+        },
+        {
+          "chapter": 62,
+          "verse_count": 12
+        },
+        {
+          "chapter": 63,
+          "verse_count": 19
+        },
+        {
+          "chapter": 64,
+          "verse_count": 12
+        },
+        {
+          "chapter": 65,
+          "verse_count": 25
+        },
+        {
+          "chapter": 66,
+          "verse_count": 24
+        }
+      ]
+    },
+    {
+      "book_id": "JER",
+      "canonical_order": 24,
+      "standard_name": "Yeremia",
+      "chapter_count": 52,
+      "total_verses": 1364,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 19
+        },
+        {
+          "chapter": 2,
+          "verse_count": 37
+        },
+        {
+          "chapter": 3,
+          "verse_count": 25
+        },
+        {
+          "chapter": 4,
+          "verse_count": 31
+        },
+        {
+          "chapter": 5,
+          "verse_count": 31
+        },
+        {
+          "chapter": 6,
+          "verse_count": 30
+        },
+        {
+          "chapter": 7,
+          "verse_count": 34
+        },
+        {
+          "chapter": 8,
+          "verse_count": 22
+        },
+        {
+          "chapter": 9,
+          "verse_count": 26
+        },
+        {
+          "chapter": 10,
+          "verse_count": 25
+        },
+        {
+          "chapter": 11,
+          "verse_count": 23
+        },
+        {
+          "chapter": 12,
+          "verse_count": 17
+        },
+        {
+          "chapter": 13,
+          "verse_count": 27
+        },
+        {
+          "chapter": 14,
+          "verse_count": 22
+        },
+        {
+          "chapter": 15,
+          "verse_count": 21
+        },
+        {
+          "chapter": 16,
+          "verse_count": 21
+        },
+        {
+          "chapter": 17,
+          "verse_count": 27
+        },
+        {
+          "chapter": 18,
+          "verse_count": 23
+        },
+        {
+          "chapter": 19,
+          "verse_count": 15
+        },
+        {
+          "chapter": 20,
+          "verse_count": 18
+        },
+        {
+          "chapter": 21,
+          "verse_count": 14
+        },
+        {
+          "chapter": 22,
+          "verse_count": 30
+        },
+        {
+          "chapter": 23,
+          "verse_count": 40
+        },
+        {
+          "chapter": 24,
+          "verse_count": 10
+        },
+        {
+          "chapter": 25,
+          "verse_count": 38
+        },
+        {
+          "chapter": 26,
+          "verse_count": 24
+        },
+        {
+          "chapter": 27,
+          "verse_count": 22
+        },
+        {
+          "chapter": 28,
+          "verse_count": 17
+        },
+        {
+          "chapter": 29,
+          "verse_count": 32
+        },
+        {
+          "chapter": 30,
+          "verse_count": 24
+        },
+        {
+          "chapter": 31,
+          "verse_count": 40
+        },
+        {
+          "chapter": 32,
+          "verse_count": 44
+        },
+        {
+          "chapter": 33,
+          "verse_count": 26
+        },
+        {
+          "chapter": 34,
+          "verse_count": 22
+        },
+        {
+          "chapter": 35,
+          "verse_count": 19
+        },
+        {
+          "chapter": 36,
+          "verse_count": 32
+        },
+        {
+          "chapter": 37,
+          "verse_count": 21
+        },
+        {
+          "chapter": 38,
+          "verse_count": 28
+        },
+        {
+          "chapter": 39,
+          "verse_count": 18
+        },
+        {
+          "chapter": 40,
+          "verse_count": 16
+        },
+        {
+          "chapter": 41,
+          "verse_count": 18
+        },
+        {
+          "chapter": 42,
+          "verse_count": 22
+        },
+        {
+          "chapter": 43,
+          "verse_count": 13
+        },
+        {
+          "chapter": 44,
+          "verse_count": 30
+        },
+        {
+          "chapter": 45,
+          "verse_count": 5
+        },
+        {
+          "chapter": 46,
+          "verse_count": 28
+        },
+        {
+          "chapter": 47,
+          "verse_count": 7
+        },
+        {
+          "chapter": 48,
+          "verse_count": 47
+        },
+        {
+          "chapter": 49,
+          "verse_count": 39
+        },
+        {
+          "chapter": 50,
+          "verse_count": 46
+        },
+        {
+          "chapter": 51,
+          "verse_count": 64
+        },
+        {
+          "chapter": 52,
+          "verse_count": 34
+        }
+      ]
+    },
+    {
+      "book_id": "LAM",
+      "canonical_order": 25,
+      "standard_name": "Ratapan",
+      "chapter_count": 5,
+      "total_verses": 154,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 22
+        },
+        {
+          "chapter": 2,
+          "verse_count": 22
+        },
+        {
+          "chapter": 3,
+          "verse_count": 66
+        },
+        {
+          "chapter": 4,
+          "verse_count": 22
+        },
+        {
+          "chapter": 5,
+          "verse_count": 22
+        }
+      ]
+    },
+    {
+      "book_id": "EZK",
+      "canonical_order": 26,
+      "standard_name": "Yehezkiel",
+      "chapter_count": 48,
+      "total_verses": 1273,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 28
+        },
+        {
+          "chapter": 2,
+          "verse_count": 10
+        },
+        {
+          "chapter": 3,
+          "verse_count": 27
+        },
+        {
+          "chapter": 4,
+          "verse_count": 17
+        },
+        {
+          "chapter": 5,
+          "verse_count": 17
+        },
+        {
+          "chapter": 6,
+          "verse_count": 14
+        },
+        {
+          "chapter": 7,
+          "verse_count": 27
+        },
+        {
+          "chapter": 8,
+          "verse_count": 18
+        },
+        {
+          "chapter": 9,
+          "verse_count": 11
+        },
+        {
+          "chapter": 10,
+          "verse_count": 22
+        },
+        {
+          "chapter": 11,
+          "verse_count": 25
+        },
+        {
+          "chapter": 12,
+          "verse_count": 28
+        },
+        {
+          "chapter": 13,
+          "verse_count": 23
+        },
+        {
+          "chapter": 14,
+          "verse_count": 23
+        },
+        {
+          "chapter": 15,
+          "verse_count": 8
+        },
+        {
+          "chapter": 16,
+          "verse_count": 63
+        },
+        {
+          "chapter": 17,
+          "verse_count": 24
+        },
+        {
+          "chapter": 18,
+          "verse_count": 32
+        },
+        {
+          "chapter": 19,
+          "verse_count": 14
+        },
+        {
+          "chapter": 20,
+          "verse_count": 49
+        },
+        {
+          "chapter": 21,
+          "verse_count": 32
+        },
+        {
+          "chapter": 22,
+          "verse_count": 31
+        },
+        {
+          "chapter": 23,
+          "verse_count": 49
+        },
+        {
+          "chapter": 24,
+          "verse_count": 27
+        },
+        {
+          "chapter": 25,
+          "verse_count": 17
+        },
+        {
+          "chapter": 26,
+          "verse_count": 21
+        },
+        {
+          "chapter": 27,
+          "verse_count": 36
+        },
+        {
+          "chapter": 28,
+          "verse_count": 26
+        },
+        {
+          "chapter": 29,
+          "verse_count": 21
+        },
+        {
+          "chapter": 30,
+          "verse_count": 26
+        },
+        {
+          "chapter": 31,
+          "verse_count": 18
+        },
+        {
+          "chapter": 32,
+          "verse_count": 32
+        },
+        {
+          "chapter": 33,
+          "verse_count": 33
+        },
+        {
+          "chapter": 34,
+          "verse_count": 31
+        },
+        {
+          "chapter": 35,
+          "verse_count": 15
+        },
+        {
+          "chapter": 36,
+          "verse_count": 38
+        },
+        {
+          "chapter": 37,
+          "verse_count": 28
+        },
+        {
+          "chapter": 38,
+          "verse_count": 23
+        },
+        {
+          "chapter": 39,
+          "verse_count": 29
+        },
+        {
+          "chapter": 40,
+          "verse_count": 49
+        },
+        {
+          "chapter": 41,
+          "verse_count": 26
+        },
+        {
+          "chapter": 42,
+          "verse_count": 20
+        },
+        {
+          "chapter": 43,
+          "verse_count": 27
+        },
+        {
+          "chapter": 44,
+          "verse_count": 31
+        },
+        {
+          "chapter": 45,
+          "verse_count": 25
+        },
+        {
+          "chapter": 46,
+          "verse_count": 24
+        },
+        {
+          "chapter": 47,
+          "verse_count": 23
+        },
+        {
+          "chapter": 48,
+          "verse_count": 35
+        }
+      ]
+    },
+    {
+      "book_id": "DAN",
+      "canonical_order": 27,
+      "standard_name": "Daniel",
+      "chapter_count": 12,
+      "total_verses": 357,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 21
+        },
+        {
+          "chapter": 2,
+          "verse_count": 49
+        },
+        {
+          "chapter": 3,
+          "verse_count": 30
+        },
+        {
+          "chapter": 4,
+          "verse_count": 37
+        },
+        {
+          "chapter": 5,
+          "verse_count": 31
+        },
+        {
+          "chapter": 6,
+          "verse_count": 28
+        },
+        {
+          "chapter": 7,
+          "verse_count": 28
+        },
+        {
+          "chapter": 8,
+          "verse_count": 27
+        },
+        {
+          "chapter": 9,
+          "verse_count": 27
+        },
+        {
+          "chapter": 10,
+          "verse_count": 21
+        },
+        {
+          "chapter": 11,
+          "verse_count": 45
+        },
+        {
+          "chapter": 12,
+          "verse_count": 13
+        }
+      ]
+    },
+    {
+      "book_id": "HOS",
+      "canonical_order": 28,
+      "standard_name": "Hosea",
+      "chapter_count": 14,
+      "total_verses": 197,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 11
+        },
+        {
+          "chapter": 2,
+          "verse_count": 23
+        },
+        {
+          "chapter": 3,
+          "verse_count": 5
+        },
+        {
+          "chapter": 4,
+          "verse_count": 19
+        },
+        {
+          "chapter": 5,
+          "verse_count": 15
+        },
+        {
+          "chapter": 6,
+          "verse_count": 11
+        },
+        {
+          "chapter": 7,
+          "verse_count": 16
+        },
+        {
+          "chapter": 8,
+          "verse_count": 14
+        },
+        {
+          "chapter": 9,
+          "verse_count": 17
+        },
+        {
+          "chapter": 10,
+          "verse_count": 15
+        },
+        {
+          "chapter": 11,
+          "verse_count": 12
+        },
+        {
+          "chapter": 12,
+          "verse_count": 14
+        },
+        {
+          "chapter": 13,
+          "verse_count": 16
+        },
+        {
+          "chapter": 14,
+          "verse_count": 9
+        }
+      ]
+    },
+    {
+      "book_id": "JOL",
+      "canonical_order": 29,
+      "standard_name": "Yoel",
+      "chapter_count": 3,
+      "total_verses": 73,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 20
+        },
+        {
+          "chapter": 2,
+          "verse_count": 32
+        },
+        {
+          "chapter": 3,
+          "verse_count": 21
+        }
+      ]
+    },
+    {
+      "book_id": "AMO",
+      "canonical_order": 30,
+      "standard_name": "Amos",
+      "chapter_count": 9,
+      "total_verses": 146,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 15
+        },
+        {
+          "chapter": 2,
+          "verse_count": 16
+        },
+        {
+          "chapter": 3,
+          "verse_count": 15
+        },
+        {
+          "chapter": 4,
+          "verse_count": 13
+        },
+        {
+          "chapter": 5,
+          "verse_count": 27
+        },
+        {
+          "chapter": 6,
+          "verse_count": 14
+        },
+        {
+          "chapter": 7,
+          "verse_count": 17
+        },
+        {
+          "chapter": 8,
+          "verse_count": 14
+        },
+        {
+          "chapter": 9,
+          "verse_count": 15
+        }
+      ]
+    },
+    {
+      "book_id": "OBA",
+      "canonical_order": 31,
+      "standard_name": "Obaja",
+      "chapter_count": 1,
+      "total_verses": 21,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 21
+        }
+      ]
+    },
+    {
+      "book_id": "JON",
+      "canonical_order": 32,
+      "standard_name": "Yunus",
+      "chapter_count": 4,
+      "total_verses": 48,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 17
+        },
+        {
+          "chapter": 2,
+          "verse_count": 10
+        },
+        {
+          "chapter": 3,
+          "verse_count": 10
+        },
+        {
+          "chapter": 4,
+          "verse_count": 11
+        }
+      ]
+    },
+    {
+      "book_id": "MIC",
+      "canonical_order": 33,
+      "standard_name": "Mikha",
+      "chapter_count": 7,
+      "total_verses": 105,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 16
+        },
+        {
+          "chapter": 2,
+          "verse_count": 13
+        },
+        {
+          "chapter": 3,
+          "verse_count": 12
+        },
+        {
+          "chapter": 4,
+          "verse_count": 13
+        },
+        {
+          "chapter": 5,
+          "verse_count": 15
+        },
+        {
+          "chapter": 6,
+          "verse_count": 16
+        },
+        {
+          "chapter": 7,
+          "verse_count": 20
+        }
+      ]
+    },
+    {
+      "book_id": "NAM",
+      "canonical_order": 34,
+      "standard_name": "Nahum",
+      "chapter_count": 3,
+      "total_verses": 47,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 15
+        },
+        {
+          "chapter": 2,
+          "verse_count": 13
+        },
+        {
+          "chapter": 3,
+          "verse_count": 19
+        }
+      ]
+    },
+    {
+      "book_id": "HAB",
+      "canonical_order": 35,
+      "standard_name": "Habakuk",
+      "chapter_count": 3,
+      "total_verses": 56,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 17
+        },
+        {
+          "chapter": 2,
+          "verse_count": 20
+        },
+        {
+          "chapter": 3,
+          "verse_count": 19
+        }
+      ]
+    },
+    {
+      "book_id": "ZEP",
+      "canonical_order": 36,
+      "standard_name": "Zefanya",
+      "chapter_count": 3,
+      "total_verses": 53,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 18
+        },
+        {
+          "chapter": 2,
+          "verse_count": 15
+        },
+        {
+          "chapter": 3,
+          "verse_count": 20
+        }
+      ]
+    },
+    {
+      "book_id": "HAG",
+      "canonical_order": 37,
+      "standard_name": "Hagai",
+      "chapter_count": 2,
+      "total_verses": 38,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 15
+        },
+        {
+          "chapter": 2,
+          "verse_count": 23
+        }
+      ]
+    },
+    {
+      "book_id": "ZEC",
+      "canonical_order": 38,
+      "standard_name": "Zakharia",
+      "chapter_count": 14,
+      "total_verses": 211,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 21
+        },
+        {
+          "chapter": 2,
+          "verse_count": 13
+        },
+        {
+          "chapter": 3,
+          "verse_count": 10
+        },
+        {
+          "chapter": 4,
+          "verse_count": 14
+        },
+        {
+          "chapter": 5,
+          "verse_count": 11
+        },
+        {
+          "chapter": 6,
+          "verse_count": 15
+        },
+        {
+          "chapter": 7,
+          "verse_count": 14
+        },
+        {
+          "chapter": 8,
+          "verse_count": 23
+        },
+        {
+          "chapter": 9,
+          "verse_count": 17
+        },
+        {
+          "chapter": 10,
+          "verse_count": 12
+        },
+        {
+          "chapter": 11,
+          "verse_count": 17
+        },
+        {
+          "chapter": 12,
+          "verse_count": 14
+        },
+        {
+          "chapter": 13,
+          "verse_count": 9
+        },
+        {
+          "chapter": 14,
+          "verse_count": 21
+        }
+      ]
+    },
+    {
+      "book_id": "MAL",
+      "canonical_order": 39,
+      "standard_name": "Maleakhi",
+      "chapter_count": 4,
+      "total_verses": 55,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 14
+        },
+        {
+          "chapter": 2,
+          "verse_count": 17
+        },
+        {
+          "chapter": 3,
+          "verse_count": 18
+        },
+        {
+          "chapter": 4,
+          "verse_count": 6
+        }
+      ]
+    },
+    {
+      "book_id": "MAT",
+      "canonical_order": 40,
+      "standard_name": "Matius",
+      "chapter_count": 28,
+      "total_verses": 1071,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 25
+        },
+        {
+          "chapter": 2,
+          "verse_count": 23
+        },
+        {
+          "chapter": 3,
+          "verse_count": 17
+        },
+        {
+          "chapter": 4,
+          "verse_count": 25
+        },
+        {
+          "chapter": 5,
+          "verse_count": 48
+        },
+        {
+          "chapter": 6,
+          "verse_count": 34
+        },
+        {
+          "chapter": 7,
+          "verse_count": 29
+        },
+        {
+          "chapter": 8,
+          "verse_count": 34
+        },
+        {
+          "chapter": 9,
+          "verse_count": 38
+        },
+        {
+          "chapter": 10,
+          "verse_count": 42
+        },
+        {
+          "chapter": 11,
+          "verse_count": 30
+        },
+        {
+          "chapter": 12,
+          "verse_count": 50
+        },
+        {
+          "chapter": 13,
+          "verse_count": 58
+        },
+        {
+          "chapter": 14,
+          "verse_count": 36
+        },
+        {
+          "chapter": 15,
+          "verse_count": 39
+        },
+        {
+          "chapter": 16,
+          "verse_count": 28
+        },
+        {
+          "chapter": 17,
+          "verse_count": 27
+        },
+        {
+          "chapter": 18,
+          "verse_count": 35
+        },
+        {
+          "chapter": 19,
+          "verse_count": 30
+        },
+        {
+          "chapter": 20,
+          "verse_count": 34
+        },
+        {
+          "chapter": 21,
+          "verse_count": 46
+        },
+        {
+          "chapter": 22,
+          "verse_count": 46
+        },
+        {
+          "chapter": 23,
+          "verse_count": 39
+        },
+        {
+          "chapter": 24,
+          "verse_count": 51
+        },
+        {
+          "chapter": 25,
+          "verse_count": 46
+        },
+        {
+          "chapter": 26,
+          "verse_count": 75
+        },
+        {
+          "chapter": 27,
+          "verse_count": 66
+        },
+        {
+          "chapter": 28,
+          "verse_count": 20
+        }
+      ]
+    },
+    {
+      "book_id": "MRK",
+      "canonical_order": 41,
+      "standard_name": "Markus",
+      "chapter_count": 16,
+      "total_verses": 678,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 45
+        },
+        {
+          "chapter": 2,
+          "verse_count": 28
+        },
+        {
+          "chapter": 3,
+          "verse_count": 35
+        },
+        {
+          "chapter": 4,
+          "verse_count": 41
+        },
+        {
+          "chapter": 5,
+          "verse_count": 43
+        },
+        {
+          "chapter": 6,
+          "verse_count": 56
+        },
+        {
+          "chapter": 7,
+          "verse_count": 37
+        },
+        {
+          "chapter": 8,
+          "verse_count": 38
+        },
+        {
+          "chapter": 9,
+          "verse_count": 50
+        },
+        {
+          "chapter": 10,
+          "verse_count": 52
+        },
+        {
+          "chapter": 11,
+          "verse_count": 33
+        },
+        {
+          "chapter": 12,
+          "verse_count": 44
+        },
+        {
+          "chapter": 13,
+          "verse_count": 37
+        },
+        {
+          "chapter": 14,
+          "verse_count": 72
+        },
+        {
+          "chapter": 15,
+          "verse_count": 47
+        },
+        {
+          "chapter": 16,
+          "verse_count": 20
+        }
+      ]
+    },
+    {
+      "book_id": "LUK",
+      "canonical_order": 42,
+      "standard_name": "Lukas",
+      "chapter_count": 24,
+      "total_verses": 1151,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 80
+        },
+        {
+          "chapter": 2,
+          "verse_count": 52
+        },
+        {
+          "chapter": 3,
+          "verse_count": 38
+        },
+        {
+          "chapter": 4,
+          "verse_count": 44
+        },
+        {
+          "chapter": 5,
+          "verse_count": 39
+        },
+        {
+          "chapter": 6,
+          "verse_count": 49
+        },
+        {
+          "chapter": 7,
+          "verse_count": 50
+        },
+        {
+          "chapter": 8,
+          "verse_count": 56
+        },
+        {
+          "chapter": 9,
+          "verse_count": 62
+        },
+        {
+          "chapter": 10,
+          "verse_count": 42
+        },
+        {
+          "chapter": 11,
+          "verse_count": 54
+        },
+        {
+          "chapter": 12,
+          "verse_count": 59
+        },
+        {
+          "chapter": 13,
+          "verse_count": 35
+        },
+        {
+          "chapter": 14,
+          "verse_count": 35
+        },
+        {
+          "chapter": 15,
+          "verse_count": 32
+        },
+        {
+          "chapter": 16,
+          "verse_count": 31
+        },
+        {
+          "chapter": 17,
+          "verse_count": 37
+        },
+        {
+          "chapter": 18,
+          "verse_count": 43
+        },
+        {
+          "chapter": 19,
+          "verse_count": 48
+        },
+        {
+          "chapter": 20,
+          "verse_count": 47
+        },
+        {
+          "chapter": 21,
+          "verse_count": 38
+        },
+        {
+          "chapter": 22,
+          "verse_count": 71
+        },
+        {
+          "chapter": 23,
+          "verse_count": 56
+        },
+        {
+          "chapter": 24,
+          "verse_count": 53
+        }
+      ]
+    },
+    {
+      "book_id": "JOH",
+      "canonical_order": 43,
+      "standard_name": "Yohanes",
+      "chapter_count": 21,
+      "total_verses": 879,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 51
+        },
+        {
+          "chapter": 2,
+          "verse_count": 25
+        },
+        {
+          "chapter": 3,
+          "verse_count": 36
+        },
+        {
+          "chapter": 4,
+          "verse_count": 54
+        },
+        {
+          "chapter": 5,
+          "verse_count": 47
+        },
+        {
+          "chapter": 6,
+          "verse_count": 71
+        },
+        {
+          "chapter": 7,
+          "verse_count": 53
+        },
+        {
+          "chapter": 8,
+          "verse_count": 59
+        },
+        {
+          "chapter": 9,
+          "verse_count": 41
+        },
+        {
+          "chapter": 10,
+          "verse_count": 42
+        },
+        {
+          "chapter": 11,
+          "verse_count": 57
+        },
+        {
+          "chapter": 12,
+          "verse_count": 50
+        },
+        {
+          "chapter": 13,
+          "verse_count": 38
+        },
+        {
+          "chapter": 14,
+          "verse_count": 31
+        },
+        {
+          "chapter": 15,
+          "verse_count": 27
+        },
+        {
+          "chapter": 16,
+          "verse_count": 33
+        },
+        {
+          "chapter": 17,
+          "verse_count": 26
+        },
+        {
+          "chapter": 18,
+          "verse_count": 40
+        },
+        {
+          "chapter": 19,
+          "verse_count": 42
+        },
+        {
+          "chapter": 20,
+          "verse_count": 31
+        },
+        {
+          "chapter": 21,
+          "verse_count": 25
+        }
+      ]
+    },
+    {
+      "book_id": "ACT",
+      "canonical_order": 44,
+      "standard_name": "Kisah Para Rasul",
+      "chapter_count": 28,
+      "total_verses": 1007,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 26
+        },
+        {
+          "chapter": 2,
+          "verse_count": 47
+        },
+        {
+          "chapter": 3,
+          "verse_count": 26
+        },
+        {
+          "chapter": 4,
+          "verse_count": 37
+        },
+        {
+          "chapter": 5,
+          "verse_count": 42
+        },
+        {
+          "chapter": 6,
+          "verse_count": 15
+        },
+        {
+          "chapter": 7,
+          "verse_count": 60
+        },
+        {
+          "chapter": 8,
+          "verse_count": 40
+        },
+        {
+          "chapter": 9,
+          "verse_count": 43
+        },
+        {
+          "chapter": 10,
+          "verse_count": 48
+        },
+        {
+          "chapter": 11,
+          "verse_count": 30
+        },
+        {
+          "chapter": 12,
+          "verse_count": 25
+        },
+        {
+          "chapter": 13,
+          "verse_count": 52
+        },
+        {
+          "chapter": 14,
+          "verse_count": 28
+        },
+        {
+          "chapter": 15,
+          "verse_count": 41
+        },
+        {
+          "chapter": 16,
+          "verse_count": 40
+        },
+        {
+          "chapter": 17,
+          "verse_count": 34
+        },
+        {
+          "chapter": 18,
+          "verse_count": 28
+        },
+        {
+          "chapter": 19,
+          "verse_count": 41
+        },
+        {
+          "chapter": 20,
+          "verse_count": 38
+        },
+        {
+          "chapter": 21,
+          "verse_count": 40
+        },
+        {
+          "chapter": 22,
+          "verse_count": 30
+        },
+        {
+          "chapter": 23,
+          "verse_count": 35
+        },
+        {
+          "chapter": 24,
+          "verse_count": 27
+        },
+        {
+          "chapter": 25,
+          "verse_count": 27
+        },
+        {
+          "chapter": 26,
+          "verse_count": 32
+        },
+        {
+          "chapter": 27,
+          "verse_count": 44
+        },
+        {
+          "chapter": 28,
+          "verse_count": 31
+        }
+      ]
+    },
+    {
+      "book_id": "ROM",
+      "canonical_order": 45,
+      "standard_name": "Roma",
+      "chapter_count": 16,
+      "total_verses": 433,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 32
+        },
+        {
+          "chapter": 2,
+          "verse_count": 29
+        },
+        {
+          "chapter": 3,
+          "verse_count": 31
+        },
+        {
+          "chapter": 4,
+          "verse_count": 25
+        },
+        {
+          "chapter": 5,
+          "verse_count": 21
+        },
+        {
+          "chapter": 6,
+          "verse_count": 23
+        },
+        {
+          "chapter": 7,
+          "verse_count": 25
+        },
+        {
+          "chapter": 8,
+          "verse_count": 39
+        },
+        {
+          "chapter": 9,
+          "verse_count": 33
+        },
+        {
+          "chapter": 10,
+          "verse_count": 21
+        },
+        {
+          "chapter": 11,
+          "verse_count": 36
+        },
+        {
+          "chapter": 12,
+          "verse_count": 21
+        },
+        {
+          "chapter": 13,
+          "verse_count": 14
+        },
+        {
+          "chapter": 14,
+          "verse_count": 23
+        },
+        {
+          "chapter": 15,
+          "verse_count": 33
+        },
+        {
+          "chapter": 16,
+          "verse_count": 27
+        }
+      ]
+    },
+    {
+      "book_id": "1CO",
+      "canonical_order": 46,
+      "standard_name": "1 Korintus",
+      "chapter_count": 16,
+      "total_verses": 437,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 31
+        },
+        {
+          "chapter": 2,
+          "verse_count": 16
+        },
+        {
+          "chapter": 3,
+          "verse_count": 23
+        },
+        {
+          "chapter": 4,
+          "verse_count": 21
+        },
+        {
+          "chapter": 5,
+          "verse_count": 13
+        },
+        {
+          "chapter": 6,
+          "verse_count": 20
+        },
+        {
+          "chapter": 7,
+          "verse_count": 40
+        },
+        {
+          "chapter": 8,
+          "verse_count": 13
+        },
+        {
+          "chapter": 9,
+          "verse_count": 27
+        },
+        {
+          "chapter": 10,
+          "verse_count": 33
+        },
+        {
+          "chapter": 11,
+          "verse_count": 34
+        },
+        {
+          "chapter": 12,
+          "verse_count": 31
+        },
+        {
+          "chapter": 13,
+          "verse_count": 13
+        },
+        {
+          "chapter": 14,
+          "verse_count": 40
+        },
+        {
+          "chapter": 15,
+          "verse_count": 58
+        },
+        {
+          "chapter": 16,
+          "verse_count": 24
+        }
+      ]
+    },
+    {
+      "book_id": "2CO",
+      "canonical_order": 47,
+      "standard_name": "2 Korintus",
+      "chapter_count": 13,
+      "total_verses": 257,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 24
+        },
+        {
+          "chapter": 2,
+          "verse_count": 17
+        },
+        {
+          "chapter": 3,
+          "verse_count": 18
+        },
+        {
+          "chapter": 4,
+          "verse_count": 18
+        },
+        {
+          "chapter": 5,
+          "verse_count": 21
+        },
+        {
+          "chapter": 6,
+          "verse_count": 18
+        },
+        {
+          "chapter": 7,
+          "verse_count": 16
+        },
+        {
+          "chapter": 8,
+          "verse_count": 24
+        },
+        {
+          "chapter": 9,
+          "verse_count": 15
+        },
+        {
+          "chapter": 10,
+          "verse_count": 18
+        },
+        {
+          "chapter": 11,
+          "verse_count": 33
+        },
+        {
+          "chapter": 12,
+          "verse_count": 21
+        },
+        {
+          "chapter": 13,
+          "verse_count": 14
+        }
+      ]
+    },
+    {
+      "book_id": "GAL",
+      "canonical_order": 48,
+      "standard_name": "Galatia",
+      "chapter_count": 6,
+      "total_verses": 149,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 24
+        },
+        {
+          "chapter": 2,
+          "verse_count": 21
+        },
+        {
+          "chapter": 3,
+          "verse_count": 29
+        },
+        {
+          "chapter": 4,
+          "verse_count": 31
+        },
+        {
+          "chapter": 5,
+          "verse_count": 26
+        },
+        {
+          "chapter": 6,
+          "verse_count": 18
+        }
+      ]
+    },
+    {
+      "book_id": "EPH",
+      "canonical_order": 49,
+      "standard_name": "Efesus",
+      "chapter_count": 6,
+      "total_verses": 155,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 23
+        },
+        {
+          "chapter": 2,
+          "verse_count": 22
+        },
+        {
+          "chapter": 3,
+          "verse_count": 21
+        },
+        {
+          "chapter": 4,
+          "verse_count": 32
+        },
+        {
+          "chapter": 5,
+          "verse_count": 33
+        },
+        {
+          "chapter": 6,
+          "verse_count": 24
+        }
+      ]
+    },
+    {
+      "book_id": "PHP",
+      "canonical_order": 50,
+      "standard_name": "Filipi",
+      "chapter_count": 4,
+      "total_verses": 104,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 30
+        },
+        {
+          "chapter": 2,
+          "verse_count": 30
+        },
+        {
+          "chapter": 3,
+          "verse_count": 21
+        },
+        {
+          "chapter": 4,
+          "verse_count": 23
+        }
+      ]
+    },
+    {
+      "book_id": "COL",
+      "canonical_order": 51,
+      "standard_name": "Kolose",
+      "chapter_count": 4,
+      "total_verses": 95,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 29
+        },
+        {
+          "chapter": 2,
+          "verse_count": 23
+        },
+        {
+          "chapter": 3,
+          "verse_count": 25
+        },
+        {
+          "chapter": 4,
+          "verse_count": 18
+        }
+      ]
+    },
+    {
+      "book_id": "1TH",
+      "canonical_order": 52,
+      "standard_name": "1 Tesalonika",
+      "chapter_count": 5,
+      "total_verses": 89,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 10
+        },
+        {
+          "chapter": 2,
+          "verse_count": 20
+        },
+        {
+          "chapter": 3,
+          "verse_count": 13
+        },
+        {
+          "chapter": 4,
+          "verse_count": 18
+        },
+        {
+          "chapter": 5,
+          "verse_count": 28
+        }
+      ]
+    },
+    {
+      "book_id": "2TH",
+      "canonical_order": 53,
+      "standard_name": "2 Tesalonika",
+      "chapter_count": 3,
+      "total_verses": 47,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 12
+        },
+        {
+          "chapter": 2,
+          "verse_count": 17
+        },
+        {
+          "chapter": 3,
+          "verse_count": 18
+        }
+      ]
+    },
+    {
+      "book_id": "1TI",
+      "canonical_order": 54,
+      "standard_name": "1 Timotius",
+      "chapter_count": 6,
+      "total_verses": 113,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 20
+        },
+        {
+          "chapter": 2,
+          "verse_count": 15
+        },
+        {
+          "chapter": 3,
+          "verse_count": 16
+        },
+        {
+          "chapter": 4,
+          "verse_count": 16
+        },
+        {
+          "chapter": 5,
+          "verse_count": 25
+        },
+        {
+          "chapter": 6,
+          "verse_count": 21
+        }
+      ]
+    },
+    {
+      "book_id": "2TI",
+      "canonical_order": 55,
+      "standard_name": "2 Timotius",
+      "chapter_count": 4,
+      "total_verses": 83,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 18
+        },
+        {
+          "chapter": 2,
+          "verse_count": 26
+        },
+        {
+          "chapter": 3,
+          "verse_count": 17
+        },
+        {
+          "chapter": 4,
+          "verse_count": 22
+        }
+      ]
+    },
+    {
+      "book_id": "TIT",
+      "canonical_order": 56,
+      "standard_name": "Titus",
+      "chapter_count": 3,
+      "total_verses": 46,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 16
+        },
+        {
+          "chapter": 2,
+          "verse_count": 15
+        },
+        {
+          "chapter": 3,
+          "verse_count": 15
+        }
+      ]
+    },
+    {
+      "book_id": "PHM",
+      "canonical_order": 57,
+      "standard_name": "Filemon",
+      "chapter_count": 1,
+      "total_verses": 25,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 25
+        }
+      ]
+    },
+    {
+      "book_id": "HEB",
+      "canonical_order": 58,
+      "standard_name": "Ibrani",
+      "chapter_count": 13,
+      "total_verses": 303,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 14
+        },
+        {
+          "chapter": 2,
+          "verse_count": 18
+        },
+        {
+          "chapter": 3,
+          "verse_count": 19
+        },
+        {
+          "chapter": 4,
+          "verse_count": 16
+        },
+        {
+          "chapter": 5,
+          "verse_count": 14
+        },
+        {
+          "chapter": 6,
+          "verse_count": 20
+        },
+        {
+          "chapter": 7,
+          "verse_count": 28
+        },
+        {
+          "chapter": 8,
+          "verse_count": 13
+        },
+        {
+          "chapter": 9,
+          "verse_count": 28
+        },
+        {
+          "chapter": 10,
+          "verse_count": 39
+        },
+        {
+          "chapter": 11,
+          "verse_count": 40
+        },
+        {
+          "chapter": 12,
+          "verse_count": 29
+        },
+        {
+          "chapter": 13,
+          "verse_count": 25
+        }
+      ]
+    },
+    {
+      "book_id": "JAS",
+      "canonical_order": 59,
+      "standard_name": "Yakobus",
+      "chapter_count": 5,
+      "total_verses": 108,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 27
+        },
+        {
+          "chapter": 2,
+          "verse_count": 26
+        },
+        {
+          "chapter": 3,
+          "verse_count": 18
+        },
+        {
+          "chapter": 4,
+          "verse_count": 17
+        },
+        {
+          "chapter": 5,
+          "verse_count": 20
+        }
+      ]
+    },
+    {
+      "book_id": "1PE",
+      "canonical_order": 60,
+      "standard_name": "1 Petrus",
+      "chapter_count": 5,
+      "total_verses": 105,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 25
+        },
+        {
+          "chapter": 2,
+          "verse_count": 25
+        },
+        {
+          "chapter": 3,
+          "verse_count": 22
+        },
+        {
+          "chapter": 4,
+          "verse_count": 19
+        },
+        {
+          "chapter": 5,
+          "verse_count": 14
+        }
+      ]
+    },
+    {
+      "book_id": "2PE",
+      "canonical_order": 61,
+      "standard_name": "2 Petrus",
+      "chapter_count": 3,
+      "total_verses": 61,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 21
+        },
+        {
+          "chapter": 2,
+          "verse_count": 22
+        },
+        {
+          "chapter": 3,
+          "verse_count": 18
+        }
+      ]
+    },
+    {
+      "book_id": "1JN",
+      "canonical_order": 62,
+      "standard_name": "1 Yohanes",
+      "chapter_count": 5,
+      "total_verses": 105,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 10
+        },
+        {
+          "chapter": 2,
+          "verse_count": 29
+        },
+        {
+          "chapter": 3,
+          "verse_count": 24
+        },
+        {
+          "chapter": 4,
+          "verse_count": 21
+        },
+        {
+          "chapter": 5,
+          "verse_count": 21
+        }
+      ]
+    },
+    {
+      "book_id": "2JN",
+      "canonical_order": 63,
+      "standard_name": "2 Yohanes",
+      "chapter_count": 1,
+      "total_verses": 13,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 13
+        }
+      ]
+    },
+    {
+      "book_id": "3JN",
+      "canonical_order": 64,
+      "standard_name": "3 Yohanes",
+      "chapter_count": 1,
+      "total_verses": 14,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 14
+        }
+      ]
+    },
+    {
+      "book_id": "JUD",
+      "canonical_order": 65,
+      "standard_name": "Yudas",
+      "chapter_count": 1,
+      "total_verses": 25,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 25
+        }
+      ]
+    },
+    {
+      "book_id": "REV",
+      "canonical_order": 66,
+      "standard_name": "Wahyu",
+      "chapter_count": 22,
+      "total_verses": 404,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verse_count": 20
+        },
+        {
+          "chapter": 2,
+          "verse_count": 29
+        },
+        {
+          "chapter": 3,
+          "verse_count": 22
+        },
+        {
+          "chapter": 4,
+          "verse_count": 11
+        },
+        {
+          "chapter": 5,
+          "verse_count": 14
+        },
+        {
+          "chapter": 6,
+          "verse_count": 17
+        },
+        {
+          "chapter": 7,
+          "verse_count": 17
+        },
+        {
+          "chapter": 8,
+          "verse_count": 13
+        },
+        {
+          "chapter": 9,
+          "verse_count": 21
+        },
+        {
+          "chapter": 10,
+          "verse_count": 11
+        },
+        {
+          "chapter": 11,
+          "verse_count": 19
+        },
+        {
+          "chapter": 12,
+          "verse_count": 17
+        },
+        {
+          "chapter": 13,
+          "verse_count": 18
+        },
+        {
+          "chapter": 14,
+          "verse_count": 20
+        },
+        {
+          "chapter": 15,
+          "verse_count": 8
+        },
+        {
+          "chapter": 16,
+          "verse_count": 21
+        },
+        {
+          "chapter": 17,
+          "verse_count": 18
+        },
+        {
+          "chapter": 18,
+          "verse_count": 24
+        },
+        {
+          "chapter": 19,
+          "verse_count": 21
+        },
+        {
+          "chapter": 20,
+          "verse_count": 15
+        },
+        {
+          "chapter": 21,
+          "verse_count": 27
+        },
+        {
+          "chapter": 22,
+          "verse_count": 21
+        }
+      ]
+    }
+  ],
+  "manifest_checksum_sha256": "25f75820e953f7a407c453661cb9cdd074b6f092e9c6a7d41faf7509bdbaf9e9"
+}

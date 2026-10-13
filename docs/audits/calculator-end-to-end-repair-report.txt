@@ -1,0 +1,66 @@
+TASK_STATUS: COMPLETED (LOCAL_VERIFIED, PUSH/DEPLOY_BLOCKED_BY_SANDBOX_NETWORK)
+
+ROOT_CAUSE:
+Pada web/static/index.html, sejumlah fungsi UI (updateUsageUI, renderCaseFile, applyContextToUI, selectLanguage, openThemeDetail, inspectGraphNode, startZumaSparringSession, openCheckoutModal) mengakses properti .textContent langsung pada elemen DOM tanpa null-guard, atau merujuk pada elemen yang hilang akibat perubahan markup sebelumnya (seperti #badge-quota-display, #dash-plan-val, #acc-tier-display, #acc-used-count, #dash-quota-val, #sb-sub-badge, #theme-detail-title, #theme-overview-content, #theme-detail-badge, #node-detail-type, #node-detail-title, #node-detail-text, #zuma-session-badge, #zuma-active-topic, #zuma-state-badge, #checkout-order-id). Saat elemen bernilai null, browser melempar exception fatal: TypeError: Cannot set properties of null (setting 'textContent').
+
+FAILING_SELECTOR:
+- #badge-quota-display (elemen tidak tersedia di markup baru)
+- #dash-plan-val, #acc-tier-display, #acc-used-count, #dash-quota-val (assignment unguarded di updateUsageUI)
+- #theme-detail-title, #theme-overview-content, #theme-detail-badge (assignment langsung di openThemeDetail)
+- #node-detail-type, #node-detail-title, #node-detail-text (assignment langsung di inspectGraphNode)
+- #zuma-session-badge, #zuma-active-topic, #zuma-state-badge (assignment langsung di startZumaSparringSession)
+- #checkout-order-id (assignment langsung di openCheckoutModal)
+- Selector bahasa l.dir.toUpperCase() melempar exception saat properti dir undefined
+
+FILE_AND_LINE:
+- web/static/index.html: baris 2850-3065 (updateUsageUI, selectLanguage, applyContextToUI)
+- web/static/index.html: baris 3214-3360 (renderCaseFile)
+- web/static/index.html: baris 3724-3736 (openThemeDetail)
+- web/static/index.html: baris 3906-3908 (inspectGraphNode)
+- web/static/index.html: baris 4114-4116 (startZumaSparringSession)
+- web/static/index.html: baris 4286-4325 (openCheckoutModal)
+
+PATCH_DETAILS:
+1. Menambahkan null-guard (if (el) el.textContent = ...) pada seluruh assignment elemen DOM di web/static/index.html.
+2. Memperbaiki parsing orientasi bahasa dengan fallback aman (l.dir || 'ltr').
+3. Membungkus rendering subpanel (evidence, open questions, debate preparation, sources) dalam blok try-catch terisolasi dengan helper safeArray, safeJoin, dan safeEscapeText.
+4. Memisahkan kegagalan telemetri non-kritis agar tidak menggagalkan penyimpanan dan penampilan Case File.
+
+BACKUP_STATUS:
+- web/static/index.html.bak-e2e-repair
+- web/services.py.bak-e2e-repair
+- web/api_foundation.py.bak-e2e-repair
+
+TEST_RESULTS:
+- tests/test_calculator_dom_null_regression.py: 4/4 PASS (100%)
+- tests/test_p0_implementation.py: PASS
+- tests/test_p1_implementation.py: 10/10 PASS (100%)
+
+BROWSER_QA:
+- Pengujian eksekusi DOM dan event handler dijalankan penuh melalui JSDOM runtime.
+- Seluruh alur runAnalysis(), rendering naskah primer/aparatus, drawer inspeksi sumber, modal error HTTP (401, 402, 403, 429, 500), serta kegagalan jaringan terverifikasi bebas runtime error.
+- Headless Chromium langsung dibatasi oleh aturan seccomp sandbox container (shutdown: Operation not permitted).
+
+GIT_COMMITS_AND_DIFF:
+- Commit SHA: 6378263
+- Commit Message: fix(calculator): eliminate null reference exceptions in DOM rendering and harden auth telemetry
+- Berkas terlibat:
+  * web/static/index.html
+  * web/services.py
+  * web/api_foundation.py
+  * tests/test_calculator_dom_null_regression.py
+  * tests/test_google_auth_repeated_click.py
+  * tests/test_staging_google_auth_and_guest_quota.py
+
+PUSH_STATUS:
+- BLOCKED (Egress jaringan/DNS container ke github.com ditolak oleh sandbox policy).
+
+CI_STATUS:
+- LOCAL CI / TEST SUITE: PASS
+- REMOTE CI: Menunggu push setelah akses jaringan dibuka.
+
+DEPLOYMENT_STATUS:
+- PENDING (Menunggu sinkronisasi Git remote dan izin akses server produksi).
+
+REMAINING_BLOCKERS:
+- Memerlukan pembukaan izin egress jaringan container untuk eksekusi git push origin main dan reload service di server target.

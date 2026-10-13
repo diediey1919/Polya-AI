@@ -1,0 +1,109 @@
+TASK: POLYA AI — STAGING ACCEPTANCE TEST & STABILITY AUDIT
+TIMESTAMP: 2026-10-12T04:20:00+07:00
+REPOSITORY: /home/ubuntu/Polya-AI
+BRANCH: main
+LOCAL_COMMIT: 7c94d6394529b4a8f61683e5bd52b5a6b87e975f
+DEPLOYED_VERSION: COMMIT_SYNC_PENDING_RELOAD (Service loaded at startup; /static assets live; new Python routes require systemd reload)
+WORKING_TREE_STATUS: CLEAN_ON_TRACKED_FILES
+DEPLOYMENT_PERFORMED: NO
+CODE_CHANGED: NO
+
+=============================================================================
+1. DEPLOYMENT & BASELINE AUDIT (PHASE A)
+=============================================================================
+- Repository Branch: main
+- HEAD SHA: 7c94d6394529b4a8f61683e5bd52b5a6b87e975f
+- Expected Baseline Commit: 7c94d6394529b4a8f61683e5bd52b5a6b87e975f (MATCHES)
+- Working Tree Status: All tracked files clean and committed. Untracked backup/scratch assets remain untouched.
+- Service Architecture:
+  * Nginx Reverse Proxy: /etc/nginx/sites-available/staging.apologets -> proxies to 127.0.0.1:8001 (polya-staging.service)
+  * Production Service: 127.0.0.1:8000 (polya-web.service)
+- Staging Runtime Status:
+  * Static file updates in web/static/ (e.g. index.html, reports) serve immediately via Nginx / uvicorn static mount.
+  * In-flight staging uvicorn process running from previous startup; newly added Python endpoints (such as /p1-report.txt redirect in app.py) will take effect upon the next authorized service reload.
+- Database Availability:
+  * polya_arena.db (11MB) and polya_arena_staging.db (140KB) both pass SQLite PRAGMA integrity_check.
+  * 244 canonical case file records in case_files_v2 preserved intact.
+
+=============================================================================
+2. BROWSER SMOKE TEST (PHASE B)
+=============================================================================
+Status: BLOCKED_HEADLESS_SANDBOX
+- Detail: Execution of Chromium/Playwright in the host sandbox fails immediately with:
+  "FATAL:content/browser/sandbox_host_linux.cc:41 Check failed: . shutdown: Operation not permitted (1)".
+  Kernel seccomp sandbox policy prohibits headless browser child processes.
+- Alternate Verification (ASGI & DOM Analysis):
+  1. Main Workspace & SPA Navigation: Verified valid routes in index.html and app.py.
+  2. Apologetics Calculator: All 10 fields verified in tests/test_p0_implementation.py.
+  3. Challenge My Argument: Verified with AST and unit tests.
+  4. Weakest Point Analysis: Verified in tests/test_p0_implementation.py.
+  5. Show Me the Source: Verified in tests/test_p0_implementation.py.
+  6. Case Files: Idempotent save, retrieval, and ownership isolation verified.
+  7. Knowledge Graph: Real nodes, edges, search, limit, and details verified.
+  8. Themes Explorer: Dynamic catalog and seamless transition to Calculator verified.
+  9. LangGraph SSE: Verified real node lifecycle transitions via GET /api/v1/pipeline/stream.
+  10. ZUMA Sparring: Session lifecycle and 9-dimension scorecard verified.
+  11. Debate Arena: Segregation verified; official 3-vs-3 human arena unaffected.
+
+=============================================================================
+3. SECURITY ACCEPTANCE TEST (PHASE C)
+=============================================================================
+Status: PARTIAL (Vulnerabilities Documented, No Code Changed)
+- Authentication Enforcement: PASS
+  * Unauthenticated requests to non-guest user contexts rejected with HTTP 401 Unauthorized.
+  * Unauthenticated access to /api/v1/pipeline/stream rejected with HTTP 401 Unauthorized.
+- Cross-User Isolation: PASS
+  * User A with valid Bearer token attempting to access User B context -> HTTP 403 Forbidden.
+  * User A attempting to inspect User B entitlement usage quota -> HTTP 403 Forbidden.
+  * User A attempting to list or fetch User B Case Files -> HTTP 403 Forbidden.
+- Sensitive Data Protection: PASS
+  * Zero secrets or plain-text credentials found in git tracked repository files.
+- Findings:
+  * FINDING-SEC-01 (Severity: MEDIUM): SSE Query Parameter Token in Access Logs.
+    Evidence: GET /api/v1/pipeline/stream accepts '?token=...' for browser EventSource compatibility. The active Nginx configuration (/etc/nginx/sites-available/staging.apologets) uses standard access log formats, which records full query strings.
+    Recommendation: Update Nginx log format for SSE routes to log '$uri' without '$args', or implement cookie-based session auth for EventSource.
+  * FINDING-SEC-02 (Severity: LOW): Absence of explicit CORSMiddleware.
+    Evidence: API relies on same-origin reverse proxying. Direct cross-origin calls from untrusted domains are not explicitly restricted at the application layer.
+    Recommendation: Configure FastAPI CORSMiddleware with an explicit whitelist.
+
+=============================================================================
+4. DATABASE & RECOVERY AUDIT (PHASE D)
+=============================================================================
+Status: PARTIAL
+- Schema & Record Integrity: PASS
+  * Table 'case_files_v2' in data/polya_arena.db contains 244 records, with user_id index 'idx_case_user'.
+  * Both staging and production database files return 'ok' on PRAGMA integrity_check.
+- Backup & Recovery Readiness: PARTIAL
+  * Existing backups: polya_secrets_and_credentials_backup.tar.gz and repair_vad_tts_backup.tar.gz present in /home/ubuntu.
+  * GAP: No automated periodic snapshot of polya_arena.db found in /home/ubuntu/backups/.
+  * Recommendation: Establish automated SQLite WAL checkpointing and cron-based SQLite '.backup' dumps to /home/ubuntu/backups/ prior to production traffic.
+  * Rollback Procedure: 'git revert 7c94d63' cleanly restores code to P0 baseline (bb94478ab712c513dd2a1879f0650b87a9004b14). However, database rollbacks require standalone point-in-time file recovery.
+
+=============================================================================
+5. STABILITY & RESOURCE CHECK (PHASE E)
+=============================================================================
+Status: PASS
+- Pipeline & SSE Lifecycle:
+  * SSE connection cleanly dispatches terminal event 'complete' upon LangGraph completion.
+  * Background daemon threads manage queue handoffs to asyncio event loops; timeout ping of 20.0s prevents hung client sockets.
+  * Disconnect handling gracefully terminates queue polling.
+- Concurrency & Multi-Turn:
+  * Sparring and calculator workflows run synchronously per session without leaking states across concurrent requests.
+  * Zero memory or worker exhaustion detected under standard ASGI unit loads.
+
+=============================================================================
+6. AUDIT SUMMARY & RELEASE GATE DECISION
+=============================================================================
+- TEST RESULTS:
+  * P1 Implementation Suite (tests/test_p1_implementation.py): 10/10 PASS
+  * P0 Regression Suite (tests/test_p0_implementation.py): 4/4 PASS
+  * Automation Controller Suite (tests/test_automation_controller.py): 26/26 PASS
+  * Debate Training Suite (runtime/test_training_debate_engine.py): PASS
+- OVERALL STAGING ACCEPTANCE STATUS: PARTIAL
+  (Code logic and regression test suites pass 100%. Status is PARTIAL due to documented environment constraints: BLOCKED headless browser sandbox, staging service process reload required for dynamic Python endpoints, and Nginx query-string log masking recommendation).
+- CODE_CHANGED: NO (Read-only compliance maintained).
+- DEPLOYMENT_PERFORMED: NO.
+- NEXT_ACTION:
+  1. Review documented findings FINDING-SEC-01 and database backup recommendations.
+  2. Perform authorized systemd service reload ('systemctl --user restart polya-staging') during planned maintenance.
+  3. Validate staging browser interactions in a non-sandboxed QA environment.

@@ -1,0 +1,160 @@
+[
+  {
+    "label": "A",
+    "claim": "Yesus tidak pernah secara langsung berkata, 'Aku adalah Tuhan'.",
+    "mode": "debate",
+    "status_code": 200,
+    "duration_s": 20.38,
+    "notice": "AI_SYNTHESIS_SUCCESS \u2014 Mode: DEBATE (Agent: hermes) | Verification: VERIFIED",
+    "evidence_count": 1,
+    "evidence_refs": [
+      "\u1f18\u03b3\u1f7c \u03ba\u03b1\u1f76 \u1f41 \u03a0\u03b1\u03c4\u1f74\u03c1 \u1f15\u03bd \u1f10\u03c3\u03bc\u03b5\u03bd. (Yohanes 10:30"
+    ],
+    "sources_count": 5,
+    "sources": [
+      {
+        "citation": "Yohanes 10:30 (SRC-BIB-YOHANES-10-30)",
+        "type": "Primary Scripture Witness"
+      },
+      {
+        "citation": "JESUS / ISA FORENSIC AUDIT (STEP 134)",
+        "type": "Academic Corpus Index"
+      }
+    ],
+    "argument_preview": "Dalam konteks yudaisme Second Temple, identitas monoteistik Yahudi tidak diungka",
+    "rebuttal_preview": "Premis lawan runtuh melalui respons audiens Yahudi kontemporer dalam Yohanes 10:"
+  },
+  {
+    "label": "A",
+    "claim": "Yesus tidak pernah secara langsung berkata, 'Aku adalah Tuhan'.",
+    "mode": "research",
+    "status_code": 200,
+    "duration_s": 44.91,
+    "notice": "AI_SYNTHESIS_SUCCESS \u2014 Mode: RESEARCH (Agent: hermes) | Verification: VERIFIED",
+    "evidence_count": 1,
+    "evidence_refs": [
+      "\u1f18\u03b3\u1f7c \u03ba\u03b1\u1f76 \u1f41 \u03a0\u03b1\u03c4\u1f74\u03c1 \u1f15\u03bd \u1f10\u03c3\u03bc\u03b5\u03bd. (Yohanes 10:30"
+    ],
+    "sources_count": 5,
+    "sources": [
+      {
+        "citation": "Yohanes 10:30 (SRC-BIB-YOHANES-10-30)",
+        "type": "Primary Scripture Witness"
+      },
+      {
+        "citation": "JESUS / ISA FORENSIC AUDIT (STEP 134)",
+        "type": "Academic Corpus Index"
+      }
+    ],
+    "argument_preview": "Secara filologi forensik dan sintaksis naskah Koine Greek, klaim tersebut akurat",
+    "rebuttal_preview": "Penolakan klausa verbatim 'Aku adalah Tuhan' mengabaikan idiom semitik dan matri"
+  },
+  {
+    "label": "B",
+    "claim": "Doktrin Tritunggal muncul kemudian dan bukan ajaran asli Yesus.",
+    "mode": "debate",
+    "status_code": 200,
+    "duration_s": 31.38,
+    "notice": "AI_SYNTHESIS_SUCCESS \u2014 Mode: DEBATE (Agent: hermes) | Verification: VERIFIED",
+    "evidence_count": 2,
+    "evidence_refs": [
+      "\u1f18\u03b3\u1f7c \u03ba\u03b1\u1f76 \u1f41 \u03a0\u03b1\u03c4\u1f74\u03c1 \u1f15\u03bd \u1f10\u03c3\u03bc\u03b5\u03bd. (Yohanes 10:30",
+      "\u05e9\u05b0\u05c1\u05de\u05b7\u05e2 \u05d9\u05b4\u05e9\u05b0\u05c2\u05e8\u05b8\u05d0\u05b5\u05dc \u05d9\u05b0\u05d4\u05d5\u05b8\u05d4 \u05d0\u05b1\u05dc\u05b9\u05d4\u05b5\u05d9\u05e0\u05d5\u05bc \u05d9\u05b0\u05d4\u05d5"
+    ],
+    "sources_count": 6,
+    "sources": [
+      {
+        "citation": "Yohanes 10:30 (SRC-BIB-YOHANES-10-30)",
+        "type": "Primary Scripture Witness"
+      },
+      {
+        "citation": "Ulangan 6:4 (SRC-BIB-ULANGAN-6-4)",
+        "type": "Primary Scripture Witness"
+      }
+    ],
+    "argument_preview": "Kristologi tinggi dan pola triadik bukan produk fabrikasi terkemudian, melainkan",
+    "rebuttal_preview": "Penolakan terhadap doktrin atas dasar ketiadaan leksikon teknis adalah cacat kat"
+  },
+  {
+    "label": "B",
+    "claim": "Doktrin Tritunggal muncul kemudian dan bukan ajaran asli Yesus.",
+    "mode": "research",
+    "status_code": 200,
+    "duration_s": 24.53,
+    "notice": "AI_SYNTHESIS_SUCCESS \u2014 Mode: RESEARCH (Agent: hermes) | Verification: VERIFIED",
+    "evidence_count": 2,
+    "evidence_refs": [
+      "\u1f18\u03b3\u1f7c \u03ba\u03b1\u1f76 \u1f41 \u03a0\u03b1\u03c4\u1f74\u03c1 \u1f15\u03bd \u1f10\u03c3\u03bc\u03b5\u03bd. (Yohanes 10:30",
+      "\u05e9\u05b0\u05c1\u05de\u05b7\u05e2 \u05d9\u05b4\u05e9\u05b0\u05c2\u05e8\u05b8\u05d0\u05b5\u05dc \u05d9\u05b0\u05d4\u05d5\u05b8\u05d4 \u05d0\u05b1\u05dc\u05b9\u05d4\u05b5\u05d9\u05e0\u05d5\u05bc \u05d9\u05b0\u05d4\u05d5"
+    ],
+    "sources_count": 6,
+    "sources": [
+      {
+        "citation": "Yohanes 10:30 (SRC-BIB-YOHANES-10-30)",
+        "type": "Primary Scripture Witness"
+      },
+      {
+        "citation": "Ulangan 6:4 (SRC-BIB-ULANGAN-6-4)",
+        "type": "Primary Scripture Witness"
+      }
+    ],
+    "argument_preview": "Secara filologis dan tekstual, naskah kanonikal awal tidak memuat leksikon tekni",
+    "rebuttal_preview": "Secara forensik, respons Yesus sendiri dalam Yohanes 10:34-36 mengutip Mazmur 82"
+  },
+  {
+    "label": "C",
+    "claim": "Air mendidih pada 100\u00b0C pada tekanan 1 atmosfer.",
+    "mode": "debate",
+    "status_code": 200,
+    "duration_s": 19.58,
+    "notice": "INSUFFICIENT_EVIDENCE \u2014 Klaim berada di luar cakupan korpus atau bukti naskah tidak mencukupi | Verification: UNSUPPORTED",
+    "evidence_count": 0,
+    "evidence_refs": [],
+    "sources_count": 0,
+    "sources": [],
+    "argument_preview": "Secara empiris dan operasional, pada tekanan 1 atm standar, tekanan uap jenuh ai",
+    "rebuttal_preview": "Perbedaan 0,026\u00b0C adalah artefak redefinisi skala temperatur termodinamika moder"
+  },
+  {
+    "label": "C",
+    "claim": "Air mendidih pada 100\u00b0C pada tekanan 1 atmosfer.",
+    "mode": "research",
+    "status_code": 200,
+    "duration_s": 18.0,
+    "notice": "INSUFFICIENT_EVIDENCE \u2014 Klaim berada di luar cakupan korpus atau bukti naskah tidak mencukupi | Verification: UNSUPPORTED",
+    "evidence_count": 0,
+    "evidence_refs": [],
+    "sources_count": 0,
+    "sources": [],
+    "argument_preview": "Secara forensik filologis dan eksegetis, proposisi ini berada sepenuhnya di luar",
+    "rebuttal_preview": "Penetapan parameter fisika modern ke dalam teks kuno adalah distorsi eisegesis d"
+  },
+  {
+    "label": "D",
+    "claim": "Spekulasi kosmologi kuantum XZ99.",
+    "mode": "debate",
+    "status_code": 200,
+    "duration_s": 16.1,
+    "notice": "INSUFFICIENT_EVIDENCE \u2014 Klaim berada di luar cakupan korpus atau bukti naskah tidak mencukupi | Verification: UNSUPPORTED",
+    "evidence_count": 0,
+    "evidence_refs": [],
+    "sources_count": 0,
+    "sources": [],
+    "argument_preview": "Secara dialektika, penamaan hipotetis non-standar 'XZ99' berstatus konstruksi sp",
+    "rebuttal_preview": "Model kosmologi kuantum murni spekulatif tetap terikat pada hukum fisika dan ker"
+  },
+  {
+    "label": "D",
+    "claim": "Spekulasi kosmologi kuantum XZ99.",
+    "mode": "research",
+    "status_code": 200,
+    "duration_s": 21.29,
+    "notice": "INSUFFICIENT_EVIDENCE \u2014 Klaim berada di luar cakupan korpus atau bukti naskah tidak mencukupi | Verification: UNSUPPORTED",
+    "evidence_count": 0,
+    "evidence_refs": [],
+    "sources_count": 0,
+    "sources": [],
+    "argument_preview": "Secara filologis dan tekstual, istilah 'Spekulasi kosmologi kuantum XZ99' tidak ",
+    "rebuttal_preview": "Secara metodologis dan eksegetis, anakronisme semantik dilarang dalam analisis f"
+  }
+]

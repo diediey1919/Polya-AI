@@ -1,0 +1,142 @@
+TASK: POLYA AI — PRODUCTION DEPLOYMENT PLAN FINAL SAFETY REVIEW
+TIMESTAMP: 2026-10-12T05:55:00+07:00
+REPOSITORY: /home/ubuntu/Polya-AI
+BASELINE_COMMIT: 7c94d6394529b4a8f61683e5bd52b5a6b87e975f
+REPORT_DESTINATION: docs/audits/production-deployment-plan-safety-review.txt
+EXECUTION_MODE: READ-ONLY SAFETY REVIEW (NO DEPLOYMENT AUTHORIZATION)
+
+=============================================================================
+1. DATABASE COMPATIBILITY AUDIT
+=============================================================================
+Metodologi:
+Pemeriksaan skema forensik pada database produksi (/home/ubuntu/Polya-AI/data/polya_arena.db) vs kode inisialisasi di web/services.py, web/app.py, dan orchestrator/case_file.py.
+
+Hasil Analisis Struktural:
+1. Tabel Eksisting Produksi (7 Tabel):
+   - arena_users
+   - user_entitlements
+   - usage_entitlement_records
+   - payment_transactions
+   - user_apologetics_context
+   - case_files_v2
+   - execution_traces
+
+2. Tabel Tambahan Aplikasi Saat Startup (6 Tabel Baru):
+   - arena_donations
+   - arena_wallet_balances
+   - arena_platform_treasury
+   - arena_chat_messages
+   - social_posts, social_comments, social_likes, social_stories
+   Sifat: Murni aditif via "CREATE TABLE IF NOT EXISTS". Tidak ada konflik atau penimpaan tabel eksisting.
+
+3. Evaluasi Kolom & Constraint:
+   - arena_users: Memiliki 13 kolom yang identik di skema init_foundation_db dan init_arena_db. Tidak memerlukan penambahan kolom.
+   - case_files_v2: Kolom user_id sudah ada di DB produksi. Blok ALTER TABLE ADD COLUMN user_id ditangani secara aman dengan try/except OperationalError.
+   - Tidak ada foreign key constraint destruktif yang menghalangi startup.
+
+Status: PASS (Skema murni aditif, tidak memerlukan migrasi manual destruktif).
+
+=============================================================================
+2. DATABASE SNAPSHOT & RESOURCE READINESS
+=============================================================================
+Metodologi:
+Pemeriksaan kapasitas filesystem (/dev/root), ukuran file database produksi, dan strategi snapshot konsisten.
+
+Hasil Audit Sumber Daya:
+- Ukuran database produksi (polya_arena.db): 12 MB (12,042,240 bytes).
+- Kapasitas disk tersedia: 3.1 GB (Use% 90% pada /dev/root).
+- Rasio kapasitas: Snapshot 12 MB hanya mengonsumsi ~0.38% dari disk yang tersedia. Ruang penyimpanan sangat memadai dan aman dari disk exhaustion.
+
+Prosedur Snapshot Konsisten:
+- Snapshot wajib menggunakan SQLite Online Backup API (sqlite3 backup method) untuk menghindari lock atau dirty read dari transaksi aktif.
+- Direktori target: /home/ubuntu/backups/production/
+- Validasi wajib:
+  1. PRAGMA integrity_check -> harus menghasilkan 'ok'.
+  2. Pencatatan SHA-256 hash sebelum service diubah.
+
+Status: PASS
+
+=============================================================================
+3. ROLLBACK SAFETY & ISOLASI DAMPAK
+=============================================================================
+Pemisahan domain rollback:
+1. Rollback Aplikasi & Service:
+   - Jika polya-web.service gagal start atau health check gagal, tindakan pertama HANYA restart service lama atau rollback file binary/Python.
+   - LARANGAN: Dilarang memulihkan snapshot database secara otomatis!
+2. Rollback Database:
+   - Pemulihan snapshot database HANYA dilakukan jika terbukti terjadi korupsi data atau kerusakan integritas skema.
+   - Risiko: Mengembalikan snapshot DB berpotensi membuang donasi/transaksi yang terjadi antara waktu snapshot dan insiden.
+   - Wajib otorisasi eksplisit manusia sebelum pemulihan database dilakukan.
+3. Rollback Nginx:
+   - Mengembalikan file /etc/nginx/sites-available/apologets dari backup (.pre-deploy), uji "nginx -t", lalu "systemctl reload nginx".
+   - Tidak ada downtime TCP connections selama reload.
+
+Status: PASS
+
+=============================================================================
+4. NGINX PROXY & SSE CONFIGURATION PLAN
+=============================================================================
+Target: /etc/nginx/sites-available/apologets
+Pola yang diusulkan:
+    location = /api/v1/pipeline/stream {
+        access_log off;
+        proxy_buffering off;
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+
+Analisis Dampak:
+- Logging: Menghilangkan pencatatan query string sensitif (?claim=...) pada endpoint SSE.
+- Proxy Buffering: Dinonaktifkan untuk memungkinkan streaming event-by-event instan tanpa delay buffering 4KB/8KB Nginx.
+- Target Port: Tepat mengarah ke 127.0.0.1:8000 (polya-web.service).
+- Validasi: Wajib menjalankan "sudo nginx -t" sebelum "sudo systemctl reload nginx".
+
+Status: PASS
+
+=============================================================================
+5. CHECKPOINTS & DEPLOYMENT SEQUENCE
+=============================================================================
+Urutan deployment terkontrol dengan strict gates:
+Checkpoint 0: Preflight Verification (Git commit, tracked clean, service status).
+Checkpoint 1: Database Pre-Deployment Snapshot (Online backup API, integrity check ok, catat SHA-256).
+Checkpoint 2: Nginx Configuration Patch (Backup file lama, sisipkan blok SSE port 8000, nginx -t).
+Checkpoint 3: Nginx Reload (sudo systemctl reload nginx, verifikasi Nginx tetap active).
+Checkpoint 4: Service Restart (sudo systemctl restart polya-web.service).
+Checkpoint 5: Smoke Testing & Health Checks:
+  - GET http://127.0.0.1:8000/api/arena/state -> 200 OK
+  - GET http://127.0.0.1:8000/api/v1/pipeline/stream?claim=Test -> 401 Unauthorized
+  - Verifikasi /var/log/nginx/access.log tidak mencatat query SSE.
+Checkpoint 6: Monitoring (Pantau uvicorn error log selama 5 menit).
+
+Kriteria Stop/Abort:
+Jika salah satu checkpoint gagal, proses BERHENTI seketika. Jangan lanjut ke checkpoint berikutnya.
+
+Status: PASS
+
+=============================================================================
+6. UNRESOLVED RISKS & KETERBATASAN
+=============================================================================
+1. Kapasitas Disk Host:
+   - Disk root berada pada 90% (3.1 GB available). Meskipun backup DB hanya 12 MB, log rotasi dan cron logging perlu terus dipantau agar disk tidak penuh.
+2. Downtime Uvicorn Restart:
+   - Restart systemctl pada uvicorn single process port 8000 akan memutus koneksi websocket/HTTP selama ~1-2 detik. Dilakukan di luar jam sibuk.
+
+=============================================================================
+7. VERIFIKASI KEBIJAKAN & INTEGRITAS
+=============================================================================
+DATABASE_COMPATIBILITY: PASS
+SNAPSHOT_READINESS: PASS
+ROLLBACK_SAFETY: PASS
+NGINX_PLAN: PASS
+DEPLOYMENT_SEQUENCE: PASS
+UNRESOLVED_RISKS: NONE_CRITICAL
+PRODUCTION_MODIFIED: NO
+DEPLOYMENT_PERFORMED: NO
+ANTIGRAVITY_USED: NO
+HUMAN_APPROVAL_REQUIRED: YES

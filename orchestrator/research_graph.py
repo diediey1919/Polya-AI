@@ -41,12 +41,14 @@ USER CLAIM
     ↓
 18. final_response_node (Debate-Ready Delivery across 7 Modes including ADVERSARIAL_REVIEW)
 """
+import json
 import operator
+import re
 import time
 import uuid
 from datetime import datetime, timezone
 from typing import Annotated, Any, Dict, List, Optional
-from typing_extensions import TypedDict
+from typing_extensions import TypedDict, NotRequired
 
 from langgraph.graph import StateGraph, START, END
 from langgraph.checkpoint.memory import MemorySaver
@@ -79,7 +81,7 @@ class ResearchState(TypedDict):
     claim_input: str
     run_id: str
     thread_id: str
-    user_id: Optional[str]
+    user_id: NotRequired[Optional[str]]
     user_perspective: str
     requested_mode: str
     tasks: List[Dict[str, Any]]
@@ -116,6 +118,11 @@ class ResearchState(TypedDict):
     execution_traces: Annotated[List[Dict[str, Any]], operator.add]
     final_response: Optional[str]
     errors: Annotated[List[str], operator.add]
+    synthesis_output: NotRequired[Optional[Dict[str, Any]]]
+    synthesis_status: NotRequired[Optional[str]]
+    model_invocation: NotRequired[Optional[Dict[str, Any]]]
+    retrieval_status: NotRequired[Optional[str]]
+    corpus_evidence: NotRequired[Optional[List[Dict[str, Any]]]]
 
 
 # ============================================================================
@@ -152,16 +159,133 @@ def task_decomposition_node(state: ResearchState) -> Dict[str, Any]:
 
 
 def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
-    """Dispatches research tasks across live agents using AgentCapabilityRegistry."""
+    """Dispatches research tasks across live agents using AgentCapabilityRegistry with real AI synthesis."""
     claim_text = state["claim_input"]
+    requested_mode = state.get("requested_mode", "RESEARCH").upper()
     dispatched_records: List[Dict[str, Any]] = []
     traces: List[Dict[str, Any]] = []
 
     target_agent = Registry.route_task("RESEARCH_AGENT")
-    prompt = f"Forensic apologetics research dispatch for claim: '{claim_text}'."
+
+    # Pre-retrieve evidence for contextual model grounding
+    all_ev = Evidence.retrieve_all_evidence(claim_text)
+    retrieval_status = all_ev.get("status", "insufficient_evidence")
+    scripture_items = all_ev.get("scripture_evidence", [])
+    corpus_items = all_ev.get("corpus_evidence", [])
+
+    ev_summary_lines = []
+    for sc in scripture_items[:3]:
+        ev_summary_lines.append(f"- [Kitab Suci] {sc.passage_reference}: {sc.original_text} ({sc.indonesian_translation})")
+    for cp in corpus_items[:3]:
+        ev_summary_lines.append(f"- [Korpus Akademik] {cp.get('title')}: {cp.get('summary', '')[:120]}")
+
+    ev_context_str = "\n".join(ev_summary_lines) if ev_summary_lines else "Tidak ditemukan rekaman bukti langsung dalam korpus."
+
+    mode_instruction = (
+        "MODE: DEBATE SPARRING & STRATEGIC CROSS-EXAMINATION.\n"
+        "Fokus pada dialektika konfrontatif, identifikasi premis rentan lawan, jebakan cross-examination sokratik, tempo debat, dan sanggahan presisi."
+        if "DEBATE" in requested_mode
+        else "MODE: FORENSIC PHILOLOGICAL & HISTORICAL-EXEGETICAL RESEARCH.\n"
+        "Fokus pada analisis filologi forensik mendalam, sintaksis bahasa sumber naskah (Koine Greek / Biblical Hebrew), pembuktian manuskrip, dan analisis eksegetis objektif."
+    )
+
+    corpus_notice = ""
+    if retrieval_status == "insufficient_evidence":
+        corpus_notice = (
+            "\nPERINGATAN PENTING KORPUS: Klaim ini tidak didukung oleh korpus naskah teologis kami (atau berada di luar domain teologi). "
+            "Jangan mengarang ayat Alkitab atau bukti fiktif. Nyatakan secara jujur bahwa bukti korpus tidak mencukupi."
+        )
+
+    prompt = f"""Anda adalah AI engine analitik apologetika Polya. Berikan sintesis terstruktur untuk klaim berikut:
+Klaim Pengguna: "{claim_text}"
+{mode_instruction}
+
+Bukti Kontekstual dari Korpus:
+{ev_context_str}
+{corpus_notice}
+
+Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penutup) dengan struktur persis berikut:
+{{
+  "claim_summary": "Ringkasan analitis klaim",
+  "argument": "Argumen substantif berbasis klaim dan mode",
+  "counterargument": "Argumen terkuat pihak oposisi / kontra",
+  "rebuttal": "Sanggahan forensik membantah premis lawan",
+  "weakness": "Titik paling rentan dalam argumen atau premis",
+  "open_questions": ["Pertanyaan kritis 1", "Pertanyaan kritis 2"],
+  "debate_preparation": {{
+    "cross_examination_trap": "Jebakan pertanyaan sokratik terstruktur",
+    "recommended_tempo": "Panduan tempo dan kendali percakapan"
+  }},
+  "sources": [{{"citation": "Sumber/Naskah yang dirujuk", "type": "Tipe Sumber"}}]
+}}"""
+
     t0 = time.time()
-    res: AgentResponse = AgentRuntime.dispatch(target_agent, prompt, timeout=15)
+    res: AgentResponse = AgentRuntime.dispatch(target_agent, prompt, timeout=45)
     t1 = time.time()
+    duration_ms = int((t1 - t0) * 1000)
+
+    # Attempt to parse real JSON from model response
+    synthesis_output = None
+    output_used = False
+    synthesis_status = "FAILED"
+
+    if res.status == "COMPLETED" and res.output:
+        raw_text = res.output.strip()
+        match = re.search(r'\{[\s\S]*\}', raw_text)
+        if match:
+            try:
+                parsed = json.loads(match.group(0))
+                if isinstance(parsed, dict) and "argument" in parsed:
+                    synthesis_output = parsed
+                    output_used = True
+                    synthesis_status = "SUCCESS"
+            except Exception:
+                pass
+
+    # If model failed or output malformed, build structured claim-tailored fallback
+    if not output_used:
+        synthesis_status = "PARTIAL" if res.status == "COMPLETED" else "MODEL_ERROR"
+        if retrieval_status == "insufficient_evidence":
+            synthesis_output = {
+                "claim_summary": f"Klaim '{claim_text[:80]}' berada di luar cakupan korpus teologis / bukti tidak mencukupi.",
+                "argument": f"Tidak ditemukan bukti primer atau rekaman korpus naskah kuno yang mendukung atau memvalidasi klaim: '{claim_text}'.",
+                "counterargument": "Pihak lawan mungkin mendasarkan klaim pada premis sains modern atau asumsi non-tekstual.",
+                "rebuttal": "Klaim di luar cakupan korpus tidak dapat dievaluasi menggunakan metode eksegesis naskah kuno tanpa data empiris terkait.",
+                "weakness": "Ketiadaan dukungan naskah atau literatur primer di dalam korpus.",
+                "open_questions": ["Apakah klaim ini memiliki dasar naskah sejarah atau murni observasi non-teologis?"],
+                "debate_preparation": {
+                    "cross_examination_trap": "Mintalah lawan menunjukkan bukti naskah primer tertulis yang mendasari klaim mereka.",
+                    "recommended_tempo": "Tegaskan batas domain korpus secara tenang dan jangan terbawa spekulasi."
+                },
+                "sources": []
+            }
+        else:
+            primary_ref = scripture_items[0].passage_reference if scripture_items else (corpus_items[0].get("title", "") if corpus_items else "Korpus Terindeks")
+            synthesis_output = {
+                "claim_summary": f"Analisis struktural terhadap klaim: '{claim_text[:80]}'",
+                "argument": f"Berdasarkan bukti korpus ({primary_ref}), premis klaim '{claim_text[:50]}' memerlukan verifikasi forensik terhadap konteks aslinya.",
+                "counterargument": "Oposisi mendalilkan interpretasi alternatif berdasarkan pembacaan leksikal umum.",
+                "rebuttal": f"Saksi naskah primer pada {primary_ref} membatasi ruang lingkup klaim.",
+                "weakness": "Ketergantungan pada asumsi tanpa pengujian kritis terhadap naskah primer.",
+                "open_questions": [f"Bagaimana rekaman naskah {primary_ref} menjelaskan klaim ini?"],
+                "debate_preparation": {
+                    "cross_examination_trap": "Kuncilah lawan pada definisi kata dalam teks primer.",
+                    "recommended_tempo": "Ajukan pertanyaan sokratik pendek dan terukur."
+                },
+                "sources": [{"citation": primary_ref, "type": "Corpus Reference"}] if primary_ref else []
+            }
+
+    model_inv = {
+        "agent": target_agent,
+        "status": res.status,
+        "live_dispatched": res.live_dispatched,
+        "duration_ms": duration_ms,
+        "output_used": output_used,
+        "synthesis_status": synthesis_status,
+        "mode": requested_mode,
+        "correlation_id": res.correlation_id,
+        "error": res.error if not output_used else None
+    }
 
     record = {
         "task_type": "PRIMARY_RESEARCH_DISPATCH",
@@ -169,7 +293,9 @@ def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
         "status": res.status,
         "live_dispatched": res.live_dispatched,
         "output": res.output,
-        "duration_ms": int((t1 - t0) * 1000)
+        "duration_ms": duration_ms,
+        "output_used": output_used,
+        "synthesis_status": synthesis_status
     }
     dispatched_records.append(record)
 
@@ -181,14 +307,14 @@ def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
         parent_task_id=None,
         node="research_dispatch_node",
         agent=target_agent,
-        runtime=res.metadata.get("binary_path", "runtime_adapter"),
+        runtime=res.metadata.get("binary_path", "runtime_adapter") if res.metadata else "runtime_adapter",
         model="claude-3-5-sonnet" if target_agent == "cloud_code" else "hermes-agent-v3",
         start_time=res.started_at or datetime.now(timezone.utc).isoformat(),
         finish_time=res.completed_at or datetime.now(timezone.utc).isoformat(),
         status=res.status,
         input_summary=prompt[:150],
-        output_summary=res.output[:150],
-        evidence_ids=[],
+        output_summary=res.output[:150] if res.output else "",
+        evidence_ids=[e.evidence_id for e in scripture_items],
         checkpoint_id=None,
         retry_count=0
     )
@@ -196,7 +322,12 @@ def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
 
     return {
         "dispatched_agent_records": dispatched_records,
-        "execution_traces": traces
+        "execution_traces": traces,
+        "synthesis_output": synthesis_output,
+        "synthesis_status": synthesis_status,
+        "model_invocation": model_inv,
+        "retrieval_status": retrieval_status,
+        "corpus_evidence": corpus_items
     }
 
 
@@ -242,6 +373,9 @@ def claim_analysis_node(state: ResearchState) -> Dict[str, Any]:
     claim_text = state["claim_input"]
     temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
     claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence)
+    synth = state.get("synthesis_output")
+    if synth and synth.get("claim_summary"):
+        claim_obj.text = synth.get("claim_summary")
 
     return {
         "claim_object": claim_obj.to_dict()
@@ -254,6 +388,11 @@ def argument_graph_node(state: ResearchState) -> Dict[str, Any]:
     temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
     claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence)
     arg_graph = ArgumentEngine.build_argument_graph(claim_obj, temp_evidence)
+    synth = state.get("synthesis_output")
+    if synth and synth.get("argument"):
+        arg_graph["claim"] = synth.get("argument")
+        if synth.get("rebuttal"):
+            arg_graph["conclusion"] = synth.get("rebuttal")
 
     return {
         "argument_graph": arg_graph
@@ -264,9 +403,18 @@ def steelman_counterargument_node(state: ResearchState) -> Dict[str, Any]:
     """Builds formidable opposing argument and rebuttal (Steelman 2.0)."""
     claim_text = state["claim_input"]
     steelman = ArgumentEngine.steelman_opposition(claim_text)
+    steel_dict = steelman.to_dict()
+    synth = state.get("synthesis_output")
+    if synth:
+        if synth.get("counterargument"):
+            steel_dict["opponent_reasoning"] = synth.get("counterargument")
+        if synth.get("weakness"):
+            steel_dict["weaknesses"] = [synth.get("weakness")]
+        if synth.get("rebuttal"):
+            steel_dict["rebuttal"] = synth.get("rebuttal")
 
     return {
-        "steelman_counterarg": steelman.to_dict()
+        "steelman_counterarg": steel_dict
     }
 
 
@@ -441,9 +589,17 @@ def zuma_debate_preparation_node(state: ResearchState) -> Dict[str, Any]:
     zuma_critique = AdversarialEngine.generate_zuma_self_critique(
         final_argument=debate_prep.closing
     )
+    prep_dict = debate_prep.to_dict()
+    synth = state.get("synthesis_output")
+    if synth and isinstance(synth.get("debate_preparation"), dict):
+        dp = synth["debate_preparation"]
+        if dp.get("cross_examination_trap"):
+            prep_dict["cross_examination_trap"] = dp.get("cross_examination_trap")
+        if dp.get("recommended_tempo"):
+            prep_dict["recommended_tempo"] = dp.get("recommended_tempo")
 
     return {
-        "debate_preparation": debate_prep.to_dict(),
+        "debate_preparation": prep_dict,
         "zuma_self_critique": zuma_critique.to_dict()
     }
 
@@ -452,6 +608,17 @@ def case_file_persistence_node(state: ResearchState) -> Dict[str, Any]:
     """Stores complete, resumable Canonical Case File with Master Prompt #3 extensions."""
     case_id = f"case_{uuid.uuid4().hex[:10]}"
     claim_text = state["claim_input"]
+    synth = state.get("synthesis_output") or {}
+    steel = state.get("steelman_counterarg") or {}
+
+    open_q = synth.get("open_questions") or [
+        "Bagaimana pemahaman naskah sumber menjelaskan klaim ini?",
+        "Sejauh mana konteks historis abad pertama mempengaruhi perumusan premis ini?"
+    ]
+
+    rebuttal_text = synth.get("rebuttal") or steel.get("rebuttal", "")
+    rebuttal_ev = steel.get("rebuttal_evidence", [])
+    weaknesses = [synth.get("weakness")] if synth.get("weakness") else steel.get("weaknesses", [])
 
     case_file = CanonicalCaseFile(
         case_id=case_id,
@@ -465,17 +632,14 @@ def case_file_persistence_node(state: ResearchState) -> Dict[str, Any]:
         },
         evidence=state.get("evidence_items", []),
         arguments=[state.get("argument_graph", {})],
-        counterarguments=[state.get("steelman_counterarg", {})],
+        counterarguments=[steel],
         rebuttals=[{
-            "rebuttal_text": state.get("steelman_counterarg", {}).get("rebuttal", ""),
-            "rebuttal_evidence": state.get("steelman_counterarg", {}).get("rebuttal_evidence", [])
+            "rebuttal_text": rebuttal_text,
+            "rebuttal_evidence": rebuttal_ev
         }],
-        weaknesses=state.get("steelman_counterarg", {}).get("weaknesses", []),
+        weaknesses=weaknesses,
         sources=[{"passage": e.get("passage_reference"), "source": e.get("source_id")} for e in state.get("evidence_items", [])],
-        open_questions=[
-            "Bagaimana komunitas Kristen abad pertama memahami surat Galatia sebelum formulasi teologi reformasi?",
-            "Sejauh mana konsili para rasul di Yerusalem (Kisah Para Rasul 15) membedakan beban halakha bagi non-Yahudi?"
-        ],
+        open_questions=open_q,
         debate_preparation=state.get("debate_preparation", {}),
         evaluation=state.get("evaluation_scorecard", {}),
         provenance_chain=state.get("provenance_hashes", []),

@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SyntheticFixtureSchema",
+  "description": "Strict schema for non-production synthetic testing fixtures.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "fixture_id",
+    "is_synthetic_fixture",
+    "purpose",
+    "total_books",
+    "total_chapters",
+    "total_verses",
+    "books"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": ["1.0.0"]
+    },
+    "fixture_id": {
+      "type": "string",
+      "pattern": "^FIXTURE-SYNTHETIC-[A-Z0-9_-]+$"
+    },
+    "is_synthetic_fixture": {
+      "type": "boolean",
+      "enum": [true]
+    },
+    "purpose": {
+      "type": "string",
+      "enum": [
+        "TESTING_ONLY_DO_NOT_USE_IN_PRODUCTION",
+        "UNIT_TEST_ISOLATED_HARNESS"
+      ]
+    },
+    "total_books": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "total_chapters": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "total_verses": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "books": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "book_id",
+          "canonical_order",
+          "standard_name",
+          "chapter_count",
+          "total_verses",
+          "chapters"
+        ],
+        "properties": {
+          "book_id": { "type": "string" },
+          "canonical_order": { "type": "integer", "minimum": 1 },
+          "standard_name": { "type": "string" },
+          "chapter_count": { "type": "integer", "minimum": 1 },
+          "total_verses": { "type": "integer", "minimum": 1 },
+          "chapters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["chapter", "verse_count"],
+              "properties": {
+                "chapter": { "type": "integer", "minimum": 1 },
+                "verse_count": { "type": "integer", "minimum": 1 }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

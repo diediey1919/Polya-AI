@@ -1,0 +1,159 @@
+TASK: POLYA AI — HOST-LEVEL REMEDIATION HANDOFF
+TIMESTAMP: 2026-10-12T04:55:00+07:00
+REPOSITORY: /home/ubuntu/Polya-AI
+BASELINE_COMMIT: 7c94d6394529b4a8f61683e5bd52b5a6b87e975f
+WORKING_TREE_STATUS: CLEAN_ON_TRACKED_FILES
+FINAL_STATUS: PARTIAL (Container tasks complete; host privileged actions pending)
+
+=============================================================================
+CONTEXT & SAFETY BOUNDARIES
+=============================================================================
+The unprivileged container environment cannot modify system Nginx configurations,
+install host cron jobs, or issue systemctl commands due to Linux seccomp
+and 'no new privileges' constraints.
+
+All production assets (polya-web.service, port 8000, and data/polya_arena.db)
+MUST REMAIN UNTOUCHED during these actions.
+
+=============================================================================
+TASK 1: NGINX SSE LOG MITIGATION (HOST ACTION)
+=============================================================================
+Objective: Prevent recording of ?token=... query parameters in Nginx access logs
+for the live Server-Sent Events (SSE) telemetry endpoint.
+
+Target File:
+  /etc/nginx/sites-available/staging.apologets
+
+Proposed Minimal Configuration Diff:
+-----------------------------------------------------------------------------
+Insert the following dedicated location block BEFORE the generic "location /" block:
+
+    location = /api/v1/pipeline/stream {
+        # Disable access logging for SSE telemetry to prevent query token exposure
+        access_log off;
+
+        proxy_pass http://127.0.0.1:8001;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # SSE Streaming Buffering & Timeout Overrides
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_buffering off;
+        proxy_cache off;
+        proxy_read_timeout 86400s;
+        chunked_transfer_encoding off;
+    }
+-----------------------------------------------------------------------------
+
+Execution Steps for Host Administrator:
+  1. Backup active config:
+     cp /etc/nginx/sites-available/staging.apologets /etc/nginx/sites-available/staging.apologets.bak-$(date +%Y%m%d)
+  2. Apply the location block above.
+  3. Validate syntax across all virtual hosts (precondition for reload):
+     nginx -t
+  4. Reload Nginx safely without dropping connections:
+     systemctl reload nginx
+
+Post-Action Validation:
+  - Verify HTTP 200 response on staging landing page:
+    curl -I https://staging.apologets.com/
+  - Verify that query strings are not logged in /var/log/nginx/access.log when accessing SSE:
+    tail -f /var/log/nginx/access.log (no stream access log line should appear)
+  - Rollback if invalid:
+    cp /etc/nginx/sites-available/staging.apologets.bak-$(date +%Y%m%d) /etc/nginx/sites-available/staging.apologets && nginx -t && systemctl reload nginx
+
+=============================================================================
+TASK 2: STAGING BACKUP SCHEDULER (HOST ACTION)
+=============================================================================
+Objective: Automate periodic SQLite backup of staging database with 7-day daily
+and 28-day weekly retention.
+
+Script Location & Verification:
+  - Script: /home/ubuntu/backups/backup_staging_db.py
+  - Target Database: /home/ubuntu/Polya-AI/data/polya_arena_staging.db
+  - Destination Directory: /home/ubuntu/backups/staging/ (mode 700)
+  - Permissions: Executable by user 'ubuntu' (chmod +x verified)
+  - Engine: Uses native non-blocking SQLite online backup API; validates integrity with PRAGMA integrity_check before keeping the artifact; never deletes prior backups on backup failure.
+
+Execution Options for Host Administrator:
+
+Option A: Standard User Crontab (Recommended)
+  Run as user 'ubuntu' on host:
+  crontab -e
+  Add entry:
+  0 2 * * * /usr/bin/python3 /home/ubuntu/backups/backup_staging_db.py >> /home/ubuntu/backups/staging/backup.log 2>&1
+
+Option B: Host Systemd Service & Timer
+  1. Service unit: /etc/systemd/system/polya-staging-backup.service
+     [Unit]
+     Description=Polya Staging Database Backup Job
+     [Service]
+     Type=oneshot
+     User=ubuntu
+     ExecStart=/usr/bin/python3 /home/ubuntu/backups/backup_staging_db.py
+
+  2. Timer unit: /etc/systemd/system/polya-staging-backup.timer
+     [Unit]
+     Description=Run Polya Staging Backup Daily at 02:00 UTC
+     [Timer]
+     OnCalendar=*-*-* 02:00:00
+     Persistent=true
+     [Install]
+     WantedBy=timers.target
+
+  3. Enable timer:
+     systemctl daemon-reload && systemctl enable --now polya-staging-backup.timer
+
+Post-Action Validation:
+  - Execute manual trial:
+    su - ubuntu -c "/usr/bin/python3 /home/ubuntu/backups/backup_staging_db.py"
+  - Verify log and backup artifact created in /home/ubuntu/backups/staging/:
+    ls -lh /home/ubuntu/backups/staging/
+
+=============================================================================
+TASK 3: STAGING SERVICE RELOAD (HOST ACTION)
+=============================================================================
+Objective: Restart the staging uvicorn process to load newly added Python endpoints
+(such as /p1-report.txt, /api/v1/themes, /api/v1/pipeline/stream, and sparring endpoints).
+
+Target Service:
+  polya-staging.service (Port 8001, WorkingDirectory=/home/ubuntu/Polya-AI/web)
+
+DO NOT TOUCH:
+  polya-web.service (Production live arena, Port 8000)
+
+Execution Steps for Host Administrator:
+  1. Check service status prior to restart:
+     systemctl status polya-staging.service
+  2. Restart staging service only:
+     systemctl restart polya-staging.service
+  3. Confirm service is active and running:
+     systemctl status polya-staging.service --no-pager
+  4. Inspect startup logs:
+     journalctl -u polya-staging.service -n 50 --no-pager
+
+Post-Action Validation:
+  - Test health & meta endpoint:
+    curl -s http://127.0.0.1:8001/api/v1/meta/languages | grep -q "languages" && echo "PASS"
+  - Test new P1 report route:
+    curl -s http://127.0.0.1:8001/p1-report.txt | grep -q "TASK: POLYA AI" && echo "PASS"
+  - Test SSE authentication gate:
+    curl -s -o /dev/null -w "%{http_code}\n" http://127.0.0.1:8001/api/v1/pipeline/stream?claim=Test
+    (Must return 401)
+  - Rollback procedure if staging fails:
+    journalctl -u polya-staging.service -n 100 --no-pager
+    systemctl restart polya-staging.service
+
+=============================================================================
+FINAL STATUS SUMMARY
+=============================================================================
+- PRODUCTION_SERVICE_TOUCHED: NO
+- PRODUCTION_DATABASE_TOUCHED: NO
+- CONTAINER_CODE_MUTATED: NO
+- DEPLOYMENT_PERFORMED: NO
+- HANDOFF_FILE_SAVED: /home/ubuntu/Polya-AI/docs/audits/staging-host-remediation-handoff.txt
+- FINAL_STATUS: PARTIAL (Waiting for host administrator execution of Tasks 1, 2, and 3).

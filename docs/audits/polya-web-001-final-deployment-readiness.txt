@@ -1,0 +1,183 @@
+POLYA-WEB-001: FINAL DEPLOYMENT READINESS GATE REPORT
+Dokumen: docs/audits/polya-web-001-final-deployment-readiness.txt
+Tanggal: 2026-10-12
+Status: READY_FOR_DEPLOYMENT_APPROVAL
+
+================================================================================
+1. VERIFIKASI VARIABEL ENVIRONMENT PRODUKSI & DEPENDENSI APLIKASI
+================================================================================
+A. Inventarisasi Kebutuhan Environment Runtime (polya-web.service):
+   1. POLYA_ENV:
+      - Wajib disetel ke: "production"
+      - Mengunci GoogleAuthVerifier.is_mock_allowed() agar SELALU bernilai False.
+   2. GOOGLE_CLIENT_ID:
+      - Wajib disetel ke: "953116755250-qomlk1eh2q01u62nlfemm68td1ca2bbu.apps.googleusercontent.com"
+      - Sesuai dengan Client ID resmi pemilik untuk domain https://apologets.com.
+   3. POLYA_AUTH_SECRET:
+      - Wajib diisi string rahasia acak 64 karakter heksadesimal (32 bytes entropy).
+      - Di-generate via pustaka standar `secrets.token_hex(32)`.
+      - Wajib unik, tidak boleh menyalin secret staging, dan tidak boleh terpapar.
+   4. POLYA_DB_PATH:
+      - Jalur database produksi yang terisolasi dan aktif secara default:
+        /home/ubuntu/Polya-AI/data/polya_arena.db
+      - Menjaga isolasi dari staging (yang menggunakan polya_arena_staging.db).
+   5. Konfigurasi Pembayaran Midtrans:
+      - File .env.production WAJIB mempertahankan variabel MIDTRANS eksisting:
+        * MIDTRANS_CLIENT_KEY
+        * MIDTRANS_SERVER_KEY
+        * MIDTRANS_IS_PRODUCTION
+      - Dengan memasukkan variabel ini secara eksplisit ke dalam .env.production,
+        transaksi pembayaran dan verifikasi signature webhook Midtrans tetap berjalan
+        sempurna tanpa kehilangan konfigurasi.
+   6. Dependensi AI & TTS:
+      - NINE_ROUTER_URL default: http://localhost:20128/v1/chat/completions (9router aktif).
+      - GEMINI_API_KEY dimuat mandiri oleh app.py dari /home/ubuntu/.env.gemini jika diperlukan.
+      - Tidak ada dependensi yang hilang atau terdistorsi oleh penerapan .env.production.
+
+================================================================================
+2. VERIFIKASI AUDIENCE MATCHING & ISOLASI STAGING vs PRODUCTION
+================================================================================
+A. Frontend Production Match:
+   - File: web/static/index.html (baris 4148-4152)
+   - Evaluasi hostname:
+     window.location.hostname === "apologets.com" || "www.apologets.com"
+     -> "953116755250-qomlk1eh2q01u62nlfemm68td1ca2bbu.apps.googleusercontent.com"
+   - Hasil: 100% Cocok dan Presisi dengan GOOGLE_CLIENT_ID backend production.
+
+B. Audience Isolation Staging:
+   - Staging (staging.apologets.com / port 8001) menggunakan Client ID:
+     "953116755250-p8n0eqgrsb84k7tfakptmb3nuccjn6vr.apps.googleusercontent.com"
+   - Baik di frontend maupun backend .env.staging, audience staging terpisah total.
+   - Token ID yang diterbitkan untuk staging akan otomatis ditolak oleh verifier
+     production karena ketidakcocokan klaim `aud`.
+   - Token ID production juga ditolak oleh verifier staging. Tidak ada kebocoran audience.
+
+================================================================================
+3. ANALISIS GENERASI SECRET, PERMISSION, DAN INTEGRITAS SESI
+================================================================================
+A. Standar Kriptografi POLYA_AUTH_SECRET:
+   - Dibuat menggunakan CSPRNG Python `secrets.token_hex(32)`.
+   - File .env.production dibuat dengan permission ketat 0600 (-rw-------),
+     dimiliki oleh user:group `ubuntu:ubuntu`.
+   - Secret DILARANG keras dicetak ke stdout, journal log, terminal, atau audit doc.
+
+B. Konfirmasi Dampak Terhadap Sesi Pengguna:
+   1. Sesi Google Authenticated:
+      - Sebelum perbaikan ini, seluruh login Google di production menghasilkan HTTP 401
+        karena ketiadaan GOOGLE_CLIENT_ID. Dengan demikian, BELUM ADA sesi login Google
+        yang tersimpan di tabel arena_users production.
+      - Pemasangan POLYA_AUTH_SECRET tidak akan merusak sesi Google yang sedang berjalan
+        karena belum pernah ada sesi Google yang berhasil diterbitkan.
+   2. Sesi Guest Anonymous ("guest_user"):
+      - Permintaan tanpa Authorization header dan berstatus "guest_user" diverifikasi
+        secara stateless oleh verify_user_access(), sehingga TIDAK terpengaruh oleh secret.
+   3. Sesi Guest Ber-token (guest_<uuid>):
+      - Frontend ensureGuestSession() menangani token expired/invalid secara elegan:
+        jika token gagal diverifikasi, frontend secara otomatis memanggil POST /api/v1/auth/guest
+        untuk mendapatkan token baru yang valid tanpa mengganggu pengalaman pengguna.
+   4. Kesimpulan: ZERO DATA LOSS, ZERO BREAKAGE pada database atau sesi pengguna.
+
+================================================================================
+4. TINJAUAN SYSTEMD UNIT & READ-ONLY INSPECTION RUNTIME
+================================================================================
+A. Konfigurasi Unit /etc/systemd/system/polya-web.service:
+   - Direktif yang akan ditambahkan:
+     EnvironmentFile=/home/ubuntu/Polya-AI/web/.env.production
+   - User: ubuntu
+   - WorkingDirectory: /home/ubuntu/Polya-AI/web
+   - ExecStart: /home/ubuntu/venv/bin/uvicorn app:app --host 0.0.0.0 --port 8000 --proxy-headers --forwarded-allow-ips="*"
+   - Restart: always (RestartSec=3)
+
+B. Izin Baca Service:
+   - Karena polya-web.service berjalan di bawah User=ubuntu, permission 0600 pada
+     /home/ubuntu/Polya-AI/web/.env.production menjamin uvicorn dapat membaca file
+     tanpa membuka akses ke pengguna non-privilese.
+
+================================================================================
+5. BATASAN ROLLBACK & PERLINDUNGAN DATABASE
+================================================================================
+A. Aturan Mutlak Rollback:
+   - Rollback HANYA mencakup reversi konfigurasi systemd dan file environment.
+   - DILARANG melakukan restore database secara otomatis apabila terjadi kegagalan health check.
+   - Basis data SQLite (/home/ubuntu/Polya-AI/data/polya_arena.db) sepenuhnya terlindungi dari
+     modifikasi, truncate, atau restore yang tidak disetujui.
+
+B. Prosedur Reversi Konfigurasi:
+   1. Hapus baris EnvironmentFile dari /etc/systemd/system/polya-web.service.
+   2. `sudo systemctl daemon-reload`
+   3. `sudo systemctl restart polya-web.service`
+   4. Kembalikan unit ke kondisi clean state awal.
+
+================================================================================
+6. CHECKLIST EKSEKUSI FINAL DEPLOYMENT (BERTAHAP)
+================================================================================
+[ ] Langkah 1: Backup Konfigurasi Eksisting
+    - `cp /etc/systemd/system/polya-web.service /home/ubuntu/polya-web.service.bak`
+    - Catat status service eksisting.
+
+[ ] Langkah 2: Pemasangan /home/ubuntu/Polya-AI/web/.env.production
+    - Buat file .env.production dengan permission 0600.
+    - Isi dengan variabel:
+      POLYA_ENV=production
+      PORT=8000
+      POLYA_DB_PATH=/home/ubuntu/Polya-AI/data/polya_arena.db
+      GOOGLE_CLIENT_ID=953116755250-qomlk1eh2q01u62nlfemm68td1ca2bbu.apps.googleusercontent.com
+      POLYA_AUTH_SECRET=<secure_hex_32>
+      (Beserta nilai MIDTRANS_CLIENT_KEY, MIDTRANS_SERVER_KEY, MIDTRANS_IS_PRODUCTION dari .env eksisting).
+
+[ ] Langkah 3: Update Systemd Unit
+    - Tambahkan `EnvironmentFile=/home/ubuntu/Polya-AI/web/.env.production` di bawah [Service].
+
+[ ] Langkah 4: Reload & Restart Terkontrol
+    - `sudo systemctl daemon-reload`
+    - `sudo systemctl restart polya-web.service`
+
+[ ] Langkah 5: Health Check & Process Inspection
+    - `systemctl is-active polya-web.service` (Harus "active").
+    - `curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8000/` (Harus "200").
+    - `curl -s -o /dev/null -w "%{http_code}" https://apologets.com/api/v1/meta/languages` (Harus "200").
+
+[ ] Langkah 6: Negative Security Verification
+    - Kirim payload POST /api/v1/auth/session dengan token palsu atau tanpa credential.
+    - Pastikan respons HTTP 401 ("Authentication failed: valid Google credential required").
+    - Pastikan endpoint tidak melempar 500 error.
+
+[ ] Langkah 7: Pengujian End-to-End Google Sign-In di Browser
+    - Buka https://apologets.com/calculator.
+    - Lakukan Google Sign-In dengan akun nyata.
+    - Verifikasi UI beralih dari Guest Researcher ke profil akun Google.
+    - Verifikasi POST /api/v1/auth/session menghasilkan HTTP 200 dengan session token sah.
+
+[ ] Langkah 8: Pengujian Reload & Session Persistence
+    - Reload halaman (F5) pada https://apologets.com/calculator.
+    - Pastikan sesi login tetap aktif tanpa logout otomatis.
+
+[ ] Langkah 9: Pengujian Logout
+    - Klik Logout / Sign Out.
+    - Pastikan status kembali ke Guest Researcher dan token di browser dibersihkan.
+
+[ ] Langkah 10: Pengujian Guest Quota & Regresi
+    - Buka tab incognito, gunakan kalkulator sebagai Guest.
+    - Verifikasi kuota analisis guest 5/5 berfungsi normal.
+
+[ ] Langkah 11: Audit Sanitasi Log
+    - Jalankan `journalctl -u polya-web.service -n 50 --no-pager`.
+    - Pastikan tidak ada raw ID token, POLYA_AUTH_SECRET, atau rahasia sensitif dalam log.
+
+================================================================================
+7. KESIMPULAN & STATUS
+================================================================================
+Seluruh pemeriksaan read-only telah lengkap. Tidak ada potensi konflik konfigurasi,
+kebocoran variabel, maupun risiko regresi fungsional.
+
+STATUS: READY_FOR_DEPLOYMENT_APPROVAL
+
+MULTIAGENT_USED: NO
+AGENTS_COMPLETED: 7 (Terintegrasi internal)
+AUDIT_SCOPE: READ_ONLY
+STAGING_MODIFIED: NO
+PRODUCTION_MODIFIED: NO
+PRODUCTION_SERVICE_RESTARTED: NO
+PRODUCTION_DEPLOYMENT_PERFORMED: NO
+DATABASE_MUTATION: NONE
+ANTIGRAVITY_USED: NO

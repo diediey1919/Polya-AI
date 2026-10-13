@@ -3095,6 +3095,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           body: JSON.stringify({
             claim: claim,
             context: userContext,
+            mode: (typeof currentCalcMode !== "undefined" && currentCalcMode) ? currentCalcMode : "research",
             request_id: "req_" + Math.random().toString(36).substring(2, 14),
             user_id: currentUserId
           })

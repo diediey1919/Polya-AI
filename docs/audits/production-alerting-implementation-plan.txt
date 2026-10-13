@@ -1,0 +1,76 @@
+TASK: POLYA AI OPERATIONAL ALERTING — MONITORING DESIGN & SAFE IMPLEMENTATION PLAN
+TIMESTAMP: 2026-10-12T07:15:00+07:00
+TASK_STATUS: PLAN_READY
+REPOSITORY: /home/ubuntu/Polya-AI
+BASELINE_COMMIT: 7c94d6394529b4a8f61683e5bd52b5a6b87e975f
+REPORT_DESTINATION: docs/audits/production-alerting-implementation-plan.txt
+
+1. CURRENT_MONITORING_BASELINE
+- Service Process: polya-web.service aktif (systemd Restart=always, RestartSec=3). Tidak memiliki OnFailure hook.
+- Logs: Nginx access.log (/var/log/nginx/access.log) & error.log, systemd journal (journalctl -u polya-web.service).
+- Database: polya_arena.db (11 MB) sehat (PRAGMA integrity_check -> ok).
+- Backup: Tersedia snapshot manual pra-deployment di /home/ubuntu/backups/production/polya_arena_prod_pre_deploy_20261012.db. Belum terpasang cron backup otomatis untuk produksi (berbeda dengan staging yang memiliki backup_staging_db.py).
+- Notifikasi Eksternal Aktif: Belum terpasang daemon atau webhook notifier khusus Polya AI.
+
+2. OBSERVED_GAPS
+- G-1: Systemd restart loop tidak mengirim sinyal peringatan jika service crash berulang.
+- G-2: Ketiadaan deteksi real-time lonjakan 5xx pada Nginx/Uvicorn tanpa manual journalctl check.
+- G-3: Ketiadaan pemeriksaan rutin otomatis (health check daemon) terhadap latensi/kegagalan endpoint inti.
+- G-4: Database produksi belum memiliki skrip backup terjadwal berkala seperti database staging.
+
+3. PROPOSED_ARCHITECTURE (MINIMALIST & NATIVE-FIRST)
+Arsitektur termurah, paling andal, dan zero-heavy-dependency:
+- Skrip diagnostik tunggal: /home/ubuntu/Polya-AI/scripts/ops/polya_health_watchdog.py (Python stdlib: urllib, sqlite3, subprocess, json).
+- Eksekusi berkala: systemd timer (polya-watchdog.timer) setiap 2 menit atau cron job terisolasi.
+- State Tracking & Anti-Flapping: File JSON lokal (/home/ubuntu/.polya/watchdog_state.json) menyimpan counter kegagalan dan status alert aktif.
+- Notifikasi Dispatcher: Webhook generik (Telegram Bot API / Discord Webhook / WhatsApp via local service) yang dipicu hanya saat transisi state (OK -> DEGRADED/DOWN dan sebaliknya).
+
+4. ALERT_RULES_AND_THRESHOLDS
+- P0: SERVICE_DOWN
+  * Pemicu: polya-web.service inactive/failed ATAU http://127.0.0.1:8000/api/arena/state gagal 2x berturut-turut (interval 10 detik).
+  * Cooldown / Deduplikasi: 15 menit per alert. Pemulihan dikirim saat status kembali 200 OK.
+- P1: HTTP_DEGRADED / 5XX_SPIKE
+  * Pemicu: 3 endpoint inti (/api/arena/state, /api/v1/themes, /api/v1/calculator/source) merespons non-200 atau latensi > 2.500 ms selama 3 run berturut-turut.
+  * Cooldown: 30 menit.
+- P2: DB_INTEGRITY_FAIL
+  * Pemicu: PRAGMA integrity_check mengembalikan selain "ok" pada polya_arena.db.
+  * Level: CRITICAL langsung tanpa delay.
+- P3: BACKUP_MISSED
+  * Pemicu: File backup produksi berumur > 26 jam.
+
+5. NOTIFICATION_OPTIONS
+- Opsi A (Recommended): Telegram Bot Webhook (ringan, privat, HTTPS direct via urllib, zero dep).
+- Opsi B: Discord Webhook (ringan, direct HTTPS).
+- Opsi C: Local Syslog / File Alert Log (/var/log/polya-alerts.log) jika notifikasi eksternal belum diotorisasi.
+
+6. SECURITY_AND_PRIVACY
+- Zero Secrets in Repo: Kredensial webhook disimpan di ~/.polya/alert_config.env (chmod 600, milik user ubuntu).
+- Zero Sensitive Data in Payload: Notifikasi hanya memuat timestamp, status service, latency (ms), dan error code (tanpa user token atau query string).
+
+7. RESOURCE_AND_MAINTENANCE_COST
+- Beban CPU: < 0.05s per run setiap 2 menit.
+- Footprint Memori: ~15 MB saat skrip berjalan, lalu exit (zero persistent memory bloat).
+- Biaya Operasional: Rp 0 (menggunakan resources server eksisting).
+
+8. STAGING_VALIDATION_PLAN
+- Deploy dan uji polya_health_watchdog.py terlebih dahulu pada staging (Port 8001 / polya-staging.service).
+- Simulasi skenario DEGRADED (port ditutup sementara di lingkungan terisolasi) untuk membuktikan anti-flapping dan recovery notification.
+
+9. PRODUCTION_DEPLOYMENT_PLAN
+- 1. Siapkan skrip watchdog dan config terenkripsi/terisolasi.
+- 2. Pasang cron/timer dengan mode dry-run/log-only selama 24 jam.
+- 3. Verifikasi nol false-positive.
+- 4. Aktifkan webhook dispatcher setelah persetujuan pemilik proyek.
+
+10. ROLLBACK_PLAN
+- Matikan timer/cron via 1 baris perintah (sudo systemctl disable --now polya-watchdog.timer atau crontab edit).
+- Hapus file watchdog. Zero impact terhadap polya-web.service.
+
+11. REQUIRED_USER_DECISIONS
+- Keputusan 1: Channel notifikasi eksternal yang diinginkan (Telegram / Discord / Local Log).
+- Keputusan 2: Pembuatan skrip backup berkala untuk polya_arena.db produksi menyamai skrip staging.
+
+CHANGES_MADE: NONE
+PRODUCTION_MODIFIED: NO
+ANTIGRAVITY_USED: NO
+FINAL_STATUS: PLAN_READY

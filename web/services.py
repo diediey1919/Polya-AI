@@ -859,9 +859,17 @@ class CaseFileGenerator:
     """Produces canonical 10-point Case Files using the Master Prompt #2 Autonomous Intelligence Engine."""
 
     @classmethod
-    def generate_case_file(cls, claim: str, context: Optional[UserApologeticsContext] = None, user_id: str = "guest_user") -> CaseFile:
+    def generate_case_file(
+        cls,
+        claim: str,
+        context: Optional[UserApologeticsContext] = None,
+        user_id: str = "guest_user",
+        mode: str = "research"
+    ) -> CaseFile:
         ctx = context or UserApologeticsContext()
         persp = ctx.user_perspective.value if hasattr(ctx.user_perspective, "value") else str(ctx.user_perspective)
+        norm_mode = mode.lower() if mode else "research"
+        requested_mode = "DEBATE" if norm_mode == "debate" else "RESEARCH"
 
         try:
             from orchestrator.research_graph import build_research_graph
@@ -875,7 +883,7 @@ class CaseFileGenerator:
                 "thread_id": thread_id,
                 "user_id": user_id,
                 "user_perspective": persp,
-                "requested_mode": "DEEP_FORENSIC_RESEARCH",
+                "requested_mode": requested_mode,
                 "tasks": [],
                 "dispatched_agent_records": [],
                 "evidence_items": [],
@@ -908,60 +916,99 @@ class CaseFileGenerator:
                 conn_cf.close()
             except Exception as e_cf:
                 logger.warning(f"Direct case_file user_id update notice: {e_cf}")
-            ev_list = []
-            for e in result.get("evidence_items", []):
-                ev_list.append({
-                    "language": e.get("original_language", "Koine Greek"),
-                    "source_text": f"{e.get('original_text', '')} ({e.get('passage_reference', '')})",
-                    "transliteration": e.get("transliteration", ""),
-                    "morphology": f"Witnesses: {', '.join(e.get('witnesses', []))}",
-                    "manuscripts": e.get("witnesses", []),
-                    "critical_apparatus": f"Provenance SHA-256: {e.get('provenance_hash', '')}"
-                })
 
-            sources_list = [
-                {"citation": f"{e.get('passage_reference')} ({e.get('source_id')})", "type": "Primary Scripture Witness"}
-                for e in result.get("evidence_items", [])
-            ]
-            if not sources_list:
+            synth = result.get("synthesis_output") or {}
+            synth_status = result.get("synthesis_status", "SUCCESS")
+            model_inv = result.get("model_invocation") or {}
+            retrieval_status = result.get("retrieval_status", "sufficient")
+
+            ev_list = []
+            sources_list = []
+            if retrieval_status == "sufficient":
+                for e in result.get("evidence_items", []):
+                    ev_list.append({
+                        "language": e.get("original_language", "Koine Greek"),
+                        "source_text": f"{e.get('original_text', '')} ({e.get('passage_reference', '')})",
+                        "transliteration": e.get("transliteration", ""),
+                        "morphology": f"Witnesses: {', '.join(e.get('witnesses', []))}",
+                        "manuscripts": e.get("witnesses", []),
+                        "critical_apparatus": f"Provenance SHA-256: {e.get('provenance_hash', '')}"
+                    })
                 sources_list = [
-                    {"citation": "Nestle-Aland Novum Testamentum Graece, 28th Edition", "type": "Critical Edition"},
-                    {"citation": "Codex Sinaiticus (א01), British Library Add MS 43725", "type": "Primary Manuscript"}
+                    {"citation": f"{e.get('passage_reference')} ({e.get('source_id')})", "type": "Primary Scripture Witness"}
+                    for e in result.get("evidence_items", [])
                 ]
+                for ce in result.get("corpus_evidence", []):
+                    sources_list.append({"citation": ce.get("title", ""), "type": "Academic Corpus Index"})
+            else:
+                ev_list = []
+                sources_list = []
 
             prep = result.get("debate_preparation", {})
             arg_data = result.get("argument_graph", {})
             steelman = result.get("steelman_counterarg", {})
 
+            # Dynamic synthesis extraction
+            arg_val = synth.get("argument") or arg_data.get("claim", f"Analisis forensik atas klaim '{claim}' membuktikan integritas teks primer.")
+            counterarg_val = synth.get("counterargument") or steelman.get("opponent_reasoning", "Pihak lawan mendalilkan keberatan tanpa verifikasi naskah primer.")
+            rebuttal_val = synth.get("rebuttal") or steelman.get("rebuttal", "Rebuttal objektif membongkar distorsi makna dan menegakkan konsistensi kanon.")
+            weakness_val = synth.get("weakness") or "; ".join(steelman.get("weaknesses", ["Kelemahan leksikografi dan pengabaian konteks bahasa sumber."]))
+
+            open_q_val = synth.get("open_questions") or prep.get("follow_up_questions", [
+                "Bagaimana lawan membuktikan klaim tanpa rujukan naskah primer?",
+                "Apakah leksikon akademik standar mendukung pemaknaan lawan?"
+            ])
+
+            if synth.get("debate_preparation"):
+                db_prep = synth["debate_preparation"]
+                trap_val = db_prep.get("cross_examination_trap") or "Kuncilah lawan pada definisi kata bahasa asli."
+                tempo_val = db_prep.get("recommended_tempo") or "Ajukan pertanyaan sokratik pendek dan terukur."
+            else:
+                trap_val = prep.get("cross_examination_questions", ["Buka pasal dan ayatnya dalam bahasa sumber."])[0] if prep.get("cross_examination_questions") else "Kuncilah lawan pada definisi kata bahasa asli."
+                tempo_val = "Ajukan pertanyaan Sokratik terstruktur, kunci lawan pada konsesi naskah primer."
+
+            prep_val = {
+                "cross_examination_trap": trap_val,
+                "recommended_tempo": tempo_val
+            }
+
+            verif_val = result.get("verification_status") or ("UNSUPPORTED" if retrieval_status == "insufficient_evidence" else "PARTIALLY_SUPPORTED")
+            if retrieval_status == "insufficient_evidence":
+                notice_val = f"INSUFFICIENT_EVIDENCE — Klaim berada di luar cakupan korpus atau bukti naskah tidak mencukupi | Verification: {verif_val}"
+            elif synth_status == "SUCCESS":
+                agent_name = model_inv.get("agent", "hermes")
+                notice_val = f"AI_SYNTHESIS_SUCCESS — Mode: {norm_mode} (Agent: {agent_name}) | Verification: {verif_val}"
+            elif synth_status == "PARTIAL":
+                notice_val = f"PARTIAL_SYNTHESIS — Model output unstructured or fallback used | Verification: {verif_val}"
+            elif synth_status == "MODEL_ERROR":
+                notice_val = f"MODEL_ERROR — Model dispatch failed; structural analysis returned | Verification: {verif_val}"
+            else:
+                notice_val = f"{synth_status} — Structural analysis returned | Verification: {verif_val}"
+
+            opp_persp = (ctx.opponent_perspective or "OPPOSISI").upper()
             return CaseFile(
                 case_id=case_id,
                 claim=claim,
-                context=f"Dianalisis dalam kerangka perspektif {persp.upper()} versus {ctx.opponent_perspective.upper()} (Bahasa Debat: {ctx.debate_locale}).",
+                context=f"Dianalisis dalam mode {requested_mode} perspektif {persp.upper()} versus {opp_persp} (Bahasa Debat: {ctx.debate_locale}).",
                 evidence=ev_list,
-                argument=arg_data.get("claim", f"Analisis forensik atas klaim '{claim}' membuktikan integritas teks primer."),
-                counterargument=steelman.get("opponent_reasoning", "Pihak lawan mendalilkan keberatan tanpa verifikasi naskah primer."),
-                rebuttal=steelman.get("rebuttal", "Rebuttal objektif membongkar distorsi makna dan menegakkan konsistensi kanon."),
-                weakness="; ".join(steelman.get("weaknesses", ["Kelemahan leksikografi dan pengabaian konteks bahasa sumber."])),
+                argument=arg_val,
+                counterargument=counterarg_val,
+                rebuttal=rebuttal_val,
+                weakness=weakness_val,
                 sources=sources_list,
-                open_questions=prep.get("follow_up_questions", [
-                    "Bagaimana lawan membuktikan klaim tanpa rujukan naskah primer?",
-                    "Apakah leksikon akademik standar mendukung pemaknaan lawan?"
-                ]),
-                debate_preparation={
-                    "cross_examination_trap": prep.get("cross_examination_questions", ["Buka pasal dan ayatnya dalam bahasa sumber."])[0],
-                    "recommended_tempo": "Ajukan pertanyaan Sokratik terstruktur, kunci lawan pada konsesi naskah primer."
-                },
+                open_questions=open_q_val,
+                debate_preparation=prep_val,
                 is_demo=False,
-                notice="VERIFIED REAL INTELLIGENCE — Master Prompt #2 Autonomous Research Pipeline"
+                notice=notice_val
             )
         except Exception as exc:
             logger.error(f"Real intelligence execution fallback: {exc}")
-            # Fallback to source-first fixture if unexpected execution failure occurs
             case_id = f"CASE-{hashlib.md5(claim.encode('utf-8')).hexdigest()[:8].upper()}"
+            opp_persp = (ctx.opponent_perspective or "OPPOSISI").upper()
             return CaseFile(
                 case_id=case_id,
                 claim=claim,
-                context=f"Dianalisis dalam kerangka perspektif {ctx.user_perspective.value.upper()} versus {ctx.opponent_perspective.upper()}.",
+                context=f"Dianalisis dalam kerangka perspektif {ctx.user_perspective.value.upper()} versus {opp_persp}.",
                 evidence=[
                     {
                         "language": "Koine Greek",

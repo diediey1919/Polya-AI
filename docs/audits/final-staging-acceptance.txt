@@ -1,0 +1,91 @@
+TASK: POLYA AI — FINAL STAGING ACCEPTANCE TEST
+TIMESTAMP: 2026-10-12T05:25:00+07:00
+REPOSITORY: /home/ubuntu/Polya-AI
+BASELINE_COMMIT: 7c94d6394529b4a8f61683e5bd52b5a6b87e975f
+REPORT_DESTINATION: docs/audits/final-staging-acceptance.txt
+
+=============================================================================
+1. EXECUTIVE SUMMARY
+=============================================================================
+A comprehensive multi-agent read-only staging acceptance test and regression audit
+was executed across P0 and P1 implementations on staging (port 8001 / polya-staging.service).
+All automated test suites (test_p0_implementation.py and test_p1_implementation.py) passed 100% (14/14 tests).
+Headless Playwright Chromium E2E execution was verified on the live staging Arena page.
+Database isolation and production protection boundaries were strictly preserved.
+
+=============================================================================
+2. AGENT ROLES & EXCLUSIONS
+=============================================================================
+- Orchestrator: Hermes (Centralized Coordination, Verification, Evidence Aggregation)
+- Agent A (Baseline & P0 Regression): Verified commit 7c94d6394529b4a8f61683e5bd52b5a6b87e975f, 10 canonical fields, adversarial endpoints, case file persistence.
+- Agent B (P1 Functionality & Integration): Verified Themes Explorer (10 themes), Knowledge Graph, SSE Pipeline stream, and ZUMA Sparring session lifecycle.
+- Agent C (Security & Data Isolation): Verified 401 on unauthenticated SSE, cross-user Case File access boundaries, and Nginx SSE access logging suppression.
+- Agent D (Debate Arena Invariants): Verified 3v3 format, 6-human participants, AI non-participant in official debate, and isolation of ZUMA sparring mode.
+- Agent E (Browser E2E & UX Acceptance): Verified live Playwright Chromium headless execution on http://127.0.0.1:8001/arena.
+- Agent F (Independent Test & Evidence Review): Cross-checked test outputs against database files, system services, and Nginx reverse proxy logs.
+- EXCLUDED AGENT: Antigravity (Strictly excluded; not invoked).
+
+=============================================================================
+3. ACCEPTANCE MATRIX
+=============================================================================
+Repository baseline: PASS
+P0 regression: PASS
+Calculator 10 canonical fields: PASS
+Challenge / weakest-point / source endpoints: PASS
+Case File persistence and ownership: PASS
+Knowledge Graph: PASS
+Themes Explorer: PASS
+SSE authentication and streaming: PASS
+ZUMA Sparring: PASS
+Official Arena invariants: PASS
+Cross-user security isolation: PASS
+Browser E2E: PASS
+Production untouched: PASS
+Working tree integrity: PASS
+
+=============================================================================
+4. AGENT RESULTS & EVIDENCE
+=============================================================================
+- Agent A:
+  * Command: pytest tests/test_p0_implementation.py -v
+  * Result: 4/4 PASSED (test_p0_1_calculator_all_fields_and_adversarial_endpoints, test_p0_2_case_file_persistence_idempotency_and_authorization, test_p0_3_debate_arena_navigation_and_integrity, test_p0_4_security_cross_user_spoofing_prevention).
+- Agent B:
+  * Command: pytest tests/test_p1_implementation.py -v
+  * Result: 10/10 PASSED (Knowledge Graph, Themes Catalog, Theme Detail, Pipeline Stream SSE, ZUMA Sparring Lifecycle, Canonical Arena Untouched).
+  * Direct Live HTTP Verification:
+    - GET http://127.0.0.1:8001/api/v1/themes -> 200 OK, 10 themes returned.
+    - GET http://127.0.0.1:8001/api/v1/themes/Dps3ZveBnts -> 200 OK, detailed narrative & evidence payload.
+    - GET http://127.0.0.1:8001/api/v1/knowledge/graph -> 200 OK, 10 nodes returned.
+- Agent C:
+  * Direct Live HTTP Verification:
+    - GET http://127.0.0.1:8001/api/v1/pipeline/stream?claim=Test -> 401 Unauthorized (Auth requirement verified).
+    - Access log verification on /var/log/nginx/access.log confirms zero query-string leakage for SSE endpoint.
+- Agent D:
+  * Static Code & DOM Inspection:
+    - Official arena retains 6 human seats, 3-vs-3 dialectical setup, and independent adjudicator scoring.
+    - ZUMA Sparring operates via dedicated isolated session endpoints (/api/v1/zuma/*).
+- Agent E:
+  * Playwright Chromium execution on http://127.0.0.1:8001/arena:
+    - Title: "DEBATE ARENA — Professional 3-vs-3 Dialectical Event"
+    - Browser status: SUCCESS, rendering verified without seccomp sandbox blockage.
+- Agent F:
+  * Database SHA-256 Check:
+    - Production DB (/home/ubuntu/Polya-AI/data/polya_arena.db): 61b38444a30ddd54c54393bf4c2465cae669688587694cd05d49819a61952cf8 (Unchanged).
+    - Staging DB (/home/ubuntu/Polya-AI/data/polya_arena_staging.db): Separate physical file, 13 tables, independent state.
+
+=============================================================================
+5. AUDIT & RECOVERY STATUS
+=============================================================================
+- BASELINE_COMMIT: 7c94d6394529b4a8f61683e5bd52b5a6b87e975f
+- WORKING_TREE_INTEGRITY: PASS
+- P0_REGRESSION: PASS
+- P1_FUNCTIONALITY: PASS
+- ARENA_INVARIANTS: PASS
+- SECURITY_ISOLATION: PASS
+- BROWSER_E2E: PASS
+- PRODUCTION_UNTOUCHED: PASS
+- ANTIGRAVITY_USED: NO
+- CODE_CHANGED: NO
+- DEPLOYMENT_PERFORMED: NO
+- CRON_BACKUP_STATUS: SKIPPED_BY_USER
+- RELEASE_RECOMMENDATION: READY_FOR_REVIEW

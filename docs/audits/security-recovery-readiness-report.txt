@@ -1,0 +1,69 @@
+TASK: POLYA AI — SECURITY LOG & DATABASE RECOVERY READINESS REVIEW
+TIMESTAMP: 2026-10-12T04:26:00+07:00
+REPOSITORY: /home/ubuntu/Polya-AI
+BASELINE_COMMIT: 7c94d6394529b4a8f61683e5bd52b5a6b87e975f
+WORKING_TREE_STATUS: CLEAN_ON_TRACKED_FILES
+FILES_CHANGED: NONE
+CODE_CHANGED: NO
+DEPLOYMENT_PERFORMED: NO
+
+=============================================================================
+SECTION A: SSE LOG SECURITY AUDIT (FINDING-SEC-01)
+=============================================================================
+1. Nginx Configuration Inspection:
+   - File: /etc/nginx/sites-available/staging.apologets (symlinked in sites-enabled)
+   - Proxy Pass: http://127.0.0.1:8001;
+   - Location Blocks: Only location / exists; no dedicated block for /api/v1/pipeline/stream.
+   - Active Logging Directives: Uses standard global access_log /var/log/nginx/access.log with default combined format ("$request", which includes "$request_uri" with full query parameters).
+   
+2. Token Recording Assessment:
+   - Status: CONFIRMED_VULNERABILITY_SURFACE.
+   - Explanation: Any request hitting Nginx with ?token=... in the query string is logged verbatim by default combined format.
+
+3. Log Audit Findings:
+   - Status: NOT_FOUND_IN_AVAILABLE_LOGS.
+   - Inspection: Zero occurrences of "pipeline/stream" or "token=" were found in /var/log/nginx/access.log or access.log.1. No active credential leakage has occurred in inspected history.
+
+4. Recommended Minimal Mitigation (Do Not Apply Yet):
+   - Add dedicated location block in /etc/nginx/sites-available/staging.apologets:
+     location = /api/v1/pipeline/stream {
+         access_log /var/log/nginx/access.log combined if=$should_log_redacted; # or access_log off;
+         proxy_pass http://127.0.0.1:8001;
+         ...
+     }
+   - Prefer standard Authorization Bearer header or HTTP-only SameSite cookie for EventSource.
+
+=============================================================================
+SECTION B: DATABASE BACKUP & RECOVERY READINESS
+=============================================================================
+1. Database Inspection:
+   - /home/ubuntu/Polya-AI/data/polya_arena.db (Size: 10.96 MB, Modified: Oct 12 03:41)
+     * Journal Mode: DELETE (non-WAL mode)
+     * Associated -wal / -shm: NONE
+     * Integrity: PRAGMA integrity_check -> 'ok'
+   - /home/ubuntu/Polya-AI/data/polya_arena_staging.db (Size: 143.36 KB, Modified: Oct 11 22:00)
+     * Journal Mode: DELETE
+     * Associated -wal / -shm: NONE
+     * Integrity: PRAGMA integrity_check -> 'ok'
+
+2. Backup Inventory & Gaps:
+   - Existing backups in /home/ubuntu:
+     * polya_secrets_and_credentials_backup.tar.gz (credential backup only, not a DB snapshot)
+     * repair_vad_tts_backup.tar.gz (model/audio backup only)
+     * /home/ubuntu/backups/: Empty directory (total 0)
+   - Status: GAPS_IDENTIFIED. No automated periodic database backups exist for polya_arena.db.
+
+3. Recommended Recovery Architecture:
+   - Enable WAL mode for high-concurrency consistency: PRAGMA journal_mode=WAL;
+   - Use non-blocking atomic SQLite backup command:
+     sqlite3 /home/ubuntu/Polya-AI/data/polya_arena.db ".backup '/home/ubuntu/backups/polya_arena_$(date +%Y%m%d_%H%M%S).db'"
+   - Configure cron-based rotation (7-day daily retention, 4-week weekly archive).
+   - Documented restore procedure: Atomic file replacement with service pause.
+
+=============================================================================
+SECTION C: SUMMARY & RELEASE GATE DECISION
+=============================================================================
+- SECURITY_LOG_STATUS: MITIGATION_REQUIRED
+- DATABASE_RECOVERY_STATUS: BACKUP_AUTOMATION_REQUIRED
+- FINAL_STATUS: PARTIAL
+- NEXT_ACTION: Awaiting user approval to apply Nginx logging mitigation and configure SQLite automated backup procedure.

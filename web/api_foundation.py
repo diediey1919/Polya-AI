@@ -5,7 +5,7 @@ import logging
 logger = logging.getLogger("polya.api_foundation")
 from pathlib import Path
 import uuid
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional, List, Literal
 from fastapi import APIRouter, HTTPException, Request, Response, status, Header, Depends
 from pydantic import BaseModel, Field
 
@@ -119,6 +119,7 @@ class AnalyzeRequest(BaseModel):
     request_id: Optional[str] = None
     user_id: Optional[str] = "guest_user"
     context: Optional[UserApologeticsContext] = None
+    mode: Literal["debate", "research"] = "research"
 
 
 class CheckoutRequest(BaseModel):
@@ -237,7 +238,7 @@ async def analyze_claim(req: AnalyzeRequest, authorization: Optional[str] = Head
         )
 
     # Generate and persist source-first Case File
-    case_file = CaseFileGenerator.generate_case_file(req.claim, req.context, user_id=effective_user_id)
+    case_file = CaseFileGenerator.generate_case_file(req.claim, req.context, user_id=effective_user_id, mode=req.mode)
     usage = UsageEntitlementService.get_usage(effective_user_id)
 
     return {

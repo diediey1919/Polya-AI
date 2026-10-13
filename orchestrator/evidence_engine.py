@@ -10,13 +10,17 @@ Implements:
 5. Separation of TEXTUAL FACT from LINGUISTIC INTERPRETATION and THEOLOGICAL INTERPRETATION.
 """
 import os
+import re
 import sqlite3
 import hashlib
+import logging
 import uuid
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from enum import Enum
 from typing import Any, Dict, List, Optional, Tuple
+
+logger = logging.getLogger("evidence_engine")
 
 BIBLE_ENGINE_DB = os.environ.get("BIBLE_ENGINE_DB_PATH", "/home/ubuntu/.polya/bible_engine.db")
 
@@ -317,6 +321,84 @@ CANONICAL_PHILOLOGY_KNOWLEDGE: Dict[str, Dict[str, Any]] = {
                 theological_interpretation="The bedrock of biblical monotheism."
             )
         ]
+    },
+    "Wahyu 19:7": {
+        "book": "Wahyu",
+        "chapter": 19,
+        "verse": 7,
+        "original_language": "Koine Greek",
+        "original_text": "χαίρωμεν καὶ ἀγαλλιῶμεν, καὶ δώσομεν τὴν δόξαν αὐτῷ, ὅτι ἦλθεν ὁ γάμος τοῦ ἀρνίου",
+        "transliteration": "chairōmen kai agalliōmen, kai dōsomen tēn doxan autō, hoti ēlthen ho gamos tou arniou",
+        "english": "Let us rejoice and be glad and give the glory unto him: for the marriage of the Lamb is come.",
+        "indonesian": "Marilah kita bersukacita dan bersorak-sorak, dan memberi kemuliaan kepada-Nya, karena hari perkawinan Anak Domba telah tiba.",
+        "tier": EvidenceTier.PRIMARY_SOURCE,
+        "confidence": 0.98,
+        "witnesses": ["Codex Sinaiticus (01)", "Codex Alexandrinus (02)", "P47"],
+        "tokens": [
+            MorphologicalToken(
+                surface_form="ἀρνίου",
+                lemma="ἀρνίον (arnion)",
+                part_of_speech="Noun",
+                morphology="Genitive Neuter Singular",
+                lexical_meaning="Lamb, sacrificial lamb",
+                syntactic_role="Genitive of possession",
+                textual_fact="Eschatological title of the Lamb in Apocalyptic literature.",
+                linguistic_interpretation="Diminutive form used systematically in Revelation for the exalted Christ.",
+                theological_interpretation="Eschatological marriage feast of the Lamb."
+            )
+        ]
+    },
+    "Yehezkiel 18:20": {
+        "book": "Yehezkiel",
+        "chapter": 18,
+        "verse": 20,
+        "original_language": "Biblical Hebrew",
+        "original_text": "הַנֶּפֶשׁ הַחֹטֵאת הִיא תָמוּת בֵּן לֹא־יִשָּׂא בַּעֲוֺן הָאָב",
+        "transliteration": "ha-nefesh ha-chote't hi tamut ben lo-yissa ba'awon ha-av",
+        "english": "The soul that sinneth, it shall die. The son shall not bear the iniquity of the father.",
+        "indonesian": "Orang yang berbuat dosa, itu yang harus mati. Anak tidak akan turut menanggung kesalahan ayahnya.",
+        "tier": EvidenceTier.PRIMARY_SOURCE,
+        "confidence": 0.99,
+        "witnesses": ["Codex Leningradensis (B19a)", "4QEzka", "Septuaginta (LXX)"],
+        "tokens": [
+            MorphologicalToken(
+                surface_form="תָמוּת",
+                lemma="מוּת (mut)",
+                part_of_speech="Verb",
+                morphology="Qal Imperfect 3fs",
+                lexical_meaning="Die, undergo death penalty",
+                syntactic_role="Predicate verb",
+                textual_fact="Individual moral responsibility principle.",
+                linguistic_interpretation="Specific individual accountability rejecting generational collective guilt transfer.",
+                theological_interpretation="Prophetic doctrine of individual moral accountability."
+            )
+        ]
+    },
+    "Kisah Para Rasul 10:15": {
+        "book": "Kisah Para Rasul",
+        "chapter": 10,
+        "verse": 15,
+        "original_language": "Koine Greek",
+        "original_text": "ἃ ὁ θεὸς ἐκαθάρισεν σὺ μὴ κοίνου.",
+        "transliteration": "ha ho theos ekatharisen sy mē koinou.",
+        "english": "What God hath cleansed, that call not thou common.",
+        "indonesian": "Apa yang dinyatakan halal oleh Allah, tidak boleh engkau nyatakan haram.",
+        "tier": EvidenceTier.PRIMARY_SOURCE,
+        "confidence": 0.98,
+        "witnesses": ["P45 (c. 250 CE)", "Codex Vaticanus", "Codex Sinaiticus"],
+        "tokens": [
+            MorphologicalToken(
+                surface_form="ἐκαθάρισεν",
+                lemma="καθαρίζω (katharizō)",
+                part_of_speech="Verb",
+                morphology="Aorist Active Indicative 3s",
+                lexical_meaning="Cleanse, purify, declare ritually clean",
+                syntactic_role="Relative clause predicate",
+                textual_fact="Peter's vision on Gentile inclusion and dietary abrogations.",
+                linguistic_interpretation="Aorist tense indicates decisive divine act of cleansing.",
+                theological_interpretation="Theological pivot for Gentile inclusion in the apostolic church."
+            )
+        ]
     }
 }
 
@@ -338,23 +420,78 @@ class EvidenceEngine:
         """
         Retrieves primary scripture evidence matching query terms.
         Prioritizes Greek/Hebrew text, tokens, and academic apparatus.
-        Always guarantees non-empty authoritative evidence return.
+        Supplemental canonical scripture is strictly topic-filtered; no forced fallback.
         """
         results: List[EvidenceItem] = []
         q_lower = query.lower()
 
-        # Check in-memory academic philology knowledge base first
-        for ref, data in CANONICAL_PHILOLOGY_KNOWLEDGE.items():
-            ref_lower = ref.lower()
-            text_lower = data["original_text"].lower()
-            trans_lower = data["indonesian"].lower()
-            eng_lower = data["english"].lower()
+        # Topic relevance mapping for canonical verses
+        def is_verse_relevant(ref: str) -> bool:
+            if ref.lower() in q_lower:
+                return True
+            if ref == "Roma 3:31":
+                return (
+                    "roma 3" in q_lower
+                    or ("roma" in q_lower and any(w in q_lower for w in ["taurat", "hukum", "iman", "katargoumen", "histanomen"]))
+                    or ("paulus" in q_lower and any(w in q_lower for w in ["taurat", "hukum", "membatalkan", "menegakkan"]))
+                )
+            elif ref == "Matius 5:17":
+                return (
+                    "matius 5" in q_lower
+                    or ("matius" in q_lower and any(w in q_lower for w in ["taurat", "hukum", "menggenapi", "meniadakan"]))
+                    or ("menggenapi" in q_lower and any(w in q_lower for w in ["taurat", "hukum"]))
+                    or ("meniadakan" in q_lower and any(w in q_lower for w in ["taurat", "hukum"]))
+                    or ("membatalkan" in q_lower and "taurat" in q_lower)
+                )
+            elif ref == "Efesus 2:15":
+                return (
+                    "efesus 2:15" in q_lower
+                    or "efesus" in q_lower
+                    or "dogmasin" in q_lower
+                    or ("membatalkan" in q_lower and "taurat" in q_lower)
+                    or ("paulus" in q_lower and "taurat" in q_lower)
+                )
+            elif ref == "Galatia 3:13":
+                return (
+                    "galatia 3:13" in q_lower
+                    or "galatia" in q_lower
+                    or "katara" in q_lower
+                    or ("paulus" in q_lower and "taurat" in q_lower)
+                )
+            elif ref == "Roma 7:12":
+                return (
+                    "roma 7:12" in q_lower
+                    or ("roma 7" in q_lower and ("kudus" in q_lower or "hagios" in q_lower))
+                    or ("paulus" in q_lower and "taurat" in q_lower)
+                )
+            elif ref == "Yohanes 10:30":
+                return (
+                    "yohanes 10" in q_lower
+                    or "aku dan bapa" in q_lower
+                    or "hen esmen" in q_lower
+                    or ("yesus" in q_lower and any(w in q_lower for w in ["tuhan", "allah", "bapa", "keilahian", "hakikat", "satu", "tritunggal"]))
+                )
+            elif ref == "Ulangan 6:4":
+                return (
+                    "ulangan 6" in q_lower
+                    or "shema" in q_lower
+                    or "echad" in q_lower
+                    or "tuhan itu esa" in q_lower
+                    or "allah itu esa" in q_lower
+                    or "monoteisme" in q_lower
+                    or "tritunggal" in q_lower
+                    or "trinity" in q_lower
+                )
+            elif ref == "Wahyu 19:7":
+                return "wahyu" in q_lower or "revelation" in q_lower or "arnion" in q_lower
+            elif ref == "Yehezkiel 18:20":
+                return "yehezkiel" in q_lower or "ezekiel" in q_lower or "dosa" in q_lower
+            elif ref == "Kisah Para Rasul 10:15":
+                return "kisah para rasul" in q_lower or "acts" in q_lower or "petrus" in q_lower or "halal" in q_lower or "haram" in q_lower
+            return False
 
-            if (
-                ref_lower in q_lower
-                or any(w in q_lower for w in ["paulus", "taurat", "law", "nomos", "roma", "efesus", "galatia", "matius", "yesus", "allah", "tuhan", "anak", "yohanes", "bapa", "satu", "esa"])
-                or any(t.lemma.lower() in q_lower for t in data["tokens"])
-            ):
+        for ref, data in CANONICAL_PHILOLOGY_KNOWLEDGE.items():
+            if is_verse_relevant(ref) or any(t.lemma.lower() in q_lower for t in data["tokens"] if len(t.lemma) > 4):
                 prov_hash = self._generate_provenance_hash(ref, data["original_text"], data["tier"].value)
                 item = EvidenceItem(
                     evidence_id=f"evi_{uuid.uuid4().hex[:8]}",
@@ -374,52 +511,143 @@ class EvidenceEngine:
                     witnesses=data["witnesses"],
                     tokens=data["tokens"],
                     theological_implication=(
-                        f"Refutes simplistic antinomian claims. Establishes {ref} as high-confidence witness."
+                        f"Canonical manuscript witness: {ref}. Contextually relevant to claim premises."
                     )
                 )
                 results.append(item)
 
-        # Fallback: if no keyword matched, return top 2 foundational canonical baselines
-        if not results:
-            for default_ref in ["Roma 3:31", "Yohanes 10:30"]:
-                if default_ref in CANONICAL_PHILOLOGY_KNOWLEDGE:
-                    data = CANONICAL_PHILOLOGY_KNOWLEDGE[default_ref]
-                    prov_hash = self._generate_provenance_hash(default_ref, data["original_text"], data["tier"].value)
-                    results.append(EvidenceItem(
-                        evidence_id=f"evi_{uuid.uuid4().hex[:8]}",
-                        tier=data["tier"],
-                        source_id=f"SRC-BIB-{data['book'].upper()}-{data['chapter']}-{data['verse']}",
-                        book=data["book"],
-                        chapter=data["chapter"],
-                        verse=data["verse"],
-                        passage_reference=f"{data['book']} {data['chapter']}:{data['verse']}",
-                        original_language=data["original_language"],
-                        original_text=data["original_text"],
-                        transliteration=data["transliteration"],
-                        english_translation=data["english"],
-                        indonesian_translation=data["indonesian"],
-                        confidence=data["confidence"],
-                        provenance_hash=prov_hash,
-                        witnesses=data["witnesses"],
-                        tokens=data["tokens"],
-                        theological_implication=f"Foundational canonical baseline witness: {default_ref}."
-                    ))
+        # Do NOT force universal fallback if no verse is relevant.
+        # Klaim non-teologis atau yang tidak didukung korpus tidak boleh dipaksakan menjadi ayat Alkitab.
+        return results
 
-        # Also probe sqlite database if accessible
-        if os.path.exists(self.db_path):
-            try:
-                conn = sqlite3.connect(self.db_path)
-                conn.row_factory = sqlite3.Row
-                cur = conn.cursor()
-                cur.execute(
-                    "SELECT claim_id, subject, predicate, confidence FROM claims LIMIT 5"
-                )
-                rows = cur.fetchall()
-                conn.close()
-            except Exception:
-                pass
+    def retrieve_corpus_evidence(self, query: str, limit: int = 4) -> List[Dict[str, Any]]:
+        """
+        Retrieves academic knowledge and manuscript records from .polya/polya_index.db (knowledge_fts).
+        Enforces domain filtering and BM25 relevance threshold.
+        """
+        q_lower = query.lower()
+        science_keywords = [
+            "mendidih", "celsius", "celcius", "atmosfer", "suhu", "boiling",
+            "temperature", "thermodynamic", "titik didih", "gravitasi", "quantum", "elektron"
+        ]
+        theological_keywords = [
+            "yesus", "jesus", "kristus", "christ", "tuhan", "allah", "god", "lord",
+            "bapa", "tritunggal", "trinity", "taurat", "torah", "paulus", "paul",
+            "alkitab", "bible", "injil", "gospel", "quran", "islam", "yahudi",
+            "jewish", "rasul", "iman", "keilahian", "mesias", "messiah"
+        ]
+
+        has_science = any(k in q_lower for k in science_keywords)
+        has_theology = any(k in q_lower for k in theological_keywords)
+
+        # Reject purely secular / natural science claims from corpus search
+        if has_science and not has_theology:
+            return []
+
+        polya_db = "/home/ubuntu/.polya/polya_index.db"
+        if not os.path.exists(polya_db):
+            return []
+
+        fts_terms = []
+        term_map = {
+            "yesus": "Jesus",
+            "tuhan": "God OR Lord OR Deity",
+            "allah": "God OR Allah",
+            "tritunggal": "Trinity",
+            "kristus": "Christ",
+            "mesias": "Messiah OR Mashiach",
+            "taurat": "Torah OR Law",
+            "paulus": "Paul",
+            "injil": "Gospel",
+            "alkitab": "Scripture OR Bible"
+        }
+        for id_word, en_word in term_map.items():
+            if id_word in q_lower:
+                fts_terms.append(en_word)
+
+        if not fts_terms:
+            stop_words = {"tidak", "secara", "langsung", "berkata", "adalah", "yang", "pada", "dalam", "bukan", "muncul", "kemudian", "asli"}
+            words = [w for w in re.findall(r'[a-zA-Z]{4,}', query) if w.lower() not in stop_words]
+            if words:
+                fts_terms.append(" OR ".join(words[:3]))
+
+        if not fts_terms:
+            return []
+
+        search_query = " OR ".join(fts_terms)
+        results: List[Dict[str, Any]] = []
+        try:
+            conn = sqlite3.connect(polya_db)
+            cur = conn.cursor()
+            cur.execute("""
+                SELECT id, category, tradition, title, summary, rank
+                FROM knowledge_fts
+                WHERE knowledge_fts MATCH ?
+                ORDER BY rank
+                LIMIT ?
+            """, (search_query, limit))
+            rows = cur.fetchall()
+            conn.close()
+
+            for row in rows:
+                doc_id, cat, trad, title, summary, rank = row
+                # BM25 rank in SQLite FTS5 is negative; lower means higher relevance (rank <= -3.0)
+                if rank <= -3.0:
+                    summary_text = summary[:400].strip() if summary else ""
+                    prov_hash = hashlib.sha256(f"{doc_id}|{title}|{summary_text[:150]}".encode("utf-8")).hexdigest()[:16]
+                    results.append({
+                        "id": doc_id,
+                        "category": cat,
+                        "tradition": trad,
+                        "title": title,
+                        "summary": summary_text,
+                        "provenance_hash": prov_hash,
+                        "rank": float(rank),
+                        "source_db": "polya_index.db"
+                    })
+        except Exception as exc:
+            logger.warning(f"Error querying knowledge_fts: {exc}")
 
         return results
+
+    def retrieve_all_evidence(self, query: str) -> Dict[str, Any]:
+        """
+        Unified forensic retrieval combining scripture and scholarly corpus.
+        Transparently flags insufficient_evidence when outside corpus scope.
+        """
+        scripture = self.retrieve_scripture_evidence(query)
+        corpus = self.retrieve_corpus_evidence(query)
+        q_lower = query.lower()
+
+        science_keywords = [
+            "mendidih", "celsius", "celcius", "atmosfer", "suhu", "boiling",
+            "temperature", "thermodynamic", "titik didih", "gravitasi", "quantum", "elektron"
+        ]
+        theological_keywords = [
+            "yesus", "jesus", "kristus", "christ", "tuhan", "allah", "god", "lord",
+            "bapa", "tritunggal", "trinity", "taurat", "torah", "paulus", "paul",
+            "alkitab", "bible", "injil", "gospel", "quran", "islam", "yahudi",
+            "jewish", "rasul", "iman", "keilahian", "mesias", "messiah"
+        ]
+
+        is_pure_science = any(k in q_lower for k in science_keywords) and not any(k in q_lower for k in theological_keywords)
+
+        if not scripture and not corpus:
+            status = "insufficient_evidence"
+            if is_pure_science:
+                reason = "Klaim berada di luar domain korpus teologi dan teks biblika/patristik (klaim sains/fenomena alam murni). Korpus tidak memuat rekaman empiris sains untuk klaim ini."
+            else:
+                reason = "Klaim tidak didukung oleh saksi naskah primer atau rekaman dokumen historis yang relevan di dalam korpus data."
+        else:
+            status = "sufficient"
+            reason = f"Ditemukan bukti yang relevan: {len(scripture)} saksi biblika, {len(corpus)} rekaman korpus akademik."
+
+        return {
+            "status": status,
+            "reason": reason,
+            "scripture_evidence": scripture,
+            "corpus_evidence": corpus
+        }
 
     def show_source(self, passage_reference: str) -> Optional[Dict[str, Any]]:
         """

@@ -1,0 +1,96 @@
+TASK: POLYA AI — FULL PRODUCTION FEATURE INTEGRATION AUDIT (AUDIT B)
+TIMESTAMP: 2026-10-12T06:40:00+07:00
+TASK_STATUS: COMPLETED
+AUDIT_SCOPE: Read-only verification of full production feature integration across Calculator, Case Files, Themes Explorer, Knowledge Graph, ZUMA Sparring, and Debate Arena Invariants.
+ENVIRONMENT: production
+BASELINE_COMMIT: 7c94d6394529b4a8f61683e5bd52b5a6b87e975f
+REPORT_DESTINATION: docs/audits/production-feature-integration-audit.txt
+
+1. BASELINE AND DEPLOYMENT CONSISTENCY
+- Git Commit: 7c94d6394529b4a8f61683e5bd52b5a6b87e975f (100% matched)
+- Tracked Files: Zero modifications (PASS)
+- Staging vs Production Separation:
+  Staging operates on port 8001 with distinct database polya_arena_staging.db.
+  Production operates on port 8000 with database polya_arena.db.
+
+2. CALCULATOR AND APOLOGETICS PIPELINE
+- 10 Canonical Fields:
+  1. claim: Verified in backend & frontend template.
+  2. context: Verified in backend & frontend template.
+  3. evidence: Verified in backend & frontend template.
+  4. argument: Verified in backend & frontend template.
+  5. counterargument: Verified in backend & frontend template.
+  6. rebuttal: Verified in backend & frontend template.
+  7. weakness: Verified in backend & frontend template.
+  8. sources: Verified in backend & frontend template.
+  9. open_questions: Verified in backend & frontend template.
+  10. debate_preparation: Verified in backend & frontend template.
+- Adversarial Endpoints in Production:
+  - POST /api/v1/calculator/challenge: Registered & validated.
+  - POST /api/v1/calculator/weakest-point: Registered & validated (GET returns 405 Method Not Allowed as expected).
+  - GET /api/v1/calculator/source: Registered & operational (HTTP 200 OK for passage query).
+- Pipeline SSE Streaming:
+  - GET /api/v1/pipeline/stream: Unauthenticated request rejected with HTTP 401.
+
+3. CASE FILE AND PERSISTENCE
+- Production Database Table: case_files_v2 contains exactly 256 records in polya_arena.db.
+- Execution Traces Table: execution_traces contains 255 records.
+- API Endpoints:
+  - GET /api/v1/case-files: Returns user case file listings with effective_user_id filtering.
+  - GET /api/v1/case-files/{case_id}: Retrieves specific case details.
+- Ownership & Multi-user Isolation: Enforced via verify_user_access(user_id, authorization).
+
+4. THEMES EXPLORER
+- Endpoint GET /api/v1/themes:
+  Returns exactly 10 themes constructed dynamically from data/video_pipeline/06_debate/*/*.json.
+- Endpoint GET /api/v1/themes/{theme_id}:
+  Returns detailed 6-tab metadata (narrative, debate, evidence, provenance, evaluation).
+- Error Handling: Returns 404 cleanly when theme_id is not found.
+
+5. DYNAMIC KNOWLEDGE GRAPH
+- Endpoint GET /api/v1/knowledge/graph:
+  Dynamically constructs DAG nodes and edges from query using ClaimAtomicityEngine.
+- Node Schema: root CLAIM node, atomic PROPOSITION nodes, and EVIDENCE relations.
+- Dynamic vs Static: Code confirms nodes and edges are calculated from input string decomposition, not a hardcoded static JSON mockup.
+
+6. ZUMA SPARRING
+- Endpoints:
+  - POST /api/training/session/create
+  - GET /api/training/session/{session_id}
+  - POST /api/training/session/argument
+  - POST /api/training/session/evidence
+  - POST /api/training/session/cross_exam
+  - POST /api/training/session/ai_turn
+  - POST /api/training/session/evaluate
+  - GET /api/training/session/{session_id}/replay
+- State Lifecycle: Governed by TrainingStateMachine (INIT -> USER_TURN -> AI_EVAL -> COMPLETE).
+- Invalid Session: GET /api/training/session/nonexistent_session_12345 cleanly returns 404 Not Found.
+- Separation: Mode operates strictly under TRAINING_MODE context, completely separate from OFFICIAL_ARENA.
+
+7. DEBATE ARENA INVARIANTS & WEBSOCKET
+- Invariant 1: Official competition involves 6 human debaters (P1, P2, P3 vs O1, O2, O3).
+- Invariant 2: Team format is strictly 3-vs-3.
+- Invariant 3: AI is an observer/facilitator, NEVER a direct competitor (AI Non-Participant rule strictly enforced in ActionValidator and Lobby join).
+- Invariant 4: ZUMA Sparring is an isolated training mode.
+- WebSocket Route: /api/arena/ws actively accepts client connections and broadcasts live STATE_UPDATE.
+
+8. AUTHENTICATION, AUTHORIZATION, AND ISOLATION
+- Protected Routes: Case Files and Pipeline SSE strictly require authentication.
+- Unauthenticated Access: Returns 401 Unauthorized or 403 Forbidden.
+- Sensitive Data Logging: Mitigated in Nginx for SSE pipeline stream; query strings are not logged.
+
+9. FEATURE INTEGRATION MATRIX
+Feature | Frontend | API | Database | Auth/Ownership | Production Evidence | Status | Severity
+Calculator 10 Fields | index.html | /api/v1/calculator/analyze | Ephemeral | User Token | 10 Canonical Fields | VERIFIED | INFO
+Adversarial Endpoints | Drawer / Modal | /api/v1/calculator/* | Ephemeral | Bearer Auth | 200 OK / 405 Filter | VERIFIED | INFO
+Case Files Listing | Dashboard | /api/v1/case-files | case_files_v2 | User Filter | 256 Rows in DB | VERIFIED | INFO
+Themes Explorer | #themes-view | /api/v1/themes | video_pipeline | Public | 10 Dynamic Items | VERIFIED | INFO
+Dynamic Knowledge Graph | #knowledge-view | /api/v1/knowledge/graph | ClaimAtomicityEngine | Public | Dynamic DAG Nodes | VERIFIED | INFO
+Pipeline SSE Stream | #pipeline-view | /api/v1/pipeline/stream | Ephemeral | Token Auth | 401 Unauth / Log Masked | VERIFIED | INFO
+ZUMA Sparring Mode | #persona-view | /api/training/session/* | Training State | Session ID | 404 on Invalid Session | VERIFIED | INFO
+3v3 Debate Arena | arena.html | /api/arena/state & /ws | State Engine | 6 Humans Only | Invariants Enforced | VERIFIED | INFO
+
+10. SUMMARY & STATUS
+- CHANGES_MADE: NONE
+- ANTIGRAVITY_USED: NO
+- FINAL_STATUS: PASS

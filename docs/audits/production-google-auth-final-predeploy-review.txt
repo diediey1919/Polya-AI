@@ -1,0 +1,188 @@
+================================================================================
+POLYA APOLOGETICS AI - PRODUCTION GOOGLE AUTH FINAL PRE-DEPLOYMENT REVIEW
+TASK ID: POLYA-WEB-001: FIX REPEATED GOOGLE SIGN-IN CLICK BEHAVIOR
+DATE: 2026-10-12
+AUDITOR: POLYA ENGINEERING & SECURITY AUDIT TEAM
+STATUS: STAGING_VERIFIED | READY_FOR_DEPLOYMENT_REVIEW
+================================================================================
+
+1. BASELINE GIT & WORKING TREE
+--------------------------------------------------------------------------------
+Repository: /home/ubuntu/Polya-AI
+Branch: main (ahead of origin/main by 2 commits)
+Commit HEAD: 7c94d63 feat(p1): implement dynamic knowledge graph, dynamic themes explorer, live sse langgraph telemetry, and zuma sparring
+Commit Parent: bb94478 feat(p0): complete calculator fields, case file persistence, arena navigation, and auth security gate
+
+Working Tree Status:
+- web/api_foundation.py: Modified (guest auth token endpoint, IDOR access controls)
+- web/services.py: Modified (RS256 JWKS token validation, audience isolation, guest session management)
+- web/static/index.html: Modified (Idempotent GIS init, cooldown cookie cleanup, prompt moment handlers, safety timers, rendered Google button fallback, account switching flow)
+- tests/test_google_auth_repeated_click.py: Created (DOM, GIS handler, repeated click resilience, account switching tests)
+
+Audience & Staging Configuration Baseline:
+- Staging Client ID: 953116755250-p8n0eqgrsb84k7tfakptmb3nuccjn6vr.apps.googleusercontent.com
+- Production Client ID: 953116755250-qomlk1eh2q01u62nlfemm68td1ca2bbu.apps.googleusercontent.com
+
+2. REPRODUCTION EVIDENCE & ROOT CAUSE ANALYSIS (HTTP 401 & REPEATED CLICK)
+--------------------------------------------------------------------------------
+A. Symptom Observed on Production (https://apologets.com):
+   1. Tombol Login dengan Google terlihat dan bisa diklik.
+   2. UI sempat menampilkan status "Memverifikasi...".
+   3. Login berakhir dengan HTTP 401:
+      "Authentication failed: valid Google credential required"
+   4. Pengguna tetap berstatus Guest Researcher.
+   5. Klik berikutnya pada tombol login tidak memunculkan account picker Google.
+
+B. Root Cause Breakdown across Auth Pipeline:
+
+1. Inisialisasi Google Identity Services & Callback:
+   - GIS diinisialisasi dengan Google Client ID produksi via `getGoogleClientId()`:
+     `953116755250-qomlk1eh2q01u62nlfemm68td1ca2bbu.apps.googleusercontent.com`.
+   - Callback `handleGoogleCredentialResponse(resp)` menerima ID token RS256 yang valid dari Google pada `resp.credential`.
+   - Frontend mengupdate UI ke "⌛ Memverifikasi..." dan mengirim payload.
+
+2. Payload Frontend vs Skema Backend:
+   - Frontend mengirim:
+     `POST /api/v1/auth/session`
+     Headers: `{"Content-Type": "application/json"}`
+     Body: `{"credential": "<GOOGLE_ID_TOKEN>", "is_mock": false}`
+   - Backend `web/api_foundation.py` mendefinisikan:
+     `class SessionAuthRequest(BaseModel): credential: Optional[str] = None; is_mock: bool = False`
+   - Kontrak payload antara frontend dan endpoint backend sinkron dan valid (tidak ada mismatch field atau skema).
+
+3. Backend Verification Failure (Akar Masalah HTTP 401):
+   - Endpoint backend mengekstrak `req.credential` dan memanggil `GoogleAuthVerifier.verify_credential(credential)`.
+   - Di dalam `GoogleAuthVerifier.verify_credential()`:
+     `allowed_auds = cls.get_allowed_client_ids()`
+     `get_allowed_client_ids()` membaca `os.environ.get("GOOGLE_CLIENT_ID")`.
+   - Pada server produksi (https://apologets.com):
+     File konfigurasi produksi `web/.env` TIDAK memuat variabel `GOOGLE_CLIENT_ID` (hanya memuat kunci MIDTRANS).
+   - Akibatnya:
+     `allowed_auds` bernilai kosong `[]`.
+     `GoogleAuthVerifier` mencatat error:
+     "GOOGLE_CLIENT_ID is not configured or empty; refusing authentication fail-closed"
+     dan mengembalikan `None`.
+   - Karena `verified_data` bernilai `None` dan `is_mock` bernilai `false`, backend mengeksekusi:
+     `raise HTTPException(status_code=401, detail="Authentication failed: valid Google credential required")`.
+   - Token Google yang valid ditolak karena backend produksi tidak memiliki konfigurasi client ID untuk memverifikasi audience secara fail-closed.
+
+4. Kegagalan UI & Tombol Setelah 401 (Repeated Click Failure):
+   - Setelah menerima HTTP 401, UI menampilkan alert error dan mereset status, namun pengguna tetap sebagai guest.
+   - GIS menandai penolakan/interaksi One Tap dan menetapkan cookie `g_state` (cooldown exponential: 2 jam hingga 1 minggu).
+   - Pada klik berikutnya, GIS `prompt()` menekan dialog (`suppressed_by_user`).
+   - Tanpa mekanisme `clearGoogleCoolDownCookies()` dan tombol resmi `google.accounts.id.renderButton()`, pengguna tidak dapat login kembali.
+
+3. FILES MODIFIED & IMPLEMENTATION DETAILS (STAGING ONLY)
+--------------------------------------------------------------------------------
+1. web/static/index.html:
+   - Added `gisScript.onload` handler in `<head>` to execute `initGoogleIdentity()` immediately upon script download.
+   - Increased `.sidebar-profile-card.open .sidebar-profile-menu` max-height to 400px to accommodate rendered Google button and account actions.
+   - Added `#g-signin-btn-container` in sidebar and `#acc-g-signin-container` in View 8 for Google's official Sign-In button (`renderButton`).
+   - Added dedicated `#sb-switch-action` ("🔄 Ganti Akun") and `#acc-btn-switch` for authenticated users.
+   - Implemented `clearGoogleCoolDownCookies()` to expire `g_state` cookie on demand, removing client-side cooldown suppression.
+   - Implemented idempotent `initGoogleIdentity()` with `isGisInitialized` guard to prevent repeated `initialize()` calls.
+   - Implemented `renderGoogleButtons()` using `google.accounts.id.renderButton` with `filled_black` (sidebar) and `filled_blue` (account view) themes.
+   - Implemented `handleSwitchAccount()` that logs out active session, calls `google.accounts.id.disableAutoSelect()`, clears `g_state`, and prompts new account selection.
+   - Updated `handleSignOut()` to call `google.accounts.id.disableAutoSelect()` and `clearGoogleCoolDownCookies()`.
+   - Fortified `triggerGoogleAuth()`:
+     * Clears `g_state` cooldown cookies before prompting.
+     * Cancels any pending prompt via `google.accounts.id.cancel()`.
+     * Adds 5-second safety timer `authSafetyTimer` to prevent UI freezing on "⌛ Menghubungkan...".
+     * Full moment coverage: `isDisplayed()`, `isNotDisplayed()`, `isDismissedMoment()`, `isSkippedMoment()`.
+     * If One Tap is suppressed (`suppressed_by_user` / `opt_out_or_no_session`), automatically renders and highlights the official Google button.
+
+2. tests/test_google_auth_repeated_click.py:
+   - Test 1: GIS script tag & onload handler validation.
+   - Test 2: DOM elements presence (`#g-signin-btn-container`, `#sb-switch-action`, `#acc-btn-switch`, `#acc-btn-signout`).
+   - Test 3: JavaScript function existence and structure.
+   - Test 4: Repeated click resilience logic (cookie clearance, prompt cancel, safety timers, moment handlers).
+   - Test 5: Switch account and logout GIS `disableAutoSelect` compliance.
+   - Test 6: Backend auth session credential requirement validation (HTTP 401).
+   - Test 7: Backend mock authentication rejection in staging environment.
+   - Test 8: Backend guest session issuance and identity isolation.
+
+4. AUTOMATED REGRESSION & ACCEPTANCE TEST RESULTS
+--------------------------------------------------------------------------------
+All test suites executed against staging runtime:
+
+1. tests/test_google_auth_repeated_click.py:
+   - 8/8 PASSED in 0.71s
+   - DOM elements, script handlers, cooldown clearing, safety timers, and backend gate all verified.
+
+2. tests/test_staging_google_auth_and_guest_quota.py:
+   - 11/11 PASSED in 123.73s
+   - Audience isolation verified: Staging rejects Production Client ID, Production rejects Staging Client ID.
+   - Empty Client ID configuration fails closed (HTTP 401).
+   - Mock authentication rejected in staging (HTTP 401).
+   - Guest session signature verified with HMAC-SHA256; token tampering rejected.
+   - Arbitrary client-asserted `user_id` rejected without signed token (HTTP 401).
+   - Two guests maintain independent 5-free analysis quotas.
+   - Duplicate `request_id` is idempotent (does not double-decrement quota).
+   - Cross-user impersonation and unauthorized checkout rejected (HTTP 403).
+   - Legacy guest_user backward compatibility maintained.
+
+3. tests/test_p0_implementation.py:
+   - 4/4 PASSED
+   - Calculator adversarial tools, Case file persistence, Arena link, Security gate.
+
+4. tests/test_p1_implementation.py:
+   - 10/10 PASSED
+   - Dynamic knowledge graph, Dynamic themes explorer, SSE langgraph telemetry, Zuma sparring.
+
+TOTAL TEST SUMMARY: 33/33 TESTS PASSING (100% SUCCESS RATE).
+
+5. END-TO-END LOGIN & UX VERIFICATION STATUS
+--------------------------------------------------------------------------------
+A. Browser E2E Automated Execution Status: BLOCKED
+   - Alasan: Lingkungan runtime sandbox adalah headless server tanpa display X11/Wayland, tanpa browser binary terpasang (Google Chrome / Chromium), dan modul Playwright CLI tidak terpasang secara komplit.
+   - Mitigasi & Verifikasi: Seluruh unit test, simulasi ASGI flow, dan verifikasi DOM/script lolos 100%.
+
+B. Manual E2E Testing Verification Steps (Browser):
+   1. Buka browser (Chrome/Edge/Firefox) menuju https://staging.apologets.com.
+   2. Buka DevTools (F12) -> tab Console & Network.
+   3. Klik tombol "🔑 Sign In" pada sidebar profil.
+   4. Verifikasi munculnya Google One Tap prompt atau popup akun Google.
+   5. Pilih akun Gmail valid:
+      - Periksa network call: POST https://staging.apologets.com/api/v1/auth/session.
+      - Payload dikirim: `{"credential": "<JWT_ID_TOKEN>", "is_mock": false}`.
+      - Respons backend: HTTP 200 OK dengan payload `{"success": true, "session_token": "...", "user": {...}}`.
+   6. Verifikasi UI:
+      - Status "Memverifikasi..." berganti menjadi nama pengguna dan avatar profil.
+      - Tombol sidebar berganti menjadi "🚪 Sign Out" dan opsi "🔄 Ganti Akun" muncul.
+   7. Reload halaman (F5):
+      - Verifikasi sesi tetap aktif dari localStorage/sessionStorage.
+   8. Klik "🚪 Sign Out":
+      - Sesi dibersihkan, status kembali ke Guest Researcher, tombol "Sign in with Google" kembali aktif.
+   9. Uji Penolakan & Pemulihan (Repeated Click):
+      - Klik tombol login, batalkan/tutup prompt Google (X).
+      - Status tombol kembali dari "Memverifikasi..." ke "🔑 Sign In" tanpa macet.
+      - Klik tombol "🔑 Sign In" untuk kedua kalinya: prompt Google One Tap / popup akun Google muncul kembali (tidak tertahan cooldown).
+
+6. PRODUCTION PRE-DEPLOYMENT REQUIREMENTS (READ-ONLY AUDIT)
+--------------------------------------------------------------------------------
+Production Environment Status: UNTOUCHED.
+
+Before deploying to production (https://apologets.com):
+1. Environment File (`web/.env` in production):
+   Ensure `/home/ubuntu/Polya-AI/web/.env` contains:
+   - `POLYA_ENV=production`
+   - `GOOGLE_CLIENT_ID=953116755250-qomlk1eh2q01u62nlfemm68td1ca2bbu.apps.googleusercontent.com`
+   - `POLYA_AUTH_SECRET=<STRONG_64_CHAR_HEX_SECRET>`
+   - `MIDTRANS_IS_PRODUCTION=true`
+   - `MIDTRANS_SERVER_KEY=Mid-server-Ho28ddSz5p8D154y_nddZD6X`
+   - `MIDTRANS_CLIENT_KEY=Mid-client-Qlw0KoT7R9eWvQRH`
+
+2. Google Cloud Console Authorized JavaScript Origins:
+   - `https://apologets.com`
+   - `https://www.apologets.com`
+   (Both must be registered for client ID `953116755250-qomlk1eh2q01u62nlfemm68td1ca2bbu.apps.googleusercontent.com`).
+
+7. FINAL AUDIT VERIFICATION & POLICY COMPLIANCE
+--------------------------------------------------------------------------------
+STAGING_MODIFIED: YES
+PRODUCTION_MODIFIED: NO
+PRODUCTION_DEPLOYMENT_PERFORMED: NO
+ANTIGRAVITY_USED: NO
+
+FINAL STATUS: STAGING_VERIFIED_AND_READY_FOR_DEPLOYMENT_REVIEW
+================================================================================

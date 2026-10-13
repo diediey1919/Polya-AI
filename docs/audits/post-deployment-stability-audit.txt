@@ -1,0 +1,66 @@
+TASK: POLYA AI — POST-DEPLOYMENT STABILITY AUDIT
+TIMESTAMP: 2026-10-12T06:22:00+07:00
+REPOSITORY: /home/ubuntu/Polya-AI
+BASELINE_COMMIT: 7c94d6394529b4a8f61683e5bd52b5a6b87e975f
+REPORT_DESTINATION: docs/audits/post-deployment-stability-audit.txt
+
+1. SERVICE STABILITY
+- Service Name: polya-web.service (Port 8000)
+- Status: active (running)
+- Process: PID 1840875 (Uvicorn running on http://0.0.0.0:8000)
+- Startup Log:
+  * Lifespan schema initialization: complete
+  * Foundation database self-healing: complete & verified
+  * Arena database self-healing: complete
+- Error/Traceback Check: Nol traceback, nol crash loop, nol restart tak terduga.
+- Live Traffic Observation: Melayani traffic live dashboard, websocket /api/arena/ws, knowledge graph, dan themes dengan HTTP 200/304 stabil.
+- Evaluation: PASS
+
+2. DATABASE INTEGRITY
+- Target Database: /home/ubuntu/Polya-AI/data/polya_arena.db
+- Integrity Check: PRAGMA integrity_check -> ok
+- Table Verification: 7 tabel inti aktif dan utuh:
+  ['arena_users', 'case_files_v2', 'execution_traces', 'payment_transactions', 'usage_entitlement_records', 'user_apologetics_context', 'user_entitlements']
+- Status: PASS
+
+3. NGINX & SSE SECURITY
+- Nginx Syntax: sudo nginx -t -> ok & successful
+- Service Status: nginx active (running)
+- SSE Unauthenticated Rejection:
+  * Local HTTP (127.0.0.1:8000): HTTP 401 Unauthorized
+  * Public HTTPS (https://apologets.com): HTTP 401 Unauthorized
+- Access Log Leak Audit: Query string "claim=Test" tidak bocor pada /var/log/nginx/access.log (mitigasi access_log off bekerja sempurna).
+- Buffering Check: proxy_buffering off aktif pada location SSE.
+- Status: PASS
+
+4. CORE ENDPOINTS VERIFICATION
+- GET /api/arena/state: HTTP 200 OK (Event authoritative aktif, status Dialectical Engine berjalan).
+- GET /api/v1/themes: HTTP 200 OK (Katalog tema tersedia dan konsisten).
+- GET /api/v1/knowledge/graph: HTTP 200 OK (Dynamic knowledge graph mengembalikan node/edge).
+- GET /api/v1/calculator/source: HTTP 200 OK (Menyajikan verifikasi sumber eksegesa).
+- Status: PASS
+
+5. PRE-DEPLOYMENT SNAPSHOT AVAILABILITY
+- File Path: /home/ubuntu/backups/production/polya_arena_prod_pre_deploy_20261012.db
+- Size: 11,538,432 bytes (~11 MB)
+- Integrity Check: PRAGMA integrity_check -> ok
+- SHA-256: 3aac2e2f9a718954c49f9b9be0a99cc6e2075ebe87791adbc29b6528db817f86
+- Nginx Backup Config: /home/ubuntu/backups/production/apologets.nginx.bak (Tersedia dan utuh)
+- Status: PASS
+
+6. OPERATIONAL AUDIT BOUNDARIES
+- PRODUCTION_MODIFIED: NO (Hanya observasi read-only pada post-deployment audit).
+- DEPLOYMENT_PERFORMED: NO (Tidak ada deployment tambahan yang dijalankan).
+- ANTIGRAVITY_USED: NO (Eksklusi penuh dipatuhi).
+
+--------------------------------------------------------------------------------
+SERVICE_STABILITY: PASS
+DATABASE_INTEGRITY: PASS
+NGINX_SSE_SECURITY: PASS
+CORE_ENDPOINTS: PASS
+SNAPSHOT_AVAILABLE: PASS
+PRODUCTION_MODIFIED: NO
+DEPLOYMENT_PERFORMED: NO
+ANTIGRAVITY_USED: NO
+FINAL_STATUS: PASS
+--------------------------------------------------------------------------------

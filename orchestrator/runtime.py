@@ -104,7 +104,7 @@ class HermesAdapter(BaseAgentAdapter):
     def __init__(self, binary_path: str = "/home/ubuntu/.local/bin/hermes"):
         super().__init__("hermes", binary_path)
 
-    def dispatch(self, prompt: str, timeout: int = 30, **kwargs) -> AgentResponse:
+    def dispatch(self, prompt: str, timeout: int = 60, **kwargs) -> AgentResponse:
         cid = f"hermes_{uuid.uuid4().hex[:8]}"
         now_iso = datetime.now(timezone.utc).isoformat()
         start = time.perf_counter()
@@ -122,7 +122,7 @@ class HermesAdapter(BaseAgentAdapter):
                 error=f"Hermes binary not found at {self.binary_path}"
             )
 
-        cmd = [self.binary_path, "-z", prompt, "--safe-mode"]
+        cmd = [self.binary_path, "-z", prompt, "--toolsets", ""]
         proc = None
         pid = None
         try:

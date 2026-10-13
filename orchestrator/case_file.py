@@ -21,7 +21,7 @@ from orchestrator.argument_engine import CanonicalClaim, SteelmanCounterargument
 from orchestrator.zuma_skill_engine import DebatePreparationPackage
 from orchestrator.evaluation_engine import MultiDimensionalEvaluation
 
-DEFAULT_DB_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "polya_arena.db")
+DEFAULT_DB_PATH = os.environ.get("POLYA_DB_PATH", os.path.join(os.path.dirname(__file__), "..", "data", "polya_arena.db"))
 
 
 @dataclass
