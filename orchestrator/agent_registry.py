@@ -74,7 +74,7 @@ class AgentCapabilityRegistry:
     def __init__(self):
         self._registry: Dict[str, AgentCapability] = {}
         self._role_mappings: Dict[str, List[str]] = {
-            "RESEARCH_AGENT": ["cloud_code", "hermes"],
+            "RESEARCH_AGENT": ["cloud_code", "hermes", "9router"],
             "SOURCE_AGENT": ["anti_gravity", "cloud_code"],
             "PHILOLOGY_AGENT": ["cloud_code"],
             "SCRIPTURE_AGENT": ["cloud_code", "hermes"],
@@ -175,11 +175,50 @@ class AgentCapabilityRegistry:
             latency_class=LatencyClass.REALTIME
         ))
 
+        # 5. 9Router (OpenAI-compatible gateway, combo model)
+        self.register(AgentCapability(
+            agent_id="9router",
+            runtime="router_http",
+            capabilities={
+                "deep_reasoning", "philology", "exegesis", "theology",
+                "counterargument", "synthesis", "source_criticism",
+                "hebrew", "greek"
+            },
+            specialties=[
+                "Koine Greek Syntax", "Biblical Hebrew Semantics", "Pauline Hermeneutics",
+                "Steelman Counterarguments", "Forensic Exegesis"
+            ],
+            model="General",
+            max_context=1000000,
+            supports_tools=False,
+            supports_research=True,
+            supports_code=False,
+            supports_reasoning=True,
+            supports_verification=True,
+            cost_class=CostClass.LOW,
+            latency_class=LatencyClass.BATCH
+        ))
+
     def register(self, capability: AgentCapability):
         self._registry[capability.agent_id] = capability
 
     def get(self, agent_id: str) -> Optional[AgentCapability]:
         return self._registry.get(agent_id)
+
+    def get_candidates(self, task_type: str) -> List[str]:
+        """Return the ordered list of agent IDs in role-mapping priority for a task.
+
+        Used by AgentRuntimeManager.dispatch_with_failover so retries iterate
+        candidates in the role's declared preference order
+        (e.g. cloud_code -> hermes -> 9router for RESEARCH_AGENT).
+        """
+        if task_type not in self._role_mappings:
+            return []
+        result: List[str] = []
+        for candidate_id in self._role_mappings[task_type]:
+            if candidate_id in self._registry:
+                result.append(candidate_id)
+        return result
 
     def list_all(self) -> List[AgentCapability]:
         return list(self._registry.values())
@@ -233,11 +272,15 @@ class AgentCapabilityRegistry:
                 return "hermes"
             return "anti_gravity"
 
-        # Select the candidate with highest health and lowest cost
-        cost_weights = {CostClass.LOW: 1, CostClass.MEDIUM: 2, CostClass.HIGH: 3}
+        # Select the candidate: primary key = health tier (HEALTHY > DEGRADED).
+        # Cost is intentionally NOT a re-ranker on a health tie: that would let a
+        # cheap generic agent (e.g. hermes) defeat a designated specialist
+        # (e.g. cloud_code) even when the specialist is preferred first by role
+        # mapping and is fully healthy/available.
+        # Python sort is stable: candidates appended in role-mapping order first,
+        # so on a health tie the role-mapping preference order is preserved.
         candidates.sort(key=lambda c: (
             0 if c.health == AgentHealthStatus.HEALTHY else 1,
-            cost_weights.get(c.cost_class, 2)
         ))
         return candidates[0].agent_id
 

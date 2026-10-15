@@ -51,7 +51,7 @@ from typing import Annotated, Any, Dict, List, Optional
 from typing_extensions import TypedDict, NotRequired
 
 from langgraph.graph import StateGraph, START, END
-from langgraph.checkpoint.memory import MemorySaver
+from orchestrator.sqlite_checkpointer import research_checkpointer
 
 from orchestrator.runtime import AgentRuntime, AgentResponse
 from orchestrator.agent_registry import Registry, CostClass, LatencyClass
@@ -220,9 +220,18 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
 }}"""
 
     t0 = time.time()
-    res: AgentResponse = AgentRuntime.dispatch(target_agent, prompt, timeout=45)
+    res: AgentResponse = AgentRuntime.dispatch_with_failover(
+        "RESEARCH_AGENT", prompt, timeout=45
+    )
     t1 = time.time()
     duration_ms = int((t1 - t0) * 1000)
+
+    # Record which adapter actually produced the result (may differ from
+    # the primary if failover occurred). The dispatch_trail metadata captures
+    # the full failover chain for audit purposes.
+    final_agent = res.agent_name if res else target_agent
+    dispatch_trail = res.metadata.get("dispatch_trail", []) if res.metadata else []
+    fallback_used = len(dispatch_trail) > 1 if dispatch_trail else False
 
     # Attempt to parse real JSON from model response
     synthesis_output = None
@@ -276,26 +285,32 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
             }
 
     model_inv = {
-        "agent": target_agent,
+        "agent": final_agent,
+        "primary_agent": target_agent,
         "status": res.status,
+        "fallback_used": fallback_used,
         "live_dispatched": res.live_dispatched,
         "duration_ms": duration_ms,
         "output_used": output_used,
         "synthesis_status": synthesis_status,
         "mode": requested_mode,
         "correlation_id": res.correlation_id,
+        "dispatch_trail": dispatch_trail,
         "error": res.error if not output_used else None
     }
 
     record = {
         "task_type": "PRIMARY_RESEARCH_DISPATCH",
-        "agent": target_agent,
+        "agent": final_agent,
+        "primary_agent": target_agent,
         "status": res.status,
+        "fallback_used": fallback_used,
         "live_dispatched": res.live_dispatched,
         "output": res.output,
         "duration_ms": duration_ms,
         "output_used": output_used,
-        "synthesis_status": synthesis_status
+        "synthesis_status": synthesis_status,
+        "dispatch_trail": dispatch_trail
     }
     dispatched_records.append(record)
 
@@ -306,9 +321,9 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
         task_id="task_research_dispatch_01",
         parent_task_id=None,
         node="research_dispatch_node",
-        agent=target_agent,
+        agent=final_agent,
         runtime=res.metadata.get("binary_path", "runtime_adapter") if res.metadata else "runtime_adapter",
-        model="claude-3-5-sonnet" if target_agent == "cloud_code" else "hermes-agent-v3",
+        model="claude-3-5-sonnet" if final_agent == "cloud_code" else "hermes-agent-v3",
         start_time=res.started_at or datetime.now(timezone.utc).isoformat(),
         finish_time=res.completed_at or datetime.now(timezone.utc).isoformat(),
         status=res.status,
@@ -316,7 +331,7 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
         output_summary=res.output[:150] if res.output else "",
         evidence_ids=[e.evidence_id for e in scripture_items],
         checkpoint_id=None,
-        retry_count=0
+        retry_count=len(dispatch_trail) - 1 if dispatch_trail else 0
     )
     traces.append(trace.to_dict())
 
@@ -766,7 +781,8 @@ def final_response_node(state: ResearchState) -> Dict[str, Any]:
 # Master Prompt #3 Graph Compilation with Checkpointer
 # ============================================================================
 
-default_research_checkpointer = MemorySaver()
+# Persistent checkpointer for research pipeline — survives restarts
+default_research_checkpointer = research_checkpointer
 
 
 def build_research_graph(

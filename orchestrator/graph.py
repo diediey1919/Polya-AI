@@ -92,10 +92,11 @@ def route_after_cloud_code(state: AgentState) -> str:
     return END
 
 
-from langgraph.checkpoint.memory import MemorySaver
+from sqlite_checkpointer import orchestrator_checkpointer
 
 # Default checkpointer for production graph
-default_checkpointer = MemorySaver()
+# Persistent checkpointing — state survives process restarts
+default_checkpointer = orchestrator_checkpointer
 
 
 def build_orchestrator_graph(
