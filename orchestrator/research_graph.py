@@ -158,6 +158,43 @@ def task_decomposition_node(state: ResearchState) -> Dict[str, Any]:
     }
 
 
+def _classify_provenance(
+    provider: str,
+    output_used: bool,
+    synthesis_status: str,
+    retrieval_status: str,
+    fallback_used: bool
+) -> str:
+    """Deterministic provenance classification per Recovery-015C.
+
+    - verified_success: live provider output was actually consumed in synthesis,
+      synthesis succeeded, retrieval is sufficient, and no fallback was used.
+    - template: output originates from static/template sources.
+    - fallback: fallback was used but verified_success criteria not met.
+    - unknown: source cannot be proven.
+
+    NOT inferred from agent_name, status='COMPLETED', live_dispatched=True,
+    or provider presence in dispatch trail alone.
+    """
+    if provider == "template":
+        return "template"
+
+    if (
+        provider.startswith("live:")
+        and output_used
+        and synthesis_status == "SUCCESS"
+        and retrieval_status == "sufficient"
+        and not fallback_used
+    ):
+        return "verified_success"
+
+    if fallback_used:
+        return "fallback"
+
+    return "unknown"
+
+
+
 def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
     """Dispatches research tasks across live agents using AgentCapabilityRegistry with real AI synthesis."""
     claim_text = state["claim_input"]
@@ -233,10 +270,13 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
     dispatch_trail = res.metadata.get("dispatch_trail", []) if res.metadata else []
     fallback_used = len(dispatch_trail) > 1 if dispatch_trail else False
 
-    # Attempt to parse real JSON from model response
+    # Attempt to parse real JSON from model response.
+    # Track the provider that actually produced the consumed text so provenance
+    # is tied to the final output source, not merely the last dispatch result.
     synthesis_output = None
     output_used = False
     synthesis_status = "FAILED"
+    consumed_provider = "unknown"
 
     if res.status == "COMPLETED" and res.output:
         raw_text = res.output.strip()
@@ -248,6 +288,7 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
                     synthesis_output = parsed
                     output_used = True
                     synthesis_status = "SUCCESS"
+                    consumed_provider = getattr(res, "provider", "unknown")
             except Exception:
                 pass
 
@@ -296,7 +337,18 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
         "mode": requested_mode,
         "correlation_id": res.correlation_id,
         "dispatch_trail": dispatch_trail,
-        "error": res.error if not output_used else None
+        "error": res.error if not output_used else None,
+        # ponytail: consumed_provider tracks the adapter whose text actually
+        # entered synthesis_output; upgrade to per-field provenance when the
+        # graph starts merging multiple live sources into one final answer.
+        "provider": consumed_provider,
+        "provenance": _classify_provenance(
+            provider=consumed_provider,
+            output_used=output_used,
+            synthesis_status=synthesis_status,
+            retrieval_status=retrieval_status,
+            fallback_used=fallback_used
+        )
     }
 
     record = {
@@ -310,7 +362,8 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
         "duration_ms": duration_ms,
         "output_used": output_used,
         "synthesis_status": synthesis_status,
-        "dispatch_trail": dispatch_trail
+        "dispatch_trail": dispatch_trail,
+        "provider": consumed_provider
     }
     dispatched_records.append(record)
 
@@ -323,7 +376,7 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
         node="research_dispatch_node",
         agent=final_agent,
         runtime=res.metadata.get("binary_path", "runtime_adapter") if res.metadata else "runtime_adapter",
-        model="claude-3-5-sonnet" if final_agent == "cloud_code" else "hermes-agent-v3",
+        model=getattr(res, "provider", "unknown"),
         start_time=res.started_at or datetime.now(timezone.utc).isoformat(),
         finish_time=res.completed_at or datetime.now(timezone.utc).isoformat(),
         status=res.status,
@@ -342,7 +395,9 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
         "synthesis_status": synthesis_status,
         "model_invocation": model_inv,
         "retrieval_status": retrieval_status,
-        "corpus_evidence": corpus_items
+        "corpus_evidence": corpus_items,
+        "provider": consumed_provider,
+        "provenance": model_inv["provenance"]
     }
 
 
