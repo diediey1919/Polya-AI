@@ -46,6 +46,9 @@ class CaseFile(BaseModel):
     debate_preparation: Dict[str, Any]
     is_demo: bool = True
     notice: str = "DEMO / MOCK DATA — Strictly for testing UI and structure"
+    synthesis_status: str = ""
+    retrieval_status: str = ""
+    fallback_used: bool = False
 
 
 class PaymentTransaction(BaseModel):
