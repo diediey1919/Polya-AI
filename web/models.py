@@ -49,6 +49,9 @@ class CaseFile(BaseModel):
     synthesis_status: str = ""
     retrieval_status: str = ""
     fallback_used: bool = False
+    # Provenance fields — Recovery-015C. Fail-closed defaults to "unknown".
+    provider: str = "unknown"
+    provenance: str = "unknown"
 
 
 class PaymentTransaction(BaseModel):

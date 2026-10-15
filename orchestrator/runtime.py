@@ -74,7 +74,8 @@ class AgentResponse:
         started_at: Optional[str] = None,
         completed_at: Optional[str] = None,
         metadata: Optional[Dict[str, Any]] = None,
-        error: Optional[str] = None
+        error: Optional[str] = None,
+        provider: str = "unknown",
     ):
         self.agent_name = agent_name
         self.agent = agent_name
@@ -92,6 +93,11 @@ class AgentResponse:
         self.completed_at = completed_at or datetime.now(timezone.utc).isoformat()
         self.metadata = metadata or {}
         self.error = error
+        # Provenance classification per Recovery-015B/C.
+        # Fail-closed: defaults to "unknown" unless an adapter explicitly
+        # sets a valid provenance value. Never inferred from status or
+        # live_dispatched alone.
+        self.provider = provider if provider else "unknown"
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -115,7 +121,8 @@ class AgentResponse:
             "execution_time_ms": self.execution_time_ms,
             "timestamp": self.timestamp,
             "raw_response": self.raw_response,
-            "metadata": self.metadata
+            "metadata": self.metadata,
+            "provider": self.provider,
         }
 
 
@@ -160,6 +167,7 @@ class HermesAdapter(BaseAgentAdapter):
                 raw_response=None,
                 execution_time_ms=dur,
                 timestamp=now_iso,
+                provider="unknown",
                 error=f"Hermes binary not found at {self.binary_path}"
             )
 
@@ -187,6 +195,7 @@ class HermesAdapter(BaseAgentAdapter):
                     raw_response=stdout,
                     execution_time_ms=duration_ms,
                     timestamp=now_iso,
+                    provider="live:hermes-agent-v3",
                     metadata={"returncode": proc.returncode, "command": " ".join(cmd[:3]), "binary_path": self.binary_path, "pid": pid}
                 )
                 self._emit_observation(cid, "COMPLETED", True, duration_ms, model=model_label)
@@ -201,6 +210,7 @@ class HermesAdapter(BaseAgentAdapter):
                     raw_response=stderr,
                     execution_time_ms=duration_ms,
                     timestamp=now_iso,
+                    provider="unknown",
                     metadata={"returncode": proc.returncode, "binary_path": self.binary_path, "pid": pid},
                     error=f"Hermes exited with code {proc.returncode}: {stderr.strip()}"
                 )
@@ -220,6 +230,7 @@ class HermesAdapter(BaseAgentAdapter):
                 raw_response=None,
                 execution_time_ms=duration_ms,
                 timestamp=now_iso,
+                provider="unknown",
                 metadata={"binary_path": self.binary_path, "pid": pid},
                 error=f"Hermes invocation timed out after {timeout}s"
             )
@@ -236,6 +247,7 @@ class HermesAdapter(BaseAgentAdapter):
                 raw_response=None,
                 execution_time_ms=duration_ms,
                 timestamp=now_iso,
+                provider="unknown",
                 error=str(exc)
             )
             self._emit_observation(cid, "ERROR", False, duration_ms, model=model_label, fallback_used=True, error=resp.error)
@@ -263,6 +275,7 @@ class CodexAdapter(BaseAgentAdapter):
                 raw_response=None,
                 execution_time_ms=0,
                 timestamp=now_iso,
+                provider="unknown",
                 error=f"Codex binary not found at {self.binary_path}"
             )
             self._emit_observation(cid, "UNAVAILABLE", False, 0, model="codex", fallback_used=True, error=resp.error)
@@ -302,6 +315,7 @@ class CodexAdapter(BaseAgentAdapter):
                     raw_response=raw,
                     execution_time_ms=duration_ms,
                     timestamp=now_iso,
+                    provider="live:codex",
                     metadata={"returncode": proc.returncode, "binary_path": self.binary_path, "pid": pid}
                 )
                 self._emit_observation(cid, "COMPLETED", True, duration_ms, model="codex")
@@ -316,6 +330,7 @@ class CodexAdapter(BaseAgentAdapter):
                     raw_response=stderr,
                     execution_time_ms=duration_ms,
                     timestamp=now_iso,
+                    provider="unknown",
                     metadata={"returncode": proc.returncode, "binary_path": self.binary_path, "pid": pid},
                     error=f"Codex exited with code {proc.returncode}: {stderr.strip()}"
                 )
@@ -335,6 +350,7 @@ class CodexAdapter(BaseAgentAdapter):
                 raw_response=None,
                 execution_time_ms=duration_ms,
                 timestamp=now_iso,
+                provider="unknown",
                 metadata={"binary_path": self.binary_path, "pid": pid},
                 error=f"Codex invocation timed out after {timeout}s"
             )
@@ -349,6 +365,7 @@ class CodexAdapter(BaseAgentAdapter):
                 raw_response=None,
                 execution_time_ms=duration_ms,
                 timestamp=now_iso,
+                provider="unknown",
                 error=str(exc)
             )
 
@@ -379,6 +396,7 @@ class ClaudeCodeAdapter(BaseAgentAdapter):
                 raw_response=None,
                 execution_time_ms=0,
                 timestamp=now_iso,
+                provider="unknown",
                 error=f"Claude binary not found at {self.binary_path}"
             )
 
@@ -409,6 +427,7 @@ class ClaudeCodeAdapter(BaseAgentAdapter):
                     raw_response=raw,
                     execution_time_ms=duration_ms,
                     timestamp=now_iso,
+                    provider="live:claude-code",
                     metadata={"returncode": proc.returncode, "binary_path": self.binary_path, "pid": pid}
                 )
             else:
@@ -421,6 +440,7 @@ class ClaudeCodeAdapter(BaseAgentAdapter):
                     raw_response=stderr,
                     execution_time_ms=duration_ms,
                     timestamp=now_iso,
+                    provider="unknown",
                     metadata={"returncode": proc.returncode, "binary_path": self.binary_path, "pid": pid},
                     error=f"Claude Code exited with code {proc.returncode}: {stderr.strip()}"
                 )
@@ -445,6 +465,7 @@ class ClaudeCodeAdapter(BaseAgentAdapter):
                 raw_response=None,
                 execution_time_ms=duration_ms,
                 timestamp=now_iso,
+                provider="unknown",
                 metadata={"binary_path": self.binary_path, "pid": pid},
                 error=f"Claude Code invocation timed out after {timeout}s"
                 + (f"; stderr_tail={err_tail}" if err_tail else ""),
@@ -460,6 +481,7 @@ class ClaudeCodeAdapter(BaseAgentAdapter):
                 raw_response=None,
                 execution_time_ms=duration_ms,
                 timestamp=now_iso,
+                provider="unknown",
                 error=str(exc)
             )
 
@@ -485,6 +507,7 @@ class AntiGravityAdapter(BaseAgentAdapter):
                 raw_response=None,
                 execution_time_ms=0,
                 timestamp=now_iso,
+                provider="unknown",
                 error=f"Anti-Gravity binary not found at {self.binary_path}"
             )
 
@@ -514,6 +537,7 @@ class AntiGravityAdapter(BaseAgentAdapter):
             raw_response={"docker_info": docker_info},
             execution_time_ms=duration_ms,
             timestamp=now_iso,
+            provider="template",
             metadata={"docker": docker_info, "binary": self.binary_path}
         )
 
@@ -634,6 +658,7 @@ class RouterAdapter(BaseAgentAdapter):
                               "request_id": req_id or ""},
                 execution_time_ms=dur,
                 timestamp=now_iso,
+                provider="unknown",
                 metadata={"provider_mode": "openai_chat_completions",
                           "model": model_label, "request_id": req_id or ""},
                 error=f"9Router HTTP {e.code}: {err_body}",
@@ -653,6 +678,7 @@ class RouterAdapter(BaseAgentAdapter):
                 raw_response=None,
                 execution_time_ms=dur,
                 timestamp=now_iso,
+                provider="unknown",
                 metadata={"provider_mode": "openai_chat_completions",
                           "model": model_label},
                 error=str(exc),
@@ -687,11 +713,16 @@ class RouterAdapter(BaseAgentAdapter):
                                model=model_label,
                                http_status=str(http_status),
                                fallback_used=(status == "FAILED"))
+        # Provenance: provider is only valid if we actually received text
+        # from a live model response. Empty body with FAILED status means
+        # no provider output was consumed.
+        _provider = "live:9router" if status == "COMPLETED" else "unknown"
         return AgentResponse(
             agent_name=self.agent_name, status=status,
             live_dispatched=live, correlation_id=cid, output=text,
             raw_response=parsed, execution_time_ms=duration_ms,
             timestamp=now_iso,
+            provider=_provider,
             metadata={"provider_mode": "openai_chat_completions",
                       "model_requested": self.model,
                       "model_returned": model_returned,
@@ -730,6 +761,7 @@ class AgentRuntimeManager:
                 raw_response=None,
                 execution_time_ms=0,
                 timestamp=now_iso,
+                provider="unknown",
                 error=f"No adapter registered for agent '{agent_name}'"
             )
 
@@ -832,7 +864,8 @@ class AgentRuntimeManager:
 
             if not adapter.is_available():
                 _trail_append(dispatch_trail, candidate, "UNAVAILABLE", 0,
-                              error=f"Adapter '{candidate}' binary unavailable")
+                              error=f"Adapter '{candidate}' binary unavailable",
+                              provider="unknown")
                 now_iso = datetime.now(timezone.utc).isoformat()
                 last_response = AgentResponse(
                     agent_name=candidate, status="UNAVAILABLE",
@@ -840,6 +873,7 @@ class AgentRuntimeManager:
                     correlation_id=f"err_{uuid.uuid4().hex[:8]}",
                     output="", raw_response=None, execution_time_ms=0,
                     timestamp=now_iso,
+                    provider="unknown",
                     error=f"Adapter '{candidate}' is unavailable",
                 )
                 continue
@@ -855,6 +889,7 @@ class AgentRuntimeManager:
                     fallback_used=(len(dispatch_trail) > 1),
                     error=res.error,
                     correlation_id=res.correlation_id,
+                    provider=res.provider,
                 )
                 if res.status == "COMPLETED":
                     break
@@ -863,6 +898,10 @@ class AgentRuntimeManager:
 
             last_response = res
             if res and res.status == "COMPLETED":
+                # Provenance: propagate the proven provider from the successful
+                # response. The adapter already set provider correctly based on
+                # whether real provider output was consumed.
+                last_response.provider = res.provider
                 break
 
             if res and res.status in self._PERMANENT_STATUSES:
@@ -877,6 +916,7 @@ class AgentRuntimeManager:
                 agent_name=task_type, status="ERROR", live_dispatched=False,
                 correlation_id=f"err_{uuid.uuid4().hex[:8]}", output="",
                 raw_response=None, execution_time_ms=0, timestamp=now_iso,
+                provider="unknown",
                 error="No dispatch attempts were made",
             )
 
@@ -904,11 +944,13 @@ def _trail_append(
     fallback_used: bool = False,
     error: Optional[str] = None,
     correlation_id: str = "",
+    provider: str = "unknown",
 ) -> None:
     """Append a single dispatch attempt to the audit trail list."""
     trail.append({
         "adapter": agent_name,
         "correlation_id": correlation_id,
+        "provider": provider,
         "status": status,
         "duration_ms": duration_ms,
         "fallback_used": fallback_used,

@@ -61,8 +61,19 @@
     }
 
     if (synth === "SUCCESS" && ret === "SUFFICIENT" && !cf.fallback_used) {
-      return Object.assign(_badge("VERIFIED REAL INTEL", EMERALD, "rgba(16, 185, 129, 0.15)"),
-        { verified: true });
+      // Recovery-015C provenance gate: green badge requires fail-closed
+      // provenance verification. Must be verified_success AND provider
+      // must be a provably-live provider (not "template" or "unknown").
+      var provenance = String(cf.provenance || "unknown");
+      var provider = String(cf.provider || "unknown");
+      var isLiveProvider = provider.indexOf("live:") === 0 && provider.length > 5;
+      if (provenance === "verified_success" && isLiveProvider) {
+        return Object.assign(_badge("VERIFIED REAL INTEL", EMERALD, "rgba(16, 185, 129, 0.15)"),
+          { verified: true });
+      }
+      // Provenance insufficient — fail-closed to amber.
+      return Object.assign(_badge("BELUM TERVERIFIKASI", "#f59e0b", "rgba(245, 158, 11, 0.15)"),
+        { isUnverified: true });
     }
 
     // Fail-closed: any other case (unknown status, missing fields, fallback_used, PARTIAL)
