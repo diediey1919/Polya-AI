@@ -182,6 +182,34 @@ def test_zuma_debate_preparation_and_bible_nomenclature():
         assert not any(abbr in q for abbr in ["Rom ", "Rom.", "Mat ", "Gal "])
 
 
+def test_zuma_simulated_debate_8_points():
+    """Verify ZumaSkillEngine.generate_zuma_simulated_debate emits a full 8-point debate."""
+    prep = ZumaSkillEngine.generate_debate_preparation(
+        "Apakah Paulus membatalkan Taurat?",
+        Evidence.retrieve_scripture_evidence("Apakah Paulus membatalkan Taurat?"),
+        ArgumentEngine.steelman_opposition("Apakah Paulus membatalkan Taurat?"),
+        ArgumentEngine.audit_contradiction([])
+    )
+    debate = ZumaSkillEngine.generate_zuma_simulated_debate(
+        "Apakah Paulus membatalkan Taurat?", prep, {"intensity": "sharp"}
+    )
+    assert isinstance(debate, list)
+    assert len(debate) == 8
+    required = {"point_no", "point", "evidence", "reasoning", "argument", "zuma_style", "presentation", "intensity", "persona_version"}
+    for idx, pt in enumerate(debate):
+        assert isinstance(pt, dict)
+        assert required.issubset(pt.keys()), f"Point {idx+1} missing keys: {required - set(pt.keys())}"
+        assert pt["point_no"] == str(idx + 1)
+        assert pt["intensity"] == "sharp"
+    for pt in debate:
+        for k, v in pt.items():
+            if isinstance(v, str):
+                assert "Rom " not in v and "Rom." not in v
+    debate2 = ZumaSkillEngine.generate_zuma_simulated_debate(
+        "Paulus membatalkan Taurat", prep.to_dict(), {"intensity": "standard"}
+    )
+    assert len(debate2) == 8
+
 def test_case_file_persistence_and_resumption():
     """Verify Canonical Case File persistence and resumption via SQLite."""
     case_file = CanonicalCaseFile(

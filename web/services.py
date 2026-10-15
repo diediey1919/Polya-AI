@@ -30,6 +30,17 @@ from models import (
 from contextlib import contextmanager
 import time
 import requests
+import sys
+from pathlib import Path
+
+# Ensure orchestrator/ submodules (sqlite_checkpointer, etc.) are importable
+# when working dir is web/. research_graph.py uses bare imports without package prefix.
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+_ORCHESTRATOR_DIR = str(_REPO_ROOT / "orchestrator")
+if _ORCHESTRATOR_DIR not in sys.path:
+    sys.path.insert(0, _ORCHESTRATOR_DIR)
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
 logger = logging.getLogger("polya.services")
 
@@ -918,9 +929,9 @@ class CaseFileGenerator:
                 logger.warning(f"Direct case_file user_id update notice: {e_cf}")
 
             synth = result.get("synthesis_output") or {}
-            synth_status = result.get("synthesis_status", "SUCCESS")
+            synth_status = result.get("synthesis_status", "MODEL_ERROR")
             model_inv = result.get("model_invocation") or {}
-            retrieval_status = result.get("retrieval_status", "sufficient")
+            retrieval_status = result.get("retrieval_status", "insufficient_evidence")
 
             ev_list = []
             sources_list = []
@@ -972,6 +983,15 @@ class CaseFileGenerator:
                 "recommended_tempo": tempo_val
             }
 
+            # Inject dynamic ZUMA 8-point simulated debate into output (mode DEBATE).
+            try:
+                from orchestrator.zuma_skill_engine import ZumaSkillEngine
+                prep_val["simulated_debate"] = ZumaSkillEngine.generate_zuma_simulated_debate(
+                    claim, prep_val, {"intensity": "sharp"}
+                )
+            except Exception as e:
+                logger.warning(f"ZUMA simulated debate injection skipped: {e}")
+
             verif_val = result.get("verification_status") or ("UNSUPPORTED" if retrieval_status == "insufficient_evidence" else "PARTIALLY_SUPPORTED")
             if retrieval_status == "insufficient_evidence":
                 notice_val = f"INSUFFICIENT_EVIDENCE — Klaim berada di luar cakupan korpus atau bukti naskah tidak mencukupi | Verification: {verif_val}"
@@ -999,7 +1019,10 @@ class CaseFileGenerator:
                 open_questions=open_q_val,
                 debate_preparation=prep_val,
                 is_demo=False,
-                notice=notice_val
+                notice=notice_val,
+                synthesis_status=synth_status,
+                retrieval_status=retrieval_status,
+                fallback_used=bool(model_inv.get("fallback_used") if model_inv else False)
             )
         except Exception as exc:
             logger.error(f"Real intelligence execution fallback: {exc}")

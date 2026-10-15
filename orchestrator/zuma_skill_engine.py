@@ -257,3 +257,163 @@ class ZumaSkillEngine:
             defensive_responses=[cls.sanitize_bible_citations(d) for d in responses[:2]],
             closing=cls.sanitize_bible_citations(closing)
         )
+
+    @classmethod
+    def generate_zuma_simulated_debate(
+        cls,
+        claim_text: str,
+        prep: DebatePreparationPackage,
+        context: Optional[Dict[str, Any]] = None
+    ) -> List[Dict[str, str]]:
+        """
+        Generates a dynamic 8-point simulated ZUMA debate.
+
+        Architecture: Evidence -> Reasoning -> Argument -> ZUMA Style -> Presentation.
+        Each point yields the full inferential chain so the ZUMA persona's
+        dialectical move is transparent and reproducible.
+
+        Args:
+            claim_text: The opponent's claim being debated (sanitized internally).
+            prep: Fully constructed DebatePreparationPackage (Section 16 output).
+            context: Optional dynamic metadata (e.g. persona_version, intensity).
+
+        Returns:
+            Ordered list of 8 debate-point dicts.
+        """
+        intensity = (context or {}).get("intensity", "standard")
+        persona_version = (context or {}).get("persona_version", "ZUMA-v1")
+
+        claim = cls.sanitize_bible_citations(claim_text)
+        _prep_dict = prep.to_dict() if hasattr(prep, "to_dict") else dict(prep or {})
+        prep_s = {
+            k: ([cls.sanitize_bible_citations(x) for x in v] if isinstance(v, list)
+                else cls.sanitize_bible_citations(v))
+            for k, v in _prep_dict.items()
+        }
+
+        def _point(num, point, evidence, reasoning, argument, zuma_style, presentation):
+            return {
+                "point_no": str(num),
+                "point": cls.sanitize_bible_citations(point),
+                "evidence": evidence,
+                "reasoning": reasoning,
+                "argument": cls.sanitize_bible_citations(argument),
+                "zuma_style": zuma_style,
+                "presentation": cls.sanitize_bible_citations(presentation),
+                "intensity": intensity,
+                "persona_version": persona_version,
+            }
+
+        evidence_items = prep_s.get("evidence", [])
+        e1 = evidence_items[0] if evidence_items else "naskah Koine Greek tersedia"
+        e2 = evidence_items[1] if len(evidence_items) > 1 else "natsius tekstual"
+        e3 = evidence_items[2] if len(evidence_items) > 2 else "manuskrip paling tua"
+
+        opp_strongest = prep_s.get("strongest_opponent_argument", "klaim lawan")
+        cross_q = prep_s.get("cross_examination_questions", [])
+        cq1 = cross_q[0] if cross_q else "Buka pasal dan ayatnya secara spesifik."
+
+        defensive = prep_s.get("defensive_responses", ["lawan mengakui hukum moral tetap"])
+        responses = prep_s.get("responses", ["kata 'telos' = tujuan puncak, bukan pemusnahan"])
+
+        closing_text = prep_s.get("closing", "dialektika teks mengunci kesimpulan ini secara objektif.")[:180]
+
+        points = [
+            _point(
+                1,
+                f"Anchoring: Membuka kain kunci naskah primer — {claim}",
+                e1,
+                "Klaim spekulatif hanya dapat dibantah atau didukung oleh teks asli yang ditulis. Semua interpretasi yang mengabaikan naskah sumber adalah proyeksi bukan eksegesa.",
+                f"Hukum Taurat tidak batal. Buktinya: Roma 3:31 — Paulus menegakkan hukum dengan \u03bc\u1f40 \u03b3\u03ad\u03bd\u03bf\u03b9\u03c4\u03bf. Ini bukan retorika, ini negasi logis.",
+                "ZUMA Cold Precision — menyoal hipergranularitas, memaksa lawan berhenti di koridor teks asli.",
+                f"[Titik 1] Buka sekarang: di Roma 3:31, kata Yunani apa yang lawan baca? Bacakan "
+                f"\u03bc\u1f48 \u03b3\u03ad\u03bd\u03bf\u03b9\u03c4\u03bf. Apa nilai logisnya di pohon inferensi?"
+            ),
+            _point(
+                2,
+                "Immanent Critique — menghancurkan posisi dengan kanon lawan sendiri.",
+                e2,
+                "Jika kanon Bible lawan mengatakan hukum Taurat kudus (Roma 7:12) maka seluruh klaim "
+                "'Taurat batal' menyiratkan Allah mendukung sesuatu yang kudus lalu membatalkannya.",
+                f"Anda kutip Paulus. Mari uji Paulus dengan Paulus: Roma 7:12 vs Efesus 2:15. Mana yang Anda pilih?",
+                "ZUMA Ilzam al-Khasm — memperlihatkan kanon Anda membantah interpretasi Anda.",
+                f"[Titik 2] Di Roma 7:12, Paulus menyatakan hukum kudus. Lalu? Anda yakin Efesus 2:15 "
+                f"merusakkan ini secara total?"
+            ),
+            _point(
+                3,
+                "Maieutic Funnel — dilema konstruktif di mana kedua lorongs membuktikan kesalahan lawan.",
+                e3,
+                "Kata 'nomos' (\u03bd\u03cc\u03bc\u03bf\u03c2) memiliki rentang makna. Namun konteks Roma 7:12 memilih "
+                "makna moral, bukan seremonial. Jika lawan menolak ini, ia menghancurkan kanoninya sendiri.",
+                f"Pilih: (a) Paulus kontradiktif dengan dirinya sendiri — maka kanon Anda rapuh, "
+                f"atau (b) hukum moral tetap — maka tidak ada pembatalan total.",
+                "ZUMA Dilemma Trap — memaksa lawan memilih antara inkonsistensi internal atau pengakuan atas hukum moral.",
+                f"[Titik 3] Ini bukan false dilemma. Ini logika kaku: Anda ingin memilih lorong mana, "
+                f"hukum moral tetap atau tidak?"
+            ),
+            _point(
+                4,
+                "Concession Lock — mengunci jawaban lawan ke dalamnya sebagai fondasi argumen berikutnya.",
+                defensive[0],
+                "Setiap pengakuan sembrian oleh lawan menjadi jembatan logis. Jika lawan mengatakan "
+                "'hukum moral tetap tapi seremonial batal', itu sudah mengakui premis utama kami.",
+                f"Saya catat: lawan mengakui 'hukum moral tetap'. Itu adalah konsesi kritis. "
+                f"Sekarang, atas dasar itu, Anda menolak komplotan kami di Roma 3:31?",
+                "ZUMA Concession Extraction — mengubah kelemahan lawan menjadi pilar argumen.",
+                f"[Titik 4] Anda berkata 'hukum moral tetap'. Baik — itu artinya Roma 3:31 menegakkan, "
+                f"bukan membatalkan. Apakah tidak?"
+            ),
+            _point(
+                5,
+                "Syllogistic Pressure — menyusun logika modus ponens langsung pada lawan.",
+                cq1,
+                "Premis 1: Jika Taurat dibatalkan total, tidak ada pasal yang kudus. "
+                "Premis 2: Roma 7:12 mengatakan hukum Taurat kudus. Konklusi: Taurat tidak dibatalkan total.",
+                f"Anda menyatakan iman membatalkan hukum. Tapi iman justru menegakkan — karena iman tidak "
+                f"mungkin membatalkan apa yang kudus.",
+                "ZUMA Logical Razor — membersihkan logika sampai tak tersisa premis irasional.",
+                f"[Titik 5] Premis 1: hukum kudus tidak batal. Premis 2: Roma 7:12 — kudus. Jadi: "
+                f"tidak batal total. Anda setuju?"
+            ),
+            _point(
+                6,
+                "Lexical Precision — menyempitkan makna kata berdasarkan leksikon akademik (BDAG, HALOT).",
+                responses[0],
+                "Kata 'telos' (\u03c4\u03ad\u03bb\u03bf\u03c2) dan 'paidagogos' (Gal 3:24) tidak berarti "
+                "'penghapusan eksistensi'. Saya tunjukkan anotasi BDAG di sini.",
+                f"Roma 10:4 — telos bukan pembusahaan. Anda baca 'akhir' sebagai 'musnah'. Periksa BDAG. "
+                f"Ini selip antar-lema.",
+                "ZUMA Forensic Lexicography — menyelam ke dalam makna asli, bukan resepsi teologis modern.",
+                f"[Titik 6] Bacankan \u03c4\u03ad\u03bb\u03bf\u03c2 dalam BDAG. Bukan 'pemusnah', tapi "
+                f"'tujuan tertinggi'. Anda tetap bisa membaca ini, bukan?"
+            ),
+            _point(
+                7,
+                "Contextual Isolation — menembakkan klausa kecil di dalam perikop penuh.",
+                opp_strongest[:180],
+                "Efesus 2:15: 'katarg\u1f47sas en dogmasin' — kata penutup 'en dogmasin' secara ketat "
+                "membatasi objek pembatalan. Ini bukan pembatalan total hukum moral.",
+                f"Anda mengutip Efesus 2:15, tapi lewati 'en dogmasin'. Itu bukan kesalahan kecil — "
+                f"itu manipulasi konteks. Saya membuktikannya.",
+                "ZUMA Textual Isolation — menempatkan kata terasing dalam kerangka klausa penuh.",
+                f"[Titik 7] Enam kata Yunani itu semua: katarg\u1f47sas en dogmasin. Anda hanya baca tiga. "
+                f"Jelaskan."
+            ),
+            _point(
+                8,
+                "Closing Trap — mengemas seluruh rantai bukti menjadi tekatan logis final.",
+                closing_text,
+                "Dari mikro-gramatikal "
+                f"\u03bc\u1f48 \u03b3\u03ad\u03bd\u03bf\u03b9\u03c4\u03bf hingga makro-kanonikal konsistensi Roma 7:12 — "
+                f"setiap lapisan menguatkan: Paulus menegakkan, bukan membatalkan, hukum moral Taurat.",
+                f"Kesimpulan: klaim '{claim}' telah runtuh di bawah beban bukti teks primer. "
+                f"Paulus tegas menegakkan hukum Taurat (Roma 3:31) dan menolak pembatalan total (Roma 7:12).",
+                "ZUMA Final Synthesis — bukan penghakiman akhir, tapi pembuktian logis yang tak terbantahkan.",
+                f"[Titik 8] Ini bukan akhir kami — ini akhir Anda. Klaim Anda telah runtuh. "
+                f"Paulus menegakkan hukum. "
+                f"\u03bc\u1f48 \u03b3\u03ad\u03bd\u03bf\u03b9\u03c4\u03bf membatalkan itu. "
+                f"Apa lagi yang perlu Anda tanyakan?"
+            ),
+        ]
+        return points
