@@ -870,6 +870,38 @@ class CaseFileGenerator:
     """Produces canonical 10-point Case Files using the Master Prompt #2 Autonomous Intelligence Engine."""
 
     @classmethod
+    def _resolve_final_provenance(cls, model_inv, synth):
+        """Resolve final provenance after integrity check on synthesis_output.
+
+        If provenance is verified_success but any critical field is missing from
+        synthesis_output (meaning it fell back to template/structural sources),
+        downgrade to fallback. If synthesis_output has all keys but no actual content,
+        downgrade to unknown.
+        """
+        final_provider = model_inv.get("provider", "unknown") if model_inv else "unknown"
+        final_provenance = model_inv.get("provenance", "unknown") if model_inv else "unknown"
+
+        # Critical synthesis fields that must come from live provider output
+        critical_fields = ["argument", "counterargument", "rebuttal", "weakness", "open_questions", "debate_preparation"]
+
+        # Check 1: All critical fields MUST be present in synthesis_output (key existence)
+        all_keys_present = all(field in synth for field in critical_fields)
+
+        if final_provenance == "verified_success" and not all_keys_present:
+            # Downgrade: some fields missing entirely -> used template/fallback sources
+            final_provenance = "fallback"
+            final_provider = "fallback"
+        elif final_provenance == "verified_success" and all_keys_present:
+            # Check 2: All keys present, but verify there's actually non-trivial content
+            has_content = any(synth.get(f) for f in critical_fields)
+            if not has_content:
+                final_provenance = "unknown"
+                final_provider = "unknown"
+
+        return final_provider, final_provenance
+
+
+    @classmethod
     def generate_case_file(
         cls,
         claim: str,
@@ -1005,6 +1037,9 @@ class CaseFileGenerator:
             else:
                 notice_val = f"{synth_status} — Structural analysis returned | Verification: {verif_val}"
 
+            # Recovery-016: provenance integrity check.
+            final_provider, final_provenance = CaseFileGenerator._resolve_final_provenance(model_inv, synth)
+
             opp_persp = (ctx.opponent_perspective or "OPPOSISI").upper()
             return CaseFile(
                 case_id=case_id,
@@ -1022,7 +1057,9 @@ class CaseFileGenerator:
                 notice=notice_val,
                 synthesis_status=synth_status,
                 retrieval_status=retrieval_status,
-                fallback_used=bool(model_inv.get("fallback_used") if model_inv else False)
+                fallback_used=bool(model_inv.get("fallback_used") if model_inv else False),
+                provider=final_provider,
+                provenance=final_provenance
             )
         except Exception as exc:
             logger.error(f"Real intelligence execution fallback: {exc}")
@@ -1053,5 +1090,7 @@ class CaseFileGenerator:
                     "recommended_tempo": "Ajukan pertanyaan sokratik pendek, minta konfirmasi arti kata netral versus maskulin."
                 },
                 is_demo=True,
-                notice="DEMO / MOCK DATA — Strictly for testing UI and structure"
+                notice="DEMO / MOCK DATA — Strictly for testing UI and structure",
+                provider="unknown",
+                provenance="template"
             )

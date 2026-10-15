@@ -394,3 +394,145 @@ class TestConsumedProviderSemantics(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+# Recovery-016: CaseFileGenerator provenance integrity regression tests
+class TestCaseFileProvenanceIntegrity(unittest.TestCase):
+    """Verify CaseFileGenerator downgrades provenance when synthesis uses fallback/template sources."""
+
+    @classmethod
+    def setUpClass(cls):
+        import sys
+        sys.path.insert(0, "/home/ubuntu/Polya-AI")
+        sys.path.insert(0, "/home/ubuntu/Polya-AI/web")
+
+    def test_full_live_synthesis_keeps_verified_success(self):
+        """All critical fields from synthesis_output -> provenance stays verified_success."""
+        from web.services import CaseFileGenerator
+
+        synth = {
+            "argument": "Live argument",
+            "counterargument": "Live counter",
+            "rebuttal": "Live rebuttal",
+            "weakness": "Live weakness",
+            "open_questions": ["Q1"],
+            "debate_preparation": {"tempo": "fast"}
+        }
+
+        model_inv = {
+            "provider": "live:hermes-agent-v3",
+            "provenance": "verified_success",
+            "fallback_used": False,
+            "status": "SUCCESS",
+            "retrieval_status": "sufficient"
+        }
+
+        provider, provenance = CaseFileGenerator._resolve_final_provenance(model_inv, synth)
+
+        self.assertEqual(provenance, "verified_success")
+        self.assertEqual(provider, "live:hermes-agent-v3")
+
+    def test_partial_fallback_downgrades_to_fallback(self):
+        """Missing critical field in synthesis_output -> provenance downgraded to fallback."""
+        from web.services import CaseFileGenerator
+
+        # synthesis_output MISSING 'rebuttal' field (will fallback to arg_data)
+        synth = {
+            "argument": "Live argument",
+            "counterargument": "Live counter",
+            # "rebuttal": MISSING
+            "weakness": "Live weakness",
+            "open_questions": ["Q1"],
+            "debate_preparation": {"tempo": "fast"}
+        }
+
+        model_inv = {
+            "provider": "live:hermes-agent-v3",
+            "provenance": "verified_success",
+            "fallback_used": False,
+            "status": "SUCCESS",
+            "retrieval_status": "sufficient"
+        }
+
+        provider, provenance = CaseFileGenerator._resolve_final_provenance(model_inv, synth)
+
+        self.assertEqual(provenance, "fallback")
+        self.assertEqual(provider, "fallback")
+
+    def test_empty_synthesis_output_downgrades_to_unknown(self):
+        """Empty synthesis_output -> provenance downgraded to unknown."""
+        from web.services import CaseFileGenerator
+
+        # synthesis_output has all fields but EMPTY
+        synth = {
+            "argument": "",
+            "counterargument": "",
+            "rebuttal": "",
+            "weakness": "",
+            "open_questions": [],
+            "debate_preparation": {}
+        }
+
+        model_inv = {
+            "provider": "live:hermes-agent-v3",
+            "provenance": "verified_success",
+            "fallback_used": False,
+            "status": "SUCCESS",
+            "retrieval_status": "sufficient"
+        }
+
+        provider, provenance = CaseFileGenerator._resolve_final_provenance(model_inv, synth)
+
+        self.assertEqual(provenance, "unknown")
+        self.assertEqual(provider, "unknown")
+
+    def test_template_provider_never_verified(self):
+        """Template provider always results in template/unknown provenance."""
+        from web.services import CaseFileGenerator
+
+        synth = {
+            "argument": "Template argument",
+            "counterargument": "Template counter",
+            "rebuttal": "Template rebuttal",
+            "weakness": "Template weakness",
+            "open_questions": ["Q1"],
+            "debate_preparation": {"tempo": "fast"}
+        }
+
+        model_inv = {
+            "provider": "template",
+            "provenance": "template",
+            "fallback_used": False,
+            "status": "SUCCESS",
+            "retrieval_status": "sufficient"
+        }
+
+        provider, provenance = CaseFileGenerator._resolve_final_provenance(model_inv, synth)
+
+        self.assertIn(provenance, ["template", "unknown", "fallback"])
+        self.assertNotEqual(provenance, "verified_success")
+
+    def test_unknown_provider_never_verified(self):
+        """Unknown provider cannot yield verified_success."""
+        from web.services import CaseFileGenerator
+
+        synth = {
+            "argument": "Some argument",
+            "counterargument": "Some counter",
+            "rebuttal": "Some rebuttal",
+            "weakness": "Some weakness",
+            "open_questions": ["Q1"],
+            "debate_preparation": {"tempo": "fast"}
+        }
+
+        model_inv = {
+            "provider": "unknown",
+            "provenance": "unknown",
+            "fallback_used": False,
+            "status": "SUCCESS",
+            "retrieval_status": "sufficient"
+        }
+
+        provider, provenance = CaseFileGenerator._resolve_final_provenance(model_inv, synth)
+
+        self.assertNotEqual(provenance, "verified_success")
