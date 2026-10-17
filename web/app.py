@@ -1148,14 +1148,18 @@ async def get_user_wallet(
 
 @app.get("/api/corpus/search")
 async def search_corpus(q: str):
-    conn = get_db()
+    corpus_db = os.environ.get("POLYA_INDEX_DB_PATH", "/home/ubuntu/.polya/polya_index.db")
+    if not os.path.exists(corpus_db):
+        corpus_db = DB_PATH
+    conn = sqlite3.connect(corpus_db, check_same_thread=False)
+    conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
     results = []
     try:
         cursor.execute("""
-        SELECT v.video_id, v.title, v.url, v.speaker, v.duration
+        SELECT v.video_id, v.title, v.url, v.primary_theme as speaker, 0 as duration
         FROM youtube_catalog_fts f
-        JOIN youtube_catalog v ON f.rowid = v.id
+        JOIN youtube_catalog v ON f.rowid = v.rowid
         WHERE youtube_catalog_fts MATCH ?
         LIMIT 10
         """, (f"{q}*",))
@@ -1163,9 +1167,9 @@ async def search_corpus(q: str):
     except Exception as e:
         logger.warning(f"FTS search fallback: {e}")
         cursor.execute("""
-        SELECT video_id, title, url, speaker, duration
+        SELECT video_id, title, url, primary_theme as speaker, 0 as duration
         FROM youtube_catalog
-        WHERE title LIKE ? OR speaker LIKE ?
+        WHERE title LIKE ? OR primary_theme LIKE ?
         LIMIT 10
         """, (f"%{q}%", f"%{q}%"))
         results = [dict(r) for r in cursor.fetchall()]
