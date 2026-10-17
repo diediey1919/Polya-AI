@@ -60,6 +60,7 @@ CREATE TABLE IF NOT EXISTS automation_executions (
     error_summary TEXT,
     metadata_json TEXT,
     fencing_token INTEGER,
+    target_job_state TEXT NULL,
     FOREIGN KEY (job_id) REFERENCES automation_jobs(job_id) ON DELETE CASCADE
 );
 
@@ -391,6 +392,10 @@ class ApprovalStore:
 
 
 class FencedCommitRejected(Exception):
+    pass
+
+class LegacyRecordMissingTargetState(FencedCommitRejected):
+    pass
     """Raised when a fenced write is attempted with a stale or missing fencing token.
 
     Signals that the caller lost lease authority (crash, takeover, or expiry) between
@@ -426,6 +431,126 @@ class ExecutionStore:
                 )
             )
             return execution
+
+    def complete_execution_and_transition_fenced(
+        self,
+        execution_id: str,
+        job_id: str,
+        worker_id: str,
+        fencing_token: int,
+        status: ExecutionStatus,
+        error_summary: Optional[str] = None,
+        metadata_json: Optional[str] = None,
+        target_job_state: Optional[JobState] = None,
+    ) -> ExecutionRecord:
+        """Atomic 6-tuple idempotent execution completion and state transition (SEC-P1-18)."""
+        now_iso = datetime.now(timezone.utc).isoformat()
+        canon_req_meta = "{}"
+        if metadata_json:
+            try:
+                parsed_meta = json.loads(metadata_json) if isinstance(metadata_json, str) else metadata_json
+                canon_req_meta = json.dumps(parsed_meta, sort_keys=True, separators=(',', ':'), ensure_ascii=False, allow_nan=False)
+            except Exception:
+                canon_req_meta = metadata_json
+
+        with self.db._get_connection() as conn:
+            conn.execute("BEGIN IMMEDIATE")
+            cursor = conn.cursor()
+
+            cursor.execute(
+                "SELECT execution_id, job_id, status, error_summary, metadata_json, target_job_state, worker_id, fencing_token FROM automation_executions WHERE execution_id = ?",
+                (execution_id,)
+            )
+            exec_row = cursor.fetchone()
+            if not exec_row:
+                raise ValueError(f"Execution {execution_id} not found")
+            if exec_row["job_id"] != job_id:
+                raise FencedCommitRejected(f"Job ID mismatch for execution {execution_id}: expected {exec_row['job_id']}, got {job_id}")
+
+            # Branch A: Already terminal execution record
+            if exec_row["status"] in (ExecutionStatus.SUCCESS.value, ExecutionStatus.FAILED.value, ExecutionStatus.ABORTED.value):
+                if exec_row["target_job_state"] is None:
+                    raise LegacyRecordMissingTargetState("Legacy execution record missing target_job_state (Fail-Closed)")
+                
+                stored_canon_meta = "{}"
+                if exec_row["metadata_json"]:
+                    try:
+                        stored_parsed = json.loads(exec_row["metadata_json"])
+                        stored_canon_meta = json.dumps(stored_parsed, sort_keys=True, separators=(',', ':'), ensure_ascii=False, allow_nan=False)
+                    except Exception:
+                        stored_canon_meta = exec_row["metadata_json"]
+
+                stored_err = exec_row["error_summary"] or ""
+                req_err = error_summary or ""
+
+                if (
+                    exec_row["worker_id"] == worker_id and
+                    int(exec_row["fencing_token"] or 0) == int(fencing_token or 0) and
+                    exec_row["status"] == (status.value if isinstance(status, ExecutionStatus) else status) and
+                    stored_err == req_err and
+                    stored_canon_meta == canon_req_meta and
+                    exec_row["target_job_state"] == (target_job_state.value if isinstance(target_job_state, JobState) else target_job_state)
+                ):
+                    # Identical replay: zero DB mutation
+                    cursor.execute("SELECT * FROM automation_executions WHERE execution_id = ?", (execution_id,))
+                    row = cursor.fetchone()
+                    return ExecutionRecord(
+                        execution_id=row["execution_id"],
+                        job_id=row["job_id"],
+                        phase=ExecutionPhase(row["phase"]),
+                        started_at=row["started_at"],
+                        status=ExecutionStatus(row["status"]),
+                        worker_id=row["worker_id"],
+                        completed_at=row["completed_at"],
+                        error_summary=row["error_summary"],
+                        metadata=json.loads(row["metadata_json"]) if row["metadata_json"] else {},
+                    )
+                else:
+                    raise FencedCommitRejected("Replay mismatch against existing terminal execution record")
+
+            # Branch B: First-time completion
+            cursor.execute(
+                "SELECT worker_id, fencing_token, expires_at FROM automation_job_leases WHERE job_id = ?",
+                (job_id,)
+            )
+            lease = cursor.fetchone()
+            now_ts = time.time()
+            if not lease or lease["worker_id"] != worker_id or int(lease["fencing_token"] or 0) != int(fencing_token or 0) or float(lease["expires_at"] or 0) <= now_ts:
+                raise FencedCommitRejected(f"Active lease required for completion of job {job_id}")
+
+            status_val = status.value if isinstance(status, ExecutionStatus) else status
+            target_state_val = target_job_state.value if isinstance(target_job_state, JobState) else target_job_state
+
+            cursor.execute(
+                """
+                UPDATE automation_executions
+                SET status = ?, completed_at = ?, error_summary = ?, metadata_json = ?, target_job_state = ?
+                WHERE execution_id = ?
+                """,
+                (status_val, now_iso, error_summary, canon_req_meta, target_state_val, execution_id)
+            )
+            if cursor.rowcount == 0:
+                raise FencedCommitRejected(f"Failed to update execution {execution_id}")
+
+            if target_state_val:
+                cursor.execute(
+                    "UPDATE automation_jobs SET state = ? WHERE job_id = ?",
+                    (target_state_val, job_id)
+                )
+
+            cursor.execute("SELECT * FROM automation_executions WHERE execution_id = ?", (execution_id,))
+            row = cursor.fetchone()
+            return ExecutionRecord(
+                execution_id=row["execution_id"],
+                job_id=row["job_id"],
+                phase=ExecutionPhase(row["phase"]),
+                started_at=row["started_at"],
+                status=ExecutionStatus(row["status"]),
+                worker_id=row["worker_id"],
+                completed_at=row["completed_at"],
+                error_summary=row["error_summary"],
+                metadata=json.loads(row["metadata_json"]) if row["metadata_json"] else {},
+            )
 
     def complete_execution_fenced(
         self,
