@@ -1650,7 +1650,6 @@
     }
 
   </style>
-  <script src="badge_classifier.js"></script>
 </head>
 <body>
   <!-- Staging Flow Canvas Dynamic Background -->
@@ -1921,9 +1920,9 @@
       <!-- VIEW 1: LANDING & CALCULATOR VIEW -->
       <section id="view-calculator">
         <div class="hero-container">
-          <h2 class="hero-title">Polya Apologetics AI Calculator</h2>
+          <h2 class="hero-title">Apologetics Calculator</h2>
           <p class="hero-copy">
-            Polya Apologetics AI Calculator akan menganalisis klaim lawan dan memberikan data, sumber, bukti, konteks, argumen, serta sanggahan yang relevan untuk membantu kamu mempersiapkan diri dan memenangkan debatmu.
+            Apologetics Calculator akan menganalisis klaim lawan dan memberikan data, sumber, bukti, konteks, argumen, serta sanggahan yang relevan untuk membantu kamu mempersiapkan diri dan memenangkan debatmu.
           </p>
           <button id="hero-cta-btn" class="btn-primary" style="width: auto; padding: 0.85rem 2.25rem; font-size: 1.05rem;" onclick="focusCalculator()">
             Coba 5 Analisis Gratis
@@ -1931,12 +1930,12 @@
         </div>
 
         <div class="calculator-box" id="calc-anchor">
-          <div class="calc-header-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; position: relative;">
-            <div class="calc-header-title-wrap" style="flex: 1; text-align: center;">
-              <h3 style="font-size: 1.15rem; font-weight: 600; margin: 0; text-align: center;">Apologetics AI Calculator</h3>
+          <div class="calc-header-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; gap: 1rem;">
+            <div class="calc-header-title-wrap" style="text-align: left;">
+              <h3 style="font-size: 1.15rem; font-weight: 600; margin: 0; text-align: left;">Apologetics Calculator</h3>
             </div>
             <!-- Opponent Context Selector & Free Quota Pill to its right -->
-            <div style="display: flex; align-items: center; gap: 0.5rem; position: absolute; right: 0;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0;">
               <select id="calc-opponent-select" style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-muted); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">
                 <option value="islam">Konteks Lawan: Muslim</option>
                 <option value="christian">Konteks Lawan: Kristen</option>
@@ -2001,7 +2000,6 @@
                 🔍 Show me the source
               </button>
               <span id="case-status-badge" class="badge-pill badge-quota">VERIFIED INTEL</span>
-              <span id="case-notice-display" style="font-size:0.7rem;color:var(--text-dim);margin-left:0.4rem;"></span>
             </div>
           </div>
 
@@ -2045,7 +2043,6 @@
           <div class="case-card" style="margin-bottom: 1.5rem;">
             <h4>⚔ Debate Preparation & Socratic Strategy</h4>
             <div id="case-prep-content" style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;"></div>
-            <div id="case-simulated-debate" style="font-size: 0.82rem; line-height: 1.55; margin-top: 0.75rem;"></div>
           </div>
 
           <!-- Source & Provenance Table -->
@@ -2859,7 +2856,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       languages.forEach(l => {
         const btn = document.createElement("button");
         btn.className = `choice-btn ${l.code === userContext.ui_locale ? 'active' : ''}`;
-        btn.innerHTML = `<span class="native-label">${l.native}</span><span class="sub-label">${l.name} (${l.dir.toUpperCase()})</span>`;
+        const dirStr = (l.dir || 'ltr').toUpperCase();
+        btn.innerHTML = `<span class="native-label">${l.native || l.name}</span><span class="sub-label">${l.name} (${dirStr})</span>`;
         btn.onclick = () => selectLanguage(l.code, l.dir);
         container.appendChild(btn);
       });
@@ -3097,6 +3095,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           body: JSON.stringify({
             claim: claim,
             context: userContext,
+            mode: (typeof currentCalcMode !== "undefined" && currentCalcMode) ? currentCalcMode : "research",
             request_id: "req_" + Math.random().toString(36).substring(2, 14),
             user_id: currentUserId
           })
@@ -3246,34 +3245,26 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         console.warn("Subpanel error (core header/arguments):", errHeader);
       }
 
-      // 2. Status Badge Rendering — logic lives in badge_classifier.js (classifyCaseBadge)
+      // 2. Status Badge Rendering
       try {
         const statusBadge = document.getElementById("case-status-badge");
         if (statusBadge) {
-          const cls = (typeof PolyaBadge !== "undefined" && PolyaBadge.classifyCaseBadge)
-            ? PolyaBadge.classifyCaseBadge(cf)
-            : { label: "BELUM TERVERIFIKASI", color: "#f59e0b", background: "rgba(245,158,11,0.15)", isUnverified: true };
-          statusBadge.textContent = cls.label;
-          statusBadge.className = cls.verified ? "badge-pill"
-            : cls.isDemo ? "badge-pill badge-quota"
-            : cls.isError ? "badge-pill badge-warning"
-            : "badge-pill badge-warning";
-          statusBadge.style.color = cls.color;
-          statusBadge.style.borderColor = cls.color;
-          statusBadge.style.background = cls.background;
+          if (cf.is_demo) {
+            statusBadge.textContent = "DEMO / MOCK DATA";
+            statusBadge.className = "badge-pill badge-quota";
+            statusBadge.style.color = "var(--rose)";
+            statusBadge.style.borderColor = "var(--rose)";
+            statusBadge.style.background = "rgba(244, 63, 94, 0.15)";
+          } else {
+            statusBadge.textContent = "VERIFIED REAL INTEL";
+            statusBadge.className = "badge-pill";
+            statusBadge.style.color = "var(--emerald)";
+            statusBadge.style.borderColor = "var(--emerald)";
+            statusBadge.style.background = "rgba(16, 185, 129, 0.15)";
+          }
         }
       } catch (errBadge) {
         console.warn("Subpanel error (status badge):", errBadge);
-      }
-
-      // 2b. Notice rendering — always use textContent (no innerHTML) to prevent XSS
-      try {
-        const noticeEl = document.getElementById("case-notice-display");
-        if (noticeEl) {
-          noticeEl.textContent = (cf.notice || "").trim();
-        }
-      } catch (errNotice) {
-        console.warn("Subpanel error (notice):", errNotice);
       }
 
       // 3. Primary Evidence Rendering
@@ -3347,42 +3338,28 @@ Menunggu instruksi user untuk eksekusi backlog P0.
             trap = prep.trim();
           }
 
+          let simDebateHtml = "";
+          if (prep && prep.simulated_debate && Array.isArray(prep.simulated_debate) && prep.simulated_debate.length > 0) {
+            simDebateHtml = `<div style="margin-top: 0.75rem; border-top: 1px solid var(--border-subtle); padding-top: 0.5rem;">
+              <strong style="color: var(--primary); font-size: 0.85rem;">ZUMA Simulated Debate (8-Point Dialectic):</strong>
+              ${prep.simulated_debate.map((pt, i) => {
+                const label = safeEscapeText(pt.point || ("Poin " + (i + 1)));
+                const style = safeEscapeText(pt.zuma_style || "");
+                const presentation = safeEscapeText(pt.presentation || "");
+                return `<div class="case-card" style="margin-top: 0.4rem; padding: 0.5rem;">
+                  <div style="font-size: 0.82rem; color: var(--accent); font-weight: 600;">${i + 1}. ${label}</div>
+                  ${style ? `<p style="font-size: 0.78rem; color: var(--accent); margin: 0.2rem 0; font-style: italic;">${style}</p>` : ""}
+                  ${presentation ? `<p style="font-size: 0.8rem; color: var(--text-main); margin: 0.25rem 0; line-height: 1.4;">${presentation}</p>` : ""}
+                </div>`;
+              }).join("")}
+            </div>`;
+          }
+
           prepBox.innerHTML = `
             <p><strong>🎯 Cross-Examination Trap:</strong> ${safeEscapeText(trap)}</p>
             <p style="margin-top: 0.5rem;"><strong>⏱ Recommended Tempo:</strong> ${safeEscapeText(tempo)}</p>
+            ${simDebateHtml}
           `;
-          // Render dynamic 8-point ZUMA simulated debate (if provided by backend)
-          try {
-            var debBox = document.getElementById("case-simulated-debate");
-            if (debBox && prep && Array.isArray(prep.simulated_debate) && prep.simulated_debate.length > 0) {
-              var intensityLabel = (prep.simulated_debate[0].intensity || "standard");
-              var html = '<div style="margin-top:0.6rem;"><strong>&#9888;&#65039; Mode Debate Dinamis (ZUMA ' + intensityLabel + ')</strong> &#8212; Simulasi 8-poin:</div>';
-              html += prep.simulated_debate.map(function(pt, idx){
-                var no = safeEscapeText(pt.point_no || String(idx + 1));
-                var tit = safeEscapeText(pt.point || ("Titik " + no));
-                var ev = safeEscapeText(pt.evidence || "");
-                var rs = safeEscapeText(pt.reasoning || "");
-                var ag = safeEscapeText(pt.argument || "");
-                var st = safeEscapeText(pt.zuma_style || "");
-                var pr = safeEscapeText(pt.presentation || "");
-                return '<div class="case-card" style="margin:0.4rem 0; padding:0.6rem 0.8rem; background:#0f1117; border:1px solid #2a2f3a; border-radius:6px;">'
-                     + '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem;">'
-                     + '<strong>#' + no + ' ' + tit + '</strong><span class="evidence-badge badge-direct">' + st + '</span></div>'
-                     + '<hr style="border-color:#2a2f3a; margin:0.3rem 0;">'
-                     + '<p style="margin:0.2rem 0;">&#128269; Evidence:</strong> ' + ev + '</p>'
-                     + '<p style="margin:0.2rem 0;">&#129433; Reasoning:</strong> ' + rs + '</p>'
-                     + '<p style="margin:0.2rem 0;">&#8636; Argument:</strong> ' + ag + '</p>'
-                     + '<p style="margin-top:0.3rem; font-style:italic;">&#9654;&#65039; ' + pr + '</p></div>';
-              }).join("");
-              debBox.innerHTML = html;
-            } else {
-              debBox.innerHTML = '<p style="color:#6b7280; font-size:0.8rem;">Simulasi debat 8-poin akan muncul di sini pada mode <strong>DEBATE</strong>.</p>';
-            }
-          } catch (errDeb) {
-            console.warn("Subpanel error (simulated debate):", errDeb);
-            var debBox = document.getElementById("case-simulated-debate");
-            if (debBox) debBox.innerHTML = '<p style="color:#ef4444;">Gagal merender simulasi debat.</p>';
-          }
         }
       } catch (errPrep) {
         console.warn("Subpanel error (debate preparation):", errPrep);
@@ -3764,16 +3741,18 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       container.classList.remove("hidden");
       container.scrollIntoView({ behavior: "smooth" });
 
-      document.getElementById("theme-detail-title").textContent = "Memuat detail tema...";
-      document.getElementById("theme-overview-content").textContent = "Mengambil data naskah, ronde, dan aparatus...";
+      const thTitle = document.getElementById("theme-detail-title");
+      if (thTitle) thTitle.textContent = "Memuat detail tema...";
+      const thOver = document.getElementById("theme-overview-content");
+      if (thOver) thOver.textContent = "Mengambil data naskah, ronde, dan aparatus...";
 
       try {
         const res = await fetch(`/api/v1/themes/${themeId}`);
         const data = await res.json();
         if (res.ok && data.success) {
           currentActiveTheme = data;
-          document.getElementById("theme-detail-title").textContent = data.title;
-          document.getElementById("theme-detail-badge").textContent = `THEME ID: ${data.theme_id}`;
+          if (thTitle) thTitle.textContent = data.title;
+          const thBadge = document.getElementById("theme-detail-badge"); if (thBadge) thBadge.textContent = `THEME ID: ${data.theme_id}`;
 
           // Tab 1: Overview
           document.getElementById("theme-overview-content").innerHTML = `
@@ -3946,9 +3925,12 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       box.classList.remove("hidden");
       box.scrollIntoView({ behavior: "smooth" });
 
-      document.getElementById("node-detail-type").textContent = node.type;
-      document.getElementById("node-detail-title").textContent = node.label;
-      document.getElementById("node-detail-text").textContent = node.full_text || node.text || node.label;
+      const nType = document.getElementById("node-detail-type");
+      if (nType) nType.textContent = node.type;
+      const nTitle = document.getElementById("node-detail-title");
+      if (nTitle) nTitle.textContent = node.label;
+      const nText = document.getElementById("node-detail-text");
+      if (nText) nText.textContent = node.full_text || node.text || node.label;
       document.getElementById("node-detail-meta").innerHTML = `
         Status: <strong>${node.status || 'VERIFIED'}</strong> | Confidence: <strong>${((node.confidence || 0.95)*100).toFixed(1)}%</strong>
         ${node.provenance_hash ? ` | Provenance: <code>${node.provenance_hash}</code>` : ''}
@@ -4154,9 +4136,12 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           document.getElementById("zuma-active-box").classList.remove("hidden");
           document.getElementById("zuma-scorecard-box").classList.add("hidden");
 
-          document.getElementById("zuma-session-badge").textContent = activeTrainingSessionId;
-          document.getElementById("zuma-active-topic").textContent = topic;
-          document.getElementById("zuma-state-badge").textContent = data.current_state || "CONSTRUCTIVE";
+          const zSess = document.getElementById("zuma-session-badge");
+          if (zSess) zSess.textContent = activeTrainingSessionId;
+          const zTopic = document.getElementById("zuma-active-topic");
+          if (zTopic) zTopic.textContent = topic;
+          const zState = document.getElementById("zuma-state-badge");
+          if (zState) zState.textContent = data.current_state || "CONSTRUCTIVE";
 
           const feed = document.getElementById("zuma-dialogue-feed");
           feed.innerHTML = `
@@ -4243,7 +4228,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           const aiText = turn.speech_text || turn.claim || turn.text || "Buka pasal dan ayatnya dalam bahasa sumber asli. Definisikan akar katanya menurut leksikon akademik standar sebelum melangkah.";
           feed.innerHTML += `
             <div style="background: rgba(223, 177, 91, 0.08); border-left: 3px solid var(--gold); padding: 0.65rem; border-radius: 4px; font-size: 0.84rem;">
-              <strong style="color: var(--gold);">ZUMA Debater (Rule-Based Engine):</strong>
+              <strong style="color: var(--gold);">ZUMA AI Debater:</strong>
               <p style="margin-top: 0.2rem; color: var(--text-main);">${aiText}</p>
             </div>
           `;
@@ -4326,7 +4311,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     async function openCheckoutModal() {
       closeGateModal();
       document.getElementById("checkout-modal").classList.remove("hidden");
-      document.getElementById("checkout-order-id").textContent = "Membuat pesanan...";
+      const orderIdEl = document.getElementById("checkout-order-id");
+      if (orderIdEl) orderIdEl.textContent = "Membuat pesanan...";
       const payBtn = document.getElementById("btn-snap-pay");
       if (payBtn) {
         payBtn.disabled = true;
@@ -4348,14 +4334,14 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         if (res.ok && tx.snap_token) {
           activeOrderId = tx.order_id;
           currentSnapToken = tx.snap_token;
-          document.getElementById("checkout-order-id").textContent = tx.order_id;
+          if (orderIdEl) orderIdEl.textContent = tx.order_id;
           if (payBtn) {
             payBtn.disabled = false;
             payBtn.textContent = "💳 Bayar Sekarang (Midtrans Snap)";
           }
         } else {
           const errMsg = tx.detail?.message || tx.detail || "Gagal membuat token pembayaran Midtrans";
-          document.getElementById("checkout-order-id").textContent = "Gagal membuat pesanan";
+          if (orderIdEl) orderIdEl.textContent = "Gagal membuat pesanan";
           if (payBtn) {
             payBtn.disabled = true;
             payBtn.textContent = "Gagal Memuat Pembayaran";
@@ -4365,7 +4351,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         }
       } catch (e) {
         console.error("Checkout initiation failed:", e);
-        document.getElementById("checkout-order-id").textContent = "Gagal membuat pesanan";
+        if (orderIdEl) orderIdEl.textContent = "Gagal membuat pesanan";
         if (payBtn) {
           payBtn.disabled = true;
           payBtn.textContent = "Koneksi Terputus";

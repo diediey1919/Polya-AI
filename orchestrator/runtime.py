@@ -883,10 +883,14 @@ class AgentRuntimeManager:
             while attempts <= max_retries:
                 attempts += 1
                 res = adapter.dispatch(prompt, timeout=timeout, **kwargs)
+                # fallback_used is true ONLY if the consumed output is from a template/fallback source,
+                # not merely because there were prior attempts or retries.
+                # We determine this by checking if the provider is "template" or if no live provider output was consumed.
+                is_fallback_provider = (res.provider == "template")
                 _trail_append(
                     dispatch_trail, candidate, res.status,
                     res.execution_time_ms,
-                    fallback_used=(len(dispatch_trail) > 1),
+                    fallback_used=is_fallback_provider,
                     error=res.error,
                     correlation_id=res.correlation_id,
                     provider=res.provider,

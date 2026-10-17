@@ -327,21 +327,7 @@ class TestModelInvocationProvenance(unittest.TestCase):
         self.assertTrue(provider.startswith("live:"))
 
 
-def _classify_provenance_local(provider, output_used, synthesis_status,
-                               retrieval_status, fallback_used):
-    """Inline copy of research_graph._classify_provenance to avoid importing
-    the full graph module (which pulls in langgraph). Must stay in sync with
-    orchestrator/research_graph.py lines 161-194."""
-    if provider == "template":
-        return "template"
-    if (provider.startswith("live:") and output_used
-            and synthesis_status == "SUCCESS"
-            and retrieval_status == "sufficient"
-            and not fallback_used):
-        return "verified_success"
-    if fallback_used:
-        return "fallback"
-    return "unknown"
+from orchestrator.provenance import classify_provenance as _classify_provenance_local
 
 
 class TestConsumedProviderSemantics(unittest.TestCase):
@@ -390,6 +376,130 @@ class TestConsumedProviderSemantics(unittest.TestCase):
             synthesis_status="PARTIAL", retrieval_status="sufficient",
             fallback_used=False)
         self.assertEqual(p, "unknown")
+
+
+class TestFallbackUsedSemantics(unittest.TestCase):
+    """Recovery-026: fallback_used must reflect whether the CONSUMED output came
+    from a template/fallback source, not merely that retries or failover occurred."""
+
+    def test_single_live_success_no_fallback(self):
+        """S1: One live dispatch succeeds -> fallback_used=False."""
+        trail = []
+        res = _mk("hermes", "COMPLETED", output="real text", provider="live:hermes-agent-v3")
+        _trail_append(trail, "hermes", res.status, res.execution_time_ms,
+                      fallback_used=(res.provider == "template"), provider=res.provider)
+        self.assertFalse(trail[-1]["fallback_used"])
+        p = _classify_provenance_local(
+            provider="live:hermes-agent-v3", output_used=True,
+            synthesis_status="SUCCESS", retrieval_status="sufficient",
+            fallback_used=False)
+        self.assertEqual(p, "verified_success")
+
+    def test_retry_unavailable_then_live_success(self):
+        """S2: First attempt UNAVAILABLE, retry live succeeds -> fallback_used=False on final."""
+        trail = []
+        r1 = _mk("hermes", "UNAVAILABLE", error="timeout", provider="unknown")
+        _trail_append(trail, "hermes", r1.status, r1.execution_time_ms,
+                      fallback_used=(r1.provider == "template"), provider=r1.provider)
+        r2 = _mk("hermes", "COMPLETED", output="good", provider="live:hermes-agent-v3")
+        _trail_append(trail, "hermes", r2.status, r2.execution_time_ms,
+                      fallback_used=(r2.provider == "template"), provider=r2.provider)
+        # Trail has 2 entries but neither is template-fallback
+        self.assertFalse(any(e["fallback_used"] for e in trail))
+        p = _classify_provenance_local(
+            provider="live:hermes-agent-v3", output_used=True,
+            synthesis_status="SUCCESS", retrieval_status="sufficient",
+            fallback_used=False)
+        self.assertEqual(p, "verified_success")
+
+    def test_failover_between_live_adapters(self):
+        """S3: Adapter A fails, adapter B (live) succeeds -> fallback_used=False."""
+        trail = []
+        r1 = _mk("claude-code", "FAILED", error="api err", provider="unknown")
+        _trail_append(trail, "claude-code", r1.status, r1.execution_time_ms,
+                      fallback_used=(r1.provider == "template"), provider=r1.provider)
+        r2 = _mk("codex", "COMPLETED", output="from codex", provider="live:codex")
+        _trail_append(trail, "codex", r2.status, r2.execution_time_ms,
+                      fallback_used=(r2.provider == "template"), provider=r2.provider)
+        self.assertFalse(any(e["fallback_used"] for e in trail))
+        p = _classify_provenance_local(
+            provider="live:codex", output_used=True,
+            synthesis_status="SUCCESS", retrieval_status="sufficient",
+            fallback_used=False)
+        self.assertEqual(p, "verified_success")
+
+    def test_template_output_actually_consumed(self):
+        """S4: Template/fallback truly used -> fallback_used=True, provenance!=verified_success."""
+        trail = []
+        r = _mk("anti-gravity", "COMPLETED", output="static infra text", provider="template")
+        _trail_append(trail, "anti-gravity", r.status, r.execution_time_ms,
+                      fallback_used=(r.provider == "template"), provider=r.provider)
+        self.assertTrue(trail[-1]["fallback_used"])
+        p = _classify_provenance_local(
+            provider="template", output_used=True,
+            synthesis_status="SUCCESS", retrieval_status="sufficient",
+            fallback_used=True)
+        self.assertIn(p, ["template", "fallback"])
+        self.assertNotEqual(p, "verified_success")
+
+    def test_all_attempts_fail_invalid_responses(self):
+        """S5: All attempts fail or return invalid -> unknown/fallback, never verified_success."""
+        trail = []
+        for status in ("UNAVAILABLE", "TIMEOUT", "ERROR"):
+            r = _mk("hermes", status, error=f"{status} happened", provider="unknown")
+            _trail_append(trail, "hermes", r.status, r.execution_time_ms,
+                          fallback_used=(r.provider == "template"), provider=r.provider)
+        self.assertFalse(any(e["fallback_used"] for e in trail))
+        p = _classify_provenance_local(
+            provider="unknown", output_used=False,
+            synthesis_status="MODEL_ERROR", retrieval_status="insufficient_evidence",
+            fallback_used=False)
+        self.assertEqual(p, "unknown")
+
+    def test_failed_attempt_response_not_treated_as_consumed(self):
+        """S6: Response from failed attempt must NOT count as consumed output."""
+        trail = []
+        r1 = _mk("hermes", "FAILED", output="", error="crash", provider="unknown")
+        _trail_append(trail, "hermes", r1.status, r1.execution_time_ms,
+                      fallback_used=(r1.provider == "template"), provider=r1.provider)
+        # Even though r1 has empty output and status FAILED, it was never consumed
+        p = _classify_provenance_local(
+            provider="unknown", output_used=False,
+            synthesis_status="PARTIAL", retrieval_status="sufficient",
+            fallback_used=False)
+        self.assertEqual(p, "unknown")
+
+    def test_recorded_provider_matches_consumed_response(self):
+        """S7: Provider recorded in trail matches the response actually used."""
+        trail = []
+        r1 = _mk("claude-code", "COMPLETED", output="text A", provider="live:claude-code")
+        _trail_append(trail, "claude-code", r1.status, r1.execution_time_ms,
+                      fallback_used=(r1.provider == "template"), provider=r1.provider)
+        # Simulate consuming r1's output
+        consumed_provider = trail[-1]["provider"]
+        self.assertEqual(consumed_provider, "live:claude-code")
+        p = _classify_provenance_local(
+            provider=consumed_provider, output_used=True,
+            synthesis_status="SUCCESS", retrieval_status="sufficient",
+            fallback_used=False)
+        self.assertEqual(p, "verified_success")
+
+    def test_verified_success_gate_requires_all_five_conditions(self):
+        """S8: verified_success requires ALL of: live provider, output_used, SUCCESS, sufficient, !fallback."""
+        base_kwargs = dict(provider="live:hermes-agent-v3", output_used=True,
+                           synthesis_status="SUCCESS", retrieval_status="sufficient",
+                           fallback_used=False)
+        self.assertEqual(_classify_provenance_local(**base_kwargs), "verified_success")
+        # Each condition violated independently must break verified_success
+        for field, bad_val in [("provider", "unknown"), ("output_used", False),
+                               ("synthesis_status", "PARTIAL"),
+                               ("retrieval_status", "insufficient_evidence"),
+                               ("fallback_used", True)]:
+            kw = dict(base_kwargs)
+            kw[field] = bad_val
+            result = _classify_provenance_local(**kw)
+            self.assertNotEqual(result, "verified_success",
+                                f"Gate breached when {field}={bad_val}")
 
 
 if __name__ == "__main__":

@@ -158,40 +158,7 @@ def task_decomposition_node(state: ResearchState) -> Dict[str, Any]:
     }
 
 
-def _classify_provenance(
-    provider: str,
-    output_used: bool,
-    synthesis_status: str,
-    retrieval_status: str,
-    fallback_used: bool
-) -> str:
-    """Deterministic provenance classification per Recovery-015C.
-
-    - verified_success: live provider output was actually consumed in synthesis,
-      synthesis succeeded, retrieval is sufficient, and no fallback was used.
-    - template: output originates from static/template sources.
-    - fallback: fallback was used but verified_success criteria not met.
-    - unknown: source cannot be proven.
-
-    NOT inferred from agent_name, status='COMPLETED', live_dispatched=True,
-    or provider presence in dispatch trail alone.
-    """
-    if provider == "template":
-        return "template"
-
-    if (
-        provider.startswith("live:")
-        and output_used
-        and synthesis_status == "SUCCESS"
-        and retrieval_status == "sufficient"
-        and not fallback_used
-    ):
-        return "verified_success"
-
-    if fallback_used:
-        return "fallback"
-
-    return "unknown"
+from orchestrator.provenance import classify_provenance as _classify_provenance  # noqa: E402,F401
 
 
 
@@ -268,7 +235,6 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
     # the full failover chain for audit purposes.
     final_agent = res.agent_name if res else target_agent
     dispatch_trail = res.metadata.get("dispatch_trail", []) if res.metadata else []
-    fallback_used = len(dispatch_trail) > 1 if dispatch_trail else False
 
     # Attempt to parse real JSON from model response.
     # Track the provider that actually produced the consumed text so provenance
@@ -324,6 +290,17 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
                 },
                 "sources": [{"citation": primary_ref, "type": "Corpus Reference"}] if primary_ref else []
             }
+
+    # fallback_used is true ONLY if the consumed output is from a template/fallback source,
+    # not merely because there were multiple dispatch trail entries (retries/failover to live adapters).
+    # We determine this by checking if the provider of the consumed output is "template"
+    # or if output_used is False (meaning we fell back to template synthesis).
+    fallback_used = False
+    if output_used and consumed_provider == "template":
+        fallback_used = True
+    elif not output_used:
+        # We used template synthesis because model output couldn't be consumed
+        fallback_used = True
 
     model_inv = {
         "agent": final_agent,

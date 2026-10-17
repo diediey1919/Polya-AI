@@ -1015,14 +1015,24 @@ class CaseFileGenerator:
                 "recommended_tempo": tempo_val
             }
 
-            # Inject dynamic ZUMA 8-point simulated debate into output (mode DEBATE).
-            try:
-                from orchestrator.zuma_skill_engine import ZumaSkillEngine
-                prep_val["simulated_debate"] = ZumaSkillEngine.generate_zuma_simulated_debate(
-                    claim, prep_val, {"intensity": "sharp"}
-                )
-            except Exception as e:
-                logger.warning(f"ZUMA simulated debate injection skipped: {e}")
+            # Inject dynamic ZUMA 8-point simulated debate into output (mode DEBATE only).
+            if requested_mode == "DEBATE":
+                try:
+                    from orchestrator.zuma_skill_engine import ZumaSkillEngine
+                    # Enrich prep_val with research graph data for ZUMA engine
+                    zuma_prep = dict(prep_val)
+                    if prep and isinstance(prep, dict):
+                        zuma_prep["evidence"] = prep.get("evidence", [])
+                        zuma_prep["strongest_opponent_argument"] = prep.get("strongest_opponent_argument", "")
+                        zuma_prep["cross_examination_questions"] = prep.get("cross_examination_questions", [])
+                        zuma_prep["defensive_responses"] = prep.get("defensive_responses", [])
+                        zuma_prep["responses"] = prep.get("responses", [])
+                        zuma_prep["closing"] = prep.get("closing", "")
+                    prep_val["simulated_debate"] = ZumaSkillEngine.generate_zuma_simulated_debate(
+                        claim, zuma_prep, {"intensity": "sharp"}
+                    )
+                except Exception as e:
+                    logger.warning(f"ZUMA simulated debate injection skipped: {e}")
 
             verif_val = result.get("verification_status") or ("UNSUPPORTED" if retrieval_status == "insufficient_evidence" else "PARTIALLY_SUPPORTED")
             if retrieval_status == "insufficient_evidence":
