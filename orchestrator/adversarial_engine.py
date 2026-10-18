@@ -338,23 +338,23 @@ class AdversarialEngine:
 
     @classmethod
     def generate_zuma_self_critique(cls, final_argument: str) -> ZumaSelfCritiqueReport:
-        """Executes ZUMA Self-Critique prior to delivery (Section 23)."""
+        """Executes dynamic ZUMA Self-Critique mapped directly to the claim (Section 23)."""
+        clean_claim = (final_argument or "Klaim Teologis").strip()
         return ZumaSelfCritiqueReport(
             what_skilled_opponent_would_attack=(
-                "Lawan yang terampil akan menyerang batasan kata 'hukum' (nomos) di Roma 3:31 dan menuduh Polya "
-                "menciptakan distingsi anakronistis antara 'hukum moral' dan 'hukum upacara' yang tidak secara eksplisit "
-                "disebutkan dalam surat-surat Paulus."
+                f"Lawan forensik yang terampil akan menantang premis inti dari klaim '{clean_claim}' "
+                "dengan menguji validitas leksikal bahasa sumber serta menuntut konsistensi kontekstual lintas ayat."
             ),
-            easiest_sentence_to_refute="Kalimat yang menyamakan seluruh fungsi hukum Taurat sebagai satu kesatuan monolitik.",
-            weakest_premise="Premis bahwa Paulus dan jemaat Efesus memiliki konsep kovenan yang identik dengan teologi sistematis kemudian.",
-            most_vulnerable_citation="Efesus 2:15 jika dikutip tanpa menguraikan arti 'en dogmasin'.",
+            easiest_sentence_to_refute=f"Pernyataan absolut dalam analisis yang menyimpulkan klaim '{clean_claim}' tanpa menyertakan batasan sintaksis naskah asli.",
+            weakest_premise=f"Premis bahwa teks primer bagi '{clean_claim}' berdiri tanpa kebergantungan pada asumsi historis ekstratekstual.",
+            most_vulnerable_citation="Rujukan ayat pendukung yang dikutip tanpa memperhitungkan latar belakang genre sastra penulis.",
             reliance_on_inference_points=[
-                "Inferensi bahwa 'en dogmasin' hanya merujuk pada sunat dan makanan halal, bukan dekrit moral.",
-                "Inferensi bahwa 'histanomen' berlaku untuk ketaatan orang percaya non-Yahudi pasca-salib."
+                f"Inferensi semantik bahwa istilah kunci pada '{clean_claim}' bermakna harfiah mutlak.",
+                "Inferensi bahwa saksi manuskrip sekunder memiliki bobot penegasan yang setara dengan kodeks utama."
             ],
             hardening_recommendations=[
-                "Kunci lawan langsung pada teks bahasa asli Roma 3:31: apa maksud Paulus mengatakan 'μὴ γένοιτο' terhadap katargoumen?",
-                "Tuntut lawan mendefinisikan ayat mana dalam naskah Bible di mana Paulus mengatakan hukum moral Allah (seperti jangan berzina, jangan membunuh) telah dibatalkan."
+                f"Kunci perdebatan pada analisis morfologi kata asli dari '{clean_claim}' guna mematahkan spekulasi lawan.",
+                "Tuntut lawan menghadirkan tandingan teks primer dengan kaidah hermeneutika gramatiko-historis yang setara."
             ]
         )
 

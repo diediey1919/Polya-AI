@@ -2005,6 +2005,17 @@
 
           <p id="case-context-display" style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;"></p>
 
+          <!-- Card Khusus Dialektika & Simulasi Debat Zuma (Paling Atas) -->
+          <div id="zuma-debate-card" class="case-card" style="margin-bottom: 1.5rem; border: 2px solid var(--primary); background: rgba(13, 148, 136, 0.05); display: block !important;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem;">
+              <h4 style="color: var(--primary); margin: 0; font-size: 1.1rem;">⚡ Dialektika Zuma & Simulasi Debat (Socratic Funnel)</h4>
+              <span class="evidence-badge badge-primary-source" style="font-size: 0.75rem;">ZUMA ACTIVE</span>
+            </div>
+            <div id="zuma-debate-card-content" style="font-size: 0.85rem; color: var(--text-main); line-height: 1.6;">
+              <p style="color: var(--text-muted); font-style: italic;">Memuat putaran dialektika, jebakan Sokratik, dan simulasi debat forensik...</p>
+            </div>
+          </div>
+
           <div class="calc-result-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem;">
             <div class="case-card">
               <h4>🏛 Primary Evidence</h4>
@@ -2039,11 +2050,8 @@
             <ul id="case-questions-content" style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;"></ul>
           </div>
 
-          <!-- Debate Preparation & Socratic Strategy -->
-          <div class="case-card" style="margin-bottom: 1.5rem;">
-            <h4>⚔ Debate Preparation & Socratic Strategy</h4>
-            <div id="case-prep-content" style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;"></div>
-          </div>
+          <!-- Debate Preparation (Dipindahkan ke Card Khusus Paling Atas) -->
+          <div id="case-prep-content" style="display: none;"></div>
 
           <!-- Source & Provenance Table -->
           <div class="case-card" style="margin-bottom: 1.5rem;">
@@ -3320,7 +3328,90 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         console.warn("Subpanel error (open questions):", errQuestions);
       }
 
-      // 5. Debate Preparation & Socratic Strategy Rendering
+      // 4.5. Zuma Debate & Dialectic Simulation Top Card Rendering
+      try {
+        const zumaDebateContent = document.getElementById("zuma-debate-card-content");
+        if (zumaDebateContent) {
+          const prep = cf.debate_preparation;
+          let simDebateHtml = "";
+          const debateList = (prep && (prep.simulated_debate || prep.forensic_simulation || prep.dialectic_stages || prep.zuma_simulated_debate)) || [];
+          if (Array.isArray(debateList) && debateList.length > 0) {
+            simDebateHtml = `<div style="margin-top: 0.5rem;">
+              ${debateList.map((pt, i) => {
+                const label = safeEscapeText(pt.point || ("Putaran " + (i + 1)));
+                const style = safeEscapeText(pt.zuma_style || "");
+                const presentation = safeEscapeText(pt.presentation || "");
+                return `<div class="case-card" style="margin-top: 0.5rem; padding: 0.75rem; background: var(--bg-card); border-left: 3px solid var(--primary);">
+                  <div style="font-size: 0.85rem; color: var(--primary); font-weight: 600;">${i + 1}. ${label}</div>
+                  ${style ? `<p style="font-size: 0.8rem; color: var(--accent); margin: 0.25rem 0; font-style: italic;">${style}</p>` : ""}
+                  ${presentation ? `<p style="font-size: 0.82rem; color: var(--text-main); margin: 0.3rem 0; line-height: 1.5;">${presentation}</p>` : ""}
+                </div>`;
+              }).join("")}
+            </div>`;
+          } else if (prep && typeof prep === "object" && (prep.header_simulasi || prep.forensic_simulation)) {
+            const hs = prep.header_simulasi || (prep.forensic_simulation && prep.forensic_simulation.header) || {};
+            const fs = prep.forensic_simulation || {};
+            const b1 = fs.babak_1 || {};
+            const b2 = fs.babak_2 || {};
+            const b3 = fs.babak_3 || {};
+            const b4 = fs.babak_4 || {};
+            
+            const qList = Array.isArray(b2.pertanyaan_presisi) ? b2.pertanyaan_presisi.map(q => `<li>${safeEscapeText(q)}</li>`).join("") : safeEscapeText(b2.pertanyaan_presisi || prep.babak_2_cross_exam || "");
+            const mList = Array.isArray(b3.saksi_manuskrip) ? b3.saksi_manuskrip.map(m => `<span class="evidence-badge" style="margin-right:0.3rem;">${safeEscapeText(m)}</span>`).join("") : safeEscapeText(b3.saksi_manuskrip || "");
+
+            simDebateHtml = `<div style="font-size: 0.82rem;">
+              <div style="background: rgba(13, 148, 136, 0.1); padding: 0.75rem; border-radius: 4px; margin-bottom: 0.75rem; border-left: 3px solid var(--primary);">
+                <strong style="color: var(--primary);">Simulasi Dialektika Forensik:</strong> ${safeEscapeText(hs.pihak_a || "Pihak A")} vs. ${safeEscapeText(hs.pihak_b || "Pihak B")}<br/>
+                <strong>Topik:</strong> ${safeEscapeText(hs.topik || cf.claim || "")}<br/>
+                <strong>Rujukan Utama:</strong> ${safeEscapeText(hs.rujukan_utama || "Alkitab")}<br/>
+                <strong>Format:</strong> ${safeEscapeText(hs.format || "Full Script 3 Babak + 4 Segmen Forensik")}
+                ${prep.opening ? `<br/><strong>Opening:</strong> ${safeEscapeText(prep.opening)}` : ""}
+                ${prep.opening_strategy ? `<br/><strong>Strategy:</strong> ${safeEscapeText(prep.opening_strategy)}` : ""}
+                ${prep.tempo ? `<br/><strong>Tempo:</strong> ${safeEscapeText(prep.tempo)}` : ""}
+              </div>
+              <div class="case-card" style="margin-top: 0.5rem; padding: 0.6rem;">
+                <strong style="color: var(--accent);">1. Babak 1: Postulat & Premis Dasar</strong>
+                <p style="margin: 0.25rem 0; color: var(--text-main);"><strong>Paparan Pihak A:</strong> ${safeEscapeText(b1.paparan_pihak_a || prep.babak_1_postulat || "")}</p>
+                <p style="margin: 0.25rem 0; color: var(--text-muted);"><strong>Respons Pihak B:</strong> ${safeEscapeText(b1.respons_pihak_b || "")}</p>
+              </div>
+              <div class="case-card" style="margin-top: 0.5rem; padding: 0.6rem;">
+                <strong style="color: var(--accent);">2. Babak 2: Socratic Cross-Examination</strong>
+                <p style="margin: 0.25rem 0; color: var(--text-main);"><strong>Pertanyaan Presisi:</strong></p>
+                <ul style="padding-left: 1.2rem; margin: 0.2rem 0;">${qList}</ul>
+                <p style="margin: 0.3rem 0 0.1rem 0; color: var(--text-main);"><strong>Jebakan Logika:</strong> ${safeEscapeText(b2.jebakan_logika || "")}</p>
+              </div>
+              <div class="case-card" style="margin-top: 0.5rem; padding: 0.6rem;">
+                <strong style="color: var(--accent);">3. Babak 3: Forensik Teks & Filologi Bahasa Sumber</strong>
+                <p style="margin: 0.25rem 0; color: var(--text-main);"><strong>Bedah Bahasa Sumber:</strong> ${safeEscapeText(b3.bedah_bahasa_sumber || prep.babak_3_forensik || "")}</p>
+                <p style="margin: 0.3rem 0 0.1rem 0; color: var(--text-main);"><strong>Saksi Manuskrip:</strong> ${mList}</p>
+                <p style="margin: 0.3rem 0 0.1rem 0; color: var(--text-main);"><strong>Audit Terjemahan:</strong> ${safeEscapeText(b3.audit_terjemahan || "")}</p>
+              </div>
+              <div class="case-card" style="margin-top: 0.5rem; padding: 0.6rem;">
+                <strong style="color: var(--accent);">4. Babak 4: Status Dialektika & Matriks Bukti</strong>
+                <p style="margin: 0.25rem 0; color: var(--text-main);"><strong>Konsesi Ditarik:</strong> ${safeEscapeText(b4.concession_extracted || "")}</p>
+                <p style="margin: 0.3rem 0 0.1rem 0; color: var(--text-main);"><strong>Evaluasi Kekuatan Bukti:</strong> ${safeEscapeText(b4.evaluasi_kekuatan_bukti || prep.babak_4_evaluasi || "")}</p>
+              </div>
+            </div>`;
+          } else {
+            simDebateHtml = `<p style="color: var(--text-muted); font-style: italic;">Dialektika Sokratik dan Simulasi Debat Zuma siap diaktifkan melalui mode Debat pada kalkulator.</p>`;
+          }
+
+          const trap = prep && prep.cross_examination_trap ? safeEscapeText(prep.cross_examination_trap) : "Uji ketahanan premis lawan berdasarkan leksikon bahasa sumber asli.";
+          const tempo = prep && prep.recommended_tempo ? safeEscapeText(prep.recommended_tempo) : "Kendalikan tempo, paksa konesi langsung pada ayat.";
+
+          zumaDebateContent.innerHTML = `
+            <div style="margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle);">
+              <span style="color: var(--accent); font-weight: 600;">🎯 Cross-Examination Trap:</span> ${trap}<br/>
+              <span style="color: var(--accent); font-weight: 600; margin-top: 0.25rem; display: inline-block;">⏱ Recommended Tempo:</span> ${tempo}
+            </div>
+            ${simDebateHtml}
+          `;
+        } else if (zumaDebateContent) {
+          zumaDebateContent.innerHTML = `<p style="color: var(--text-muted); font-style: italic;">Silakan klik tombol 'Calculate Case' dengan mode Debat aktif untuk meninjau simulasi dialektika Zuma secara lengkap.</p>`;
+        }
+      } catch (errZumaCard) {
+        console.warn("Subpanel error (Zuma debate card):", errZumaCard);
+      }
       try {
         const prepBox = document.getElementById("case-prep-content");
         if (prepBox) {
@@ -3336,7 +3427,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           }
 
           let simDebateHtml = "";
-          const debateList = (prep && (prep.simulated_debate || prep.dialectic_stages || prep.zuma_simulated_debate)) || [];
+          const debateList = (prep && (prep.simulated_debate || prep.forensic_simulation || prep.dialectic_stages || prep.zuma_simulated_debate)) || [];
           if (Array.isArray(debateList) && debateList.length > 0) {
             simDebateHtml = `<div style="margin-top: 0.75rem; border-top: 1px solid var(--border-subtle); padding-top: 0.5rem;">
               <strong style="color: var(--primary); font-size: 0.85rem;">ZUMA Simulated Debate (8-Point Dialectic):</strong>
@@ -3350,6 +3441,36 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                   ${presentation ? `<p style="font-size: 0.8rem; color: var(--text-main); margin: 0.25rem 0; line-height: 1.4;">${presentation}</p>` : ""}
                 </div>`;
               }).join("")}
+            </div>`;
+          } else if (prep && typeof prep === "object" && prep.header_simulasi) {
+            const hs = prep.header_simulasi;
+            const b1 = prep.babak_1_postulat;
+            const b2 = prep.babak_2_cross_exam;
+            const b3 = prep.babak_3_forensik;
+            const b4 = prep.babak_4_evaluasi;
+            simDebateHtml = `<div style="margin-top: 0.75rem; border-top: 1px solid var(--border-subtle); padding-top: 0.5rem; font-size: 0.82rem;">
+              <div style="background: rgba(13, 148, 136, 0.1); padding: 0.5rem; border-radius: 4px; margin-bottom: 0.5rem; border-left: 3px solid var(--primary);">
+                <strong style="color: var(--primary);">Simulasi Dialektika Forensik:</strong> ${safeEscapeText(hs.pihak_a || "")} vs. ${safeEscapeText(hs.pihak_b || "")}<br/>
+                <strong>Topik:</strong> ${safeEscapeText(hs.topik || "")}<br/>
+                <strong>Rujukan Utama:</strong> ${safeEscapeText(hs.rujukan_utama || "")}<br/>
+                <strong>Format:</strong> ${safeEscapeText(hs.format || "")}
+              </div>
+              <div class="case-card" style="margin-top: 0.4rem; padding: 0.5rem;">
+                <strong style="color: var(--accent);">1. Babak 1: Postulat & Premis Dasar</strong>
+                <p style="margin: 0.2rem 0; color: var(--text-main);">${safeEscapeText(b1 || "")}</p>
+              </div>
+              <div class="case-card" style="margin-top: 0.4rem; padding: 0.5rem;">
+                <strong style="color: var(--accent);">2. Babak 2: Socratic Cross-Examination</strong>
+                <p style="margin: 0.2rem 0; color: var(--text-main);">${safeEscapeText(b2 || "")}</p>
+              </div>
+              <div class="case-card" style="margin-top: 0.4rem; padding: 0.5rem;">
+                <strong style="color: var(--accent);">3. Babak 3: Forensik Teks & Filologi Bahasa Sumber</strong>
+                <p style="margin: 0.2rem 0; color: var(--text-main);">${safeEscapeText(b3 || "")}</p>
+              </div>
+              <div class="case-card" style="margin-top: 0.4rem; padding: 0.5rem;">
+                <strong style="color: var(--accent);">4. Babak 4: Status Dialektika & Matriks Bukti</strong>
+                <p style="margin: 0.2rem 0; color: var(--text-main);">${safeEscapeText(b4 || "")}</p>
+              </div>
             </div>`;
           }
 

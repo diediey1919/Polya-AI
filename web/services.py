@@ -1019,7 +1019,6 @@ class CaseFileGenerator:
             if requested_mode == "DEBATE":
                 try:
                     from orchestrator.zuma_skill_engine import ZumaSkillEngine
-                    # Enrich prep_val with research graph data for ZUMA engine
                     zuma_prep = dict(prep_val)
                     if prep and isinstance(prep, dict):
                         zuma_prep["evidence"] = prep.get("evidence", [])
@@ -1028,14 +1027,20 @@ class CaseFileGenerator:
                         zuma_prep["defensive_responses"] = prep.get("defensive_responses", [])
                         zuma_prep["responses"] = prep.get("responses", [])
                         zuma_prep["closing"] = prep.get("closing", "")
-                    zuma_context = {
+                    z_ctx = {
                         "user_perspective": persp,
-                        "opponent_perspective": ctx.opponent_perspective or "islam",
-                        "debate_locale": ctx.debate_locale
+                        "opponent_perspective": getattr(ctx, "opponent_perspective", None) or "islam",
+                        "debate_locale": getattr(ctx, "debate_locale", "id")
                     }
-                    prep_val["simulated_debate"] = ZumaSkillEngine.generate_zuma_simulated_debate(
-                        claim, zuma_prep, {"intensity": "sharp"}, context=zuma_context
+                    sim_deb = ZumaSkillEngine.generate_zuma_forensic_simulation(
+                        claim, context=z_ctx
                     )
+                    prep_val["forensic_simulation"] = sim_deb
+                    prep_val["header_simulasi"] = sim_deb.get("header")
+                    prep_val["babak_1_postulat"] = sim_deb.get("babak_1", {}).get("paparan_pihak_a")
+                    prep_val["babak_2_cross_exam"] = sim_deb.get("babak_2", {}).get("pertanyaan_presisi")
+                    prep_val["babak_3_forensik"] = sim_deb.get("babak_3", {}).get("bedah_bahasa_sumber")
+                    prep_val["babak_4_evaluasi"] = sim_deb.get("babak_4", {}).get("evaluasi_kekuatan_bukti")
                 except Exception as e:
                     logger.warning(f"ZUMA simulated debate injection skipped: {e}")
 
@@ -1081,6 +1086,7 @@ class CaseFileGenerator:
             case_id = f"CASE-{hashlib.md5(claim.encode('utf-8')).hexdigest()[:8].upper()}"
             opp_persp = (ctx.opponent_perspective or "OPPOSISI").upper()
             sim_deb = []
+            fallback_prep = {}
             if requested_mode == "DEBATE":
                 try:
                     from orchestrator.zuma_skill_engine import ZumaSkillEngine
@@ -1089,9 +1095,21 @@ class CaseFileGenerator:
                         "opponent_perspective": ctx.opponent_perspective or "islam",
                         "debate_locale": ctx.debate_locale
                     }
-                    sim_deb = ZumaSkillEngine.generate_zuma_simulated_debate(
-                        claim, {"closing": "Kesimpulan forensik teks primer."}, {"intensity": "sharp"}, context=z_ctx
+                    sim_deb = ZumaSkillEngine.generate_zuma_forensic_simulation(
+                        claim, context=z_ctx
                     )
+                    fallback_prep = {
+                        "opening": "Analisis forensik dialektika ZUMA diaktifkan.",
+                        "opening_strategy": "Bedah teks primer dan konsistensi ontologis.",
+                        "cross_examination_trap": "Tuntut bukti teks primer tanpa asumsi dogmatis.",
+                        "tempo": "Tegas, presisi, dingin.",
+                        "forensic_simulation": sim_deb,
+                        "header_simulasi": sim_deb.get("header"),
+                        "babak_1_postulat": sim_deb.get("babak_1", {}).get("paparan_pihak_a"),
+                        "babak_2_cross_exam": sim_deb.get("babak_2", {}).get("pertanyaan_presisi"),
+                        "babak_3_forensik": sim_deb.get("babak_3", {}).get("bedah_bahasa_sumber"),
+                        "babak_4_evaluasi": sim_deb.get("babak_4", {}).get("evaluasi_kekuatan_bukti")
+                    }
                 except Exception:
                     pass
 
@@ -1115,7 +1133,7 @@ class CaseFileGenerator:
                 weakness="Titik rentan lawan adalah ketergantungan pada terjemahan dinamis modern tanpa verifikasi leksikon bahasa sumber.",
                 sources=[{"citation": "Nestle-Aland Novum Testamentum Graece, 28th Edition", "type": "Critical Edition"}],
                 open_questions=["Bagaimana lawan menjelaskan reaksi langsung terhadap Roma 3:31?"],
-                debate_preparation={
+                debate_preparation=fallback_prep if requested_mode == "DEBATE" else {
                     "cross_examination_trap": "Kuncilah lawan pada definisi kata bahasa asli sebelum mereka mengalihkan topik.",
                     "recommended_tempo": "Ajukan pertanyaan sokratik pendek, minta konfirmasi arti kata netral versus maskulin.",
                     "simulated_debate": sim_deb

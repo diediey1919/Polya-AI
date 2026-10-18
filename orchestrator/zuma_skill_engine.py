@@ -259,17 +259,66 @@ class ZumaSkillEngine:
         )
 
     @classmethod
-    def generate_zuma_simulated_debate(
+    def generate_zuma_forensic_simulation(
         cls,
         claim: str,
-        prep: Any,
-        profile: Optional[Dict[str, Any]] = None,
         context: Optional[Dict[str, Any]] = None
-    ) -> List[Dict[str, Any]]:
+    ) -> Dict[str, Any]:
         """
-        Dynamically generates 8-point ZUMA dialectical debate points using the runtime LLM engine
-        tailored to the claim, user perspective, opponent perspective, and research preparation data.
+        Generates the 4-segment forensic dialectical simulation output matching:
+        Simulasi Dialektika Forensik: [Pihak A] vs. [Pihak B]
+        Topik: [Isu Teologis / Teks Spesifik]
+        Rujukan Utama: [Daftar Pasal/Ayat Bible atau Dokumen Sumber]
+        Format: [Interaktif (Tanya-Jawab) / Full Script 3 Babak]
         """
+        ctx = context or {}
+        user_p = str(ctx.get("user_perspective", "Kristen")).upper()
+        opp_p = str(ctx.get("opponent_perspective", "Islam / Opposisi")).upper()
+        
+        # Extract dynamic reference from claim/evidence if available
+        rujukan_teks = "Kitab Suci / Naskah Primer / Manuskrip Terkait"
+        if claim:
+            import re
+            match_ref = re.search(r'([1-3]?\s?[A-Za-zäöüÄÖÜ]+(?:\s+[A-Za-z]+)?\s+\d+:\d+(?:-\d+)?)', claim)
+            if match_ref:
+                rujukan_teks = match_ref.group(1)
+
+        return {
+            "header": {
+                "pihak_a": user_p,
+                "pihak_b": opp_p,
+                "topik": claim,
+                "rujukan_utama": rujukan_teks,
+                "format": "Full Script 3 Babak + 4 Segmen Forensik"
+            },
+            "babak_1": {
+                "title": "Babak 1: Postulat & Premis Dasar",
+                "paparan_pihak_a": f"Paparan tesis teologis {user_p} mendasarkan klaim '{claim}' pada otoritas kanonikal dan penafsiran normatif teks {rujukan_teks}.",
+                "respons_pihak_b": f"Respons awal dan pembacaan kritis oleh {opp_p} menantang validitas premis dan konsistensi internal teologis pihak A terhadap klaim '{claim}'."
+            },
+            "babak_2": {
+                "title": "Babak 2: Socratic Cross-Examination (Uji Silang & Jebakan Logika)",
+                "pertanyaan_presisi": [
+                    f"Di bagian ayat atau klausa mana dalam {rujukan_teks} terdapat eksplisitasi mutlak dari klaim '{claim}'?",
+                    "Bagaimana mendamaikan kontradiksi definisi ontologis antara dua nas yang saling bertentangan secara harfiah?",
+                    "Apakah konsesi hermeneutik yang Anda ambil tidak meruntuhkan bangunan dogmatis sistemik Anda sendiri?"
+                ],
+                "jebakan_logika": f"Mengunci lawan pada definisi leksikal ketat bahasa sumber dari teks {rujukan_teks} guna mencegah pergeseran target pembahasan."
+            },
+            "babak_3": {
+                "title": "Babak 3: Forensik Teks & Filologi Bahasa Sumber",
+                "bedah_bahasa_sumber": f"Analisis akar kata (radix/lemma), morfologi kata kerja, dan sintaksis naskah asli pada rujukan {rujukan_teks} untuk klaim '{claim}'.",
+                "saksi_manuskrip": ["Codex Sinaiticus", "Codex Vaticanus", "Papirus Kuno / Masoretik / Septuaginta"],
+                "audit_terjemahan": "Audit pembelokan makna dari teks asli kuno ke terjemahan modern untuk mendeteksi distorsi teologis atau bias denominasional."
+            },
+            "babak_4": {
+                "title": "Status Dialektika & Matriks Bukti (Closing Assessment)",
+                "concession_extracted": f"Rangkuman konsesi mutlak yang berhasil dikunci dari argumentasi lawan terkait {claim}.",
+                "evaluasi_kekuatan_bukti": f"Evaluasi akhir tingkat keandalan bukti tekstual dan ketahanan logis kedua belah pihak atas klaim '{claim}' berdasarkan standar E1-E6."
+            }
+        }
+
+
         intensity = "sharp"
         if isinstance(profile, dict):
             intensity = profile.get("intensity", "sharp")
