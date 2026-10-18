@@ -261,159 +261,226 @@ class ZumaSkillEngine:
     @classmethod
     def generate_zuma_simulated_debate(
         cls,
-        claim_text: str,
-        prep: DebatePreparationPackage,
+        claim: str,
+        prep: Any,
+        profile: Optional[Dict[str, Any]] = None,
         context: Optional[Dict[str, Any]] = None
-    ) -> List[Dict[str, str]]:
+    ) -> List[Dict[str, Any]]:
         """
-        Generates a dynamic 8-point simulated ZUMA debate.
-
-        Architecture: Evidence -> Reasoning -> Argument -> ZUMA Style -> Presentation.
-        Each point yields the full inferential chain so the ZUMA persona's
-        dialectical move is transparent and reproducible.
-
-        Args:
-            claim_text: The opponent's claim being debated (sanitized internally).
-            prep: Fully constructed DebatePreparationPackage (Section 16 output).
-            context: Optional dynamic metadata (e.g. persona_version, intensity).
-
-        Returns:
-            Ordered list of 8 debate-point dicts.
+        Dynamically generates 8-point ZUMA dialectical debate points using the runtime LLM engine
+        tailored to the claim, user perspective, opponent perspective, and research preparation data.
         """
-        intensity = (context or {}).get("intensity", "standard")
-        persona_version = (context or {}).get("persona_version", "ZUMA-v1")
+        intensity = "sharp"
+        if isinstance(profile, dict):
+            intensity = profile.get("intensity", "sharp")
 
-        claim = cls.sanitize_bible_citations(claim_text)
-        _prep_dict = prep.to_dict() if hasattr(prep, "to_dict") else dict(prep or {})
-        prep_s = {
-            k: ([cls.sanitize_bible_citations(x) for x in v] if isinstance(v, list)
-                else cls.sanitize_bible_citations(v))
-            for k, v in _prep_dict.items()
-        }
+        if hasattr(prep, "to_dict"):
+            p_dict = prep.to_dict()
+        elif isinstance(prep, dict):
+            p_dict = prep
+        else:
+            p_dict = {}
 
-        def _point(num, point, evidence, reasoning, argument, zuma_style, presentation):
+        ctx = context or {}
+        user_persp = ctx.get("user_perspective", "christian")
+        opponent_persp = ctx.get("opponent_perspective", "islam")
+
+        evs = p_dict.get("evidence", [])
+        strongest_arg = p_dict.get("strongest_opponent_argument", "Argumen lawan berbasis penafsiran konvensional.")
+        cross_questions = p_dict.get("cross_examination_questions", [])
+        closing_text = p_dict.get("closing", "Kesimpulan forensik teks primer.")
+
+        prompt = f"""Anda adalah ZUMA Apologetics Expert & Dialectical Engine (Master Prompt #2).
+Hasilkan persis 8 titik debat simulasi ZUMA (8-Point Dialectic) secara dinamis, forensik, dan mendalam untuk klaim berikut:
+Klaim: "{claim}"
+Perspektif Pengguna (My Perspektif): {user_persp}
+Perspektif Lawan (Konteks Lawan): {opponent_persp}
+Bukti/Argumen Kontekstual: {json.dumps(evs)}
+Argumen Oposisi Terkuat: {strongest_arg}
+Pertanyaan Cross-Examination: {json.dumps(cross_questions)}
+
+Wajib mencakup 8 tahap ZUMA berikut secara berurutan:
+1) Opening Frame (penetapan mosi dan uji presisi teks primer)
+2) Concession Trap (menjebak premis dasar lawan)
+3) Structural Wedge (membelah asumsi dogmatis dari bukti tekstual)
+4) Scriptural/Linguistic Dissection (bedah akar kata Ibrani/Aramaik/Yunani Koine dan konteks sastra)
+5) Contradiction Lock (menguji konsistensi internal kanon)
+6) Reverse Burden (membalikkan beban pembuktian kepada pengusung klaim)
+7) Culminating Socratic Trap (dilema Sokratik akhir yang menutup ruang pelarian)
+8) Unescapable Conclusion (sintesis akhir logis dan objektif)
+
+Aturan Mutlak:
+- Gunakan nomenklatur Bible yang benar (contoh: *Yesaya 21:13-17*, *Roma 3:31*, dilarang singkatan seperti Mat/Rom/Yes).
+- Selalu gunakan istilah "Bible" (bukan Alkitab).
+- Tanpa basa-basi, tanpa filler.
+- HANYA kembalikan JSON valid berupa array of 8 objects dengan struktur persis:
+[
+  {{
+    "point_no": "1",
+    "point": "Opening Frame — Penetapan Mosi & Uji Presisi Teks",
+    "evidence": "...",
+    "reasoning": "...",
+    "argument": "...",
+    "zuma_style": "...",
+    "presentation": "..."
+  }},
+  ... (8 points total)
+]"""
+
+        try:
+            from orchestrator.runtime import AgentRuntime
+            res = AgentRuntime.dispatch_with_failover("RESEARCH_AGENT", prompt, timeout=45)
+            if res.status == "COMPLETED" and res.output:
+                raw_text = res.output.strip()
+                match = re.search(r'\[[\s\S]*\]', raw_text)
+                if match:
+                    try:
+                        parsed = json.loads(match.group(0))
+                        if isinstance(parsed, list) and len(parsed) >= 8:
+                            validated_points = []
+                            for i, pt in enumerate(parsed[:8]):
+                                if isinstance(pt, dict):
+                                    validated_points.append({
+                                        "point_no": str(i + 1),
+                                        "point": cls.sanitize_bible_citations(str(pt.get("point", f"Poin {i + 1}"))),
+                                        "evidence": cls.sanitize_bible_citations(str(pt.get("evidence", "Bukti naskah primer"))),
+                                        "reasoning": cls.sanitize_bible_citations(str(pt.get("reasoning", "Analisis epistemik"))),
+                                        "argument": cls.sanitize_bible_citations(str(pt.get("argument", "Argumen dialektika"))),
+                                        "zuma_style": cls.sanitize_bible_citations(str(pt.get("zuma_style", "ZUMA Dialectic Style"))),
+                                        "presentation": cls.sanitize_bible_citations(str(pt.get("presentation", "Presentasi Sokratik"))),
+                                        "intensity": intensity,
+                                        "persona_version": "ZUMA-2026-DIALECTIC"
+                                    })
+                            if len(validated_points) == 8:
+                                return validated_points
+                    except Exception:
+                        pass
+
+                # Fallback text parsing if JSON array extraction didn't yield 8 points
+                lines = [line.strip() for line in raw_text.split('\n') if line.strip()]
+                if len(lines) >= 8:
+                    dynamic_points = []
+                    titles = [
+                        "Opening Frame — Penetapan Mosi & Uji Presisi Teks",
+                        "Concession Trap — Menjebak Premis Dasar Lawan",
+                        "Structural Wedge — Membedah Asumsi Hermeneutik",
+                        "Scriptural/Linguistic Dissection — Bedah Akar Kata & Konteks",
+                        "Contradiction Lock — Menguji Konsistensi Internal Kanon",
+                        "Reverse Burden — Membalikkan Beban Pembuktian",
+                        "Culminating Socratic Trap — Pertanyaan Penutup Kritis",
+                        "Unescapable Conclusion — Sintesis Akhir Logis & Objektif"
+                    ]
+                    for i in range(8):
+                        content_line = lines[i] if i < len(lines) else f"Analisis dialektika {claim} tahap {i+1}."
+                        dynamic_points.append({
+                            "point_no": str(i + 1),
+                            "point": titles[i],
+                            "evidence": cls.sanitize_bible_citations(str(evs[0] if evs else "Analisis naskah primer")),
+                            "reasoning": cls.sanitize_bible_citations(f"Analisis Sokratik atas klaim: '{claim}'."),
+                            "argument": cls.sanitize_bible_citations(strongest_arg),
+                            "zuma_style": cls.sanitize_bible_citations(f"ZUMA Dialectic Pacing — Tahap {i+1}"),
+                            "presentation": cls.sanitize_bible_citations(content_line),
+                            "intensity": intensity,
+                            "persona_version": "ZUMA-2026-DIALECTIC"
+                        })
+                    return dynamic_points
+        except Exception as e:
+            pass
+
+        # Fallback dynamic rich template generator ensuring 8 valid points
+        ev_str = evs.get("passage") if isinstance(evs, dict) else (evs[0] if evs and isinstance(evs[0], str) else "Analisis naskah primer")
+        if isinstance(evs, list) and evs and isinstance(evs[0], dict):
+            ev_str = evs[0].get("passage", "Analisis naskah primer")
+
+        q1 = cross_questions[0] if cross_questions else f"Buka pasal dan ayat yang merujuk pada klaim: {claim}."
+        q2 = cross_questions[1] if len(cross_questions) > 1 else "Di mana letak otentisitas teks sumber pendukung klaim ini?"
+        resp1 = p_dict.get("responses", ["Uji leksikal dan konteks historis menolak lompatan hermeneutik tersebut."])[0]
+
+        def _pt(no, title, ev_ref, reason, arg, zuma_st, pres):
             return {
-                "point_no": str(num),
-                "point": cls.sanitize_bible_citations(point),
-                "evidence": evidence,
-                "reasoning": reasoning,
-                "argument": cls.sanitize_bible_citations(argument),
-                "zuma_style": zuma_style,
-                "presentation": cls.sanitize_bible_citations(presentation),
+                "point_no": str(no),
+                "point": title,
+                "evidence": cls.sanitize_bible_citations(str(ev_ref)),
+                "reasoning": cls.sanitize_bible_citations(str(reason)),
+                "argument": cls.sanitize_bible_citations(str(arg)),
+                "zuma_style": cls.sanitize_bible_citations(str(zuma_st)),
+                "presentation": cls.sanitize_bible_citations(str(pres)),
                 "intensity": intensity,
-                "persona_version": persona_version,
+                "persona_version": "ZUMA-2026-DIALECTIC"
             }
 
-        evidence_items = prep_s.get("evidence", [])
-        e1 = evidence_items[0] if evidence_items else "naskah Koine Greek tersedia"
-        e2 = evidence_items[1] if len(evidence_items) > 1 else "natsius tekstual"
-        e3 = evidence_items[2] if len(evidence_items) > 2 else "manuskrip paling tua"
-
-        opp_strongest = prep_s.get("strongest_opponent_argument", "klaim lawan")
-        cross_q = prep_s.get("cross_examination_questions", [])
-        cq1 = cross_q[0] if cross_q else "Buka pasal dan ayatnya secara spesifik."
-
-        defensive = prep_s.get("defensive_responses", ["lawan mengakui hukum moral tetap"])
-        responses = prep_s.get("responses", ["kata 'telos' = tujuan puncak, bukan pemusnahan"])
-
-        closing_text = prep_s.get("closing", "dialektika teks mengunci kesimpulan ini secara objektif.")[:180]
-
-        points = [
-            _point(
+        return [
+            _pt(
                 1,
-                f"Anchoring: Membuka kain kunci naskah primer — {claim}",
-                e1,
-                "Klaim spekulatif hanya dapat dibantah atau didukung oleh teks asli yang ditulis. Semua interpretasi yang mengabaikan naskah sumber adalah proyeksi bukan eksegesa.",
-                f"Hukum Taurat tidak batal. Buktinya: Roma 3:31 — Paulus menegakkan hukum dengan \u03bc\u1f40 \u03b3\u03ad\u03bd\u03bf\u03b9\u03c4\u03bf. Ini bukan retorika, ini negasi logis.",
-                "ZUMA Cold Precision — menyoal hipergranularitas, memaksa lawan berhenti di koridor teks asli.",
-                f"[Titik 1] Buka sekarang: di Roma 3:31, kata Yunani apa yang lawan baca? Bacakan "
-                f"\u03bc\u1f48 \u03b3\u03ad\u03bd\u03bf\u03b9\u03c4\u03bf. Apa nilai logisnya di pohon inferensi?"
+                "Opening Frame — Penetapan Mosi & Uji Presisi Teks",
+                ev_str,
+                f"Menetapkan landasan epistemik dari klaim perspektif {user_persp} versus {opponent_persp} mengenai: '{claim}'.",
+                f"Analisis awal atas klaim '{claim}' menuntut pembuktian filologis langsung pada teks sumber.",
+                "ZUMA Framing — Menuntut presisi tekstual mutlak tanpa pengalihan isu.",
+                f"[Titik 1] Mari buka mosi ini. Klaim '{claim}' diajukan dalam diskursus {user_persp} vs {opponent_persp}. Apa rujukan teks primer otentik yang mendasari klaim ini?"
             ),
-            _point(
+            _pt(
                 2,
-                "Immanent Critique — menghancurkan posisi dengan kanon lawan sendiri.",
-                e2,
-                "Jika kanon Bible lawan mengatakan hukum Taurat kudus (Roma 7:12) maka seluruh klaim "
-                "'Taurat batal' menyiratkan Allah mendukung sesuatu yang kudus lalu membatalkannya.",
-                f"Anda kutip Paulus. Mari uji Paulus dengan Paulus: Roma 7:12 vs Efesus 2:15. Mana yang Anda pilih?",
-                "ZUMA Ilzam al-Khasm — memperlihatkan kanon Anda membantah interpretasi Anda.",
-                f"[Titik 2] Di Roma 7:12, Paulus menyatakan hukum kudus. Lalu? Anda yakin Efesus 2:15 "
-                f"merusakkan ini secara total?"
+                "Concession Trap — Menjebak Premis Dasar Lawan",
+                q1,
+                f"Memaksa pihak {opponent_persp} mengonfirmasi batasan teks dari {ev_str} sebelum melompat ke interpretasi teologis.",
+                f"Jika lawan mengakui isi teks, maka argumen lanjutan harus tunduk pada batasan gramatikal tersebut.",
+                "ZUMA Concession Funnel — Mengunci lawan pada pengakuan teks awal.",
+                f"[Titik 2] Berdasarkan {q1}, apakah Anda mengakui batasan redaksional teks tersebut atau menafsirkannya di luar konteks?"
             ),
-            _point(
+            _pt(
                 3,
-                "Maieutic Funnel — dilema konstruktif di mana kedua lorongs membuktikan kesalahan lawan.",
-                e3,
-                "Kata 'nomos' (\u03bd\u03cc\u03bc\u03bf\u03c2) memiliki rentang makna. Namun konteks Roma 7:12 memilih "
-                "makna moral, bukan seremonial. Jika lawan menolak ini, ia menghancurkan kanoninya sendiri.",
-                f"Pilih: (a) Paulus kontradiktif dengan dirinya sendiri — maka kanon Anda rapuh, "
-                f"atau (b) hukum moral tetap — maka tidak ada pembatalan total.",
-                "ZUMA Dilemma Trap — memaksa lawan memilih antara inkonsistensi internal atau pengakuan atas hukum moral.",
-                f"[Titik 3] Ini bukan false dilemma. Ini logika kaku: Anda ingin memilih lorong mana, "
-                f"hukum moral tetap atau tidak?"
+                "Structural Wedge — Membedah Asumsi Hermeneutik",
+                strongest_arg,
+                f"Menguji argumen tandingan lawan: '{strongest_arg}' dan memisahkan antara fakta leksikal dengan asumsi dogmatis.",
+                "Mematahkan generalisasi prematur dengan membedah struktur gramatika bahasa asli.",
+                "ZUMA Structural Wedge — Membelah asumsi dogmatis dari bukti tekstual.",
+                f"[Titik 3] Lawan membangun asumsi: '{strongest_arg}'. Mari kita bedah apakah struktur gramatikal teks mendukung atau meruntuhkan asumsi ini."
             ),
-            _point(
+            _pt(
                 4,
-                "Concession Lock — mengunci jawaban lawan ke dalamnya sebagai fondasi argumen berikutnya.",
-                defensive[0],
-                "Setiap pengakuan sembrian oleh lawan menjadi jembatan logis. Jika lawan mengatakan "
-                "'hukum moral tetap tapi seremonial batal', itu sudah mengakui premis utama kami.",
-                f"Saya catat: lawan mengakui 'hukum moral tetap'. Itu adalah konsesi kritis. "
-                f"Sekarang, atas dasar itu, Anda menolak komplotan kami di Roma 3:31?",
-                "ZUMA Concession Extraction — mengubah kelemahan lawan menjadi pilar argumen.",
-                f"[Titik 4] Anda berkata 'hukum moral tetap'. Baik — itu artinya Roma 3:31 menegakkan, "
-                f"bukan membatalkan. Apakah tidak?"
+                "Scriptural/Linguistic Dissection — Bedah Akar Kata & Konteks",
+                ev_str,
+                f"Analisis morfologi dan semantik leksikon bahasa sumber (Ibrani/Yunani) terkait klaim '{claim}'.",
+                resp1,
+                "ZUMA Philological Exegesis — Bedah forensik kata demi kata dari naskah sumber.",
+                f"[Titik 4] {resp1} Mari kita periksa akar kata dan konteks historis-sastra perikop ini secara mendalam."
             ),
-            _point(
+            _pt(
                 5,
-                "Syllogistic Pressure — menyusun logika modus ponens langsung pada lawan.",
-                cq1,
-                "Premis 1: Jika Taurat dibatalkan total, tidak ada pasal yang kudus. "
-                "Premis 2: Roma 7:12 mengatakan hukum Taurat kudus. Konklusi: Taurat tidak dibatalkan total.",
-                f"Anda menyatakan iman membatalkan hukum. Tapi iman justru menegakkan — karena iman tidak "
-                f"mungkin membatalkan apa yang kudus.",
-                "ZUMA Logical Razor — membersihkan logika sampai tak tersisa premis irasional.",
-                f"[Titik 5] Premis 1: hukum kudus tidak batal. Premis 2: Roma 7:12 — kudus. Jadi: "
-                f"tidak batal total. Anda setuju?"
+                "Contradiction Lock — Menguji Konsistensi Internal Kanon",
+                q2,
+                f"Menguji inkonsistensi antara klaim dengan keseluruhan saksi manuskrip dan korpus paralel.",
+                f"Jika interpretasi lawan menciptakan kontradiksi internal, maka interpretasi tersebut gugur.",
+                "ZUMA Immanent Critique — Menghantam klaim dengan uji konsistensi internal.",
+                f"[Titik 5] {q2} Jika diuji dengan korpus paralel, interpretasi Anda mengalami kontradiksi. Bagaimana Anda menyelaraskannya?"
             ),
-            _point(
+            _pt(
                 6,
-                "Lexical Precision — menyempitkan makna kata berdasarkan leksikon akademik (BDAG, HALOT).",
-                responses[0],
-                "Kata 'telos' (\u03c4\u03ad\u03bb\u03bf\u03c2) dan 'paidagogos' (Gal 3:24) tidak berarti "
-                "'penghapusan eksistensi'. Saya tunjukkan anotasi BDAG di sini.",
-                f"Roma 10:4 — telos bukan pembusahaan. Anda baca 'akhir' sebagai 'musnah'. Periksa BDAG. "
-                f"Ini selip antar-lema.",
-                "ZUMA Forensic Lexicography — menyelam ke dalam makna asli, bukan resepsi teologis modern.",
-                f"[Titik 6] Bacankan \u03c4\u03ad\u03bb\u03bf\u03c2 dalam BDAG. Bukan 'pemusnah', tapi "
-                f"'tujuan tertinggi'. Anda tetap bisa membaca ini, bukan?"
+                "Reverse Burden — Membalikkan Beban Pembuktian",
+                "Bukti tekstual primer",
+                "Membalikkan beban pembuktian kepada pihak yang mengajukan klaim tanpa saksi naskah yang memadai.",
+                "Klaim tanpa dukungan manuskrip dan leksikon runtuh di bawah standar pembuktian objektif.",
+                "ZUMA Reverse Burden — Mengembalikan beban pembuktian pada pengusung klaim.",
+                f"[Titik 6] Beban pembuktian ada pada Anda. Tunjukkan saksi manuskrip atau kaidah gramatika mana yang memvalidasi klaim '{claim}' secara mutlak."
             ),
-            _point(
+            _pt(
                 7,
-                "Contextual Isolation — menembakkan klausa kecil di dalam perikop penuh.",
-                opp_strongest[:180],
-                "Efesus 2:15: 'katarg\u1f47sas en dogmasin' — kata penutup 'en dogmasin' secara ketat "
-                "membatasi objek pembatalan. Ini bukan pembatalan total hukum moral.",
-                f"Anda mengutip Efesus 2:15, tapi lewati 'en dogmasin'. Itu bukan kesalahan kecil — "
-                f"itu manipulasi konteks. Saya membuktikannya.",
-                "ZUMA Textual Isolation — menempatkan kata terasing dalam kerangka klausa penuh.",
-                f"[Titik 7] Enam kata Yunani itu semua: katarg\u1f47sas en dogmasin. Anda hanya baca tiga. "
-                f"Jelaskan."
+                "Culminating Socratic Trap — Pertanyaan Penutup Kritis",
+                q1,
+                "Menyusun dilema Sokratik akhir yang menutup seluruh celah pelarian teologis.",
+                "Pilihan mutlak: mengakui konsistensi teks primer atau mempertahankan kontradiksi logis.",
+                "ZUMA Maieutic Funnel — Menutup ruang pelarian dialektika.",
+                f"[Titik 7] Pilih satu: apakah Anda merevisi klaim ini agar selaras dengan teks primer, atau mempertahankan penafsiran yang berkontradiksi dengan naskah?"
             ),
-            _point(
+            _pt(
                 8,
-                "Closing Trap — mengemas seluruh rantai bukti menjadi tekatan logis final.",
+                "Unescapable Conclusion — Sintesis Akhir Logis & Objektif",
                 closing_text,
-                "Dari mikro-gramatikal "
-                f"\u03bc\u1f48 \u03b3\u03ad\u03bd\u03bf\u03b9\u03c4\u03bf hingga makro-kanonikal konsistensi Roma 7:12 — "
-                f"setiap lapisan menguatkan: Paulus menegakkan, bukan membatalkan, hukum moral Taurat.",
-                f"Kesimpulan: klaim '{claim}' telah runtuh di bawah beban bukti teks primer. "
-                f"Paulus tegas menegakkan hukum Taurat (Roma 3:31) dan menolak pembatalan total (Roma 7:12).",
-                "ZUMA Final Synthesis — bukan penghakiman akhir, tapi pembuktian logis yang tak terbantahkan.",
-                f"[Titik 8] Ini bukan akhir kami — ini akhir Anda. Klaim Anda telah runtuh. "
-                f"Paulus menegakkan hukum. "
-                f"\u03bc\u1f48 \u03b3\u03ad\u03bd\u03bf\u03b9\u03c4\u03bf membatalkan itu. "
-                f"Apa lagi yang perlu Anda tanyakan?"
-            ),
+                f"Menyimpulkan hasil bedah dialektika atas klaim '{claim}' secara objektif dan tuntas.",
+                f"Klaim '{claim}' diuji berdasarkan bukti teks primer, leksikon, dan dialektika Sokratik.",
+                "ZUMA Final Synthesis — Kepastian argumentatif yang tak terbantahkan.",
+                f"[Titik 8] Bedah dialektika selesai. Berdasarkan bukti teks primer dan analisis Sokratik, klaim '{claim}' telah diuji secara utuh."
+            )
         ]
-        return points
+

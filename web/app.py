@@ -2151,15 +2151,16 @@ async def get_user_training_stats_endpoint(user_id: str):
 @app.get("/audit")
 @app.get("/report")
 async def get_index():
+    headers = {"Cache-Control": "no-cache, no-store, must-revalidate"}
     index_file = os.path.join(STATIC_DIR, "index.html")
     if os.path.exists(index_file):
         with open(index_file, "r", encoding="utf-8") as f:
-            return HTMLResponse(content=f.read())
+            return HTMLResponse(content=f.read(), headers=headers)
     arena_file = os.path.join(STATIC_DIR, "arena.html")
     if os.path.exists(arena_file):
         with open(arena_file, "r", encoding="utf-8") as f:
-            return HTMLResponse(content=f.read())
-    return HTMLResponse("<h1>Polya Arena Loading...</h1>")
+            return HTMLResponse(content=f.read(), headers=headers)
+    return HTMLResponse("<h1>Polya Arena Loading...</h1>", headers=headers)
 
 @app.get("/calculator-report.txt")
 @app.get("/report.txt")

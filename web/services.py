@@ -1028,8 +1028,13 @@ class CaseFileGenerator:
                         zuma_prep["defensive_responses"] = prep.get("defensive_responses", [])
                         zuma_prep["responses"] = prep.get("responses", [])
                         zuma_prep["closing"] = prep.get("closing", "")
+                    zuma_context = {
+                        "user_perspective": persp,
+                        "opponent_perspective": ctx.opponent_perspective or "islam",
+                        "debate_locale": ctx.debate_locale
+                    }
                     prep_val["simulated_debate"] = ZumaSkillEngine.generate_zuma_simulated_debate(
-                        claim, zuma_prep, {"intensity": "sharp"}
+                        claim, zuma_prep, {"intensity": "sharp"}, context=zuma_context
                     )
                 except Exception as e:
                     logger.warning(f"ZUMA simulated debate injection skipped: {e}")
@@ -1075,6 +1080,21 @@ class CaseFileGenerator:
             logger.error(f"Real intelligence execution fallback: {exc}")
             case_id = f"CASE-{hashlib.md5(claim.encode('utf-8')).hexdigest()[:8].upper()}"
             opp_persp = (ctx.opponent_perspective or "OPPOSISI").upper()
+            sim_deb = []
+            if requested_mode == "DEBATE":
+                try:
+                    from orchestrator.zuma_skill_engine import ZumaSkillEngine
+                    z_ctx = {
+                        "user_perspective": persp,
+                        "opponent_perspective": ctx.opponent_perspective or "islam",
+                        "debate_locale": ctx.debate_locale
+                    }
+                    sim_deb = ZumaSkillEngine.generate_zuma_simulated_debate(
+                        claim, {"closing": "Kesimpulan forensik teks primer."}, {"intensity": "sharp"}, context=z_ctx
+                    )
+                except Exception:
+                    pass
+
             return CaseFile(
                 case_id=case_id,
                 claim=claim,
@@ -1097,7 +1117,8 @@ class CaseFileGenerator:
                 open_questions=["Bagaimana lawan menjelaskan reaksi langsung terhadap Roma 3:31?"],
                 debate_preparation={
                     "cross_examination_trap": "Kuncilah lawan pada definisi kata bahasa asli sebelum mereka mengalihkan topik.",
-                    "recommended_tempo": "Ajukan pertanyaan sokratik pendek, minta konfirmasi arti kata netral versus maskulin."
+                    "recommended_tempo": "Ajukan pertanyaan sokratik pendek, minta konfirmasi arti kata netral versus maskulin.",
+                    "simulated_debate": sim_deb
                 },
                 is_demo=True,
                 notice="DEMO / MOCK DATA — Strictly for testing UI and structure",

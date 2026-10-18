@@ -2058,14 +2058,11 @@
 
           <!-- Adversarial Control Buttons -->
           <div class="case-actions-row" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-            <button id="btn-challenge-arg" class="btn-primary" style="width: auto; background: var(--rose); color: #fff;" onclick="runChallengeArgument()">
-              ⚔ Challenge My Argument
-            </button>
             <button id="btn-weakest-point" class="btn-primary" style="width: auto; background: #eab308; color: #040914; font-weight: 600;" onclick="runWeakestPointAnalysis()">
               🎯 Weakest Point Analysis
             </button>
             <a class="btn-primary" style="width: auto; background: var(--accent); color: #fff; text-decoration: none;" href="/arena">
-              🏛 Buka Live Debate Arena (3v3) →
+              SIMULATION DEBATE LEARNING →
             </a>
           </div>
 
@@ -3339,10 +3336,11 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           }
 
           let simDebateHtml = "";
-          if (prep && prep.simulated_debate && Array.isArray(prep.simulated_debate) && prep.simulated_debate.length > 0) {
+          const debateList = (prep && (prep.simulated_debate || prep.dialectic_stages || prep.zuma_simulated_debate)) || [];
+          if (Array.isArray(debateList) && debateList.length > 0) {
             simDebateHtml = `<div style="margin-top: 0.75rem; border-top: 1px solid var(--border-subtle); padding-top: 0.5rem;">
               <strong style="color: var(--primary); font-size: 0.85rem;">ZUMA Simulated Debate (8-Point Dialectic):</strong>
-              ${prep.simulated_debate.map((pt, i) => {
+              ${debateList.map((pt, i) => {
                 const label = safeEscapeText(pt.point || ("Poin " + (i + 1)));
                 const style = safeEscapeText(pt.zuma_style || "");
                 const presentation = safeEscapeText(pt.presentation || "");

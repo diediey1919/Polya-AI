@@ -1,0 +1,54 @@
+
+    @classmethod
+    def generate_zuma_simulated_debate(
+        cls,
+        claim_text: str,
+        prep: Any, # DebatePreparationPackage
+        context: Optional[Dict[str, Any]] = None
+    ) -> List[Dict[str, str]]:
+        intensity = (context or {}).get("intensity", "standard")
+        persona_version = (context or {}).get("persona_version", "ZUMA-v2")
+
+        claim = cls.sanitize_bible_citations(claim_text)
+        _prep_dict = prep.to_dict() if hasattr(prep, "to_dict") else dict(prep or {})
+        prep_s = {
+            k: ([cls.sanitize_bible_citations(x) for x in v] if isinstance(v, list)
+                else cls.sanitize_bible_citations(v))
+            for k, v in _prep_dict.items()
+        }
+
+        def _point(num, point, evidence, reasoning, argument, zuma_style, presentation):
+            return {
+                "point_no": str(num),
+                "point": cls.sanitize_bible_citations(point),
+                "evidence": evidence,
+                "reasoning": reasoning,
+                "argument": cls.sanitize_bible_citations(argument),
+                "zuma_style": zuma_style,
+                "presentation": cls.sanitize_bible_citations(presentation),
+                "intensity": intensity,
+                "persona_version": persona_version,
+            }
+
+        evidence_items = prep_s.get("evidence", [])
+        e1 = evidence_items[0] if evidence_items else "naskah sumber utama"
+        e2 = evidence_items[1] if len(evidence_items) > 1 else "konteks sejarah"
+        e3 = evidence_items[2] if len(evidence_items) > 2 else "analisis filologis"
+
+        opp_strongest = prep_s.get("strongest_opponent_argument", "argumen lawan")
+        cross_q = prep_s.get("cross_examination_questions", [])
+        cq1 = cross_q[0] if cross_q else "Jelaskan dasar teksnya."
+
+        closing_text = prep_s.get("closing", "dialektika teks mengunci kesimpulan ini secara objektif.")
+
+        points = [
+            _point(1, "Opening Frame", e1, "Membuka kerangka analisis teks.", f"Membedah klaim: '{claim}'.", "ZUMA Framing", f"Berdasarkan {e1}, apa premis utama klaim Anda?"),
+            _point(2, "Concession Trap", e2, "Menemukan titik temu yang mengikat.", f"Jika '{opp_strongest}' diterima, maka...", "ZUMA Concession", f"Apa konsesi logis yang harus diterima jika kita memakai {e2}?"),
+            _point(3, "Structural Wedge", e3, "Memisahkan interpretasi dari naskah.", f"Interpretasi ini bertabrakan dengan {e3}.", "ZUMA Wedge", f"Bagaimana Anda merekonsiliasi {e3} dengan klaim Anda?"),
+            _point(4, "Linguistic Dissection", e1, "Bedah istilah kunci.", f"Analisis term utama dalam teks.", "ZUMA Philology", "Apa arti leksikal yang tepat di sini?"),
+            _point(5, "Contradiction Lock", opp_strongest, "Mengunci pada inkonsistensi internal.", f"Argumen Anda '{opp_strongest}' bertentangan dengan...", "ZUMA Lock", "Bagaimana mengatasi kontradiksi ini?"),
+            _point(6, "Reverse Burden", cq1, "Membalik beban pembuktian.", cq1, "ZUMA Burden", f"Buktikan '{cq1}' secara eksplisit."),
+            _point(7, "Socratic Trap", opp_strongest, "Mengurung dalam dilema.", f"Pilihan sulit bagi Anda.", "ZUMA Trap", "Tentukan posisi Anda."),
+            _point(8, "Unescapable Conclusion", closing_text, "Sintesis final.", closing_text, "ZUMA Final", "Kesimpulan tak terbantahkan.")
+        ]
+        return points
