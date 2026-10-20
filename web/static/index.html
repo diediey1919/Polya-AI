@@ -1912,6 +1912,7 @@
       <a class="side-item" onclick="navigateRoute(event, '/settings')">Settings</a>
       <a class="side-item" onclick="navigateRoute(event, '/account')">Billing & Quota</a>
       <a class="side-item" href="/arena" style="color: #dfb15b; font-weight: 600;">Debate Arena (3-vs-3)</a>
+      <a class="side-item" onclick="navigateRoute(event, '/about-polya')" style="color: #38bdf8; font-weight: 600;">About Polya AI</a>
     </aside>
 
     <!-- Main Content Area -->
@@ -2719,6 +2720,49 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       </section>
 
       <!-- VIEW 8: ACCOUNT & BILLING VIEW -->
+      <section id="view-account" class="hidden">
+        ...
+      </section>
+
+      <!-- VIEW 9: ABOUT POLYA AI VIEW -->
+      <section id="view-about-polya" class="hidden">
+        <div style="max-width: 900px; margin: 0 auto; padding-bottom: 3rem;">
+          <h2 style="font-family: var(--font-serif); font-size: 2.2rem; margin-bottom: 1rem; color: var(--primary);">About Polya AI: The Autonomous Composite Graph-Hybrid RAG Engine</h2>
+          <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem;">
+            Polya AI adalah engine kecerdasan buatan otonom mutakhir yang dirancang secara khusus untuk kebutuhan apologetika lintas iman, eksegesis teks primer (Koine Greek, Biblical Hebrew, Aramaic), serta analisis dialektika tingkat lanjut di platform <strong>apologets.com</strong>.
+          </p>
+
+          <div class="case-card" style="margin-bottom: 2rem;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-main);">1. Arsitektur Tri-Layer Graph-Hybrid RAG Otonom</h3>
+            <p style="font-size: 0.92rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1rem;">
+              Berbeda dengan model AI konvensional yang statis, Polya AI beroperasi di latar belakang melalui daemon otonom yang terjadwal setiap 30 menit. Sistem ini memproses dan menyinkronkan <strong>2.638+ transkrip debat mendalam</strong> serta <strong>189+ sumber knowledge interfaith (Keyahudian, Kekristenan, dan Islam)</strong> secara berkelanjutan ke dalam dua lapisan penyimpanan utama:
+            </p>
+            <ul style="padding-left: 1.25rem; font-size: 0.9rem; line-height: 1.6; color: var(--text-muted);">
+              <li><strong>Graph Store & Entity Extraction:</strong> Membangun node dan edge dialektika (Claim, Premise, Speaker, BiblicalPassage, CounterArgument) secara otomatis.</li>
+              <li><strong>SQLite FTS5 Relational Index:</strong> Memastikan pencarian teks lengkap (Full-Text Search) dan audit saksi manuskrip tertua berjalan real-time tanpa latensi.</li>
+            </ul>
+          </div>
+
+          <div class="case-card" style="margin-bottom: 2rem;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-main);">2. Peningkatan Pengetahuan Otonom Berkelanjutan (Continuous AI Learning)</h3>
+            <p style="font-size: 0.92rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1rem;">
+              Kemampuan khusus Polya AI terletak pada siklus peningkatan diri (self-improving loop) yang berjalan tanpa henti:
+            </p>
+            <ol style="padding-left: 1.25rem; font-size: 0.9rem; line-height: 1.6; color: var(--text-muted);">
+              <li><strong>Incremental Ingestion & Extraction:</strong> Menyerap data korpus baru secara otomatis ke dalam klaster graf hierarkis (*Community Summaries*).</li>
+              <li><strong>Logical Audit & ZUMA Validation:</strong> Setiap argumen dan silogisme yang dihasilkan divalidasi secara ketat oleh ZUMA Socratic Engine untuk mencegah halusinasi sitasi ayat dan memastikan presisi teologis mutlak.</li>
+              <li><strong>WAL Database Optimization:</strong> Beroperasi dengan Write-Ahead Logging (WAL) dan pemeliharaan mingguan (VACUUM & ANALYZE) untuk menjamin stabilitas performa tingkat enterprise.</li>
+            </ol>
+          </div>
+
+          <div class="case-card">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-main);">3. Komitmen pada Validitas Primer & Objektivitas Intelektual</h3>
+            <p style="font-size: 0.92rem; line-height: 1.6; color: var(--text-muted);">
+              Melalui integrasi di apologets.com, Polya AI tidak hanya bertindak sebagai asisten tanya-jawab, melainkan sebagai partner dialektika forensik berstandar akademis tinggi. Seluruh inferensi bersandar pada naskah sumber kuno, leksikon akademik terverifikasi (BDB, BDAG, HALOT), dan kanon teks primer masing-masing tradisi.
+            </p>
+          </div>
+        </div>
+      </section>
       <section id="view-account" class="hidden">
         <h2 style="font-family: var(--font-serif); font-size: 1.85rem; margin-bottom: 0.5rem;">Account, Quota & Billing</h2>
         <p style="color: var(--text-muted); margin-bottom: 2rem;">Kelola lisensi Polya Premium, status pembayaran Midtrans, dan riwayat analisis.</p>
@@ -5050,7 +5094,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     }
 
     function dispatchRoute(path) {
-      ["calculator", "dashboard", "themes", "knowledge", "persona", "pipeline", "settings", "account", "audit"].forEach(v => {
+      ["calculator", "dashboard", "themes", "knowledge", "persona", "pipeline", "settings", "account", "audit", "about-polya"].forEach(v => {
         const el = document.getElementById(`view-${v}`);
         if (el) el.classList.add("hidden");
       });
@@ -5083,6 +5127,11 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       } else if (path.startsWith("/account") || path.startsWith("/checkout")) {
         document.getElementById("view-account").classList.remove("hidden");
         fetchBillingHistory();
+      } else if (path.startsWith("/about-polya")) {
+        const viewAbout = document.getElementById("view-about-polya");
+        if (viewAbout) viewAbout.classList.remove("hidden");
+        const items = document.querySelectorAll(".side-item");
+        if (items.length > 0) items[items.length - 1].classList.add("active");
         document.querySelectorAll(".side-item")[7].classList.add("active");
       } else if (path.startsWith("/audit") || path.startsWith("/report")) {
         document.getElementById("view-audit").classList.remove("hidden");
