@@ -259,6 +259,66 @@ class ZumaSkillEngine:
         )
 
     @classmethod
+    def generate_zuma_simulated_debate(
+        cls,
+        claim_text: str,
+        prep: Any,
+        context: Optional[Dict[str, Any]] = None
+    ) -> List[Dict[str, str]]:
+        """
+        Generates a dynamic 8-point simulated ZUMA debate.
+        """
+        intensity = (context or {}).get("intensity", "standard")
+        persona_version = (context or {}).get("persona_version", "ZUMA-v1")
+
+        claim = cls.sanitize_bible_citations(claim_text)
+        _prep_dict = prep.to_dict() if hasattr(prep, "to_dict") else dict(prep or {})
+        prep_s = {
+            k: ([cls.sanitize_bible_citations(x) for x in v] if isinstance(v, list)
+                else cls.sanitize_bible_citations(v))
+            for k, v in _prep_dict.items()
+        }
+
+        def _point(num, point, evidence, reasoning, argument, zuma_style, presentation):
+            return {
+                "point_no": str(num),
+                "point": cls.sanitize_bible_citations(point),
+                "evidence": evidence,
+                "reasoning": reasoning,
+                "argument": cls.sanitize_bible_citations(argument),
+                "zuma_style": zuma_style,
+                "presentation": cls.sanitize_bible_citations(presentation),
+                "intensity": intensity,
+                "persona_version": persona_version,
+            }
+
+        evidence_items = prep_s.get("evidence", [])
+        e1 = evidence_items[0] if evidence_items else "naskah Koine Greek tersedia"
+        e2 = evidence_items[1] if len(evidence_items) > 1 else "natsius tekstual"
+        e3 = evidence_items[2] if len(evidence_items) > 2 else "manuskrip paling tua"
+
+        opp_strongest = prep_s.get("strongest_opponent_argument", "klaim lawan")
+        cross_q = prep_s.get("cross_examination_questions", [])
+        cq1 = cross_q[0] if cross_q else "Buka pasal dan ayatnya secara spesifik."
+
+        defensive = prep_s.get("defensive_responses", ["lawan mengakui hukum moral tetap"])
+        responses = prep_s.get("responses", ["kata 'telos' = tujuan puncak, bukan pemusnahan"])
+
+        closing_text = prep_s.get("closing", "dialektika teks mengunci kesimpulan ini secara objektif.")[:180]
+
+        points = [
+            _point(1, f"Anchoring: Membuka kain kunci naskah primer — {claim}", e1, "Klaim spekulatif hanya dapat dibantah atau didukung oleh teks asli.", f"Hukum Taurat tidak batal. Buktinya: Roma 3:31.", "ZUMA Cold Precision", f"[Titik 1] Buka Roma 3:31: apa nilai logisnya?"),
+            _point(2, "Immanent Critique — menghancurkan posisi dengan kanon lawan sendiri.", e2, "Jika kanon Bible lawan mengatakan hukum Taurat kudus (Roma 7:12), maka klaim batal bertentangan.", f"Roma 7:12 vs Efesus 2:15.", "ZUMA Ilzam al-Khasm", f"[Titik 2] Di Roma 7:12, Paulus menyatakan hukum kudus. Jelaskan."),
+            _point(3, "Maieutic Funnel — dilema konstruktif.", e3, "Kata 'nomos' memiliki rentang makna moral dan seremonial.", f"Pilih: (a) Paulus kontradiktif, atau (b) hukum moral tetap.", "ZUMA Dilemma Trap", f"[Titik 3] Pilih lorong mana?"),
+            _point(4, "Concession Lock — mengunci jawaban lawan.", defensive[0], "Setiap pengakuan sembrian oleh lawan menjadi jembatan logis.", f"Lawan mengakui 'hukum moral tetap'.", "ZUMA Concession Extraction", f"[Titik 4] Anda berkata hukum moral tetap. Apakah tidak?"),
+            _point(5, "Syllogistic Pressure — menyusun logika modus ponens.", cq1, "Premis 1: Taurat tidak batal. Premis 2: Roma 7:12 kudus.", f"Iman menegakkan hukum.", "ZUMA Logical Razor", f"[Titik 5] Apakah Anda setuju?"),
+            _point(6, "Lexical Precision — leksikon akademik (BDAG, HALOT).", responses[0], "Kata 'telos' tidak berarti penghapusan eksistensi.", f"Roma 10:4 — telos sebagai tujuan.", "ZUMA Forensic Lexicography", f"[Titik 6] Periksa BDAG."),
+            _point(7, "Contextual Isolation — menembakkan klausa kecil.", opp_strongest[:180], "Efesus 2:15: 'katargēsas en dogmasin'.", f"Melewati kata kunci adalah manipulasi konteks.", "ZUMA Textual Isolation", f"[Titik 7] Jelaskan enam kata tersebut."),
+            _point(8, "Closing Trap — sintesis final.", closing_text, "Dari mikro-gramatikal hingga makro-kanonikal.", f"Kesimpulan: klaim runtuh di bawah beban bukti.", "ZUMA Final Synthesis", f"[Titik 8] Klaim Anda telah runtuh.")
+        ]
+        return points
+
+    @classmethod
     def generate_zuma_forensic_simulation(
         cls,
         claim: str,

@@ -659,47 +659,12 @@ async def get_knowledge_evidence_endpoint():
 # P1.2: Dynamic Themes Explorer Endpoints
 # ===========================================================================
 
+from web.motion_generator import get_corpus_debate_motions
+
 @router.get("/themes")
 async def list_themes_endpoint():
-    """Returns dynamic catalog of themes sourced from video_pipeline/06_debate."""
-    import glob
-    themes = []
-    pipeline_dir = os.path.join(REPO_ROOT, "data", "video_pipeline", "06_debate")
-    debate_files = sorted(glob.glob(os.path.join(pipeline_dir, "*", "debate.json")))
-
-    for path in debate_files:
-        vid = os.path.basename(os.path.dirname(path))
-        try:
-            with open(path, "r", encoding="utf-8") as f:
-                d = json.load(f)
-            motion = d.get("motion_or_topic") or f"Debate Theme {vid}"
-            rounds = d.get("rounds", [])
-            themes.append({
-                "theme_id": vid,
-                "id": vid,
-                "title": motion,
-                "discourse_type": d.get("debate_mode") or "APOLOGETIC_INTERFAITH_DEBATE",
-                "passages": ["Roma 3:31", "Galatia 2:16", "Matius 26:39", "Yohanes 10:30"],
-                "rounds_count": len(rounds),
-                "participants_count": len(d.get("participants", [])),
-                "grounding_rules_count": len(d.get("grounding_rules", [])),
-                "status": "Debate Ready"
-            })
-        except Exception as err:
-            logger.warning(f"Failed to parse theme {vid}: {err}")
-
-    # Fallback to theme-01 if 06_debate is empty
-    if not themes:
-        themes.append({
-            "theme_id": "friksi-paulus-vs-petrus",
-            "title": "Friksi Paulus vs Petrus (Galatia 2 & Roma 15)",
-            "discourse_type": "APOLOGETIC_INTERFAITH_DEBATE",
-            "rounds_count": 5,
-            "participants_count": 2,
-            "grounding_rules_count": 4,
-            "status": "Debate Ready"
-        })
-
+    """Returns dynamic catalog of 300+ professional theological debate motion themes derived from transcript content analysis."""
+    themes = get_corpus_debate_motions()
     return {"success": True, "count": len(themes), "themes": themes}
 
 
