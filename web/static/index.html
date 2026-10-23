@@ -837,6 +837,80 @@
       border-inline-start: 2px solid var(--primary);
     }
 
+    .side-sub-item {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.32rem 0.55rem 0.32rem 0.7rem;
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.76rem;
+      font-weight: 450;
+      cursor: pointer;
+      transition: all 0.12s;
+      border-inline-start: 2px solid transparent;
+    }
+
+    .side-sub-item:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.04);
+      border-inline-start: 2px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .side-sub-item.active {
+      color: var(--primary);
+      background: rgba(56, 189, 248, 0.08);
+      border-inline-start: 2px solid var(--primary);
+      font-weight: 600;
+    }
+
+    .side-sub-item .sub-icon {
+      font-size: 0.78rem;
+      flex-shrink: 0;
+    }
+
+    .side-sub-item .sub-text {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .side-sub-item .sub-count {
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      font-variant-numeric: tabular-nums;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.05rem 0.35rem;
+      border-radius: 9999px;
+    }
+
+    .theme-cat-pill {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.76rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      font-weight: 500;
+    }
+
+    .theme-cat-pill:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+    }
+
+    .theme-cat-pill.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--primary);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
     .app-main {
       flex: 1;
       padding: 1.5rem 2.25rem 2rem 2.25rem;
@@ -1428,6 +1502,9 @@
       .app-sidebar .sidebar-heading {
         display: none;
       }
+      .sidebar-theme-clusters {
+        display: none !important;
+      }
       .side-item {
         white-space: nowrap;
         flex-shrink: 0;
@@ -1901,7 +1978,50 @@
       <div class="sidebar-heading">Research Workspace</div>
       <a class="side-item" onclick="navigateRoute(event, '/calculator')">Apologetics Machine</a>
       <a class="side-item active" onclick="navigateRoute(event, '/dashboard')">Workspace</a>
-      <a class="side-item" onclick="navigateRoute(event, '/themes')">Themes & Case Files</a>
+      <a class="side-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('ALL');">
+        <span style="display: flex; align-items: center; gap: 0.45rem;">
+          <span>🏛️</span>
+          <span>Theme Debate (Mosi)</span>
+        </span>
+        <span class="evidence-badge badge-primary-source" style="margin-left: auto; font-size: 0.65rem; padding: 0.1rem 0.35rem;">2.638</span>
+      </a>
+      <div id="sidebar-theme-clusters" class="sidebar-theme-clusters" style="display: flex; flex-direction: column; gap: 0.1rem; padding-left: 0.25rem; margin-top: 0.1rem; margin-bottom: 0.45rem;">
+        <a class="side-sub-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('Dialektika Debat Terbuka & Cross-Examination');" title="Dialektika Debat Terbuka & Cross-Examination">
+          <span class="sub-icon">🎯</span>
+          <span class="sub-text">Dialektika & Cross-Exam</span>
+          <span class="sub-count">232</span>
+        </a>
+        <a class="side-sub-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('Kristologi & Kemanusiaan Yesus');" title="Kristologi & Kemanusiaan Yesus">
+          <span class="sub-icon">✝️</span>
+          <span class="sub-text">Kristologi & Yesus</span>
+          <span class="sub-count">283</span>
+        </a>
+        <a class="side-sub-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('Audit Tekstual, Filologi & Varian Naskah');" title="Audit Tekstual, Filologi & Varian Naskah">
+          <span class="sub-icon">📜</span>
+          <span class="sub-text">Filologi & Naskah</span>
+          <span class="sub-count">145</span>
+        </a>
+        <a class="side-sub-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('Diskursus Teologi & Apologetika Komparatif');" title="Diskursus Teologi & Apologetika Komparatif">
+          <span class="sub-icon">⚖️</span>
+          <span class="sub-text">Teologi Komparatif</span>
+          <span class="sub-count">1.557</span>
+        </a>
+        <a class="side-sub-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('Monoteisme & Kritik Doktrin Trinitas');" title="Monoteisme & Kritik Doktrin Trinitas">
+          <span class="sub-icon">☝️</span>
+          <span class="sub-text">Monoteisme & Trinitas</span>
+          <span class="sub-count">141</span>
+        </a>
+        <a class="side-sub-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('Polemik Teologi Paulus vs Hukum Taurat');" title="Polemik Teologi Paulus vs Hukum Taurat">
+          <span class="sub-icon">📖</span>
+          <span class="sub-text">Paulus vs Taurat</span>
+          <span class="sub-count">85</span>
+        </a>
+        <a class="side-sub-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('Apologetika Islam & Pembelaan Kenabian');" title="Apologetika Islam & Pembelaan Kenabian">
+          <span class="sub-icon">☪️</span>
+          <span class="sub-text">Pembelaan Kenabian</span>
+          <span class="sub-count">195</span>
+        </a>
+      </div>
 
       <div class="sidebar-heading">Evidence Lab</div>
       <a class="side-item" onclick="navigateRoute(event, '/knowledge')">Knowledge Base</a>
@@ -2255,14 +2375,43 @@
 
       <!-- VIEW 3: THEMES EXPLORER & DETAIL (P1.2 Dynamic Catalog) -->
       <section id="view-themes" class="hidden">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
           <div>
-            <h2 style="font-family: var(--font-serif); font-size: 1.85rem;">Themes Explorer</h2>
-            <p style="color: var(--text-muted);">Katalog tema debat apologetika komparatif berbasis korpus video dan naskah primer.</p>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+              <h2 style="font-family: var(--font-serif); font-size: 1.85rem; margin: 0;">Tema & Mosi Debat</h2>
+              <span class="evidence-badge badge-primary-source" style="font-size: 0.72rem; padding: 0.15rem 0.5rem;">2.638 Mosi Aktif</span>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.88rem; margin: 0;">Katalog mosi debat apologetika komparatif berbasis transkrip korpus ZUMA, naskah primer, dan aparatus kritis.</p>
           </div>
-          <button class="btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.85rem;" onclick="loadThemes()">
-            Muat Ulang Tema 🔄
-          </button>
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
+            <button class="btn-primary" style="font-size: 0.8rem; padding: 0.45rem 0.85rem;" onclick="loadThemes()">
+              Muat Ulang Tema 🔄
+            </button>
+          </div>
+        </div>
+
+        <!-- Search and Quick Filter Toolbar -->
+        <div class="case-card" style="padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.85rem;">
+          <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 260px; position: relative;">
+              <input type="text" id="theme-search-input" placeholder="🔍 Cari mosi debat, nomor video, lemma, atau dalil ayat..." oninput="onThemeSearchChange(this.value)" style="width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle); color: var(--text-main); padding: 0.55rem 0.85rem; border-radius: var(--radius-sm); font-size: 0.85rem; box-sizing: border-box;">
+            </div>
+            <div id="theme-counter-status" style="font-size: 0.8rem; color: var(--text-dim); white-space: nowrap;">
+              Menampilkan <span id="theme-visible-count" style="color: var(--primary); font-weight: 600;">2.638</span> dari 2.638 mosi
+            </div>
+          </div>
+
+          <!-- Category Pill Tabs -->
+          <div id="theme-category-pills" style="display: flex; overflow-x: auto; gap: 0.4rem; padding-bottom: 0.25rem; scrollbar-width: none;">
+            <button class="theme-cat-pill active" onclick="selectDebateCategory('ALL')" data-cat="ALL">Semua Klaster (2.638)</button>
+            <button class="theme-cat-pill" onclick="selectDebateCategory('Dialektika Debat Terbuka & Cross-Examination')" data-cat="Dialektika Debat Terbuka & Cross-Examination">🎯 Dialektika (232)</button>
+            <button class="theme-cat-pill" onclick="selectDebateCategory('Kristologi & Kemanusiaan Yesus')" data-cat="Kristologi & Kemanusiaan Yesus">✝️ Kristologi (283)</button>
+            <button class="theme-cat-pill" onclick="selectDebateCategory('Audit Tekstual, Filologi & Varian Naskah')" data-cat="Audit Tekstual, Filologi & Varian Naskah">📜 Filologi (145)</button>
+            <button class="theme-cat-pill" onclick="selectDebateCategory('Diskursus Teologi & Apologetika Komparatif')" data-cat="Diskursus Teologi & Apologetika Komparatif">⚖️ Teologi (1.557)</button>
+            <button class="theme-cat-pill" onclick="selectDebateCategory('Monoteisme & Kritik Doktrin Trinitas')" data-cat="Monoteisme & Kritik Doktrin Trinitas">☝️ Monoteisme (141)</button>
+            <button class="theme-cat-pill" onclick="selectDebateCategory('Polemik Teologi Paulus vs Hukum Taurat')" data-cat="Polemik Teologi Paulus vs Hukum Taurat">📖 Paulus vs Taurat (85)</button>
+            <button class="theme-cat-pill" onclick="selectDebateCategory('Apologetika Islam & Pembelaan Kenabian')" data-cat="Apologetika Islam & Pembelaan Kenabian">☪️ Kenabian (195)</button>
+          </div>
         </div>
 
         <div id="theme-loading" style="display: none; padding: 2rem; text-align: center; color: var(--primary);">
@@ -3858,11 +4007,12 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     // ===========================================================================
     let currentThemes = [];
     let currentActiveTheme = null;
+    let currentSelectedCategory = 'ALL';
+    let currentThemeSearchQuery = '';
 
     async function loadThemes() {
       const loader = document.getElementById("theme-loading");
-      const container = document.getElementById("theme-list-cards");
-      if (loader) loader.style.display = "block";
+      if (currentThemes.length === 0 && loader) loader.style.display = "block";
 
       try {
         const res = await fetch("/api/v1/themes");
@@ -3871,47 +4021,165 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
         if (res.ok && data.success && data.themes) {
           currentThemes = data.themes;
-          
-          // Group by category/discourse_type
-          const groups = {};
-          data.themes.forEach(t => {
-            const cat = t.discourse_type || "Kategori Umum";
-            if (!groups[cat]) groups[cat] = [];
-            groups[cat].push(t);
-          });
-
-          container.innerHTML = Object.entries(groups).map(([cat, list]) => `
-            <div class="case-card" style="display: flex; flex-direction: column; justify-content: space-between; border-inline-start: 4px solid var(--primary);">
-              <div>
-                <span class="evidence-badge badge-primary-source">${list.length} Mosi Debat</span>
-                <h3 style="font-size: 1.15rem; margin: 0.5rem 0; line-height: 1.4; font-family: var(--font-serif);">${cat}</h3>
-                <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.75rem;">
-                  Koleksi mosi mendalam untuk topik eksegesis dan apologetika komparatif.
-                </p>
-              </div>
-              <div>
-                <div style="max-height: 220px; overflow-y: auto; background: rgba(0,0,0,0.15); border-radius: 6px; padding: 0.5rem; margin-bottom: 0.75rem; border: 1px solid var(--border-subtle);">
-                  ${list.map(t => `
-                    <div style="padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border-subtle); font-size: 0.8rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="openThemeDetail('${t.theme_id}')">
-                      <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 80%;">${t.title}</span>
-                      <span style="color: var(--primary); font-size: 0.75rem; font-weight: 600;">Buka →</span>
-                    </div>
-                  `).join('')}
-                </div>
-                <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-dim); border-top: 1px solid var(--border-subtle); padding-top: 0.5rem; align-items: center;">
-                  <span>Scroll vertikal untuk melihat daftar</span>
-                  <span style="color: var(--emerald); font-weight: 600;">Kategori Aktif</span>
-                </div>
-              </div>
-            </div>
-          `).join('');
+          renderThemesCards();
         } else {
-          container.innerHTML = `<p style="color: var(--rose);">Gagal memuat katalog tema: ${data.detail || 'Kesalahan server'}</p>`;
+          const container = document.getElementById("theme-list-cards");
+          if (container && currentThemes.length === 0) container.innerHTML = `<p style="color: var(--rose);">Gagal memuat katalog tema: ${data.detail || 'Kesalahan server'}</p>`;
         }
       } catch(err) {
         if (loader) loader.style.display = "none";
-        container.innerHTML = `<p style="color: var(--rose);">Koneksi terputus saat mengambil katalog tema.</p>`;
+        const container = document.getElementById("theme-list-cards");
+        if (container && currentThemes.length === 0) container.innerHTML = `<p style="color: var(--rose);">Koneksi terputus saat mengambil katalog tema.</p>`;
       }
+    }
+
+    function selectDebateCategory(categoryName) {
+      currentSelectedCategory = categoryName || 'ALL';
+
+      // Update pills
+      document.querySelectorAll(".theme-cat-pill").forEach(pill => {
+        if (pill.getAttribute("data-cat") === currentSelectedCategory) {
+          pill.classList.add("active");
+        } else {
+          pill.classList.remove("active");
+        }
+      });
+
+      // Update sidebar sub-items
+      document.querySelectorAll(".side-sub-item").forEach(item => {
+        const titleAttr = item.getAttribute("title");
+        if (currentSelectedCategory === 'ALL') {
+          item.classList.remove("active");
+        } else if (titleAttr === currentSelectedCategory) {
+          item.classList.add("active");
+        } else {
+          item.classList.remove("active");
+        }
+      });
+
+      renderThemesCards();
+
+      const viewThemes = document.getElementById("view-themes");
+      if (viewThemes && !viewThemes.classList.contains("hidden")) {
+        const grid = document.getElementById("theme-list-cards");
+        if (grid) grid.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    }
+
+    function onThemeSearchChange(q) {
+      currentThemeSearchQuery = (q || '').toLowerCase().trim();
+      renderThemesCards();
+    }
+
+    function loadMotionIntoCalculator(motionText) {
+      const claimInput = document.getElementById("claim-input");
+      if (claimInput) {
+        claimInput.value = motionText;
+      }
+      navigateRoute(null, "/calculator");
+      if (typeof focusCalculator === "function") {
+        focusCalculator();
+      }
+    }
+
+    function renderThemesCards() {
+      const container = document.getElementById("theme-list-cards");
+      const counterEl = document.getElementById("theme-visible-count");
+      if (!container) return;
+
+      if (!currentThemes || currentThemes.length === 0) {
+        container.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 2rem;">Sedang memuat data korpus tema mosi...</div>`;
+        return;
+      }
+
+      // Filter by category and search query
+      const filtered = currentThemes.filter(t => {
+        const matchCategory = (currentSelectedCategory === 'ALL' || t.discourse_type === currentSelectedCategory);
+        if (!matchCategory) return false;
+        if (!currentThemeSearchQuery) return true;
+        const q = currentThemeSearchQuery;
+        return (t.title && t.title.toLowerCase().includes(q)) ||
+               (t.theme_id && t.theme_id.toLowerCase().includes(q)) ||
+               (t.discourse_type && t.discourse_type.toLowerCase().includes(q));
+      });
+
+      if (counterEl) {
+        counterEl.textContent = filtered.length.toLocaleString('id-ID');
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 3rem; background: var(--bg-surface); border: 1px dashed var(--border-subtle); border-radius: var(--radius-sm);">
+            <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🔍</div>
+            <h4 style="color: var(--text-main); margin-bottom: 0.35rem;">Tidak Ditemukan Mosi yang Cocok</h4>
+            <p style="font-size: 0.82rem; color: var(--text-dim); margin-bottom: 1rem;">Coba gunakan kata kunci lain atau pilih filter "Semua Klaster".</p>
+            <button class="btn-primary" style="font-size: 0.78rem; padding: 0.35rem 0.75rem;" onclick="selectDebateCategory('ALL'); document.getElementById('theme-search-input').value = ''; onThemeSearchChange('');">Reset Filter & Pencarian</button>
+          </div>
+        `;
+        return;
+      }
+
+      // Group by category/discourse_type
+      const groups = {};
+      filtered.forEach(t => {
+        const cat = t.discourse_type || "Kategori Umum";
+        if (!groups[cat]) groups[cat] = [];
+        groups[cat].push(t);
+      });
+
+      const categoryIcons = {
+        "Dialektika Debat Terbuka & Cross-Examination": "🎯",
+        "Kristologi & Kemanusiaan Yesus": "✝️",
+        "Audit Tekstual, Filologi & Varian Naskah": "📜",
+        "Diskursus Teologi & Apologetika Komparatif": "⚖️",
+        "Monoteisme & Kritik Doktrin Trinitas": "☝️",
+        "Polemik Teologi Paulus vs Hukum Taurat": "📖",
+        "Apologetika Islam & Pembelaan Kenabian": "☪️"
+      };
+
+      container.innerHTML = Object.entries(groups).map(([cat, list]) => {
+        const icon = categoryIcons[cat] || "🏛️";
+        return `
+          <div class="case-card" style="display: flex; flex-direction: column; justify-content: space-between; border-inline-start: 4px solid var(--primary); padding: 1.25rem;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.45rem;">
+                <span class="evidence-badge badge-primary-source" style="font-size: 0.68rem; padding: 0.12rem 0.45rem;">${icon} ${list.length} Mosi</span>
+                <span style="font-size: 0.72rem; color: var(--text-dim);">${cat === currentSelectedCategory ? 'Filter Aktif' : 'Klaster'}</span>
+              </div>
+              <h3 style="font-size: 1.12rem; margin: 0.35rem 0 0.5rem 0; line-height: 1.35; font-family: var(--font-serif); color: var(--text-main);">${cat}</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem; line-height: 1.4;">
+                Kompilasi mosi dialektika, analisis naskah, dan aparatus apologetika ZUMA.
+              </p>
+            </div>
+            <div>
+              <div style="max-height: 250px; overflow-y: auto; background: rgba(0,0,0,0.18); border-radius: 6px; padding: 0.35rem 0.5rem; margin-bottom: 0.75rem; border: 1px solid var(--border-subtle);">
+                ${list.map(t => {
+                  const safeTitle = (t.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                  return `
+                    <div style="padding: 0.5rem 0.4rem; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.35rem;">
+                      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; cursor: pointer;" onclick="openThemeDetail('${t.theme_id}')">
+                        <span style="color: var(--text-main); font-weight: 500; line-height: 1.35; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;" title="${safeTitle}">${t.title}</span>
+                      </div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.15rem;">
+                        <button type="button" class="btn-primary" style="padding: 0.2rem 0.55rem; font-size: 0.7rem; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); color: var(--primary); cursor: pointer;" onclick="loadMotionIntoCalculator('${safeTitle}')" title="Uji mosi ini di Apologetics Calculator">
+                          ⚡ Uji di Kalkulator
+                        </button>
+                        <span style="color: var(--primary); font-size: 0.74rem; font-weight: 600; cursor: pointer;" onclick="openThemeDetail('${t.theme_id}')">
+                          Detail Dossier →
+                        </span>
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-dim); border-top: 1px solid var(--border-subtle); padding-top: 0.45rem; align-items: center;">
+                <span>Scroll untuk melihat seluruh mosi</span>
+                <span style="color: var(--emerald); font-weight: 600;">Terverifikasi</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
     }
 
     async function openThemeDetail(themeId) {
@@ -3932,12 +4200,19 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           if (thTitle) thTitle.textContent = data.title;
           const thBadge = document.getElementById("theme-detail-badge"); if (thBadge) thBadge.textContent = `THEME ID: ${data.theme_id}`;
 
+          const ytUrl = data.video_url || data.theme?.video_url || data.overview?.video_url || ('https://www.youtube.com/watch?v=' + data.theme_id);
+
           // Tab 1: Overview
           document.getElementById("theme-overview-content").innerHTML = `
             <p><strong>Mosi Debat:</strong> ${data.overview.motion}</p>
             <p style="margin-top: 0.5rem;"><strong>Ringkasan:</strong> ${data.overview.summary}</p>
             <p style="margin-top: 0.5rem;"><strong>Peserta Terdaftar:</strong> ${(data.overview.participants || []).join(', ') || 'ZUMA vs Interlocutor'}</p>
-            <p style="margin-top: 0.5rem;"><strong>Aturan Grounding:</strong> ${(data.overview.grounding_rules || []).join('; ') || 'Wajib rujukan pasal dan ayat Bible lengkap.'}</p>
+            <p style="margin-top: 0.5rem;"><strong>Aturan Grounding:</strong> ${(data.overview.grounding_rules || []).join('; ') || 'Wajib rujukan nama kitab Bible lengkap dan nomor pasal serta nomor ayat Bible presisi.'}</p>
+            <p style="margin-top: 0.85rem;">
+              <a href="${ytUrl}" target="_blank" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.85rem; font-size: 0.8rem; text-decoration: none;">
+                ▶ Tonton Sumber Debat di YouTube
+              </a>
+            </p>
           `;
 
           // Tab 2: Narrative
