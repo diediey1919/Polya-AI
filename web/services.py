@@ -1015,6 +1015,27 @@ class CaseFileGenerator:
                 "recommended_tempo": tempo_val
             }
 
+            # Inject canonical 8-round dialectical simulation (ZUMA vs Interlocutor)
+            canonical_sim = None
+            try:
+                from orchestrator.zuma_skill_engine import ZumaSkillEngine
+                z_ctx = {
+                    "user_perspective": persp,
+                    "opponent_perspective": getattr(ctx, "opponent_perspective", None) or "islam",
+                    "debate_locale": getattr(ctx, "debate_locale", "id"),
+                    "source_locale": getattr(ctx, "source_locale", "el")
+                }
+                canonical_sim = ZumaSkillEngine.generate_canonical_8_round_simulation(
+                    claim=claim,
+                    evidence_items=result.get("evidence_items", []),
+                    context=z_ctx,
+                    debate_prep=prep,
+                    synthesis_output=synth
+                )
+                prep_val["canonical_8_rounds"] = canonical_sim
+            except Exception as e_sim:
+                logger.warning(f"Canonical 8-round debate simulation injection skipped: {e_sim}")
+
             # Inject dynamic ZUMA 8-point simulated debate into output (mode DEBATE only).
             if requested_mode == "DEBATE":
                 try:
@@ -1073,6 +1094,7 @@ class CaseFileGenerator:
                 sources=sources_list,
                 open_questions=open_q_val,
                 debate_preparation=prep_val,
+                canonical_simulation=canonical_sim,
                 is_demo=False,
                 notice=notice_val,
                 synthesis_status=synth_status,
@@ -1087,6 +1109,25 @@ class CaseFileGenerator:
             opp_persp = (ctx.opponent_perspective or "OPPOSISI").upper()
             sim_deb = []
             fallback_prep = {}
+            fallback_canonical_sim = None
+            try:
+                from orchestrator.zuma_skill_engine import ZumaSkillEngine
+                z_ctx = {
+                    "user_perspective": persp,
+                    "opponent_perspective": getattr(ctx, "opponent_perspective", None) or "islam",
+                    "debate_locale": getattr(ctx, "debate_locale", "id"),
+                    "source_locale": getattr(ctx, "source_locale", "el")
+                }
+                fallback_canonical_sim = ZumaSkillEngine.generate_canonical_8_round_simulation(
+                    claim=claim,
+                    evidence_items=[],
+                    context=z_ctx,
+                    debate_prep={},
+                    synthesis_output={}
+                )
+            except Exception:
+                pass
+
             if requested_mode == "DEBATE":
                 try:
                     from orchestrator.zuma_skill_engine import ZumaSkillEngine
@@ -1108,7 +1149,8 @@ class CaseFileGenerator:
                         "babak_1_postulat": sim_deb.get("babak_1", {}).get("paparan_pihak_a"),
                         "babak_2_cross_exam": sim_deb.get("babak_2", {}).get("pertanyaan_presisi"),
                         "babak_3_forensik": sim_deb.get("babak_3", {}).get("bedah_bahasa_sumber"),
-                        "babak_4_evaluasi": sim_deb.get("babak_4", {}).get("evaluasi_kekuatan_bukti")
+                        "babak_4_evaluasi": sim_deb.get("babak_4", {}).get("evaluasi_kekuatan_bukti"),
+                        "canonical_8_rounds": fallback_canonical_sim
                     }
                 except Exception:
                     pass
@@ -1136,8 +1178,10 @@ class CaseFileGenerator:
                 debate_preparation=fallback_prep if requested_mode == "DEBATE" else {
                     "cross_examination_trap": "Kuncilah lawan pada definisi kata bahasa asli sebelum mereka mengalihkan topik.",
                     "recommended_tempo": "Ajukan pertanyaan sokratik pendek, minta konfirmasi arti kata netral versus maskulin.",
-                    "simulated_debate": sim_deb
+                    "simulated_debate": sim_deb,
+                    "canonical_8_rounds": fallback_canonical_sim
                 },
+                canonical_simulation=fallback_canonical_sim,
                 is_demo=True,
                 notice="DEMO / MOCK DATA — Strictly for testing UI and structure",
                 provider="unknown",

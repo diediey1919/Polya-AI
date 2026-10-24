@@ -44,6 +44,7 @@ class CaseFile(BaseModel):
     sources: List[Dict[str, str]]
     open_questions: List[str]
     debate_preparation: Dict[str, Any]
+    canonical_simulation: Optional[Dict[str, Any]] = None
     is_demo: bool = True
     notice: str = "DEMO / MOCK DATA — Strictly for testing UI and structure"
     synthesis_status: str = ""
