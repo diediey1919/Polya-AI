@@ -686,16 +686,23 @@ async def get_theme_detail_endpoint(theme_id: str):
     provenance_json = os.path.join(alt_theme_dir, "provenance.json")
 
     motion = "Friksi Paulus vs Petrus"
+    orig_yt = ""
     rounds_data = []
     participants = []
     grounding_rules = []
     video_url = f"https://www.youtube.com/watch?v={actual_theme_id}"
+    extracted_passages = []
+    sub_motions = []
 
     if os.path.exists(theme_dir) and os.path.exists(debate_json):
         try:
             with open(debate_json, "r", encoding="utf-8") as f:
                 d = json.load(f)
-            motion = d.get("motion_or_topic", motion)
+            motion = d.get("motion_or_topic") or d.get("title") or motion
+            orig_yt = d.get("original_youtube_title") or d.get("source_video_title") or ""
+            extracted_passages = d.get("passages", [])
+            sub_motions = d.get("sub_motions", [])
+            video_url = d.get("url") or video_url
             rounds_data = [
                 {
                     "round_number": r.get("round_num"),
@@ -733,8 +740,11 @@ async def get_theme_detail_endpoint(theme_id: str):
             raise HTTPException(status_code=404, detail="Theme not found")
 
         if found_deb:
-            motion = found_deb.get("title") or f"Mosi Debat {actual_theme_id}"
+            motion = found_deb.get("motion_or_topic") or found_deb.get("title") or f"Mosi Debat {actual_theme_id}"
+            orig_yt = found_deb.get("original_youtube_title") or found_deb.get("source_video_title") or ""
             video_url = f"https://www.youtube.com/watch?v={actual_theme_id}"
+            extracted_passages = found_deb.get("passages", [])
+            sub_motions = found_deb.get("sub_motions", [])
 
         participants = ["ZUMA (Afirmatif/Penanya)", "Interlocutor/Oposisi"]
         grounding_rules = [
@@ -788,11 +798,21 @@ async def get_theme_detail_endpoint(theme_id: str):
         "id": theme_id,
         "theme_id": theme_id,
         "title": motion,
-        "passages": ["Galatia 2:11-14", "Roma 3:31", "Efesus 2:15", "Kisah Para Rasul 15:1-21"],
+        "motion_or_topic": motion,
+        "original_youtube_title": orig_yt,
+        "source_video_title": orig_yt,
+        "verification_status": d.get("verification_status") if "d" in locals() and isinstance(d, dict) else ("PENDING_TRANSCRIPT" if "MENUNGGU" in motion else "VERIFIED_TRANSCRIPT"),
+        "passages": extracted_passages or ["Galatia 2:11-14", "Roma 3:31", "Efesus 2:15", "Kisah Para Rasul 15:1-21"],
+        "sub_motions": sub_motions,
         "manuscript_witnesses": ["Papyrus P46 (c. 200 M)", "Codex Sinaiticus (א01)", "Codex Vaticanus (B03)"],
         "video_url": video_url,
         "overview": {
             "motion": motion,
+            "motion_or_topic": motion,
+            "original_youtube_title": orig_yt,
+            "source_video_title": orig_yt,
+            "verification_status": d.get("verification_status") if "d" in locals() and isinstance(d, dict) else ("PENDING_TRANSCRIPT" if "MENUNGGU" in motion else "VERIFIED_TRANSCRIPT"),
+            "sub_motions": sub_motions,
             "discourse_type": "APOLOGETIC_INTERFAITH_DEBATE",
             "participants": participants,
             "grounding_rules": grounding_rules,
@@ -809,7 +829,7 @@ async def get_theme_detail_endpoint(theme_id: str):
             "total_rounds": len(rounds_data)
         },
         "evidence": {
-            "key_passages": ["Galatia 2:11-14", "Roma 3:31", "Efesus 2:15", "Kisah Para Rasul 15:1-21"],
+            "key_passages": extracted_passages or ["Galatia 2:11-14", "Roma 3:31", "Efesus 2:15", "Kisah Para Rasul 15:1-21"],
             "witnesses": ["Papyrus P46 (c. 200 M)", "Codex Sinaiticus (א01)", "Codex Vaticanus (B03)"]
         },
         "provenance": prov_data or {
@@ -828,36 +848,12 @@ async def get_theme_detail_endpoint(theme_id: str):
         "theme_id": theme_id,
         "theme": theme_obj,
         "title": motion,
-        "overview": {
-            "motion": motion,
-            "discourse_type": "APOLOGETIC_INTERFAITH_DEBATE",
-            "participants": participants,
-            "grounding_rules": grounding_rules,
-            "summary": f"Analisis dialektika dan pembuktian eksegesis naskah atas mosi: '{motion}'."
-        },
-        "narrative": {
-            "background": narrative_data.get("sections", {}).get("A_latar_belakang") or f"Latar belakang historis-kontekstual untuk perdebatan mengenai {motion}.",
-            "core_question": narrative_data.get("sections", {}).get("B_pertanyaan_utama") or f"Apakah dalil naskah membuktikan konsistensi kanonik terkait {motion}?",
-            "speaker_perspectives": narrative_data.get("speaker_perspectives", {})
-        },
-        "debate": {
-            "rounds": rounds_data,
-            "total_rounds": len(rounds_data)
-        },
-        "evidence": {
-            "key_passages": ["Galatia 2:11-14", "Roma 3:31", "Efesus 2:15", "Kisah Para Rasul 15"],
-            "witnesses": ["Papyrus P46 (c. 200 M)", "Codex Sinaiticus (א01)", "Codex Vaticanus (B03)"]
-        },
-        "provenance": prov_data or {
-            "provenance_hash": hashlib.sha256(f"{theme_id}|{motion}".encode("utf-8")).hexdigest()[:16],
-            "verified": True,
-            "data_source": "Canonical Video Pipeline Corpus"
-        },
-        "evaluation": eval_data or {
-            "status": "Debate Ready",
-            "confidence_score": 0.96,
-            "clash_resolution": "Unanimous Textual Priority"
-        }
+        "overview": theme_obj["overview"],
+        "narrative": theme_obj["narrative"],
+        "debate": theme_obj["debate"],
+        "evidence": theme_obj["evidence"],
+        "provenance": theme_obj["provenance"],
+        "evaluation": theme_obj["evaluation"]
     }
 
 

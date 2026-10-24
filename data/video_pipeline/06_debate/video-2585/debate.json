@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "VYS_0mKk9to",
+  "corpus_id": "video-2585",
+  "youtube_id": "VYS_0mKk9to",
+  "url": "https://www.youtube.com/watch?v=VYS_0mKk9to",
+  "motion_or_topic": "[MENUNGGU TRANSKRIP] Yesus itu muslim,kristen itu non muslim",
+  "title": "[MENUNGGU TRANSKRIP] Yesus itu muslim,kristen itu non muslim",
+  "original_youtube_title": "Yesus itu muslim,kristen itu non muslim",
+  "source_video_title": "Yesus itu muslim,kristen itu non muslim",
+  "debate_mode": "zuma_persona",
+  "persona_id": "zuma_debate_v1",
+  "persona_intensity": 0.8,
+  "category": "Koleksi Video Menunggu Transkrip (189 Video)",
+  "cluster_theme": "Koleksi Video Menunggu Transkrip (189 Video)",
+  "sub_motions": [],
+  "passages": [],
+  "extracted_from_transcript": false,
+  "verification_status": "PENDING_TRANSCRIPT",
+  "transcript_metrics": {
+    "word_count": 0,
+    "segment_count": 0,
+    "raw_character_count": 0
+  },
+  "participants": [],
+  "grounding_rules": {
+    "strict_knowledge_only": true,
+    "zero_hallucination_enforced": true,
+    "provenance_required": true,
+    "canonical_naming_enforced": true,
+    "biblical_references": []
+  },
+  "rounds": [],
+  "cross_examination": [],
+  "epistemic_verdict": {
+    "verdict_summary": "Video belum memiliki naskah transkrip terindeks di sistem. Menunggu ketersediaan data audio atau subtitel.",
+    "logical_superiority": "PENDING"
+  },
+  "persona_traceability": []
+}

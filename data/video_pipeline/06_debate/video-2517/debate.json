@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "T_AUF3X-GHY",
+  "corpus_id": "video-2517",
+  "youtube_id": "T_AUF3X-GHY",
+  "url": "https://www.youtube.com/watch?v=T_AUF3X-GHY",
+  "motion_or_topic": "[MENUNGGU TRANSKRIP] MENGAPA HARUS ADA TERJEMAHAN BARU??Kabur deuiii",
+  "title": "[MENUNGGU TRANSKRIP] MENGAPA HARUS ADA TERJEMAHAN BARU??Kabur deuiii",
+  "original_youtube_title": "MENGAPA HARUS ADA TERJEMAHAN BARU??Kabur deuiii",
+  "source_video_title": "MENGAPA HARUS ADA TERJEMAHAN BARU??Kabur deuiii",
+  "debate_mode": "zuma_persona",
+  "persona_id": "zuma_debate_v1",
+  "persona_intensity": 0.8,
+  "category": "Koleksi Video Menunggu Transkrip (189 Video)",
+  "cluster_theme": "Koleksi Video Menunggu Transkrip (189 Video)",
+  "sub_motions": [],
+  "passages": [],
+  "extracted_from_transcript": false,
+  "verification_status": "PENDING_TRANSCRIPT",
+  "transcript_metrics": {
+    "word_count": 0,
+    "segment_count": 0,
+    "raw_character_count": 0
+  },
+  "participants": [],
+  "grounding_rules": {
+    "strict_knowledge_only": true,
+    "zero_hallucination_enforced": true,
+    "provenance_required": true,
+    "canonical_naming_enforced": true,
+    "biblical_references": []
+  },
+  "rounds": [],
+  "cross_examination": [],
+  "epistemic_verdict": {
+    "verdict_summary": "Video belum memiliki naskah transkrip terindeks di sistem. Menunggu ketersediaan data audio atau subtitel.",
+    "logical_superiority": "PENDING"
+  },
+  "persona_traceability": []
+}
