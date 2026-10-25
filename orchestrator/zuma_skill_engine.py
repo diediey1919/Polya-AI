@@ -381,7 +381,43 @@ class ZumaSkillEngine:
                 rujukan_teks = match_ref.group(1)
 
         loc = (ctx.get("debate_locale") or ctx.get("ui_locale") or "id").strip().lower()
-        if loc != "id":
+        if loc.startswith("zh"):
+            rujukan_display = "圣经 / 原文经典 / 古代手抄本见证" if rujukan_teks == "Kitab Suci / Naskah Primer / Manuskrip Terkait" else rujukan_teks
+            return {
+                "header": {
+                    "pihak_a": user_p,
+                    "pihak_b": opp_p,
+                    "topik": claim,
+                    "rujukan_utama": rujukan_display,
+                    "format": "完整三幕剧本 + 4项法医取证分析"
+                },
+                "babak_1": {
+                    "title": "第一幕：基本前提与文本锚定",
+                    "paparan_pihak_a": f"{user_p} 的神学立论将主张 '{claim}' 锚定于正典权威及对 {rujukan_display} 的规范解释。",
+                    "respons_pihak_b": f"{opp_p} 的初步批判性回应，质疑关于 '{claim}' 的文本前提与内在逻辑一致性。"
+                },
+                "babak_2": {
+                    "title": "第二幕：苏格拉底交叉质询与逻辑困境漏斗",
+                    "pertanyaan_presisi": [
+                        f"在 {rujukan_display} 的哪一节经文或具体子句中，明确肯定了 '{claim}'？",
+                        "你如何调和原始语言词汇学定义与外部教义假设之间的矛盾？",
+                        "你的释经让步难道不会破坏你自身正典体系的内在一致性吗？"
+                    ],
+                    "jebakan_logika": f"将对话者严格锁定于 {rujukan_display} 的字面源文本解读，防止转移论题。"
+                },
+                "babak_3": {
+                    "title": "第三幕：文本法医鉴定与源语言文献学",
+                    "bedah_bahasa_sumber": f"对 {rujukan_display} 针对主张 '{claim}' 进行词根提取、动词形态学与句法结构剖析。",
+                    "saksi_manuskrip": ["西奈抄本 (Codex Sinaiticus)", "梵蒂冈抄本 (Codex Vaticanus)", "古纸草抄本 / 马所拉文本 / 七十士译本 (LXX)"],
+                    "audit_terjemahan": "对从古代原始手抄本到现代译本的翻译偏差审计，以识别教义偏见。"
+                },
+                "babak_4": {
+                    "title": "第四幕：辩证裁决与证据矩阵（终审评估）",
+                    "concession_extracted": f"关于主张 '{claim}' 已提取的关键逻辑妥协摘要。",
+                    "evaluasi_kekuatan_bukti": f"基于 E1-E6 标准对主张 '{claim}' 文本坚固性与逻辑韧性的最终证据评估。"
+                }
+            }
+        elif loc != "id":
             rujukan_display = "Scripture / Primary Text / Ancient Manuscript Witnesses" if rujukan_teks == "Kitab Suci / Naskah Primer / Manuskrip Terkait" else rujukan_teks
             return {
                 "header": {
@@ -777,7 +813,8 @@ Aturan Mutlak:
 
         # 2. Formulate Scholarly Debate Motion & Localization Check
         target_locale = (ctx.get("debate_locale") or ctx.get("ui_locale") or "id").strip().lower()
-        is_id = target_locale == "id"
+        is_id = target_locale == "id" or target_locale.startswith("id-")
+        is_zh = target_locale == "zh" or target_locale.startswith("zh-")
         motion_templates = {
             "id": f"Uji Forensik Teks Primer & Validitas Kanonikal atas Klaim: '{claim_clean}' ({p_primary})",
             "en": f"Forensic Primary Text & Canonical Validity Audit on Claim: '{claim_clean}' ({p_primary})",
@@ -800,24 +837,94 @@ Aturan Mutlak:
         motion = motion_templates.get(target_locale, motion_templates["en"] if not is_id else motion_templates["id"])
 
         # 3. Pull Dynamic Arguments from Synthesis if available
-        opp_claim = synth.get("counterargument") or (
-            "Klaim pembelaan argumen lawan dan tafsiran tradisional sistemik."
-            if is_id else
-            "Opposing defense arguments and systemic traditional interpretations."
-        )
-        zuma_rebuttal = synth.get("rebuttal") or (
-            "Analisis filologis membuktikan distorsi makna naskah sumber dan ketiadaan dukungan naskah primer."
-            if is_id else
-            "Philological analysis exposes distortion of source texts and total absence of primary manuscript support."
-        )
-        weakness_str = synth.get("weakness") or (
-            "Kelemahan leksikografi dan pengabaian konteks bahasa sumber."
-            if is_id else
-            "Lexicographical vulnerability and disregard of original source language context."
-        )
+        if is_zh:
+            opp_claim = synth.get("counterargument") or "对方辩护论点与传统系统化神学诠释。"
+            zuma_rebuttal = synth.get("rebuttal") or "文献语言学分析揭露了对原版经文的意义扭曲，且缺乏原始手抄本证据支持。"
+            weakness_str = synth.get("weakness") or "词汇学脆弱性以及对源语言原初语境的忽视。"
+        elif is_id:
+            opp_claim = synth.get("counterargument") or "Klaim pembelaan argumen lawan dan tafsiran tradisional sistemik."
+            zuma_rebuttal = synth.get("rebuttal") or "Analisis filologis membuktikan distorsi makna naskah sumber dan ketiadaan dukungan naskah primer."
+            weakness_str = synth.get("weakness") or "Kelemahan leksikografi dan pengabaian konteks bahasa sumber."
+        else:
+            opp_claim = synth.get("counterargument") or "Opposing defense arguments and systemic traditional interpretations."
+            zuma_rebuttal = synth.get("rebuttal") or "Philological analysis exposes distortion of source texts and total absence of primary manuscript support."
+            weakness_str = synth.get("weakness") or "Lexicographical vulnerability and disregard of original source language context."
 
         # Perspective Speech Mappings for OPPONENT & ZUMA
-        if not is_id:
+        if is_zh:
+            opp_speech_r1 = {
+                "islam": f"[引用原文] 我们从众先知的纯正一神论（Tawhid）出发审视主张 '{claim_clean}'。任何教义都必须以安拉独一无二、毫无匹敌为检验标准。",
+                "christian_protestant": f"[引用原文] 我们坚守唯独圣经（Sola Scriptura）和圣经66卷正典。关于 '{claim_clean}'，真正的信仰必须在上帝所写的话语中直接得到证实。",
+                "christian_catholic": f"[引用原文] 我们坚守使徒传统、73卷正典和教父共识。关于 '{claim_clean}'，两千年来我们的信仰一直在神圣共融中被完好保守。",
+                "judaism": f"[引用原文] 我们坚守马所拉文本《塔纳赫》与西奈永约。关于 '{claim_clean}'，一切教训都必须顺服于妥拉的永恒性以及不可废除戒命的律例。",
+                "atheist_secular": f"[引用原文] 我们以历史批判学和实证举证责任来检验主张 '{claim_clean}'。若无独立确凿证据，超自然断言便缺乏客观效力。"
+            }.get(opp_p, f"[引用原文] 反对方（{opp_p.upper()}）对主张 '{claim_clean}' 坚持其传统解释立场。")
+
+            opp_speech_r2 = {
+                "islam": f"[引用原文] {p_primary} 的经文绝不能带有神学增添。耶稣始终向上帝祈祷，并明确将自己与造物主区分开来。",
+                "christian_protestant": f"[引用原文] {p_primary} 经文必须依据以经解经原则解释，而非脱离字面文本的哲学思辨。",
+                "christian_catholic": f"[引用原文] 离开维护神圣启示完整性的圣传和教会训导权，就无法狭隘地理解 {p_primary}。",
+                "judaism": f"[引用原文] {p_primary} 经文必须在希伯来语原初语境和西奈圣约中解读，不得脱离历史文法强加预表论。",
+                "atheist_secular": f"[引用原文] {p_primary} 的文本是古代人类文献的产物，反映了公元一世纪编辑群体的偏见。"
+            }.get(opp_p, f"[引用原文] {opp_p.upper()} 一方辩称必须在其系统性框架内理解该段经文。")
+
+            opp_speech_r3 = {
+                "islam": "[引用原文] 我们必须查考圣经中耶稣亲自肯定父是独一真神的平行经文。",
+                "christian_protestant": f"[引用原文] 我们必须查考整部圣经66卷正典的平行经文，而不能孤立看 {p_primary} 这单独一节。",
+                "christian_catholic": "[引用原文] 我们必须考量早期教父的神学共识，他们在使徒指导下制定了大公信经。",
+                "judaism": "[引用原文] 我们必须将其与妥拉全书及塔纳赫中以色列众先知的教导进行全面衡量。",
+                "atheist_secular": "[引用原文] 我们注意到古代手抄本文献中存在显著的叙事差异，证明不存在一致的历史记录。"
+            }.get(opp_p, f"[引用原文] {opp_p.upper()} 一方试图将讨论焦点转移至脱离语境的平行经文。")
+
+            opp_speech_r4 = {
+                "islam": "[引用原文] 在手抄本流传历史中，现代翻译往往偏离了原始文本的原意。",
+                "christian_protestant": "[引用原文] 归正神学家基于上帝纯正的话语坚决捍卫了这一正统教义。",
+                "christian_catholic": "[引用原文] 使徒统绪与主教传承保障了教会教义两千年来的不间断延续。",
+                "judaism": "[引用原文] 西奈之约是永恒之约（berit olam），绝不会被新的时代论主张所废止。",
+                "atheist_secular": "[引用原文] 文献学证据表明，古代文本经历了神话化发展以及与希腊化思潮的融合过程。"
+            }.get(opp_p, f"[引用原文] {opp_p.upper()} 一方借助教派传统为自身立场辩护。")
+
+            opp_speech_r5 = {
+                "islam": "[引用原文] 我们不会陷入这种两难困境，因为正确的理智与神圣启示绝不承认本体论上的逻辑自相矛盾。",
+                "christian_protestant": "[引用原文] 我们坚决拒绝那些无视上帝成文话语之清晰性与至高权威的前提设定。",
+                "christian_catholic": "[引用原文] 我们不接受这种二分法，因为教义的奥秘超越了人类狭隘的辩证三段论。",
+                "judaism": "[引用原文] 我们绝对效忠于西奈山摩西妥拉的诫命，不接受任何外来的逻辑妥协。",
+                "atheist_secular": "[引用原文] 理性证伪证明该主张缺乏客观经验性的实证证据基础。"
+            }.get(opp_p, "[引用原文] 反对方试图规避辩证困境陷阱。")
+
+            opp_speech_r6 = {
+                "islam": "[引用原文] 之前众先知的经典在最终启示中达到完全；你们的正典前提面临历史流传过程中的文本问题。",
+                "christian_protestant": "[引用原文] 最高权威唯独建立在圣经成文文本之上，而非世俗会议或人类传统。",
+                "christian_catholic": "[引用原文] 教会拥有神圣训导权，有权阐明蕴含在上帝话语中的深层教义。",
+                "judaism": "[引用原文] 申命记 13:1-5 明确禁止随从偏离西奈妥拉的新教导。",
+                "atheist_secular": "[引用原文] 举证责任完全落在提出超自然断言的一方身上。"
+            }.get(opp_p, f"[引用原文] {opp_p.upper()} 一方诉诸外部权威。")
+
+            opp_speech_r7 = {
+                "islam": "[引用原文] 真正的真理要求完全顺服纯正一神论，不承认任何本体论上的匹敌者或中介。",
+                "christian_protestant": "[引用原文] 我们坚守圣经自足性（sufficientia scripturae），作为信仰的唯一准则。",
+                "christian_catholic": "[引用原文] 我们确信圣灵引导教会的属灵理解，超越古老手抄本单纯的字面主义。",
+                "judaism": "[引用原文] 上帝是独一无二的（Echad）；我们绝不承认在神圣本体中有任何共有或联合。",
+                "atheist_secular": "[引用原文] 数以千计的抄本异文和文本间分歧证实了人类传抄过程中的纰漏。"
+            }.get(opp_p, "[引用原文] 反对方提出最终的神学合理化解释。")
+
+            opp_speech_r8 = {
+                "islam": "[引用原文] 我们坚守众先知的纯正一神论，并将最终裁决权交由造物主安拉。",
+                "christian_protestant": "[引用原文] 我们坚定立足于圣经66卷正典所记上帝的话语之上：唯独上帝得荣耀（Soli Deo Gloria）。",
+                "christian_catholic": "[引用原文] 我们始终坚定立足于至圣大公教会的使徒神圣共融之中。",
+                "judaism": "[引用原文] 以色列民生生不息；我们对上帝的永约与活泼的妥拉永持忠诚。",
+                "atheist_secular": "[引用原文] 我们立足于批判性理性、客观实证证据与科学方法，摈弃教条主义前设。"
+            }.get(opp_p, "[引用原文] 我们坚守各自信念，并将真理留给每个人的个人良知。")
+
+            zuma_r1 = f"[ZUMA 模拟发言] 请仔细听好。在本次公开辩论中，我们检验客观实证数据：'{motion}'。不要退缩到护教神话或情绪化修辞中。我们直接回到原版经文书卷、章节与节数，特别是 {p_primary}！在古代手抄本中，是否有任何明确字句支持你的断言？"
+            zuma_r2 = f"[ZUMA 模拟发言] 你退缩到了抽象的理论辩解中，因为原始手抄本根本不支持你！现在立刻打开 {p_primary}！查阅学术标准词典和原文语法句法。没有任何一个词素能赋予你的主张合法性。成文文本直接推翻了你的前提！"
+            zuma_r3 = f"[ZUMA 模拟发言] 停下，不要转移辩论焦点！当 {p_primary} 的成文文本没有你所声称的内容时，你就虚构抽象神学来掩盖文本证据的缺失。请准确回答我的问题：经文中到底有没有成文证据？"
+            zuma_r4 = f"[ZUMA 模拟发言] 很好，你引用了平行经文！让我们转向 {p_secondary}！即便在平行文本中，源语言词汇学也始终驳斥你的断言。最古老的手抄本文献证明不存在你所假定的增添或附加含义！{zuma_rebuttal}"
+            zuma_r5 = f"[ZUMA 模拟发言] 现在我将你锁定在苏格拉底致命困境中：如果按照原始文法字面解读 {p_primary}，你的教义主张立即崩溃；但如果你拒绝字面文本，你就是在指控圣经作者误传了上帝的话！你选择哪条路？"
+            zuma_r6 = f"[ZUMA 模拟发言] 这不是回答，这是逻辑妥协！依据立论归谬反诘法（Ilzam al-Khasm），我用你自己经典的前提和正典瓦解你的立场。在 {p_primary} 和 {p_secondary} 中，文本确立了成文事实，你却背弃逻辑一致性去捍卫无经文支持的教条！"
+            zuma_r7 = f"[ZUMA 模拟发言] 这就是问题的核心！你终于承认你主张的基础不是正典成文文本，而是经文权威之外的外部假设！在客观学术论辩中，任何未在原始文献中找到的命题，其法医实证分量皆为零！"
+            zuma_r8 = f"[ZUMA 模拟发言] 各位，手抄本的真理建立在成文事实之上！在针对 '{motion}' 的8轮严密质询中，对方（{opp_p.upper()}）无法展示来自 {p_primary} 或 {p_secondary} 的任何一条明确语句。所有防守论据都被证明是后正典时期的理性化辩解。成文文本屹立不倒，无经文支持的教条轰然倒塌！"
+        elif not is_id:
             opp_speech_r1 = {
                 "islam": f"[SOURCE QUOTE] We examine the claim '{claim_clean}' from the pure monotheism (Tawhid) of the prophets. All doctrine must be tested against the absolute oneness of God without partners.",
                 "christian_protestant": f"[SOURCE QUOTE] We stand upon Sola Scriptura and the 66-book Canon of the Bible. Regarding '{claim_clean}', true faith must be directly attested in the written Word of God.",
@@ -1137,7 +1244,26 @@ Aturan Mutlak:
         ]
 
         # 5. Cross-Examination Dilemma
-        if not is_id:
+        if is_zh:
+            cross_examination = [
+                {
+                    "examiner": "ZUMA",
+                    "target": "OPPONENT",
+                    "socratic_question": f"关于主题 '{motion}'，你是否愿意逐字承认 {p_primary} 的原始成文文本，而不掺杂任何证据标准之外的先验假设？",
+                    "target_dilemma": f"如果你按字面承认文本，对方（{opp_p.upper()}）的教义前提便立即崩溃；如果你拒绝字面经文，你便是在背弃经文自身的完整性与内在逻辑。",
+                    "presupposition_demolished": f"对方（{opp_p.upper()}）立场可以免于文献学检验与原版手抄本释经审查的虚妄假设。"
+                }
+            ]
+            has_custom_persp = bool(ctx.get("user_perspective"))
+            epistemic_verdict = {
+                "verdict_summary": f"ZUMA 辩证模拟证实：在 {user_p.upper()} 对比 {opp_p.upper()} 关于 '{motion}' 的辩论中，当面对正典文本 {p_primary} 的逐字研读与内在一致性审查时，对方的主张彻底瓦解。",
+                "logical_superiority": f"肯定性批判（ZUMA 针对 {user_p.upper()} 的策略指导）" if has_custom_persp else "肯定性批判（ZUMA）",
+                "unsupported_claims_flagged": [
+                    f"CLM-OPPOSITION-{p_primary.replace(' ', '-').replace(':', '-')}-001",
+                    f"CLM-EXTRACANONICAL-RATIONALIZATION-002"
+                ]
+            }
+        elif not is_id:
             cross_examination = [
                 {
                     "examiner": "ZUMA",
@@ -1192,7 +1318,7 @@ Aturan Mutlak:
             "schema_version": "1.0.0",
             "claim": claim_clean,
             "motion_or_topic": motion,
-            "original_youtube_title": f"Diskursus Teologis & Apologetika: {claim_clean}" if is_id else f"Theological & Apologetics Discourse: {claim_clean}",
+            "original_youtube_title": f"神学与护教学论辩: {claim_clean}" if is_zh else (f"Diskursus Teologis & Apologetika: {claim_clean}" if is_id else f"Theological & Apologetics Discourse: {claim_clean}"),
             "debate_mode": "zuma_persona",
             "persona_id": "zuma_debate_v1",
             "persona_intensity": 0.8,
@@ -1201,13 +1327,13 @@ Aturan Mutlak:
                     "participant_id": "PART-ZUMA",
                     "name": "Zulkifli M. Abbas (ZUMA)",
                     "role": "AFFIRMATIVE_CRITIQUE",
-                    "core_stance": "Uji naskah primer kanonik LAI TB & penolakan dogma tanpa ayat." if is_id else "Forensic audit of primary biblical manuscripts & refutation of dogma without scripture."
+                    "core_stance": "原始圣经抄本的法医式检验与对无经文支持教条的彻底驳斥。" if is_zh else ("Uji naskah primer kanonik LAI TB & penolakan dogma tanpa ayat." if is_id else "Forensic audit of primary biblical manuscripts & refutation of dogma without scripture.")
                 },
                 {
                     "participant_id": "PART-OPPONENT",
-                    "name": "Interlocutor / Pembela Doktrin" if is_id else "Interlocutor / Doctrinal Defender",
+                    "name": "对话者 / 教义辩护者" if is_zh else ("Interlocutor / Pembela Doktrin" if is_id else "Interlocutor / Doctrinal Defender"),
                     "role": "NEGATIVE_DEFENSE",
-                    "core_stance": "Pembelaan tradisi teologis dan penafsiran dogmatis." if is_id else "Defense of theological tradition and dogmatic interpretation."
+                    "core_stance": "神学传统与教义诠释的辩护。" if is_zh else ("Pembelaan tradisi teologis dan penafsiran dogmatis." if is_id else "Defense of theological tradition and dogmatic interpretation.")
                 }
             ],
             "grounding_rules": {

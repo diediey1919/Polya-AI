@@ -1115,24 +1115,59 @@ class CaseFileGenerator:
             arg_data = result.get("argument_graph", {})
             steelman = result.get("steelman_counterarg", {})
 
-            # Dynamic synthesis extraction
-            arg_val = synth.get("argument") or arg_data.get("claim", f"Analisis forensik atas klaim '{claim}' membuktikan integritas teks primer.")
-            counterarg_val = synth.get("counterargument") or steelman.get("opponent_reasoning", "Pihak lawan mendalilkan keberatan tanpa verifikasi naskah primer.")
-            rebuttal_val = synth.get("rebuttal") or steelman.get("rebuttal", "Rebuttal objektif membongkar distorsi makna dan menegakkan konsistensi kanon.")
-            weakness_val = synth.get("weakness") or "; ".join(steelman.get("weaknesses", ["Kelemahan leksikografi dan pengabaian konteks bahasa sumber."]))
+            # Dynamic synthesis extraction with locale-sensitive fallbacks
+            eff_loc = (debate_locale or ui_locale or "id").strip().lower()
+            is_zh_loc = eff_loc.startswith("zh")
+            is_en_loc = eff_loc.startswith("en")
 
-            open_q_val = synth.get("open_questions") or prep.get("follow_up_questions", [
-                "Bagaimana lawan membuktikan klaim tanpa rujukan naskah primer?",
-                "Apakah leksikon akademik standar mendukung pemaknaan lawan?"
-            ])
+            if is_zh_loc:
+                def_arg = f"针对主张 '{claim}' 的文献语言学法医分析证实了原典文本的内在一致性。"
+                def_counter = "反对方在缺乏原始手抄本检验的情况下提出了传统神学抗辩。"
+                def_rebuttal = "客观反驳揭示了经文意义的扭曲，确立了正典的内在一致性。"
+                def_weakness = "词汇学薄弱性与对源语言文本语境的忽视。"
+                def_questions = [
+                    "反对方如何在缺乏原始手抄本引证的情况下证实其主张？",
+                    "学术标准词典是否支持对方对源语言的诠释？"
+                ]
+                def_trap = "将反对方锁定在源语言词汇的严格学术定义上。"
+                def_tempo = "提出精炼有力的苏格拉底式质询，锁定反对方在原始文献上的妥协。"
+            elif is_en_loc:
+                def_arg = f"Forensic analysis of the claim '{claim}' demonstrates internal primary text integrity."
+                def_counter = "The opposition asserts objections without primary manuscript verification."
+                def_rebuttal = "Objective rebuttal dismantling semantic distortion and upholding canonical consistency."
+                def_weakness = "Lexicographical vulnerability and disregard of original source language context."
+                def_questions = [
+                    "How does the opposition substantiate the claim without primary manuscript citations?",
+                    "Do standard academic lexicons support the opposition's interpretation?"
+                ]
+                def_trap = "Lock the interlocutor to the strict definition of source language vocabulary."
+                def_tempo = "Ask short, structured Socratic questions, securing concessions on primary texts."
+            else:
+                def_arg = f"Analisis forensik atas klaim '{claim}' membuktikan integritas teks primer."
+                def_counter = "Pihak lawan mendalilkan keberatan tanpa verifikasi naskah primer."
+                def_rebuttal = "Rebuttal objektif membongkar distorsi makna dan menegakkan konsistensi kanon."
+                def_weakness = "Kelemahan leksikografi dan pengabaian konteks bahasa sumber."
+                def_questions = [
+                    "Bagaimana lawan membuktikan klaim tanpa rujukan naskah primer?",
+                    "Apakah leksikon akademik standar mendukung pemaknaan lawan?"
+                ]
+                def_trap = "Kuncilah lawan pada definisi kata bahasa asli."
+                def_tempo = "Ajukan pertanyaan Sokratik terstruktur, kunci lawan pada konsesi naskah primer."
+
+            arg_val = synth.get("argument") or arg_data.get("claim", def_arg)
+            counterarg_val = synth.get("counterargument") or steelman.get("opponent_reasoning", def_counter)
+            rebuttal_val = synth.get("rebuttal") or steelman.get("rebuttal", def_rebuttal)
+            weakness_val = synth.get("weakness") or "; ".join(steelman.get("weaknesses", [def_weakness]))
+
+            open_q_val = synth.get("open_questions") or prep.get("follow_up_questions", def_questions)
 
             if synth.get("debate_preparation"):
                 db_prep = synth["debate_preparation"]
-                trap_val = db_prep.get("cross_examination_trap") or "Kuncilah lawan pada definisi kata bahasa asli."
-                tempo_val = db_prep.get("recommended_tempo") or "Ajukan pertanyaan sokratik pendek dan terukur."
+                trap_val = db_prep.get("cross_examination_trap") or def_trap
+                tempo_val = db_prep.get("recommended_tempo") or def_tempo
             else:
-                trap_val = prep.get("cross_examination_questions", ["Buka pasal dan ayatnya dalam bahasa sumber."])[0] if prep.get("cross_examination_questions") else "Kuncilah lawan pada definisi kata bahasa asli."
-                tempo_val = "Ajukan pertanyaan Sokratik terstruktur, kunci lawan pada konsesi naskah primer."
+                trap_val = prep.get("cross_examination_questions", [def_trap])[0] if prep.get("cross_examination_questions") else def_trap
+                tempo_val = def_tempo
 
             prep_val = {
                 "cross_examination_trap": trap_val,

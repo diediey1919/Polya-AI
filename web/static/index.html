@@ -2097,13 +2097,13 @@
       </div>
 
       </div>
-      <div class="sidebar-heading" id="side-heading-workspace">Research Workspace</div>
-      <a class="side-item" id="side-item-calc" onclick="navigateRoute(event, '/calculator')">Apologetics Machine</a>
-      <a class="side-item active" id="side-item-dash" onclick="navigateRoute(event, '/dashboard')">Workspace</a>
+      <div class="sidebar-heading" id="side-heading-workspace" data-i18n="headingWorkspace">Research Workspace</div>
+      <a class="side-item" id="side-item-calc" data-i18n="navApologeticsMachine" onclick="navigateRoute(event, '/calculator')">Apologetics Machine</a>
+      <a class="side-item active" id="side-item-dash" data-i18n="navWorkspace" onclick="navigateRoute(event, '/dashboard')">Workspace</a>
       <a class="side-item" id="side-item-themes" onclick="navigateRoute(event, '/themes'); selectDebateCategory('ALL');">
         <span style="display: flex; align-items: center; gap: 0.45rem;">
           <span>🏛️</span>
-          <span id="side-item-themes-title">Theme Debate (Mosi)</span>
+          <span id="side-item-themes-title" data-i18n="navThemeDebate">Theme Debate (Mosi)</span>
         </span>
       </a>
       <div id="sidebar-theme-clusters" class="sidebar-theme-clusters" style="display: flex; flex-direction: column; gap: 0.1rem; padding-left: 0.25rem; margin-top: 0.1rem; margin-bottom: 0.45rem;">
@@ -2149,16 +2149,16 @@
         </a>
       </div>
 
-      <div class="sidebar-heading" id="side-heading-evidence">Evidence Lab</div>
-      <a class="side-item" id="side-item-knowledge" onclick="navigateRoute(event, '/knowledge')">Knowledge Base</a>
-      <a class="side-item" id="side-item-persona" onclick="navigateRoute(event, '/persona')">Persona Dialektika</a>
-      <a class="side-item" id="side-item-pipeline" onclick="navigateRoute(event, '/pipeline')">Exegesis Pipeline</a>
+      <div class="sidebar-heading" id="side-heading-evidence" data-i18n="headingEvidenceLab">Evidence Lab</div>
+      <a class="side-item" id="side-item-knowledge" data-i18n="navKnowledge" onclick="navigateRoute(event, '/knowledge')">Knowledge Base</a>
+      <a class="side-item" id="side-item-persona" data-i18n="navPersona" onclick="navigateRoute(event, '/persona')">Persona Dialektika</a>
+      <a class="side-item" id="side-item-pipeline" data-i18n="navPipeline" onclick="navigateRoute(event, '/pipeline')">Exegesis Pipeline</a>
 
-      <div class="sidebar-heading" id="side-heading-prep">Preparation & User</div>
-      <a class="side-item" id="side-item-settings" onclick="navigateRoute(event, '/settings')">Settings</a>
-      <a class="side-item" id="side-item-account" onclick="navigateRoute(event, '/account')">Billing & Quota</a>
-      <a class="side-item" id="side-item-arena" href="/arena" style="color: #dfb15b; font-weight: 600;">Debate Arena (3-vs-3)</a>
-      <a class="side-item" id="side-item-about" onclick="navigateRoute(event, '/about-polya')" style="color: #38bdf8; font-weight: 600;">About Polya AI</a>
+      <div class="sidebar-heading" id="side-heading-prep" data-i18n="headingPrepUser">Preparation & User</div>
+      <a class="side-item" id="side-item-settings" data-i18n="navSettings" onclick="navigateRoute(event, '/settings')">Settings</a>
+      <a class="side-item" id="side-item-account" data-i18n="navBilling" onclick="navigateRoute(event, '/account')">Billing & Quota</a>
+      <a class="side-item" id="side-item-arena" data-i18n="navDebateArena" href="/arena" style="color: #dfb15b; font-weight: 600;">Debate Arena (3-vs-3)</a>
+      <a class="side-item" id="side-item-about" data-i18n="navAbout" onclick="navigateRoute(event, '/about-polya')" style="color: #38bdf8; font-weight: 600;">About Polya AI</a>
     </aside>
 
     <!-- Main Content Area -->
@@ -2167,11 +2167,11 @@
       <!-- VIEW 1: LANDING & CALCULATOR VIEW -->
       <section id="view-calculator">
         <div class="hero-container">
-          <h2 class="hero-title" id="calc-hero-title">Apologetics Calculator</h2>
-          <p class="hero-copy" id="calc-hero-copy">
+          <h2 class="hero-title" id="calc-hero-title" data-i18n="calcHeroTitle">Apologetics Calculator</h2>
+          <p class="hero-copy" id="calc-hero-copy" data-i18n="calcHeroCopy">
             Apologetics Calculator akan menganalisis klaim lawan dan memberikan data, sumber, bukti, konteks, argumen, serta sanggahan yang relevan untuk membantu kamu mempersiapkan diri dan memenangkan debatmu.
           </p>
-          <button id="hero-cta-btn" class="btn-primary" style="width: auto; padding: 0.85rem 2.25rem; font-size: 1.05rem;" onclick="focusCalculator()">
+          <button id="hero-cta-btn" data-i18n="calcHeroCta" class="btn-primary" style="width: auto; padding: 0.85rem 2.25rem; font-size: 1.05rem;" onclick="focusCalculator()">
             Coba 5 Analisis Gratis
           </button>
         </div>
@@ -2179,7 +2179,7 @@
         <div class="calculator-box" id="calc-anchor">
           <div class="calc-header-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; gap: 1rem;">
             <div class="calc-header-title-wrap" style="text-align: left;">
-              <h3 id="calc-header-title" style="font-size: 1.15rem; font-weight: 600; margin: 0; text-align: left;">Apologetics Calculator</h3>
+              <h3 id="calc-header-title" data-i18n="calcHeaderTitle" style="font-size: 1.15rem; font-weight: 600; margin: 0; text-align: left;">Apologetics Calculator</h3>
             </div>
             <!-- Opponent Context Selector & Free Quota Pill to its right -->
             <div style="display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0;">
@@ -2202,8 +2202,8 @@
           <div class="calc-actions">
             <!-- Debate response type mode selector -->
             <div class="calc-mode-group" style="display: flex; gap: 0.5rem;">
-              <button id="btn-mode-debate" class="btn-primary" style="background: var(--primary); color: #040914; font-weight: 600; font-size: 0.82rem; padding: 0.45rem 0.85rem;" onclick="setMode('debate')">⚔ Debate Mode</button>
-              <button id="btn-mode-research" class="btn-primary" style="background: var(--bg-card); color: var(--text-muted); font-size: 0.82rem; padding: 0.45rem 0.85rem;" onclick="setMode('research')">📖 Research Mode</button>
+              <button id="btn-mode-debate" data-i18n="calcBtnDebateMode" class="btn-primary" style="background: var(--primary); color: #040914; font-weight: 600; font-size: 0.82rem; padding: 0.45rem 0.85rem;" onclick="setMode('debate')">⚔ Debate Mode</button>
+              <button id="btn-mode-research" data-i18n="calcBtnResearchMode" class="btn-primary" style="background: var(--bg-card); color: var(--text-muted); font-size: 0.82rem; padding: 0.45rem 0.85rem;" onclick="setMode('research')">📖 Research Mode</button>
             </div>
             <button id="btn-calc-analyze" class="btn-primary" style="font-weight: 600; font-size: 0.95rem; padding: 0.65rem 1.35rem;" onclick="runAnalysis()">
               <span id="btn-calc-loader" style="display: none;">
@@ -2221,7 +2221,7 @@
                   </span>
                 </span>
               </span>
-              <span id="btn-calc-text">Hitung & Analisis Klaim</span>
+              <span id="btn-calc-text" data-i18n="calcBtnAnalyze">Hitung & Analisis Klaim</span>
               <span id="btn-calc-arrow"> →</span>
             </button>
           </div>
@@ -2231,13 +2231,13 @@
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
               <div>
                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                  <span id="canonical-cases-title" style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.05em;">Studi Kasus Kanonikal Unggulan</span>
-                  <span id="canonical-cases-count" class="evidence-badge badge-primary-source" style="font-size: 0.65rem; padding: 0.1rem 0.4rem;">18 Mosi Terverifikasi</span>
+                  <span id="canonical-cases-title" data-i18n="canonicalCasesTitle" style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.05em;">Studi Kasus Kanonikal Unggulan</span>
+                  <span id="canonical-cases-count" data-i18n="canonicalCasesCount" class="evidence-badge badge-primary-source" style="font-size: 0.65rem; padding: 0.1rem 0.4rem;">18 Mosi Terverifikasi</span>
                 </div>
-                <p id="canonical-cases-sub" style="font-size: 0.78rem; color: var(--text-muted); margin: 0.2rem 0 0 0;">Pilih salah satu mosi debat untuk diuji langsung di kalkulator atau buka berkas dossier naskah.</p>
+                <p id="canonical-cases-sub" data-i18n="canonicalCasesSub" style="font-size: 0.78rem; color: var(--text-muted); margin: 0.2rem 0 0 0;">Pilih salah satu mosi debat untuk diuji langsung di kalkulator atau buka berkas dossier naskah.</p>
               </div>
               <a id="canonical-cases-link" onclick="navigateRoute(event, '/themes'); selectDebateCategory('ALL');" style="font-size: 0.78rem; color: var(--primary); text-decoration: none; cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem;">
-                <span>Lihat Seluruh 2.451+ Tema</span> <span>→</span>
+                <span data-i18n="canonicalCasesViewAll">Lihat Seluruh 2.451+ Tema</span> <span>→</span>
               </a>
             </div>
 
@@ -2255,13 +2255,13 @@
           <div class="case-header-row" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem;">
             <div>
               <span id="case-id-display" style="font-family: var(--font-mono); color: var(--primary); font-size: 0.85rem; font-weight: bold;">CASE-0001</span>
-              <h3 id="case-claim-display" style="font-size: 1.35rem; margin-top: 0.25rem;">Klaim</h3>
+              <h3 id="case-claim-display" data-i18n="caseClaimHeading" style="font-size: 1.35rem; margin-top: 0.25rem;">Klaim</h3>
             </div>
             <div class="case-header-actions" style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
-              <button class="btn-primary" style="background: var(--bg-surface); color: var(--primary); padding: 0.35rem 0.85rem; font-size: 0.8rem;" onclick="triggerShowActiveSource()">
+              <button class="btn-primary" data-i18n="caseResultSourceBtn" style="background: var(--bg-surface); color: var(--primary); padding: 0.35rem 0.85rem; font-size: 0.8rem;" onclick="triggerShowActiveSource()">
                 🔍 Show me the source
               </button>
-              <span id="case-status-badge" class="badge-pill badge-quota">VERIFIED INTEL</span>
+              <span id="case-status-badge" data-i18n="caseResultVerified" class="badge-pill badge-quota">VERIFIED INTEL</span>
             </div>
           </div>
 
@@ -2270,7 +2270,7 @@
           <!-- Card Khusus Dialektika & Simulasi Debat Zuma (Paling Atas) -->
           <div id="zuma-debate-card" class="case-card" style="margin-bottom: 1.5rem; border: 2px solid var(--primary); background: rgba(13, 148, 136, 0.05); display: block !important;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem;">
-              <h4 id="case-zuma-header" style="color: var(--primary); margin: 0; font-size: 1.1rem;">⚡ Dialektika Zuma & Simulasi Debat (Socratic Funnel)</h4>
+              <h4 id="case-zuma-header" data-i18n="caseZumaHeader" style="color: var(--primary); margin: 0; font-size: 1.1rem;">⚡ Dialektika Zuma & Simulasi Debat (Socratic Funnel)</h4>
               <span class="evidence-badge badge-primary-source" style="font-size: 0.75rem;">ZUMA ACTIVE</span>
             </div>
             <div id="zuma-debate-card-content" style="font-size: 0.85rem; color: var(--text-main); line-height: 1.6;">
@@ -2280,35 +2280,35 @@
 
           <div class="calc-result-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem;">
             <div class="case-card">
-              <h4 id="case-primary-ev-header">🏛 Primary Evidence</h4>
+              <h4 id="case-primary-ev-header" data-i18n="casePrimaryEvidence">🏛 Primary Evidence</h4>
               <div id="case-evidence-content"></div>
             </div>
 
             <div class="case-card">
-              <h4 id="case-ctx-ling-header">⚖ Context & Linguistics</h4>
+              <h4 id="case-ctx-ling-header" data-i18n="caseContextLinguistics">⚖ Context & Linguistics</h4>
               <p id="case-argument-content"></p>
             </div>
 
             <div class="case-card">
-              <h4 id="case-opp-counter-header">⚔ Opponent Counterargument</h4>
+              <h4 id="case-opp-counter-header" data-i18n="caseOpponentCounter">⚔ Opponent Counterargument</h4>
               <p id="case-counter-content"></p>
             </div>
 
             <div class="case-card">
-              <h4 id="case-rebuttal-header">🛡 Possible Response & Rebuttal</h4>
+              <h4 id="case-rebuttal-header" data-i18n="caseRebuttal">🛡 Possible Response & Rebuttal</h4>
               <p id="case-rebuttal-content"></p>
             </div>
           </div>
 
           <!-- Titik Lemah Lawan -->
           <div class="case-card" style="margin-bottom: 1.5rem;">
-            <h4 id="case-weakness-header">🎯 Titik Lemah Lawan (Weakness Analysis)</h4>
+            <h4 id="case-weakness-header" data-i18n="caseWeakness">🎯 Titik Lemah Lawan (Weakness Analysis)</h4>
             <p id="case-weakness-content"></p>
           </div>
 
           <!-- Open Questions / Titik Uji Forensik -->
           <div class="case-card" style="margin-bottom: 1.5rem;">
-            <h4 id="case-open-q-header">❓ Open Questions / Titik Uji Forensik</h4>
+            <h4 id="case-open-q-header" data-i18n="caseOpenQuestions">❓ Open Questions / Titik Uji Forensik</h4>
             <ul id="case-questions-content" style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;"></ul>
           </div>
 
@@ -2317,10 +2317,10 @@
 
           <!-- Source & Provenance Table -->
           <div class="case-card" style="margin-bottom: 1.5rem;">
-            <h4 id="case-provenance-header">📚 Source & Provenance</h4>
+            <h4 id="case-provenance-header" data-i18n="caseSourceProvenance">📚 Source & Provenance</h4>
             <div class="table-responsive">
               <table class="data-table">
-                <thead><tr><th>Sitasi Naskah</th><th>Kategori Bukti</th><th>Aksi</th></tr></thead>
+                <thead><tr><th data-i18n="tableHeaderCitation">Sitasi Naskah</th><th data-i18n="tableHeaderCategory">Kategori Bukti</th><th data-i18n="tableHeaderAction">Aksi</th></tr></thead>
                 <tbody id="case-sources-body"></tbody>
               </table>
             </div>
@@ -2328,10 +2328,10 @@
 
           <!-- Adversarial Control Buttons -->
           <div class="case-actions-row" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-            <button id="btn-weakest-point" class="btn-primary" style="width: auto; background: #eab308; color: #040914; font-weight: 600;" onclick="runWeakestPointAnalysis()">
+            <button id="btn-weakest-point" data-i18n="btnWeakestPoint" class="btn-primary" style="width: auto; background: #eab308; color: #040914; font-weight: 600;" onclick="runWeakestPointAnalysis()">
               🎯 Weakest Point Analysis
             </button>
-            <a class="btn-primary" style="width: auto; background: var(--accent); color: #fff; text-decoration: none;" href="/arena">
+            <a class="btn-primary" data-i18n="simDebateBtn" style="width: auto; background: var(--accent); color: #fff; text-decoration: none;" href="/arena">
               SIMULATION DEBATE LEARNING →
             </a>
           </div>
@@ -2339,8 +2339,8 @@
           <!-- Adversarial Telemetry Results Box -->
           <div id="adversarial-results-box" class="case-card hidden" style="margin-top: 1.5rem; padding: 1.5rem; border: 1px solid var(--border-focus); background: #0c121e;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-              <h4 id="adv-title" style="margin: 0; font-size: 1rem; color: var(--text-main);">Adversarial Report</h4>
-              <button class="record-chip" onclick="document.getElementById('adversarial-results-box').classList.add('hidden')">✕ Tutup</button>
+              <h4 id="adv-title" data-i18n="advReportTitle" style="margin: 0; font-size: 1rem; color: var(--text-main);">Adversarial Report</h4>
+              <button class="record-chip" data-i18n="advCloseBtn" onclick="document.getElementById('adversarial-results-box').classList.add('hidden')">✕ Tutup</button>
             </div>
             <div id="adv-loader" style="display: none; padding: 1rem; text-align: center; color: var(--primary);">
               <span class="pulse-dot"></span> Menjalankan Adversarial Intelligence Pipeline...
@@ -2363,14 +2363,14 @@
               <span class="record-chip">STREAM: 22ms</span>
               <span class="record-chip">APPARATUS: NA28 / DSS / BHS</span>
             </div>
-            <h2 id="dash-title" style="font-size: 1.5rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em;">Research Workspace Dashboard</h2>
-            <p id="dash-sub" style="color: var(--text-muted); font-size: 0.85rem;">Ikhtisar komputasi teks primer, strategi dialektika ZUMA, dan pelacakan varian polemik.</p>
+            <h2 id="dash-title" data-i18n="dashTitle" style="font-size: 1.5rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em;">Research Workspace Dashboard</h2>
+            <p id="dash-sub" data-i18n="dashSub" style="color: var(--text-muted); font-size: 0.85rem;">Ikhtisar komputasi teks primer, strategi dialektika ZUMA, dan pelacakan varian polemik.</p>
           </div>
           <div class="dashboard-header-actions" style="display: flex; gap: 0.5rem;">
-            <button id="dash-btn-inspect" class="btn-primary" style="padding: 0.45rem 0.95rem; font-size: 0.8rem; background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-subtle);" onclick="openSourceDrawer()">
+            <button id="dash-btn-inspect" data-i18n="dashBtnInspect" class="btn-primary" style="padding: 0.45rem 0.95rem; font-size: 0.8rem; background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-subtle);" onclick="openSourceDrawer()">
               Inspect Codex Source
             </button>
-            <button id="dash-btn-calc" class="btn-primary" style="padding: 0.45rem 0.95rem; font-size: 0.8rem;" onclick="navigateRoute(event, '/calculator')">
+            <button id="dash-btn-calc" data-i18n="dashBtnCalc" class="btn-primary" style="padding: 0.45rem 0.95rem; font-size: 0.8rem;" onclick="navigateRoute(event, '/calculator')">
               Launch Calculator
             </button>
           </div>
@@ -2523,10 +2523,10 @@
       <section id="view-themes" class="hidden">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
           <div>
-            <h2 id="themes-title" style="font-family: var(--font-serif); font-size: 1.85rem; margin: 0;">Tema & Mosi Debat</h2>
+            <h2 id="themes-title" data-i18n="themesTitle" style="font-family: var(--font-serif); font-size: 1.85rem; margin: 0;">Tema & Mosi Debat</h2>
           </div>
           <div style="display: flex; gap: 0.5rem; align-items: center;">
-            <button id="themes-btn-reload" class="btn-primary" style="font-size: 0.8rem; padding: 0.45rem 0.85rem;" onclick="loadThemes()">
+            <button id="themes-btn-reload" data-i18n="themesBtnReload" class="btn-primary" style="font-size: 0.8rem; padding: 0.45rem 0.85rem;" onclick="loadThemes()">
               Muat Ulang Tema 🔄
             </button>
           </div>
@@ -2648,8 +2648,8 @@
       <section id="view-knowledge" class="hidden">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem;">
           <div>
-            <h2 id="knowledge-title" style="font-family: var(--font-serif); font-size: 1.85rem;">Knowledge Explorer & Argument Graph</h2>
-            <p id="knowledge-sub" style="color: var(--text-muted);">Penjelajah ontologi argumen terkomputasi, relasi premis terarah (DAG), dan korpus naskah primer.</p>
+            <h2 id="knowledge-title" data-i18n="knowledgeTitle" style="font-family: var(--font-serif); font-size: 1.85rem;">Knowledge Explorer & Argument Graph</h2>
+            <p id="knowledge-sub" data-i18n="knowledgeSub" style="color: var(--text-muted);">Penjelajah ontologi argumen terkomputasi, relasi premis terarah (DAG), dan korpus naskah primer.</p>
           </div>
           <span id="knowledge-stats-pill" class="badge-pill badge-quota">Graph Nodes: 0 | Edges: 0</span>
         </div>
@@ -2725,8 +2725,8 @@
       <section id="view-persona" class="hidden">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem;">
           <div>
-            <h2 id="persona-title" style="font-family: var(--font-serif); font-size: 1.85rem;">Persona Dialektika — ZUMA Sparring Cockpit</h2>
-            <p id="persona-sub" style="color: var(--text-muted);">Sesi latihan interaktif 1-on-1 melawan AI Debater berbobot strategi Sokratik & Ilzam al-Khasm.</p>
+            <h2 id="persona-title" data-i18n="personaTitle" style="font-family: var(--font-serif); font-size: 1.85rem;">Persona Dialektika — ZUMA Sparring Cockpit</h2>
+            <p id="persona-sub" data-i18n="personaSub" style="color: var(--text-muted);">Sesi latihan interaktif 1-on-1 melawan AI Debater berbobot strategi Sokratik & Ilzam al-Khasm.</p>
           </div>
           <span class="record-chip" style="color: var(--gold); border-color: rgba(223, 177, 91, 0.35);">
             ZUMA SPARRING (1-ON-1 PRACTICE)
@@ -2869,12 +2869,12 @@
       <!-- VIEW 7: SETTINGS (Seksi 48) -->
       <!-- VIEW 8: SETTINGS & PREFERENCES VIEW -->
       <section id="view-settings" class="hidden">
-        <h2 id="settings-title" style="font-family: var(--font-serif); font-size: 1.35rem; margin-bottom: 0.5rem;">Research Settings & Preferences</h2>
-        <p id="settings-sub" style="color: var(--text-muted); margin-bottom: 1.5rem;">Konfigurasi parameter penelitian, perspektif debat, dan preferensi antarmuka.</p>
+        <h2 id="settings-title" data-i18n="settingsTitle" style="font-family: var(--font-serif); font-size: 1.35rem; margin-bottom: 0.5rem;">Research Settings & Preferences</h2>
+        <p id="settings-sub" data-i18n="settingsSub" style="color: var(--text-muted); margin-bottom: 1.5rem;">Konfigurasi parameter penelitian, perspektif debat, dan preferensi antarmuka.</p>
 
         <div class="case-card border-beam-card" style="max-width: 600px; padding: 2rem;">
-          <h4 id="settings-pref-heading" style="margin-bottom: 1rem;">Preferensi Apologetika</h4>
-          <label id="settings-lang-label" style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.25rem;">Bahasa UI</label>
+          <h4 id="settings-pref-heading" data-i18n="settingsPrefHeading" style="margin-bottom: 1rem;">Preferensi Apologetika</h4>
+          <label id="settings-lang-label" data-i18n="settingsLangLabel" style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.25rem;">Bahasa UI</label>
           <div class="calc-input-wrapper" style="margin-bottom: 0.75rem; border-radius: 8px; min-height: 0;">
             <select id="settings-lang-select" style="display: block; width: 100%; height: 28px; line-height: 28px; padding: 0 0.65rem; font-size: 0.8rem; background: transparent; border: none; outline: none; color: var(--text-main); box-sizing: border-box; cursor: pointer;" onchange="updateLanguageFromSettings(this.value)">
               <option value="id" style="background: var(--bg-card);">Bahasa Indonesia</option>
@@ -2883,7 +2883,7 @@
             </select>
           </div>
 
-          <label id="settings-persp-label" style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.2rem;">Perspektif Apologetika Pengguna</label>
+          <label id="settings-persp-label" data-i18n="settingsPerspLabel" style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.2rem;">Perspektif Apologetika Pengguna</label>
           <div class="calc-input-wrapper" style="margin-bottom: 1rem; border-radius: 8px; min-height: 0;">
             <select id="settings-persp-select" style="display: block; width: 100%; height: 32px; line-height: 32px; padding: 0 0.65rem; font-size: 0.82rem; background: transparent; border: none; outline: none; color: var(--text-main); box-sizing: border-box; cursor: pointer;" onchange="selectPerspective(this.value)">
               <option value="christian_protestant" style="background: var(--bg-card);">✝ Apologetics Kristen Protestan</option>
@@ -2895,8 +2895,8 @@
           </div>
 
           <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 1.25rem;">
-            <button class="btn-primary" id="btn-save-settings" onclick="saveUserPreferences()">Simpan Preferensi</button>
-            <button class="btn-primary" id="btn-reset-onboarding" style="background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border-subtle);" onclick="resetOnboardingForDemo()">🌐 Reset Onboarding</button>
+            <button class="btn-primary" id="btn-save-settings" data-i18n="settingsSaveBtn" onclick="saveUserPreferences()">Simpan Preferensi</button>
+            <button class="btn-primary" id="btn-reset-onboarding" data-i18n="settingsResetBtn" style="background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border-subtle);" onclick="resetOnboardingForDemo()">🌐 Reset Onboarding</button>
           </div>
         </div>
       </section>
@@ -3543,7 +3543,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "Kutipan Teks Sumber",
     "codexProvenanceTitle": "Provenance & Verifikasi",
     "codexConfidenceLabel": "Confidence Score:",
-    "codexCloseBtn": "Tutup Drawer"
+    "codexCloseBtn": "Tutup Drawer",,
+    "caseClaimHeading": "Klaim",
+    "tableHeaderCitation": "Sitasi Naskah",
+    "tableHeaderCategory": "Kategori Bukti",
+    "tableHeaderAction": "Aksi",
+    "btnWeakestPoint": "🎯 Titik Lemah Lawan",
+    "advReportTitle": "Laporan Adversarial",
+    "simDebateBtn": "SIMULASI BELAJAR DEBAT →",
+    "advCloseBtn": "✕ Tutup",
+    "advLoadingText": "Menjalankan Adversarial Intelligence Pipeline..."
   },
   "en": {
     "quickSearch": "Quick search...",
@@ -3672,7 +3681,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "Source Text Quotation",
     "codexProvenanceTitle": "Provenance & Verification",
     "codexConfidenceLabel": "Confidence Score:",
-    "codexCloseBtn": "Close Drawer"
+    "codexCloseBtn": "Close Drawer",,
+    "caseClaimHeading": "Claim",
+    "tableHeaderCitation": "Scripture Citation",
+    "tableHeaderCategory": "Evidence Category",
+    "tableHeaderAction": "Action",
+    "btnWeakestPoint": "🎯 Weakest Point Analysis",
+    "advReportTitle": "Adversarial Report",
+    "simDebateBtn": "SIMULATION DEBATE LEARNING →",
+    "advCloseBtn": "✕ Close",
+    "advLoadingText": "Running Adversarial Intelligence Pipeline..."
   },
   "ar": {
     "quickSearch": "بحث سريع...",
@@ -3801,7 +3819,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "اقتباس النص الأصلي",
     "codexProvenanceTitle": "المصدر والتحقق",
     "codexConfidenceLabel": "درجة الموثوقية:",
-    "codexCloseBtn": "إغلاق"
+    "codexCloseBtn": "إغلاق",,
+    "caseClaimHeading": "الادعاء",
+    "tableHeaderCitation": "استشهاد المخطوطة",
+    "tableHeaderCategory": "فئة الدليل",
+    "tableHeaderAction": "إجراء",
+    "btnWeakestPoint": "🎯 تحليل أضعف نقطة للخصم",
+    "advReportTitle": "التقرير الاستقصائي العدائي",
+    "simDebateBtn": "محاكاة تعلم المناظرة ←",
+    "advCloseBtn": "✕ إغلاق",
+    "advLoadingText": "تشغيل مسار الذكاء العدائي..."
   },
   "ja": {
     "quickSearch": "クイック検索...",
@@ -3930,7 +3957,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "原典テキスト引用",
     "codexProvenanceTitle": "出所記録と検証",
     "codexConfidenceLabel": "信頼度スコア:",
-    "codexCloseBtn": "閉じる"
+    "codexCloseBtn": "閉じる",,
+    "caseClaimHeading": "主張",
+    "tableHeaderCitation": "写本引用",
+    "tableHeaderCategory": "証拠カテゴリー",
+    "tableHeaderAction": "アクション",
+    "btnWeakestPoint": "🎯 相手の最弱点分析",
+    "advReportTitle": "敵対的実証レポート",
+    "simDebateBtn": "討論学習シミュレーション →",
+    "advCloseBtn": "✕ 閉じる",
+    "advLoadingText": "敵対的インテリジェンス・パイプラインを実行中..."
   },
   "ko": {
     "quickSearch": "빠른 검색...",
@@ -4059,7 +4095,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "원전 텍스트 인용",
     "codexProvenanceTitle": "출처 및 검증",
     "codexConfidenceLabel": "신뢰도 점수:",
-    "codexCloseBtn": "닫기"
+    "codexCloseBtn": "닫기",,
+    "caseClaimHeading": "주장",
+    "tableHeaderCitation": "성경 인용",
+    "tableHeaderCategory": "증거 범주",
+    "tableHeaderAction": "조치",
+    "btnWeakestPoint": "🎯 상대방 최약점 분석",
+    "advReportTitle": "대립적 검증 보고서",
+    "simDebateBtn": "토론 학습 시뮬레이션 →",
+    "advCloseBtn": "✕ 닫기",
+    "advLoadingText": "대립적 인텔리전스 파이프라인 실행 중..."
   },
   "zh": {
     "quickSearch": "快速搜索...",
@@ -4188,7 +4233,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "原始文本引注",
     "codexProvenanceTitle": "出处来源与检验",
     "codexConfidenceLabel": "置信度评分:",
-    "codexCloseBtn": "关闭"
+    "codexCloseBtn": "关闭",,
+    "caseClaimHeading": "主张",
+    "tableHeaderCitation": "文献引用",
+    "tableHeaderCategory": "证据类别",
+    "tableHeaderAction": "操作",
+    "btnWeakestPoint": "🎯 对方最弱点分析",
+    "advReportTitle": "对抗性实证报告",
+    "simDebateBtn": "辩论学习模拟 →",
+    "advCloseBtn": "✕ 关闭",
+    "advLoadingText": "正在运行对抗性智能管线..."
   },
   "es": {
     "quickSearch": "Búsqueda rápida...",
@@ -4317,7 +4371,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "Cita del Texto Fuente",
     "codexProvenanceTitle": "Procedencia y Verificación",
     "codexConfidenceLabel": "Puntaje de Confianza:",
-    "codexCloseBtn": "Cerrar"
+    "codexCloseBtn": "Cerrar",,
+    "caseClaimHeading": "Afirmación",
+    "tableHeaderCitation": "Cita del Manuscrito",
+    "tableHeaderCategory": "Categoría de Evidencia",
+    "tableHeaderAction": "Acción",
+    "btnWeakestPoint": "🎯 Análisis del Punto más Débil",
+    "advReportTitle": "Informe Adversarial",
+    "simDebateBtn": "SIMULACIÓN DE APRENDIZAJE DE DEBATE →",
+    "advCloseBtn": "✕ Cerrar",
+    "advLoadingText": "Ejecutando Pipeline de Inteligencia Adversarial..."
   },
   "fr": {
     "quickSearch": "Recherche rapide...",
@@ -4446,7 +4509,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "Citation du Texte Source",
     "codexProvenanceTitle": "Provenance & Vérification",
     "codexConfidenceLabel": "Score de Confiance :",
-    "codexCloseBtn": "Fermer"
+    "codexCloseBtn": "Fermer",,
+    "caseClaimHeading": "Allégation",
+    "tableHeaderCitation": "Citation du Manuscrit",
+    "tableHeaderCategory": "Catégorie de Preuve",
+    "tableHeaderAction": "Action",
+    "btnWeakestPoint": "🎯 Analyse du Point le plus Faible",
+    "advReportTitle": "Rapport Contradictoire",
+    "simDebateBtn": "SIMULATION D'APPRENTISSAGE DE DÉBAT →",
+    "advCloseBtn": "✕ Fermer",
+    "advLoadingText": "Exécution du pipeline d'intelligence contradictoire..."
   },
   "de": {
     "quickSearch": "Schnellsuche...",
@@ -4575,7 +4647,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "Quelltext-Zitat",
     "codexProvenanceTitle": "Herkunft & Verifikation",
     "codexConfidenceLabel": "Konfidenzwert:",
-    "codexCloseBtn": "Schließen"
+    "codexCloseBtn": "Schließen",,
+    "caseClaimHeading": "Behauptung",
+    "tableHeaderCitation": "Handschriftenzitat",
+    "tableHeaderCategory": "Beweiskategorie",
+    "tableHeaderAction": "Aktion",
+    "btnWeakestPoint": "🎯 Analyse des schwächsten Punkts",
+    "advReportTitle": "Adversarieller Bericht",
+    "simDebateBtn": "DEBATTIER-LERN-SIMULATION →",
+    "advCloseBtn": "✕ Schließen",
+    "advLoadingText": "Adversarielle Intelligenz-Pipeline wird ausgeführt..."
   },
   "ru": {
     "quickSearch": "Быстрый поиск...",
@@ -4704,7 +4785,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "Цитата из Исходного Текста",
     "codexProvenanceTitle": "Происхождение и Верификация",
     "codexConfidenceLabel": "Уровень Достоверности:",
-    "codexCloseBtn": "Закрыть"
+    "codexCloseBtn": "Закрыть",,
+    "caseClaimHeading": "Утверждение",
+    "tableHeaderCitation": "Цитата рукописи",
+    "tableHeaderCategory": "Категория доказательства",
+    "tableHeaderAction": "Действие",
+    "btnWeakestPoint": "🎯 Анализ слабейшего места",
+    "advReportTitle": "Антагонистический отчет",
+    "simDebateBtn": "СИМУЛЯЦИЯ ОБУЧЕНИЯ ДЕБАТАМ →",
+    "advCloseBtn": "✕ Закрыть",
+    "advLoadingText": "Выполнение состязательного пайплайна..."
   },
   "pt": {
     "quickSearch": "Pesquisa rápida...",
@@ -4833,7 +4923,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "Citação do Texto Fonte",
     "codexProvenanceTitle": "Proveniência e Verificação",
     "codexConfidenceLabel": "Grau de Confiança:",
-    "codexCloseBtn": "Fechar"
+    "codexCloseBtn": "Fechar",,
+    "caseClaimHeading": "Alegação",
+    "tableHeaderCitation": "Citação do Manuscrito",
+    "tableHeaderCategory": "Categoria de Evidência",
+    "tableHeaderAction": "Ação",
+    "btnWeakestPoint": "🎯 Análise do Ponto mais Fraco",
+    "advReportTitle": "Relatório Adversarial",
+    "simDebateBtn": "SIMULAÇÃO DE APRENDIZADO DE DEBATE →",
+    "advCloseBtn": "✕ Fechar",
+    "advLoadingText": "Executando Pipeline de Inteligência Adversarial..."
   },
   "it": {
     "quickSearch": "Ricerca rapida...",
@@ -4962,7 +5061,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "Citazione del Testo Fonte",
     "codexProvenanceTitle": "Provenienza e Verifica",
     "codexConfidenceLabel": "Indice di Affidabilità:",
-    "codexCloseBtn": "Chiudi"
+    "codexCloseBtn": "Chiudi",,
+    "caseClaimHeading": "Affermazione",
+    "tableHeaderCitation": "Citazione del Manoscritto",
+    "tableHeaderCategory": "Categoria di Prova",
+    "tableHeaderAction": "Azione",
+    "btnWeakestPoint": "🎯 Analisi del Punto Debole",
+    "advReportTitle": "Rapporto Contraddittorio",
+    "simDebateBtn": "SIMULAZIONE DI APPRENDIMENTO DIBATTITO →",
+    "advCloseBtn": "✕ Chiudi",
+    "advLoadingText": "Esecuzione della pipeline di intelligence contraddittoria..."
   },
   "tr": {
     "quickSearch": "Hızlı ara...",
@@ -5091,7 +5199,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "Kaynak Metin Alıntısı",
     "codexProvenanceTitle": "Köken ve Doğrulama",
     "codexConfidenceLabel": "Güvenilirlik Skoru:",
-    "codexCloseBtn": "Kapat"
+    "codexCloseBtn": "Kapat",,
+    "caseClaimHeading": "İddia",
+    "tableHeaderCitation": "Metin Atfı",
+    "tableHeaderCategory": "Kanıt Kategorisi",
+    "tableHeaderAction": "İşlem",
+    "btnWeakestPoint": "🎯 Rakibin En Zayıf Noktası",
+    "advReportTitle": "Çekişmeli İstihbarat Raporu",
+    "simDebateBtn": "MÜNAZARA ÖĞRENİM SİMÜLASYONU →",
+    "advCloseBtn": "✕ Kapat",
+    "advLoadingText": "Çekişmeli İstihbarat Hattı Çalıştırılıyor..."
   },
   "ur": {
     "quickSearch": "فوری تلاش...",
@@ -5220,7 +5337,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "اصل متن کا اقتباس",
     "codexProvenanceTitle": "اسناد اور توثیق",
     "codexConfidenceLabel": "درجہ اعتبار:",
-    "codexCloseBtn": "بند کریں"
+    "codexCloseBtn": "بند کریں",,
+    "caseClaimHeading": "دعویٰ",
+    "tableHeaderCitation": "مخطوطہ کا حوالہ",
+    "tableHeaderCategory": "ثبوت کا زمرہ",
+    "tableHeaderAction": "کارروائی",
+    "btnWeakestPoint": "🎯 حریف کے کمزور ترین نکتے کا تجزیہ",
+    "advReportTitle": "حریفانہ جانچ رپورٹ",
+    "simDebateBtn": "مناظرہ سیکھنے کا تخروپن →",
+    "advCloseBtn": "✕ بند کریں",
+    "advLoadingText": "حریفانہ ذہانت کا عمل جاری ہے..."
   },
   "fa": {
     "quickSearch": "جستجوی سریع...",
@@ -5349,7 +5475,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "نقل‌قول متن اصلی",
     "codexProvenanceTitle": "اصالت و اعتبارسنجی",
     "codexConfidenceLabel": "میزان اطمینان:",
-    "codexCloseBtn": "بستن"
+    "codexCloseBtn": "بستن",,
+    "caseClaimHeading": "ادعا",
+    "tableHeaderCitation": "استناد نسخه خطی",
+    "tableHeaderCategory": "دسته‌بندی شواهد",
+    "tableHeaderAction": "اقدام",
+    "btnWeakestPoint": "🎯 تحلیل ضعیف‌ترین نقطه حریف",
+    "advReportTitle": "گزارش تقابلی",
+    "simDebateBtn": "شبیه‌سازی یادگیری مناظره →",
+    "advCloseBtn": "✕ بستن",
+    "advLoadingText": "در حال اجرای خط لوله هوش تقابلی..."
   },
   "hi": {
     "quickSearch": "त्वरित खोज...",
@@ -5478,7 +5613,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "मूल पाठ उद्धरण",
     "codexProvenanceTitle": "स्रोत और सत्यापन",
     "codexConfidenceLabel": "विश्वसनीयता स्कोर:",
-    "codexCloseBtn": "बंद करें"
+    "codexCloseBtn": "बंद करें",,
+    "caseClaimHeading": "दावा",
+    "tableHeaderCitation": "हस्तलिपि उद्धरण",
+    "tableHeaderCategory": "साक्ष्य श्रेणी",
+    "tableHeaderAction": "कार्रवाई",
+    "btnWeakestPoint": "🎯 विपक्षी का सबसे कमजोर बिंदु",
+    "advReportTitle": "विरोधी खुफिया रिपोर्ट",
+    "simDebateBtn": "वाद-विवाद शिक्षण सिमुलेशन →",
+    "advCloseBtn": "✕ बंद करें",
+    "advLoadingText": "विरोधी खुफिया पाइपलाइन चल रही है..."
   },
   "bn": {
     "quickSearch": "দ্রুত অনুসন্ধান...",
@@ -5607,7 +5751,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexQuoteTitle": "মূল পাঠের উদ্ধৃতি",
     "codexProvenanceTitle": "উৎস ও সত্যাসত্য",
     "codexConfidenceLabel": "নির্ভরযোগ্যতার মাত্রা:",
-    "codexCloseBtn": "বন্ধ করুন"
+    "codexCloseBtn": "বন্ধ করুন",,
+    "caseClaimHeading": "দাবি",
+    "tableHeaderCitation": "পাণ্ডুলিপি উদ্ধৃতি",
+    "tableHeaderCategory": "প্রমাণের বিভাগ",
+    "tableHeaderAction": "পদক্ষেপ",
+    "btnWeakestPoint": "🎯 প্রতিপক্ষের দুর্বলতম বিন্দু বিশ্লেষণ",
+    "advReportTitle": "প্রতিপক্ষীয় প্রতিবেদন",
+    "simDebateBtn": "বিতর্ক শেখার সিমুলেশন →",
+    "advCloseBtn": "✕ বন্ধ করুন",
+    "advLoadingText": "প্রতিপক্ষীয় বুদ্ধিমত্তা পাইপলাইন চলছে..."
   }
 };
 
@@ -5824,7 +5977,74 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         }
       });
 
-      // 4. Update calculator opponent select
+      // 4. Dual-Resolution Safety Net: ID_I18N_MAP direct element updates
+      const ID_I18N_MAP = {
+        "side-heading-workspace": "headingWorkspace",
+        "side-item-calc": "navApologeticsMachine",
+        "side-item-dash": "navWorkspace",
+        "side-item-themes-title": "navThemeDebate",
+        "side-heading-evidence": "headingEvidenceLab",
+        "side-item-knowledge": "navKnowledge",
+        "side-item-persona": "navPersona",
+        "side-item-pipeline": "navPipeline",
+        "side-heading-prep": "headingPrepUser",
+        "side-item-settings": "navSettings",
+        "side-item-account": "navBilling",
+        "side-item-arena": "navDebateArena",
+        "side-item-about": "navAbout",
+
+        "calc-hero-title": "calcHeroTitle",
+        "calc-hero-copy": "calcHeroCopy",
+        "hero-cta-btn": "calcHeroCta",
+        "calc-header-title": "calcHeaderTitle",
+        "btn-mode-debate": "calcBtnDebateMode",
+        "btn-mode-research": "calcBtnResearchMode",
+        "btn-calc-text": "calcBtnAnalyze",
+        "canonical-cases-title": "canonicalCasesTitle",
+        "canonical-cases-count": "canonicalCasesCount",
+        "canonical-cases-sub": "canonicalCasesSub",
+        "case-claim-display": "caseClaimHeading",
+        "case-status-badge": "caseResultVerified",
+        "case-zuma-header": "caseZumaHeader",
+        "case-primary-ev-header": "casePrimaryEvidence",
+        "case-ctx-ling-header": "caseContextLinguistics",
+        "case-opp-counter-header": "caseOpponentCounter",
+        "case-rebuttal-header": "caseRebuttal",
+        "case-weakness-header": "caseWeakness",
+        "case-open-q-header": "caseOpenQuestions",
+        "case-provenance-header": "caseSourceProvenance",
+        "btn-weakest-point": "btnWeakestPoint",
+        "adv-title": "advReportTitle",
+
+        "dash-title": "dashTitle",
+        "dash-sub": "dashSub",
+        "dash-btn-inspect": "dashBtnInspect",
+        "dash-btn-calc": "dashBtnCalc",
+
+        "settings-title": "settingsTitle",
+        "settings-sub": "settingsSub",
+        "settings-pref-heading": "settingsPrefHeading",
+        "settings-lang-label": "settingsLangLabel",
+        "settings-persp-label": "settingsPerspLabel",
+        "btn-save-settings": "settingsSaveBtn",
+        "btn-reset-onboarding": "settingsResetBtn",
+
+        "themes-title": "themesTitle",
+        "themes-btn-reload": "themesBtnReload",
+        "knowledge-title": "knowledgeTitle",
+        "knowledge-sub": "knowledgeSub",
+        "persona-title": "personaTitle",
+        "persona-sub": "personaSub"
+      };
+
+      for (const [elemId, key] of Object.entries(ID_I18N_MAP)) {
+        const el = document.getElementById(elemId);
+        if (el && t[key]) {
+          el.textContent = t[key];
+        }
+      }
+
+      // 5. Update calculator opponent select
       const oppSelect = document.getElementById("calc-opponent-select");
       if (oppSelect && oppSelect.options) {
         for (let i = 0; i < oppSelect.options.length; i++) {
@@ -5837,7 +6057,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         }
       }
 
-      // 5. Update claim input default placeholder & value
+      // 6. Update claim input default placeholder & value
       const claimInput = document.getElementById("claim-input");
       if (claimInput) {
         claimInput.placeholder = t.calcInputPlaceholder || claimInput.placeholder;
@@ -5866,7 +6086,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         }
       }
 
-      // 6. Update perspective configuration labels & badges
+      // 7. Update perspective configuration labels & badges
       updatePerspectiveConfigs(loc);
       const bPersp = document.getElementById("badge-perspective");
       const normP = normalizePerspectiveKey(userContext.user_perspective);
@@ -5874,11 +6094,19 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       const dPersp = document.getElementById("dash-persp-val");
       if (dPersp && PERSPECTIVE_CONFIGS[normP]) dPersp.textContent = PERSPECTIVE_CONFIGS[normP].full;
 
-      // 7. Re-render dynamic active components
+      // 8. Re-render dynamic active components
       try {
         const canonicalContainer = document.getElementById("canonical-cases-list");
         if (canonicalContainer && canonicalContainer.children.length > 0) {
           loadCanonicalCases("canonical-cases-list");
+        }
+        const calcCanonical = document.getElementById("calculator-canonical-cases");
+        if (calcCanonical && calcCanonical.children.length > 0) {
+          loadCanonicalCases("calculator-canonical-cases");
+        }
+        const dashCanonical = document.getElementById("dashboard-canonical-cases");
+        if (dashCanonical && dashCanonical.children.length > 0) {
+          loadCanonicalCases("dashboard-canonical-cases");
         }
         const themesContainer = document.getElementById("theme-list-cards");
         if (themesContainer && typeof currentThemes !== 'undefined' && currentThemes && currentThemes.length > 0) {
@@ -6948,6 +7176,33 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       }
     }
 
+    function getLocalizedMotion(t, loc) {
+      const themeId = t.theme_id || t.id;
+      const l = loc || userContext.ui_locale || 'id';
+      if (typeof CANONICAL_MOTIONS_I18N !== 'undefined' && CANONICAL_MOTIONS_I18N[themeId]) {
+        const m = CANONICAL_MOTIONS_I18N[themeId];
+        if (m[l]) return m[l];
+        if (l !== 'id' && m['en']) return m['en'];
+        if (m['id']) return m['id'];
+      }
+      return (t.sub_motions && t.sub_motions.length > 0) ? t.sub_motions[0] : (t.title || '');
+    }
+
+    function getLocalizedDiscourseType(typeStr, loc) {
+      const l = loc || userContext.ui_locale || 'id';
+      const t = I18N_DICTIONARY[l] || I18N_DICTIONARY['en'] || {};
+      if (!typeStr) return t.navThemeDebate || 'Kanonikal';
+      const s = typeStr.toLowerCase();
+      if (s.includes('dialektika') || s.includes('cross-exam')) return t.navDialectic || typeStr;
+      if (s.includes('kristologi') || s.includes('yesus')) return t.navChristology || typeStr;
+      if (s.includes('filologi') || s.includes('naskah')) return t.navPhilology || typeStr;
+      if (s.includes('komparatif') || s.includes('teologi')) return t.navComparative || typeStr;
+      if (s.includes('trinitas') || s.includes('monoteisme')) return t.navTrinity || typeStr;
+      if (s.includes('paulus') || s.includes('taurat')) return t.navPauline || typeStr;
+      if (s.includes('kenabian') || s.includes('islam')) return t.navProphecy || typeStr;
+      return typeStr;
+    }
+
     async function loadCanonicalCases(targetId) {
       const container = document.getElementById(targetId);
       if (!container) return;
@@ -6961,8 +7216,11 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           }
         }
 
+        const loc = userContext.ui_locale || "id";
+        const tDict = I18N_DICTIONARY[loc] || I18N_DICTIONARY["en"] || I18N_DICTIONARY["id"];
+
         if (!currentThemes || currentThemes.length === 0) {
-          container.innerHTML = `<p style="color: var(--text-dim); font-size: 0.82rem; padding: 1rem; text-align: center;">Tidak ada data studi kasus kanonikal.</p>`;
+          container.innerHTML = `<p style="color: var(--text-dim); font-size: 0.82rem; padding: 1rem; text-align: center;">${tDict.noCanonicalData || 'Tidak ada data studi kasus kanonikal.'}</p>`;
           return;
         }
 
@@ -7000,26 +7258,27 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         }
 
         if (featured.length === 0) {
-          container.innerHTML = `<p style="color: var(--text-dim); font-size: 0.82rem; padding: 1rem; text-align: center;">Tidak ada data studi kasus kanonikal terverifikasi.</p>`;
+          container.innerHTML = `<p style="color: var(--text-dim); font-size: 0.82rem; padding: 1rem; text-align: center;">${tDict.noCanonicalData || 'Tidak ada data studi kasus kanonikal terverifikasi.'}</p>`;
           return;
         }
 
         container.innerHTML = featured.map((t, idx) => {
-          const subMotionsCount = (t.sub_motions && t.sub_motions.length) ? t.sub_motions.length : 0;
-          const firstSub = subMotionsCount > 0 ? t.sub_motions[0] : (t.title || '');
-          const safeMotion = firstSub.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+          const subMotionsCount = (t.sub_motions && t.sub_motions.length) ? t.sub_motions.length : 1;
+          const localizedMotion = getLocalizedMotion(t, loc);
+          const safeMotion = localizedMotion.replace(/'/g, "\'").replace(/"/g, '&quot;');
+          const localizedCategory = getLocalizedDiscourseType(t.discourse_type, loc);
           const passagesList = (t.passages || []).slice(0, 4);
-          const safeId = (t.theme_id || t.id || '').replace(/'/g, "\\'");
+          const safeId = (t.theme_id || t.id || '').replace(/'/g, "\'");
 
           return `
             <div style="padding: 0.85rem 1rem; background: rgba(0,0,0,0.22); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem; transition: all 0.15s ease;">
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
                 <span class="evidence-badge badge-primary-source" style="font-size: 0.65rem; padding: 0.1rem 0.4rem;">
-                  #${idx + 1} • ${t.discourse_type || 'Kanonikal'}
+                  #${idx + 1} • ${localizedCategory}
                 </span>
               </div>
               <div style="font-size: 0.88rem; font-weight: 500; color: var(--accent); background: rgba(14, 165, 233, 0.08); padding: 0.55rem 0.85rem; border-radius: 6px; border-left: 3px solid var(--accent); line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" onclick="openThemeFromDashboard('${safeId}')" title="${safeMotion}">
-                ⚖️ ${(I18N_DICTIONARY[userContext.ui_locale || 'id'] || I18N_DICTIONARY['en']).subMotionPrefix || 'Sub-mosi'} (${subMotionsCount}): ${firstSub}
+                ⚖️ ${tDict.subMotionPrefix || 'Sub-mosi'} (${subMotionsCount}): ${localizedMotion}
               </div>
               ${passagesList.length > 0 ? `
                 <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.1rem;">
@@ -7028,10 +7287,10 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               ` : ''}
               <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.25rem; padding-top: 0.45rem; border-top: 1px solid rgba(255,255,255,0.04); flex-wrap: wrap; gap: 0.5rem;">
                 <button type="button" class="btn-primary" style="padding: 0.32rem 0.75rem; font-size: 0.75rem; cursor: pointer;" onclick="loadMotionIntoCalculator('${safeMotion}')" title="Uji sub-mosi ini di Apologetics Calculator">
-                  ${(I18N_DICTIONARY[userContext.ui_locale || 'id'] || I18N_DICTIONARY['en']).btnTestInCalculator || '⚡ Uji di Kalkulator'}
+                  ${tDict.btnTestInCalculator || '⚡ Uji di Kalkulator'}
                 </button>
                 <span style="color: var(--primary); font-size: 0.78rem; font-weight: 600; cursor: pointer;" onclick="openThemeFromDashboard('${safeId}')">
-                  ${(I18N_DICTIONARY[userContext.ui_locale || 'id'] || I18N_DICTIONARY['en']).btnDetailDossier || 'Detail Dossier →'}
+                  ${tDict.btnDetailDossier || 'Detail Dossier →'}
                 </span>
               </div>
             </div>
@@ -7497,6 +7756,154 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       judaism: "Keabadian hukum Taurat dan Monoteisme Murni (Ulangan 6:4)",
       atheist_secular: "Historisitas klaim mukjizat dan evolusi tekstual manuskrip Bible"
     };
+
+    const CANONICAL_MOTIONS_I18N = {
+    "Rp9118ln4yo": {
+        "id": "Batas Identifikasi Orang Percaya: Status Anggota Tubuh Kiasan vs Asumsi Otoritas Keilahian (1 Korintus 12:27)",
+        "en": "Boundaries of Believer Identification: Metaphorical Body Members vs Claims of Divine Authority (1 Corinthians 12:27)",
+        "zh": "信徒身份界限：隐喻性身体肢体身份与神圣权威假说之辨（哥林多前书 12:27）",
+        "ja": "信徒の同一性の境界：比喩的な肢体の身分と神格的権威の仮定（コリント人への第一の手紙 12:27）",
+        "tr": "İnanlı Kimliğinin Sınırları: Mecazi Beden Üyeliği ve İlahi Otorite İddiası (1. Korintliler 12:27)",
+        "ar": "حدود هوية المؤمنين: أعضاء الجسد المجازية مقابل ادعاءات السلطة الإلهية (1 كورنثوس 12:27)"
+    },
+    "-97f2FrX5M0": {
+        "id": "Analisis Kehendak Yesus yang Berbeda dari Kehendak Bapa dalam Kritis Ontologis (Lukas 22:42)",
+        "en": "Ontological Critique: Analysis of Jesus' Will as Distinct from the Father's Will (Luke 22:42)",
+        "zh": "本体论批判中耶稣意愿与父之意愿的分野分析（路加福音 22:42）",
+        "ja": "存在論的批判における父の意志と異なるイエスの意志の分析（ルカによる福音書 22:42）",
+        "tr": "Ontolojik Eleştiri: İsa'nın İradesinin Baba'nın İradesinden Farklılığının Analizi (Luka 22:42)",
+        "ar": "نقد أنطولوجي: تحليل تميز مشيئة عيسى عن مشيئة الآب (لوقا 22:42)"
+    },
+    "lYMnwmwC34w": {
+        "id": "Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea (Yohanes 1:1)",
+        "en": "The Concept of the Word (Dabar / Memra / Logos) in Old Testament Theology vs Post-Nicene Hermeneutics (John 1:1)",
+        "zh": "旧约神学语境中的'道'（Dabar / Memra / Logos）概念与后尼西亚解释学的对比（约翰福音 1:1）",
+        "ja": "旧約聖書神学における「言葉」（Dabar / Memra / Logos）の概念とニカイア後の解釈学（ヨハネによる福音書 1:1）",
+        "tr": "Eski Antlaşma Teolojisinde 'Kelam' (Dabar / Memra / Logos) Kavramı ve İznik Sonrası Hermeneutik (Yuhanna 1:1)",
+        "ar": "مفهوم الكلمة (دابار / ميمرا / لوغوس) في سياق لاهوت العهد القديم مقابل هرمينوطيقا ما بعد نيقية (يوحنا 1:1)"
+    },
+    "OO_BJpt1NUk": {
+        "id": "Eksegesis Kata 'Hen' (Satu): Kesatuan Visi dan Tujuan Misi vs Kesatuan Substansi Ontologis (Yohanes 10:30)",
+        "en": "Exegesis of 'Hen' (One): Unity of Vision and Mission vs Ontological Substance (John 10:30)",
+        "zh": "'Hen'（合一）一词的释经学分析：使命异象的合一与本体实质的一体之辨（约翰福音 10:30）",
+        "ja": "「ヘン」（一つ）の釈義：ビジョンと使命の一致 vs 本質的存在論的一体性（ヨハネによる福音書 10:30）",
+        "tr": "'Hen' (Bir) Kelimesinin Tefsiri: Vizyon ve Misyon Birliği vs Ontolojik Töz Birliği (Yuhanna 10:30)",
+        "ar": "تفسير كلمة 'هِن' (واحد): وحدة الرؤية والهدف الرسالي مقابل وحدة الجوهر الأنطولوجي (يوحنا 10:30)"
+    },
+    "W3z8vlpbh_I": {
+        "id": "Bantahan terhadap Asumsi Roh / Hantu Melalui Pembuktian Yesus Makan Ikan Goreng (Lukas 24:42)",
+        "en": "Refutation of Ghost/Spirit Hypothesis Through Evidence of Jesus Eating Broiled Fish (Luke 24:42)",
+        "zh": "通过耶稣吃烤鱼的事实反驳幽灵/幻影假说（路加福音 24:42）",
+        "ja": "イエスが焼いた魚を食べた実証を通じた霊・亡霊仮説の反証（ルカによる福音書 24:42）",
+        "tr": "İsa'nın Kızarmış Balık Yemesi Deliliyle Ruh/Hayalet Varsayımının Çürütülmesi (Luka 24:42)",
+        "ar": "دحض افتراض الروح/الشبح من خلال إثبات أكل عيسى للسمك المشوي (لوقا 24:42)"
+    },
+    "ffDYCmZfmxQ": {
+        "id": "Mukjizat Sebagai Tanda Peneguhan Kenabian yang Diberikan Allah vs Klaim Otoritas Diri Sendiri (Kisah Para Rasul 2:22)",
+        "en": "Miracles as Divine Confirmation of Prophetic Office vs Claims of Inherent Authority (Acts 2:22)",
+        "zh": "神迹作为上帝所赐先知身份之印证与其自身权威主张的对比（使徒行传 2:22）",
+        "ja": "神によって与えられた預言者性の確証としての奇跡 vs 固有の権威主張（使徒の働き 2:22）",
+        "tr": "Kendi Kendine Yeten Otorite İddiasına Karşı Tanrı'nın Verdiği Peygamberlik Onayı Olarak Mucizeler (Elçilerin İşleri 2:22)",
+        "ar": "المعجزات كآيات إلهية لتثبيت النبوة مقابل ادعاءات السلطة الذاتية (أعمال الرسل 2:22)"
+    },
+    "QC81ZxksAaI": {
+        "id": "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika (Kisah Para Rasul 2:36)",
+        "en": "Semantic Shifts of 'Theos', 'Kyrios', and 'Elohim' in Biblical Monotheism (Acts 2:36)",
+        "zh": "圣经一神论语境下'Theos'、'Kyrios'与'Elohim'词义演变分析（使徒行传 2:36）",
+        "ja": "聖書の一神教的文脈における「テオス」「キュリオス」「エロヒム」の語義変遷（使徒の働き 2:36）",
+        "tr": "Kutsal Kitap Tek Tanrıcılığı Bağlamında 'Theos', 'Kyrios' ve 'Elohim' Kelimelerinin Anlam Kayması (Elçilerin İşleri 2:36)",
+        "ar": "التحول الدلالي لألفاظ 'ثيوس' و'كيريوس' و'إلوهيم' في سياق التوحيد الكتابي (أعمال الرسل 2:36)"
+    },
+    "ijHavMINev4": {
+        "id": "Kritik Tekstual Comma Johanneum (1 Yohanes 5:7-8): Bukti Interpolasi Sisipan Doktrinal dalam Naskah Yunani Kuno",
+        "en": "Textual Criticism of the Johannine Comma (1 John 5:7-8): Evidence of Doctrinal Interpolation in Ancient Greek Manuscripts",
+        "zh": "约翰逗号（约翰一书 5:7-8）经文批判：古希腊抄本中教义性篡改插入的实证",
+        "ja": "ヨハネのコンマ（ヨハネの手紙一 5:7-8）の本文批評：古代ギリシャ語写本における教理的挿入の証拠",
+        "tr": "Yuhanna Virgülü (1. Yuhanna 5:7-8) Metin Eleştirisi: Antik Grekçe El Yazmalarında Doktrinel Ekleme Kanıtı",
+        "ar": "النقد النصي للفاصلة اليوحناوية (1 يوحنا 5:7-8): أدلة التحريف الدوغمائي في المخطوطات اليونانية القديمة"
+    },
+    "evS7T0gijYw": {
+        "id": "Perbandingan Papirus Tertua P46 dan P66 dengan Teks Cetak Alkitab Modern",
+        "en": "Comparison of Earliest Papyri P46 and P66 with Modern Printed Bible Editions",
+        "zh": "最古老纸草抄本 P46、P66 与现代印刷版圣经文本之对比",
+        "ja": "最古のパピルス P46・P66 と現代の印刷版聖書テキストとの比較",
+        "tr": "En Eski Papirüsler P46 ve P66 ile Modern Basılı Kutsal Kitap Metinlerinin Karşılaştırılması",
+        "ar": "مقارنة أقدم البرديات P46 و P66 بالنصوص المطبوعة الحديثة للكتاب المقدس"
+    },
+    "La9B66ZZw1s": {
+        "id": "Bukti Ketiadaan Perikop dalam Codex Sinaiticus dan Codex Vaticanus Abad ke-4 M (Yohanes 7:53-8:11)",
+        "en": "Textual Evidence of Missing Pericopes in 4th-Century Codex Sinaiticus and Codex Vaticanus (John 7:53-8:11)",
+        "zh": "公元4世纪西奈抄本与梵蒂冈抄本中经文段落缺失的实证（约翰福音 7:53-8:11）",
+        "ja": "4世紀のシナイ写本およびバチカン写本における段落欠落の本文証拠（ヨハネによる福音書 7:53-8:11）",
+        "tr": "4. Yüzyıl Kodeks Sinaiticus ve Kodeks Vaticanus'ta Bölüm Yokluğunun Kanıtı (Yuhanna 7:53-8:11)",
+        "ar": "أدلة غياب المقاطع النصية في المخطوطة السينائية والفاتيكانية من القرن الرابع الميلادي (يوحنا 7:53-8:11)"
+    },
+    "8v45xJQBV7s": {
+        "id": "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli (Matius 19:16-17)",
+        "en": "Criteria for Attaining Eternal Life Based on Original Scripture Texts (Matthew 19:16-17)",
+        "zh": "基于原始圣经文本获得永生的准则（马太福音 19:16-17）",
+        "ja": "原典聖書テキストに基づく永遠の命を得るための基準（マタイによる福音書 19:16-17）",
+        "tr": "Orijinal Kutsal Metinlere Göre Sonsuz Yaşama Kavuşma Kriterleri (Matta 19:16-17)",
+        "ar": "معايير نيل الحياة الأبدية وفقاً للنصوص الأصلية للكتاب المقدس (متى 19:16-17)"
+    },
+    "zOQn4TYqmBE": {
+        "id": "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)",
+        "en": "Comparative Soteriology: Righteous Grace vs Penal Substitutionary Atonement Theory",
+        "zh": "救赎观对比分析：公义恩典观对比刑罚替代赎罪论（Penal Substitution）",
+        "ja": "救済論の比較：公正な恵み vs 刑罰代位贖罪論",
+        "tr": "Kurtuluş Doktrinlerinin Karşılaştırılması: Adaletli Lütuf vs Cezai Vekaleten Kefaret Teorisi",
+        "ar": "مقارنة مفاهيم الخلاص: النعمة العادلة مقابل نظرية الكفارة البديلة العقابية"
+    },
+    "w1BTZmG-HGo": {
+        "id": "Hakikat Satu-Satunya Allah yang Benar dalam Yohanes 17:3 dan Kedudukan Yesus Sebagai Utusan Manusia (1 Timotius 2:5)",
+        "en": "The Essence of the Only True God in John 17:3 and Jesus' Status as a Human Messenger (1 Timothy 2:5)",
+        "zh": "约翰福音 17:3 中独一真神的本质与耶稣作为人的使者地位（提摩太前书 2:5）",
+        "ja": "ヨハネ 17:3 における唯一の真の神の本質と人間の使者としてのイエスの地位（テモテへの手紙一 2:5）",
+        "tr": "Yuhanna 17:3'te Tek Gerçek Tanrı'nın Mahiyeti ve İsa'nın İnsan Elçi Olarak Konumu (1. Timoteos 2:5)",
+        "ar": "حقيقة الإله الحقيقي الوحيد في يوحنا 17:3 ومكانة عيسى كرسول بشري (1 تيموثاوس 2:5)"
+    },
+    "w2tdKAGC2us": {
+        "id": "Distingsi Linguistik Ibrani 'YHWH' (Tuhan Tertinggi) dan 'Adoni' (Tuanku yang Dimuliakan) (Mazmur 110:1)",
+        "en": "Hebrew Linguistic Distinction: 'YHWH' (Supreme God) and 'Adoni' (Honored Lord) (Psalm 110:1)",
+        "zh": "希伯来语语言学辨析：'YHWH'（至高上帝）与'Adoni'（受尊崇的主）（诗篇 110:1）",
+        "ja": "ヘブライ語言語学的区別：'YHWH'（至高の神）と 'Adoni'（尊崇される主）（詩篇 110:1）",
+        "tr": "İbranice Dilbilimsel Ayrım: 'YHWH' (Yüce Tanrı) ve 'Adoni' (Onurlandırılan Efendi) (Mezmurlar 110:1)",
+        "ar": "التمييز اللغوي العبري بين 'يهوه' (الرب الأعلى) و'أدوني' (سيدي المبجل) (مزمور 110:1)"
+    },
+    "mMjwLoPx-Is": {
+        "id": "Eksaminasi Peran Roh Kudus dalam Membimbing Para Nabi Sepanjang Sejarah Kitab Suci (2 Petrus 1:21)",
+        "en": "Examination of the Holy Spirit's Role in Guiding Prophets Throughout Scripture (2 Peter 1:21)",
+        "zh": "圣灵在圣经历史中引导众先知角色的审视（彼得后书 1:21）",
+        "ja": "聖書史を通じて預言者を導いた聖霊の役割の検証（ペテロの手紙二 1:21）",
+        "tr": "Kutsal Kitap Tarihi Boyunca Peygamberlere Rehberlik Eden Kutsal Ruh'un Rolünün İncelenmesi (2. Petrus 1:21)",
+        "ar": "فحص دور الروح القدس في إرشاد الأنبياء عبر تاريخ الكتاب المقدس (2 بطرس 1:21)"
+    },
+    "X3GjCotsHKo": {
+        "id": "Kritik Konsep Tri-Tunggal Berdasarkan Teks Perjanjian Lama yang Menolak Segala Bentuk Representasi Jamak (Ulangan 4:35)",
+        "en": "Critique of Trinitarian Concepts Based on Old Testament Texts Rejecting Plural Divine Representations (Deuteronomy 4:35)",
+        "zh": "基于旧约否定一切复数神圣表述文本对三位一体概念的批判（申命记 4:35）",
+        "ja": "あらゆる複数的表現を否定する旧約聖書に基づく三位一体論の批判（申命記 4:35）",
+        "tr": "Her Türlü Çoğul İfadeyi Reddeden Eski Antlaşma Metinlerine Dayalı Teslis Kavramı Eleştirisi (Yasa'nın Tekrarı 4:35)",
+        "ar": "نقد مفهوم التثليث بالاستناد إلى نصوص العهد القديم النافية لأي تعدد في الذات الإلهية (تثنية 4:35)"
+    },
+    "2hS2F9BPnxI": {
+        "id": "Kontradiksi Logika 1+1+1=1 vs Kemutlakan Keberadaan Dzat Tunggal Maha Kuasa (Ulangan 6:4, Markus 12:29)",
+        "en": "Logical Contradiction of 1+1+1=1 vs Absolute Existence of Singular Omnipotent Creator (Deuteronomy 6:4, Mark 12:29)",
+        "zh": "1+1+1=1的逻辑自相矛盾对比独一全能造物主的绝对实在性（申命记 6:4，马可福音 12:29）",
+        "ja": "1+1+1=1 の論理的自己矛盾 vs 唯一全能の創造主の絶対的実在（申命記 6:4、マルコによる福音書 12:29）",
+        "tr": "1+1+1=1 Mantıksal Çelişkisi ve Tek Kadir-i Mutlak Yaratıcının Varlığının Mutlaklığı (Yasa'nın Tekrarı 6:4, Markos 12:29)",
+        "ar": "التناقض المنطقي لـ 1+1+1=1 مقابل الوجود المطلق للإله الواحد القادر على كل شيء (تثنية 6:4، مرقس 12:29)"
+    },
+    "g7mmqv4Y6XE": {
+        "id": "Prinsip Keadilan Ilahi Moral Personal (Yehezkiel 18:20) Menghadapi Doktrin Dosa Waris dan Penebusan Vikaris",
+        "en": "Principle of Personal Moral Divine Justice (Ezekiel 18:20) vs Doctrines of Original Sin and Vicarious Atonement",
+        "zh": "道德个体神圣公义原则（以西结书 18:20）与原罪及代理赎罪论之辩",
+        "ja": "個人的道徳的正義の原則（エゼキエル書 18:20）vs 原罪および代位贖罪の教理",
+        "tr": "Kişisel Ahlaki İlahi Adalet İlkesi (Hezekiel 18:20) ve Asli Günah ile Vekaleten Kefaret Doktrini",
+        "ar": "مبدأ العدالة الإلهية الأخلاقية الفردية (حزقيال 18:20) في مواجهة عقيدة الخطيئة الأصلية والفداء النيابي"
+    }
+};
+
 
     const PERSPECTIVE_CORPUS_LANG_PREFERENCE = {
       christian_protestant: ["el", "he", "arc"],
