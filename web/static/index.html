@@ -1842,8 +1842,8 @@
       <div style="margin-bottom: 1rem;">
         <img src="/static/newlogo.jpg?v=20261011f" alt="POLYA Apologetika OS" style="height: 56px; width: auto; object-fit: contain;">
       </div>
-      <h2 class="modal-title">Welcome to Polya</h2>
-      <p class="modal-sub">Choose your primary language for research and debate analysis.</p>
+      <h2 class="modal-title" id="onboarding-title-step1">Welcome to Polya</h2>
+      <p class="modal-sub" id="onboarding-sub-step1">Choose your primary language for research and debate analysis.</p>
 
       <div id="language-grid" class="choice-grid"></div>
 
@@ -1859,8 +1859,8 @@
       <div style="margin-bottom: 1rem;">
         <img src="/static/newlogo.jpg?v=20261011f" alt="POLYA Apologetika OS" style="height: 56px; width: auto; object-fit: contain;">
       </div>
-      <h2 class="modal-title">Apologetics Perspective</h2>
-      <p class="modal-sub">Kamu ingin mempersiapkan diri sebagai apologet dari perspektif mana?</p>
+      <h2 class="modal-title" id="onboarding-title-step2">Apologetics Perspective</h2>
+      <p class="modal-sub" id="onboarding-sub-step2">Kamu ingin mempersiapkan diri sebagai apologet dari perspektif mana?</p>
 
       <div class="perspective-grid">
         <div id="persp-christian_protestant" class="perspective-card active" onclick="selectPerspective('christian_protestant')">
@@ -2097,13 +2097,13 @@
       </div>
 
       </div>
-      <div class="sidebar-heading">Research Workspace</div>
-      <a class="side-item" onclick="navigateRoute(event, '/calculator')">Apologetics Machine</a>
-      <a class="side-item active" onclick="navigateRoute(event, '/dashboard')">Workspace</a>
-      <a class="side-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('ALL');">
+      <div class="sidebar-heading" id="side-heading-workspace">Research Workspace</div>
+      <a class="side-item" id="side-item-calc" onclick="navigateRoute(event, '/calculator')">Apologetics Machine</a>
+      <a class="side-item active" id="side-item-dash" onclick="navigateRoute(event, '/dashboard')">Workspace</a>
+      <a class="side-item" id="side-item-themes" onclick="navigateRoute(event, '/themes'); selectDebateCategory('ALL');">
         <span style="display: flex; align-items: center; gap: 0.45rem;">
           <span>🏛️</span>
-          <span>Theme Debate (Mosi)</span>
+          <span id="side-item-themes-title">Theme Debate (Mosi)</span>
         </span>
       </a>
       <div id="sidebar-theme-clusters" class="sidebar-theme-clusters" style="display: flex; flex-direction: column; gap: 0.1rem; padding-left: 0.25rem; margin-top: 0.1rem; margin-bottom: 0.45rem;">
@@ -2149,16 +2149,16 @@
         </a>
       </div>
 
-      <div class="sidebar-heading">Evidence Lab</div>
-      <a class="side-item" onclick="navigateRoute(event, '/knowledge')">Knowledge Base</a>
-      <a class="side-item" onclick="navigateRoute(event, '/persona')">Persona Dialektika</a>
-      <a class="side-item" onclick="navigateRoute(event, '/pipeline')">Exegesis Pipeline</a>
+      <div class="sidebar-heading" id="side-heading-evidence">Evidence Lab</div>
+      <a class="side-item" id="side-item-knowledge" onclick="navigateRoute(event, '/knowledge')">Knowledge Base</a>
+      <a class="side-item" id="side-item-persona" onclick="navigateRoute(event, '/persona')">Persona Dialektika</a>
+      <a class="side-item" id="side-item-pipeline" onclick="navigateRoute(event, '/pipeline')">Exegesis Pipeline</a>
 
-      <div class="sidebar-heading">Preparation & User</div>
-      <a class="side-item" onclick="navigateRoute(event, '/settings')">Settings</a>
-      <a class="side-item" onclick="navigateRoute(event, '/account')">Billing & Quota</a>
-      <a class="side-item" href="/arena" style="color: #dfb15b; font-weight: 600;">Debate Arena (3-vs-3)</a>
-      <a class="side-item" onclick="navigateRoute(event, '/about-polya')" style="color: #38bdf8; font-weight: 600;">About Polya AI</a>
+      <div class="sidebar-heading" id="side-heading-prep">Preparation & User</div>
+      <a class="side-item" id="side-item-settings" onclick="navigateRoute(event, '/settings')">Settings</a>
+      <a class="side-item" id="side-item-account" onclick="navigateRoute(event, '/account')">Billing & Quota</a>
+      <a class="side-item" id="side-item-arena" href="/arena" style="color: #dfb15b; font-weight: 600;">Debate Arena (3-vs-3)</a>
+      <a class="side-item" id="side-item-about" onclick="navigateRoute(event, '/about-polya')" style="color: #38bdf8; font-weight: 600;">About Polya AI</a>
     </aside>
 
     <!-- Main Content Area -->
@@ -2167,8 +2167,8 @@
       <!-- VIEW 1: LANDING & CALCULATOR VIEW -->
       <section id="view-calculator">
         <div class="hero-container">
-          <h2 class="hero-title">Apologetics Calculator</h2>
-          <p class="hero-copy">
+          <h2 class="hero-title" id="calc-hero-title">Apologetics Calculator</h2>
+          <p class="hero-copy" id="calc-hero-copy">
             Apologetics Calculator akan menganalisis klaim lawan dan memberikan data, sumber, bukti, konteks, argumen, serta sanggahan yang relevan untuk membantu kamu mempersiapkan diri dan memenangkan debatmu.
           </p>
           <button id="hero-cta-btn" class="btn-primary" style="width: auto; padding: 0.85rem 2.25rem; font-size: 1.05rem;" onclick="focusCalculator()">
@@ -2179,7 +2179,7 @@
         <div class="calculator-box" id="calc-anchor">
           <div class="calc-header-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; gap: 1rem;">
             <div class="calc-header-title-wrap" style="text-align: left;">
-              <h3 style="font-size: 1.15rem; font-weight: 600; margin: 0; text-align: left;">Apologetics Calculator</h3>
+              <h3 id="calc-header-title" style="font-size: 1.15rem; font-weight: 600; margin: 0; text-align: left;">Apologetics Calculator</h3>
             </div>
             <!-- Opponent Context Selector & Free Quota Pill to its right -->
             <div style="display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0;">
@@ -2231,12 +2231,12 @@
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
               <div>
                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                  <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.05em;">Studi Kasus Kanonikal Unggulan</span>
-                  <span class="evidence-badge badge-primary-source" style="font-size: 0.65rem; padding: 0.1rem 0.4rem;">18 Mosi Terverifikasi</span>
+                  <span id="canonical-cases-title" style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.05em;">Studi Kasus Kanonikal Unggulan</span>
+                  <span id="canonical-cases-count" class="evidence-badge badge-primary-source" style="font-size: 0.65rem; padding: 0.1rem 0.4rem;">18 Mosi Terverifikasi</span>
                 </div>
-                <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0.2rem 0 0 0;">Pilih salah satu mosi debat untuk diuji langsung di kalkulator atau buka berkas dossier naskah.</p>
+                <p id="canonical-cases-sub" style="font-size: 0.78rem; color: var(--text-muted); margin: 0.2rem 0 0 0;">Pilih salah satu mosi debat untuk diuji langsung di kalkulator atau buka berkas dossier naskah.</p>
               </div>
-              <a onclick="navigateRoute(event, '/themes'); selectDebateCategory('ALL');" style="font-size: 0.78rem; color: var(--primary); text-decoration: none; cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem;">
+              <a id="canonical-cases-link" onclick="navigateRoute(event, '/themes'); selectDebateCategory('ALL');" style="font-size: 0.78rem; color: var(--primary); text-decoration: none; cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem;">
                 <span>Lihat Seluruh 2.451+ Tema</span> <span>→</span>
               </a>
             </div>
@@ -2270,7 +2270,7 @@
           <!-- Card Khusus Dialektika & Simulasi Debat Zuma (Paling Atas) -->
           <div id="zuma-debate-card" class="case-card" style="margin-bottom: 1.5rem; border: 2px solid var(--primary); background: rgba(13, 148, 136, 0.05); display: block !important;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem;">
-              <h4 style="color: var(--primary); margin: 0; font-size: 1.1rem;">⚡ Dialektika Zuma & Simulasi Debat (Socratic Funnel)</h4>
+              <h4 id="case-zuma-header" style="color: var(--primary); margin: 0; font-size: 1.1rem;">⚡ Dialektika Zuma & Simulasi Debat (Socratic Funnel)</h4>
               <span class="evidence-badge badge-primary-source" style="font-size: 0.75rem;">ZUMA ACTIVE</span>
             </div>
             <div id="zuma-debate-card-content" style="font-size: 0.85rem; color: var(--text-main); line-height: 1.6;">
@@ -2280,35 +2280,35 @@
 
           <div class="calc-result-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem;">
             <div class="case-card">
-              <h4>🏛 Primary Evidence</h4>
+              <h4 id="case-primary-ev-header">🏛 Primary Evidence</h4>
               <div id="case-evidence-content"></div>
             </div>
 
             <div class="case-card">
-              <h4>⚖ Context & Linguistics</h4>
+              <h4 id="case-ctx-ling-header">⚖ Context & Linguistics</h4>
               <p id="case-argument-content"></p>
             </div>
 
             <div class="case-card">
-              <h4>⚔ Opponent Counterargument</h4>
+              <h4 id="case-opp-counter-header">⚔ Opponent Counterargument</h4>
               <p id="case-counter-content"></p>
             </div>
 
             <div class="case-card">
-              <h4>🛡 Possible Response & Rebuttal</h4>
+              <h4 id="case-rebuttal-header">🛡 Possible Response & Rebuttal</h4>
               <p id="case-rebuttal-content"></p>
             </div>
           </div>
 
           <!-- Titik Lemah Lawan -->
           <div class="case-card" style="margin-bottom: 1.5rem;">
-            <h4>🎯 Titik Lemah Lawan (Weakness Analysis)</h4>
+            <h4 id="case-weakness-header">🎯 Titik Lemah Lawan (Weakness Analysis)</h4>
             <p id="case-weakness-content"></p>
           </div>
 
           <!-- Open Questions / Titik Uji Forensik -->
           <div class="case-card" style="margin-bottom: 1.5rem;">
-            <h4>❓ Open Questions / Titik Uji Forensik</h4>
+            <h4 id="case-open-q-header">❓ Open Questions / Titik Uji Forensik</h4>
             <ul id="case-questions-content" style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;"></ul>
           </div>
 
@@ -2317,7 +2317,7 @@
 
           <!-- Source & Provenance Table -->
           <div class="case-card" style="margin-bottom: 1.5rem;">
-            <h4>📚 Source & Provenance</h4>
+            <h4 id="case-provenance-header">📚 Source & Provenance</h4>
             <div class="table-responsive">
               <table class="data-table">
                 <thead><tr><th>Sitasi Naskah</th><th>Kategori Bukti</th><th>Aksi</th></tr></thead>
@@ -2867,13 +2867,14 @@
       </section>
 
       <!-- VIEW 7: SETTINGS (Seksi 48) -->
+      <!-- VIEW 8: SETTINGS & PREFERENCES VIEW -->
       <section id="view-settings" class="hidden">
-        <h2 style="font-family: var(--font-serif); font-size: 1.35rem; margin-bottom: 0.5rem;">Research Settings & Preferences</h2>
-        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Konfigurasi parameter penelitian, perspektif debat, dan preferensi antarmuka.</p>
+        <h2 id="settings-title" style="font-family: var(--font-serif); font-size: 1.35rem; margin-bottom: 0.5rem;">Research Settings & Preferences</h2>
+        <p id="settings-sub" style="color: var(--text-muted); margin-bottom: 1.5rem;">Konfigurasi parameter penelitian, perspektif debat, dan preferensi antarmuka.</p>
 
         <div class="case-card border-beam-card" style="max-width: 600px; padding: 2rem;">
-          <h4 style="margin-bottom: 1rem;">Preferensi Apologetika</h4>
-          <label style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.25rem;">Bahasa UI</label>
+          <h4 id="settings-pref-heading" style="margin-bottom: 1rem;">Preferensi Apologetika</h4>
+          <label id="settings-lang-label" style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.25rem;">Bahasa UI</label>
           <div class="calc-input-wrapper" style="margin-bottom: 0.75rem; border-radius: 8px; min-height: 0;">
             <select id="settings-lang-select" style="display: block; width: 100%; height: 28px; line-height: 28px; padding: 0 0.65rem; font-size: 0.8rem; background: transparent; border: none; outline: none; color: var(--text-main); box-sizing: border-box; cursor: pointer;" onchange="updateLanguageFromSettings(this.value)">
               <option value="id" style="background: var(--bg-card);">Bahasa Indonesia</option>
@@ -2882,7 +2883,7 @@
             </select>
           </div>
 
-          <label style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.2rem;">Perspektif Apologetika Pengguna</label>
+          <label id="settings-persp-label" style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.2rem;">Perspektif Apologetika Pengguna</label>
           <div class="calc-input-wrapper" style="margin-bottom: 1rem; border-radius: 8px; min-height: 0;">
             <select id="settings-persp-select" style="display: block; width: 100%; height: 32px; line-height: 32px; padding: 0 0.65rem; font-size: 0.82rem; background: transparent; border: none; outline: none; color: var(--text-main); box-sizing: border-box; cursor: pointer;" onchange="selectPerspective(this.value)">
               <option value="christian_protestant" style="background: var(--bg-card);">✝ Apologetics Kristen Protestan</option>
@@ -2894,8 +2895,8 @@
           </div>
 
           <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 1.25rem;">
-            <button class="btn-primary" onclick="alert('Pengaturan Tersimpan!')">Simpan Preferensi</button>
-            <button class="btn-primary" style="background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border-subtle);" onclick="resetOnboardingForDemo()">🌐 Reset Onboarding</button>
+            <button class="btn-primary" id="btn-save-settings" onclick="saveUserPreferences()">Simpan Preferensi</button>
+            <button class="btn-primary" id="btn-reset-onboarding" style="background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border-subtle);" onclick="resetOnboardingForDemo()">🌐 Reset Onboarding</button>
           </div>
         </div>
       </section>
@@ -3187,8 +3188,9 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       try {
         const res = await fetch("/api/v1/meta/languages");
         const data = await res.json();
-        currentLanguages = data.languages;
-        renderLanguageGrid(data.languages);
+        currentLanguages = data.languages || [];
+        renderLanguageGrid(currentLanguages);
+        renderSettingsLanguageOptions(currentLanguages);
       } catch (err) {
         console.error("Failed to load languages:", err);
       }
@@ -3196,10 +3198,12 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
     function renderLanguageGrid(languages) {
       const container = document.getElementById("language-grid");
+      if (!container) return;
       container.innerHTML = "";
       languages.forEach(l => {
         const btn = document.createElement("button");
         btn.className = `choice-btn ${l.code === userContext.ui_locale ? 'active' : ''}`;
+        btn.setAttribute("data-code", l.code);
         const dirStr = (l.dir || 'ltr').toUpperCase();
         btn.innerHTML = `<span class="native-label">${l.native || l.name}</span><span class="sub-label">${l.name} (${dirStr})</span>`;
         btn.onclick = () => selectLanguage(l.code, l.dir);
@@ -3207,15 +3211,47 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       });
     }
 
+    function renderSettingsLanguageOptions(languages) {
+      const select = document.getElementById("settings-lang-select");
+      if (!select || !languages || !languages.length) return;
+      const currentVal = userContext.ui_locale || "id";
+      select.innerHTML = "";
+      languages.forEach(l => {
+        const opt = document.createElement("option");
+        opt.value = l.code;
+        opt.style.background = "var(--bg-card)";
+        const dirSuffix = l.dir === "rtl" ? " (RTL)" : "";
+        opt.textContent = `${l.native || l.name} - ${l.name}${dirSuffix}`;
+        if (l.code === currentVal) opt.selected = true;
+        select.appendChild(opt);
+      });
+      select.value = currentVal;
+    }
+
     function selectLanguage(code, dir) {
       userContext.ui_locale = code;
-      document.querySelectorAll(".choice-btn").forEach(b => b.classList.remove("active"));
-      if (typeof event !== "undefined" && event && event.currentTarget) {
-        event.currentTarget.classList.add("active");
-      }
-      document.documentElement.dir = dir || "ltr";
+      userContext.debate_locale = code;
+      const isRtl = dir === "rtl" || code === "ar" || code === "ur" || code === "fa" || code === "he";
+      document.documentElement.dir = isRtl ? "rtl" : "ltr";
+
+      document.querySelectorAll(".choice-btn").forEach(b => {
+        b.classList.toggle("active", b.getAttribute("data-code") === code);
+      });
+
       const bLang = document.getElementById("badge-lang");
       if (bLang) bLang.textContent = code.toUpperCase();
+
+      const sLang = document.getElementById("settings-lang-select");
+      if (sLang && sLang.value !== code) sLang.value = code;
+
+      applyI18n(code);
+    }
+
+    function updateLanguageFromSettings(code) {
+      const langObj = (currentLanguages || []).find(l => l.code === code);
+      const dir = langObj ? langObj.dir : (code === 'ar' || code === 'ur' || code === 'fa' || code === 'he' ? 'rtl' : 'ltr');
+      selectLanguage(code, dir);
+      saveUserPreferences();
     }
 
     function proceedToPerspectiveStep() {
@@ -3333,6 +3369,39 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       } catch(e){}
     }
 
+    async function saveUserPreferences() {
+      try {
+        localStorage.setItem("polya_user_context", JSON.stringify(userContext));
+        const token = getStoredToken();
+        const headers = { "Content-Type": "application/json" };
+        if (token) headers["Authorization"] = `Bearer ${token}`;
+        await fetch(`/api/v1/context?user_id=${encodeURIComponent(currentUserId)}`, {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(userContext)
+        });
+      } catch(e){
+        console.warn("Save user context API notice:", e);
+      }
+
+      applyContextToUI();
+
+      // Show temporary toast feedback
+      const oldToast = document.getElementById("polya-toast");
+      if (oldToast) oldToast.remove();
+      const toast = document.createElement("div");
+      toast.id = "polya-toast";
+      toast.style.cssText = "position: fixed; bottom: 24px; right: 24px; background: #0d9488; color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; box-shadow: 0 4px 14px rgba(0,0,0,0.4); z-index: 99999; transition: opacity 0.3s ease;";
+      const loc = userContext.ui_locale || "id";
+      const dict = I18N_DICTIONARY[loc] || I18N_DICTIONARY["en"] || I18N_DICTIONARY["id"];
+      toast.textContent = dict ? dict.saveSuccessToast : "Pengaturan berhasil disimpan!";
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = "0";
+        setTimeout(() => toast.remove(), 300);
+      }, 2500);
+    }
+
     function resetOnboardingForDemo() {
       localStorage.removeItem("polya_onboarding_completed");
       checkOnboardingStatus();
@@ -3346,6 +3415,378 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       } catch(e){}
     }
 
+    const I18N_DICTIONARY = {
+      id: {
+        quickSearch: "Quick search...",
+        navApologeticsMachine: "Apologetics Machine",
+        navWorkspace: "Workspace",
+        navThemeDebate: "Theme Debate (Mosi)",
+        navDialectic: "Dialektika & Cross-Exam",
+        navChristology: "Kristologi & Yesus",
+        navPhilology: "Filologi & Naskah",
+        navComparative: "Teologi Komparatif",
+        navTrinity: "Monoteisme & Trinitas",
+        navPauline: "Paulus vs Taurat",
+        navProphecy: "Pembelaan Kenabian",
+        navPendingTranscripts: "Menunggu Transkrip",
+        navKnowledge: "Knowledge Base",
+        navPersona: "Persona Dialektika",
+        navPipeline: "Exegesis Pipeline",
+        navSettings: "Settings",
+        navBilling: "Billing & Quota",
+        navDebateArena: "Debate Arena (3-vs-3)",
+        navAbout: "About Polya AI",
+        headingWorkspace: "Research Workspace",
+        headingEvidenceLab: "Evidence Lab",
+        headingPrepUser: "Preparation & User",
+        profileItemProfile: "Profile",
+        profileItemModel: "Model",
+        profileItemSubscription: "Subscription",
+        profileItemSettings: "Settings",
+        profileItemSwitch: "Ganti Akun",
+        profileItemSignIn: "🔑 Sign In",
+        calcHeroTitle: "Apologetics Calculator",
+        calcHeroCopy: "Apologetics Calculator akan menganalisis klaim lawan dan memberikan data, sumber, bukti, konteks, argumen, serta sanggahan yang relevan untuk membantu kamu mempersiapkan diri dan memenangkan debatmu.",
+        calcHeroCta: "Coba 5 Analisis Gratis",
+        calcHeaderTitle: "Apologetics Calculator",
+        calcOpponentIslam: "Konteks Lawan: Muslim",
+        calcOpponentProtestant: "Konteks Lawan: Kristen Protestan",
+        calcOpponentCatholic: "Konteks Lawan: Katolik",
+        calcOpponentJudaism: "Konteks Lawan: Yudaisme",
+        calcOpponentAtheist: "Konteks Lawan: Ateis / Sekuler",
+        calcInputPlaceholder: "Masukkan klaim lawan debat kamu di sini...",
+        calcInputDefault: "Masukkan klaim lawan debat kamu di sini.",
+        calcBtnDebateMode: "⚔ Debate Mode",
+        calcBtnResearchMode: "📖 Research Mode",
+        calcBtnAnalyze: "Hitung & Analisis Klaim",
+        canonicalCasesTitle: "Studi Kasus Kanonikal Unggulan",
+        canonicalCasesCount: "18 Mosi Terverifikasi",
+        canonicalCasesSub: "Pilih salah satu mosi debat untuk diuji langsung di kalkulator atau buka berkas dossier naskah.",
+        canonicalCasesViewAll: "Lihat Seluruh 2.451+ Tema →",
+        caseResultSourceBtn: "🔍 Show me the source",
+        caseResultVerified: "VERIFIED INTEL",
+        caseZumaHeader: "⚡ Dialektika Zuma & Simulasi Debat (Socratic Funnel)",
+        casePrimaryEvidence: "🏛 Primary Evidence",
+        caseContextLinguistics: "⚖ Context & Linguistics",
+        caseOpponentCounter: "⚔ Opponent Counterargument",
+        caseRebuttal: "🛡 Possible Response & Rebuttal",
+        caseWeakness: "🎯 Titik Lemah Lawan (Weakness Analysis)",
+        caseOpenQuestions: "❓ Open Questions / Titik Uji Forensik",
+        caseSourceProvenance: "📚 Source & Provenance",
+        settingsTitle: "Research Settings & Preferences",
+        settingsSub: "Konfigurasi parameter penelitian, perspektif debat, dan preferensi antarmuka.",
+        settingsPrefHeading: "Preferensi Apologetika",
+        settingsLangLabel: "Bahasa UI",
+        settingsPerspLabel: "Perspektif Apologetika Pengguna",
+        settingsSaveBtn: "Simpan Preferensi",
+        settingsResetBtn: "🌐 Reset Onboarding",
+        onboardingTitleStep1: "Selamat Datang di Polya",
+        onboardingSubStep1: "Pilih bahasa utama Anda untuk penelitian dan analisis debat.",
+        onboardingNextStep1: "Lanjut: Perspektif Apologetika →",
+        onboardingTitleStep2: "Perspektif Apologetika",
+        onboardingSubStep2: "Kamu ingin mempersiapkan diri sebagai apologet dari perspektif mana?",
+        onboardingCompleteBtn: "Masuk ke Polya Apologetika",
+        saveSuccessToast: "Pengaturan berhasil disimpan!",
+        saveErrorToast: "Gagal menyimpan preferensi."
+      },
+      en: {
+        quickSearch: "Quick search...",
+        navApologeticsMachine: "Apologetics Machine",
+        navWorkspace: "Workspace",
+        navThemeDebate: "Theme Debate (Motions)",
+        navDialectic: "Dialectic & Cross-Exam",
+        navChristology: "Christology & Jesus",
+        navPhilology: "Philology & Manuscripts",
+        navComparative: "Comparative Theology",
+        navTrinity: "Monotheism & Trinity",
+        navPauline: "Paul vs Mosaic Law",
+        navProphecy: "Prophetic Defense",
+        navPendingTranscripts: "Pending Transcripts",
+        navKnowledge: "Knowledge Base",
+        navPersona: "Dialectical Persona",
+        navPipeline: "Exegesis Pipeline",
+        navSettings: "Settings",
+        navBilling: "Billing & Quota",
+        navDebateArena: "Debate Arena (3-vs-3)",
+        navAbout: "About Polya AI",
+        headingWorkspace: "Research Workspace",
+        headingEvidenceLab: "Evidence Lab",
+        headingPrepUser: "Preparation & User",
+        profileItemProfile: "Profile",
+        profileItemModel: "Model",
+        profileItemSubscription: "Subscription",
+        profileItemSettings: "Settings",
+        profileItemSwitch: "Switch Account",
+        profileItemSignIn: "🔑 Sign In",
+        calcHeroTitle: "Apologetics Calculator",
+        calcHeroCopy: "Apologetics Calculator analyzes opponent claims and provides verified data, primary sources, evidence, context, arguments, and counterarguments to help you prepare and win your debate.",
+        calcHeroCta: "Try 5 Free Analyses",
+        calcHeaderTitle: "Apologetics Calculator",
+        calcOpponentIslam: "Opponent Context: Muslim",
+        calcOpponentProtestant: "Opponent Context: Protestant Christian",
+        calcOpponentCatholic: "Opponent Context: Catholic",
+        calcOpponentJudaism: "Opponent Context: Judaism",
+        calcOpponentAtheist: "Opponent Context: Atheist / Secular",
+        calcInputPlaceholder: "Enter your debate opponent's claim here...",
+        calcInputDefault: "Enter your debate opponent's claim here.",
+        calcBtnDebateMode: "⚔ Debate Mode",
+        calcBtnResearchMode: "📖 Research Mode",
+        calcBtnAnalyze: "Calculate & Analyze Claim",
+        canonicalCasesTitle: "Featured Canonical Case Studies",
+        canonicalCasesCount: "18 Verified Motions",
+        canonicalCasesSub: "Select a debate motion to test in the calculator or inspect primary manuscript dossiers.",
+        canonicalCasesViewAll: "View All 2,451+ Themes →",
+        caseResultSourceBtn: "🔍 Show me the source",
+        caseResultVerified: "VERIFIED INTEL",
+        caseZumaHeader: "⚡ Zuma Dialectic & Debate Simulation (Socratic Funnel)",
+        casePrimaryEvidence: "🏛 Primary Evidence",
+        caseContextLinguistics: "⚖ Context & Linguistics",
+        caseOpponentCounter: "⚔ Opponent Counterargument",
+        caseRebuttal: "🛡 Possible Response & Rebuttal",
+        caseWeakness: "🎯 Opponent Weakness Analysis",
+        caseOpenQuestions: "❓ Open Questions / Forensic Test Points",
+        caseSourceProvenance: "📚 Source & Provenance",
+        settingsTitle: "Research Settings & Preferences",
+        settingsSub: "Configure research parameters, debate perspectives, and interface preferences.",
+        settingsPrefHeading: "Apologetics Preferences",
+        settingsLangLabel: "UI Language",
+        settingsPerspLabel: "User Apologetics Perspective",
+        settingsSaveBtn: "Save Preferences",
+        settingsResetBtn: "🌐 Reset Onboarding",
+        onboardingTitleStep1: "Welcome to Polya",
+        onboardingSubStep1: "Choose your primary language for research and debate analysis.",
+        onboardingNextStep1: "Next: Apologetics Perspective →",
+        onboardingTitleStep2: "Apologetics Perspective",
+        onboardingSubStep2: "Which theological perspective do you want to research from?",
+        onboardingCompleteBtn: "Enter Polya Apologetics",
+        saveSuccessToast: "Preferences saved successfully!",
+        saveErrorToast: "Failed to save preferences."
+      },
+      ar: {
+        quickSearch: "بحث سريع...",
+        navApologeticsMachine: "آلة الدفاعيات",
+        navWorkspace: "مساحة العمل",
+        navThemeDebate: "مواضيع وقضايا المناظرة",
+        navDialectic: "الجدلية والاستجواب المتقاطع",
+        navChristology: "الكرستولوجيا والمسيح",
+        navPhilology: "الفيلولوجيا والمخطوطات",
+        navComparative: "اللاهوت المقارن",
+        navTrinity: "التوحيد والتثليث",
+        navPauline: "بولس مقابل الشريعة",
+        navProphecy: "الدفاع عن النبوة",
+        navPendingTranscripts: "بانتظار التفريغ",
+        navKnowledge: "قاعدة المعرفة",
+        navPersona: "الشخصية الجدلية",
+        navPipeline: "خط أنابيب التفسير",
+        navSettings: "الإعدادات",
+        navBilling: "الفواتير والحصة",
+        navDebateArena: "ساحة المناظرة (3 ضد 3)",
+        navAbout: "عن بوليا للذكاء الاصطناعي",
+        headingWorkspace: "مساحة أبحاث الدفاعيات",
+        headingEvidenceLab: "مختبر الأدلة والمخطوطات",
+        headingPrepUser: "الإعدادات والمستخدم",
+        profileItemProfile: "الملف الشخصي",
+        profileItemModel: "النموذج",
+        profileItemSubscription: "الاشتراك",
+        profileItemSettings: "الإعدادات",
+        profileItemSwitch: "تبديل الحساب",
+        profileItemSignIn: "🔑 تسجيل الدخول",
+        calcHeroTitle: "حاسبة الدفاعيات",
+        calcHeroCopy: "تقوم حاسبة الدفاعيات بتحليل ادعاءات الخصم وتوفير البيانات الموثقة والمصادر الأولية والأدلة والسياق لمساعدتك في إعداد مناظرتك والانتصار فيها.",
+        calcHeroCta: "جرب 5 تحليلات مجانية",
+        calcHeaderTitle: "حاسبة الدفاعيات",
+        calcOpponentIslam: "سياق الخصم: مسلم",
+        calcOpponentProtestant: "سياق الخصم: مسيحي بروتستانتي",
+        calcOpponentCatholic: "سياق الخصم: كاثوليكي",
+        calcOpponentJudaism: "سياق الخصم: اليهودية",
+        calcOpponentAtheist: "سياق الخصم: ملحد / علماني",
+        calcInputPlaceholder: "أدخل ادعاء خصمك في المناظرة هنا...",
+        calcInputDefault: "أدخل ادعاء خصمك في المناظرة هنا.",
+        calcBtnDebateMode: "⚔ وضع المناظرة",
+        calcBtnResearchMode: "📖 وضع البحث",
+        calcBtnAnalyze: "احسب وحلل الادعاء",
+        canonicalCasesTitle: "دراسات حالة قانونية مميزة",
+        canonicalCasesCount: "18 قضية موثقة",
+        canonicalCasesSub: "اختر إحدى قضايا المناظرة لاختبارها مباشرة في الحاسبة أو تصفح ملفات المخطوطات.",
+        canonicalCasesViewAll: "عرض جميع المواضيع (2451+) ←",
+        caseResultSourceBtn: "🔍 أرني المصدر الأصلي",
+        caseResultVerified: "معلومات موثقة",
+        caseZumaHeader: "⚡ جدلية زوما ومحاكاة المناظرة (القمع السقراطي)",
+        casePrimaryEvidence: "🏛 الأدلة الأولية والمخطوطات",
+        caseContextLinguistics: "⚖ السياق والتحليل اللغوي",
+        caseOpponentCounter: "⚔ حجة الخصم المضادة",
+        caseRebuttal: "🛡 الرد والدحض المقترح",
+        caseWeakness: "🎯 تحليل نقاط ضعف الخصم",
+        caseOpenQuestions: "❓ أسئلة مفتوحة ونقاط اختبار جنائية",
+        caseSourceProvenance: "📚 المصادر والأصول",
+        settingsTitle: "إعدادات وتفضيلات البحث",
+        settingsSub: "تكوين معايير البحث، منظور المناظرة، وتفضيلات الواجهة.",
+        settingsPrefHeading: "تفضيلات الدفاعيات",
+        settingsLangLabel: "لغة الواجهة",
+        settingsPerspLabel: "منظور الدفاعيات للمستخدم",
+        settingsSaveBtn: "حفظ التفضيلات",
+        settingsResetBtn: "🌐 إعادة تعيين الإعداد الأولي",
+        onboardingTitleStep1: "مرحبًا بك في بوليا",
+        onboardingSubStep1: "اختر لغتك الأساسية للبحث وتحليل المناظرات.",
+        onboardingNextStep1: "التالي: منظور الدفاعيات ←",
+        onboardingTitleStep2: "منظور الدفاعيات",
+        onboardingSubStep2: "من أي منظور لاهوتي تريد إعداد أبحاثك ودفاعياتك؟",
+        onboardingCompleteBtn: "الدخول إلى بوليا للدفاعيات",
+        saveSuccessToast: "تم حفظ التفضيلات بنجاح!",
+        saveErrorToast: "فشل حفظ التفضيلات."
+      }
+    };
+
+    function applyI18n(locale) {
+      const loc = locale || userContext.ui_locale || "id";
+      const t = I18N_DICTIONARY[loc] || I18N_DICTIONARY["en"] || I18N_DICTIONARY["id"];
+      if (!t) return;
+
+      const isRtl = loc === "ar" || loc === "ur" || loc === "fa" || loc === "he";
+      document.documentElement.dir = isRtl ? "rtl" : "ltr";
+
+      // Search & Header
+      const searchBtns = document.querySelectorAll(".header-search-btn span:last-child");
+      searchBtns.forEach(el => {
+        if (el.textContent.includes("search") || el.textContent.includes("Pencarian") || el.textContent.includes("بحث")) {
+          el.textContent = t.quickSearch;
+        }
+      });
+
+      // Sidebar Headings
+      const hWork = document.getElementById("side-heading-workspace");
+      if (hWork) hWork.textContent = t.headingWorkspace;
+      const hEvid = document.getElementById("side-heading-evidence");
+      if (hEvid) hEvid.textContent = t.headingEvidenceLab;
+      const hPrep = document.getElementById("side-heading-prep");
+      if (hPrep) hPrep.textContent = t.headingPrepUser;
+
+      // Sidebar items
+      const sCalc = document.getElementById("side-item-calc");
+      if (sCalc) sCalc.textContent = t.navApologeticsMachine;
+      const sDash = document.getElementById("side-item-dash");
+      if (sDash) sDash.textContent = t.navWorkspace;
+      const sThemesTitle = document.getElementById("side-item-themes-title");
+      if (sThemesTitle) sThemesTitle.textContent = t.navThemeDebate;
+      const sKnow = document.getElementById("side-item-knowledge");
+      if (sKnow) sKnow.textContent = t.navKnowledge;
+      const sPers = document.getElementById("side-item-persona");
+      if (sPers) sPers.textContent = t.navPersona;
+      const sPipe = document.getElementById("side-item-pipeline");
+      if (sPipe) sPipe.textContent = t.navPipeline;
+      const sSett = document.getElementById("side-item-settings");
+      if (sSett) sSett.textContent = t.navSettings;
+      const sAcc = document.getElementById("side-item-account");
+      if (sAcc) sAcc.textContent = t.navBilling;
+      const sArena = document.getElementById("side-item-arena");
+      if (sArena) sArena.textContent = t.navDebateArena;
+      const sAbout = document.getElementById("side-item-about");
+      if (sAbout) sAbout.textContent = t.navAbout;
+
+      // Calculator View
+      const heroTitle = document.getElementById("calc-hero-title");
+      if (heroTitle) heroTitle.textContent = t.calcHeroTitle;
+      const heroCopy = document.getElementById("calc-hero-copy");
+      if (heroCopy) heroCopy.textContent = t.calcHeroCopy;
+      const heroCta = document.getElementById("hero-cta-btn");
+      if (heroCta) heroCta.textContent = t.calcHeroCta;
+      const calcHdr = document.getElementById("calc-header-title");
+      if (calcHdr) calcHdr.textContent = t.calcHeaderTitle;
+
+      // Calculator Opponent dropdown options
+      const oppSelect = document.getElementById("calc-opponent-select");
+      if (oppSelect && oppSelect.options) {
+        for (let i = 0; i < oppSelect.options.length; i++) {
+          const opt = oppSelect.options[i];
+          if (opt.value === "islam") opt.textContent = t.calcOpponentIslam;
+          else if (opt.value === "christian_protestant") opt.textContent = t.calcOpponentProtestant;
+          else if (opt.value === "christian_catholic") opt.textContent = t.calcOpponentCatholic;
+          else if (opt.value === "judaism") opt.textContent = t.calcOpponentJudaism;
+          else if (opt.value === "atheist_secular") opt.textContent = t.calcOpponentAtheist;
+        }
+      }
+
+      // Claim input
+      const claimInput = document.getElementById("claim-input");
+      if (claimInput) {
+        claimInput.placeholder = t.calcInputPlaceholder;
+        const val = claimInput.value.trim();
+        if (val === "Masukkan klaim lawan debat kamu di sini." ||
+            val === "Enter your debate opponent's claim here." ||
+            val === "أدخل ادعاء خصمك في المناظرة هنا.") {
+          claimInput.value = t.calcInputDefault;
+        }
+      }
+
+      // Mode buttons
+      const btnModeDebate = document.getElementById("btn-mode-debate");
+      if (btnModeDebate) btnModeDebate.textContent = t.calcBtnDebateMode;
+      const btnModeResearch = document.getElementById("btn-mode-research");
+      if (btnModeResearch) btnModeResearch.textContent = t.calcBtnResearchMode;
+
+      // Analyze button text
+      const btnCalcText = document.getElementById("btn-calc-text");
+      if (btnCalcText) btnCalcText.textContent = t.calcBtnAnalyze;
+
+      // Canonical cases headers
+      const canTitle = document.getElementById("canonical-cases-title");
+      if (canTitle) canTitle.textContent = t.canonicalCasesTitle;
+      const canCount = document.getElementById("canonical-cases-count");
+      if (canCount) canCount.textContent = t.canonicalCasesCount;
+      const canSub = document.getElementById("canonical-cases-sub");
+      if (canSub) canSub.textContent = t.canonicalCasesSub;
+      const canLink = document.getElementById("canonical-cases-link");
+      if (canLink) canLink.innerHTML = t.canonicalCasesViewAll;
+
+      // Case result headers
+      const zumaHdr = document.getElementById("case-zuma-header");
+      if (zumaHdr) zumaHdr.textContent = t.caseZumaHeader;
+      const primHdr = document.getElementById("case-primary-ev-header");
+      if (primHdr) primHdr.textContent = t.casePrimaryEvidence;
+      const ctxHdr = document.getElementById("case-ctx-ling-header");
+      if (ctxHdr) ctxHdr.textContent = t.caseContextLinguistics;
+      const oppHdr = document.getElementById("case-opp-counter-header");
+      if (oppHdr) oppHdr.textContent = t.caseOpponentCounter;
+      const rebHdr = document.getElementById("case-rebuttal-header");
+      if (rebHdr) rebHdr.textContent = t.caseRebuttal;
+      const weakHdr = document.getElementById("case-weakness-header");
+      if (weakHdr) weakHdr.textContent = t.caseWeakness;
+      const qHdr = document.getElementById("case-open-q-header");
+      if (qHdr) qHdr.textContent = t.caseOpenQuestions;
+      const provHdr = document.getElementById("case-provenance-header");
+      if (provHdr) provHdr.textContent = t.caseSourceProvenance;
+
+      // Settings View
+      const settTitle = document.getElementById("settings-title");
+      if (settTitle) settTitle.textContent = t.settingsTitle;
+      const settSub = document.getElementById("settings-sub");
+      if (settSub) settSub.textContent = t.settingsSub;
+      const settPref = document.getElementById("settings-pref-heading");
+      if (settPref) settPref.textContent = t.settingsPrefHeading;
+      const settLang = document.getElementById("settings-lang-label");
+      if (settLang) settLang.textContent = t.settingsLangLabel;
+      const settPersp = document.getElementById("settings-persp-label");
+      if (settPersp) settPersp.textContent = t.settingsPerspLabel;
+      const btnSaveSett = document.getElementById("btn-save-settings");
+      if (btnSaveSett) btnSaveSett.textContent = t.settingsSaveBtn;
+      const btnResetOnb = document.getElementById("btn-reset-onboarding");
+      if (btnResetOnb) btnResetOnb.textContent = t.settingsResetBtn;
+
+      // Onboarding Step 1 & 2
+      const onbTitle1 = document.getElementById("onboarding-title-step1");
+      if (onbTitle1) onbTitle1.textContent = t.onboardingTitleStep1;
+      const onbSub1 = document.getElementById("onboarding-sub-step1");
+      if (onbSub1) onbSub1.textContent = t.onboardingSubStep1;
+      const onbNext1 = document.getElementById("btn-next-step-1");
+      if (onbNext1) onbNext1.textContent = t.onboardingNextStep1;
+      const onbTitle2 = document.getElementById("onboarding-title-step2");
+      if (onbTitle2) onbTitle2.textContent = t.onboardingTitleStep2;
+      const onbSub2 = document.getElementById("onboarding-sub-step2");
+      if (onbSub2) onbSub2.textContent = t.onboardingSubStep2;
+      const onbComplete = document.getElementById("btn-complete-onboarding");
+      if (onbComplete) onbComplete.textContent = t.onboardingCompleteBtn;
+    }
+
     function applyContextToUI() {
       const p = normalizePerspectiveKey(userContext.user_perspective);
       userContext.user_perspective = p;
@@ -3355,8 +3796,12 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       const label = cfg.badge;
       if (bPersp) bPersp.textContent = label;
 
+      const loc = userContext.ui_locale || "id";
       const bLang = document.getElementById("badge-lang");
-      if (bLang) bLang.textContent = (userContext.ui_locale || "id").toUpperCase();
+      if (bLang) bLang.textContent = loc.toUpperCase();
+
+      const isRtl = loc === "ar" || loc === "ur" || loc === "fa" || loc === "he";
+      document.documentElement.dir = isRtl ? "rtl" : "ltr";
 
       const dPersp = document.getElementById("dash-persp-val");
       if (dPersp) dPersp.textContent = cfg.full;
@@ -3364,10 +3809,15 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       const sPersp = document.getElementById("settings-persp-select");
       if (sPersp && sPersp.value !== p) sPersp.value = p;
 
+      const sLang = document.getElementById("settings-lang-select");
+      if (sLang && sLang.value !== loc) sLang.value = loc;
+
       const oppSelect = document.getElementById("calc-opponent-select");
       if (oppSelect && userContext.opponent_perspective) {
         oppSelect.value = userContext.opponent_perspective;
       }
+
+      applyI18n(loc);
     }
 
     function handleClaimFocus(el) {

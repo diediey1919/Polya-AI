@@ -84,6 +84,8 @@ class ResearchState(TypedDict):
     user_id: NotRequired[Optional[str]]
     user_perspective: str
     opponent_perspective: NotRequired[Optional[str]]
+    ui_locale: NotRequired[Optional[str]]
+    debate_locale: NotRequired[Optional[str]]
     requested_mode: str
     tasks: List[Dict[str, Any]]
     dispatched_agent_records: Annotated[List[Dict[str, Any]], operator.add]
@@ -203,6 +205,32 @@ def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
 
     user_persp = state.get("user_perspective", "christian_protestant")
     opp_persp = state.get("opponent_perspective", "islam")
+    target_locale = state.get("debate_locale") or state.get("ui_locale") or "id"
+
+    lang_map = {
+        "en": "English",
+        "id": "Bahasa Indonesia",
+        "ar": "Arabic (العربية)",
+        "es": "Spanish (Español)",
+        "pt": "Portuguese (Português)",
+        "fr": "French (Français)",
+        "de": "German (Deutsch)",
+        "ru": "Russian (Русский)",
+        "zh": "Chinese (中文)",
+        "ja": "Japanese (日本語)",
+        "ko": "Korean (한국어)",
+        "it": "Italian (Italiano)",
+        "tr": "Turkish (Türkçe)",
+        "fa": "Persian (فارسی)",
+        "ur": "Urdu (اردو)",
+        "hi": "Hindi (हिन्दी)",
+        "bn": "Bengali (বাংলা)",
+    }
+    lang_name = lang_map.get(target_locale, "English" if target_locale == "en" else "Indonesian")
+
+    language_instruction = (
+        f"BAHASA OUTPUT WAJIB: Seluruh sintesis teks (claim_summary, argument, counterargument, rebuttal, weakness, open_questions, debate_preparation, sources) WAJIB ditulis secara konsisten dan murni dalam {lang_name} (Locale: {target_locale})."
+    )
 
     perspective_instruction = (
         f"PERSPEKTIF PENGGUNA (POSISI ANDA): {user_persp.upper()}\n"
@@ -214,6 +242,7 @@ def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
 Klaim Pengguna: "{claim_text}"
 {mode_instruction}
 {perspective_instruction}
+{language_instruction}
 
 Bukti Kontekstual dari Korpus:
 {ev_context_str}
@@ -272,35 +301,66 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
     # If model failed or output malformed, build structured claim-tailored fallback
     if not output_used:
         synthesis_status = "PARTIAL" if res.status == "COMPLETED" else "MODEL_ERROR"
-        if retrieval_status == "insufficient_evidence":
-            synthesis_output = {
-                "claim_summary": f"Klaim '{claim_text[:80]}' berada di luar cakupan korpus teologis / bukti tidak mencukupi.",
-                "argument": f"Tidak ditemukan bukti primer atau rekaman korpus naskah kuno yang mendukung atau memvalidasi klaim: '{claim_text}'.",
-                "counterargument": "Pihak lawan mungkin mendasarkan klaim pada premis sains modern atau asumsi non-tekstual.",
-                "rebuttal": "Klaim di luar cakupan korpus tidak dapat dievaluasi menggunakan metode eksegesis naskah kuno tanpa data empiris terkait.",
-                "weakness": "Ketiadaan dukungan naskah atau literatur primer di dalam korpus.",
-                "open_questions": ["Apakah klaim ini memiliki dasar naskah sejarah atau murni observasi non-teologis?"],
-                "debate_preparation": {
-                    "cross_examination_trap": "Mintalah lawan menunjukkan bukti naskah primer tertulis yang mendasari klaim mereka.",
-                    "recommended_tempo": "Tegaskan batas domain korpus secara tenang dan jangan terbawa spekulasi."
-                },
-                "sources": []
-            }
+        if target_locale == "en":
+            if retrieval_status == "insufficient_evidence":
+                synthesis_output = {
+                    "claim_summary": f"Claim '{claim_text[:80]}' is outside theological corpus scope / insufficient evidence.",
+                    "argument": f"No primary evidence or ancient corpus manuscript records found supporting or validating claim: '{claim_text}'.",
+                    "counterargument": "Opponent may base claim on modern scientific premises or non-textual assumptions.",
+                    "rebuttal": "Claims outside corpus scope cannot be evaluated using ancient manuscript exegesis without corresponding empirical data.",
+                    "weakness": "Absence of manuscript or primary literature support in the corpus.",
+                    "open_questions": ["Does this claim have historical manuscript basis or is it purely non-theological observation?"],
+                    "debate_preparation": {
+                        "cross_examination_trap": "Ask the opponent to show written primary manuscript evidence supporting their claim.",
+                        "recommended_tempo": "Calmly affirm corpus domain boundaries and avoid speculative rabbit holes."
+                    },
+                    "sources": []
+                }
+            else:
+                primary_ref = scripture_items[0].passage_reference if scripture_items else (corpus_items[0].get("title", "") if corpus_items else "Indexed Corpus")
+                synthesis_output = {
+                    "claim_summary": f"Structural analysis for claim: '{claim_text[:80]}'",
+                    "argument": f"Based on corpus evidence ({primary_ref}), the claim premise '{claim_text[:50]}' requires forensic verification against its original context.",
+                    "counterargument": f"Opposition ({opp_persp.upper()}) argues an alternative interpretation based on generalized lexical reading.",
+                    "rebuttal": f"Primary manuscript witnesses at {primary_ref} delimit the scope of the claim.",
+                    "weakness": "Reliance on assumptions without critical testing against primary manuscripts.",
+                    "open_questions": [f"How do the manuscript records of {primary_ref} explain this claim?"],
+                    "debate_preparation": {
+                        "cross_examination_trap": "Lock the opponent to the definition of the word in the primary text.",
+                        "recommended_tempo": "Deliver concise Socratic inquiries."
+                    },
+                    "sources": [{"citation": primary_ref, "type": "Corpus Reference"}] if primary_ref else []
+                }
         else:
-            primary_ref = scripture_items[0].passage_reference if scripture_items else (corpus_items[0].get("title", "") if corpus_items else "Korpus Terindeks")
-            synthesis_output = {
-                "claim_summary": f"Analisis struktural terhadap klaim: '{claim_text[:80]}'",
-                "argument": f"Berdasarkan bukti korpus ({primary_ref}), premis klaim '{claim_text[:50]}' memerlukan verifikasi forensik terhadap konteks aslinya.",
-                "counterargument": "Oposisi mendalilkan interpretasi alternatif berdasarkan pembacaan leksikal umum.",
-                "rebuttal": f"Saksi naskah primer pada {primary_ref} membatasi ruang lingkup klaim.",
-                "weakness": "Ketergantungan pada asumsi tanpa pengujian kritis terhadap naskah primer.",
-                "open_questions": [f"Bagaimana rekaman naskah {primary_ref} menjelaskan klaim ini?"],
-                "debate_preparation": {
-                    "cross_examination_trap": "Kuncilah lawan pada definisi kata dalam teks primer.",
-                    "recommended_tempo": "Ajukan pertanyaan sokratik pendek dan terukur."
-                },
-                "sources": [{"citation": primary_ref, "type": "Corpus Reference"}] if primary_ref else []
-            }
+            if retrieval_status == "insufficient_evidence":
+                synthesis_output = {
+                    "claim_summary": f"Klaim '{claim_text[:80]}' berada di luar cakupan korpus teologis / bukti tidak mencukupi.",
+                    "argument": f"Tidak ditemukan bukti primer atau rekaman korpus naskah kuno yang mendukung atau memvalidasi klaim: '{claim_text}'.",
+                    "counterargument": "Pihak lawan mungkin mendasarkan klaim pada premis sains modern atau asumsi non-tekstual.",
+                    "rebuttal": "Klaim di luar cakupan korpus tidak dapat dievaluasi menggunakan metode eksegesis naskah kuno tanpa data empiris terkait.",
+                    "weakness": "Ketiadaan dukungan naskah atau literatur primer di dalam korpus.",
+                    "open_questions": ["Apakah klaim ini memiliki dasar naskah sejarah atau murni observasi non-teologis?"],
+                    "debate_preparation": {
+                        "cross_examination_trap": "Mintalah lawan menunjukkan bukti naskah primer tertulis yang mendasari klaim mereka.",
+                        "recommended_tempo": "Tegaskan batas domain korpus secara tenang dan jangan terbawa spekulasi."
+                    },
+                    "sources": []
+                }
+            else:
+                primary_ref = scripture_items[0].passage_reference if scripture_items else (corpus_items[0].get("title", "") if corpus_items else "Korpus Terindeks")
+                synthesis_output = {
+                    "claim_summary": f"Analisis struktural terhadap klaim: '{claim_text[:80]}'",
+                    "argument": f"Berdasarkan bukti korpus ({primary_ref}), premis klaim '{claim_text[:50]}' memerlukan verifikasi forensik terhadap konteks aslinya.",
+                    "counterargument": "Oposisi mendalilkan interpretasi alternatif berdasarkan pembacaan leksikal umum.",
+                    "rebuttal": f"Saksi naskah primer pada {primary_ref} membatasi ruang lingkup klaim.",
+                    "weakness": "Ketergantungan pada asumsi tanpa pengujian kritis terhadap naskah primer.",
+                    "open_questions": [f"Bagaimana rekaman naskah {primary_ref} menjelaskan klaim ini?"],
+                    "debate_preparation": {
+                        "cross_examination_trap": "Kuncilah lawan pada definisi kata dalam teks primer.",
+                        "recommended_tempo": "Ajukan pertanyaan sokratik pendek dan terukur."
+                    },
+                    "sources": [{"citation": primary_ref, "type": "Corpus Reference"}] if primary_ref else []
+                }
 
     # fallback_used is true ONLY if the consumed output is from a template/fallback source,
     # not merely because there were multiple dispatch trail entries (retries/failover to live adapters).
@@ -431,8 +491,9 @@ def claim_analysis_node(state: ResearchState) -> Dict[str, Any]:
     claim_text = state["claim_input"]
     user_persp = state.get("user_perspective", "christian_protestant")
     opp_persp = state.get("opponent_perspective", "islam")
+    target_locale = state.get("debate_locale") or state.get("ui_locale") or "id"
     temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
-    claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence, user_perspective=user_persp, opponent_perspective=opp_persp)
+    claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence, user_perspective=user_persp, opponent_perspective=opp_persp, locale=target_locale)
     synth = state.get("synthesis_output")
     if synth and synth.get("claim_summary"):
         claim_obj.text = synth.get("claim_summary")
@@ -447,8 +508,9 @@ def argument_graph_node(state: ResearchState) -> Dict[str, Any]:
     claim_text = state["claim_input"]
     user_persp = state.get("user_perspective", "christian_protestant")
     opp_persp = state.get("opponent_perspective", "islam")
+    target_locale = state.get("debate_locale") or state.get("ui_locale") or "id"
     temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
-    claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence, user_perspective=user_persp, opponent_perspective=opp_persp)
+    claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence, user_perspective=user_persp, opponent_perspective=opp_persp, locale=target_locale)
     arg_graph = ArgumentEngine.build_argument_graph(claim_obj, temp_evidence)
     synth = state.get("synthesis_output")
     if synth and synth.get("argument"):
@@ -466,7 +528,8 @@ def steelman_counterargument_node(state: ResearchState) -> Dict[str, Any]:
     claim_text = state["claim_input"]
     user_persp = state.get("user_perspective", "christian_protestant")
     opp_persp = state.get("opponent_perspective", "islam")
-    steelman = ArgumentEngine.steelman_opposition(claim_text, user_perspective=user_persp, opponent_perspective=opp_persp)
+    target_locale = state.get("debate_locale") or state.get("ui_locale") or "id"
+    steelman = ArgumentEngine.steelman_opposition(claim_text, user_perspective=user_persp, opponent_perspective=opp_persp, locale=target_locale)
     steel_dict = steelman.to_dict()
     synth = state.get("synthesis_output")
     if synth:
@@ -641,8 +704,9 @@ def zuma_debate_preparation_node(state: ResearchState) -> Dict[str, Any]:
     claim_text = state["claim_input"]
     user_persp = state.get("user_perspective", "christian_protestant")
     opp_persp = state.get("opponent_perspective", "islam")
+    target_locale = state.get("debate_locale") or state.get("ui_locale") or "id"
     temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
-    steelman = ArgumentEngine.steelman_opposition(claim_text, user_perspective=user_persp, opponent_perspective=opp_persp)
+    steelman = ArgumentEngine.steelman_opposition(claim_text, user_perspective=user_persp, opponent_perspective=opp_persp, locale=target_locale)
     contradiction = ArgumentEngine.audit_contradiction(temp_evidence)
 
     debate_prep = ZumaSkillEngine.generate_debate_preparation(

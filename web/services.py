@@ -1032,6 +1032,8 @@ class CaseFileGenerator:
         opp_persp = ContextService.normalize_perspective(opp_persp_raw)
         norm_mode = mode.lower() if mode else "research"
         requested_mode = "DEBATE" if norm_mode == "debate" else "RESEARCH"
+        ui_locale = getattr(ctx, "ui_locale", "id") or "id"
+        debate_locale = getattr(ctx, "debate_locale", "id") or ui_locale or "id"
 
         try:
             from orchestrator.research_graph import build_research_graph
@@ -1046,6 +1048,8 @@ class CaseFileGenerator:
                 "user_id": user_id,
                 "user_perspective": persp,
                 "opponent_perspective": opp_persp,
+                "ui_locale": ui_locale,
+                "debate_locale": debate_locale,
                 "requested_mode": requested_mode,
                 "tasks": [],
                 "dispatched_agent_records": [],
@@ -1142,7 +1146,8 @@ class CaseFileGenerator:
                 z_ctx = {
                     "user_perspective": persp,
                     "opponent_perspective": opp_persp,
-                    "debate_locale": getattr(ctx, "debate_locale", "id"),
+                    "debate_locale": debate_locale,
+                    "ui_locale": ui_locale,
                     "source_locale": getattr(ctx, "source_locale", None) or ContextService.get_default_source_locale(persp)
                 }
                 canonical_sim = ZumaSkillEngine.generate_canonical_8_round_simulation(
@@ -1171,7 +1176,8 @@ class CaseFileGenerator:
                     z_ctx = {
                         "user_perspective": persp,
                         "opponent_perspective": opp_persp,
-                        "debate_locale": getattr(ctx, "debate_locale", "id"),
+                        "debate_locale": debate_locale,
+                        "ui_locale": ui_locale,
                         "source_locale": getattr(ctx, "source_locale", None) or ContextService.get_default_source_locale(persp)
                     }
                     sim_deb = ZumaSkillEngine.generate_zuma_forensic_simulation(
@@ -1203,10 +1209,15 @@ class CaseFileGenerator:
             final_provider, final_provenance = CaseFileGenerator._resolve_final_provenance(model_inv, synth)
 
             opp_display = opp_persp.upper()
+            ctx_summary = (
+                f"Analyzed in {requested_mode} mode from {persp.upper()} perspective versus {opp_display} (Debate Language: {debate_locale})."
+                if debate_locale == "en" else
+                f"Dianalisis dalam mode {requested_mode} perspektif {persp.upper()} versus {opp_display} (Bahasa Debat: {debate_locale})."
+            )
             return CaseFile(
                 case_id=case_id,
                 claim=claim,
-                context=f"Dianalisis dalam mode {requested_mode} perspektif {persp.upper()} versus {opp_display} (Bahasa Debat: {ctx.debate_locale}).",
+                context=ctx_summary,
                 evidence=ev_list,
                 argument=arg_val,
                 counterargument=counterarg_val,

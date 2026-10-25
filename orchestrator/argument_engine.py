@@ -179,7 +179,8 @@ class ArgumentEngine:
         claim_text: str,
         evidence: List[EvidenceItem],
         user_perspective: Optional[str] = "christian_protestant",
-        opponent_perspective: Optional[str] = None
+        opponent_perspective: Optional[str] = None,
+        locale: Optional[str] = "id"
     ) -> CanonicalClaim:
         """Constructs canonical claim representation from user input according to epistemic perspective and opponent context."""
         cid = f"claim_{uuid.uuid4().hex[:8]}"
@@ -482,7 +483,8 @@ class ArgumentEngine:
         cls,
         claim_text: str,
         user_perspective: Optional[str] = "christian_protestant",
-        opponent_perspective: Optional[str] = None
+        opponent_perspective: Optional[str] = None,
+        locale: Optional[str] = "id"
     ) -> SteelmanCounterargument:
         """
         Steelman counterargument construction (Section 15):
