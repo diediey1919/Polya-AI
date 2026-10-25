@@ -84,7 +84,8 @@ class DebateTrainingEngine:
         user_position: TeamSide = TeamSide.PROPOSITION,
         training_type: TrainingType = TrainingType.PRACTICE_DEBATE,
         difficulty: TrainingDifficulty = TrainingDifficulty.NORMAL,
-        persona: TrainingPersona = TrainingPersona.ZUMA_STYLE
+        persona: TrainingPersona = TrainingPersona.ZUMA_STYLE,
+        user_context: Optional[Dict[str, Any]] = None
     ):
         self.timer = TrainingTimer(default_duration=180 if training_type != TrainingType.RAPID_FIRE else 45)
         
@@ -104,7 +105,8 @@ class DebateTrainingEngine:
             round_name="SETUP",
             active_speaker=TrainingSpeakerId.USER_DEBATER if user_position == TeamSide.PROPOSITION else TrainingSpeakerId.AI_TRAINING_DEBATER,
             remaining_time=self.timer.duration,
-            round_time=self.timer.duration
+            round_time=self.timer.duration,
+            user_context=user_context or {}
         )
         self._record_event("SESSION_CREATED", TrainingSpeakerId.TRAINING_MODERATOR, None, "Training session initialized.")
 

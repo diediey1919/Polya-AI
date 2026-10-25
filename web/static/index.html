@@ -192,9 +192,12 @@
 
     .perspective-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      margin-bottom: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 1.25rem;
+      max-height: 440px;
+      overflow-y: auto;
+      padding-right: 0.25rem;
     }
 
     .perspective-card {
@@ -1852,24 +1855,43 @@
     </div>
 
     <!-- Step 2: Perspective -->
-    <div id="onboarding-step-2" class="modal-card hidden">
+    <div id="onboarding-step-2" class="modal-card hidden" style="max-width: 760px;">
       <div style="margin-bottom: 1rem;">
         <img src="/static/newlogo.jpg?v=20261011f" alt="POLYA Apologetika OS" style="height: 56px; width: auto; object-fit: contain;">
       </div>
       <h2 class="modal-title">Apologetics Perspective</h2>
-      <p class="modal-sub">Kamu ingin mempersiapkan diri sebagai apologet dari pihak mana?</p>
+      <p class="modal-sub">Kamu ingin mempersiapkan diri sebagai apologet dari perspektif mana?</p>
 
       <div class="perspective-grid">
-        <div id="persp-christian" class="perspective-card active" onclick="selectPerspective('christian')">
+        <div id="persp-christian_protestant" class="perspective-card active" onclick="selectPerspective('christian_protestant')">
+          <span id="persp-christian" style="display:none;"></span>
           <div class="icon">✝</div>
-          <h4>Apologetics Kristen</h4>
-          <p>Fokus pembelaan naskah Alkitab, kristologi, tritunggal, dan historisitas kebangkitan.</p>
+          <h4>Kristen Protestan</h4>
+          <p>Kanon 66 Kitab Bible, Sola Scriptura, eksegesa filologis Yunani Koine & Ibrani Masoretik.</p>
+        </div>
+
+        <div id="persp-christian_catholic" class="perspective-card" onclick="selectPerspective('christian_catholic')">
+          <div class="icon">🇻🇦</div>
+          <h4>Katolik</h4>
+          <p>Kanon 73 Kitab (Deuterokanonika), Tradisi Suci Patristik para Bapa Gereja & Magisterium.</p>
         </div>
 
         <div id="persp-islam" class="perspective-card" onclick="selectPerspective('islam')">
           <div class="icon">☪</div>
-          <h4>Apologetics Islam</h4>
-          <p>Fokus pembelaan tauhid, kemurnian Al-Qur'an, kenabian, dan kritik filologi lintas kitab.</p>
+          <h4>Islam</h4>
+          <p>Kemurnian Tauhid (Tanzih), Al-Qur'an & Sunnah, pembelaan kenabian & Ilzam al-Khasm.</p>
+        </div>
+
+        <div id="persp-judaism" class="perspective-card" onclick="selectPerspective('judaism')">
+          <div class="icon">✡</div>
+          <h4>Yudaisme</h4>
+          <p>Tanakh Masoretik, keabadian Torah (Torat Emet), Shema Yisrael & tradisi lisan Talmud.</p>
+        </div>
+
+        <div id="persp-atheist_secular" class="perspective-card" onclick="selectPerspective('atheist_secular')">
+          <div class="icon">⚛</div>
+          <h4>Ateis / Sekuler</h4>
+          <p>Historiografi kritis, beban pembuktian empiris, kritik sastra kuno & varian naskah.</p>
         </div>
       </div>
 
@@ -2862,9 +2884,12 @@
 
           <label style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.2rem;">Perspektif Apologetika Pengguna</label>
           <div class="calc-input-wrapper" style="margin-bottom: 1rem; border-radius: 8px; min-height: 0;">
-            <select id="settings-persp-select" style="display: block; width: 100%; height: 28px; line-height: 28px; padding: 0 0.65rem; font-size: 0.8rem; background: transparent; border: none; outline: none; color: var(--text-main); box-sizing: border-box; cursor: pointer;" onchange="selectPerspective(this.value)">
-              <option value="christian" style="background: var(--bg-card);">✝ Apologetics Kristen</option>
+            <select id="settings-persp-select" style="display: block; width: 100%; height: 32px; line-height: 32px; padding: 0 0.65rem; font-size: 0.82rem; background: transparent; border: none; outline: none; color: var(--text-main); box-sizing: border-box; cursor: pointer;" onchange="selectPerspective(this.value)">
+              <option value="christian_protestant" style="background: var(--bg-card);">✝ Apologetics Kristen Protestan</option>
+              <option value="christian_catholic" style="background: var(--bg-card);">🇻🇦 Apologetics Katolik</option>
               <option value="islam" style="background: var(--bg-card);">☪ Apologetics Islam</option>
+              <option value="judaism" style="background: var(--bg-card);">✡ Perspektif Yudaisme</option>
+              <option value="atheist_secular" style="background: var(--bg-card);">⚛ Perspektif Ateis / Sekuler</option>
             </select>
           </div>
 
@@ -3108,7 +3133,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     let currentUserId = "guest_user";
     let userContext = {
       ui_locale: "id",
-      user_perspective: "christian",
+      user_perspective: "christian_protestant",
       opponent_perspective: "islam",
       debate_locale: "id",
       source_locale: "el"
@@ -3225,11 +3250,68 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       }
     });
 
+    const PERSPECTIVE_CONFIGS = {
+      "christian_protestant": {
+        badge: "✝ Protestan",
+        full: "✝ Apologetics Kristen Protestan",
+        defaultOpponent: "islam",
+        defaultSource: "el"
+      },
+      "christian_catholic": {
+        badge: "🇻🇦 Katolik",
+        full: "🇻🇦 Apologetics Katolik",
+        defaultOpponent: "christian_protestant",
+        defaultSource: "la"
+      },
+      "islam": {
+        badge: "☪ Islam",
+        full: "☪ Apologetics Islam",
+        defaultOpponent: "christian_protestant",
+        defaultSource: "ar"
+      },
+      "judaism": {
+        badge: "✡ Yudaisme",
+        full: "✡ Perspektif Yudaisme",
+        defaultOpponent: "christian_protestant",
+        defaultSource: "he"
+      },
+      "atheist_secular": {
+        badge: "⚛ Sekuler",
+        full: "⚛ Perspektif Ateis / Sekuler",
+        defaultOpponent: "christian_protestant",
+        defaultSource: "en"
+      }
+    };
+
+    function normalizePerspectiveKey(p) {
+      if (!p) return "christian_protestant";
+      const s = String(p).toLowerCase().trim();
+      if (s === "christian" || s === "protestant") return "christian_protestant";
+      if (s === "catholic" || s === "katolik") return "christian_catholic";
+      if (s === "atheist" || s === "secular") return "atheist_secular";
+      if (s === "jewish" || s === "yahudi") return "judaism";
+      return PERSPECTIVE_CONFIGS[s] ? s : "christian_protestant";
+    }
+
     function selectPerspective(perspective) {
-      userContext.user_perspective = perspective;
-      userContext.opponent_perspective = (perspective === "christian") ? "islam" : "christian";
-      document.getElementById("persp-christian").classList.toggle("active", perspective === "christian");
-      document.getElementById("persp-islam").classList.toggle("active", perspective === "islam");
+      const normP = normalizePerspectiveKey(perspective);
+      userContext.user_perspective = normP;
+      const cfg = PERSPECTIVE_CONFIGS[normP] || PERSPECTIVE_CONFIGS["christian_protestant"];
+      userContext.opponent_perspective = cfg.defaultOpponent;
+      userContext.source_locale = cfg.defaultSource;
+
+      // Update Onboarding card states
+      Object.keys(PERSPECTIVE_CONFIGS).forEach(k => {
+        const card = document.getElementById(`persp-${k}`);
+        if (card) card.classList.toggle("active", normP === k);
+      });
+      const legCard = document.getElementById("persp-christian");
+      if (legCard && legCard.parentElement && !legCard.parentElement.classList.contains("perspective-card")) {
+        legCard.classList.toggle("active", normP === "christian_protestant");
+      }
+      const legIslam = document.getElementById("persp-islam");
+      if (legIslam) legIslam.classList.toggle("active", normP === "islam");
+
       applyContextToUI();
     }
 
@@ -3257,14 +3339,22 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     }
 
     function applyContextToUI() {
-      const p = userContext.user_perspective;
-      const label = (p === "christian") ? "✝ Kristen" : "☪ Islam";
+      const p = normalizePerspectiveKey(userContext.user_perspective);
+      userContext.user_perspective = p;
+      const cfg = PERSPECTIVE_CONFIGS[p] || PERSPECTIVE_CONFIGS["christian_protestant"];
+
       const bPersp = document.getElementById("badge-perspective");
+      const label = cfg.badge;
       if (bPersp) bPersp.textContent = label;
+
       const bLang = document.getElementById("badge-lang");
       if (bLang) bLang.textContent = (userContext.ui_locale || "id").toUpperCase();
+
       const dPersp = document.getElementById("dash-persp-val");
-      if (dPersp) dPersp.textContent = (p === "christian") ? "✝ Apologetics Kristen" : "☪ Apologetics Islam";
+      if (dPersp) dPersp.textContent = cfg.full;
+
+      const sPersp = document.getElementById("settings-persp-select");
+      if (sPersp && sPersp.value !== p) sPersp.value = p;
     }
 
     function handleClaimFocus(el) {
@@ -4530,18 +4620,42 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       // Dinamisasi Grid Columns: Selalu 1 kolom penuh (1 kartu per baris)
       container.style.gridTemplateColumns = "minmax(0, 1fr)";
 
+      const PERSPECTIVE_CLUSTER_PRIORITY = {
+        "christian_protestant": ["Kristologi & Kemanusiaan Yesus", "Polemik Teologi Paulus vs Hukum Taurat", "Dialektika Debat Terbuka & Cross-Examination", "Audit Tekstual, Filologi & Varian Naskah"],
+        "christian_catholic": ["Diskursus Teologi & Apologetika Komparatif", "Kristologi & Kemanusiaan Yesus", "Dialektika Debat Terbuka & Cross-Examination", "Audit Tekstual, Filologi & Varian Naskah"],
+        "islam": ["Monoteisme & Kritik Doktrin Trinitas", "Apologetika Islam & Pembelaan Kenabian", "Audit Tekstual, Filologi & Varian Naskah", "Dialektika Debat Terbuka & Cross-Examination"],
+        "judaism": ["Polemik Teologi Paulus vs Hukum Taurat", "Monoteisme & Kritik Doktrin Trinitas", "Audit Tekstual, Filologi & Varian Naskah"],
+        "atheist_secular": ["Audit Tekstual, Filologi & Varian Naskah", "Dialektika Debat Terbuka & Cross-Examination", "Diskursus Teologi & Apologetika Komparatif"]
+      };
+      const activeP = normalizePerspectiveKey(userContext.user_perspective);
+      const prioritizedCats = PERSPECTIVE_CLUSTER_PRIORITY[activeP] || [];
+
+      const sortedGroupEntries = Object.entries(groups).sort(([catA], [catB]) => {
+        const isPendA = catA.includes("Menunggu Transkrip") ? 1 : 0;
+        const isPendB = catB.includes("Menunggu Transkrip") ? 1 : 0;
+        if (isPendA !== isPendB) return isPendA - isPendB;
+
+        const idxA = prioritizedCats.indexOf(catA);
+        const idxB = prioritizedCats.indexOf(catB);
+        const rankA = idxA !== -1 ? idxA : 99;
+        const rankB = idxB !== -1 ? idxB : 99;
+        return rankA - rankB;
+      });
+
       if (isOverviewMode) {
-        container.innerHTML = Object.entries(groups).map(([cat, list]) => {
+        container.innerHTML = sortedGroupEntries.map(([cat, list]) => {
           const icon = categoryIcons[cat] || "🏛️";
           const isPendingCat = cat.includes("Menunggu Transkrip");
           const safeCat = cat.replace(/'/g, "\\'");
           const desc = categoryDescriptions[cat] || (isPendingCat ? 'Daftar video yang belum memiliki transkrip terindeks di sistem dan dipisahkan dari perumusan mosi.' : 'Kompilasi mosi dialektika, analisis naskah, dan aparatus apologetika ZUMA berbasis isi transkrip.');
+          const isPriority = prioritizedCats.includes(cat);
 
           return `
-            <div class="case-card" style="height: auto; min-height: fit-content; width: 100%; max-width: 100%; box-sizing: border-box; display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; border-inline-start: 4px solid ${isPendingCat ? '#f59e0b' : 'var(--primary)'}; padding: 1.25rem 1.5rem;">
+            <div class="case-card" style="height: auto; min-height: fit-content; width: 100%; max-width: 100%; box-sizing: border-box; display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; border-inline-start: 4px solid ${isPendingCat ? '#f59e0b' : (isPriority ? 'var(--accent)' : 'var(--primary)')}; padding: 1.25rem 1.5rem;">
               <div style="flex: 1 1 500px; min-width: 0; display: flex; flex-direction: column; gap: 0.35rem;">
                 <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
                   <span class="evidence-badge ${isPendingCat ? '' : 'badge-primary-source'}" style="font-size: 0.68rem; padding: 0.12rem 0.45rem; ${isPendingCat ? 'background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);' : ''}">${icon} ${list.length} ${isPendingCat ? 'Video' : 'Mosi'}</span>
+                  ${isPriority ? `<span class="evidence-badge" style="font-size: 0.68rem; padding: 0.12rem 0.45rem; background: rgba(56, 189, 248, 0.15); color: var(--accent); border: 1px solid var(--border-focus);">⭐ Rekomendasi ${PERSPECTIVE_CONFIGS[activeP].badge}</span>` : ''}
                   <span style="font-size: 0.72rem; color: var(--text-dim);">${isPendingCat ? 'Antrean Video' : 'Klaster Terverifikasi'}</span>
                 </div>
                 <h3 style="font-size: 1.18rem; margin: 0.15rem 0 0.25rem 0; line-height: 1.35; font-family: var(--font-serif); color: var(--text-main); word-break: break-word;">${cat}</h3>
@@ -4561,7 +4675,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         return;
       }
 
-      container.innerHTML = Object.entries(groups).map(([cat, list]) => {
+      container.innerHTML = sortedGroupEntries.map(([cat, list]) => {
         const icon = categoryIcons[cat] || "🏛️";
         const isPendingCat = cat.includes("Menunggu Transkrip");
         const safeCat = cat.replace(/'/g, "\\'");
@@ -4803,9 +4917,28 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     // ===========================================================================
     let currentGraphData = null;
 
+    const DEFAULT_KNOWLEDGE_QUERIES = {
+      christian_protestant: "Paulus menegakkan hukum Taurat (Roma 3:31)",
+      christian_catholic: "Otoritas Magisterium dan Suksesi Apostolik (Matius 16:18-19)",
+      islam: "Tawhid murni dan penolakan syirik dalam teologi kenabian (Yohanes 17:3)",
+      judaism: "Keabadian hukum Taurat dan Monoteisme Murni (Ulangan 6:4)",
+      atheist_secular: "Historisitas klaim mukjizat dan evolusi tekstual manuskrip Bible"
+    };
+
+    const PERSPECTIVE_CORPUS_LANG_PREFERENCE = {
+      christian_protestant: ["el", "he", "arc"],
+      christian_catholic: ["el", "la", "he", "arc"],
+      islam: ["ar", "he", "el", "arc"],
+      judaism: ["he", "arc", "el"],
+      atheist_secular: ["el", "he", "la", "arc"]
+    };
+
     async function loadKnowledgeGraph() {
+      const normP = normalizePerspectiveKey(userContext.user_perspective);
+      const pCfg = PERSPECTIVE_CONFIGS[normP] || PERSPECTIVE_CONFIGS["christian_protestant"];
       const qInput = document.getElementById("graph-query-input");
-      const q = (qInput ? qInput.value.trim() : "") || "Paulus menegakkan hukum Taurat (Roma 3:31)";
+      const defaultQ = DEFAULT_KNOWLEDGE_QUERIES[normP] || DEFAULT_KNOWLEDGE_QUERIES.christian_protestant;
+      const q = (qInput ? qInput.value.trim() : "") || defaultQ;
       const loader = document.getElementById("graph-loading");
       const statsPill = document.getElementById("knowledge-stats-pill");
       const nodesContainer = document.getElementById("graph-nodes-container");
@@ -4820,7 +4953,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
         if (res.ok && data.success) {
           currentGraphData = data;
-          if (statsPill) statsPill.textContent = `Graph Nodes: ${data.nodes_count} | Edges: ${data.edges_count}`;
+          if (statsPill) statsPill.textContent = `${pCfg.badge} ${pCfg.name} | Graph Nodes: ${data.nodes_count} | Edges: ${data.edges_count}`;
 
           // Render interactive nodes
           nodesContainer.innerHTML = (data.nodes || []).map((n, idx) => {
@@ -4895,13 +5028,32 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     async function loadKnowledgeEvidence() {
       const container = document.getElementById("evidence-list-container");
       container.innerHTML = `<p style="color: var(--primary);"><span class="pulse-dot"></span> Memuat korpus bukti naskah...</p>`;
+      const normP = normalizePerspectiveKey(userContext.user_perspective);
+      const pCfg = PERSPECTIVE_CONFIGS[normP] || PERSPECTIVE_CONFIGS["christian_protestant"];
+      const preferredLangs = PERSPECTIVE_CORPUS_LANG_PREFERENCE[normP] || ["el", "he"];
+
       try {
         const res = await fetch("/api/v1/knowledge/evidence");
         const data = await res.json();
         if (res.ok && data.success) {
-          container.innerHTML = (data.evidence || []).map(e => `
-            <div class="case-card">
-              <span class="evidence-badge badge-primary-source">${e.original_language}</span>
+          let list = (data.evidence || []).slice();
+          // Sort prioritising preferred languages of the perspective
+          list.sort((a, b) => {
+            const idxA = preferredLangs.indexOf(a.original_language?.toLowerCase());
+            const idxB = preferredLangs.indexOf(b.original_language?.toLowerCase());
+            const rankA = idxA === -1 ? 99 : idxA;
+            const rankB = idxB === -1 ? 99 : idxB;
+            return rankA - rankB;
+          });
+
+          container.innerHTML = list.map(e => {
+            const isPreferred = preferredLangs.includes(e.original_language?.toLowerCase());
+            return `
+            <div class="case-card" style="${isPreferred ? 'border-color: rgba(99,102,241,0.35); background: rgba(99,102,241,0.03);' : ''}">
+              <div style="display: flex; gap: 0.4rem; align-items: center; margin-bottom: 0.3rem;">
+                <span class="evidence-badge badge-primary-source">${e.original_language}</span>
+                ${isPreferred ? `<span class="evidence-badge" style="background: rgba(16,185,129,0.15); color: var(--emerald); border: 1px solid rgba(16,185,129,0.3); font-size: 0.65rem;">⭐ Korpus ${pCfg.badge}</span>` : ''}
+              </div>
               <h4 style="font-size: 0.95rem; margin-top: 0.35rem; color: var(--text-main);">${e.passage_reference}</h4>
               <p class="greek-text" style="margin-top: 0.25rem; font-size: 0.9rem;">${e.original_text}</p>
               <p style="font-size: 0.78rem; color: var(--text-dim); font-family: var(--font-mono);">${e.transliteration || ''}</p>
@@ -4909,7 +5061,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                 Saksi: ${(e.witnesses || []).join(', ')}
               </div>
             </div>
-          `).join('');
+          `;
+          }).join('');
         }
       } catch(e){}
     }
@@ -5044,14 +5197,17 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       const topic = (topicInput ? topicInput.value.trim() : "") || "Keilahian Yesus dalam Yohanes 10:30";
       const posSelect = document.getElementById("zuma-pos-select");
       const diffSelect = document.getElementById("zuma-diff-select");
+      const normP = normalizePerspectiveKey(userContext.user_perspective);
+      const pCfg = PERSPECTIVE_CONFIGS[normP] || PERSPECTIVE_CONFIGS["christian_protestant"];
 
       const body = {
         user_id: currentUserId,
         topic: topic,
-        description: "Sesi latihan dialektika Sokratik 1-on-1 ZUMA",
+        description: `Sesi latihan dialektika Sokratik 1-on-1 ZUMA — Membela ${pCfg.full}`,
         user_position: posSelect ? posSelect.value : "PROPOSITION",
         difficulty: diffSelect ? diffSelect.value : "NORMAL",
-        persona: "ZUMA_STYLE"
+        persona: "ZUMA_STYLE",
+        user_context: userContext
       };
 
       try {
@@ -5074,12 +5230,12 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           const zTopic = document.getElementById("zuma-active-topic");
           if (zTopic) zTopic.textContent = topic;
           const zState = document.getElementById("zuma-state-badge");
-          if (zState) zState.textContent = data.current_state || "CONSTRUCTIVE";
+          if (zState) zState.textContent = `${data.current_state || "CONSTRUCTIVE"} • Coach: ZUMA (${pCfg.badge})`;
 
           const feed = document.getElementById("zuma-dialogue-feed");
           feed.innerHTML = `
             <div style="background: rgba(14, 165, 233, 0.08); border-left: 3px solid var(--primary); padding: 0.65rem; border-radius: 4px; font-size: 0.84rem;">
-              <strong>Wasit Latihan:</strong> Sesi sparring aktif untuk mosi: <em>"${topic}"</em>. Posisi Anda: <strong>${body.user_position}</strong>, Posisi ZUMA AI: <strong>${data.ai_position || 'OPPOSITION'}</strong>. Silakan ajukan argumen pembuka Anda.
+              <strong>Wasit Latihan & Sparring Coach ZUMA (${pCfg.badge}):</strong> Sesi sparring aktif untuk mosi: <em>"${topic}"</em>. Perspektif Anda: <strong>${pCfg.full}</strong>. Posisi Anda: <strong>${body.user_position}</strong>, Lawan Sparring: <strong>${data.ai_position || 'OPPOSITION'}</strong>. Silakan ajukan argumen pembuka Anda.
             </div>
           `;
         } else {

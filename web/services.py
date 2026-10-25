@@ -185,7 +185,7 @@ def init_foundation_db(target_db_path: Optional[str] = None):
     CREATE TABLE IF NOT EXISTS user_apologetics_context (
         user_id TEXT PRIMARY KEY,
         ui_locale TEXT DEFAULT 'id',
-        user_perspective TEXT DEFAULT 'christian',
+        user_perspective TEXT DEFAULT 'christian_protestant',
         opponent_perspective TEXT DEFAULT 'islam',
         debate_locale TEXT DEFAULT 'id',
         source_locale TEXT DEFAULT 'el',
@@ -216,6 +216,122 @@ def verify_foundation_schema(target_db_path: Optional[str] = None) -> bool:
 
 
 init_foundation_db()
+
+
+class ContextService:
+    """Manages User Apologetics Context with 5-perspective support and default opposition matrix."""
+
+    DEFAULT_OPPOSITION_MATRIX = {
+        "christian_protestant": "islam",
+        "christian_catholic": "christian_protestant",
+        "islam": "christian_protestant",
+        "judaism": "christian_protestant",
+        "atheist_secular": "christian_protestant",
+        "christian": "islam",
+    }
+
+    DEFAULT_SOURCE_LOCALE_MATRIX = {
+        "christian_protestant": "el",
+        "christian_catholic": "la",
+        "islam": "ar",
+        "judaism": "he",
+        "atheist_secular": "en",
+        "christian": "el",
+    }
+
+    @classmethod
+    def normalize_perspective(cls, persp: Optional[str]) -> str:
+        if not persp:
+            return "christian_protestant"
+        p_lower = str(persp).strip().lower()
+        if p_lower in ("christian", "protestant", "christian_protestant"):
+            return "christian_protestant"
+        if p_lower in ("catholic", "katolik", "christian_catholic"):
+            return "christian_catholic"
+        if p_lower in ("islam", "muslim"):
+            return "islam"
+        if p_lower in ("judaism", "jewish", "yahudi"):
+            return "judaism"
+        if p_lower in ("atheist", "secular", "atheist_secular", "ateis"):
+            return "atheist_secular"
+        return p_lower
+
+    @classmethod
+    def get_default_opponent(cls, user_perspective: str) -> str:
+        norm = cls.normalize_perspective(user_perspective)
+        return cls.DEFAULT_OPPOSITION_MATRIX.get(norm, "christian_protestant" if norm != "christian_protestant" else "islam")
+
+    @classmethod
+    def get_default_source_locale(cls, user_perspective: str) -> str:
+        norm = cls.normalize_perspective(user_perspective)
+        return cls.DEFAULT_SOURCE_LOCALE_MATRIX.get(norm, "el")
+
+    @classmethod
+    def get_user_context(cls, user_id: str, db_path: Optional[str] = None) -> Dict[str, Any]:
+        conn = get_db(db_path)
+        cursor = conn.cursor()
+        cursor.execute("SELECT ui_locale, user_perspective, opponent_perspective, debate_locale, source_locale FROM user_apologetics_context WHERE user_id = ?", (user_id,))
+        row = cursor.fetchone()
+        conn.close()
+
+        if not row:
+            default_ctx = UserApologeticsContext()
+            return default_ctx.model_dump()
+
+        raw_user_persp = row["user_perspective"]
+        user_persp = cls.normalize_perspective(raw_user_persp)
+        opp_persp = row["opponent_perspective"]
+        if not opp_persp or opp_persp == "christian":
+            opp_persp = cls.get_default_opponent(user_persp)
+        else:
+            opp_persp = cls.normalize_perspective(opp_persp)
+
+        src_locale = row["source_locale"] or cls.get_default_source_locale(user_persp)
+
+        return {
+            "ui_locale": row["ui_locale"] or "id",
+            "user_perspective": user_persp,
+            "opponent_perspective": opp_persp,
+            "debate_locale": row["debate_locale"] or "id",
+            "source_locale": src_locale
+        }
+
+    @classmethod
+    def save_user_context(cls, user_id: str, ctx: UserApologeticsContext, db_path: Optional[str] = None) -> Dict[str, Any]:
+        persp_val = cls.normalize_perspective(
+            ctx.user_perspective.value if hasattr(ctx.user_perspective, "value") else str(ctx.user_perspective)
+        )
+        opp_persp = ctx.opponent_perspective
+        if not opp_persp or opp_persp == "christian":
+            opp_persp = cls.get_default_opponent(persp_val)
+        else:
+            opp_persp = cls.normalize_perspective(opp_persp)
+
+        src_locale = ctx.source_locale or cls.get_default_source_locale(persp_val)
+
+        conn = get_db(db_path)
+        cursor = conn.cursor()
+        cursor.execute("""
+        INSERT INTO user_apologetics_context (user_id, ui_locale, user_perspective, opponent_perspective, debate_locale, source_locale, updated_at)
+        VALUES (?, ?, ?, ?, ?, ?, datetime('now'))
+        ON CONFLICT(user_id) DO UPDATE SET
+            ui_locale = excluded.ui_locale,
+            user_perspective = excluded.user_perspective,
+            opponent_perspective = excluded.opponent_perspective,
+            debate_locale = excluded.debate_locale,
+            source_locale = excluded.source_locale,
+            updated_at = excluded.updated_at
+        """, (user_id, ctx.ui_locale, persp_val, opp_persp, ctx.debate_locale, src_locale))
+        conn.commit()
+        conn.close()
+
+        return {
+            "ui_locale": ctx.ui_locale,
+            "user_perspective": persp_val,
+            "opponent_perspective": opp_persp,
+            "debate_locale": ctx.debate_locale,
+            "source_locale": src_locale
+        }
 
 
 
@@ -910,7 +1026,10 @@ class CaseFileGenerator:
         mode: str = "research"
     ) -> CaseFile:
         ctx = context or UserApologeticsContext()
-        persp = ctx.user_perspective.value if hasattr(ctx.user_perspective, "value") else str(ctx.user_perspective)
+        persp_raw = ctx.user_perspective.value if hasattr(ctx.user_perspective, "value") else str(ctx.user_perspective)
+        persp = ContextService.normalize_perspective(persp_raw)
+        opp_persp_raw = getattr(ctx, "opponent_perspective", None) or ContextService.get_default_opponent(persp)
+        opp_persp = ContextService.normalize_perspective(opp_persp_raw)
         norm_mode = mode.lower() if mode else "research"
         requested_mode = "DEBATE" if norm_mode == "debate" else "RESEARCH"
 
@@ -1021,9 +1140,9 @@ class CaseFileGenerator:
                 from orchestrator.zuma_skill_engine import ZumaSkillEngine
                 z_ctx = {
                     "user_perspective": persp,
-                    "opponent_perspective": getattr(ctx, "opponent_perspective", None) or "islam",
+                    "opponent_perspective": opp_persp,
                     "debate_locale": getattr(ctx, "debate_locale", "id"),
-                    "source_locale": getattr(ctx, "source_locale", "el")
+                    "source_locale": getattr(ctx, "source_locale", None) or ContextService.get_default_source_locale(persp)
                 }
                 canonical_sim = ZumaSkillEngine.generate_canonical_8_round_simulation(
                     claim=claim,
@@ -1050,8 +1169,9 @@ class CaseFileGenerator:
                         zuma_prep["closing"] = prep.get("closing", "")
                     z_ctx = {
                         "user_perspective": persp,
-                        "opponent_perspective": getattr(ctx, "opponent_perspective", None) or "islam",
-                        "debate_locale": getattr(ctx, "debate_locale", "id")
+                        "opponent_perspective": opp_persp,
+                        "debate_locale": getattr(ctx, "debate_locale", "id"),
+                        "source_locale": getattr(ctx, "source_locale", None) or ContextService.get_default_source_locale(persp)
                     }
                     sim_deb = ZumaSkillEngine.generate_zuma_forensic_simulation(
                         claim, context=z_ctx
@@ -1081,11 +1201,11 @@ class CaseFileGenerator:
             # Recovery-016: provenance integrity check.
             final_provider, final_provenance = CaseFileGenerator._resolve_final_provenance(model_inv, synth)
 
-            opp_persp = (ctx.opponent_perspective or "OPPOSISI").upper()
+            opp_display = opp_persp.upper()
             return CaseFile(
                 case_id=case_id,
                 claim=claim,
-                context=f"Dianalisis dalam mode {requested_mode} perspektif {persp.upper()} versus {opp_persp} (Bahasa Debat: {ctx.debate_locale}).",
+                context=f"Dianalisis dalam mode {requested_mode} perspektif {persp.upper()} versus {opp_display} (Bahasa Debat: {ctx.debate_locale}).",
                 evidence=ev_list,
                 argument=arg_val,
                 counterargument=counterarg_val,
@@ -1106,7 +1226,7 @@ class CaseFileGenerator:
         except Exception as exc:
             logger.error(f"Real intelligence execution fallback: {exc}")
             case_id = f"CASE-{hashlib.md5(claim.encode('utf-8')).hexdigest()[:8].upper()}"
-            opp_persp = (ctx.opponent_perspective or "OPPOSISI").upper()
+            opp_display = opp_persp.upper()
             sim_deb = []
             fallback_prep = {}
             fallback_canonical_sim = None
@@ -1114,9 +1234,9 @@ class CaseFileGenerator:
                 from orchestrator.zuma_skill_engine import ZumaSkillEngine
                 z_ctx = {
                     "user_perspective": persp,
-                    "opponent_perspective": getattr(ctx, "opponent_perspective", None) or "islam",
+                    "opponent_perspective": opp_persp,
                     "debate_locale": getattr(ctx, "debate_locale", "id"),
-                    "source_locale": getattr(ctx, "source_locale", "el")
+                    "source_locale": getattr(ctx, "source_locale", None) or ContextService.get_default_source_locale(persp)
                 }
                 fallback_canonical_sim = ZumaSkillEngine.generate_canonical_8_round_simulation(
                     claim=claim,
@@ -1133,8 +1253,9 @@ class CaseFileGenerator:
                     from orchestrator.zuma_skill_engine import ZumaSkillEngine
                     z_ctx = {
                         "user_perspective": persp,
-                        "opponent_perspective": ctx.opponent_perspective or "islam",
-                        "debate_locale": ctx.debate_locale
+                        "opponent_perspective": opp_persp,
+                        "debate_locale": getattr(ctx, "debate_locale", "id"),
+                        "source_locale": getattr(ctx, "source_locale", None) or ContextService.get_default_source_locale(persp)
                     }
                     sim_deb = ZumaSkillEngine.generate_zuma_forensic_simulation(
                         claim, context=z_ctx

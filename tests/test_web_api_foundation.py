@@ -184,7 +184,10 @@ def test_07_api_foundation_client_status_codes(temp_web_db, monkeypatch):
     assert "languages" in res_meta.json()
 
     # Context query
-    res_ctx = client.get("/api/v1/context?user_id=test_api_user")
+    monkeypatch.setenv("POLYA_AUTH_SECRET", "test_auth_secret_key_123")
+    from services import SessionService
+    token = SessionService.create_token("test_api_user")
+    res_ctx = client.get("/api/v1/context?user_id=test_api_user", headers={"Authorization": f"Bearer {token}"})
     assert res_ctx.status_code == 200
 
 

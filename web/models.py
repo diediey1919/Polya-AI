@@ -9,8 +9,29 @@ from pydantic import BaseModel, Field
 
 
 class UserPerspective(str, Enum):
-    CHRISTIAN = "christian"
+    CHRISTIAN_PROTESTANT = "christian_protestant"
+    CHRISTIAN_CATHOLIC = "christian_catholic"
     ISLAM = "islam"
+    JUDAISM = "judaism"
+    ATHEIST_SECULAR = "atheist_secular"
+    # Backward compatibility alias for legacy value "christian"
+    CHRISTIAN = "christian_protestant"
+
+    @classmethod
+    def _missing_(cls, value):
+        if isinstance(value, str):
+            v = value.strip().lower()
+            if v in ("christian", "protestant"):
+                return cls.CHRISTIAN_PROTESTANT
+            elif v in ("catholic", "katolik", "christian_catholic"):
+                return cls.CHRISTIAN_CATHOLIC
+            elif v in ("islam", "muslim"):
+                return cls.ISLAM
+            elif v in ("judaism", "jewish", "yahudi"):
+                return cls.JUDAISM
+            elif v in ("atheist", "secular", "atheist_secular", "ateis"):
+                return cls.ATHEIST_SECULAR
+        return super()._missing_(value)
 
 
 class EntitlementState(str, Enum):
@@ -25,10 +46,10 @@ class EntitlementState(str, Enum):
 class UserApologeticsContext(BaseModel):
     """Production-shaped apologetics context model."""
     ui_locale: str = Field(default="id", description="Language of UI")
-    user_perspective: UserPerspective = Field(default=UserPerspective.CHRISTIAN, description="Perspective for preparation")
+    user_perspective: UserPerspective = Field(default=UserPerspective.CHRISTIAN_PROTESTANT, description="Perspective for preparation")
     opponent_perspective: Optional[str] = Field(default="islam", description="Opponent perspective")
     debate_locale: str = Field(default="id", description="Debate language")
-    source_locale: Optional[str] = Field(default="el", description="Primary text source language (e.g., el, he, ar)")
+    source_locale: Optional[str] = Field(default="el", description="Primary text source language (e.g., el, he, ar, la, en)")
 
 
 class CaseFile(BaseModel):

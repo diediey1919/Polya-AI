@@ -1981,6 +1981,7 @@ async def create_training_session_endpoint(request: Request):
     t_type = TrainingType(body.get("training_type", "PRACTICE_DEBATE"))
     diff = TrainingDifficulty(body.get("difficulty", "NORMAL"))
     persona = TrainingPersona(body.get("persona", "ZUMA_STYLE"))
+    user_context = body.get("user_context") or {}
 
     res = training_service.create_session(
         user_id=user_id,
@@ -1989,7 +1990,8 @@ async def create_training_session_endpoint(request: Request):
         user_position=user_pos,
         training_type=t_type,
         difficulty=diff,
-        persona=persona
+        persona=persona,
+        user_context=user_context
     )
     # Automatically advance session to CONSTRUCTIVE state for immediate sparring readiness
     sid = res.get("training_session_id")

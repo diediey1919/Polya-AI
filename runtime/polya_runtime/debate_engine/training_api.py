@@ -58,7 +58,8 @@ class DebateTrainingService:
         user_position: TeamSide = TeamSide.PROPOSITION,
         training_type: TrainingType = TrainingType.PRACTICE_DEBATE,
         difficulty: TrainingDifficulty = TrainingDifficulty.NORMAL,
-        persona: TrainingPersona = TrainingPersona.ZUMA_STYLE
+        persona: TrainingPersona = TrainingPersona.ZUMA_STYLE,
+        user_context: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
         with self._lock:
             engine = DebateTrainingEngine(
@@ -68,7 +69,8 @@ class DebateTrainingService:
                 user_position=user_position,
                 training_type=training_type,
                 difficulty=difficulty,
-                persona=persona
+                persona=persona,
+                user_context=user_context
             )
             session_id = engine.session.training_session_id
             self._sessions[session_id] = engine
@@ -88,7 +90,8 @@ class DebateTrainingService:
                 "training_type": training_type.value,
                 "difficulty": difficulty.value,
                 "persona": persona.value,
-                "current_state": engine.session.current_state.value
+                "current_state": engine.session.current_state.value,
+                "user_context": user_context or {}
             }
 
     def get_session_state(self, session_id: str) -> Optional[Dict[str, Any]]:

@@ -332,8 +332,45 @@ class ZumaSkillEngine:
         Format: [Interaktif (Tanya-Jawab) / Full Script 3 Babak]
         """
         ctx = context or {}
-        user_p = str(ctx.get("user_perspective", "Kristen")).upper()
-        opp_p = str(ctx.get("opponent_perspective", "Islam / Opposisi")).upper()
+        raw_user = str(ctx.get("user_perspective", "christian_protestant")).strip().lower()
+        if raw_user in ("christian", "protestant"):
+            user_p_key = "christian_protestant"
+        elif raw_user in ("catholic", "katolik"):
+            user_p_key = "christian_catholic"
+        elif raw_user in ("atheist", "secular"):
+            user_p_key = "atheist_secular"
+        elif raw_user in ("jewish", "yahudi"):
+            user_p_key = "judaism"
+        elif raw_user == "islam":
+            user_p_key = "islam"
+        else:
+            user_p_key = raw_user
+
+        DEFAULT_OPP = {
+            "christian_protestant": "islam",
+            "christian_catholic": "christian_protestant",
+            "islam": "christian_protestant",
+            "judaism": "christian_protestant",
+            "atheist_secular": "christian_protestant",
+        }
+        raw_opp = ctx.get("opponent_perspective")
+        if not raw_opp:
+            opp_p_key = DEFAULT_OPP.get(user_p_key, "islam")
+        else:
+            opp_p_key = str(raw_opp).strip().lower()
+            if opp_p_key in ("christian", "protestant"):
+                opp_p_key = "christian_protestant"
+            elif opp_p_key in ("catholic", "katolik"):
+                opp_p_key = "christian_catholic"
+            elif opp_p_key in ("atheist", "secular"):
+                opp_p_key = "atheist_secular"
+            elif opp_p_key in ("jewish", "yahudi"):
+                opp_p_key = "judaism"
+            if opp_p_key == user_p_key:
+                opp_p_key = DEFAULT_OPP.get(user_p_key, "christian_protestant")
+
+        user_p = user_p_key.upper()
+        opp_p = opp_p_key.upper()
         
         # Extract dynamic reference from claim/evidence if available
         rujukan_teks = "Kitab Suci / Naskah Primer / Manuskrip Terkait"
@@ -621,6 +658,40 @@ Aturan Mutlak:
         synth = synthesis_output or {}
         prep = debate_prep or {}
 
+        # Resolve dynamic perspectives
+        user_p = str(ctx.get("user_perspective", "christian_protestant")).strip().lower()
+        if user_p in ("christian", "protestant"):
+            user_p = "christian_protestant"
+        elif user_p in ("catholic", "katolik"):
+            user_p = "christian_catholic"
+        elif user_p in ("atheist", "secular"):
+            user_p = "atheist_secular"
+        elif user_p in ("jewish", "yahudi"):
+            user_p = "judaism"
+
+        DEFAULT_OPP = {
+            "christian_protestant": "islam",
+            "christian_catholic": "christian_protestant",
+            "islam": "christian_protestant",
+            "judaism": "christian_protestant",
+            "atheist_secular": "christian_protestant",
+        }
+        raw_opp = ctx.get("opponent_perspective")
+        if not raw_opp:
+            opp_p = DEFAULT_OPP.get(user_p, "islam")
+        else:
+            opp_p = str(raw_opp).strip().lower()
+            if opp_p in ("christian", "protestant"):
+                opp_p = "christian_protestant"
+            elif opp_p in ("catholic", "katolik"):
+                opp_p = "christian_catholic"
+            elif opp_p in ("atheist", "secular"):
+                opp_p = "atheist_secular"
+            elif opp_p in ("jewish", "yahudi"):
+                opp_p = "judaism"
+            if opp_p == user_p:
+                opp_p = DEFAULT_OPP.get(user_p, "christian_protestant")
+
         # 1. Extract Passages and Witnesses
         passages = []
         witnesses = []
@@ -670,9 +741,78 @@ Aturan Mutlak:
         motion = f"Uji Forensik Teks Primer & Validitas Kanonikal atas Klaim: '{claim_clean}' ({p_primary})"
 
         # 3. Pull Dynamic Arguments from Synthesis if available
-        opp_claim = synth.get("counterargument") or "Klaim pembelaan dogmatis gereja dan tafsiran tradisional teologi sistematika."
+        opp_claim = synth.get("counterargument") or "Klaim pembelaan argumen lawan dan tafsiran tradisional sistemik."
         zuma_rebuttal = synth.get("rebuttal") or "Analisis filologis membuktikan distorsi makna naskah sumber dan ketiadaan dukungan naskah primer."
         weakness_str = synth.get("weakness") or "Kelemahan leksikografi dan pengabaian konteks bahasa sumber."
+
+        # Perspective Speech Mappings for OPPONENT
+        opp_speech_r1 = {
+            "islam": f"[SOURCE QUOTE] Kami menguji klaim '{claim_clean}' dari perspektif tauhid murni para nabi. Segala pengajaran wajib diuji apakah selaras dengan kemahaesaan Allah tanpa persekutuan sekutu.",
+            "christian_protestant": f"[SOURCE QUOTE] Kami berpijak pada prinsip Sola Scriptura dan Kanon 66 Kitab Bible. Terkait '{claim_clean}', pengajaran iman sejati harus dibuktikan secara tertulis langsung dari Alkitab.",
+            "christian_catholic": f"[SOURCE QUOTE] Kami berpijak pada tradisi penafsiran gereja, Kanon 73 Kitab, dan konsensus para Bapa Gereja. Terkait '{claim_clean}', iman kami telah teruji berabad-abad dalam persekutuan suci.",
+            "judaism": f"[SOURCE QUOTE] Kami berpijak pada Tanakh Masoretik dan kovenan kekal Sinai. Terkait '{claim_clean}', segala ajaran wajib tunduk pada keabadian Torah dan larangan pembatalan mitzvot.",
+            "atheist_secular": f"[SOURCE QUOTE] Kami menguji klaim '{claim_clean}' dengan historiografi kritis dan beban pembuktian empiris. Tanpa bukti koroboratif independen, klaim supranatural tidak memiliki validitas ilmiah."
+        }.get(opp_p, f"[SOURCE QUOTE] Pihak oposisi ({opp_p.upper()}) mempertahankan penafsiran konvensional atas klaim '{claim_clean}'.")
+
+        opp_speech_r2 = {
+            "islam": f"[SOURCE QUOTE] Nas {p_primary} tidak boleh dibaca dengan interpolasi makna. Yesus secara konsisten berdoa kepada Allah dan membedakan diri-Nya dari Sang Pencipta.",
+            "christian_protestant": f"[SOURCE QUOTE] Nas {p_primary} harus ditafsirkan melalui analogia scriptura (kitab suci menafsirkan kitab suci), bukan spekulasi filosofis di luar teks tertulis.",
+            "christian_catholic": f"[SOURCE QUOTE] Nas {p_primary} tidak bisa dibaca secara sempit tanpa bimbingan Tradisi Suci dan Magisterium yang memelihara keutuhan wahyu ilahi.",
+            "judaism": f"[SOURCE QUOTE] Teks {p_primary} harus dibaca dalam konteks bahasa Ibrani asli dan kovenan Sinai, bukan dipaksakan dengan tipologi yang mencabut nas dari konteks historisnya.",
+            "atheist_secular": f"[SOURCE QUOTE] Teks {p_primary} adalah produk sastra kuno manusiawi yang sarat dengan bias redaksional komunitas penulis abad pertama."
+        }.get(opp_p, f"[SOURCE QUOTE] Pihak {opp_p.upper()} beralasan bahwa pembacaan ayat harus dipahami dalam kerangka sistemik mereka.")
+
+        opp_speech_r3 = {
+            "islam": "[SOURCE QUOTE] Kita harus meneliti ayat-ayat pembanding dalam korpus kitab, di mana Yesus sendiri menegaskan bahwa Bapa adalah satu-satunya Allah yang benar.",
+            "christian_protestant": f"[SOURCE QUOTE] Kita harus melihat ayat-ayat pembanding lainnya di seluruh Kanon 66 Kitab Bible, bukan hanya mengisolasi satu perikop {p_primary}.",
+            "christian_catholic": "[SOURCE QUOTE] Kita harus melihat konsensus teologis para Bapa Gereja mula-mula yang merumuskan kredo ekumenis secara terbimbing.",
+            "judaism": "[SOURCE QUOTE] Kita harus membandingkannya dengan keseluruhan hukum Torah dan ketetapan nabi-nabi Israel di kitab Tanakh.",
+            "atheist_secular": "[SOURCE QUOTE] Kita harus melihat diskrepansi narasi antar-penulis naskah kuno yang membuktikan tidak adanya rekaman fakta sejarah yang seragam."
+        }.get(opp_p, f"[SOURCE QUOTE] Pihak {opp_p.upper()} berusaha mengalihkan fokus pembahasan ke teks pembanding di luar konteks.")
+
+        opp_speech_r4 = {
+            "islam": "[SOURCE QUOTE] Dalam sejarah transmisi naskah, terjemahan modern sering kali mengalami pembelokan makna dari maksud naskah aslinya.",
+            "christian_protestant": "[SOURCE QUOTE] Doktrin ini telah dipertahankan oleh para teolog reformasi berdasarkan ketetapan iman yang murni dari firman Tuhan.",
+            "christian_catholic": "[SOURCE QUOTE] Tradisi apostolik dan suksesi para uskup menjamin kesinambungan doktrin gereja yang tak terputus selama dua milenium.",
+            "judaism": "[SOURCE QUOTE] Kovenan Sinai adalah berit olam (perjanjian kekal) yang tidak akan pernah tergantikan oleh klaim dispensasi baru.",
+            "atheist_secular": "[SOURCE QUOTE] Bukti filologis justru membuktikan perkembangan mitologi bertahap dan pengaruh sinkretisme budaya Helenistik pada teks kuno."
+        }.get(opp_p, f"[SOURCE QUOTE] Pihak {opp_p.upper()} mempertahankan argumen berbasis tradisi denominasional.")
+
+        opp_speech_r5 = {
+            "islam": "[SOURCE QUOTE] Kami tidak terjebak pada dikotomi tersebut, karena akal sehat dan wahyu murni menolak kontradiksi ontologis.",
+            "christian_protestant": "[SOURCE QUOTE] Kami menolak premis yang mengabaikan kedaulatan firman Allah dan kejelasan firman tertulis.",
+            "christian_catholic": "[SOURCE QUOTE] Kami tidak terjebak pada dikotomi tersebut, karena kebenaran doktrinal melampaui silogisme dialektika manusiawi semata.",
+            "judaism": "[SOURCE QUOTE] Kesetiaan mutlak kami adalah pada perintah Torah Musa di Gunung Sinai tanpa kompromi logika luar.",
+            "atheist_secular": "[SOURCE QUOTE] Falsifikasi rasional membuktikan bahwa klaim tersebut tidak memiliki landasan bukti empiris objektif."
+        }.get(opp_p, "[SOURCE QUOTE] Pihak oposisi mencoba menghindari jebakan dilema dialektika.")
+
+        opp_speech_r6 = {
+            "islam": "[SOURCE QUOTE] Kitab suci para nabi terdahulu telah disempurnakan oleh wahyu terakhir; premis kanonikal Anda memiliki problem transmisi sejarah.",
+            "christian_protestant": "[SOURCE QUOTE] Otoritas tertinggi tetap pada naskah tertulis Alkitab, bukan pada konsili politik maupun tradisi manusia.",
+            "christian_catholic": "[SOURCE QUOTE] Otoritas gereja memiliki hak mengajar (magisterium) untuk merumuskan doktrin yang implisit dalam firman Tuhan.",
+            "judaism": "[SOURCE QUOTE] Ulangan 13:1-5 secara kategoris melarang kami mengikuti ajaran baru yang menyimpang dari Torah Sinai.",
+            "atheist_secular": "[SOURCE QUOTE] Beban pembuktian (burden of proof) tetap berada pada Anda yang mengajukan dalil supranatural."
+        }.get(opp_p, f"[SOURCE QUOTE] Pihak {opp_p.upper()} bersandar pada otoritas eksternal mereka.")
+
+        opp_speech_r7 = {
+            "islam": "[SOURCE QUOTE] Kebenaran sejati menuntut kepatuhan mutlak pada kemurnian tauhid tanpa sekutu atau perantara ontologis.",
+            "christian_protestant": "[SOURCE QUOTE] Kami tetap berpegang pada kecukupan Alkitab (sufficientia scripturae) sebagai satu-satunya penuntun iman.",
+            "christian_catholic": "[SOURCE QUOTE] Kami tetap meyakini bahwa Roh Kudus memimpin pemahaman gereja melampaui hurufiah teks naskah kuno.",
+            "judaism": "[SOURCE QUOTE] Hashem adalah esa mutlak (Echad); kami tidak menerima persekutuan apa pun dalam hakikat ilahi.",
+            "atheist_secular": "[SOURCE QUOTE] Varian ribuan manuskrip dan diskrepansi antarteks membuktikan proses transmisi manusiawi yang rentan kekeliruan."
+        }.get(opp_p, "[SOURCE QUOTE] Pihak oposisi mengajukan rasionalisasi teologis akhir.")
+
+        opp_speech_r8 = {
+            "islam": "[SOURCE QUOTE] Kami tetap pada pendirian tauhid murni para nabi dan menyerahkan pertanggungjawaban kepada Allah Sang Pencipta.",
+            "christian_protestant": "[SOURCE QUOTE] Kami berdiri teguh di atas firman Tuhan yang tertulis dalam Kanon 66 Kitab Bible: Soli Deo Gloria.",
+            "christian_catholic": "[SOURCE QUOTE] Kami tetap pada pendirian kami di dalam persekutuan iman apostolik satu gereja yang kudus dan am.",
+            "judaism": "[SOURCE QUOTE] Am Yisrael Chai; kami tetap setia pada kovenan kekal Hashem dan ketetapan Torah yang hidup.",
+            "atheist_secular": "[SOURCE QUOTE] Kami berpijak pada rasionalitas kritis, bukti empiris objektif, dan metode ilmiah tanpa presuposisi dogmatis."
+        }.get(opp_p, "[SOURCE QUOTE] Kami tetap pada pendirian kami dan menyerahkan kebenaran sejati kepada keyakinan masing-masing.")
+
+        # ZUMA Framing by user perspective
+        zuma_r1 = f"[SIMULATED ZUMA RESPONSE] Dengar baik-baik saudara sekalian. Dalam forum terbuka ini kita buktikan data objektif: '{motion}'. Tolong jangan berapologi dengan dongeng atau retorika emosional. Kita buka langsung teks tertulis primer pasal dan ayat, khususnya {p_primary}! Apakah ada kata eksplisit dalam naskah yang membuktikan dalil Anda?"
+        zuma_r6 = f"[SIMULATED ZUMA RESPONSE] Itu bukan jawaban, itu pengakuan kekalahan logis! Menggunakan metode Ilzam al-Khasm, saya runtuhkan posisi Anda menggunakan premis dan kanon kitab Anda sendiri. Di {p_primary} dan {p_secondary} teks menegaskan fakta tertulis, tetapi Anda justru mencampakkan konsistensi logika demi membela dogma tanpa ayat!"
 
         # 4. Construct 8 Canonical Rounds (16 Turns)
         rounds = [
@@ -682,7 +822,7 @@ Aturan Mutlak:
                 "turn_speaker": "ZUMA",
                 "speech_type": "SOCRATIC_OPENING",
                 "speech_category": "[SIMULATED ZUMA RESPONSE]",
-                "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Dengar baik-baik saudara sekalian. Dalam forum terbuka ini kita buktikan data objektif: '{motion}'. Tolong jangan berapologi dengan dongeng atau retorika emosional. Kita buka langsung teks tertulis Bible pasal dan ayat, khususnya {p_primary}! Apakah ada kata eksplisit dalam naskah yang membuktikan dalil Anda?",
+                "speaker_speech": zuma_r1,
                 "persona_strategy": "verbatim_textual_anchoring",
                 "knowledge_refs_used": [f"KNOW-CALC-{p_primary.replace(' ', '-').replace(':', '-')}-001"],
                 "provenance_citations": [{"passage": p_primary, "witness": mss_witness, "type": "PRIMARY_SCRIPTURE_WITNESS"}]
@@ -692,10 +832,10 @@ Aturan Mutlak:
                 "turn_speaker": "OPPONENT",
                 "speech_type": "APOLOGETIC_OPENING",
                 "speech_category": "[SOURCE QUOTE]",
-                "speaker_speech": f"[SOURCE QUOTE] Kami berpijak pada tradisi penafsiran gereja dan doktrin ortodoks. Terkait '{claim_clean}', pengajaran iman kami telah teruji berabad-abad melalui kredo kanonik dan konsensus para bapa gereja.",
+                "speaker_speech": opp_speech_r1,
                 "persona_strategy": None,
-                "knowledge_refs_used": ["KNOW-TRAD-DOGMA-001"],
-                "provenance_citations": [{"source": "Historical Dogmatic Consensus", "type": "ECCLESIASTICAL_TRADITION"}]
+                "knowledge_refs_used": [f"KNOW-OPP-{opp_p.upper()}-001"],
+                "provenance_citations": [{"source": f"{opp_p.upper()} Paradigm Frame", "type": "FRAMEWORK_ASSERTION"}]
             },
             # Round 2
             {
@@ -703,7 +843,7 @@ Aturan Mutlak:
                 "turn_speaker": "ZUMA",
                 "speech_type": "PRIMARY_TEXT_ARGUMENT",
                 "speech_category": "[SIMULATED ZUMA RESPONSE]",
-                "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Saudara lari ke kredo dan tradisi abad belakangan karena teks primer tidak mendukung Anda! Buka {p_primary} sekarang juga! Periksa leksikon akademik standar dan struktur gramatika bahasa aslinya. Tidak ada satu pun morfem yang melegitimasi dalil Anda. Teks tertulis membantah premis dogmatis Anda!",
+                "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Saudara lari ke rasionalisasi abstrak karena naskah primer tidak mendukung Anda! Buka {p_primary} sekarang juga! Periksa leksikon akademik standar dan struktur gramatika bahasa aslinya. Tidak ada satu pun morfem yang melegitimasi dalil Anda. Teks tertulis membantah premis Anda!",
                 "persona_strategy": "primary_source_insistence",
                 "knowledge_refs_used": [f"KNOW-CALC-{p_primary.replace(' ', '-').replace(':', '-')}-002"],
                 "provenance_citations": [{"passage": p_primary, "witness": mss_witness, "type": "GRAMMATICAL_LEXICAL_AUDIT"}]
@@ -713,10 +853,10 @@ Aturan Mutlak:
                 "turn_speaker": "OPPONENT",
                 "speech_type": "DOGMATIC_JUSTIFICATION",
                 "speech_category": "[SOURCE QUOTE]",
-                "speaker_speech": f"[SOURCE QUOTE] Nas {p_primary} tidak bisa dibaca secara hurufiah sempit tanpa lensa teologis. Ada konteks rohani dan pewahyuan progresif yang harus dipahami melalui bimbingan teologi sistematika.",
+                "speaker_speech": opp_speech_r2,
                 "persona_strategy": None,
-                "knowledge_refs_used": ["KNOW-HERM-SYSTEMATIC-002"],
-                "provenance_citations": [{"source": "Systematic Theology Paradigm", "type": "HERMENEUTIC_FRAMEWORK"}]
+                "knowledge_refs_used": [f"KNOW-OPP-{opp_p.upper()}-002"],
+                "provenance_citations": [{"source": f"{opp_p.upper()} Hermeneutic Justification", "type": "HERMENEUTIC_JUSTIFICATION"}]
             },
             # Round 3
             {
@@ -724,7 +864,7 @@ Aturan Mutlak:
                 "turn_speaker": "ZUMA",
                 "speech_type": "EVASION_INTERRUPTION",
                 "speech_category": "[SIMULATED ZUMA RESPONSE]",
-                "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Stop, jangan menggeser tiang gawang (moving the goalposts)! Ketika teks tertulis {p_primary} tidak menyebutkan apa yang Anda klaim, Anda menciptakan konsep abstrak untuk menutupi ketiadaan bukti naskah. Jawab pertanyaan saya secara presisi: ada atau tidak ada bukti tertulisnya di perikop tersebut?",
+                "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Stop, jangan menggeser tiang gawang (moving the goalposts)! Ketika naskah tertulis {p_primary} tidak menyebutkan apa yang Anda klaim, Anda menciptakan konsep abstrak untuk menutupi ketiadaan bukti naskah. Jawab pertanyaan saya secara presisi: ada atau tidak ada bukti tertulisnya di perikop tersebut?",
                 "persona_strategy": "evasion_cutoff",
                 "knowledge_refs_used": [f"KNOW-CALC-{p_primary.replace(' ', '-').replace(':', '-')}-003"],
                 "provenance_citations": [{"passage": p_primary, "witness": mss_witness, "type": "SOCRATIC_INTERROGATION"}]
@@ -734,7 +874,7 @@ Aturan Mutlak:
                 "turn_speaker": "OPPONENT",
                 "speech_type": "EVASION_ATTEMPT",
                 "speech_category": "[SOURCE QUOTE]",
-                "speaker_speech": f"[SOURCE QUOTE] Kita harus melihat ayat-ayat pembanding lainnya di korpus kanonikal, bukan hanya terpaku secara kaku pada satu nas yang diisolasi.",
+                "speaker_speech": opp_speech_r3,
                 "persona_strategy": None,
                 "knowledge_refs_used": [f"KNOW-PARALLEL-{p_secondary.replace(' ', '-').replace(':', '-')}-003"],
                 "provenance_citations": [{"source": "Corpus Comparison Attempt", "type": "PARALLEL_PASSAGE_INVOCATION"}]
@@ -755,10 +895,10 @@ Aturan Mutlak:
                 "turn_speaker": "OPPONENT",
                 "speech_type": "TRADITIONAL_DEFENSE",
                 "speech_category": "[SOURCE QUOTE]",
-                "speaker_speech": f"[SOURCE QUOTE] Doktrin ini telah dipertahankan oleh para teolog ortodoks selama ribuan tahun, sehingga pembacaan kami selaras dengan tradisi kredo apostolik.",
+                "speaker_speech": opp_speech_r4,
                 "persona_strategy": None,
-                "knowledge_refs_used": ["KNOW-CREED-004"],
-                "provenance_citations": [{"source": "Apostolic Tradition Appeals", "type": "CREEDAL_DEFENSE"}]
+                "knowledge_refs_used": [f"KNOW-OPP-{opp_p.upper()}-004"],
+                "provenance_citations": [{"source": f"{opp_p.upper()} Defense", "type": "TRADITIONAL_DEFENSE"}]
             },
             # Round 5
             {
@@ -766,7 +906,7 @@ Aturan Mutlak:
                 "turn_speaker": "ZUMA",
                 "speech_type": "CONSTRUCTIVE_FATAL_DILEMMA",
                 "speech_category": "[SIMULATED ZUMA RESPONSE]",
-                "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Sekarang saya kunci Anda pada dilema fatal Sokratik: Jika teks {p_primary} berbicara apa adanya sesuai tata bahasa asli, maka klaim doktrin Anda gugur seketika; namun jika Anda menolak bunyi teks apa adanya, Anda sedang menuduh penulis kitab suci Anda sendiri keliru menuliskan firman! Pilih lorong yang mana?",
+                "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Sekarang saya kunci Anda pada dilema fatal Sokratik: Jika teks {p_primary} berbicara apa adanya sesuai tata bahasa asli, maka klaim doktrin Anda gugur seketika; namun jika Anda menolak bunyi teks apa adanya, Anda sedang menuduh penulis naskah kitab Anda sendiri keliru menuliskan firman! Pilih lorong yang mana?",
                 "persona_strategy": "fatal_dilemma_construction",
                 "knowledge_refs_used": [f"KNOW-DILEMMA-{p_primary.replace(' ', '-').replace(':', '-')}-005"],
                 "provenance_citations": [{"passage": p_primary, "witness": mss_witness, "type": "FATAL_DILEMMA"}]
@@ -776,10 +916,10 @@ Aturan Mutlak:
                 "turn_speaker": "OPPONENT",
                 "speech_type": "DILEMMA_RESPONSE",
                 "speech_category": "[SOURCE QUOTE]",
-                "speaker_speech": "[SOURCE QUOTE] Kami tidak terjebak pada dikotomi tersebut, karena kebenaran doktrinal melampaui silogisme dialektika manusiawi semata.",
+                "speaker_speech": opp_speech_r5,
                 "persona_strategy": None,
-                "knowledge_refs_used": ["KNOW-MYSTERY-005"],
-                "provenance_citations": [{"source": "Dogmatic Transcendence Appeal", "type": "DILEMMA_EVASION"}]
+                "knowledge_refs_used": [f"KNOW-OPP-{opp_p.upper()}-005"],
+                "provenance_citations": [{"source": "Dilemma Evasion", "type": "DILEMMA_EVASION"}]
             },
             # Round 6
             {
@@ -787,7 +927,7 @@ Aturan Mutlak:
                 "turn_speaker": "ZUMA",
                 "speech_type": "PRESUPPOSITION_INVERSION",
                 "speech_category": "[SIMULATED ZUMA RESPONSE]",
-                "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Itu bukan jawaban, itu pengakuan kekalahan logis! Menggunakan metode Ilzam al-Khasm, saya runtuhkan posisi Anda menggunakan kanon kitab Anda sendiri. Bible di {p_primary} dan {p_secondary} menegaskan kejelasan firman yang tertulis, tetapi Anda justru mencampakkan tulisan kanonik demi membela dogma tanpa ayat!",
+                "speaker_speech": zuma_r6,
                 "persona_strategy": "presupposition_inversion",
                 "knowledge_refs_used": [f"KNOW-ILZAM-{p_primary.replace(' ', '-').replace(':', '-')}-006"],
                 "provenance_citations": [{"passage": p_primary, "witness": mss_witness, "type": "ILZAM_AL_KHASM"}]
@@ -797,10 +937,10 @@ Aturan Mutlak:
                 "turn_speaker": "OPPONENT",
                 "speech_type": "COUNTER_DEFENSE",
                 "speech_category": "[SOURCE QUOTE]",
-                "speaker_speech": "[SOURCE QUOTE] Otoritas gereja memiliki hak mengajar (magisterium) untuk merumuskan doktrin yang implisit dalam firman Tuhan.",
+                "speaker_speech": opp_speech_r6,
                 "persona_strategy": None,
-                "knowledge_refs_used": ["KNOW-MAGISTERIUM-006"],
-                "provenance_citations": [{"source": "Ecclesiastical Authority", "type": "MAGISTERIAL_CLAIM"}]
+                "knowledge_refs_used": [f"KNOW-OPP-{opp_p.upper()}-006"],
+                "provenance_citations": [{"source": f"{opp_p.upper()} Counter Defense", "type": "AUTHORITY_DEFENSE"}]
             },
             # Round 7
             {
@@ -808,7 +948,7 @@ Aturan Mutlak:
                 "turn_speaker": "ZUMA",
                 "speech_type": "CANONICAL_EXCLUSIVITY_RESTRICTION",
                 "speech_category": "[SIMULATED ZUMA RESPONSE]",
-                "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Di sinilah letak kuncinya! Anda akhirnya mengakui bahwa fondasi klaim Anda bukan teks tertulis Bible, melainkan klaim otoritas eksternal di luar kitab suci! Dalam perdebatan akademis, dalil yang tidak termaktub dalam kanon primer otomatis tidak memiliki nilai pembuktian yuridis!",
+                "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Di sinilah letak kuncinya! Anda akhirnya mengakui bahwa fondasi klaim Anda bukan teks tertulis kanonik, melainkan asumsi eksternal di luar otoritas naskah! Dalam perdebatan akademis objektif, dalil yang tidak termaktub dalam korpus primer otomatis tidak memiliki nilai pembuktian yuridis!",
                 "persona_strategy": "canonical_exclusivity_restriction",
                 "knowledge_refs_used": [f"KNOW-CANONICAL-LOCK-{p_primary.replace(' ', '-').replace(':', '-')}-007"],
                 "provenance_citations": [{"passage": p_primary, "witness": mss_witness, "type": "CANONICAL_EXCLUSIVITY"}]
@@ -818,10 +958,10 @@ Aturan Mutlak:
                 "turn_speaker": "OPPONENT",
                 "speech_type": "THEOLOGICAL_RATIONALIZATION",
                 "speech_category": "[SOURCE QUOTE]",
-                "speaker_speech": "[SOURCE QUOTE] Kami tetap meyakini bahwa Roh Kudus memimpin pemahaman gereja melampaui hurufiah teks naskah kuno.",
+                "speaker_speech": opp_speech_r7,
                 "persona_strategy": None,
-                "knowledge_refs_used": ["KNOW-PNEUMA-HERM-007"],
-                "provenance_citations": [{"source": "Pneumatological Hermeneutics", "type": "PNEUMA_JUSTIFICATION"}]
+                "knowledge_refs_used": [f"KNOW-OPP-{opp_p.upper()}-007"],
+                "provenance_citations": [{"source": f"{opp_p.upper()} Hermeneutic Rationalization", "type": "RATIONALIZATION"}]
             },
             # Round 8
             {
@@ -829,7 +969,7 @@ Aturan Mutlak:
                 "turn_speaker": "ZUMA",
                 "speech_type": "MAIEUTIC_LOCKDOWN",
                 "speech_category": "[SIMULATED ZUMA RESPONSE]",
-                "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Hadirin sekalian, kebenaran naskah berdiri tegak di atas fakta tertulis! Dalam 8 babak pengujian atas topik '{motion}', pihak lawan sama sekali tidak mampu menunjukkan satu pun frasa eksplisit dari {p_primary} maupun {p_secondary}. Seluruh dalil defensif terbukti hanyalah rasionalisasi pasca-kanonikal. Teks tertulis menang, dogma tanpa ayat runtuh!",
+                "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Hadirin sekalian, kebenaran naskah berdiri tegak di atas fakta tertulis! Dalam 8 babak pengujian atas topik '{motion}', pihak lawan ({opp_p.upper()}) sama sekali tidak mampu menunjukkan satu pun frasa eksplisit dari {p_primary} maupun {p_secondary}. Seluruh dalil defensif terbukti hanyalah rasionalisasi pasca-kanonikal. Teks tertulis menang, dogma tanpa ayat runtuh!",
                 "persona_strategy": "maieutic_epistemic_verdict",
                 "knowledge_refs_used": [f"KNOW-VERDICT-{p_primary.replace(' ', '-').replace(':', '-')}-008"],
                 "provenance_citations": [{"passage": p_primary, "witness": mss_witness, "type": "EPISTEMIC_VERDICT"}]
@@ -839,10 +979,10 @@ Aturan Mutlak:
                 "turn_speaker": "OPPONENT",
                 "speech_type": "FINAL_CLOSING",
                 "speech_category": "[SOURCE QUOTE]",
-                "speaker_speech": "[SOURCE QUOTE] Kami tetap pada pendirian kami dan menyerahkan kebenaran sejati kepada keyakinan masing-masing orang beriman.",
+                "speaker_speech": opp_speech_r8,
                 "persona_strategy": None,
-                "knowledge_refs_used": ["KNOW-FINAL-CLOSING-008"],
-                "provenance_citations": [{"source": "Final Position Statement", "type": "CONCLUDING_STATEMENT"}]
+                "knowledge_refs_used": [f"KNOW-FINAL-CLOSING-{opp_p.upper()}-008"],
+                "provenance_citations": [{"source": f"{opp_p.upper()} Concluding Statement", "type": "CONCLUDING_STATEMENT"}]
             }
         ]
 
@@ -851,18 +991,19 @@ Aturan Mutlak:
             {
                 "examiner": "ZUMA",
                 "target": "OPPONENT",
-                "socratic_question": f"Apakah saudara bersedia mengakui naskah tertulis kanon Bible {p_primary} mengenai topik '{motion}' secara verbatim tanpa menyelundupkan asumsi luar?",
-                "target_dilemma": "Jika mengakui teks apa adanya, premis dogmatis runtuh; jika menolak bunyi teks, saudara mendustai kitab kanon sendiri.",
-                "presupposition_demolished": "Asumsi bahwa doktrin teologis kebal dari pengujian filologis dan eksegetis naskah primer."
+                "socratic_question": f"Apakah saudara bersedia mengakui naskah tertulis primer {p_primary} mengenai topik '{motion}' secara verbatim tanpa menyelundupkan asumsi di luar standar pembuktian?",
+                "target_dilemma": f"Jika mengakui teks apa adanya, premis pihak oposisi ({opp_p.upper()}) runtuh seketika; jika menolak bunyi teks, saudara mendustai integritas naskah dan logika internal sendiri.",
+                "presupposition_demolished": f"Asumsi bahwa posisi lawan ({opp_p.upper()}) kebal dari pengujian filologis dan eksegesis naskah primer."
             }
         ]
 
         # 6. Epistemic Verdict
+        has_custom_persp = bool(ctx.get("user_perspective"))
         epistemic_verdict = {
-            "verdict_summary": f"Simulasi dialektika ZUMA persona membuktikan bahwa klaim pembelaan dogma lawan dalam topik '{motion}' runtuh saat dihadapkan pada pembacaan verbatim naskah kanonik {p_primary} dan pengujian konsistensi internal.",
-            "logical_superiority": "AFFIRMATIVE_CRITIQUE (ZUMA)",
+            "verdict_summary": f"Simulasi dialektika ZUMA persona membuktikan bahwa dalam diskursus {user_p.upper()} vs {opp_p.upper()} pada topik '{motion}', dalil pihak oposisi runtuh saat dihadapkan pada pembacaan verbatim naskah kanonik {p_primary} dan pengujian konsistensi internal.",
+            "logical_superiority": f"AFFIRMATIVE_CRITIQUE (ZUMA COACHING FOR {user_p.upper()})" if has_custom_persp else "AFFIRMATIVE_CRITIQUE (ZUMA)",
             "unsupported_claims_flagged": [
-                f"CLM-DOGMA-{p_primary.replace(' ', '-').replace(':', '-')}-001",
+                f"CLM-OPPOSITION-{p_primary.replace(' ', '-').replace(':', '-')}-001",
                 f"CLM-EXTRACANONICAL-RATIONALIZATION-002"
             ]
         }

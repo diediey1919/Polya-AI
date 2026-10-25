@@ -248,6 +248,7 @@ class TrainingSessionObject(BaseModel):
     
     # Diagnostic Score (Never leaked to official leaderboards)
     user_score: TrainingScoreCategory = Field(default_factory=TrainingScoreCategory)
+    user_context: Dict[str, Any] = Field(default_factory=dict)
     ai_score: TrainingScoreCategory = Field(default_factory=TrainingScoreCategory)
     
     # Feedback & Self-Correction

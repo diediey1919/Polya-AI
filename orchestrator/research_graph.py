@@ -418,8 +418,9 @@ def source_criticism_node(state: ResearchState) -> Dict[str, Any]:
 def claim_analysis_node(state: ResearchState) -> Dict[str, Any]:
     """Structures canonical claim object."""
     claim_text = state["claim_input"]
+    user_persp = state.get("user_perspective", "christian_protestant")
     temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
-    claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence)
+    claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence, user_perspective=user_persp)
     synth = state.get("synthesis_output")
     if synth and synth.get("claim_summary"):
         claim_obj.text = synth.get("claim_summary")
@@ -432,8 +433,9 @@ def claim_analysis_node(state: ResearchState) -> Dict[str, Any]:
 def argument_graph_node(state: ResearchState) -> Dict[str, Any]:
     """Generates machine-readable argument structure."""
     claim_text = state["claim_input"]
+    user_persp = state.get("user_perspective", "christian_protestant")
     temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
-    claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence)
+    claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence, user_perspective=user_persp)
     arg_graph = ArgumentEngine.build_argument_graph(claim_obj, temp_evidence)
     synth = state.get("synthesis_output")
     if synth and synth.get("argument"):
@@ -449,7 +451,8 @@ def argument_graph_node(state: ResearchState) -> Dict[str, Any]:
 def steelman_counterargument_node(state: ResearchState) -> Dict[str, Any]:
     """Builds formidable opposing argument and rebuttal (Steelman 2.0)."""
     claim_text = state["claim_input"]
-    steelman = ArgumentEngine.steelman_opposition(claim_text)
+    user_persp = state.get("user_perspective", "christian_protestant")
+    steelman = ArgumentEngine.steelman_opposition(claim_text, user_perspective=user_persp)
     steel_dict = steelman.to_dict()
     synth = state.get("synthesis_output")
     if synth:

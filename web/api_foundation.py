@@ -34,6 +34,7 @@ try:
         CaseFileGenerator,
         SessionService,
         GoogleAuthVerifier,
+        ContextService,
         get_db
     )
 except ImportError:
@@ -53,6 +54,7 @@ except ImportError:
         CaseFileGenerator,
         SessionService,
         GoogleAuthVerifier,
+        ContextService,
         get_db
     )
 
@@ -152,43 +154,14 @@ async def get_example_claims():
 @router.get("/context")
 async def get_user_context(user_id: str = "guest_user", authorization: Optional[str] = Header(None)):
     effective_user_id = verify_user_access(user_id, authorization)
-    conn = get_db()
-    cursor = conn.cursor()
-    cursor.execute("SELECT ui_locale, user_perspective, opponent_perspective, debate_locale, source_locale FROM user_apologetics_context WHERE user_id = ?", (effective_user_id,))
-    row = cursor.fetchone()
-    conn.close()
-
-    if not row:
-        return UserApologeticsContext().model_dump()
-
-    return {
-        "ui_locale": row["ui_locale"],
-        "user_perspective": row["user_perspective"],
-        "opponent_perspective": row["opponent_perspective"],
-        "debate_locale": row["debate_locale"],
-        "source_locale": row["source_locale"]
-    }
+    return ContextService.get_user_context(effective_user_id)
 
 
 @router.post("/context")
 async def save_user_context(ctx: UserApologeticsContext, user_id: str = "guest_user", authorization: Optional[str] = Header(None)):
     effective_user_id = verify_user_access(user_id, authorization)
-    conn = get_db()
-    cursor = conn.cursor()
-    cursor.execute("""
-    INSERT INTO user_apologetics_context (user_id, ui_locale, user_perspective, opponent_perspective, debate_locale, source_locale, updated_at)
-    VALUES (?, ?, ?, ?, ?, ?, datetime(now))
-    ON CONFLICT(user_id) DO UPDATE SET
-        ui_locale = excluded.ui_locale,
-        user_perspective = excluded.user_perspective,
-        opponent_perspective = excluded.opponent_perspective,
-        debate_locale = excluded.debate_locale,
-        source_locale = excluded.source_locale,
-        updated_at = excluded.updated_at
-    """, (effective_user_id, ctx.ui_locale, ctx.user_perspective.value, ctx.opponent_perspective, ctx.debate_locale, ctx.source_locale))
-    conn.commit()
-    conn.close()
-    return {"success": True, "context": ctx.model_dump()}
+    saved = ContextService.save_user_context(effective_user_id, ctx)
+    return {"success": True, "context": saved}
 
 
 @router.get("/entitlements/usage")
