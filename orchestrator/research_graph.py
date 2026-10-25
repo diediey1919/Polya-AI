@@ -243,14 +243,12 @@ def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
         f"BAHASA OUTPUT WAJIB: Seluruh sintesis teks (claim_summary, argument, counterargument, rebuttal, weakness, open_questions, debate_preparation, debate_simulation, sources) WAJIB ditulis secara konsisten dan murni dalam {lang_name} (Locale: {target_locale})."
     )
 
-    perspective_instruction = (
-        f"PERSPEKTIF PENGGUNA (POSISI ANDA): {user_persp.upper()}\n"
-        f"KONTEKS LAWAN DEBAT (OPOSISI): {opp_persp.upper()}\n"
-        "Susun argumen pembelaan dari posisi pengguna, bangun sanggahan lawan (counterargument) sesuai dengan premis dan sudut pandang spesifik konteks lawan tersebut, dan susun tangkisan balik (rebuttal) yang mematahkan premis lawan secara akurat."
-    )
-
-    debate_sim_section = ""
     if "DEBATE" in requested_mode:
+        perspective_instruction = (
+            f"PERSPEKTIF PENGGUNA (POSISI ANDA): {user_persp.upper()}\n"
+            f"KONTEKS LAWAN DEBAT (OPOSISI): {opp_persp.upper()}\n"
+            "Susun argumen pembelaan dari posisi pengguna, bangun sanggahan lawan (counterargument) sesuai dengan premis dan sudut pandang spesifik konteks lawan tersebut, dan susun tangkisan balik (rebuttal) yang mematahkan premis lawan secara akurat."
+        )
         debate_sim_section = f"""
 WAJIB MENYERTAKAN 'debate_simulation':
 Karena dalam mode DEBATE, sertakan objek 'debate_simulation' dalam JSON dengan 8 babak simulasi dialektika (rounds 1-8) antara ZUMA (Persona Zulkifli M. Abbas: tegas, tajam, presisi, dingin, fokus pada bukti naskah bahasa sumber, Ilzam al-Khasm) vs Oposisi ({opp_persp.upper()}).
@@ -272,6 +270,46 @@ Format 'debate_simulation':
     {{"round_num": 8, "zuma_speech": "Ujaran ZUMA Babak 8", "opponent_speech": "Tanggapan Oposisi Babak 8"}}
   ]
 }}"""
+        json_schema_instruction = """{
+  "claim_summary": "Ringkasan analitis klaim",
+  "argument": "Argumen substantif berbasis klaim dan mode",
+  "counterargument": "Argumen terkuat pihak oposisi / kontra",
+  "rebuttal": "Sanggahan forensik membantah premis lawan",
+  "weakness": "Titik paling rentan dalam argumen atau premis",
+  "open_questions": ["Pertanyaan kritis 1", "Pertanyaan kritis 2"],
+  "debate_preparation": {
+    "cross_examination_trap": "Jebakan pertanyaan sokratik terstruktur",
+    "recommended_tempo": "Panduan tempo dan kendali percakapan"
+  },
+  "debate_simulation": {
+    "socratic_question": "...",
+    "target_dilemma": "...",
+    "presupposition_demolished": "...",
+    "verdict_summary": "...",
+    "rounds": [
+      {"round_num": 1, "zuma_speech": "...", "opponent_speech": "..."}
+    ]
+  },
+  "sources": [{"citation": "Sumber/Naskah yang dirujuk", "type": "Tipe Sumber"}]
+}"""
+    else:
+        perspective_instruction = (
+            f"PERSPEKTIF PENELITIAN AKADEMIS: {user_persp.upper()}\n"
+            "Lakukan riset eksegesis filologi forensik secara objektif, ilmiah, dan berbasis naskah sumber kuno. "
+            "Bebaskan seluruh sintesis dari nada debat, retorika polemik, maupun jebakan lawan. "
+            "Sajikan pembacaan alternatif akademis (competing scholarly readings) sebagai counterargument, "
+            "resolusi gramatikal-tekstual bahasa asli sebagai rebuttal, serta batasan bukti tekstual sebagai weakness."
+        )
+        debate_sim_section = ""
+        json_schema_instruction = """{
+  "claim_summary": "Ringkasan eksegetis akademis atas klaim/nas",
+  "argument": "Analisis filologi forensik dan eksegesis teks sumber secara objektif",
+  "counterargument": "Tinjauan pembacaan alternatif / competing scholarly interpretations",
+  "rebuttal": "Resolusi tekstual berbasis gramatika-historis bahasa asli naskah",
+  "weakness": "Batasan hermeneutik atau varian naskah kuno yang memerlukan telaah kritis",
+  "open_questions": ["Pertanyaan penelitian filologi/sejarah lanjutan 1", "Pertanyaan penelitian 2"],
+  "sources": [{"citation": "Sumber naskah/leksikon/aparatus kritis", "type": "Tipe Sumber"}]
+}"""
 
     prompt = f"""Anda adalah AI engine analitik apologetika Polya. Berikan sintesis terstruktur untuk klaim berikut:
 Klaim Pengguna: "{claim_text}"
@@ -285,28 +323,7 @@ Bukti Kontekstual dari Korpus:
 {corpus_notice}
 
 Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penutup) dengan struktur persis berikut:
-{{
-  "claim_summary": "Ringkasan analitis klaim",
-  "argument": "Argumen substantif berbasis klaim dan mode",
-  "counterargument": "Argumen terkuat pihak oposisi / kontra",
-  "rebuttal": "Sanggahan forensik membantah premis lawan",
-  "weakness": "Titik paling rentan dalam argumen atau premis",
-  "open_questions": ["Pertanyaan kritis 1", "Pertanyaan kritis 2"],
-  "debate_preparation": {{
-    "cross_examination_trap": "Jebakan pertanyaan sokratik terstruktur",
-    "recommended_tempo": "Panduan tempo dan kendali percakapan"
-  }},
-  "debate_simulation": {{
-    "socratic_question": "...",
-    "target_dilemma": "...",
-    "presupposition_demolished": "...",
-    "verdict_summary": "...",
-    "rounds": [
-      {{"round_num": 1, "zuma_speech": "...", "opponent_speech": "..."}}
-    ]
-  }},
-  "sources": [{{"citation": "Sumber/Naskah yang dirujuk", "type": "Tipe Sumber"}}]
-}}"""
+{json_schema_instruction}"""
 
     t0 = time.time()
     dispatch_timeout = int(os.environ.get("POLYA_DISPATCH_TIMEOUT", "20"))
@@ -459,6 +476,11 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
                     },
                     "sources": [{"citation": primary_ref, "type": "Corpus Reference"}] if primary_ref else []
                 }
+
+    # Ensure RESEARCH mode never contains debate_preparation or debate_simulation keys
+    if "DEBATE" not in requested_mode and synthesis_output and isinstance(synthesis_output, dict):
+        synthesis_output.pop("debate_preparation", None)
+        synthesis_output.pop("debate_simulation", None)
 
     # fallback_used is true ONLY if the consumed output is from a template/fallback source,
     # not merely because there were multiple dispatch trail entries (retries/failover to live adapters).
@@ -827,6 +849,13 @@ def debate_quality_gate_node(state: ResearchState) -> Dict[str, Any]:
 
 def zuma_debate_preparation_node(state: ResearchState) -> Dict[str, Any]:
     """Generates Socratic interrogation funnel, concession traps, and ZUMA Self-Critique."""
+    # Absolute bypass in RESEARCH mode
+    if state.get("requested_mode") == "RESEARCH":
+        return {
+            "debate_preparation": {},
+            "zuma_self_critique": {}
+        }
+
     claim_text = state["claim_input"]
     user_persp = state.get("user_perspective", "christian_protestant")
     opp_persp = state.get("opponent_perspective", "islam")
@@ -1098,7 +1127,20 @@ def build_research_graph(
     )
 
     builder.add_edge("synthesis_evaluation_node", "debate_quality_gate_node")
-    builder.add_edge("debate_quality_gate_node", "zuma_debate_preparation_node")
+
+    def route_after_quality_gate(state: ResearchState) -> str:
+        if state.get("requested_mode") == "RESEARCH":
+            return "case_file_persistence_node"
+        return "zuma_debate_preparation_node"
+
+    builder.add_conditional_edges(
+        "debate_quality_gate_node",
+        route_after_quality_gate,
+        {
+            "case_file_persistence_node": "case_file_persistence_node",
+            "zuma_debate_preparation_node": "zuma_debate_preparation_node"
+        }
+    )
     builder.add_edge("zuma_debate_preparation_node", "case_file_persistence_node")
     builder.add_edge("case_file_persistence_node", "final_response_node")
     builder.add_edge("final_response_node", END)

@@ -18,14 +18,30 @@ import uuid
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Tuple
 
-from models import (
-    CANONICAL_DEMO_CLAIMS,
-    CaseFile,
-    EntitlementState,
-    PaymentTransaction,
-    UserApologeticsContext,
-    UserPerspective
-)
+try:
+    from web.models import (
+        CANONICAL_DEMO_CLAIMS,
+        CaseFile,
+        EntitlementState,
+        PaymentTransaction,
+        UserApologeticsContext,
+        UserPerspective,
+        InterlinearWordToken,
+        ExegeticalContext,
+        LinguisticExegesisPackage
+    )
+except ImportError:
+    from models import (
+        CANONICAL_DEMO_CLAIMS,
+        CaseFile,
+        EntitlementState,
+        PaymentTransaction,
+        UserApologeticsContext,
+        UserPerspective,
+        InterlinearWordToken,
+        ExegeticalContext,
+        LinguisticExegesisPackage
+    )
 
 from contextlib import contextmanager
 import time
@@ -1152,9 +1168,9 @@ class CaseFileGenerator:
                 ev_list = []
                 sources_list = []
 
-            prep = result.get("debate_preparation", {})
-            arg_data = result.get("argument_graph", {})
-            steelman = result.get("steelman_counterarg", {})
+            prep = result.get("debate_preparation") or {}
+            arg_data = result.get("argument_graph") or {}
+            steelman = result.get("steelman_counterarg") or {}
 
             # Dynamic synthesis extraction with locale-sensitive fallbacks
             eff_loc = (debate_locale or ui_locale or "id").strip().lower()
@@ -1215,27 +1231,44 @@ class CaseFileGenerator:
                 "recommended_tempo": tempo_val
             }
 
-            # Inject canonical 8-round dialectical simulation (ZUMA vs Interlocutor)
+            # Inject canonical 8-round dialectical simulation (ZUMA vs Interlocutor) ONLY in DEBATE mode
             canonical_sim = None
+            if requested_mode == "DEBATE":
+                try:
+                    from orchestrator.zuma_skill_engine import ZumaSkillEngine
+                    z_ctx = {
+                        "user_perspective": persp,
+                        "opponent_perspective": opp_persp,
+                        "debate_locale": debate_locale,
+                        "ui_locale": ui_locale,
+                        "source_locale": getattr(ctx, "source_locale", None) or ContextService.get_default_source_locale(persp)
+                    }
+                    canonical_sim = ZumaSkillEngine.generate_canonical_8_round_simulation(
+                        claim=claim,
+                        evidence_items=result.get("evidence_items", []),
+                        context=z_ctx,
+                        debate_prep=prep,
+                        synthesis_output=synth
+                    )
+                    prep_val["canonical_8_rounds"] = canonical_sim
+                except Exception as e_sim:
+                    logger.warning(f"Canonical 8-round debate simulation injection skipped: {e_sim}")
+            else:
+                canonical_sim = None
+                prep_val["canonical_8_rounds"] = None
+
+            # Generate full LinguisticExegesisPackage (BibleHub text analysis standard)
+            linguistic_exegesis = None
             try:
-                from orchestrator.zuma_skill_engine import ZumaSkillEngine
-                z_ctx = {
-                    "user_perspective": persp,
-                    "opponent_perspective": opp_persp,
-                    "debate_locale": debate_locale,
-                    "ui_locale": ui_locale,
-                    "source_locale": getattr(ctx, "source_locale", None) or ContextService.get_default_source_locale(persp)
-                }
-                canonical_sim = ZumaSkillEngine.generate_canonical_8_round_simulation(
+                from orchestrator.exegesis_engine import ExegesisEngine
+                linguistic_exegesis = ExegesisEngine.generate_linguistic_exegesis_package(
                     claim=claim,
                     evidence_items=result.get("evidence_items", []),
-                    context=z_ctx,
-                    debate_prep=prep,
-                    synthesis_output=synth
+                    synthesis_output=synth,
+                    context=ctx
                 )
-                prep_val["canonical_8_rounds"] = canonical_sim
-            except Exception as e_sim:
-                logger.warning(f"Canonical 8-round debate simulation injection skipped: {e_sim}")
+            except Exception as e_exegesis:
+                logger.warning(f"Linguistic exegesis package generation notice: {e_exegesis}")
 
             # Inject dynamic ZUMA 8-point simulated debate into output (mode DEBATE only).
             if requested_mode == "DEBATE":
@@ -1318,6 +1351,7 @@ class CaseFileGenerator:
                 open_questions=open_q_val,
                 debate_preparation=prep_val,
                 canonical_simulation=canonical_sim,
+                linguistic_exegesis=linguistic_exegesis,
                 is_demo=False,
                 notice=notice_val,
                 synthesis_status=synth_status,
@@ -1333,20 +1367,33 @@ class CaseFileGenerator:
             sim_deb = []
             fallback_prep = {}
             fallback_canonical_sim = None
+            if requested_mode == "DEBATE":
+                try:
+                    from orchestrator.zuma_skill_engine import ZumaSkillEngine
+                    z_ctx = {
+                        "user_perspective": persp,
+                        "opponent_perspective": opp_persp,
+                        "debate_locale": getattr(ctx, "debate_locale", "id"),
+                        "source_locale": getattr(ctx, "source_locale", None) or ContextService.get_default_source_locale(persp)
+                    }
+                    fallback_canonical_sim = ZumaSkillEngine.generate_canonical_8_round_simulation(
+                        claim=claim,
+                        evidence_items=[],
+                        context=z_ctx,
+                        debate_prep={},
+                        synthesis_output={}
+                    )
+                except Exception:
+                    pass
+
+            fallback_exegesis = None
             try:
-                from orchestrator.zuma_skill_engine import ZumaSkillEngine
-                z_ctx = {
-                    "user_perspective": persp,
-                    "opponent_perspective": opp_persp,
-                    "debate_locale": getattr(ctx, "debate_locale", "id"),
-                    "source_locale": getattr(ctx, "source_locale", None) or ContextService.get_default_source_locale(persp)
-                }
-                fallback_canonical_sim = ZumaSkillEngine.generate_canonical_8_round_simulation(
+                from orchestrator.exegesis_engine import ExegesisEngine
+                fallback_exegesis = ExegesisEngine.generate_linguistic_exegesis_package(
                     claim=claim,
                     evidence_items=[],
-                    context=z_ctx,
-                    debate_prep={},
-                    synthesis_output={}
+                    synthesis_output={},
+                    context=ctx
                 )
             except Exception:
                 pass
@@ -1394,18 +1441,19 @@ class CaseFileGenerator:
                     }
                 ],
                 argument=f"Secara forensik teks, premis klaim '{claim[:40]}...' gagal memperhitungkan sintaksis gramatika bahasa sumber asli.",
-                counterargument="Pihak lawan umumnya mendalilkan bahwa teks tersebut hanya berkonotasi kesatuan moral atau kiasan metaforis.",
+                counterargument="Tinjauan pembacaan alternatif akademis terhadap konteks naskah primer.",
                 rebuttal="Konteks sastra terdekat membuktikan Paulus menegakkan hukum Taurat.",
-                weakness="Titik rentan lawan adalah ketergantungan pada terjemahan dinamis modern tanpa verifikasi leksikon bahasa sumber.",
+                weakness="Batasan hermeneutik memerlukan pengujian kritis terhadap varian naskah kuno.",
                 sources=[{"citation": "Nestle-Aland Novum Testamentum Graece, 28th Edition", "type": "Critical Edition"}],
-                open_questions=["Bagaimana lawan menjelaskan reaksi langsung terhadap Roma 3:31?"],
+                open_questions=["Bagaimana naskah primer bahasa sumber menjelaskan klaim ini?"],
                 debate_preparation=fallback_prep if requested_mode == "DEBATE" else {
-                    "cross_examination_trap": "Kuncilah lawan pada definisi kata bahasa asli sebelum mereka mengalihkan topik.",
-                    "recommended_tempo": "Ajukan pertanyaan sokratik pendek, minta konfirmasi arti kata netral versus maskulin.",
-                    "simulated_debate": sim_deb,
-                    "canonical_8_rounds": fallback_canonical_sim
+                    "cross_examination_trap": "",
+                    "recommended_tempo": "",
+                    "simulated_debate": [],
+                    "canonical_8_rounds": None
                 },
                 canonical_simulation=fallback_canonical_sim,
+                linguistic_exegesis=fallback_exegesis,
                 is_demo=True,
                 notice="DEMO / MOCK DATA — Strictly for testing UI and structure",
                 provider="unknown",

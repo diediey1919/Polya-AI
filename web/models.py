@@ -52,6 +52,41 @@ class UserApologeticsContext(BaseModel):
     source_locale: Optional[str] = Field(default="el", description="Primary text source language (e.g., el, he, ar, la, en)")
 
 
+class InterlinearWordToken(BaseModel):
+    index: int                                      # Urutan kata dalam klausa (1, 2, 3...)
+    strong_number: str                              # Kode Strong (misal: H5315, H2398, G3056)
+    original_text: str                              # Aksara asli bervokal/cantillation (Ibrani/Yunani/Aramaik/Arab)
+    transliteration: str                            # Ejaan fonetis akademis
+    lemma: str                                      # Bentuk akar/kamus dasar (Root/Lemma)
+    morphology_code: str                            # Kode tag morfologi resmi standar BibleHub (misal: Prep-b | N-fs, V-Qal-Imperf-3fs)
+    morphology_expanded: str                        # Uraian parsing lengkap (Part of Speech, Stem/Binyan, Tense/Aspect, Person, Gender, Number, State/Case)
+    literal_gloss: str                              # Terjemahan harfiah kata tersebut
+    syntactic_role: str                             # Peran sintaksis dalam klausa (Subjek, Predikat, Objek, Konstruk, dll.)
+    lexical_entry: Dict[str, str] = {}              # Definisi kamus standar: {"source": "BDB / HALOT / BDAG", "definition": "...", "semantic_range": "..."}
+    exegetical_note: str = ""                       # Catatan signifikansi teologis/yuridis dari kata spesifik ini
+
+
+class ExegeticalContext(BaseModel):
+    literary_genre: str = ""                        # Genre sastra (misal: Hukum Yuridis Casuistic, Narasi Historis, Orakel Profetik, Epistola Didaktik)
+    immediate_context: str = ""                     # Analisis perikop dekat (ayat-ayat sebelum & sesudah dalam pasal yang sama)
+    historical_cultural_setting: str = ""           # Latar belakang historis / Sitz im Leben (kondisi penulis, audiens awal, dan polemik zaman itu)
+
+
+class LinguisticExegesisPackage(BaseModel):
+    passage_reference: str                          # Referensi Kitab, Pasal, dan Ayat utama
+    original_language: str                          # "Biblical Hebrew" | "Koine Greek" | "Biblical Aramaic" | "Classical Arabic"
+    source_text_full: str                           # Teks lengkap naskah kritis (BHS Codex Leningradensis / NA28 / UBS5)
+    interlinear_tokens: List[InterlinearWordToken] = []
+    literal_translation: str = ""                   # Rekonstruksi terjemahan kata-per-kata secara kaku sesuai sintaksis asli
+    natural_translation: str = ""                   # Rekonstruksi terjemahan bahasa Indonesia yang mengalir dan akurat
+    exegetical_context: Optional[ExegeticalContext] = None
+    syntactic_exegesis: Dict[str, str] = {}         # Bedah struktur kalimat: Aspek Verba, klausa kondisional/hukum, pemakaian artikel definit, dll.
+    manuscript_witnesses: List[Dict[str, str]] = [] # Perbandingan saksi naskah kuno (MT Leningradensis, LXX Septuaginta, DSS 4Q, Sinaiticus, Vaticanus) + status varian
+    translation_comparison: List[Dict[str, str]] = [] # Audit terjemahan populer (TB LAI, KJV, ESV, NIV) vs Teks Asli (deteksi pergeseran makna/interpolasi)
+    corpus_cross_references: List[Dict[str, str]] = [] # Konkordansi lintas-ayat: bagaimana kata/konsep kunci dipakai di ayat lain (Internal Kitab & Lintas-Kanon)
+    exegetical_synthesis: str = ""                  # Kesimpulan akhir eksegesis historis-gramatikal secara objektif, akademis, dan komprehensif
+
+
 class CaseFile(BaseModel):
     """Canonical 10-point Apologetics Case File Schema."""
     case_id: str
@@ -66,6 +101,7 @@ class CaseFile(BaseModel):
     open_questions: List[str]
     debate_preparation: Dict[str, Any]
     canonical_simulation: Optional[Dict[str, Any]] = None
+    linguistic_exegesis: Optional[Any] = None
     is_demo: bool = True
     notice: str = "DEMO / MOCK DATA — Strictly for testing UI and structure"
     synthesis_status: str = ""
