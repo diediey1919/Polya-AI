@@ -43,6 +43,7 @@ USER CLAIM
 """
 import json
 import operator
+import os
 import re
 import time
 import uuid
@@ -264,8 +265,9 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
 }}"""
 
     t0 = time.time()
+    dispatch_timeout = int(os.environ.get("POLYA_DISPATCH_TIMEOUT", "20"))
     res: AgentResponse = AgentRuntime.dispatch_with_failover(
-        "RESEARCH_AGENT", prompt, timeout=45
+        "RESEARCH_AGENT", prompt, timeout=dispatch_timeout
     )
     t1 = time.time()
     duration_ms = int((t1 - t0) * 1000)

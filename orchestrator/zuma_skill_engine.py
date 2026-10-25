@@ -549,7 +549,8 @@ Aturan Mutlak:
 
         try:
             from orchestrator.runtime import AgentRuntime
-            res = AgentRuntime.dispatch_with_failover("RESEARCH_AGENT", prompt, timeout=45)
+            dispatch_timeout = int(os.environ.get("POLYA_DISPATCH_TIMEOUT", "20"))
+            res = AgentRuntime.dispatch_with_failover("RESEARCH_AGENT", prompt, timeout=dispatch_timeout)
             if res.status == "COMPLETED" and res.output:
                 raw_text = res.output.strip()
                 match = re.search(r'\[[\s\S]*\]', raw_text)

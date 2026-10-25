@@ -153,6 +153,7 @@ class HermesAdapter(BaseAgentAdapter):
         cid = f"hermes_{uuid.uuid4().hex[:8]}"
         now_iso = datetime.now(timezone.utc).isoformat()
         start = time.perf_counter()
+        timeout = int(os.environ.get("POLYA_HERMES_TIMEOUT", timeout))
         model_label = kwargs.get("model", "hermes-agent-v3")
 
         if not self.is_available():
@@ -577,8 +578,31 @@ class RouterAdapter(BaseAgentAdapter):
             os.environ.get("HERMES_CUSTOM_9ROUTER_API_KEY")
             or os.environ.get("HERMES_CUSTOM_127_0_0_1_20128_API_KEY")
             or os.environ.get("HERMES_CUSTOM_LOCALHOST_20128_API_KEY")
+            or os.environ.get("NINEROUTER_API_KEY")
             or ""
         )
+        if not self._api_key:
+            for env_path in [
+                "/home/ubuntu/Polya-AI/.env",
+                "/home/ubuntu/Polya-AI/web/.env.production",
+                "/home/ubuntu/.hermes/.env",
+            ]:
+                if os.path.exists(env_path):
+                    try:
+                        with open(env_path, "r", encoding="utf-8") as _ef:
+                            for _line in _ef:
+                                _line = _line.strip()
+                                if any(_line.startswith(prefix) for prefix in [
+                                    "HERMES_CUSTOM_9ROUTER_API_KEY=",
+                                    "HERMES_CUSTOM_127_0_0_1_20128_API_KEY=",
+                                    "NINEROUTER_API_KEY=",
+                                ]):
+                                    self._api_key = _line.split("=", 1)[1].strip("'\"")
+                                    break
+                        if self._api_key:
+                            break
+                    except Exception:
+                        pass
         self.model = model or os.environ.get("POLYA_ROUTER_MODEL", "General")
         self.timeout = int(os.environ.get("POLYA_CLOUD_CODE_TIMEOUT",
                                           os.environ.get("POLYA_ROUTER_TIMEOUT",
@@ -623,14 +647,16 @@ class RouterAdapter(BaseAgentAdapter):
             "max_tokens": kwargs.get("max_tokens", 2048),
         }
         data = _json.dumps(payload).encode("utf-8")
+        req_headers = {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        }
+        if self._api_key:
+            req_headers["Authorization"] = f"Bearer {self._api_key}"
         req = _ureq.Request(
             f"{self.base_url}/chat/completions",
             data=data,
-            headers={
-                "Authorization": "Bearer REDACTED",
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-            },
+            headers=req_headers,
             method="POST",
         )
         req_id = ""  # populated on success; used in error telemetry
@@ -644,13 +670,14 @@ class RouterAdapter(BaseAgentAdapter):
             dur = int((time.perf_counter() - start) * 1000)
             # Drain error body (no auth in body expected) for diagnostics.
             err_body = e.read().decode("utf-8", errors="replace")[:300]
+            status_label = "RATE_LIMITED" if e.code == 429 else "FAILED"
             self._emit_observation(
                 cid, str(e.code), False, dur, model=model_label,
                 fallback_used=False, error=f"http {e.code}: {err_body}",
             )
             return AgentResponse(
                 agent_name=self.agent_name,
-                status="FAILED",
+                status=status_label,
                 live_dispatched=True,
                 correlation_id=cid,
                 output="",
@@ -660,7 +687,8 @@ class RouterAdapter(BaseAgentAdapter):
                 timestamp=now_iso,
                 provider="unknown",
                 metadata={"provider_mode": "openai_chat_completions",
-                          "model": model_label, "request_id": req_id or ""},
+                          "model": model_label, "request_id": req_id or "",
+                          "http_status": e.code},
                 error=f"9Router HTTP {e.code}: {err_body}",
             )
         except Exception as exc:  # network error, connection refused, etc.
@@ -795,7 +823,7 @@ class AgentRuntimeManager:
     # fallback_used, error}.
     # ------------------------------------------------------------------
     _RECOVERABLE_STATUSES = {"TIMEOUT", "FAILED", "ERROR"}
-    _PERMANENT_STATUSES = {"UNAVAILABLE"}
+    _PERMANENT_STATUSES = {"UNAVAILABLE", "RATE_LIMITED"}
 
     def dispatch_with_failover(
         self,
