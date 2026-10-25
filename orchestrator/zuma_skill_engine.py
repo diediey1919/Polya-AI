@@ -380,6 +380,44 @@ class ZumaSkillEngine:
             if match_ref:
                 rujukan_teks = match_ref.group(1)
 
+        loc = (ctx.get("debate_locale") or ctx.get("ui_locale") or "id").strip().lower()
+        if loc != "id":
+            rujukan_display = "Scripture / Primary Text / Ancient Manuscript Witnesses" if rujukan_teks == "Kitab Suci / Naskah Primer / Manuskrip Terkait" else rujukan_teks
+            return {
+                "header": {
+                    "pihak_a": user_p,
+                    "pihak_b": opp_p,
+                    "topik": claim,
+                    "rujukan_utama": rujukan_display,
+                    "format": "Full 3-Act Script + 4 Forensic Segments"
+                },
+                "babak_1": {
+                    "title": "Act 1: Foundational Premises & Textual Anchoring",
+                    "paparan_pihak_a": f"Theological affirmation by {user_p} anchoring the claim '{claim}' to canonical authority and normative exegesis of {rujukan_display}.",
+                    "respons_pihak_b": f"Initial critical response by {opp_p} questioning textual premises and internal consistency regarding '{claim}'."
+                },
+                "babak_2": {
+                    "title": "Act 2: Socratic Cross-Examination & Dilemma Funnel",
+                    "pertanyaan_presisi": [
+                        f"In which specific clause or verse within {rujukan_display} is '{claim}' explicitly affirmed?",
+                        "How do you reconcile lexical definitions in original languages with external dogmatic assumptions?",
+                        "Does your hermeneutical concession not undermine the internal consistency of your own canon?"
+                    ],
+                    "jebakan_logika": f"Locking interlocutor to verbatim source text readings in {rujukan_display} to prevent moving the goalposts."
+                },
+                "babak_3": {
+                    "title": "Act 3: Textual Forensics & Source-Language Philology",
+                    "bedah_bahasa_sumber": f"Root/lemma extraction, verbal morphology, and syntactic parsing on {rujukan_display} for claim '{claim}'.",
+                    "saksi_manuskrip": ["Codex Sinaiticus", "Codex Vaticanus", "Ancient Papyri / Masoretic Text / LXX"],
+                    "audit_terjemahan": "Translational distortion audit from ancient autographs to modern vernacular to detect doctrinal bias."
+                },
+                "babak_4": {
+                    "title": "Act 4: Dialectical Verdict & Evidence Matrix (Closing Assessment)",
+                    "concession_extracted": f"Summary of necessary concessions extracted regarding '{claim}'.",
+                    "evaluasi_kekuatan_bukti": f"Final evidentiary assessment of textual robustness and logical resilience for claim '{claim}' based on E1-E6 standards."
+                }
+            }
+
         return {
             "header": {
                 "pihak_a": user_p,
@@ -738,32 +776,48 @@ Aturan Mutlak:
         mss_witness = witnesses[0] if witnesses else "Codex Sinaiticus & Codex Vaticanus"
 
         # 2. Formulate Scholarly Debate Motion & Localization Check
-        is_en = (ctx.get("debate_locale") or ctx.get("ui_locale") or "id").strip().lower() == "en"
-        motion = (
-            f"Forensic Primary Text & Canonical Validity Audit on Claim: '{claim_clean}' ({p_primary})"
-            if is_en else
-            f"Uji Forensik Teks Primer & Validitas Kanonikal atas Klaim: '{claim_clean}' ({p_primary})"
-        )
+        target_locale = (ctx.get("debate_locale") or ctx.get("ui_locale") or "id").strip().lower()
+        is_id = target_locale == "id"
+        motion_templates = {
+            "id": f"Uji Forensik Teks Primer & Validitas Kanonikal atas Klaim: '{claim_clean}' ({p_primary})",
+            "en": f"Forensic Primary Text & Canonical Validity Audit on Claim: '{claim_clean}' ({p_primary})",
+            "ja": f"主張に対する原典テキストおよび正典的妥当性の科学的監査: '{claim_clean}' ({p_primary})",
+            "ar": f"التدقيق الفيلولوجي للنصوص الأولية والصحة القانونية للادعاء: '{claim_clean}' ({p_primary})",
+            "ko": f"주장에 대한 원전 텍스트 및 정경적 타당성 법의학적 감사: '{claim_clean}' ({p_primary})",
+            "zh": f"对主张的原典文本与正典有效性法医审计: '{claim_clean}' ({p_primary})",
+            "es": f"Auditoría Forense de Textos Primarios y Validez Canónica sobre la Afirmación: '{claim_clean}' ({p_primary})",
+            "fr": f"Audit médico-légal des textes primaires et validité canonique sur l'affirmation: '{claim_clean}' ({p_primary})",
+            "de": f"Forensische Primärtext- und kanonische Gültigkeitsprüfung des Anspruchs: '{claim_clean}' ({p_primary})",
+            "ru": f"Текстуально-критический аудит и каноническая проверка утверждения: '{claim_clean}' ({p_primary})",
+            "pt": f"Auditoria Forense de Textos Primários e Validade Canônica sobre a Alegação: '{claim_clean}' ({p_primary})",
+            "it": f"Audit forense dei testi primari e validità canonica sull'affermazione: '{claim_clean}' ({p_primary})",
+            "tr": f"İddiaya İlişkin Birincil Metin ve Kanonik Geçerlilik Adli Denetimi: '{claim_clean}' ({p_primary})",
+            "ur": f"دعوے پر بنیادی متون اور قانونی درستگی کا فارنزک آڈٹ: '{claim_clean}' ({p_primary})",
+            "fa": f"ممیزی قانونی متون اولیه و اعتبار قانونی ادعا: '{claim_clean}' ({p_primary})",
+            "hi": f"दावे पर प्राथमिक पाठ और विहित वैधता का फोरेंसिक ऑडिट: '{claim_clean}' ({p_primary})",
+            "bn": f"দাবির উপর প্রাথমিক মূলপাঠ এবং প্রামাণিক বৈধতার ফরেনসিক অডিট: '{claim_clean}' ({p_primary})"
+        }
+        motion = motion_templates.get(target_locale, motion_templates["en"] if not is_id else motion_templates["id"])
 
         # 3. Pull Dynamic Arguments from Synthesis if available
         opp_claim = synth.get("counterargument") or (
-            "Opposing defense arguments and systemic traditional interpretations."
-            if is_en else
             "Klaim pembelaan argumen lawan dan tafsiran tradisional sistemik."
+            if is_id else
+            "Opposing defense arguments and systemic traditional interpretations."
         )
         zuma_rebuttal = synth.get("rebuttal") or (
-            "Philological analysis exposes distortion of source texts and total absence of primary manuscript support."
-            if is_en else
             "Analisis filologis membuktikan distorsi makna naskah sumber dan ketiadaan dukungan naskah primer."
+            if is_id else
+            "Philological analysis exposes distortion of source texts and total absence of primary manuscript support."
         )
         weakness_str = synth.get("weakness") or (
-            "Lexicographical vulnerability and disregard of original source language context."
-            if is_en else
             "Kelemahan leksikografi dan pengabaian konteks bahasa sumber."
+            if is_id else
+            "Lexicographical vulnerability and disregard of original source language context."
         )
 
         # Perspective Speech Mappings for OPPONENT & ZUMA
-        if is_en:
+        if not is_id:
             opp_speech_r1 = {
                 "islam": f"[SOURCE QUOTE] We examine the claim '{claim_clean}' from the pure monotheism (Tawhid) of the prophets. All doctrine must be tested against the absolute oneness of God without partners.",
                 "christian_protestant": f"[SOURCE QUOTE] We stand upon Sola Scriptura and the 66-book Canon of the Bible. Regarding '{claim_clean}', true faith must be directly attested in the written Word of God.",
@@ -1083,7 +1137,7 @@ Aturan Mutlak:
         ]
 
         # 5. Cross-Examination Dilemma
-        if is_en:
+        if not is_id:
             cross_examination = [
                 {
                     "examiner": "ZUMA",
@@ -1138,7 +1192,7 @@ Aturan Mutlak:
             "schema_version": "1.0.0",
             "claim": claim_clean,
             "motion_or_topic": motion,
-            "original_youtube_title": f"Theological & Apologetics Discourse: {claim_clean}" if is_en else f"Diskursus Teologis & Apologetika: {claim_clean}",
+            "original_youtube_title": f"Diskursus Teologis & Apologetika: {claim_clean}" if is_id else f"Theological & Apologetics Discourse: {claim_clean}",
             "debate_mode": "zuma_persona",
             "persona_id": "zuma_debate_v1",
             "persona_intensity": 0.8,
@@ -1147,13 +1201,13 @@ Aturan Mutlak:
                     "participant_id": "PART-ZUMA",
                     "name": "Zulkifli M. Abbas (ZUMA)",
                     "role": "AFFIRMATIVE_CRITIQUE",
-                    "core_stance": "Forensic audit of primary biblical manuscripts & refutation of dogma without scripture." if is_en else "Uji naskah primer kanonik LAI TB & penolakan dogma tanpa ayat."
+                    "core_stance": "Uji naskah primer kanonik LAI TB & penolakan dogma tanpa ayat." if is_id else "Forensic audit of primary biblical manuscripts & refutation of dogma without scripture."
                 },
                 {
                     "participant_id": "PART-OPPONENT",
-                    "name": "Interlocutor / Doctrinal Defender" if is_en else "Interlocutor / Pembela Doktrin",
+                    "name": "Interlocutor / Pembela Doktrin" if is_id else "Interlocutor / Doctrinal Defender",
                     "role": "NEGATIVE_DEFENSE",
-                    "core_stance": "Defense of theological tradition and dogmatic interpretation." if is_en else "Pembelaan tradisi teologis dan penafsiran dogmatis."
+                    "core_stance": "Pembelaan tradisi teologis dan penafsiran dogmatis." if is_id else "Defense of theological tradition and dogmatic interpretation."
                 }
             ],
             "grounding_rules": {

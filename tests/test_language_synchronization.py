@@ -144,3 +144,42 @@ def test_zuma_canonical_simulation_localization_id():
 
     cx = sim["cross_examination"][0]
     assert "Apakah saudara bersedia mengakui naskah tertulis primer" in cx["socratic_question"]
+
+
+def test_zuma_canonical_simulation_localization_ja():
+    """Verify ZumaSkillEngine generates localized motion and non-id simulation when locale is 'ja'."""
+    claim = "Lukas 24:42 Yesus memakan ikan goreng membuktikan kebangkitan jasmani"
+    ctx = {
+        "user_perspective": "christian_protestant",
+        "opponent_perspective": "islam",
+        "debate_locale": "ja",
+        "ui_locale": "ja"
+    }
+    sim = ZumaSkillEngine.generate_canonical_8_round_simulation(claim=claim, context=ctx)
+    assert sim["schema_version"] == "1.0.0"
+    assert "主張に対する原典テキストおよび正典的妥当性の科学的監査" in sim["motion_or_topic"]
+    # Verify it does NOT fall back to Indonesian
+    assert "Uji Forensik Teks Primer" not in sim["motion_or_topic"]
+    assert "Dengar baik-baik saudara sekalian" not in sim["rounds"][0]["speaker_speech"]
+
+
+def test_index_html_17_languages_dictionary():
+    """Verify web/static/index.html contains full 17 languages in I18N_DICTIONARY."""
+    index_file = REPO_ROOT / "web" / "static" / "index.html"
+    assert index_file.exists()
+    content = index_file.read_text(encoding="utf-8")
+    
+    # Check all 17 canonical codes exist in I18N_DICTIONARY
+    for code in ["id", "en", "ar", "es", "pt", "ur", "hi", "fr", "de", "ru", "tr", "fa", "bn", "zh", "ja", "ko", "it"]:
+        assert f'"{code}": {{' in content or f'"{code}":' in content, f"Expected {code} in index.html I18N_DICTIONARY"
+
+    # Check key Japanese tokens
+    assert "弁証論マシン" in content
+    assert "弁証論計算機" in content
+    assert "プロテスタント" in content
+    assert "カトリック" in content
+    assert "イスラム" in content
+    assert "ユダヤ教" in content
+    assert "無神論 / 世俗主義" in content
+    assert "設定が正常に保存されました！" in content
+

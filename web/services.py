@@ -1209,11 +1209,26 @@ class CaseFileGenerator:
             final_provider, final_provenance = CaseFileGenerator._resolve_final_provenance(model_inv, synth)
 
             opp_display = opp_persp.upper()
-            ctx_summary = (
-                f"Analyzed in {requested_mode} mode from {persp.upper()} perspective versus {opp_display} (Debate Language: {debate_locale})."
-                if debate_locale == "en" else
-                f"Dianalisis dalam mode {requested_mode} perspektif {persp.upper()} versus {opp_display} (Bahasa Debat: {debate_locale})."
-            )
+            ctx_summary_templates = {
+                "en": f"Analyzed in {requested_mode} mode from {persp.upper()} perspective versus {opp_display} (Debate Language: {debate_locale}).",
+                "id": f"Dianalisis dalam mode {requested_mode} perspektif {persp.upper()} versus {opp_display} (Bahasa Debat: {debate_locale}).",
+                "ja": f"{persp.upper()}の視点から{opp_display}に対抗して{requested_mode}モードで分析（討論言語: {debate_locale}）。",
+                "ar": f"تم التحليل في وضع {requested_mode} من منظور {persp.upper()} ضد {opp_display} (لغة المناظرة: {debate_locale}).",
+                "zh": f"在{requested_mode}模式下从{persp.upper()}视角对决{opp_display}进行分析（辩论语言: {debate_locale}）。",
+                "ko": f"{persp.upper()} 관점에서 {opp_display}를 상대로 {requested_mode} 모드로 분석됨 (토론 언어: {debate_locale}).",
+                "es": f"Analizado en modo {requested_mode} desde la perspectiva {persp.upper()} frente a {opp_display} (Idioma del debate: {debate_locale}).",
+                "fr": f"Analysé en mode {requested_mode} du point de vue de {persp.upper()} contre {opp_display} (Langue du débat: {debate_locale}).",
+                "de": f"Analysiert im {requested_mode}-Modus aus der Perspektive {persp.upper()} gegen {opp_display} (Debattensprache: {debate_locale}).",
+                "ru": f"Анализ проведен в режиме {requested_mode} с позиции {persp.upper()} против {opp_display} (Язык дебатов: {debate_locale}).",
+                "pt": f"Analisado no modo {requested_mode} sob a perspectiva {persp.upper()} contra {opp_display} (Idioma do debate: {debate_locale}).",
+                "it": f"Analizzato in modalità {requested_mode} dalla prospettiva {persp.upper()} contro {opp_display} (Lingua del dibattito: {debate_locale}).",
+                "tr": f"{persp.upper()} perspektifinden {opp_display} karşısında {requested_mode} modunda analiz edildi (Münazara Dili: {debate_locale}).",
+                "ur": f"{persp.upper()} کے نقطہ نظر سے {opp_display} کے خلاف {requested_mode} موڈ میں تجزیہ کیا گیا (مناظرے کی زبان: {debate_locale})۔",
+                "fa": f"در حالت {requested_mode} از دیدگاه {persp.upper()} در برابر {opp_display} تحلیل شد (زبان مناظره: {debate_locale}).",
+                "hi": f"{persp.upper()} दृष्टिकोण से {opp_display} के विरुद्ध {requested_mode} मोड में विश्लेषण किया गया (बहस की भाषा: {debate_locale})।",
+                "bn": f"{persp.upper()} দৃষ্টিকোণ থেকে {opp_display} এর বিরুদ্ধে {requested_mode} মোডে বিশ্লেষণ করা হয়েছে (বিতর্কের ভাষা: {debate_locale})।"
+            }
+            ctx_summary = ctx_summary_templates.get(debate_locale, ctx_summary_templates["en"] if debate_locale != "id" else ctx_summary_templates["id"])
             return CaseFile(
                 case_id=case_id,
                 claim=claim,

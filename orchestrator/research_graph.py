@@ -301,7 +301,37 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
     # If model failed or output malformed, build structured claim-tailored fallback
     if not output_used:
         synthesis_status = "PARTIAL" if res.status == "COMPLETED" else "MODEL_ERROR"
-        if target_locale == "en":
+        if target_locale == "ja":
+            if retrieval_status == "insufficient_evidence":
+                synthesis_output = {
+                    "claim_summary": f"主張 '{claim_text[:80]}' は神学コーパスの範囲外、または証拠不十分です。",
+                    "argument": f"主張 '{claim_text}' を支持または検証する一次証拠や古代写本の記録は見つかりませんでした。",
+                    "counterargument": "相手側は現代科学の前提や非テキスト的な仮定に基づいて主張を展開している可能性があります。",
+                    "rebuttal": "対応する実証データがない限り、コーパスの範囲外の主張を古代写本の釈義で評価することはできません。",
+                    "weakness": "コーパス内における写本や一次文献の裏付けの欠如。",
+                    "open_questions": ["この主張には歴史的写本の根拠がありますか、それとも純粋に非神学的な観察ですか？"],
+                    "debate_preparation": {
+                        "cross_examination_trap": "相手側に主張の根拠となる書面による一次写本証拠の提示を求めてください。",
+                        "recommended_tempo": "コーパスの適用領域の限界を冷静に確認し、推測の迷路を避けてください。"
+                    },
+                    "sources": []
+                }
+            else:
+                primary_ref = scripture_items[0].passage_reference if scripture_items else (corpus_items[0].get("title", "") if corpus_items else "索引化コーパス")
+                synthesis_output = {
+                    "claim_summary": f"主張 '{claim_text[:80]}' に対する構造的分析",
+                    "argument": f"コーパスの証拠（{primary_ref}）に基づき、主張の前提 '{claim_text[:50]}' は本来の文脈に照らして法医学的検証が必要です。",
+                    "counterargument": f"反対側（{opp_persp.upper()}）は一般的な語彙的解釈に基づく代替解釈を主張しています。",
+                    "rebuttal": f"{primary_ref} の一次写本証言がこの主張の適用範囲を厳密に画定しています。",
+                    "weakness": "一次写本に対する批判的検証を欠いた前提への過度な依存。",
+                    "open_questions": [f"{primary_ref} の写本記録はこの主張をどのように説明していますか？"],
+                    "debate_preparation": {
+                        "cross_examination_trap": "相手側を原典テキストにおける単語の厳密な定義に拘束してください。",
+                        "recommended_tempo": "簡潔で正確なソクラテス的質問を投げかけてください。"
+                    },
+                    "sources": [{"citation": primary_ref, "type": "Corpus Reference"}] if primary_ref else []
+                }
+        elif target_locale != "id":
             if retrieval_status == "insufficient_evidence":
                 synthesis_output = {
                     "claim_summary": f"Claim '{claim_text[:80]}' is outside theological corpus scope / insufficient evidence.",
