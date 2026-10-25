@@ -1036,6 +1036,137 @@ class CaseFileGenerator:
 
 
     @classmethod
+    def generate_linguistic_exegesis(
+        cls,
+        claim: str,
+        context: Optional[Any] = None,
+        evidence_items: Optional[List[Any]] = None,
+        synthesis_output: Optional[Dict[str, Any]] = None
+    ) -> Optional[LinguisticExegesisPackage]:
+        """
+        Generates full LinguisticExegesisPackage (BibleHub text analysis standard)
+        by invoking LLM with Academic Exegesis System Prompt when requested_mode == 'RESEARCH'.
+        Strictly enforces:
+        - Primary key verse identification (Complete book name, chapter & verse)
+        - Full interlinear word-by-word tokenization with morphology, strong numbers, lexical definitions
+        - Exegetical context (genre, immediate context, Sitz im Leben)
+        - Syntactic exegesis (minimum 3 points)
+        - Manuscript witnesses (minimum 3 ancient witnesses)
+        - Translation comparison (minimum 3 versions: TB LAI, KJV, ESV)
+        - Cross-corpus concordances (minimum 3 references)
+        - Objective Indonesian exegetical synthesis without polemical debate rhetoric
+        - Robust fallback mechanism to valid LinguisticExegesisPackage if parsing fails
+        """
+        import re
+        from orchestrator.exegesis_engine import ExegesisEngine
+
+        # 1. If synthesis_output already contains a valid linguistic_exegesis dictionary, parse it
+        if synthesis_output and isinstance(synthesis_output.get("linguistic_exegesis"), dict):
+            parsed = ExegesisEngine.parse_exegesis_package(synthesis_output["linguistic_exegesis"])
+            if parsed and parsed.interlinear_tokens:
+                return parsed
+
+        # 2. Strict Academic System Prompt for Linguistic Exegesis Generator
+        academic_system_prompt = (
+            "Anda adalah Polya Philological & Linguistic Exegesis Engine — pakar filologi forensik naskah kuno Alkitab "
+            "(Biblia Hebraica Stuttgartensia / Nestle-Aland Novum Testamentum Graece NA28) yang beroperasi dengan standar BibleHub Text Analysis.\n\n"
+            "TUGAS UTAMA:\n"
+            "Lakukan bedah filologi dan eksegesis linguistik interlinear kata-per-kata secara mendalam, objektif, akademis, "
+            "dan presisi terhadap ayat kunci utama dari klaim/mosi pengguna.\n\n"
+            "KETENTUAN AKADEMIK & ATURAN NOMENKLATUR MUTLAK:\n"
+            "1. Identifikasi ayat kunci utama dari klaim pengguna. Wajib menuliskan Nama Kitab / Surat secara LENGKAP tanpa singkatan "
+            "beserta nomor pasal dan nomor ayat yang presisi (contoh: Roma 3:31, Yehezkiel 18:20, Yohanes 1:1, Matius 5:17, Ulangan 6:4). Dilarang keras menyingkat nama kitab.\n"
+            "2. Gunakan selalu sebutan 'Bible' untuk merujuk pada teks/kumpulan kitab suci tersebut.\n"
+            "3. Seluruh rujukan bukti wajib bersandar murni pada naskah primer kuno (Codex Leningradensis, NA28, Septuaginta LXX, Dead Sea Scrolls, Codex Sinaiticus, Codex Vaticanus, Papyri), "
+            "leksikon akademik standar (BDB, HALOT, Gesenius untuk Ibrani/Aramaik; BDAG, Thayer, LSJ untuk Yunani Koine). Dilarang keras mencantumkan sumber eksternal terbuka/populer.\n"
+            "4. Pecah SELURUH kata utama dalam ayat tersebut ke dalam 'interlinear_tokens' secara berurutan, lengkap dengan:\n"
+            "   - 'index': nomor urut kata (1, 2, 3...)\n"
+            "   - 'strong_number': kode Strong resmi (misal: H5315, G3056)\n"
+            "   - 'original_text': teks asli beraksara Ibrani/Yunani lengkap bervokal/cantillation\n"
+            "   - 'transliteration': transliterasi fonetis ilmiah akademis\n"
+            "   - 'lemma': bentuk lema/akar kata dasar (radix)\n"
+            "   - 'morphology_code': kode tag morfologi resmi standar BibleHub (misal: N-AMS, V-PIA-1P, Prep-b | N-fs, V-Qal-Imperf-3ms)\n"
+            "   - 'morphology_expanded': uraian gramatika lengkap (Part of Speech, Stem/Binyan, Tense/Aspect, Voice, Mood, Person, Gender, Number, Case/State)\n"
+            "   - 'literal_gloss': terjemahan harfiah kata tersebut\n"
+            "   - 'syntactic_role': fungsi sintaksis dalam klausa (misal: Subjek Gramatikal, Predikat, Objek Akusatif Emfatis, Konstruk Genitif)\n"
+            "   - 'lexical_entry': kutipan kamus akademik standar {\"source\": \"BDB / HALOT / BDAG / Thayer\", \"definition\": \"...\", \"semantic_range\": \"...\"}\n"
+            "   - 'exegetical_note': catatan signifikansi hermeneutis, teologis, atau yuridis dari kata spesifik ini\n"
+            "5. 'literal_translation': terjemahan kata-per-kata secara kaku sesuai urutan sintaksis teks asli.\n"
+            "6. 'natural_translation': terjemahan bahasa Indonesia yang mengalir, alami, dan akurat secara kontekstual.\n"
+            "7. 'exegetical_context':\n"
+            "   - 'literary_genre': genre sastra teks (misal: Epistola Didaktik / Diatribe Paulin, Orakel Profetik Yudisial, Narasi Kovenan)\n"
+            "   - 'immediate_context': analisis perikop dekat (ayat-ayat sebelum dan sesudah dalam pasal yang sama)\n"
+            "   - 'historical_cultural_setting': latar belakang historis dan budaya (Sitz im Leben naskah asli)\n"
+            "8. 'syntactic_exegesis': minimal 3 poin krusial analisis sintaksis dan tata bahasa ayat tersebut (misal: aspek verba, urutan kata/topicalization, relasi klausa).\n"
+            "9. 'manuscript_witnesses': minimal 3 saksi naskah kuno (misal: Codex Leningradensis B19a, Septuaginta LXX, Dead Sea Scrolls / Codex Sinaiticus, Codex Vaticanus, Papirus P46/P66) beserta status variannya.\n"
+            "10. 'translation_comparison': minimal 3 versi terjemahan (TB LAI, KJV, ESV) yang diaudit terhadap teks asli untuk menguji akurasi atau pergeseran makna.\n"
+            "11. 'corpus_cross_references': minimal 3 ayat pembanding konkordansi lintas-ayat Bible (dengan nomor pasal dan ayat lengkap) beserta penjelasannya.\n"
+            "12. 'exegetical_synthesis': kesimpulan akhir eksegesis historis-gramatikal komprehensif dan objektif dalam bahasa Indonesia, murni ilmiah tanpa nada polemik debat.\n\n"
+            "FORMAT OUTPUT: Wajib HANYA berupa objek JSON valid (tanpa markdown backtick, tanpa kalimat pengantar/penutup) dengan skema:\n"
+            "{\n"
+            '  "passage_reference": "Nama Kitab Lengkap Pasal:Ayat",\n'
+            '  "original_language": "Biblical Hebrew | Koine Greek | Biblical Aramaic",\n'
+            '  "source_text_full": "Teks naskah kritis asli lengkap bervokal",\n'
+            '  "literal_translation": "...",\n'
+            '  "natural_translation": "...",\n'
+            '  "exegetical_context": {\n'
+            '    "literary_genre": "...",\n'
+            '    "immediate_context": "...",\n'
+            '    "historical_cultural_setting": "..."\n'
+            '  },\n'
+            '  "interlinear_tokens": [\n'
+            '    {\n'
+            '      "index": 1,\n'
+            '      "strong_number": "...",\n'
+            '      "original_text": "...",\n'
+            '      "transliteration": "...",\n'
+            '      "lemma": "...",\n'
+            '      "morphology_code": "...",\n'
+            '      "morphology_expanded": "...",\n'
+            '      "literal_gloss": "...",\n'
+            '      "syntactic_role": "...",\n'
+            '      "lexical_entry": {"source": "...", "definition": "...", "semantic_range": "..."},\n'
+            '      "exegetical_note": "..."\n'
+            '    }\n'
+            '  ],\n'
+            '  "syntactic_exegesis": {"poin_1": "...", "poin_2": "...", "poin_3": "..."},\n'
+            '  "manuscript_witnesses": [{"witness": "...", "reading": "...", "status": "..."}],\n'
+            '  "translation_comparison": [{"version": "TB LAI", "text": "...", "critique": "..."}, {"version": "KJV", "text": "...", "critique": "..."}, {"version": "ESV", "text": "...", "critique": "..."}],\n'
+            '  "corpus_cross_references": [{"reference": "...", "connection": "..."}],\n'
+            '  "exegetical_synthesis": "..."\n'
+            "}"
+        )
+
+        user_query = f'Klaim / Teks Mosi: "{claim}"\nLakukan analisis eksegesis linguistik interlinear per kata sesuai standar BibleHub.'
+
+        # 3. Call LLM through AgentRuntime
+        try:
+            from orchestrator.runtime import AgentRuntime
+            dispatch_timeout = int(os.environ.get("POLYA_DISPATCH_TIMEOUT", "20"))
+            full_prompt = f"{academic_system_prompt}\n\n{user_query}"
+            res = AgentRuntime.dispatch_with_failover("RESEARCH_AGENT", full_prompt, timeout=dispatch_timeout)
+            if res and res.status == "COMPLETED" and res.output:
+                raw_text = res.output.strip()
+                match = re.search(r'\{[\s\S]*\}', raw_text)
+                if match:
+                    parsed_dict = json.loads(match.group(0))
+                    if isinstance(parsed_dict, dict) and "interlinear_tokens" in parsed_dict:
+                        pkg = ExegesisEngine.parse_exegesis_package(parsed_dict)
+                        if pkg and pkg.interlinear_tokens:
+                            return pkg
+        except Exception as e_llm:
+            logger.warning(f"CaseFileGenerator LLM exegesis generation warning: {e_llm}")
+
+        # 4. Reliable Fallback to Canonical Registry / Structural Package
+        return ExegesisEngine.generate_linguistic_exegesis_package(
+            claim=claim,
+            evidence_items=evidence_items,
+            synthesis_output=synthesis_output,
+            context=context
+        )
+
+
+    @classmethod
     def generate_case_file(
         cls,
         claim: str,
@@ -1257,18 +1388,22 @@ class CaseFileGenerator:
                 canonical_sim = None
                 prep_val["canonical_8_rounds"] = None
 
-            # Generate full LinguisticExegesisPackage (BibleHub text analysis standard)
+            # Generate full LinguisticExegesisPackage (BibleHub text analysis standard) ONLY when requested_mode == "RESEARCH"
             linguistic_exegesis = None
-            try:
-                from orchestrator.exegesis_engine import ExegesisEngine
-                linguistic_exegesis = ExegesisEngine.generate_linguistic_exegesis_package(
-                    claim=claim,
-                    evidence_items=result.get("evidence_items", []),
-                    synthesis_output=synth,
-                    context=ctx
-                )
-            except Exception as e_exegesis:
-                logger.warning(f"Linguistic exegesis package generation notice: {e_exegesis}")
+            if requested_mode == "RESEARCH":
+                try:
+                    if result.get("linguistic_exegesis"):
+                        from orchestrator.exegesis_engine import ExegesisEngine
+                        linguistic_exegesis = ExegesisEngine.parse_exegesis_package(result["linguistic_exegesis"])
+                    if not linguistic_exegesis:
+                        linguistic_exegesis = CaseFileGenerator.generate_linguistic_exegesis(
+                            claim=claim,
+                            context=ctx,
+                            evidence_items=result.get("evidence_items", []),
+                            synthesis_output=synth
+                        )
+                except Exception as e_exegesis:
+                    logger.warning(f"Linguistic exegesis package generation notice: {e_exegesis}")
 
             # Inject dynamic ZUMA 8-point simulated debate into output (mode DEBATE only).
             if requested_mode == "DEBATE":
@@ -1387,16 +1522,16 @@ class CaseFileGenerator:
                     pass
 
             fallback_exegesis = None
-            try:
-                from orchestrator.exegesis_engine import ExegesisEngine
-                fallback_exegesis = ExegesisEngine.generate_linguistic_exegesis_package(
-                    claim=claim,
-                    evidence_items=[],
-                    synthesis_output={},
-                    context=ctx
-                )
-            except Exception:
-                pass
+            if requested_mode == "RESEARCH":
+                try:
+                    fallback_exegesis = CaseFileGenerator.generate_linguistic_exegesis(
+                        claim=claim,
+                        context=ctx,
+                        evidence_items=[],
+                        synthesis_output={}
+                    )
+                except Exception:
+                    pass
 
             if requested_mode == "DEBATE":
                 try:

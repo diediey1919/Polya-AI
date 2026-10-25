@@ -169,3 +169,90 @@ def test_exegesis_engine_canonical_roma_3_31():
     assert pkg.interlinear_tokens[0].strong_number == "G3551"
     assert pkg.interlinear_tokens[-1].strong_number == "G2476"
     assert "histanomen" in pkg.interlinear_tokens[-1].transliteration
+
+
+def test_case_file_generator_generate_linguistic_exegesis_canonical():
+    """Verify CaseFileGenerator.generate_linguistic_exegesis produces complete 8-section package."""
+    claim = "Roma 3:31 menegakkan hukum Taurat melalui iman"
+    pkg = CaseFileGenerator.generate_linguistic_exegesis(claim=claim)
+
+    assert pkg is not None
+    assert pkg.passage_reference == "Roma 3:31"
+    assert pkg.original_language == "Koine Greek"
+    assert len(pkg.interlinear_tokens) == 11
+    assert pkg.exegetical_context is not None
+    assert pkg.exegetical_context.literary_genre != ""
+    assert pkg.exegetical_context.immediate_context != ""
+    assert pkg.exegetical_context.historical_cultural_setting != ""
+    assert len(pkg.syntactic_exegesis) >= 3, "Must have at least 3 syntactic exegesis points"
+    assert len(pkg.manuscript_witnesses) >= 3, "Must have at least 3 ancient manuscript witnesses"
+    assert len(pkg.translation_comparison) >= 3, "Must have at least 3 translation comparisons"
+    assert len(pkg.corpus_cross_references) >= 3, "Must have at least 3 cross references"
+    assert len(pkg.exegetical_synthesis) > 30, "Must have comprehensive Indonesian synthesis"
+
+
+def test_case_file_generator_generate_linguistic_exegesis_structural_and_fallback():
+    """Verify fallback mechanism generates valid package with 3+ witnesses/translations/cross-refs for any scripture."""
+    claim = "Filipi 2:6 tidak mempertahankan kesetaraan dengan Allah"
+    pkg = CaseFileGenerator.generate_linguistic_exegesis(claim=claim)
+
+    assert pkg is not None
+    assert pkg.passage_reference == "Filipi 2:6"
+    assert len(pkg.interlinear_tokens) >= 1
+    assert len(pkg.syntactic_exegesis) >= 3
+    assert len(pkg.manuscript_witnesses) >= 3
+    assert len(pkg.translation_comparison) >= 3
+    assert len(pkg.corpus_cross_references) >= 3
+    assert pkg.exegetical_synthesis != ""
+
+
+def test_linguistic_exegesis_node_in_research_graph():
+    """Verify linguistic_exegesis_node populates in RESEARCH mode and is bypassed in DEBATE mode."""
+    from orchestrator.research_graph import linguistic_exegesis_node
+
+    state_research = {
+        "claim_input": "Roma 3:31",
+        "requested_mode": "RESEARCH"
+    }
+    res_research = linguistic_exegesis_node(state_research)
+    assert res_research.get("linguistic_exegesis") is not None
+    assert res_research["linguistic_exegesis"]["passage_reference"] == "Roma 3:31"
+
+    state_debate = {
+        "claim_input": "Roma 3:31",
+        "requested_mode": "DEBATE"
+    }
+    res_debate = linguistic_exegesis_node(state_debate)
+    assert res_debate.get("linguistic_exegesis") is None
+
+
+def test_html_frontend_mode_isolation_and_8_sections():
+    """Verify web/static/index.html contains #research-interlinear-card and all 8 sections in renderCaseFile."""
+    html_path = REPO_ROOT / "web" / "static" / "index.html"
+    assert html_path.exists()
+    content = html_path.read_text(encoding="utf-8")
+
+    # Verify container IDs
+    assert 'id="research-interlinear-card"' in content
+    assert 'id="research-interlinear-content"' in content
+
+    # Verify mode isolation hides debate elements in research mode
+    assert "isResearchMode" in content
+    assert 'zumaDebateCard.style.display = "none"' in content
+    assert 'oppCounterHeader.closest(".case-card").style.display = "none"' in content
+    assert 'rebuttalHeader.closest(".case-card").style.display = "none"' in content
+    assert 'weaknessHeader.closest(".case-card").style.display = "none"' in content
+    assert 'btnWeakest.style.display = "none"' in content
+    assert 'simDebateBtn.style.display = "none"' in content
+    assert 'advBox.style.display = "none"' in content
+
+    # Verify all 8 visual sections are rendered
+    assert "Seksi 1: Naskah Sumber & Rekonstruksi Teks" in content
+    assert "Seksi 2: Grid Bedah Leksikon Per Kata" in content
+    assert "Seksi 3: Eksegesis Kontekstual & Hermeneutika" in content
+    assert "Seksi 4: Bedah Sintaksis & Gramatika Forensik" in content
+    assert "Seksi 5: Aparatus Kritik Tekstual & Saksi Manuskrip Kuno" in content
+    assert "Seksi 6: Audit Komparasi Terjemahan vs Teks Asli" in content
+    assert "Seksi 7: Konkordansi Lintas-Ayat Bible" in content
+    assert "Seksi 8: Sintesis Eksegesis Historis-Gramatikal" in content
+

@@ -127,6 +127,7 @@ class ResearchState(TypedDict):
     model_invocation: NotRequired[Optional[Dict[str, Any]]]
     retrieval_status: NotRequired[Optional[str]]
     corpus_evidence: NotRequired[Optional[List[Dict[str, Any]]]]
+    linguistic_exegesis: NotRequired[Optional[Dict[str, Any]]]
 
 
 # ============================================================================
@@ -907,6 +908,29 @@ def zuma_debate_preparation_node(state: ResearchState) -> Dict[str, Any]:
     }
 
 
+def linguistic_exegesis_node(state: ResearchState) -> Dict[str, Any]:
+    """Generates comprehensive LinguisticExegesisPackage when in RESEARCH mode."""
+    if state.get("requested_mode") != "RESEARCH":
+        return {"linguistic_exegesis": None}
+
+    claim_text = state["claim_input"]
+    evidence_items = state.get("evidence_items", [])
+    synth = state.get("synthesis_output") or {}
+
+    try:
+        from web.services import CaseFileGenerator
+        pkg = CaseFileGenerator.generate_linguistic_exegesis(
+            claim=claim_text,
+            evidence_items=evidence_items,
+            synthesis_output=synth
+        )
+        pkg_dict = pkg.model_dump() if hasattr(pkg, "model_dump") else (pkg.dict() if hasattr(pkg, "dict") else pkg)
+        return {"linguistic_exegesis": pkg_dict}
+    except Exception as e_node:
+        logger.warning(f"linguistic_exegesis_node execution warning: {e_node}")
+        return {"linguistic_exegesis": None}
+
+
 def case_file_persistence_node(state: ResearchState) -> Dict[str, Any]:
     """Stores complete, resumable Canonical Case File with Master Prompt #3 extensions."""
     case_id = f"case_{uuid.uuid4().hex[:10]}"
@@ -1098,6 +1122,7 @@ def build_research_graph(
     builder.add_node("synthesis_evaluation_node", synthesis_evaluation_node)
     builder.add_node("debate_quality_gate_node", debate_quality_gate_node)
     builder.add_node("zuma_debate_preparation_node", zuma_debate_preparation_node)
+    builder.add_node("linguistic_exegesis_node", linguistic_exegesis_node)
     builder.add_node("case_file_persistence_node", case_file_persistence_node)
     builder.add_node("final_response_node", final_response_node)
 
@@ -1130,17 +1155,18 @@ def build_research_graph(
 
     def route_after_quality_gate(state: ResearchState) -> str:
         if state.get("requested_mode") == "RESEARCH":
-            return "case_file_persistence_node"
+            return "linguistic_exegesis_node"
         return "zuma_debate_preparation_node"
 
     builder.add_conditional_edges(
         "debate_quality_gate_node",
         route_after_quality_gate,
         {
-            "case_file_persistence_node": "case_file_persistence_node",
+            "linguistic_exegesis_node": "linguistic_exegesis_node",
             "zuma_debate_preparation_node": "zuma_debate_preparation_node"
         }
     )
+    builder.add_edge("linguistic_exegesis_node", "case_file_persistence_node")
     builder.add_edge("zuma_debate_preparation_node", "case_file_persistence_node")
     builder.add_edge("case_file_persistence_node", "final_response_node")
     builder.add_edge("final_response_node", END)
@@ -1211,6 +1237,7 @@ def run_deep_adversarial_research(
         "case_id": None,
         "execution_traces": [],
         "final_response": None,
+        "linguistic_exegesis": None,
         "errors": [],
     }
 
