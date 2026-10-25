@@ -2183,12 +2183,12 @@
             </div>
             <!-- Opponent Context Selector & Free Quota Pill to its right -->
             <div style="display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0;">
-              <select id="calc-opponent-select" style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-muted); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">
+              <select id="calc-opponent-select" onchange="updateOpponentPerspective(this.value)" style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-muted); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">
                 <option value="islam">Konteks Lawan: Muslim</option>
-                <option value="christian">Konteks Lawan: Kristen</option>
-                <option value="atheist">Konteks Lawan: Ateis</option>
-                <option value="jw">Konteks Lawan: Saksi Yehuwa</option>
-                <option value="catholic">Konteks Lawan: Katolik</option>
+                <option value="christian_protestant">Konteks Lawan: Kristen Protestan</option>
+                <option value="christian_catholic">Konteks Lawan: Katolik</option>
+                <option value="judaism">Konteks Lawan: Yudaisme</option>
+                <option value="atheist_secular">Konteks Lawan: Ateis / Sekuler</option>
               </select>
               <span id="calc-quota-pill" class="badge-pill badge-quota" style="font-size: 0.72rem; padding: 0.2rem 0.55rem; white-space: nowrap;">5 Free</span>
             </div>
@@ -3338,6 +3338,14 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       checkOnboardingStatus();
     }
 
+    function updateOpponentPerspective(val) {
+      const normVal = normalizePerspectiveKey(val);
+      userContext.opponent_perspective = normVal;
+      try {
+        localStorage.setItem("polya_user_context", JSON.stringify(userContext));
+      } catch(e){}
+    }
+
     function applyContextToUI() {
       const p = normalizePerspectiveKey(userContext.user_perspective);
       userContext.user_perspective = p;
@@ -3355,6 +3363,11 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
       const sPersp = document.getElementById("settings-persp-select");
       if (sPersp && sPersp.value !== p) sPersp.value = p;
+
+      const oppSelect = document.getElementById("calc-opponent-select");
+      if (oppSelect && userContext.opponent_perspective) {
+        oppSelect.value = userContext.opponent_perspective;
+      }
     }
 
     function handleClaimFocus(el) {
@@ -3466,6 +3479,14 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     async function runAnalysis() {
       const claim = document.getElementById("claim-input").value.trim();
       if (!claim) return;
+
+      const oppSelect = document.getElementById("calc-opponent-select");
+      if (oppSelect && oppSelect.value) {
+        userContext.opponent_perspective = normalizePerspectiveKey(oppSelect.value);
+        try {
+          localStorage.setItem("polya_user_context", JSON.stringify(userContext));
+        } catch(e){}
+      }
 
       const btn = document.getElementById("btn-calc-analyze");
       const loader = document.getElementById("btn-calc-loader");

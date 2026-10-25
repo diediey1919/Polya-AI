@@ -1045,6 +1045,7 @@ class CaseFileGenerator:
                 "thread_id": thread_id,
                 "user_id": user_id,
                 "user_perspective": persp,
+                "opponent_perspective": opp_persp,
                 "requested_mode": requested_mode,
                 "tasks": [],
                 "dispatched_agent_records": [],

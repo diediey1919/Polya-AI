@@ -7,6 +7,7 @@ Implements:
 2. Machine-Readable Argument Graph (Section 13)
 3. Contradiction Detection Engine with Contextual Classification (Section 14)
 4. Steelman Counterargument Engine (Section 15)
+With dynamic User Perspective x Opponent Context matrix support.
 """
 import uuid
 from dataclasses import dataclass, field
@@ -133,23 +134,11 @@ class ContradictionReport:
 class ArgumentEngine:
     """
     Constructs Argument Graphs, Steelmans Counterarguments,
-    and conducts forensic Contradiction Audits.
+    and conducts forensic Contradiction Audits with dynamic User x Opponent matrix.
     """
 
     @classmethod
-    def analyze_claim(
-        cls,
-        claim_text: str,
-        evidence: List[EvidenceItem],
-        user_perspective: Optional[str] = "christian_protestant"
-    ) -> CanonicalClaim:
-        """Constructs canonical claim representation from user input according to epistemic perspective."""
-        cid = f"claim_{uuid.uuid4().hex[:8]}"
-        q_lower = claim_text.lower()
-        is_pauline_law = any(w in q_lower for w in ["paulus", "taurat", "law", "nomos", "hukum taurat"])
-        is_christology = any(w in q_lower for w in ["yesus", "tuhan", "keilahian", "aku adalah tuhan", "allah sejati"])
-        is_trinity = any(w in q_lower for w in ["tritunggal", "trinity", "tiga pribadi", "monoteisme"])
-
+    def _normalize_perspectives(cls, user_perspective: Optional[str], opponent_perspective: Optional[str] = None):
         p_norm = (user_perspective or "christian_protestant").strip().lower()
         if p_norm in ("christian", "protestant"):
             p_norm = "christian_protestant"
@@ -159,22 +148,63 @@ class ArgumentEngine:
             p_norm = "atheist_secular"
         elif p_norm in ("jewish", "yahudi"):
             p_norm = "judaism"
+        elif p_norm in ("islam", "muslim"):
+            p_norm = "islam"
+
+        DEFAULT_OPP = {
+            "christian_protestant": "islam",
+            "christian_catholic": "christian_protestant",
+            "islam": "christian_protestant",
+            "judaism": "christian_protestant",
+            "atheist_secular": "christian_protestant",
+        }
+        opp_norm = (opponent_perspective or "").strip().lower()
+        if opp_norm in ("christian", "protestant"):
+            opp_norm = "christian_protestant"
+        elif opp_norm in ("catholic", "katolik"):
+            opp_norm = "christian_catholic"
+        elif opp_norm in ("atheist", "secular"):
+            opp_norm = "atheist_secular"
+        elif opp_norm in ("jewish", "yahudi"):
+            opp_norm = "judaism"
+        elif opp_norm in ("islam", "muslim"):
+            opp_norm = "islam"
+        if not opp_norm or opp_norm == p_norm:
+            opp_norm = DEFAULT_OPP.get(p_norm, "islam")
+        return p_norm, opp_norm
+
+    @classmethod
+    def analyze_claim(
+        cls,
+        claim_text: str,
+        evidence: List[EvidenceItem],
+        user_perspective: Optional[str] = "christian_protestant",
+        opponent_perspective: Optional[str] = None
+    ) -> CanonicalClaim:
+        """Constructs canonical claim representation from user input according to epistemic perspective and opponent context."""
+        cid = f"claim_{uuid.uuid4().hex[:8]}"
+        q_lower = claim_text.lower()
+        is_pauline_law = any(w in q_lower for w in ["paulus", "taurat", "law", "nomos", "hukum taurat"])
+        is_christology = any(w in q_lower for w in ["yesus", "tuhan", "keilahian", "aku adalah tuhan", "allah sejati", "lukas", "ikan goreng", "hantu", "roh", "bangkit", "kebangkitan"])
+        is_trinity = any(w in q_lower for w in ["tritunggal", "trinity", "tiga pribadi", "monoteisme"])
+
+        p_norm, opp_norm = cls._normalize_perspectives(user_perspective, opponent_perspective)
 
         if is_pauline_law:
             if p_norm == "christian_catholic":
                 subject = "Paulus dari Tarsus & Tradisi Apostolik"
                 predicate = "kegenapan hukum moral dalam kovenan baru"
                 objects = ["Kanon 73 Kitab (Deuterokanonika)", "Tradisi Suci Patristik", "Magisterium Gereja"]
-                scope = "Kanon 73 Kitab, Patristik & Magisterium"
+                scope = f"Kanon 73 Kitab, Patristik & Magisterium vs Oposisi {opp_norm.upper()}"
                 counterclaims = [
-                    "Tradisi Patristik menegaskan kesinambungan hukum kodrat moral yang disempurnakan rahmat sakramental (Matius 5:17, Sirakh 15:15)",
+                    f"Oposisi {opp_norm.upper()} mendalilkan keberatan atas kaitan iman dan perbuatan ketaatan moral hukum Taurat",
                     "Magisterium mengajarkan bahwa hukum Taurat digenapi dalam kovenan baru tanpa menghapus kewajiban moral (Roma 3:31, Yakobus 2:24)"
                 ]
             elif p_norm == "islam":
                 subject = "Teologi Paulus versus Syariat Kovenan Para Nabi"
                 predicate = "pergeseran ajaran tauhid dan syariat kovenan"
                 objects = ["Al-Qur'an al-Karim", "Sunnah Shahihah", "Metode Ilzam al-Khasm"]
-                scope = "Tauhid, Syariat Para Nabi & Kritik Filologis Kanon"
+                scope = f"Tauhid, Syariat Para Nabi & Kritik Filologis Kanon vs Oposisi {opp_norm.upper()}"
                 counterclaims = [
                     "Al-Qur'an menegaskan para nabi diutus menegakkan syariat dan tauhid yang sama (QS Asy-Syura 13, Al-Ma'idah 46)",
                     "Berdasarkan kaidah Ilzam al-Khasm, pernyataan Yesus sendiri di Matius 5:17-19 menegaskan tidak satu iota pun dari hukum Taurat dibatalkan"
@@ -183,7 +213,7 @@ class ArgumentEngine:
                 subject = "Paulus dari Tarsus versus Keabadian Torah (Torat Emet)"
                 predicate = "klaim penghentian mitzvot kovenan Sinai"
                 objects = ["Tanakh Masoretik (Torah, Nevi'im, Ketuvim)", "Tradisi Lisan Talmud & Halakha"]
-                scope = "Tanakh Masoretik & Halakha Yahudi"
+                scope = f"Tanakh Masoretik & Halakha Yahudi vs Oposisi {opp_norm.upper()}"
                 counterclaims = [
                     "Torah adalah kovenan kekal (berit olam) yang tidak pernah dapat dibatalkan atau digantikan oleh manusia (Ulangan 13:1-5, Ulangan 29:29)",
                     "Tanakh menegaskan bahwa Allah bukan manusia dan firman-Nya berdiri teguh selama-lamanya (Bilangan 23:19, Yesaya 40:8)"
@@ -192,7 +222,7 @@ class ArgumentEngine:
                 subject = "Klaim Teologi Paulin & Perkembangan Sastra Kuno"
                 predicate = "evolusi hermeneutika kelompok sektarian abad pertama"
                 objects = ["Historiografi Kritis", "Sosiologi Agama", "Metode Historis-Kritis"]
-                scope = "Historiografi Kritis & Kritik Sastra Komparatif"
+                scope = f"Historiografi Kritis & Kritik Sastra Komparatif vs Oposisi {opp_norm.upper()}"
                 counterclaims = [
                     "Surat-surat Paulus merefleksikan dinamika sosiologis adaptasi gerakan proto-Kristen terhadap dunia Helenistik non-Yahudi",
                     "Ketiadaan konsensus monolitik membuktikan adanya faksionalisme internal antara kelompok Kristen-Yahudi Yerusalem dan misi Paulin"
@@ -202,93 +232,135 @@ class ArgumentEngine:
                 subject = "Paulus dari Tarsus"
                 predicate = "membatalkan (katargeō)"
                 objects = ["Hukum Taurat (Torah / Nomos)", "Perintah-perintah berketentuan (Dogmasin)"]
-                scope = "Pauline Epistles & Early Jewish-Christian Halakha"
-                counterclaims = [
-                    "Paulus menegakkan hukum Taurat secara moral dan eskatologis (Roma 3:31)",
-                    "Paulus hanya membatalkan tembok pemisah ritual etnis antara Yahudi dan bukan-Yahudi (Efesus 2:15)"
-                ]
+                scope = f"Pauline Epistles & Early Jewish-Christian Halakha vs Oposisi {opp_norm.upper()}"
+                if opp_norm == "islam":
+                    counterclaims = [
+                        "Polemik Islam mendalilkan teologi Paulin menyimpang dari syariat para nabi terdahulu (Matius 5:17)",
+                        "Metode Ilzam al-Khasm membuktikan Paulus di Roma 3:31 menegakkan hukum Taurat dan tidak menghapus firman para nabi"
+                    ]
+                elif opp_norm == "judaism":
+                    counterclaims = [
+                        "Teologi Yahudi mendalilkan Torah kovenan Sinai adalah berit olam (perjanjian kekal) yang tidak dapat dibatalkan (Ulangan 13:1-5)",
+                        "Paulus menegaskan bahwa hukum Taurat kudus, benar, dan baik (Roma 7:12) dan digenapi tujuannya di dalam Kristus (Roma 10:4)"
+                    ]
+                elif opp_norm == "christian_catholic":
+                    counterclaims = [
+                        "Teologi Katolik mendalilkan pembenaran iman harus disertai sakramen dan kebajikan kasih (Galatia 5:6, Yakobus 2:24)",
+                        "Sola Fide membela pembenaran anugerah cuma-cuma melalui iman tanpa perbuatan jasa manusia (Roma 3:28)"
+                    ]
+                elif opp_norm == "atheist_secular":
+                    counterclaims = [
+                        "Kritik sekuler mendalilkan faksionalisme internal antara misi Paulin dan kelompok rasul Yerusalem (Galatia 2:11-14)",
+                        "Eksegesis kontekstual membuktikan integritas pesan kovenan baru bagi bangsa-bangsa bukan-Yahudi"
+                    ]
+                else:
+                    counterclaims = [
+                        "Paulus menegakkan hukum Taurat secara moral dan eskatologis (Roma 3:31)",
+                        "Paulus hanya membatalkan tembok pemisah ritual etnis antara Yahudi dan bukan-Yahudi (Efesus 2:15)"
+                    ]
         elif is_christology:
             if p_norm == "christian_catholic":
                 subject = "Yesus Kristus / Sang Sabda Berinkarnasi"
                 predicate = "kesatuan kodrat ilahi dan manusiawi (Konsili Khalsedon)"
                 objects = ["Kanon 73 Kitab", "Kredo Ekumenis Nicea-Konstantinopel", "Konsensus Patristik"]
-                scope = "Kristologi Patristik, Kredo Ekumenis & Magisterium"
+                scope = f"Kristologi Patristik, Kredo Ekumenis & Magisterium vs Oposisi {opp_norm.upper()}"
                 counterclaims = [
-                    "Tradisi Apostolik dan kredo ekumenis secara konsisten mempertahankan dogma inkarnasi ilahi dari distorsi Ebionit dan Arian (Yohanes 1:1, Yohanes 10:30)",
-                    "Liturgi dan sakramen gereja perdana secara universal menyembah Kristus sebagai Allah sejati dan Manusia sejati"
+                    f"Oposisi {opp_norm.upper()} menantang formulasi kristologis dua kodrat dan wibawa Tradisi Suci Gereja",
+                    "Tradisi Apostolik dan kredo ekumenis secara konsisten mempertahankan dogma inkarnasi ilahi dari distorsi Ebionit dan Arian (Yohanes 1:1, Yohanes 10:30)"
                 ]
             elif p_norm == "islam":
                 subject = "Nabi Isa Al-Masih (Yesus) dalam Timbangan Tauhid"
                 predicate = "status kenabian dan penolakan deifikasi ontologis"
                 objects = ["Al-Qur'an al-Karim", "Sunnah Shahihah", "Metode Ilzam al-Khasm"]
-                scope = "Tanzih, Kemurnian Tauhid & Bedah Teks Sumber Bible"
+                scope = f"Tanzih, Kemurnian Tauhid & Bedah Teks Sumber Bible vs Oposisi {opp_norm.upper()}"
                 counterclaims = [
-                    "Al-Qur'an menegaskan Isa Al-Masih adalah hamba dan rasul Allah, bukan Tuhan atau anak Allah (QS Al-Ikhlas 1-4, QS An-Nisa 171, QS Al-Ma'idah 116)",
+                    f"Al-Qur'an menegaskan Isa Al-Masih adalah hamba dan rasul Allah menghadapi klaim {opp_norm.upper()} (QS Al-Ikhlas 1-4, QS An-Nisa 171, QS Al-Ma'idah 116)",
                     "Melalui metode Ilzam al-Khasm, Yesus sendiri dalam Bible menolak predikat ketuhanan mutlak dan menegaskan Bapa adalah satu-satunya Allah yang benar (Yohanes 17:3, Markus 10:18)"
                 ]
             elif p_norm == "judaism":
                 subject = "Sosok Yesus dalam Kerangka Teologi Kovenan Tanakh"
                 predicate = "penolakan inkarnasi dan klaim kemesiasan yang belum terbukti"
                 objects = ["Tanakh Masoretik", "Halakha & Teologi Rambam"]
-                scope = "Tanakh Masoretik & Monoteisme Murni Hashem"
+                scope = f"Tanakh Masoretik & Monoteisme Murni Hashem vs Oposisi {opp_norm.upper()}"
                 counterclaims = [
-                    "Hashem adalah mutlak esa tanpa sekutu, perwujudan fisik, atau pembagian pribadi (Ulangan 6:4, Yesaya 44:6)",
+                    f"Hashem adalah mutlak esa tanpa sekutu atau perwujudan fisik menghadapi klaim {opp_norm.upper()} (Ulangan 6:4, Yesaya 44:6)",
                     "Kriteria mesianik Tanakh menuntut pemulihan kerajaan Israel, pengumpulan diaspora, dan perdamaian dunia universal (Yesaya 2:4, Yeremia 23:5-6) yang belum tergenapi"
                 ]
             elif p_norm == "atheist_secular":
                 subject = "Historisitas Figur Yesus & Perkembangan Kristologi Rendah ke Tinggi"
                 predicate = "deifikasi bertahap dari guru apokaliptik menjadi entitas ilahi"
                 objects = ["Historiografi Kritis", "Kritik Sumber Sinoptik vs Yohanes", "Metode Historis-Empiris"]
-                scope = "Historiografi Kritis & Kritik Redaksi Akademik"
+                scope = f"Historiografi Kritis & Kritik Redaksi Akademik vs Oposisi {opp_norm.upper()}"
                 counterclaims = [
-                    "Analisis historis-kritis membuktikan perkembangan kristologi dari kristologi rendah (Markus) menuju kristologi pra-eksistensi tinggi (Yohanes)",
+                    f"Analisis historis-kritis membuktikan perkembangan kristologi dan pembentukan legenda menghadapi klaim {opp_norm.upper()}",
                     "Klaim mukjizat dan proklamasi supranatural tidak didukung bukti empiris koroboratif kontemporer independen di luar lingkaran tradisi sektarian"
                 ]
             else:
                 # Default: christian_protestant
-                subject = "Yesus Kristus / Hakikat Keilahian"
-                predicate = "proklamasi diri / keilahian eksplisit"
-                objects = ["Teks Injil Kanonikal", "Sintaksis Egō Eimi / Hen Esmen"]
-                scope = "Gospel Christology & Johannine Texts"
-                counterclaims = [
-                    "Keilahian Yesus dinyatakan melalui tindakan prerogatif ilahi dan kesatuan ontologis dengan Bapa (Yohanes 10:30)",
-                    "Ketiadaan formula verbal spesifik tidak menegasikan atribusi keilahian Yesus dalam tradisi apostolik"
-                ]
+                subject = "Yesus Kristus / Hakikat Keilahian & Kebangkitan Ragawi"
+                predicate = "proklamasi diri, keilahian substantif & kebangkitan historis"
+                objects = ["Teks Injil Kanonikal (Kanon 66 Kitab)", "Sintaksis Egō Eimi / Hen Esmen", "Bukti Jasmani Lukas 24:39-43"]
+                scope = f"Gospel Christology & Bodily Resurrection vs Oposisi {opp_norm.upper()}"
+                if opp_norm == "islam":
+                    counterclaims = [
+                        "Polemik Islam menantang keilahian Yesus dengan mendalilkan ketiadaan pernyataan verbal langsung 'Aku adalah Tuhan' serta menunjuk ayat-ayat kemanusiaan seperti Yesus makan ikan goreng di Lukas 24:42 dan berdoa kepada Allah (Yohanes 17:3)",
+                        "Berdasarkan kaidah Ilzam al-Khasm, pihak Kristen menegaskan keilahian Yesus melalui kesatuan ontologis (Yohanes 10:30), kuasa prerogatif mengampuni dosa (Markus 2:5-7), dan makan ikan goreng adalah verifikasi kebangkitan tubuh fisik melawan sangkaan hantu (Lukas 24:39-43)"
+                    ]
+                elif opp_norm == "atheist_secular":
+                    counterclaims = [
+                        "Kritik naturalis sekuler mendalilkan bahwa narasi kebangkitan jasmani dan makan ikan goreng (Lukas 24:42) merupakan perkembangan legenda apokaliptik tanpa verifikasi historiografi empiris independen",
+                        "Apologetika biblika membuktikan keandalan saksi mata awal melalui kredo tertua 1 Korintus 15:3-7, makam kosong di Yerusalem, dan kemartiran para rasul yang membela fakta historis kebangkitan"
+                    ]
+                elif opp_norm == "christian_catholic":
+                    counterclaims = [
+                        "Pihak Katolik mendalilkan bahwa interpretasi nas Alkitab tidak dapat dipisahkan dari wibawa Tradisi Suci, kanon 73 kitab, dan Magisterium Gereja yang menolak penafsiran privat Sola Scriptura",
+                        "Prinsip Sola Scriptura menegaskan bahwa Kitab Suci adalah norma berwibawa tertinggi yang menafsirkan dirinya sendiri (analogia scriptura) dan menguji seluruh tradisi gerejawi (2 Timotius 3:16-17)"
+                    ]
+                elif opp_norm == "judaism":
+                    counterclaims = [
+                        "Teologi Yudaisme menolak klaim kemesiasan Yesus karena kriteria mesianik eskatologis Tanakh (pemulihan kerajaan Israel, perdamaian universal, Bait Suci) belum tergenapi secara fisik di dunia",
+                        "Kanon Alkitab membuktikan pola dua kedatangan Mesias: kedatangan pertama sebagai Hamba yang menderita penebus dosa (Yesaya 53, Lukas 24:44-46) dan kedatangan kedua dalam kemuliaan eskatologis (Daniel 7:13-14)"
+                    ]
+                else:
+                    counterclaims = [
+                        "Keilahian Yesus dinyatakan melalui tindakan prerogatif ilahi dan kesatuan ontologis dengan Bapa (Yohanes 10:30)",
+                        "Ketiadaan formula verbal spesifik tidak menegasikan atribusi keilahian Yesus dalam tradisi apostolik"
+                    ]
         elif is_trinity:
             if p_norm == "christian_catholic":
                 subject = "Misteri Tritunggal Maha Kudus (Sanctissima Trinitas)"
                 predicate = "pengembangan artikulasi dogmatis dalam Tradisi Suci dan Magisterium"
                 objects = ["Kanon 73 Kitab", "Kredo Nicea-Konstantinopel", "Tradisi Patristik"]
-                scope = "Tradisi Suci, Kredo Ekumenis & Magisterium Gereja"
+                scope = f"Tradisi Suci, Kredo Ekumenis & Magisterium Gereja vs Oposisi {opp_norm.upper()}"
                 counterclaims = [
-                    "Konsili Nicea (325 M) dan Konstantinopel (381 M) adalah pembelaan terbimbing Roh Kudus terhadap kebenaran iman apostolik dari bidat Arianisme",
+                    f"Oposisi {opp_norm.upper()} menolak perkembangan formulasi terminologis konsili ekumenis",
                     "Tradisi Patristik (Athanasius, Basilius, Gregorius dari Nazianzus) membuktikan kesatuan esensi (homoousios) Bapa, Anak, dan Roh Kudus"
                 ]
             elif p_norm == "islam":
                 subject = "Kritik Doktrin Trinitas Berdasarkan Tauhid Murni"
                 predicate = "dekonstruksi inkonsistensi politeistik dan interpolasi naskah"
                 objects = ["Al-Qur'an al-Karim", "Akal Sehat (Sarih al-Aql)", "Metode Ilzam al-Khasm"]
-                scope = "Tanzih, Monoteisme Murni & Filologi Naskah Kuno"
+                scope = f"Tanzih, Monoteisme Murni & Filologi Naskah Kuno vs Oposisi {opp_norm.upper()}"
                 counterclaims = [
-                    "Al-Qur'an secara tegas melarang konsep trinitarian dan menegaskan kemahaesaan Allah yang absolut (QS An-Nisa 171, QS Al-Ma'idah 73, QS Al-Ikhlas 1-4)",
-                    "Melalui Ilzam al-Khasm, teks Shema di Ulangan 6:4 dan konfirmasi Yesus di Markus 12:29 menolak pembagian kepribadian dalam keilahian, serta naskah Comma Johanneum (1 Yohanes 5:7) terbukti interpolasi palsu"
+                    f"Al-Qur'an secara tegas melarang konsep trinitarian menghadapi klaim {opp_norm.upper()} (QS An-Nisa 171, QS Al-Ma'idah 73, QS Al-Ikhlas 1-4)",
+                    "Melalui Ilzam al-Khasm, teks Shema di Ulangan 6:4 dan konfirmasi Yesus di Markus 12:29 menolak pembagian kepribadian dalam keilahian"
                 ]
             elif p_norm == "judaism":
                 subject = "Penolakan Konsep Trinitas Berdasarkan Monoteisme Mutlak Tanakh"
                 predicate = "penjagaan ketat atas Shema Yisrael dan keesaan ilahi"
                 objects = ["Tanakh Masoretik", "Teks Shema (Ulangan 6:4)", "Filsafat Yahudi (Rambam)"]
-                scope = "Tanakh Masoretik & Monoteisme Radikal Ibrani"
+                scope = f"Tanakh Masoretik & Monoteisme Radikal Ibrani vs Oposisi {opp_norm.upper()}"
                 counterclaims = [
-                    "Shema Yisrael menyatakan secara kategoris bahwa Hashem adalah Echad (Esa mutlak), menolak segala bentuk pluralitas dalam hakikat ilahi (Ulangan 6:4)",
+                    f"Shema Yisrael menyatakan secara kategoris bahwa Hashem adalah Echad (Esa mutlak) menolak klaim {opp_norm.upper()} (Ulangan 6:4)",
                     "Konsep tritunggal merupakan adopsi konsep metafisika Yunani pasca-biblika yang bertentangan secara frontal dengan kovenan monoteisme murni Tanakh"
                 ]
             elif p_norm == "atheist_secular":
                 subject = "Genealogi Doktrin Trinitas & Konstruksi Politik-Dogmatis"
                 predicate = "evolusi rumusan teologis dari konsili politik kekaisaran Romawi"
                 objects = ["Historiografi Patristik", "Sosiologi Kekuasaan Imperium Romawi", "Sejarah Dogma"]
-                scope = "Historiografi Kritis & Kritik Sosiopolitik Agama"
+                scope = f"Historiografi Kritis & Kritik Sosiopolitik Agama vs Oposisi {opp_norm.upper()}"
                 counterclaims = [
-                    "Sejarah membuktikan doktrin Tritunggal berkembang melalui pertarungan kekuasaan politik dan imperial pada Konsili Nicea (325 M) dan Konsili Konstantinopel (381 M)",
+                    f"Sejarah membuktikan doktrin Tritunggal berkembang melalui pertarungan kekuasaan politik menghadapi klaim {opp_norm.upper()}",
                     "Formulasi filosofis 'homoousios' mengimpor terminologi filsafat Neoplatonisme yang asing dari konteks teks semitik Yahudi abad pertama"
                 ]
             else:
@@ -296,19 +368,19 @@ class ArgumentEngine:
                 subject = "Doktrin Tritunggal / Formulasi Iman"
                 predicate = "perkembangan artikulasi dogmatis versus benih biblika"
                 objects = ["Pola Triadik Perjanjian Baru", "Kredo Ekumenis Nicea-Konstantinopel"]
-                scope = "Biblical Triadic Formulas & Patristic Development"
+                scope = f"Biblical Triadic Formulas & Patristic Development vs Oposisi {opp_norm.upper()}"
                 counterclaims = [
-                    "Formula triadik tertanam dalam teks baptisan dan berkat Perjanjian Baru (Matius 28:19, 2 Korintus 13:13)",
-                    "Formulasi Nicea adalah pembelaan terhadap esensi monoteisme biblika dari distorsi Arianisme"
+                    f"Oposisi {opp_norm.upper()} mempersoalkan ketiadaan istilah 'Tritunggal' secara eksplisit dalam Alkitab",
+                    "Pola triadik Perjanjian Baru membuktikan kesetaraan ilahi Bapa, Anak, dan Roh Kudus (Matius 28:19, 2 Korintus 13:13)"
                 ]
         else:
-            subject = "Subjek Empiris / Non-Korpus"
-            predicate = "klaim observasi di luar cakupan naskah"
-            objects = ["Korpus Naskah Kuno"]
-            scope = "Domain Non-Teologis / Sains Alam"
+            subject = "Objek Klaim Umum / Non-Spesifik"
+            predicate = "pengujian bukti rasional dan teks primer"
+            objects = ["Literatur Kanonikal", "Korpus Naskah Sejarah"]
+            scope = f"Eksegesa & Kritik Sumber vs Oposisi {opp_norm.upper()}"
             counterclaims = [
-                "Klaim ini merupakan pernyataan di luar domain teologi teks kuno",
-                "Ketiadaan bukti naskah mencerminkan batas domain materi analisis"
+                f"Oposisi {opp_norm.upper()} menantang kesimpulan analisis dari sudut pandang epistemik mereka",
+                "Bukti teks primer dan naskah kuno dijadikan tolok ukur pengujian keabsahan argumen"
             ]
 
         sources = [e.passage_reference for e in evidence]
@@ -335,7 +407,7 @@ class ArgumentEngine:
         arg_id = f"arg_{uuid.uuid4().hex[:8]}"
         q_lower = claim.text.lower()
         is_pauline_law = any(w in q_lower for w in ["paulus", "taurat", "law", "nomos", "hukum taurat"])
-        is_christology = any(w in q_lower for w in ["yesus", "tuhan", "keilahian", "aku adalah tuhan", "allah sejati"])
+        is_christology = any(w in q_lower for w in ["yesus", "tuhan", "keilahian", "aku adalah tuhan", "allah sejati", "lukas", "ikan goreng", "hantu", "roh", "bangkit", "kebangkitan"])
         is_trinity = any(w in q_lower for w in ["tritunggal", "trinity", "tiga pribadi", "monoteisme"])
 
         if is_pauline_law:
@@ -357,18 +429,20 @@ class ArgumentEngine:
         elif is_christology:
             argument = ArgumentNode(
                 argument_id=arg_id,
-                claim="Meskipun Yesus tidak menggunakan rumusan verba 'Aku adalah Tuhan', keilahian-Nya dinyatakan secara substantif melalui tindakan prerogatif ilahi dan relasi ontologis dengan Bapa.",
+                claim="Meskipun Yesus tidak menggunakan rumusan verba 'Aku adalah Tuhan', keilahian dan kebangkitan ragawi-Nya dinyatakan secara substantif melalui tindakan prerogatif ilahi, pembuktian jasmani (Lukas 24:39-43), dan relasi ontologis dengan Bapa.",
                 premises=[
                     "Premis 1: Dalam budaya monoteisme Yahudi Bait Kedua, pengakuan keilahian tidak diartikulasikan dengan rumusan deklaratif simplistik melainkan melalui klaim wewenang ilahi (pengampunan dosa, kedaulatan atas Sabat).",
                     "Premis 2: Yesus menyatakan kesatuan hakikat dengan Bapa dalam Yohanes 10:30 menggunakan kata neuter 'hen' (ἕν ἐσμεν), yang secara gramatika menandakan kesatuan substansi, bukan sekadar kesatuan personil.",
-                    "Premis 3: Reaksi para pendengar kontemporer Yahudi (Yohanes 10:33) membuktikan bahwa klaim Yesus dipahami secara langsung sebagai penyetaraan diri dengan Allah."
+                    "Premis 3: Reaksi para pendengar kontemporer Yahudi (Yohanes 10:33) membuktikan bahwa klaim Yesus dipahami secara langsung sebagai penyetaraan diri dengan Allah.",
+                    "Premis 4: Dalam Lukas 24:39-43, Yesus makan sepotong ikan goreng untuk membuktikan realitas kebangkitan tubuh jasmani nyata melawan sangkaan ilusi roh/hantu (pneuma/phantasma) dan menggenapi nubuat Kitab Suci (Lukas 24:44-46)."
                 ],
                 evidence_items=[e.passage_reference for e in evidence],
                 inferences=[
                     "Inferensi 1: Menuntut frasa harfiah modern mengabaikan idiom kristologis abad pertama.",
-                    "Inferensi 2: Gelar 'Anak Manusia' yang digunakan Yesus berakar pada Daniel 7:13-14 yang menerima kekuasaan abadi dan penyembahan."
+                    "Inferensi 2: Gelar 'Anak Manusia' yang digunakan Yesus berakar pada Daniel 7:13-14 yang menerima kekuasaan abadi dan penyembahan.",
+                    "Inferensi 3: Kebangkitan tubuh fisik yang dapat diraba dan makan makanan membuktikan integritas kemenangan atas maut dalam sejarah keselamatan."
                 ],
-                conclusion="Ketiadaan kutipan kalimat verbal tertentu tidak membuktikan bahwa Yesus menolak keilahian-Nya, melainkan mencerminkan cara wahyu diri Yesus dalam konteks teologis zamannya."
+                conclusion="Ketiadaan kutipan kalimat verbal tertentu atau tindakan makan manusiawi tidak menegasikan keilahian-Nya, melainkan membuktikan realitas inkarnasi dan kebangkitan ragawi sejati Kristus."
             )
         elif is_trinity:
             argument = ArgumentNode(
@@ -404,28 +478,28 @@ class ArgumentEngine:
         return argument.to_dict()
 
     @classmethod
-    def steelman_opposition(cls, claim_text: str, user_perspective: Optional[str] = "christian_protestant") -> SteelmanCounterargument:
+    def steelman_opposition(
+        cls,
+        claim_text: str,
+        user_perspective: Optional[str] = "christian_protestant",
+        opponent_perspective: Optional[str] = None
+    ) -> SteelmanCounterargument:
         """
         Steelman counterargument construction (Section 15):
         Constructs the strongest plausible opposing argument before rebuttal,
-        tailored to the user's apologetics perspective and canonical standard.
+        tailored dynamically to the User Perspective x Opponent Context matrix.
         """
         carg_id = f"carg_{uuid.uuid4().hex[:8]}"
         q_lower = claim_text.lower()
         is_pauline_law = any(w in q_lower for w in ["paulus", "taurat", "law", "nomos", "hukum taurat"])
-        is_christology = any(w in q_lower for w in ["yesus", "tuhan", "keilahian", "aku adalah tuhan", "allah sejati"])
+        is_christology = any(w in q_lower for w in ["yesus", "tuhan", "keilahian", "aku adalah tuhan", "allah sejati", "lukas", "ikan goreng", "hantu", "roh", "bangkit", "kebangkitan"])
         is_trinity = any(w in q_lower for w in ["tritunggal", "trinity", "tiga pribadi", "monoteisme"])
 
-        p_norm = (user_perspective or "christian_protestant").strip().lower()
-        if p_norm in ("christian", "protestant"):
-            p_norm = "christian_protestant"
-        elif p_norm in ("catholic", "katolik"):
-            p_norm = "christian_catholic"
-        elif p_norm in ("atheist", "secular"):
-            p_norm = "atheist_secular"
-        elif p_norm in ("jewish", "yahudi"):
-            p_norm = "judaism"
+        p_norm, opp_norm = cls._normalize_perspectives(user_perspective, opponent_perspective)
 
+        # -------------------------------------------------------------------
+        # 1. PAULINE LAW MATRIX
+        # -------------------------------------------------------------------
         if is_pauline_law:
             if p_norm == "christian_catholic":
                 return SteelmanCounterargument(
@@ -546,40 +620,158 @@ class ArgumentEngine:
                 )
             else:
                 # Default: christian_protestant
-                return SteelmanCounterargument(
-                    counterargument_id=carg_id,
-                    opponent_claim=(
-                        "Paulus secara tuntas telah mengakhiri dispensasi Taurat; orang beriman tidak lagi di bawah hukum Taurat "
-                        "karena Kristus adalah kegenapan akhir hukum Taurat untuk pembenaran (Roma 10:4, Galatia 3:24-25, Efesus 2:15)."
-                    ),
-                    opponent_evidence=[
-                        "Roma 10:4: 'Sebab Kristus adalah kegenapan (τέλος) hukum Taurat, sehingga kebenaran diperoleh tiap-tiap orang yang percaya.'",
-                        "Galatia 3:24-25: 'Jadi hukum Taurat adalah penuntun (παιDAγωγός) bagi kita sampai Kristus datang... Sekarang iman itu telah datang, kita tidak berada lagi di bawah pengawasan penuntun.'",
-                        "Efesus 2:15: 'Ia telah membatalkan (καταργήσας) hukum Taurat dengan segala perintah dan ketentuannya.'"
-                    ],
-                    opponent_reasoning=(
-                        "Argumen oposisi didasarkan pada teleologi eskatologis Paulus: hukum Taurat berfungsi sementara sebagai "
-                        "penuntun/pengawas sampai Mesias datang. Begitu Mesias datang, hukum Taurat sebagai instrumen yudisial "
-                        "dan identitas kovenan telah selesai fungsinya bagi pembenaran."
-                    ),
-                    opponent_assumptions=[
-                        "Kata 'telos' (τέλος) dalam Roma 10:4 harus diterjemahkan sebagai 'penghentian/penamatan mutlak' (termination), bukan 'tujuan/sasaran akhir' (culmination/goal).",
-                        "Kata 'nomos' dalam tulisan Paulus bersifat monolitik tanpa membedakan hukum moral, peradilan, dan ritual pembatas bangsa."
-                    ],
-                    opponent_strength="FORMIDABLE",
-                    weaknesses=[
-                        "Kelemahan Filologis: 'Telos' dalam filsafat dan leksikografi Yunani Klasik/Koine (BDAG) lebih lazim bermakna 'tujuan yang dituju' (goal/apex), seperti tujuan sebuah benih adalah pohon berbuah, bukan pemusnahannya.",
-                        "Kelemahan Kontekstual: Mengabaikan pernyataan afirmatif Paulus sendiri di Roma 3:31 di mana Paulus menolak dengan keras kata 'katargeō' terhadap nomos.",
-                        "Inkonsistensi Hermeneutis: Memaksakan pandangan dispensasional modern ke dalam perdebatan eklesiologis abad pertama mengenai inklusi bangsa-bangsa non-Yahudi tanpa harus menjadi proselit sunat."
-                    ],
-                    rebuttal=(
-                        "Dalam dialektika filologi forensik, oposisi gagal membedakan antara 'fungsi pembenaran legalistik' (di mana manusia "
-                        "tidak dapat dibenarkan oleh perbuatan Taurat) dengan 'validitas moral Taurat'. Kristus adalah tujuan (telos) dari "
-                        "Taurat yang menuntun kepada kebenaran, bukan pembunuh Taurat. Di Roma 3:31, Paulus secara eksplisit menegaskan "
-                        "bahwa iman justru 'menegakkan' (histanomen) hukum Taurat."
-                    ),
-                    rebuttal_evidence=["Roma 3:31", "Roma 7:12", "Matius 5:17"]
-                )
+                if opp_norm == "islam":
+                    return SteelmanCounterargument(
+                        counterargument_id=carg_id,
+                        opponent_claim=(
+                            "Paulus secara sepihak membatalkan syariat Taurat para nabi demi mempermudah konversi bangsa pagan (Efesus 2:15, Galatia 3:13), "
+                            "bertentangan dengan proklamasi Yesus di Matius 5:17-19."
+                        ),
+                        opponent_evidence=[
+                            "Efesus 2:15: 'Ia telah membatalkan hukum Taurat dengan segala perintah dan ketentuannya.'",
+                            "Galatia 3:13: 'Kristus telah menebus kita dari kutuk hukum Taurat...'",
+                            "Matius 5:17: 'Janganlah kamu menyangka, bahwa Aku datang untuk meniadakan hukum Taurat atau kitab para nabi...'"
+                        ],
+                        opponent_reasoning=(
+                            "Polemik Islam mendalilkan bahwa syariat para nabi adalah satu kovenan berkesinambungan dan tidak boleh dirombak oleh doktrin rasul pasca-kenaikan nabi Isa."
+                        ),
+                        opponent_assumptions=[
+                            "Hukum seremonial pemisah etnis identik dengan hukum moral abadi.",
+                            "Penolakan legalisme sama dengan pembatalan hukum ilahi."
+                        ],
+                        opponent_strength="FORMIDABLE",
+                        weaknesses=[
+                            "Melalui metode Ilzam al-Khasm, Paulus di Roma 3:31 justru menegaskan 'kami menegakkan hukum Taurat' (nomon histanomen).",
+                            "Konteks Efesus 2:15 hanya membatalkan hukum seremonial pemisah etnis (en dogmasin), bukan hukum moral para nabi."
+                        ],
+                        rebuttal=(
+                            "Kanon 66 Kitab Bible membuktikan keselarasan ajaran Paulus dengan Yesus: pembenaran oleh iman tidak meniadakan hukum moral "
+                            "melainkan menegakkannya (Roma 3:31), sementara penebusan Kristus membebaskan dari kutuk pelanggaran Taurat (Galatia 3:13)."
+                        ),
+                        rebuttal_evidence=["Roma 3:31", "Matius 5:17-19", "Roma 7:12"]
+                    )
+                elif opp_norm == "judaism":
+                    return SteelmanCounterargument(
+                        counterargument_id=carg_id,
+                        opponent_claim=(
+                            "Torah kovenan Sinai adalah berit olam (perjanjian kekal) yang tidak pernah dapat dibatalkan atau digantikan (Ulangan 13:1-5, Mazmur 119:160); "
+                            "klaim Paulus bahwa Kristus adalah telos hukum Taurat (Roma 10:4) merupakan penyimpangan dari Halakha."
+                        ),
+                        opponent_evidence=[
+                            "Ulangan 13:1-5: 'Apabila di tengah-tengahmu bangkit seorang nabi... janganlah engkau mendengarkan...'",
+                            "Keluaran 31:16: '...merayakan sabat turun-temurun, suatu perjanjian kekal.'",
+                            "Roma 10:4: 'Sebab Kristus adalah kegenapan hukum Taurat...'"
+                        ],
+                        opponent_reasoning=(
+                            "Teologi Tanakh menegaskan bahwa firman Allah berdiri teguh selama-lamanya (Yesaya 40:8) dan ketetapan Torah mengikat seluruh keturunan Israel selamanya."
+                        ),
+                        opponent_assumptions=[
+                            "Kata 'telos' diartikan terminasi mutlak alih-alih puncak pemenuhan.",
+                            "Kovenan baru tidak dapat menggenapi kovenan lama."
+                        ],
+                        weaknesses=[
+                            "Secara filologis, kata 'telos' dalam Roma 10:4 bermakna sasaran/tujuan pemenuhan (culmination), bukan pemusnahan hukum.",
+                            "Yeremia 31:31-34 secara eksplisit menubuatkan Kovenan Baru yang dituliskan dalam batin."
+                        ],
+                        rebuttal=(
+                            "Bible Perjanjian Baru menyatakan bahwa iman kepada Mesias justru menegakkan keadilan sejati yang dituntut Taurat (Roma 3:31). "
+                            "Kovenan baru menggenapi nubuat Yeremia 31:31-34 tanpa membatalkan kekudusan hukum ilahi (Roma 7:12)."
+                        ),
+                        rebuttal_evidence=["Roma 3:31", "Yeremia 31:31-34", "Roma 7:12"]
+                    )
+                elif opp_norm == "christian_catholic":
+                    return SteelmanCounterargument(
+                        counterargument_id=carg_id,
+                        opponent_claim=(
+                            "Doktrin Sola Fide (pembenaran semata-mata oleh iman) memisahkan iman dari sakramen dan kebajikan moral gereja (Roma 3:28), "
+                            "bertentangan dengan surat Yakobus 2:24 dan konsensus patristik."
+                        ),
+                        opponent_evidence=[
+                            "Yakobus 2:24: 'Jadi kamu lihat, bahwa manusia dibenarkan karena perbuatan-perbuatannya dan bukan hanya karena iman.'",
+                            "Galatia 5:6: '...hanya iman yang bekerja oleh kasih.'",
+                            "Roma 3:28: 'Karena kami yakin, bahwa manusia dibenarkan karena iman...'"
+                        ],
+                        opponent_reasoning=(
+                            "Gereja Katolik mengajarkan pembenaran adalah proses transformasi pengudusan melalui rahmat sakramental, bukan sekadar deklarasi forensik sepihak."
+                        ),
+                        opponent_assumptions=[
+                            "Iman sejati dapat dipisahkan secara soliter dari buah perbuatan kasih.",
+                            "Penafsiran kanon memerlukan otoritas hierarki gerejawi."
+                        ],
+                        weaknesses=[
+                            "Paulus di Roma 3:28 membahas pembenaran di hadapan Allah, sedangkan Yakobus 2:24 membahas pembuktian iman di hadapan manusia.",
+                            "Teologi Protestan klasik menegaskan fides viva (iman yang sejati niscaya berbuah kasih dan perbuatan baik)."
+                        ],
+                        rebuttal=(
+                            "Alkitab mengajarkan bahwa manusia dibenarkan karena iman cuma-cuma oleh anugerah Kristus (Roma 3:24, Efesus 2:8-9). "
+                            "Perbuatan baik adalah buah yang menyertai keselamatan, bukan syarat meritokrasi manusiawi."
+                        ),
+                        rebuttal_evidence=["Roma 3:28", "Efesus 2:8-10", "Galatia 5:6"]
+                    )
+                elif opp_norm == "atheist_secular":
+                    return SteelmanCounterargument(
+                        counterargument_id=carg_id,
+                        opponent_claim=(
+                            "Surat-surat Paulus merefleksikan faksionalisme internal politik jemaat perdana antara faksi Yerusalem (Petrus-Yakobus) "
+                            "dan misi Paulin (Galatia 2:11-14), tanpa kesatuan wahyu supranatural inerran."
+                        ),
+                        opponent_evidence=[
+                            "Galatia 2:11-14: 'Tetapi waktu Kefas datang ke Antiokhia, aku berterang-terang menentangnya...'",
+                            "Kisah Para Rasul 21:20-21: '...mereka mendengar tentang engkau, bahwa engkau mengajar... meninggalkan hukum Musa...'",
+                            "2 Timotius 3:16: 'Segala tulisan yang diilhamkan Allah memang bermanfaat...'"
+                        ],
+                        opponent_reasoning=(
+                            "Metode historis-kritis melihat evolusi sosiologis agama kuno di mana doktrin adaptif dibangun untuk memfasilitasi integrasi populasi Helenistik."
+                        ),
+                        opponent_assumptions=[
+                            "Konflik sosiologis meniadakan kemungkinan bimbingan ilahi.",
+                            "Teks kuno harus bebas dari pergulatan sejarah untuk dianggap autentik."
+                        ],
+                        weaknesses=[
+                            "Pertikaian di Antiokhia adalah soal konsistensi praktik pergaulan meja, bukan perselisihan dogmatis atas substansi Injil (Galatia 2:14-16).",
+                            "Pengakuan para rasul pilar di Galatia 2:9 menegaskan kesatuan pesan keselamatan yang satu dan sama."
+                        ],
+                        rebuttal=(
+                            "Keterbukaan naskah merekam ketegangan historis justru membuktikan kejujuran dan integritas saksi mata (criterion of embarrassment), "
+                            "bukan rekayasa mitologis konspiratif."
+                        ),
+                        rebuttal_evidence=["Galatia 2:9-16", "2 Petrus 3:15-16", "Roma 3:31"]
+                    )
+                else:
+                    return SteelmanCounterargument(
+                        counterargument_id=carg_id,
+                        opponent_claim=(
+                            "Paulus secara tuntas telah mengakhiri dispensasi Taurat; orang beriman tidak lagi di bawah hukum Taurat "
+                            "karena Kristus adalah kegenapan akhir hukum Taurat untuk pembenaran (Roma 10:4, Galatia 3:24-25, Efesus 2:15)."
+                        ),
+                        opponent_evidence=[
+                            "Roma 10:4: 'Sebab Kristus adalah kegenapan (τέλος) hukum Taurat, sehingga kebenaran diperoleh tiap-tiap orang yang percaya.'",
+                            "Galatia 3:24-25: 'Jadi hukum Taurat adalah penuntun (παιδαγωγός) bagi kita sampai Kristus datang...'",
+                            "Efesus 2:15: 'Ia telah membatalkan (καταργήσας) hukum Taurat dengan segala perintah dan ketentuannya.'"
+                        ],
+                        opponent_reasoning=(
+                            "Argumen oposisi didasarkan pada teleologi eskatologis Paulus: hukum Taurat berfungsi sementara sebagai "
+                            "penuntun/pengawas sampai Mesias datang."
+                        ),
+                        opponent_assumptions=[
+                            "Kata 'telos' dalam Roma 10:4 harus diterjemahkan sebagai penamatan mutlak (termination).",
+                            "Kata 'nomos' dalam tulisan Paulus bersifat monolitik."
+                        ],
+                        opponent_strength="FORMIDABLE",
+                        weaknesses=[
+                            "Kelemahan Filologis: 'Telos' dalam filsafat dan leksikografi Yunani Klasik/Koine (BDAG) bermakna tujuan akhir (goal/apex).",
+                            "Kelemahan Kontekstual: Mengabaikan pernyataan afirmatif Paulus sendiri di Roma 3:31 (histanomen nomon)."
+                        ],
+                        rebuttal=(
+                            "Dalam dialektika filologi forensik, oposisi gagal membedakan antara fungsi pembenaran legalistik dengan validitas moral Taurat. "
+                            "Kristus adalah tujuan Taurat, dan di Roma 3:31 Paulus menegaskan iman justru menegakkan (histanomen) hukum Taurat."
+                        ),
+                        rebuttal_evidence=["Roma 3:31", "Roma 7:12", "Matius 5:17"]
+                    )
+
+        # -------------------------------------------------------------------
+        # 2. CHRISTOLOGY & BODILY RESURRECTION MATRIX
+        # -------------------------------------------------------------------
         elif is_christology:
             if p_norm == "christian_catholic":
                 return SteelmanCounterargument(
@@ -652,41 +844,171 @@ class ArgumentEngine:
                         "1 Korintus 15:6: 'Sesudah itu Ia menampakkan diri kepada lebih dari lima ratus saudara sekaligus...'",
                         "Kisah Para Rasul 2:32: 'Yesus inilah yang dibangkitkan Allah, dan tentang hal itu kami semua adalah saksi.'"
                     ],
-                    opponent_reasoning="Argumen apologetika minimal facts mendalilkan bahwa kebangkitan adalah hipotesis terbaik yang menjelaskan makam kosong dan keberanian murid-murid.",
+                    opponent_reasoning="Apologetika sejarah berargumen bahwa kemunculan mendadak gerakan Kristen dan kemartiran murid membuktikan fakta historis kebangkitan.",
                     opponent_assumptions=[
-                        "Teks pengakuan iman konfesional identik dengan catatan forensik saksi mata independen.",
-                        "Ketiadaan penjelasan naturalistik langsung otomatis memvalidasi mukjizat supranatural."
+                        "Kesediaan mati demi keyakinan membuktikan kebenaran fakta objektif peristiwa supranatural.",
+                        "Teks pengakuan iman (kredo) abad pertama bebas dari bias glorifikasi teologis komunitas pengikutnya."
                     ],
                     opponent_strength="FORMIDABLE",
                     weaknesses=[
-                        "Ketiadaan saksi koroboratif independen sezaman di luar komunitas pengikut gerakan keagamaan.",
-                        "Perkembangan sastra Injil membuktikan evolusi tradisi dari penampakan visioner internal (Paulus) menjadi narasi jasmani yang semakin elaboratif di Injil-Injil belakangan."
+                        "Psikologi kognitif dan antropologi agama membuktikan bahwa keyakinan subjektif dan pengalaman duka (grief hallucinations) dapat memicu proklamasi histeris yang diyakini secara fanatik.",
+                        "Ketiadaan bukti koroboratif independen sezaman (dokumen Romawi/Yahudi non-Kristen) melemahkan klaim kepastian sejarah mukjizat biologis."
                     ],
-                    rebuttal="Prinsip beban pembuktian historis menuntut verifikasi empiris yang memadai untuk klaim supranatural. Ketiadaan bukti manuskrip sezaman dan kontradiksi narasi makam antar-Injil membuktikan proses pembentukan legenda dan mitologi pasca-kematian tokoh sejarah.",
+                    rebuttal="Metodologi sains empiris dan naturalisme historis menolak klaim supranatural. Ketiadaan bukti manuskrip sezaman dan kontradiksi narasi makam antar-Injil membuktikan proses pembentukan legenda dan mitologi pasca-kematian tokoh sejarah.",
                     rebuttal_evidence=["1 Korintus 15:6", "Markus 16:8", "Matius 28:11-15"]
                 )
             else:
                 # Default: christian_protestant
-                return SteelmanCounterargument(
-                    counterargument_id=carg_id,
-                    opponent_claim="Yesus secara eksplisit membedakan diri-Nya dari satu-satunya Allah yang benar dan tidak pernah mengucapkan pernyataan verbal langsung 'Aku adalah Tuhan'.",
-                    opponent_evidence=[
-                        "Yohanes 17:3: 'Inilah hidup yang kekal itu, yaitu bahwa mereka mengenal Engkau, satu-satunya Allah yang benar, dan mengenal Yesus Kristus yang telah Engkau utus.'",
-                        "Markus 10:18: 'Mengapa kaukatakan Aku baik? Tak seorang pun yang baik selain dari Allah saja.'"
-                    ],
-                    opponent_reasoning="Jika Yesus sungguh-sungguh sadar akan keilahian ontologis-Nya, Ia tentu akan menyatakan formula eksplisit kepada para murid dan orang banyak agar tidak timbul keraguan teologis.",
-                    opponent_assumptions=[
-                        "Ketiadaan frasa verbal eksplisit sama dengan penyangkalan terhadap status keilahian.",
-                        "Gaya pengajaran Yesus harus mengikuti standar rumusan kredo dogmatis modern."
-                    ],
-                    opponent_strength="FORMIDABLE",
-                    weaknesses=[
-                        "Mengabaikan gelar ilahi 'Egō Eimi' di Yohanes 8:58 dan penggunaan kuasa pengampunan dosa (Markus 2:5-7) yang merupakan hak prerogatif Allah semata.",
-                        "Mengabaikan konteks respons pendengar Yahudi yang hendak merajam Yesus karena menyetarakan diri dengan Allah (Yohanes 5:18, 10:33)."
-                    ],
-                    rebuttal="Bible menyatakan keilahian Yesus bukan melalui klaim verbal sepihak melainkan melalui kedaulatan, kuasa mencipta, dan kesatuan ontologis dengan Bapa (Yohanes 10:30).",
-                    rebuttal_evidence=["Yohanes 10:30", "Yohanes 8:58", "Markus 2:5-7"]
-                )
+                if opp_norm == "islam":
+                    return SteelmanCounterargument(
+                        counterargument_id=carg_id,
+                        opponent_claim=(
+                            "Yesus secara eksplisit membedakan diri-Nya dari satu-satunya Allah yang benar (Yohanes 17:3), "
+                            "dan tindakan makan ikan goreng (Lukas 24:42) membuktikan ketergantungan fisik fana manusiawi yang bertentangan dengan kemutlakan ketuhanan."
+                        ),
+                        opponent_evidence=[
+                            "Lukas 24:42-43: 'Mereka memberikan kepada-Nya sepotong ikan goreng. Ia mengambilnya dan memakannya di depan mata mereka.'",
+                            "Yohanes 17:3: 'Inilah hidup yang kekal itu, yaitu bahwa mereka mengenal Engkau, satu-satunya Allah yang benar, dan mengenal Yesus Kristus yang telah Engkau utus.'",
+                            "Markus 10:18: 'Mengapa kaukatakan Aku baik? Tak seorang pun yang baik selain dari Allah saja.'"
+                        ],
+                        opponent_reasoning=(
+                            "Polemik Tauhid mendalilkan bahwa Zat Ilahi mustahil membutuhkan asupan makanan materi dan tidak mungkin mengalami keterbatasan fisik; "
+                            "tindakan makan membuktikan Yesus adalah hamba dan rasul utusan Allah, bukan Tuhan semesta alam."
+                        ),
+                        opponent_assumptions=[
+                            "Kebutuhan fisik fana manusiawi meniadakan doktrin inkarnasi firman ilahi.",
+                            "Ketiadaan klaim verbal harfiah 'Aku adalah Tuhan' membuktikan penolakan keilahian."
+                        ],
+                        opponent_strength="FORMIDABLE",
+                        weaknesses=[
+                            "Konteks perikop Lukas 24:36-43 membuktikan tindakan makan ikan goreng adalah pembuktian kebangkitan tubuh fisik nyata (flesh and bones) "
+                            "untuk membongkar ketakutan para murid yang mengira melihat roh/hantu (pneuma/phantasma), bukan penyangkalan keilahian.",
+                            "Doktrin inkarnasi ortodoks menegaskan kesatuan dua kodrat dalam satu pribadi Kristus: kemanusiaan sejati yang makan secara fisik, "
+                            "dan keilahian sejati yang berkuasa membangkitkan tubuh-Nya sendiri (Yohanes 10:18)."
+                        ],
+                        rebuttal=(
+                            "Bible menyatakan keilahian Yesus bukan melalui klaim verbal sepihak melainkan melalui kedaulatan, kuasa mencipta, dan kesatuan ontologis dengan Bapa (Yohanes 10:30). "
+                            "Di Lukas 24:39-43, Yesus makan ikan goreng justru untuk mematahkan sangkaan para murid bahwa Ia adalah roh ilusi/hantu, sekaligus membuktikan penggenapan "
+                            "nubuat Kitab Suci bahwa Mesias harus bangkit dari antara orang mati pada hari ketiga (Lukas 24:44-46)."
+                        ),
+                        rebuttal_evidence=["Lukas 24:39-46", "Yohanes 10:30", "Yohanes 20:28"]
+                    )
+                elif opp_norm == "atheist_secular":
+                    return SteelmanCounterargument(
+                        counterargument_id=carg_id,
+                        opponent_claim=(
+                            "Narasi penampakan jasmani pasca-kematian termasuk makan ikan goreng (Lukas 24:42) merupakan konstruksi sastra apologetik "
+                            "komunitas perdana untuk menangkal doketisme, tanpa verifikasi historiografi empiris independen."
+                        ),
+                        opponent_evidence=[
+                            "Lukas 24:42: 'Mereka memberikan kepada-Nya sepotong ikan goreng...'",
+                            "1 Korintus 15:6: '...sesudah itu Ia menampakkan diri kepada lebih dari lima ratus saudara sekaligus...'",
+                            "Markus 16:8: 'Lalu mereka keluar dan lari meninggalkan kubur itu...'"
+                        ],
+                        opponent_reasoning=(
+                            "Historiografi kritis dan naturalisme metodologis menolak intervensi mukjizat biologis atas mayat yang bangkit hidup kembali; "
+                            "ketidaksinkronan narasi makam kosong menunjukkan proses pembentukan legenda sastra pasca-kematian."
+                        ),
+                        opponent_assumptions=[
+                            "Hukum alam biologis menutup kemungkinan terjadinya peristiwa kebangkitan supranatural.",
+                            "Dokumentasi komunitas saksi mata tidak memiliki bobot historis tanpa verifikasi sekuler sezaman."
+                        ],
+                        opponent_strength="FORMIDABLE",
+                        weaknesses=[
+                            "Kredo tertua dalam 1 Korintus 15:3-7 berasal dari kurun waktu 3-5 tahun pasca-penyaliban, terlalu dini untuk evolusi legenda mitologis.",
+                            "Hipotesis halusinasi duka gagal menjelaskan kubur yang kosong di Yerusalem dan transformasi radikal para skeptis seperti Paulus dan Yakobus."
+                        ],
+                        rebuttal=(
+                            "Penyelidikan forensik naskah membuktikan kesaksian kebangkitan berakar pada peristiwa historis di Yerusalem yang dipertahankan "
+                            "para rasul hingga martir. Di Lukas 24:39-43, penekanan pada tubuh fisik yang dapat diraba dan makan makanan membuktikan "
+                            "penolakan dini terhadap mitologisasi alegoris atau visi spiritual semu."
+                        ),
+                        rebuttal_evidence=["1 Korintus 15:3-8", "Lukas 24:39-43", "Kisah Para Rasul 2:32"]
+                    )
+                elif opp_norm == "christian_catholic":
+                    return SteelmanCounterargument(
+                        counterargument_id=carg_id,
+                        opponent_claim=(
+                            "Kebenaran kodrat Kristus, kebangkitan, dan sakramen persekutuan tidak dapat dipahami secara privat melalui Sola Scriptura "
+                            "melainkan memerlukan wibawa Magisterium Gereja dan Kanon 73 Kitab (Tradisi Patristik Khalsedon)."
+                        ),
+                        opponent_evidence=[
+                            "2 Tesalonika 2:15: 'Berdirilah teguh dan berpeganglah pada ajaran-ajaran yang kamu terima...'",
+                            "1 Timotius 3:15: '...tiang penopang dan dasar kebenaran.'"
+                        ],
+                        opponent_reasoning=(
+                            "Gereja Katolik mengajarkan bahwa Kitab Suci lahir dari rahim Tradisi Gereja; penafsiran mandiri tanpa suksesi apostolik rentan mereduksi misteri sakramental."
+                        ),
+                        opponent_assumptions=[
+                            "Kanon Alkitab hanya dapat divalidasi oleh institusi kepausan.",
+                            "Tradisi lisan memiliki wibawa normatif setara naskah firman tertulis."
+                        ],
+                        opponent_strength="FORMIDABLE",
+                        weaknesses=[
+                            "Kitab Suci menyatakan secara internal kecukupan firman tertulis untuk keselamatan dan pengajaran (2 Timotius 3:16-17).",
+                            "Di Lukas 24:44-45, Yesus sendiri membuka pikiran murid-murid untuk memahami Kitab Suci tertulis, bukan tradisi manusia."
+                        ],
+                        rebuttal=(
+                            "Prinsip Sola Scriptura menetapkan Bible sebagai norma berwibawa tertinggi yang menguji seluruh tradisi gerejawi (2 Timotius 3:16-17). "
+                            "Kesaksian Kristus dalam Lukas 24:44-46 secara eksplisit mengikatkan iman pada pemenuhan naskah firman tertulis."
+                        ),
+                        rebuttal_evidence=["2 Timotius 3:16-17", "Lukas 24:44-45", "Kisah Para Rasul 17:11"]
+                    )
+                elif opp_norm == "judaism":
+                    return SteelmanCounterargument(
+                        counterargument_id=carg_id,
+                        opponent_claim=(
+                            "Yesus makan ikan goreng maupun klaim kebangkitan tidak memenuhi kriteria eskatologis Mesias menurut Tanakh, "
+                            "dan deifikasi manusia bertentangan secara frontal dengan Shema Yisrael (Ulangan 6:4)."
+                        ),
+                        opponent_evidence=[
+                            "Ulangan 6:4: 'Dengarlah, hai orang Israel: TUHAN itu Allah kita, TUHAN itu esa!'",
+                            "Bilangan 23:19: 'Allah bukanlah manusia, sehingga Ia berdusta...'",
+                            "Yesaya 2:4: '...bangsa tidak akan lagi mengangkat pedang terhadap bangsa...'"
+                        ],
+                        opponent_reasoning=(
+                            "Menurut Tanakh Masoretik, Mesias adalah manusia keturunan Daud yang mewujudkan perdamaian universal dan kepulangan diaspora secara fisik di dunia, bukan figur yang mati disalibkan."
+                        ),
+                        opponent_assumptions=[
+                            "Nubuatan mesianik hanya memiliki satu tahap tanpa misi penderitaan penebusan dosa.",
+                            "Klaim kemesiasan tertutup bagi pemenuhan kovenan spiritual."
+                        ],
+                        opponent_strength="FORMIDABLE",
+                        weaknesses=[
+                            "Tanakh menubuatkan figur Hamba TUHAN yang menderita dan mati menanggung dosa umat sebelum ditinggikan (Yesaya 52:13-53:12, Mazmur 22).",
+                            "Lukas 24:25-27, 44 menegaskan bahwa menurut hukum Taurat, nabi-nabi, dan mazmur, Mesias memang harus menderita dahulu sebelum masuk kemuliaan-Nya."
+                        ],
+                        rebuttal=(
+                            "Bible Perjanjian Baru menyatakan bahwa Yesus menggenapi nubuat nabi-nabi Tanakh secara bertahap: Hamba yang menderita menghapus dosa manusia "
+                            "(Yesaya 53, Lukas 24:44-46) sebelum kedatangan kedua dalam kemuliaan kerajaan kekal (Daniel 7:13-14)."
+                        ),
+                        rebuttal_evidence=["Lukas 24:44-46", "Yesaya 53:5-10", "Mazmur 22:1-22"]
+                    )
+                else:
+                    return SteelmanCounterargument(
+                        counterargument_id=carg_id,
+                        opponent_claim="Yesus secara eksplisit membedakan diri-Nya dari satu-satunya Allah yang benar dan tidak pernah mengucapkan pernyataan verbal langsung 'Aku adalah Tuhan'.",
+                        opponent_evidence=[
+                            "Yohanes 17:3: 'Inilah hidup yang kekal itu, yaitu bahwa mereka mengenal Engkau, satu-satunya Allah yang benar...'",
+                            "Markus 10:18: 'Mengapa kaukatakan Aku baik? Tak seorang pun yang baik selain dari Allah saja.'"
+                        ],
+                        opponent_reasoning="Jika Yesus sungguh-sungguh sadar akan keilahian ontologis-Nya, Ia tentu akan menyatakan formula eksplisit kepada para murid dan orang banyak agar tidak timbul keraguan teologis.",
+                        opponent_assumptions=[
+                            "Ketiadaan frasa verbal eksplisit sama dengan penyangkalan terhadap status keilahian.",
+                            "Gaya pengajaran Yesus harus mengikuti standar rumusan kredo dogmatis modern."
+                        ],
+                        opponent_strength="FORMIDABLE",
+                        weaknesses=[
+                            "Mengabaikan gelar ilahi 'Egō Eimi' di Yohanes 8:58 dan penggunaan kuasa pengampunan dosa (Markus 2:5-7) yang merupakan hak prerogatif Allah semata.",
+                            "Mengabaikan konteks respons pendengar Yahudi yang hendak merajam Yesus karena menyetarakan diri dengan Allah (Yohanes 5:18, 10:33)."
+                        ],
+                        rebuttal="Bible menyatakan keilahian Yesus bukan melalui klaim verbal sepihak melainkan melalui kedaulatan, kuasa mencipta, dan kesatuan ontologis dengan Bapa (Yohanes 10:30).",
+                        rebuttal_evidence=["Yohanes 10:30", "Yohanes 8:58", "Markus 2:5-7"]
+                    )
+
+        # -------------------------------------------------------------------
+        # 3. TRINITY MATRIX
+        # -------------------------------------------------------------------
         elif is_trinity:
             if p_norm == "christian_catholic":
                 return SteelmanCounterargument(
@@ -719,14 +1041,15 @@ class ArgumentEngine:
                     ],
                     opponent_reasoning="Apologet Kristen berargumen bahwa formula triadik membuktikan pluralitas pribadi dalam esensi ketuhanan yang satu.",
                     opponent_assumptions=[
-                        "Penyebutan tiga subjek dalam satu kalimat identik dengan kesetaraan ontologis ketiganya.",
-                        "Misteri trinitarian melampaui hukum logika non-kontradiksi."
+                        "Penyebutan tiga nama dalam satu formula gramatikal membuktikan kesetaraan status keilahian ontologis.",
+                        "Doktrin inkarnasi dan Trinitas selaras dengan monoteisme murni para nabi."
                     ],
-                    opponent_weaknesses=[
-                        "Matius 28:19 dan 2 Korintus 13:13 tidak pernah menyebut istilah 'tiga pribadi satu hakikat' (hypostasis / ousia).",
-                        "Ayat 1 Yohanes 5:7 (Comma Johanneum) yang memuat klaim tiga saksi surgawi terbukti secara filologis merupakan interpolasi palsu yang tidak ada dalam naskah kuno Codex Sinaiticus dan Codex Vaticanus."
+                    opponent_strength="FORMIDABLE",
+                    weaknesses=[
+                        "Penyandingan nama dalam formula berkat tidak membuktikan kesetaraan esensi; Yesus sendiri menegaskan 'Bapa lebih besar dari pada Aku' (Yohanes 14:28).",
+                        "Naskah tertua membuktikan ketiadaan formula Comma Johanneum (1 Yohanes 5:7-8) dalam manuskrip Yunani sebelum abad ke-14."
                     ],
-                    rebuttal="Melalui kaidah Ilzam al-Khasm, konsep Trinitas terbukti merupakan formulasi pasca-apostolik yang bertentangan dengan monoteisme murni Bible di Ulangan 6:4 dan Markus 12:29. Al-Qur'an secara tegas menegakkan tauhid mutlak (QS Al-Ikhlas 1-4, QS An-Nisa 171).",
+                    rebuttal="Berdasarkan prinsip Tauhid murni dan metode Ilzam al-Khasm, konsep Trinitas tidak memiliki legitimasi dari perkataan Yesus sendiri. Al-Qur'an (QS An-Nisa 171) menegaskan larangan mengatakan 'Tiga' dan menegakkan kemahaesaan Allah yang mutlak.",
                     rebuttal_evidence=["Ulangan 6:4", "Markus 12:29", "1 Timotius 2:5"]
                 )
             elif p_norm == "judaism":
@@ -773,36 +1096,127 @@ class ArgumentEngine:
                 )
             else:
                 # Default: christian_protestant
-                return SteelmanCounterargument(
-                    counterargument_id=carg_id,
-                    opponent_claim="Doktrin Tritunggal baru diformulasikan pada Konsili Nicea (325 M) di bawah tekanan politik kekaisaran Romawi dan tidak pernah diajarkan oleh Yesus.",
-                    opponent_evidence=[
-                        "Ulangan 6:4: 'Dengarlah, hai orang Israel: TUHAN itu Allah kita, TUHAN itu esa!'",
-                        "1 Korintus 8:6: 'Bagi kita hanya ada satu Allah saja, yaitu Bapa... dan satu Tuhan saja, yaitu Yesus Kristus.'"
-                    ],
-                    opponent_reasoning="Istilah Tritunggal (Trinitas) dan terminologi 'homoousios' tidak tercantum dalam Bible dan merupakan pengaruh filsafat Neoplatonisme pasca-apostolik.",
-                    opponent_assumptions=[
-                        "Ketiadaan istilah teknis dalam naskah berarti konsep substansi doktrin tersebut tidak ada.",
-                        "Konsili ekumenis menciptakan doktrin alih-alih mengartikulasikan iman yang sudah diterima."
-                    ],
-                    opponent_strength="FORMIDABLE",
-                    weaknesses=[
-                        "Mengabaikan formula baptisan Matius 28:19 yang menggunakan nama tunggal (eis to onoma) untuk Bapa, Anak, dan Roh Kudus.",
-                        "Bukti tulisan bapa gereja abad ke-1 dan ke-2 (Ignatius, Polycarpus, Justin Martyr) yang telah merekam ibadah kepada Kristus bersama Bapa."
-                    ],
-                    rebuttal="Konsili Nicea tidak menciptakan keilahian Kristus atau Tritunggal, melainkan membentengi ajaran apostolik tertua dari distorsi Arianisme berdasarkan Kanon 66 Kitab Bible.",
-                    rebuttal_evidence=["Ulangan 6:4", "Matius 28:19", "2 Korintus 13:13"]
-                )
+                if opp_norm == "islam":
+                    return SteelmanCounterargument(
+                        counterargument_id=carg_id,
+                        opponent_claim="Doktrin Tritunggal membagi kemahaesaan Allah dan bertentangan dengan Shema serta kesaksian Yesus sendiri bahwa Bapa adalah satu-satunya Allah yang benar (Yohanes 17:3, Markus 12:29).",
+                        opponent_evidence=[
+                            "Yohanes 17:3: 'Inilah hidup yang kekal itu, yaitu bahwa mereka mengenal Engkau, satu-satunya Allah yang benar...'",
+                            "Markus 12:29: 'Jawab Yesus: Hukum yang terutama ialah: Dengarlah, hai orang Israel, Tuhan Allah kita, Tuhan itu esa.'",
+                            "QS Al-Ikhlas 1-4: 'Katakanlah: Dialah Allah, Yang Maha Esa...'"
+                        ],
+                        opponent_reasoning="Polemik Tauhid menegaskan bahwa bilangan tiga tidak dapat diselaraskan dengan keesaan mutlak; konsep tiga pribadi ilahi dipandang sebagai politeisme terselubung.",
+                        opponent_assumptions=[
+                            "Diferensiasi relasional pribadi dalam ketuhanan sama dengan pemisahan substansi politeistik.",
+                            "Teks Shema menolak segala bentuk relasi ontologis Trinitarian."
+                        ],
+                        opponent_strength="FORMIDABLE",
+                        weaknesses=[
+                            "Mengabaikan formula baptisan Matius 28:19 yang menggunakan bentuk tunggal 'eis to onoma' (ke dalam satu nama) bagi Bapa, Anak, dan Roh Kudus.",
+                            "Monoteisme Alkitab membedakan antara 'unitarianisme mutlak' dengan 'monoteisme majemuk' yang diwahyukan dalam pola keselamatan Alkitab."
+                        ],
+                        rebuttal="Alkitab mengajarkan monoteisme sejati (Ulangan 6:4): satu hakikat Allah yang menyatakan diri secara kekal dalam tiga pribadi (Bapa, Anak, Roh Kudus). Matius 28:19 menegaskan satu nama tunggal yang menyatukan ketiga pribadi ilahi.",
+                        rebuttal_evidence=["Matius 28:19", "2 Korintus 13:13", "Ulangan 6:4"]
+                    )
+                elif opp_norm == "judaism":
+                    return SteelmanCounterargument(
+                        counterargument_id=carg_id,
+                        opponent_claim="Shema Yisrael (Ulangan 6:4) menegaskan Hashem adalah Echad (Esa mutlak); konsep kemajemukan pribadi ilahi merupakan adopsi metafisika Helenistik pasca-Tanakh.",
+                        opponent_evidence=[
+                            "Ulangan 6:4: 'Dengarlah, hai orang Israel: TUHAN itu Allah kita, TUHAN itu esa!'",
+                            "Yesaya 44:6: '...Akulah yang terdahulu dan Akulah yang terkemudian; tidak ada Allah selain dari pada-Ku.'",
+                            "Keluaran 20:3: 'Jangan ada padamu allah lain di hadapan-Ku.'"
+                        ],
+                        opponent_reasoning="Teologi Tanakh Masoretik menolak pembagian kepribadian dalam keilahian; Hashem adalah mutlak esa tanpa sekutu.",
+                        opponent_assumptions=[
+                            "Kata 'Echad' selalu bermakna keesaan tunggal mutlak (yachid).",
+                            "Naskah Tanakh tidak memuat indikasi kemajemukan dalam karya penciptaan dan penyelamatan."
+                        ],
+                        opponent_strength="FORMIDABLE",
+                        weaknesses=[
+                            "Kata 'Echad' dalam Tanakh juga digunakan untuk kesatuan majemuk (contoh: Kejadian 2:24, suami-istri menjadi satu [echad] daging; Bilangan 13:23, satu tandan anggur).",
+                            "Naskah Ibrani Tanakh memuat pola triadik profetis di mana TUHAN berfirman bersama Roh-Nya dan Sang Penebus (Yesaya 48:16, Yesaya 63:9-10)."
+                        ],
+                        rebuttal="Kanon 66 Kitab Bible menegaskan bahwa Allah Israel adalah esa (Ulangan 6:4) yang menyatakan kepenuhan hikmat dan firman-Nya di dalam Kristus dan Roh Kudus (Matius 28:19, Yesaya 48:16).",
+                        rebuttal_evidence=["Matius 28:19", "Yesaya 48:16", "Ulangan 6:4"]
+                    )
+                elif opp_norm == "atheist_secular":
+                    return SteelmanCounterargument(
+                        counterargument_id=carg_id,
+                        opponent_claim="Doktrin Tritunggal lahir dari kompromi politik kekaisaran Romawi pada Konsili Nicea (325 M) dengan meminjam istilah filosofis homoousios yang asing dari teks abad pertama.",
+                        opponent_evidence=[
+                            "Kredo Nicea (325 M)",
+                            "1 Yohanes 5:7 (varian naskah Comma Johanneum)",
+                            "Historiografi Kaisar Konstantinus"
+                        ],
+                        opponent_reasoning="Historiografi kritis memandang Trinitas sebagai evolusi dogma yang dipaksakan demi unifikasi politik imperium Romawi.",
+                        opponent_assumptions=[
+                            "Penggunaan terminologi filosofis membuktikan penciptaan ajaran baru.",
+                            "Konsensus konsili hanya merupakan manipulasi kekuasaan kekaisaran."
+                        ],
+                        opponent_strength="FORMIDABLE",
+                        weaknesses=[
+                            "Naskah Perjanjian Baru abad pertama telah memuat formula triadik eksplisit sebelum Nicea (Matius 28:19, 2 Korintus 13:13).",
+                            "Tulisan para Bapa Apostolik pra-Nicea (Ignatius, Ireneus, Tertulianus) membuktikan ibadah kepada Trinitas telah dihidupi sebelum campur tangan kaisar Romawi."
+                        ],
+                        rebuttal="Konsili Nicea tidak menciptakan doktrin baru melainkan merumuskan perlindungan ortodoks terhadap deposit iman biblika yang telah dihidupi jemaat perdana dari bidat Arianisme berdasarkan Kanon 66 Kitab Bible.",
+                        rebuttal_evidence=["Matius 28:19", "2 Korintus 13:13", "Yohanes 1:1"]
+                    )
+                elif opp_norm == "christian_catholic":
+                    return SteelmanCounterargument(
+                        counterargument_id=carg_id,
+                        opponent_claim="Artikulasi dogmatis Tritunggal membutuhkan wibawa Magisterium dan Tradisi Konsili untuk menafsirkan teks suci yang implisit.",
+                        opponent_evidence=[
+                            "Kredo Nicea-Konstantinopel",
+                            "Tradisi Patristik Para Bapa Gereja"
+                        ],
+                        opponent_reasoning="Menilai bahwa tanpa kewenangan mengajar Gereja Katolik, kanon Alkitab rentan disalahtafsirkan oleh aliran bidat.",
+                        opponent_assumptions=[
+                            "Kitab Suci tidak memiliki kejelasan internal (perspicuitas) mengenai keesaan Allah dan tiga pribadi.",
+                            "Wibawa konsili mendahului wibawa firman tertulis."
+                        ],
+                        weaknesses=[
+                            "Prinsip Sola Scriptura membuktikan bahwa Kitab Suci cukup dan jelas (sufficientia scripturae) menyatakan Bapa, Anak, dan Roh Kudus.",
+                            "Konsili ekumenis sejati hanya tunduk dan menguji diri pada otoritas firman tertulis Alkitab."
+                        ],
+                        rebuttal="Kebenaran Tritunggal berakar kokoh pada firman tertulis Alkitab (Sola Scriptura); konsili gereja sejati bertindak sebagai saksi firman yang menguji seluruh rumusan di hadapan naskah suci.",
+                        rebuttal_evidence=["Matius 28:19", "2 Timotius 3:16", "Yohanes 10:30"]
+                    )
+                else:
+                    return SteelmanCounterargument(
+                        counterargument_id=carg_id,
+                        opponent_claim="Doktrin Tritunggal baru diformulasikan pada Konsili Nicea (325 M) di bawah tekanan politik kekaisaran Romawi dan tidak pernah diajarkan oleh Yesus.",
+                        opponent_evidence=[
+                            "Ulangan 6:4: 'Dengarlah, hai orang Israel: TUHAN itu Allah kita, TUHAN itu esa!'",
+                            "1 Korintus 8:6: 'Bagi kita hanya ada satu Allah saja, yaitu Bapa... dan satu Tuhan saja, yaitu Yesus Kristus.'"
+                        ],
+                        opponent_reasoning="Istilah Tritunggal (Trinitas) dan terminologi 'homoousios' tidak tercantum dalam Bible dan merupakan pengaruh filsafat Neoplatonisme pasca-apostolik.",
+                        opponent_assumptions=[
+                            "Ketiadaan istilah teknis dalam naskah berarti konsep substansi doktrin tersebut tidak ada.",
+                            "Konsili ekumenis menciptakan doktrin alih-alih mengartikulasikan iman yang sudah diterima."
+                        ],
+                        opponent_strength="FORMIDABLE",
+                        weaknesses=[
+                            "Mengabaikan formula baptisan Matius 28:19 yang menggunakan nama tunggal (eis to onoma) untuk Bapa, Anak, dan Roh Kudus.",
+                            "Bukti tulisan bapa gereja abad ke-1 dan ke-2 (Ignatius, Polycarpus, Justin Martyr) yang telah merekam ibadah kepada Kristus bersama Bapa."
+                        ],
+                        rebuttal="Konsili Nicea tidak menciptakan keilahian Kristus atau Tritunggal, melainkan membentengi ajaran apostolik tertua dari distorsi Arianisme berdasarkan Kanon 66 Kitab Bible.",
+                        rebuttal_evidence=["Ulangan 6:4", "Matius 28:19", "2 Korintus 13:13"]
+                    )
+
+        # -------------------------------------------------------------------
+        # 4. GENERAL / FALLBACK MATRIX
+        # -------------------------------------------------------------------
         else:
             return SteelmanCounterargument(
                 counterargument_id=carg_id,
-                opponent_claim=f"Klaim '{claim_text}' adalah pernyataan faktual non-teologis yang tidak membutuhkan bukti teks suci.",
+                opponent_claim=f"Oposisi {opp_norm.upper()} menantang klaim '{claim_text}' dengan mendalilkan ketiadaan dukungan naskah primer yang konsisten menurut paradigma mereka.",
                 opponent_evidence=[],
-                opponent_reasoning="Pernyataan ilmiah atau fenomena alam didasarkan pada pengujian empiris, bukan otoritas naskah kanonikal kuno.",
-                opponent_assumptions=["Metodologi apologetika naskah dapat dipaksakan ke segala domain."],
-                opponent_strength="HIGH",
-                weaknesses=["Membawa klaim non-teologis ke dalam engine analisis eksegesa biblika."],
-                rebuttal="Klaim ini diakui berada di luar cakupan korpus teologis; engine menandainya sebagai insufficient evidence.",
+                opponent_reasoning=f"Pihak {opp_norm.upper()} berpegang pada kerangka epistemik normatif mereka dalam menguji keabsahan klaim teologis maupun historis.",
+                opponent_assumptions=[f"Praduga epistemik {opp_norm.upper()} harus dijadikan tolok ukur universal pembuktian."],
+                opponent_strength="MODERATE",
+                weaknesses=["Mengabaikan konteks literatur bahasa sumber dan analisis manuskrip kritis."],
+                rebuttal=f"Analisis forensik filologis membuktikan bahwa posisi {p_norm.upper()} konsisten secara internal dan didukung oleh rekaman naskah tertulis berwibawa.",
                 rebuttal_evidence=[]
             )
 

@@ -83,6 +83,7 @@ class ResearchState(TypedDict):
     thread_id: str
     user_id: NotRequired[Optional[str]]
     user_perspective: str
+    opponent_perspective: NotRequired[Optional[str]]
     requested_mode: str
     tasks: List[Dict[str, Any]]
     dispatched_agent_records: Annotated[List[Dict[str, Any]], operator.add]
@@ -200,9 +201,19 @@ def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
             "Jangan mengarang ayat Alkitab atau bukti fiktif. Nyatakan secara jujur bahwa bukti korpus tidak mencukupi."
         )
 
+    user_persp = state.get("user_perspective", "christian_protestant")
+    opp_persp = state.get("opponent_perspective", "islam")
+
+    perspective_instruction = (
+        f"PERSPEKTIF PENGGUNA (POSISI ANDA): {user_persp.upper()}\n"
+        f"KONTEKS LAWAN DEBAT (OPOSISI): {opp_persp.upper()}\n"
+        "Susun argumen pembelaan dari posisi pengguna, bangun sanggahan lawan (counterargument) sesuai dengan premis dan sudut pandang spesifik konteks lawan tersebut, dan susun tangkisan balik (rebuttal) yang mematahkan premis lawan secara akurat."
+    )
+
     prompt = f"""Anda adalah AI engine analitik apologetika Polya. Berikan sintesis terstruktur untuk klaim berikut:
 Klaim Pengguna: "{claim_text}"
 {mode_instruction}
+{perspective_instruction}
 
 Bukti Kontekstual dari Korpus:
 {ev_context_str}
@@ -419,8 +430,9 @@ def claim_analysis_node(state: ResearchState) -> Dict[str, Any]:
     """Structures canonical claim object."""
     claim_text = state["claim_input"]
     user_persp = state.get("user_perspective", "christian_protestant")
+    opp_persp = state.get("opponent_perspective", "islam")
     temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
-    claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence, user_perspective=user_persp)
+    claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence, user_perspective=user_persp, opponent_perspective=opp_persp)
     synth = state.get("synthesis_output")
     if synth and synth.get("claim_summary"):
         claim_obj.text = synth.get("claim_summary")
@@ -434,8 +446,9 @@ def argument_graph_node(state: ResearchState) -> Dict[str, Any]:
     """Generates machine-readable argument structure."""
     claim_text = state["claim_input"]
     user_persp = state.get("user_perspective", "christian_protestant")
+    opp_persp = state.get("opponent_perspective", "islam")
     temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
-    claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence, user_perspective=user_persp)
+    claim_obj = ArgumentEngine.analyze_claim(claim_text, temp_evidence, user_perspective=user_persp, opponent_perspective=opp_persp)
     arg_graph = ArgumentEngine.build_argument_graph(claim_obj, temp_evidence)
     synth = state.get("synthesis_output")
     if synth and synth.get("argument"):
@@ -452,7 +465,8 @@ def steelman_counterargument_node(state: ResearchState) -> Dict[str, Any]:
     """Builds formidable opposing argument and rebuttal (Steelman 2.0)."""
     claim_text = state["claim_input"]
     user_persp = state.get("user_perspective", "christian_protestant")
-    steelman = ArgumentEngine.steelman_opposition(claim_text, user_perspective=user_persp)
+    opp_persp = state.get("opponent_perspective", "islam")
+    steelman = ArgumentEngine.steelman_opposition(claim_text, user_perspective=user_persp, opponent_perspective=opp_persp)
     steel_dict = steelman.to_dict()
     synth = state.get("synthesis_output")
     if synth:
@@ -625,8 +639,10 @@ def debate_quality_gate_node(state: ResearchState) -> Dict[str, Any]:
 def zuma_debate_preparation_node(state: ResearchState) -> Dict[str, Any]:
     """Generates Socratic interrogation funnel, concession traps, and ZUMA Self-Critique."""
     claim_text = state["claim_input"]
+    user_persp = state.get("user_perspective", "christian_protestant")
+    opp_persp = state.get("opponent_perspective", "islam")
     temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
-    steelman = ArgumentEngine.steelman_opposition(claim_text)
+    steelman = ArgumentEngine.steelman_opposition(claim_text, user_perspective=user_persp, opponent_perspective=opp_persp)
     contradiction = ArgumentEngine.audit_contradiction(temp_evidence)
 
     debate_prep = ZumaSkillEngine.generate_debate_preparation(
