@@ -1193,24 +1193,40 @@
       gap: 1rem;
     }
 
-    .claim-pill-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
-
-    .claim-pill {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-sm);
-      padding: 0.4rem 0.8rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.12s ease;
-      text-align: left;
+    #calculator-canonical-cases {
+      max-height: 390px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 0.35rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(56, 189, 248, 0.25) transparent;
     }
 
-    .claim-pill:hover {
-      border-color: var(--primary);
-      color: var(--text-main);
-      background: var(--bg-card-hover);
+    #calculator-canonical-cases::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    #calculator-canonical-cases::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 9999px;
+    }
+
+    #calculator-canonical-cases::-webkit-scrollbar-thumb {
+      background: rgba(56, 189, 248, 0.25);
+      border-radius: 9999px;
+    }
+
+    #calculator-canonical-cases::-webkit-scrollbar-thumb:hover {
+      background: rgba(56, 189, 248, 0.5);
+    }
+
+    .calc-input-glow {
+      border-color: var(--primary) !important;
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.4) !important;
+      transition: all 0.25s ease !important;
     }
 
     .evidence-badge {
@@ -2188,12 +2204,27 @@
             </button>
           </div>
 
-          <!-- 10 DEMO CLAIMS -->
-          <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
-            <div style="font-size: 0.775rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 0.75rem;">
-              Contoh Klaim Populer (Klik untuk Menganalisis)
+          <!-- Studi Kasus Kanonikal Unggulan (Scrollable) -->
+          <div style="margin-top: 1.75rem; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.05em;">Studi Kasus Kanonikal Unggulan</span>
+                  <span class="evidence-badge badge-primary-source" style="font-size: 0.65rem; padding: 0.1rem 0.4rem;">15 Mosi Terverifikasi</span>
+                </div>
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0.2rem 0 0 0;">Pilih salah satu mosi debat untuk diuji langsung di kalkulator atau buka berkas dossier naskah.</p>
+              </div>
+              <a onclick="navigateRoute(event, '/themes'); selectDebateCategory('ALL');" style="font-size: 0.78rem; color: var(--primary); text-decoration: none; cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem;">
+                <span>Lihat Seluruh 2.451+ Tema</span> <span>→</span>
+              </a>
             </div>
-            <div id="demo-claims-container" class="claim-pill-grid"></div>
+
+            <!-- Scrollable Dynamic Container -->
+            <div id="calculator-canonical-cases">
+              <div style="padding: 1.25rem; text-align: center; color: var(--text-dim); font-size: 0.82rem; background: var(--bg-surface); border-radius: 6px; border: 1px solid var(--border-subtle);">
+                <span class="pulse-dot"></span> Menghubungkan ke pipeline naskah server & memuat tema unggulan...
+              </div>
+            </div>
           </div>
         </div>
 
@@ -3086,15 +3117,6 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     let currentLanguages = [];
     let activeOrderId = "";
 
-    const DEMO_CLAIMS = [
-      "Audit Tekstual, Filologi & Varian Naskah",
-      "Monoteisme & Kritik Doktrin Trinitas",
-      "Diskursus Teologi & Apologetika Komparatif",
-      "Polemik Teologi Paulus vs Hukum Taurat",
-      "Kristologi & Kemanusiaan Yesus",
-      "APOLOGETIC_INTERFAITH_DEBATE"
-    ];
-
     document.addEventListener("DOMContentLoaded", async () => {
       restoreSession();
       if (typeof initGoogleIdentity === "function") {
@@ -3102,9 +3124,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       }
       await fetchLanguages();
       await fetchUsage();
-      renderDemoClaims();
       checkOnboardingStatus();
-      loadDashboardCanonicalCases();
+      loadAllCanonicalCases();
       handleInitialRoute();
 
       // Keyboard shortcut Ctrl+K
@@ -3244,21 +3265,6 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       if (bLang) bLang.textContent = (userContext.ui_locale || "id").toUpperCase();
       const dPersp = document.getElementById("dash-persp-val");
       if (dPersp) dPersp.textContent = (p === "christian") ? "✝ Apologetics Kristen" : "☪ Apologetics Islam";
-    }
-
-    function renderDemoClaims() {
-      const container = document.getElementById("demo-claims-container");
-      container.innerHTML = "";
-      DEMO_CLAIMS.forEach((claim, idx) => {
-        const pill = document.createElement("button");
-        pill.className = "claim-pill";
-        pill.textContent = `${idx + 1}. ${claim}`;
-        pill.onclick = () => {
-          document.getElementById("claim-input").value = claim;
-          runAnalysis();
-        };
-        container.appendChild(pill);
-      });
     }
 
     function handleClaimFocus(el) {
@@ -4279,8 +4285,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       }
     }
 
-    async function loadDashboardCanonicalCases() {
-      const container = document.getElementById("dashboard-canonical-cases");
+    async function loadCanonicalCases(targetId) {
+      const container = document.getElementById(targetId);
       if (!container) return;
 
       try {
@@ -4341,10 +4347,19 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           `;
         }).join('');
       } catch (err) {
-        console.error("Gagal memuat tema kanonikal dashboard:", err);
+        console.error("Gagal memuat tema kanonikal:", err);
         container.innerHTML = `<p style="color: var(--rose); font-size: 0.82rem; padding: 1rem; text-align: center;">Koneksi terputus saat mengambil studi kasus kanonikal.</p>`;
       }
     }
+
+    async function loadAllCanonicalCases() {
+      await Promise.all([
+        loadCanonicalCases("dashboard-canonical-cases"),
+        loadCanonicalCases("calculator-canonical-cases")
+      ]);
+    }
+
+    const loadDashboardCanonicalCases = loadAllCanonicalCases;
 
     function openThemeFromDashboard(themeId) {
       navigateRoute(null, '/themes');
@@ -4395,6 +4410,10 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       const claimInput = document.getElementById("claim-input");
       if (claimInput) {
         claimInput.value = motionText;
+        claimInput.classList.add("calc-input-glow");
+        setTimeout(() => {
+          claimInput.classList.remove("calc-input-glow");
+        }, 1200);
       }
       navigateRoute(null, "/calculator");
       if (typeof focusCalculator === "function") {
@@ -5812,10 +5831,11 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       if (path === "/" || path === "/calculator") {
         document.getElementById("view-calculator").classList.remove("hidden");
         document.querySelectorAll(".side-item")[0].classList.add("active");
+        loadAllCanonicalCases();
       } else if (path === "/dashboard") {
         document.getElementById("view-dashboard").classList.remove("hidden");
         document.querySelectorAll(".side-item")[1].classList.add("active");
-        loadDashboardCanonicalCases();
+        loadAllCanonicalCases();
       } else if (path.startsWith("/themes")) {
         document.getElementById("view-themes").classList.remove("hidden");
         document.querySelectorAll(".side-item")[2].classList.add("active");
