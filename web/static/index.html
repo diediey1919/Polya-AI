@@ -2363,14 +2363,14 @@
               <span class="record-chip">STREAM: 22ms</span>
               <span class="record-chip">APPARATUS: NA28 / DSS / BHS</span>
             </div>
-            <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em;">Research Workspace Dashboard</h2>
-            <p style="color: var(--text-muted); font-size: 0.85rem;">Ikhtisar komputasi teks primer, strategi dialektika ZUMA, dan pelacakan varian polemik.</p>
+            <h2 id="dash-title" style="font-size: 1.5rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em;">Research Workspace Dashboard</h2>
+            <p id="dash-sub" style="color: var(--text-muted); font-size: 0.85rem;">Ikhtisar komputasi teks primer, strategi dialektika ZUMA, dan pelacakan varian polemik.</p>
           </div>
           <div class="dashboard-header-actions" style="display: flex; gap: 0.5rem;">
-            <button class="btn-primary" style="padding: 0.45rem 0.95rem; font-size: 0.8rem; background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-subtle);" onclick="openSourceDrawer()">
+            <button id="dash-btn-inspect" class="btn-primary" style="padding: 0.45rem 0.95rem; font-size: 0.8rem; background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-subtle);" onclick="openSourceDrawer()">
               Inspect Codex Source
             </button>
-            <button class="btn-primary" style="padding: 0.45rem 0.95rem; font-size: 0.8rem;" onclick="navigateRoute(event, '/calculator')">
+            <button id="dash-btn-calc" class="btn-primary" style="padding: 0.45rem 0.95rem; font-size: 0.8rem;" onclick="navigateRoute(event, '/calculator')">
               Launch Calculator
             </button>
           </div>
@@ -2523,10 +2523,10 @@
       <section id="view-themes" class="hidden">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
           <div>
-            <h2 style="font-family: var(--font-serif); font-size: 1.85rem; margin: 0;">Tema & Mosi Debat</h2>
+            <h2 id="themes-title" style="font-family: var(--font-serif); font-size: 1.85rem; margin: 0;">Tema & Mosi Debat</h2>
           </div>
           <div style="display: flex; gap: 0.5rem; align-items: center;">
-            <button class="btn-primary" style="font-size: 0.8rem; padding: 0.45rem 0.85rem;" onclick="loadThemes()">
+            <button id="themes-btn-reload" class="btn-primary" style="font-size: 0.8rem; padding: 0.45rem 0.85rem;" onclick="loadThemes()">
               Muat Ulang Tema 🔄
             </button>
           </div>
@@ -2648,8 +2648,8 @@
       <section id="view-knowledge" class="hidden">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem;">
           <div>
-            <h2 style="font-family: var(--font-serif); font-size: 1.85rem;">Knowledge Explorer & Argument Graph</h2>
-            <p style="color: var(--text-muted);">Penjelajah ontologi argumen terkomputasi, relasi premis terarah (DAG), dan korpus naskah primer.</p>
+            <h2 id="knowledge-title" style="font-family: var(--font-serif); font-size: 1.85rem;">Knowledge Explorer & Argument Graph</h2>
+            <p id="knowledge-sub" style="color: var(--text-muted);">Penjelajah ontologi argumen terkomputasi, relasi premis terarah (DAG), dan korpus naskah primer.</p>
           </div>
           <span id="knowledge-stats-pill" class="badge-pill badge-quota">Graph Nodes: 0 | Edges: 0</span>
         </div>
@@ -2664,7 +2664,7 @@
         <div id="knowledge-tab-graph" class="case-card" style="padding: 1.5rem;">
           <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
             <input type="text" id="graph-query-input" class="search-box" style="flex: 1; margin-bottom: 0; min-width: 260px;" placeholder="Cari proposisi atau mosi (contoh: Paulus menegakkan hukum Taurat)..." onkeydown="if(event.key==='Enter')loadKnowledgeGraph()">
-            <button class="btn-primary" onclick="loadKnowledgeGraph()">
+            <button id="knowledge-btn-explore" class="btn-primary" onclick="loadKnowledgeGraph()">
               Eksplorasi Graph 🔍
             </button>
           </div>
@@ -2725,8 +2725,8 @@
       <section id="view-persona" class="hidden">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem;">
           <div>
-            <h2 style="font-family: var(--font-serif); font-size: 1.85rem;">Persona Dialektika — ZUMA Sparring Cockpit</h2>
-            <p style="color: var(--text-muted);">Sesi latihan interaktif 1-on-1 melawan AI Debater berbobot strategi Sokratik & Ilzam al-Khasm.</p>
+            <h2 id="persona-title" style="font-family: var(--font-serif); font-size: 1.85rem;">Persona Dialektika — ZUMA Sparring Cockpit</h2>
+            <p id="persona-sub" style="color: var(--text-muted);">Sesi latihan interaktif 1-on-1 melawan AI Debater berbobot strategi Sokratik & Ilzam al-Khasm.</p>
           </div>
           <span class="record-chip" style="color: var(--gold); border-color: rgba(223, 177, 91, 0.35);">
             ZUMA SPARRING (1-ON-1 PRACTICE)
@@ -2739,20 +2739,20 @@
 
         <!-- 1. Sparring Setup Box (Shown when no session active) -->
         <div id="zuma-setup-box" class="case-card border-beam-card" style="padding: 1.5rem; margin-bottom: 1.5rem; max-width: 650px;">
-          <h4 style="margin-bottom: 0.75rem; color: var(--text-main);">Mulai Sesi Sparring Baru</h4>
-          <label style="display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.3rem;">Topik / Mosi Debat</label>
+          <h4 id="persona-setup-heading" style="margin-bottom: 0.75rem; color: var(--text-main);">Mulai Sesi Sparring Baru</h4>
+          <label id="persona-topic-label" style="display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.3rem;">Topik / Mosi Debat</label>
           <input type="text" id="zuma-topic-input" class="search-box" style="margin-bottom: 0.85rem;" value="Keilahian Yesus dalam Yohanes 10:30 (Hen Esmen)" placeholder="Masukkan mosi debat...">
 
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
             <div>
-              <label style="display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.3rem;">Posisi Anda</label>
+              <label id="persona-pos-label" style="display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.3rem;">Posisi Anda</label>
               <select id="zuma-pos-select" class="calc-input" style="padding: 0.45rem; height: 38px; min-height: 0; background: var(--bg-card); border-radius: 6px; width: 100%; color: var(--text-main);">
                 <option value="PROPOSITION">PROPOSITION (Afirmasi Mosi)</option>
                 <option value="OPPOSITION">OPPOSITION (Oposisi Mosi)</option>
               </select>
             </div>
             <div>
-              <label style="display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.3rem;">Tingkat Kesulitan</label>
+              <label id="persona-diff-label" style="display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.3rem;">Tingkat Kesulitan</label>
               <select id="zuma-diff-select" class="calc-input" style="padding: 0.45rem; height: 38px; min-height: 0; background: var(--bg-card); border-radius: 6px; width: 100%; color: var(--text-main);">
                 <option value="NORMAL">NORMAL (Dialektika Terukur)</option>
                 <option value="HARD">HARD (Sokratik Ketat & Forensik)</option>
@@ -3487,7 +3487,23 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         onboardingSubStep2: "Kamu ingin mempersiapkan diri sebagai apologet dari perspektif mana?",
         onboardingCompleteBtn: "Masuk ke Polya Apologetika",
         saveSuccessToast: "Pengaturan berhasil disimpan!",
-        saveErrorToast: "Gagal menyimpan preferensi."
+        saveErrorToast: "Gagal menyimpan preferensi.",
+        dashTitle: "Research Workspace Dashboard",
+        dashSub: "Ikhtisar komputasi teks primer, strategi dialektika ZUMA, dan pelacakan varian polemik.",
+        dashBtnInspect: "Inspect Codex Source",
+        dashBtnCalc: "Launch Calculator",
+        themesTitle: "Tema & Mosi Debat",
+        themesBtnReload: "Muat Ulang Tema 🔄",
+        themesSearchPlaceholder: "🔍 Cari mosi debat, nomor video, lemma, atau dalil ayat...",
+        knowledgeTitle: "Knowledge Explorer & Argument Graph",
+        knowledgeSub: "Penjelajah ontologi argumen terkomputasi, relasi premis terarah (DAG), dan korpus naskah primer.",
+        knowledgeBtnExplore: "Eksplorasi Graph 🔍",
+        personaTitle: "Persona Dialektika — ZUMA Sparring Cockpit",
+        personaSub: "Sesi latihan interaktif 1-on-1 melawan AI Debater berbobot strategi Sokratik & Ilzam al-Khasm.",
+        personaSetupHeading: "Mulai Sesi Sparring Baru",
+        personaTopicLabel: "Topik / Mosi Debat",
+        personaPosLabel: "Posisi Anda",
+        personaDiffLabel: "Tingkat Kesulitan"
       },
       en: {
         quickSearch: "Quick search...",
@@ -3560,7 +3576,23 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         onboardingSubStep2: "Which theological perspective do you want to research from?",
         onboardingCompleteBtn: "Enter Polya Apologetics",
         saveSuccessToast: "Preferences saved successfully!",
-        saveErrorToast: "Failed to save preferences."
+        saveErrorToast: "Failed to save preferences.",
+        dashTitle: "Research Workspace Dashboard",
+        dashSub: "Overview of primary text computation, ZUMA dialectical strategies, and polemical variant tracking.",
+        dashBtnInspect: "Inspect Codex Source",
+        dashBtnCalc: "Launch Calculator",
+        themesTitle: "Themes & Debate Motions",
+        themesBtnReload: "Reload Themes 🔄",
+        themesSearchPlaceholder: "🔍 Search debate motions, video numbers, lemmas, or verses...",
+        knowledgeTitle: "Knowledge Explorer & Argument Graph",
+        knowledgeSub: "Explorer of computed argument ontology, directed acyclic premise relations (DAG), and primary scripture corpus.",
+        knowledgeBtnExplore: "Explore Graph 🔍",
+        personaTitle: "Dialectical Persona — ZUMA Sparring Cockpit",
+        personaSub: "Interactive 1-on-1 sparring session against AI Debater wielding Socratic strategies & Ilzam al-Khasm.",
+        personaSetupHeading: "Start New Sparring Session",
+        personaTopicLabel: "Debate Topic / Motion",
+        personaPosLabel: "Your Position",
+        personaDiffLabel: "Difficulty Level"
       },
       ar: {
         quickSearch: "بحث سريع...",
@@ -3633,7 +3665,23 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         onboardingSubStep2: "من أي منظور لاهوتي تريد إعداد أبحاثك ودفاعياتك؟",
         onboardingCompleteBtn: "الدخول إلى بوليا للدفاعيات",
         saveSuccessToast: "تم حفظ التفضيلات بنجاح!",
-        saveErrorToast: "فشل حفظ التفضيلات."
+        saveErrorToast: "فشل حفظ التفضيلات.",
+        dashTitle: "لوحة تحكم مساحة أبحاث الدفاعيات",
+        dashSub: "نظرة عامة على حوسبة النصوص الأصلية، واستراتيجيات زوما الجدلية، وتتبع التباينات الجدلية.",
+        dashBtnInspect: "فحص مصدر المخطوطة",
+        dashBtnCalc: "تشغيل الحاسبة",
+        themesTitle: "مواضيع وقضايا المناظرة",
+        themesBtnReload: "إعادة تحميل المواضيع 🔄",
+        themesSearchPlaceholder: "🔍 ابحث في قضايا المناظرة، أرقام الفيديوهات، الأصول اللغوية، أو نصوص الآيات...",
+        knowledgeTitle: "مستكشف المعرفة ورسم بياني للحجج",
+        knowledgeSub: "مستكشف أنطولوجيا الحجج المحوسبة، وعلاقات المقدمات الموجهة (DAG)، ومجموعة المخطوطات الأولية.",
+        knowledgeBtnExplore: "استكشف الرسم البياني 🔍",
+        personaTitle: "الشخصية الجدلية — قمرة تدريب زوما",
+        personaSub: "جلسة تدريب تفاعلية 1 ضد 1 ضد مناظر الذكاء الاصطناعي باستراتيجية سقراطية وإلزام الخصم.",
+        personaSetupHeading: "بدء جلسة تدريب جديدة",
+        personaTopicLabel: "موضوع / قضية المناظرة",
+        personaPosLabel: "موقفك",
+        personaDiffLabel: "مستوى الصعوبة"
       }
     };
 
@@ -3771,6 +3819,46 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       if (btnSaveSett) btnSaveSett.textContent = t.settingsSaveBtn;
       const btnResetOnb = document.getElementById("btn-reset-onboarding");
       if (btnResetOnb) btnResetOnb.textContent = t.settingsResetBtn;
+
+      // Dashboard View
+      const dashTitle = document.getElementById("dash-title");
+      if (dashTitle) dashTitle.textContent = t.dashTitle;
+      const dashSub = document.getElementById("dash-sub");
+      if (dashSub) dashSub.textContent = t.dashSub;
+      const dashBtnInspect = document.getElementById("dash-btn-inspect");
+      if (dashBtnInspect) dashBtnInspect.textContent = t.dashBtnInspect;
+      const dashBtnCalc = document.getElementById("dash-btn-calc");
+      if (dashBtnCalc) dashBtnCalc.textContent = t.dashBtnCalc;
+
+      // Themes View
+      const themesTitle = document.getElementById("themes-title");
+      if (themesTitle) themesTitle.textContent = t.themesTitle;
+      const themesBtnReload = document.getElementById("themes-btn-reload");
+      if (themesBtnReload) themesBtnReload.textContent = t.themesBtnReload;
+      const themesSearchInput = document.getElementById("theme-search-input");
+      if (themesSearchInput) themesSearchInput.placeholder = t.themesSearchPlaceholder;
+
+      // Knowledge View
+      const knowTitle = document.getElementById("knowledge-title");
+      if (knowTitle) knowTitle.textContent = t.knowledgeTitle;
+      const knowSub = document.getElementById("knowledge-sub");
+      if (knowSub) knowSub.textContent = t.knowledgeSub;
+      const knowBtnExplore = document.getElementById("knowledge-btn-explore");
+      if (knowBtnExplore) knowBtnExplore.textContent = t.knowledgeBtnExplore;
+
+      // Persona View
+      const persTitle = document.getElementById("persona-title");
+      if (persTitle) persTitle.textContent = t.personaTitle;
+      const persSub = document.getElementById("persona-sub");
+      if (persSub) persSub.textContent = t.personaSub;
+      const persSetupHeading = document.getElementById("persona-setup-heading");
+      if (persSetupHeading) persSetupHeading.textContent = t.personaSetupHeading;
+      const persTopicLabel = document.getElementById("persona-topic-label");
+      if (persTopicLabel) persTopicLabel.textContent = t.personaTopicLabel;
+      const persPosLabel = document.getElementById("persona-pos-label");
+      if (persPosLabel) persPosLabel.textContent = t.personaPosLabel;
+      const persDiffLabel = document.getElementById("persona-diff-label");
+      if (persDiffLabel) persDiffLabel.textContent = t.personaDiffLabel;
 
       // Onboarding Step 1 & 2
       const onbTitle1 = document.getElementById("onboarding-title-step1");
