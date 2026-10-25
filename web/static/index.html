@@ -911,6 +911,41 @@
       font-weight: 600;
     }
 
+    /* Infinite Marquee for Category Pills */
+    .theme-marquee-container {
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+      user-select: none;
+      position: relative;
+      mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+    }
+
+    .theme-marquee-track {
+      display: flex;
+      flex-shrink: 0;
+      gap: 0.45rem;
+      padding: 0.25rem 0.45rem 0.25rem 0;
+      animation: themeMarqueeScroll 35s linear infinite;
+      will-change: transform;
+    }
+
+    .theme-marquee-container:hover .theme-marquee-track,
+    .theme-marquee-container:active .theme-marquee-track,
+    .theme-marquee-container:focus-within .theme-marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes themeMarqueeScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
     .app-main {
       flex: 1;
       padding: 1.5rem 2.25rem 2rem 2.25rem;
@@ -952,6 +987,22 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.25rem;
       margin-top: 1rem;
+    }
+
+    #theme-list-cards {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      gap: 1.25rem;
+    }
+
+    #theme-list-cards > .case-card {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     .hero-container {
@@ -1684,9 +1735,42 @@
       /* Themes & Detail container */
       #theme-detail-container {
         padding: 1rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      #view-themes .case-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
       }
       #theme-list-cards {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 0.85rem !important;
+      }
+      #theme-list-cards > .case-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding: 1rem 0.85rem !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+      #theme-list-cards .case-card * {
+        min-width: 0;
+      }
+      #theme-list-cards .case-card h3 {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+      }
+      #theme-list-cards > .case-card .theme-overview-action {
+        width: 100% !important;
+      }
+      #theme-list-cards > .case-card .theme-overview-action button {
+        width: 100% !important;
+        justify-content: center !important;
       }
       .case-grid {
         grid-template-columns: 1fr !important;
@@ -2382,12 +2466,7 @@
       <section id="view-themes" class="hidden">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
           <div>
-            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
-              <h2 style="font-family: var(--font-serif); font-size: 1.85rem; margin: 0;">Tema & Mosi Debat</h2>
-              <span class="evidence-badge badge-primary-source" style="font-size: 0.72rem; padding: 0.15rem 0.5rem;">2.451 Mosi Terverifikasi Transkrip</span>
-              <span class="evidence-badge" style="font-size: 0.72rem; padding: 0.15rem 0.5rem; background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);">187 Menunggu Transkrip</span>
-            </div>
-            <p style="color: var(--text-muted); font-size: 0.88rem; margin: 0;">Katalog mosi debat apologetika komparatif yang dirumuskan secara analitis dari 2.451 transkrip debat ZUMA (bukan sekadar judul YouTube) lengkap dengan 5.000+ sub-mosi dan dalil naskah.</p>
+            <h2 style="font-family: var(--font-serif); font-size: 1.85rem; margin: 0;">Tema & Mosi Debat</h2>
           </div>
           <div style="display: flex; gap: 0.5rem; align-items: center;">
             <button class="btn-primary" style="font-size: 0.8rem; padding: 0.45rem 0.85rem;" onclick="loadThemes()">
@@ -2407,17 +2486,30 @@
             </div>
           </div>
 
-          <!-- Category Pill Tabs -->
-          <div id="theme-category-pills" style="display: flex; overflow-x: auto; gap: 0.4rem; padding-bottom: 0.25rem; scrollbar-width: none;">
-            <button class="theme-cat-pill active" onclick="selectDebateCategory('ALL')" data-cat="ALL">Semua Terverifikasi (2.451)</button>
-            <button class="theme-cat-pill" onclick="selectDebateCategory('Dialektika Debat Terbuka & Cross-Examination')" data-cat="Dialektika Debat Terbuka & Cross-Examination">🎯 Dialektika (245)</button>
-            <button class="theme-cat-pill" onclick="selectDebateCategory('Kristologi & Kemanusiaan Yesus')" data-cat="Kristologi & Kemanusiaan Yesus">✝️ Kristologi (219)</button>
-            <button class="theme-cat-pill" onclick="selectDebateCategory('Audit Tekstual, Filologi & Varian Naskah')" data-cat="Audit Tekstual, Filologi & Varian Naskah">📜 Filologi (270)</button>
-            <button class="theme-cat-pill" onclick="selectDebateCategory('Diskursus Teologi & Apologetika Komparatif')" data-cat="Diskursus Teologi & Apologetika Komparatif">⚖️ Teologi (317)</button>
-            <button class="theme-cat-pill" onclick="selectDebateCategory('Monoteisme & Kritik Doktrin Trinitas')" data-cat="Monoteisme & Kritik Doktrin Trinitas">☝️ Monoteisme (404)</button>
-            <button class="theme-cat-pill" onclick="selectDebateCategory('Polemik Teologi Paulus vs Hukum Taurat')" data-cat="Polemik Teologi Paulus vs Hukum Taurat">📖 Paulus vs Taurat (936)</button>
-            <button class="theme-cat-pill" onclick="selectDebateCategory('Apologetika Islam & Pembelaan Kenabian')" data-cat="Apologetika Islam & Pembelaan Kenabian">☪️ Kenabian (60)</button>
-            <button class="theme-cat-pill" onclick="selectDebateCategory('Koleksi Video Menunggu Transkrip (189 Video)')" data-cat="Koleksi Video Menunggu Transkrip (189 Video)">⏳ Menunggu Transkrip (187)</button>
+          <!-- Category Pill Tabs (Infinite Marquee) -->
+          <div id="theme-category-pills" class="theme-marquee-container">
+            <div class="theme-marquee-track">
+              <button class="theme-cat-pill active" onclick="selectDebateCategory('ALL')" data-cat="ALL">Semua Terverifikasi (2.451)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Dialektika Debat Terbuka & Cross-Examination')" data-cat="Dialektika Debat Terbuka & Cross-Examination">🎯 Dialektika (245)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Kristologi & Kemanusiaan Yesus')" data-cat="Kristologi & Kemanusiaan Yesus">✝️ Kristologi (219)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Audit Tekstual, Filologi & Varian Naskah')" data-cat="Audit Tekstual, Filologi & Varian Naskah">📜 Filologi (270)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Diskursus Teologi & Apologetika Komparatif')" data-cat="Diskursus Teologi & Apologetika Komparatif">⚖️ Teologi (317)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Monoteisme & Kritik Doktrin Trinitas')" data-cat="Monoteisme & Kritik Doktrin Trinitas">☝️ Monoteisme (404)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Polemik Teologi Paulus vs Hukum Taurat')" data-cat="Polemik Teologi Paulus vs Hukum Taurat">📖 Paulus vs Taurat (936)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Apologetika Islam & Pembelaan Kenabian')" data-cat="Apologetika Islam & Pembelaan Kenabian">☪️ Kenabian (60)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Koleksi Video Menunggu Transkrip (189 Video)')" data-cat="Koleksi Video Menunggu Transkrip (189 Video)">⏳ Menunggu Transkrip (187)</button>
+            </div>
+            <div class="theme-marquee-track" aria-hidden="true">
+              <button class="theme-cat-pill active" onclick="selectDebateCategory('ALL')" data-cat="ALL">Semua Terverifikasi (2.451)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Dialektika Debat Terbuka & Cross-Examination')" data-cat="Dialektika Debat Terbuka & Cross-Examination">🎯 Dialektika (245)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Kristologi & Kemanusiaan Yesus')" data-cat="Kristologi & Kemanusiaan Yesus">✝️ Kristologi (219)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Audit Tekstual, Filologi & Varian Naskah')" data-cat="Audit Tekstual, Filologi & Varian Naskah">📜 Filologi (270)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Diskursus Teologi & Apologetika Komparatif')" data-cat="Diskursus Teologi & Apologetika Komparatif">⚖️ Teologi (317)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Monoteisme & Kritik Doktrin Trinitas')" data-cat="Monoteisme & Kritik Doktrin Trinitas">☝️ Monoteisme (404)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Polemik Teologi Paulus vs Hukum Taurat')" data-cat="Polemik Teologi Paulus vs Hukum Taurat">📖 Paulus vs Taurat (936)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Apologetika Islam & Pembelaan Kenabian')" data-cat="Apologetika Islam & Pembelaan Kenabian">☪️ Kenabian (60)</button>
+              <button class="theme-cat-pill" onclick="selectDebateCategory('Koleksi Video Menunggu Transkrip (189 Video)')" data-cat="Koleksi Video Menunggu Transkrip (189 Video)">⏳ Menunggu Transkrip (187)</button>
+            </div>
           </div>
         </div>
 
@@ -2426,7 +2518,7 @@
         </div>
 
         <!-- Dynamic Theme Cards Grid -->
-        <div id="theme-list-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
+        <div id="theme-list-cards" style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; margin-bottom: 2rem;">
         </div>
 
         <!-- Theme Detail Container with 6 Tabs (Dynamic P1.2) -->
@@ -4296,49 +4388,101 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         "Koleksi Video Menunggu Transkrip (189 Video)": "⏳"
       };
 
+      const categoryDescriptions = {
+        "Dialektika Debat Terbuka & Cross-Examination": "Debat panggung terbuka, konfrontasi premis, interrogasi sokratik, dan pengujian argumen lintas iman.",
+        "Kristologi & Kemanusiaan Yesus": "Bedah eksegesis naskah ketuhanan versus kemanusiaan Yesus, gelar eskatologis, dan relasi Bapa-Anak.",
+        "Audit Tekstual, Filologi & Varian Naskah": "Analisis naskah Ibrani, Aramaik, Yunani Koine, saksi manuskrip kuno, dan audit distorsi terjemahan.",
+        "Diskursus Teologi & Apologetika Komparatif": "Kajian komparatif doktrin penebusan, dosa asal, keadilan ilahi, dan teologi para bapa gereja.",
+        "Monoteisme & Kritik Doktrin Trinitas": "Penegakan monoteisme murni (Tawhid), audit teks Shema, dan dekonstruksi logika trinitarian.",
+        "Polemik Teologi Paulus vs Hukum Taurat": "Eksplorasi friksi teologi surat Paulus terhadap kekekalan Taurat dan ajaran rasul Yerusalem.",
+        "Apologetika Islam & Pembelaan Kenabian": "Pembelaan kenabian Rasulullah ﷺ, nubuat nabi akhir zaman, dan bantahan tuduhan polemikus.",
+        "Koleksi Video Menunggu Transkrip (189 Video)": "Daftar video yang belum memiliki transkrip terindeks di sistem dan dipisahkan dari perumusan mosi."
+      };
+
+      const isOverviewMode = (currentSelectedCategory === 'ALL' && !currentThemeSearchQuery);
+
+      // Dinamisasi Grid Columns: Selalu 1 kolom penuh (1 kartu per baris)
+      container.style.gridTemplateColumns = "minmax(0, 1fr)";
+
+      if (isOverviewMode) {
+        container.innerHTML = Object.entries(groups).map(([cat, list]) => {
+          const icon = categoryIcons[cat] || "🏛️";
+          const isPendingCat = cat.includes("Menunggu Transkrip");
+          const safeCat = cat.replace(/'/g, "\\'");
+          const desc = categoryDescriptions[cat] || (isPendingCat ? 'Daftar video yang belum memiliki transkrip terindeks di sistem dan dipisahkan dari perumusan mosi.' : 'Kompilasi mosi dialektika, analisis naskah, dan aparatus apologetika ZUMA berbasis isi transkrip.');
+
+          return `
+            <div class="case-card" style="height: auto; min-height: fit-content; width: 100%; max-width: 100%; box-sizing: border-box; display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; border-inline-start: 4px solid ${isPendingCat ? '#f59e0b' : 'var(--primary)'}; padding: 1.25rem 1.5rem;">
+              <div style="flex: 1 1 500px; min-width: 0; display: flex; flex-direction: column; gap: 0.35rem;">
+                <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+                  <span class="evidence-badge ${isPendingCat ? '' : 'badge-primary-source'}" style="font-size: 0.68rem; padding: 0.12rem 0.45rem; ${isPendingCat ? 'background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);' : ''}">${icon} ${list.length} ${isPendingCat ? 'Video' : 'Mosi'}</span>
+                  <span style="font-size: 0.72rem; color: var(--text-dim);">${isPendingCat ? 'Antrean Video' : 'Klaster Terverifikasi'}</span>
+                </div>
+                <h3 style="font-size: 1.18rem; margin: 0.15rem 0 0.25rem 0; line-height: 1.35; font-family: var(--font-serif); color: var(--text-main); word-break: break-word;">${cat}</h3>
+                <p style="font-size: 0.84rem; color: var(--text-muted); margin: 0; line-height: 1.5; white-space: normal; word-break: break-word; overflow: visible;">
+                  ${desc}
+                </p>
+              </div>
+              <div class="theme-overview-action" style="flex-shrink: 0; display: flex; align-items: center; justify-content: flex-end;">
+                <button type="button" class="btn-primary" style="white-space: nowrap; display: inline-flex; justify-content: center; align-items: center; gap: 0.5rem; padding: 0.6rem 1.25rem; font-size: 0.82rem; cursor: pointer;" onclick="selectDebateCategory('${safeCat}')">
+                  <span>Jelajahi ${list.length} ${isPendingCat ? 'Video' : 'Mosi'}</span>
+                  <span>→</span>
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+        return;
+      }
+
       container.innerHTML = Object.entries(groups).map(([cat, list]) => {
         const icon = categoryIcons[cat] || "🏛️";
         const isPendingCat = cat.includes("Menunggu Transkrip");
+        const safeCat = cat.replace(/'/g, "\\'");
+        const desc = categoryDescriptions[cat] || (isPendingCat ? 'Daftar video yang belum memiliki transkrip terindeks di sistem dan dipisahkan dari perumusan mosi.' : 'Kompilasi mosi dialektika, analisis naskah, dan aparatus apologetika ZUMA berbasis isi transkrip.');
+
         return `
-          <div class="case-card" style="display: flex; flex-direction: column; justify-content: space-between; border-inline-start: 4px solid ${isPendingCat ? '#f59e0b' : 'var(--primary)'}; padding: 1.25rem;">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.45rem;">
+          <div class="case-card" style="grid-column: 1 / -1; width: 100%; max-width: 100%; box-sizing: border-box; display: flex; flex-direction: column; border-inline-start: 4px solid ${isPendingCat ? '#f59e0b' : 'var(--primary)'}; padding: 1.25rem;">
+            <div style="position: sticky; top: 64px; z-index: 10; background: rgba(12, 16, 23, 0.95); backdrop-filter: blur(12px); padding: 0.75rem 0; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-subtle);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.45rem; flex-wrap: wrap; gap: 0.5rem;">
                 <span class="evidence-badge ${isPendingCat ? '' : 'badge-primary-source'}" style="font-size: 0.68rem; padding: 0.12rem 0.45rem; ${isPendingCat ? 'background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);' : ''}">${icon} ${list.length} ${isPendingCat ? 'Video' : 'Mosi'}</span>
-                <span style="font-size: 0.72rem; color: var(--text-dim);">${cat === currentSelectedCategory ? 'Filter Aktif' : 'Klaster'}</span>
+                <div style="display: flex; align-items: center; gap: 0.45rem;">
+                  <button type="button" class="btn-primary" style="font-size: 0.74rem; padding: 0.25rem 0.7rem; background: rgba(255, 255, 255, 0.08); border: 1px solid var(--border-subtle); color: var(--text-main); cursor: pointer;" onclick="selectDebateCategory('ALL')" title="Kembali ke semua klaster tema">
+                    ← Kembali ke Semua Klaster
+                  </button>
+                  <span style="font-size: 0.72rem; color: var(--text-dim);">${cat === currentSelectedCategory ? 'Filter Aktif' : 'Klaster'}</span>
+                </div>
               </div>
-              <h3 style="font-size: 1.12rem; margin: 0.35rem 0 0.5rem 0; line-height: 1.35; font-family: var(--font-serif); color: var(--text-main);">${cat}</h3>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem; line-height: 1.4;">
-                ${isPendingCat ? 'Daftar video yang belum memiliki transkrip terindeks di sistem dan dipisahkan dari perumusan mosi.' : 'Kompilasi mosi dialektika, analisis naskah, dan aparatus apologetika ZUMA berbasis isi transkrip.'}
+              <h3 style="font-size: 1.25rem; margin: 0.25rem 0 0.35rem 0; line-height: 1.35; font-family: var(--font-serif); color: var(--text-main);">${cat}</h3>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0; line-height: 1.45;">
+                ${desc}
               </p>
             </div>
             <div>
-              <div style="max-height: 280px; overflow-y: auto; background: rgba(0,0,0,0.18); border-radius: 6px; padding: 0.35rem 0.5rem; margin-bottom: 0.75rem; border: 1px solid var(--border-subtle);">
+              <div style="overflow: visible; display: flex; flex-direction: column; gap: 0.75rem;">
                 ${list.map(t => {
                   const safeTitle = (t.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
                   const subMotionsCount = (t.sub_motions && t.sub_motions.length) ? t.sub_motions.length : 0;
                   const firstSub = subMotionsCount > 0 ? t.sub_motions[0] : '';
-                  const passagesList = (t.passages || []).slice(0, 3);
+                  const motionText = (subMotionsCount > 0) ? firstSub : (t.title || '');
+                  const safeMotion = motionText.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                  const isPendingVideo = (subMotionsCount === 0);
+                  const passagesList = (t.passages || []).slice(0, 4);
                   return `
-                    <div style="padding: 0.5rem 0.4rem; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.35rem;">
-                      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; cursor: pointer;" onclick="openThemeDetail('${t.theme_id}')">
-                        <span style="color: var(--text-main); font-weight: 500; line-height: 1.35; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;" title="${safeTitle}">${t.title}</span>
+                    <div style="padding: 0.85rem 1rem; background: rgba(0,0,0,0.22); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                      <div style="font-size: 0.88rem; font-weight: 500; color: ${isPendingVideo ? '#f59e0b' : 'var(--accent)'}; background: ${isPendingVideo ? 'rgba(245, 158, 11, 0.08)' : 'rgba(14, 165, 233, 0.08)'}; padding: 0.55rem 0.85rem; border-radius: 6px; border-left: 3px solid ${isPendingVideo ? '#f59e0b' : 'var(--accent)'}; line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" onclick="openThemeDetail('${t.theme_id}')" title="${safeMotion}">
+                        ${isPendingVideo ? `⏳ ${t.title}` : `⚖️ Sub-mosi (${subMotionsCount}): ${firstSub}`}
                       </div>
-                      ${(t.original_youtube_title || t.source_video_title) ? `<div style="font-size: 0.7rem; color: var(--text-dim); overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" title="${t.original_youtube_title || t.source_video_title}">🎬 Judul YouTube: ${t.original_youtube_title || t.source_video_title}</div>` : ''}
-                      ${subMotionsCount > 0 ? `
-                        <div style="font-size: 0.72rem; color: var(--accent); background: rgba(14, 165, 233, 0.08); padding: 0.2rem 0.4rem; border-radius: 4px; border-left: 2px solid var(--accent); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${firstSub}">
-                          ⚖️ Sub-mosi (${subMotionsCount}): ${firstSub}
-                        </div>
-                      ` : ''}
                       ${passagesList.length > 0 ? `
-                        <div style="display: flex; gap: 0.25rem; flex-wrap: wrap;">
-                          ${passagesList.map(p => `<span class="evidence-badge" style="font-size: 0.65rem; padding: 0.05rem 0.3rem; background: rgba(56, 189, 248, 0.1); color: var(--primary);">${p}</span>`).join('')}
+                        <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.1rem;">
+                          ${passagesList.map(p => `<span class="evidence-badge" style="font-size: 0.68rem; padding: 0.1rem 0.4rem; background: rgba(56, 189, 248, 0.1); color: var(--primary);">${p}</span>`).join('')}
                         </div>
                       ` : ''}
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.15rem;">
-                        <button type="button" class="btn-primary" style="padding: 0.2rem 0.55rem; font-size: 0.7rem; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); color: var(--primary); cursor: pointer;" onclick="loadMotionIntoCalculator('${safeTitle}')" title="Uji mosi ini di Apologetics Calculator">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.25rem; padding-top: 0.45rem; border-top: 1px solid rgba(255,255,255,0.04); flex-wrap: wrap; gap: 0.5rem;">
+                        <button type="button" class="btn-primary" style="padding: 0.32rem 0.75rem; font-size: 0.75rem; cursor: pointer;" onclick="loadMotionIntoCalculator('${safeMotion}')" title="Uji sub-mosi ini di Apologetics Calculator">
                           ⚡ Uji di Kalkulator
                         </button>
-                        <span style="color: var(--primary); font-size: 0.74rem; font-weight: 600; cursor: pointer;" onclick="openThemeDetail('${t.theme_id}')">
+                        <span style="color: var(--primary); font-size: 0.78rem; font-weight: 600; cursor: pointer;" onclick="openThemeDetail('${t.theme_id}')">
                           Detail Dossier →
                         </span>
                       </div>
@@ -4346,9 +4490,9 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                   `;
                 }).join('')}
               </div>
-              <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-dim); border-top: 1px solid var(--border-subtle); padding-top: 0.45rem; align-items: center;">
-                <span>Scroll untuk melihat seluruh item</span>
-                <span style="color: ${isPendingCat ? '#f59e0b' : 'var(--emerald)'}; font-weight: 600;">${isPendingCat ? 'Menunggu Transkrip' : 'Terverifikasi Transkrip'}</span>
+              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-dim); border-top: 1px solid var(--border-subtle); padding-top: 0.75rem; align-items: center; margin-top: 1.25rem;">
+                <span>Total: <strong style="color: var(--text-main);">${list.length}</strong> ${isPendingCat ? 'video' : 'mosi debat terdaftar'}</span>
+                <span style="color: ${isPendingCat ? '#f59e0b' : 'var(--emerald)'}; font-weight: 600;">${isPendingCat ? 'Menunggu Transkrip' : '✓ Seluruh Mosi Terverifikasi Transkrip'}</span>
               </div>
             </div>
           </div>
@@ -4387,14 +4531,23 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               <span class="evidence-badge" style="${isPending ? 'background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);' : 'background: rgba(16, 185, 129, 0.15); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.3);'} font-size: 0.72rem; padding: 0.12rem 0.45rem;">
                 ${isPending ? '⏳ Status: Menunggu Transkrip' : '✓ Status: Mosi Terverifikasi Transkrip'}
               </span>
-              ${sourceTitle ? `<span style="font-size: 0.75rem; color: var(--text-dim);" title="${sourceTitle}">🎬 Judul YouTube Asli: ${sourceTitle}</span>` : ''}
             </div>
             <p><strong>Mosi Debat:</strong> ${data.overview.motion}</p>
             ${subMotions.length > 0 ? `
               <div style="margin-top: 0.65rem; padding: 0.65rem 0.85rem; background: rgba(56, 189, 248, 0.08); border-left: 3px solid var(--primary); border-radius: 4px;">
                 <strong style="color: var(--primary); font-size: 0.82rem;">Sub-Mosi Debat Spesifik (${subMotions.length}):</strong>
-                <ul style="margin: 0.35rem 0 0 1.25rem; padding: 0; font-size: 0.82rem; color: var(--text-main);">
-                  ${subMotions.map(sm => `<li style="margin-bottom: 0.25rem;">${sm}</li>`).join('')}
+                <ul style="margin: 0.35rem 0 0 0; padding: 0; list-style: none; font-size: 0.82rem; color: var(--text-main); display: flex; flex-direction: column; gap: 0.45rem;">
+                  ${subMotions.map(sm => {
+                    const safeSm = sm.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                    return `
+                      <li style="padding: 0.35rem 0.55rem; background: rgba(0,0,0,0.22); border-radius: 6px; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span style="flex: 1; min-width: 200px;">• ${sm}</span>
+                        <button type="button" class="btn-primary" style="padding: 0.22rem 0.6rem; font-size: 0.7rem; cursor: pointer; flex-shrink: 0;" onclick="loadMotionIntoCalculator('${safeSm}')" title="Uji sub-mosi ini di Apologetics Calculator">
+                          ⚡ Uji di Kalkulator
+                        </button>
+                      </li>
+                    `;
+                  }).join('')}
                 </ul>
               </div>
             ` : ''}
@@ -4604,8 +4757,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                 <span class="evidence-badge badge-direct">${c.status}</span>
                 <p style="font-size: 0.88rem; font-weight: 500; margin-top: 0.4rem; color: var(--text-main);">${c.text}</p>
               </div>
-              <button class="btn-primary" style="margin-top: 0.85rem; font-size: 0.75rem; padding: 0.25rem 0.6rem;" onclick="document.getElementById('claim-input').value = '${c.text.replace(/'/g, "\\'")}'; navigateRoute(null, '/calculator'); focusCalculator();">
-                Uji di Kalkulator →
+              <button class="btn-primary" style="margin-top: 0.85rem; font-size: 0.75rem; padding: 0.32rem 0.75rem; cursor: pointer;" onclick="document.getElementById('claim-input').value = '${c.text.replace(/'/g, "\\'")}'; navigateRoute(null, '/calculator'); focusCalculator();">
+                ⚡ Uji di Kalkulator →
               </button>
             </div>
           `).join('');
