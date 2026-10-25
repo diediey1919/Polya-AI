@@ -2370,13 +2370,13 @@
           </div>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
-            <div class="case-card border-beam-card" style="display: flex; flex-direction: column; justify-content: space-between; cursor: pointer;" onclick="window.location.href='/arena'">
+            <div class="case-card" style="display: flex; flex-direction: column; justify-content: space-between; cursor: pointer;" onclick="window.location.href='/arena'">
               <div>
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.6rem;">
                   <span class="record-chip" style="color: #dfb15b; border-color: rgba(223, 177, 91, 0.35);"><span class="pulse-dot" style="background:#dfb15b;"></span> LIVE ARENA 3V3</span>
                   <span style="font-size: 1.1rem;">🏛</span>
                 </div>
-                <h4 style="font-size: 0.92rem; text-transform: none; letter-spacing: normal; color: #dfb15b; margin-bottom: 0.35rem; font-weight: 700;">Debate Arena (3-vs-3)</h4>
+                <h4 style="font-size: 0.92rem; text-transform: none; letter-spacing: normal; color: var(--text-main); margin-bottom: 0.35rem;">Debate Arena (3-vs-3)</h4>
                 <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;">Pertandingan debat teologis kompetitif 5 ronde 6 manusia dengan FSM deterministik 16-state dan 9 peran AI supervisory.</p>
               </div>
               <div style="margin-top: 1rem; display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: #dfb15b; font-weight: 600;">
@@ -2442,21 +2442,26 @@
           </div>
         </div>
 
-        <!-- Case Studies Preview -->
-        <div class="case-card" style="padding: 1.25rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <h4 style="font-size: 0.85rem; text-transform: none; letter-spacing: normal; color: var(--text-main);">Studi Kasus Kanonikal Unggulan</h4>
-            <a onclick="navigateRoute(event, '/themes')" style="font-size: 0.78rem; color: var(--primary); text-decoration: none; cursor: pointer; font-weight: 600;">Lihat Semua Tema →</a>
-          </div>
-          <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.85rem 1.15rem; cursor: pointer;" onclick="navigateRoute(event, '/themes/friksi-paulus-vs-petrus')">
+        <!-- Case Studies Preview (Dynamic Canonical Themes) -->
+        <div class="case-card" style="padding: 1.25rem; margin-bottom: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
             <div>
-              <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.2rem;">
-                <span class="evidence-badge badge-primary-source" style="font-size: 0.65rem;">CASE THEME</span>
-                <span style="font-size: 0.88rem; font-weight: 600; color: var(--text-main);">Friksi Paulus vs Petrus (Insiden Antiokhia)</span>
+              <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                <h4 style="font-size: 0.95rem; text-transform: none; letter-spacing: normal; color: var(--text-main); margin: 0; font-weight: 700;">Studi Kasus Kanonikal Unggulan</h4>
+                <span class="evidence-badge badge-primary-source" style="font-size: 0.68rem; padding: 0.12rem 0.45rem;">15 Mosi Terverifikasi</span>
               </div>
-              <p style="font-size: 0.78rem; color: var(--text-muted);">Galatia 2:11-14 | Saksi Papirus P46 & Perdebatan Hipokrisi Teologis</p>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Kurasi mosi debat apologetika komparatif dan aparatus dalil naskah dari pipeline transkrip ZUMA.</p>
             </div>
-            <span class="kbd-shortcut">Buka Dossier ↵</span>
+            <a onclick="navigateRoute(event, '/themes'); selectDebateCategory('ALL');" style="font-size: 0.8rem; color: var(--primary); text-decoration: none; cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem;">
+              <span>Lihat Seluruh 2.451+ Tema</span> <span>→</span>
+            </a>
+          </div>
+
+          <!-- Dynamic List Container populated from /api/v1/themes -->
+          <div id="dashboard-canonical-cases" style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <div style="padding: 1.25rem; text-align: center; color: var(--text-dim); font-size: 0.82rem; background: var(--bg-surface); border-radius: 6px; border: 1px solid var(--border-subtle);">
+              <span class="pulse-dot"></span> Menghubungkan ke pipeline naskah server & memuat tema unggulan...
+            </div>
           </div>
         </div>
       </section>
@@ -3099,6 +3104,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       await fetchUsage();
       renderDemoClaims();
       checkOnboardingStatus();
+      loadDashboardCanonicalCases();
       handleInitialRoute();
 
       // Keyboard shortcut Ctrl+K
@@ -4271,6 +4277,80 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         const container = document.getElementById("theme-list-cards");
         if (container && currentThemes.length === 0) container.innerHTML = `<p style="color: var(--rose);">Koneksi terputus saat mengambil katalog tema.</p>`;
       }
+    }
+
+    async function loadDashboardCanonicalCases() {
+      const container = document.getElementById("dashboard-canonical-cases");
+      if (!container) return;
+
+      try {
+        if (!currentThemes || currentThemes.length === 0) {
+          const res = await fetch("/api/v1/themes");
+          const data = await res.json();
+          if (res.ok && data.success && data.themes) {
+            currentThemes = data.themes;
+          }
+        }
+
+        if (!currentThemes || currentThemes.length === 0) {
+          container.innerHTML = `<p style="color: var(--text-dim); font-size: 0.82rem; padding: 1rem; text-align: center;">Tidak ada data studi kasus kanonikal.</p>`;
+          return;
+        }
+
+        const verified = currentThemes.filter(t => !t.discourse_type?.includes("Menunggu Transkrip"));
+        const featured = (verified.length > 0 ? verified : currentThemes).slice(0, 15);
+
+        container.innerHTML = featured.map((t, idx) => {
+          const subMotionsCount = (t.sub_motions && t.sub_motions.length) ? t.sub_motions.length : 0;
+          const motionText = (subMotionsCount > 0) ? t.sub_motions[0] : (t.title || '');
+          const safeMotion = motionText.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+          const passagesList = (t.passages || []).slice(0, 4);
+          const safeId = (t.theme_id || t.id || '').replace(/'/g, "\\'");
+
+          return `
+            <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.85rem 1.15rem; gap: 1rem; flex-wrap: wrap; transition: all 0.15s ease;">
+              <div style="flex: 1 1 360px; min-width: 0;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem; flex-wrap: wrap;">
+                  <span class="evidence-badge badge-primary-source" style="font-size: 0.65rem; padding: 0.1rem 0.4rem;">
+                    #${idx + 1} • ${t.discourse_type || 'Kanonikal'}
+                  </span>
+                  ${passagesList.length > 0 ? `
+                    <span style="font-size: 0.72rem; color: var(--text-dim); font-family: var(--font-mono);">
+                      📖 ${passagesList.join(' • ')}
+                    </span>
+                  ` : ''}
+                </div>
+                <div style="font-size: 0.9rem; font-weight: 600; color: var(--text-main); line-height: 1.4; word-break: break-word;">
+                  ${t.title}
+                </div>
+                ${subMotionsCount > 0 ? `
+                  <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.35;">
+                    <span style="color: var(--primary); font-weight: 500;">Sub-Mosi:</span> ${t.sub_motions[0]}
+                  </div>
+                ` : ''}
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; flex-wrap: wrap;">
+                <button type="button" class="btn-primary" style="padding: 0.35rem 0.85rem; font-size: 0.75rem; cursor: pointer;" onclick="loadMotionIntoCalculator('${safeMotion}')" title="Uji sub-mosi ini di Apologetics Calculator">
+                  ⚡ Uji di Kalkulator
+                </button>
+                <button type="button" class="btn-primary" style="padding: 0.35rem 0.85rem; font-size: 0.75rem; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--border-subtle); color: var(--text-main); cursor: pointer;" onclick="openThemeFromDashboard('${safeId}')" title="Buka berkas dossier lengkap">
+                  Buka Dossier →
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      } catch (err) {
+        console.error("Gagal memuat tema kanonikal dashboard:", err);
+        container.innerHTML = `<p style="color: var(--rose); font-size: 0.82rem; padding: 1rem; text-align: center;">Koneksi terputus saat mengambil studi kasus kanonikal.</p>`;
+      }
+    }
+
+    function openThemeFromDashboard(themeId) {
+      navigateRoute(null, '/themes');
+      setTimeout(() => {
+        openThemeDetail(themeId);
+      }, 100);
     }
 
     function selectDebateCategory(categoryName) {
@@ -5735,6 +5815,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       } else if (path === "/dashboard") {
         document.getElementById("view-dashboard").classList.remove("hidden");
         document.querySelectorAll(".side-item")[1].classList.add("active");
+        loadDashboardCanonicalCases();
       } else if (path.startsWith("/themes")) {
         document.getElementById("view-themes").classList.remove("hidden");
         document.querySelectorAll(".side-item")[2].classList.add("active");
