@@ -175,6 +175,10 @@ def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
 
     target_agent = Registry.route_task("RESEARCH_AGENT")
 
+    # Detect explicit scripture citation directly from claim text
+    explicit_verses = re.findall(r'([1-3]?\s?[A-Za-z]+(?:\s+[A-Za-z]+)?\s+\d+:\d+(?:-\d+)?)', claim_text)
+    explicit_verse = explicit_verses[0].strip() if explicit_verses else None
+
     # Pre-retrieve evidence for contextual model grounding
     all_ev = Evidence.retrieve_all_evidence(claim_text)
     retrieval_status = all_ev.get("status", "insufficient_evidence")
@@ -198,7 +202,13 @@ def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
     )
 
     corpus_notice = ""
-    if retrieval_status == "insufficient_evidence":
+    if not scripture_items and explicit_verse:
+        corpus_notice = (
+            f"\nCATATAN AYAT EKSPLISIT: Klaim merujuk pada perikop Kitab Suci '{explicit_verse}'. "
+            f"Karena perikop ini belum diindeks dalam perikop statis, Anda WAJIB menyertakan objek 'primary_evidence' di dalam output JSON. "
+            f"Objek 'primary_evidence' memuat: 'passage_reference' ('{explicit_verse}'), 'original_language' ('Koine Greek' atau 'Biblical Hebrew'), 'original_text' (teks asli dalam aksara Yunani/Ibrani kuno), 'transliteration', 'indonesian_translation', saksi naskah tertua dalam 'witnesses' (misal: Codex Sinaiticus, Vaticanus, Papyri), dan 2-4 token kata kunci dalam 'tokens' (masing-masing: surface_form, lemma, morphology, lexical_meaning, theological_interpretation)."
+        )
+    elif retrieval_status == "insufficient_evidence":
         corpus_notice = (
             "\nPERINGATAN PENTING KORPUS: Klaim ini tidak didukung oleh korpus naskah teologis kami (atau berada di luar domain teologi). "
             "Jangan mengarang ayat Alkitab atau bukti fiktif. Nyatakan secara jujur bahwa bukti korpus tidak mencukupi."
@@ -230,7 +240,7 @@ def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
     lang_name = lang_map.get(target_locale, "English" if target_locale == "en" else "Indonesian")
 
     language_instruction = (
-        f"BAHASA OUTPUT WAJIB: Seluruh sintesis teks (claim_summary, argument, counterargument, rebuttal, weakness, open_questions, debate_preparation, sources) WAJIB ditulis secara konsisten dan murni dalam {lang_name} (Locale: {target_locale})."
+        f"BAHASA OUTPUT WAJIB: Seluruh sintesis teks (claim_summary, argument, counterargument, rebuttal, weakness, open_questions, debate_preparation, debate_simulation, sources) WAJIB ditulis secara konsisten dan murni dalam {lang_name} (Locale: {target_locale})."
     )
 
     perspective_instruction = (
@@ -239,11 +249,36 @@ def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
         "Susun argumen pembelaan dari posisi pengguna, bangun sanggahan lawan (counterargument) sesuai dengan premis dan sudut pandang spesifik konteks lawan tersebut, dan susun tangkisan balik (rebuttal) yang mematahkan premis lawan secara akurat."
     )
 
+    debate_sim_section = ""
+    if "DEBATE" in requested_mode:
+        debate_sim_section = f"""
+WAJIB MENYERTAKAN 'debate_simulation':
+Karena dalam mode DEBATE, sertakan objek 'debate_simulation' dalam JSON dengan 8 babak simulasi dialektika (rounds 1-8) antara ZUMA (Persona Zulkifli M. Abbas: tegas, tajam, presisi, dingin, fokus pada bukti naskah bahasa sumber, Ilzam al-Khasm) vs Oposisi ({opp_persp.upper()}).
+Setiap babak wajib mendebat klaim '{claim_text}' dan nas {explicit_verse or 'terkait'} secara spesifik (bukan template umum).
+Format 'debate_simulation':
+{{
+  "socratic_question": "Pertanyaan Sokratik membedah premis lawan tentang teks ini",
+  "target_dilemma": "Dilema fatal yang mengunci oposisi",
+  "presupposition_demolished": "Praduga lawan yang diruntuhkan teks",
+  "verdict_summary": "Ringkasan adjudikasi epistemik keunggulan naskah",
+  "rounds": [
+    {{"round_num": 1, "zuma_speech": "Ujaran ZUMA Babak 1", "opponent_speech": "Tanggapan Oposisi Babak 1"}},
+    {{"round_num": 2, "zuma_speech": "Ujaran ZUMA Babak 2", "opponent_speech": "Tanggapan Oposisi Babak 2"}},
+    {{"round_num": 3, "zuma_speech": "Ujaran ZUMA Babak 3", "opponent_speech": "Tanggapan Oposisi Babak 3"}},
+    {{"round_num": 4, "zuma_speech": "Ujaran ZUMA Babak 4", "opponent_speech": "Tanggapan Oposisi Babak 4"}},
+    {{"round_num": 5, "zuma_speech": "Ujaran ZUMA Babak 5", "opponent_speech": "Tanggapan Oposisi Babak 5"}},
+    {{"round_num": 6, "zuma_speech": "Ujaran ZUMA Babak 6", "opponent_speech": "Tanggapan Oposisi Babak 6"}},
+    {{"round_num": 7, "zuma_speech": "Ujaran ZUMA Babak 7", "opponent_speech": "Tanggapan Oposisi Babak 7"}},
+    {{"round_num": 8, "zuma_speech": "Ujaran ZUMA Babak 8", "opponent_speech": "Tanggapan Oposisi Babak 8"}}
+  ]
+}}"""
+
     prompt = f"""Anda adalah AI engine analitik apologetika Polya. Berikan sintesis terstruktur untuk klaim berikut:
 Klaim Pengguna: "{claim_text}"
 {mode_instruction}
 {perspective_instruction}
 {language_instruction}
+{debate_sim_section}
 
 Bukti Kontekstual dari Korpus:
 {ev_context_str}
@@ -260,6 +295,15 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
   "debate_preparation": {{
     "cross_examination_trap": "Jebakan pertanyaan sokratik terstruktur",
     "recommended_tempo": "Panduan tempo dan kendali percakapan"
+  }},
+  "debate_simulation": {{
+    "socratic_question": "...",
+    "target_dilemma": "...",
+    "presupposition_demolished": "...",
+    "verdict_summary": "...",
+    "rounds": [
+      {{"round_num": 1, "zuma_speech": "...", "opponent_speech": "..."}}
+    ]
   }},
   "sources": [{{"citation": "Sumber/Naskah yang dirujuk", "type": "Tipe Sumber"}}]
 }}"""
@@ -297,6 +341,28 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
                     output_used = True
                     synthesis_status = "SUCCESS"
                     consumed_provider = getattr(res, "provider", "unknown")
+
+                    # Ingest dynamic primary_evidence if provided and scripture_items is empty
+                    if "primary_evidence" in parsed and isinstance(parsed["primary_evidence"], dict):
+                        pe = parsed["primary_evidence"]
+                        pref = pe.get("passage_reference") or explicit_verse
+                        if pref:
+                            try:
+                                dyn_item = Evidence.create_dynamic_evidence_item(
+                                    passage_reference=pref,
+                                    original_language=pe.get("original_language", "Koine Greek"),
+                                    original_text=pe.get("original_text", ""),
+                                    transliteration=pe.get("transliteration", ""),
+                                    indonesian_translation=pe.get("indonesian_translation", ""),
+                                    english_translation=pe.get("english_translation", ""),
+                                    witnesses=pe.get("witnesses") or ["Codex Sinaiticus", "Codex Vaticanus"],
+                                    tokens=pe.get("tokens") or [],
+                                    critical_apparatus=pe.get("critical_apparatus", "")
+                                )
+                                scripture_items.append(dyn_item)
+                                retrieval_status = "sufficient"
+                            except Exception as e_dyn:
+                                logger.warning(f"Dynamic EvidenceItem instantiation failed: {e_dyn}")
             except Exception:
                 pass
 
@@ -475,6 +541,7 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
         "synthesis_status": synthesis_status,
         "model_invocation": model_inv,
         "retrieval_status": retrieval_status,
+        "evidence_items": [e.to_dict() for e in scripture_items] if scripture_items else state.get("evidence_items", []),
         "corpus_evidence": corpus_items,
         "provider": consumed_provider,
         "provenance": model_inv["provenance"]
@@ -485,11 +552,24 @@ def evidence_retrieval_node(state: ResearchState) -> Dict[str, Any]:
     """Retrieves verified primary biblical evidence with source-language priority."""
     claim_text = state["claim_input"]
     evidence_items = Evidence.retrieve_scripture_evidence(claim_text)
-    prov_hashes = [e.provenance_hash for e in evidence_items]
+    if evidence_items:
+        prov_hashes = [e.provenance_hash for e in evidence_items]
+        return {
+            "evidence_items": [e.to_dict() for e in evidence_items],
+            "provenance_hashes": prov_hashes
+        }
+
+    # If static retrieval found nothing, preserve dynamic evidence synthesized in dispatch node
+    prior_ev = state.get("evidence_items", [])
+    if prior_ev:
+        return {
+            "evidence_items": prior_ev,
+            "provenance_hashes": [e.get("provenance_hash", "") for e in prior_ev if isinstance(e, dict)]
+        }
 
     return {
-        "evidence_items": [e.to_dict() for e in evidence_items],
-        "provenance_hashes": prov_hashes
+        "evidence_items": [],
+        "provenance_hashes": []
     }
 
 
@@ -497,6 +577,20 @@ def source_criticism_node(state: ResearchState) -> Dict[str, Any]:
     """Executes Source Criticism, Textual Criticism, Translation Audits, and Philological Tests."""
     claim_text = state["claim_input"]
     temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
+    if not temp_evidence and state.get("evidence_items"):
+        for ev_d in state["evidence_items"]:
+            if isinstance(ev_d, dict) and ev_d.get("passage_reference"):
+                try:
+                    temp_evidence.append(Evidence.create_dynamic_evidence_item(
+                        passage_reference=ev_d.get("passage_reference", ""),
+                        original_language=ev_d.get("original_language", "Koine Greek"),
+                        original_text=ev_d.get("original_text", ""),
+                        transliteration=ev_d.get("transliteration", ""),
+                        witnesses=ev_d.get("witnesses") or [],
+                        tokens=ev_d.get("tokens") or []
+                    ))
+                except Exception:
+                    pass
 
     source_profiles = [SourceCriticismEngine.evaluate_source(e).to_dict() for e in temp_evidence]
     variant_reports = [SourceCriticismEngine.check_textual_variants(e.passage_reference).to_dict() for e in temp_evidence]
@@ -738,6 +832,21 @@ def zuma_debate_preparation_node(state: ResearchState) -> Dict[str, Any]:
     opp_persp = state.get("opponent_perspective", "islam")
     target_locale = state.get("debate_locale") or state.get("ui_locale") or "id"
     temp_evidence = Evidence.retrieve_scripture_evidence(claim_text)
+    if not temp_evidence and state.get("evidence_items"):
+        for ev_d in state["evidence_items"]:
+            if isinstance(ev_d, dict) and ev_d.get("passage_reference"):
+                try:
+                    temp_evidence.append(Evidence.create_dynamic_evidence_item(
+                        passage_reference=ev_d.get("passage_reference", ""),
+                        original_language=ev_d.get("original_language", "Koine Greek"),
+                        original_text=ev_d.get("original_text", ""),
+                        transliteration=ev_d.get("transliteration", ""),
+                        witnesses=ev_d.get("witnesses") or [],
+                        tokens=ev_d.get("tokens") or []
+                    ))
+                except Exception:
+                    pass
+
     steelman = ArgumentEngine.steelman_opposition(claim_text, user_perspective=user_persp, opponent_perspective=opp_persp, locale=target_locale)
     contradiction = ArgumentEngine.audit_contradiction(temp_evidence)
 
@@ -753,12 +862,15 @@ def zuma_debate_preparation_node(state: ResearchState) -> Dict[str, Any]:
     )
     prep_dict = debate_prep.to_dict()
     synth = state.get("synthesis_output")
-    if synth and isinstance(synth.get("debate_preparation"), dict):
-        dp = synth["debate_preparation"]
-        if dp.get("cross_examination_trap"):
-            prep_dict["cross_examination_trap"] = dp.get("cross_examination_trap")
-        if dp.get("recommended_tempo"):
-            prep_dict["recommended_tempo"] = dp.get("recommended_tempo")
+    if synth and isinstance(synth, dict):
+        if isinstance(synth.get("debate_preparation"), dict):
+            dp = synth["debate_preparation"]
+            if dp.get("cross_examination_trap"):
+                prep_dict["cross_examination_trap"] = dp.get("cross_examination_trap")
+            if dp.get("recommended_tempo"):
+                prep_dict["recommended_tempo"] = dp.get("recommended_tempo")
+        if isinstance(synth.get("debate_simulation"), dict):
+            prep_dict["debate_simulation"] = synth["debate_simulation"]
 
     return {
         "debate_preparation": prep_dict,

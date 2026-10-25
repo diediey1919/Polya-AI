@@ -165,20 +165,59 @@ class ZumaSkillEngine:
     @classmethod
     def sanitize_bible_citations(cls, text: str) -> str:
         """Enforces absolute compliance with Polya Nomenklatur Directives."""
-        # Replace abbreviations with full names
+        if not text or not isinstance(text, str):
+            return ""
+        # Replace abbreviations with full names (order matters: numbered books first)
         replacements = [
+            (r"\b1\s*Pet\b\.?\s*", "1 Petrus "),
+            (r"\b2\s*Pet\b\.?\s*", "2 Petrus "),
+            (r"\b1\s*Kor\b\.?\s*", "1 Korintus "),
+            (r"\b2\s*Kor\b\.?\s*", "2 Korintus "),
+            (r"\b1\s*Tes\b\.?\s*", "1 Tesalonika "),
+            (r"\b2\s*Tes\b\.?\s*", "2 Tesalonika "),
+            (r"\b1\s*Tim\b\.?\s*", "1 Timotius "),
+            (r"\b2\s*Tim\b\.?\s*", "2 Timotius "),
+            (r"\b1\s*Yoh\b\.?\s*", "1 Yohanes "),
+            (r"\b2\s*Yoh\b\.?\s*", "2 Yohanes "),
+            (r"\b3\s*Yoh\b\.?\s*", "3 Yohanes "),
+            (r"\b1\s*Sam\b\.?\s*", "1 Samuel "),
+            (r"\b2\s*Sam\b\.?\s*", "2 Samuel "),
+            (r"\b1\s*Raj\b\.?\s*", "1 Raja-raja "),
+            (r"\b2\s*Raj\b\.?\s*", "2 Raja-raja "),
+            (r"\b1\s*Taw\b\.?\s*", "1 Tawarikh "),
+            (r"\b2\s*Taw\b\.?\s*", "2 Tawarikh "),
             (r"\bRom\b\.?\s*", "Roma "),
             (r"\bMat\b\.?\s*", "Matius "),
+            (r"\bMrk\b\.?\s*", "Markus "),
+            (r"\bMar\b\.?\s*", "Markus "),
+            (r"\bLuk\b\.?\s*", "Lukas "),
+            (r"\bYoh\b\.?\s*", "Yohanes "),
+            (r"\bKis\b\.?\s*", "Kisah Para Rasul "),
             (r"\bGal\b\.?\s*", "Galatia "),
             (r"\bEfe\b\.?\s*", "Efesus "),
-            (r"\bKis\b\.?\s*", "Kisah Para Rasul "),
-            (r"\b1Kor\b\.?\s*", "1 Korintus "),
-            (r"\b2Kor\b\.?\s*", "2 Korintus "),
+            (r"\bEf\b\.?\s*", "Efesus "),
+            (r"\bFlp\b\.?\s*", "Filipi "),
+            (r"\bFil\b\.?\s*", "Filipi "),
+            (r"\bKol\b\.?\s*", "Kolose "),
+            (r"\bTit\b\.?\s*", "Titus "),
+            (r"\bFlm\b\.?\s*", "Filemon "),
+            (r"\bIbr\b\.?\s*", "Ibrani "),
+            (r"\bYak\b\.?\s*", "Yakobus "),
+            (r"\bYud\b\.?\s*", "Yudas "),
+            (r"\bWah\b\.?\s*", "Wahyu "),
+            (r"\bWhy\b\.?\s*", "Wahyu "),
+            (r"\bKej\b\.?\s*", "Kejadian "),
             (r"\bKel\b\.?\s*", "Keluaran "),
+            (r"\bIm\b\.?\s*", "Imamat "),
+            (r"\bIml\b\.?\s*", "Imamat "),
+            (r"\bBil\b\.?\s*", "Bilangan "),
             (r"\bUl\b\.?\s*", "Ulangan ")
         ]
         for pattern, repl in replacements:
             text = re.sub(pattern, repl, text, flags=re.IGNORECASE)
+
+        # Clean multiple spaces before colon or numbers
+        text = re.sub(r'([A-Za-z])\s{2,}(\d+)', r'\1 \2', text)
 
         # Standardize nomenclature "Bible"
         text = re.sub(r"\bAlkitab\b", "Bible", text)
@@ -770,23 +809,9 @@ Aturan Mutlak:
         # 1. Extract Passages and Witnesses
         passages = []
         witnesses = []
-        if evidence_items:
-            for ev in evidence_items:
-                if isinstance(ev, dict):
-                    pref = ev.get("passage_reference") or ev.get("passage")
-                    if pref and pref not in passages:
-                        passages.append(cls.sanitize_bible_citations(pref))
-                    w_list = ev.get("witnesses") or ev.get("manuscripts") or []
-                    if isinstance(w_list, list):
-                        for w in w_list:
-                            if w and w not in witnesses:
-                                witnesses.append(str(w))
-                elif hasattr(ev, "passage_reference"):
-                    pref = getattr(ev, "passage_reference", "")
-                    if pref and pref not in passages:
-                        passages.append(cls.sanitize_bible_citations(pref))
 
-        # Fallback passage extraction from claim string
+        # PRIORITY 1: Explicit passage extraction directly from user claim/motion string
+        # e.g., "2 Petrus 1:21" or "Matius 28:19" must be primary anchor
         import re
         b_match = re.findall(r'([1-3]?\s?[A-Za-z]+(?:\s+[A-Za-z]+)?\s+\d+:\d+(?:-\d+)?)', claim_clean)
         for m in b_match:
@@ -794,10 +819,38 @@ Aturan Mutlak:
             if san not in passages:
                 passages.append(san)
 
-        # Thematic fallbacks based on doctrinal keywords
+        # PRIORITY 2: Evidence items from retrieval / LLM synthesis
+        if evidence_items:
+            for ev in evidence_items:
+                if isinstance(ev, dict):
+                    pref = ev.get("passage_reference") or ev.get("passage")
+                    if pref:
+                        san_pref = cls.sanitize_bible_citations(pref)
+                        if san_pref not in passages:
+                            passages.append(san_pref)
+                    w_list = ev.get("witnesses") or ev.get("manuscripts") or []
+                    if isinstance(w_list, list):
+                        for w in w_list:
+                            if w and str(w) not in witnesses:
+                                witnesses.append(str(w))
+                elif hasattr(ev, "passage_reference"):
+                    pref = getattr(ev, "passage_reference", "")
+                    if pref:
+                        san_pref = cls.sanitize_bible_citations(pref)
+                        if san_pref not in passages:
+                            passages.append(san_pref)
+                    w_list = getattr(ev, "witnesses", []) or getattr(ev, "manuscripts", [])
+                    if isinstance(w_list, list):
+                        for w in w_list:
+                            if w and str(w) not in witnesses:
+                                witnesses.append(str(w))
+
+        # PRIORITY 3: Thematic fallbacks based on doctrinal keywords
         c_lower = claim_clean.lower()
         if not passages:
-            if any(k in c_lower for k in ["paulus", "taurat", "hukum", "sunat"]):
+            if any(k in c_lower for k in ["roh kudus", "pneuma", "nubuat", "nabi", "ilham"]):
+                passages = ["2 Petrus 1:21", "Yohanes 14:26", "2 Timotius 3:16"]
+            elif any(k in c_lower for k in ["paulus", "taurat", "hukum", "sunat"]):
                 passages = ["Galatia 2:11-14", "Roma 3:31", "Roma 7:12"]
             elif any(k in c_lower for k in ["trinitas", "satu", "bapa", "allah"]):
                 passages = ["Yohanes 10:30", "Matius 28:19", "1 Yohanes 5:7"]
@@ -862,7 +915,7 @@ Aturan Mutlak:
             }.get(opp_p, f"[引用原文] 反对方（{opp_p.upper()}）对主张 '{claim_clean}' 坚持其传统解释立场。")
 
             opp_speech_r2 = {
-                "islam": f"[引用原文] {p_primary} 的经文绝不能带有神学增添。耶稣始终向上帝祈祷，并明确将自己与造物主区分开来。",
+                "islam": f"[引用原文] {p_primary} 的经文绝不能带有神学增添或教义推论。先知教导与经典启示必须在纯正一神论和成文原意下接受严格检验，不得附会哲学思辨。",
                 "christian_protestant": f"[引用原文] {p_primary} 经文必须依据以经解经原则解释，而非脱离字面文本的哲学思辨。",
                 "christian_catholic": f"[引用原文] 离开维护神圣启示完整性的圣传和教会训导权，就无法狭隘地理解 {p_primary}。",
                 "judaism": f"[引用原文] {p_primary} 经文必须在希伯来语原初语境和西奈圣约中解读，不得脱离历史文法强加预表论。",
@@ -870,7 +923,7 @@ Aturan Mutlak:
             }.get(opp_p, f"[引用原文] {opp_p.upper()} 一方辩称必须在其系统性框架内理解该段经文。")
 
             opp_speech_r3 = {
-                "islam": "[引用原文] 我们必须查考圣经中耶稣亲自肯定父是独一真神的平行经文。",
+                "islam": "[引用原文] 我们必须查考全部正典中的平行经文，在经典整体脉络中确认造物主的绝对独一与神圣启示的内在一致性。",
                 "christian_protestant": f"[引用原文] 我们必须查考整部圣经66卷正典的平行经文，而不能孤立看 {p_primary} 这单独一节。",
                 "christian_catholic": "[引用原文] 我们必须考量早期教父的神学共识，他们在使徒指导下制定了大公信经。",
                 "judaism": "[引用原文] 我们必须将其与妥拉全书及塔纳赫中以色列众先知的教导进行全面衡量。",
@@ -935,7 +988,7 @@ Aturan Mutlak:
             }.get(opp_p, f"[SOURCE QUOTE] The opposition ({opp_p.upper()}) maintains conventional interpretations of the claim '{claim_clean}'.")
 
             opp_speech_r2 = {
-                "islam": f"[SOURCE QUOTE] The passage {p_primary} must not be read with theological interpolation. Jesus consistently prayed to God and distinguished Himself from the Creator.",
+                "islam": f"[SOURCE QUOTE] The passage {p_primary} must not be read with theological interpolation or doctrinal extrapolation. All prophetic and scriptural doctrine must be tested against pure monotheism and the verbatim written text without speculative presupposition.",
                 "christian_protestant": f"[SOURCE QUOTE] The passage {p_primary} must be interpreted via analogia scriptura (scripture interprets scripture), not philosophical speculations outside the written text.",
                 "christian_catholic": f"[SOURCE QUOTE] The passage {p_primary} cannot be narrowly interpreted without Sacred Tradition and the Magisterium guarding divine revelation.",
                 "judaism": f"[SOURCE QUOTE] The text of {p_primary} must be read within original Hebrew context and the Sinai covenant, not coerced into typologies detached from historical grammar.",
@@ -943,7 +996,7 @@ Aturan Mutlak:
             }.get(opp_p, f"[SOURCE QUOTE] The {opp_p.upper()} party argues that the passage must be understood within their systemic framework.")
 
             opp_speech_r3 = {
-                "islam": "[SOURCE QUOTE] We must examine parallel texts across the corpus, where Jesus Himself affirms that the Father alone is the only true God.",
+                "islam": "[SOURCE QUOTE] We must examine parallel texts across the corpus, where the absolute oneness of God and the internal consistency of divine revelation are affirmed without compromise.",
                 "christian_protestant": f"[SOURCE QUOTE] We must examine parallel passages across the entire 66-book Canon of the Bible, not isolate a single verse in {p_primary}.",
                 "christian_catholic": "[SOURCE QUOTE] We must consider early patristic theological consensus which formulated ecumenical creeds under apostolic guidance.",
                 "judaism": "[SOURCE QUOTE] We must evaluate this against the entirety of the Torah and Israel's prophets in the Tanakh.",
@@ -1008,7 +1061,7 @@ Aturan Mutlak:
             }.get(opp_p, f"[SOURCE QUOTE] Pihak oposisi ({opp_p.upper()}) mempertahankan penafsiran konvensional atas klaim '{claim_clean}'.")
 
             opp_speech_r2 = {
-                "islam": f"[SOURCE QUOTE] Nas {p_primary} tidak boleh dibaca dengan interpolasi makna. Yesus secara konsisten berdoa kepada Allah dan membedakan diri-Nya dari Sang Pencipta.",
+                "islam": f"[SOURCE QUOTE] Nas {p_primary} tidak boleh dibaca dengan interpolasi makna atau ekstrapolasi doktrinal. Segala ajaran wahyu dan kenabian wajib diuji apakah selaras dengan kemurnian tauhid dan teks tertulis apa adanya tanpa penafsiran spekulatif.",
                 "christian_protestant": f"[SOURCE QUOTE] Nas {p_primary} harus ditafsirkan melalui analogia scriptura (kitab suci menafsirkan kitab suci), bukan spekulasi filosofis di luar teks tertulis.",
                 "christian_catholic": f"[SOURCE QUOTE] Nas {p_primary} tidak bisa dibaca secara sempit tanpa bimbingan Tradisi Suci dan Magisterium yang memelihara keutuhan wahyu ilahi.",
                 "judaism": f"[SOURCE QUOTE] Teks {p_primary} harus dibaca dalam konteks bahasa Ibrani asli dan kovenan Sinai, bukan dipaksakan dengan tipologi yang mencabut nas dari konteks historisnya.",
@@ -1016,7 +1069,7 @@ Aturan Mutlak:
             }.get(opp_p, f"[SOURCE QUOTE] Pihak {opp_p.upper()} beralasan bahwa pembacaan ayat harus dipahami dalam kerangka sistemik mereka.")
 
             opp_speech_r3 = {
-                "islam": "[SOURCE QUOTE] Kita harus meneliti ayat-ayat pembanding dalam korpus kitab, di mana Yesus sendiri menegaskan bahwa Bapa adalah satu-satunya Allah yang benar.",
+                "islam": "[SOURCE QUOTE] Kita harus meneliti ayat-ayat pembanding dalam korpus kitab suci secara menyeluruh, di mana prinsip keesaan mutlak dan konsistensi wahyu ilahi ditegaskan tanpa kompromi.",
                 "christian_protestant": f"[SOURCE QUOTE] Kita harus melihat ayat-ayat pembanding lainnya di seluruh Kanon 66 Kitab Bible, bukan hanya mengisolasi satu perikop {p_primary}.",
                 "christian_catholic": "[SOURCE QUOTE] Kita harus melihat konsensus teologis para Bapa Gereja mula-mula yang merumuskan kredo ekumenis secara terbimbing.",
                 "judaism": "[SOURCE QUOTE] Kita harus membandingkannya dengan keseluruhan hukum Torah dan ketetapan nabi-nabi Israel di kitab Tanakh.",
@@ -1071,6 +1124,62 @@ Aturan Mutlak:
             zuma_r6 = f"[SIMULATED ZUMA RESPONSE] Itu bukan jawaban, itu pengakuan kekalahan logis! Menggunakan metode Ilzam al-Khasm, saya runtuhkan posisi Anda menggunakan premis dan kanon kitab Anda sendiri. Di {p_primary} dan {p_secondary} teks menegaskan fakta tertulis, tetapi Anda justru mencampakkan konsistensi logika demi membela dogma tanpa ayat!"
             zuma_r7 = f"[SIMULATED ZUMA RESPONSE] Di sinilah letak kuncinya! Anda akhirnya mengakui bahwa fondasi klaim Anda bukan teks tertulis kanonik, melainkan asumsi eksternal di luar otoritas naskah! Dalam perdebatan akademis objektif, dalil yang tidak termaktub dalam korpus primer otomatis tidak memiliki nilai pembuktian yuridis!"
             zuma_r8 = f"[SIMULATED ZUMA RESPONSE] Hadirin sekalian, kebenaran naskah berdiri tegak di atas fakta tertulis! Dalam 8 babak pengujian atas topik '{motion}', pihak lawan ({opp_p.upper()}) sama sekali tidak mampu menunjukkan satu pun frasa eksplisit dari {p_primary} maupun {p_secondary}. Seluruh dalil defensif terbukti hanyalah rasionalisasi pasca-kanonikal. Teks tertulis menang, dogma tanpa ayat runtuh!"
+
+        # Pull dynamic rounds from synthesis_output or debate_prep if available
+        dyn_sim = None
+        if isinstance(synthesis_output, dict):
+            dyn_sim = synthesis_output.get("debate_simulation") or synthesis_output.get("canonical_simulation")
+        if not dyn_sim and isinstance(debate_prep, dict):
+            dyn_sim = debate_prep.get("debate_simulation") or debate_prep.get("canonical_simulation")
+
+        if isinstance(dyn_sim, dict):
+            if dyn_sim.get("motion"):
+                motion = cls.sanitize_bible_citations(str(dyn_sim.get("motion")))
+            dyn_rounds = {}
+            if isinstance(dyn_sim.get("rounds"), list):
+                for idx, r in enumerate(dyn_sim["rounds"]):
+                    if isinstance(r, dict):
+                        r_num = r.get("round_num") or (idx + 1)
+                        dyn_rounds[r_num] = r
+
+            round_var_pairs = [
+                (1, "zuma_r1", "opp_speech_r1"),
+                (2, "zuma_r2", "opp_speech_r2"),
+                (3, "zuma_r3", "opp_speech_r3"),
+                (4, "zuma_r4", "opp_speech_r4"),
+                (5, "zuma_r5", "opp_speech_r5"),
+                (6, "zuma_r6", "opp_speech_r6"),
+                (7, "zuma_r7", "opp_speech_r7"),
+                (8, "zuma_r8", "opp_speech_r8"),
+            ]
+            for r_idx, z_var, o_var in round_var_pairs:
+                if r_idx in dyn_rounds:
+                    z_val = dyn_rounds[r_idx].get("zuma_speech") or dyn_rounds[r_idx].get("zuma")
+                    o_val = dyn_rounds[r_idx].get("opponent_speech") or dyn_rounds[r_idx].get("opponent")
+                    if z_val and str(z_val).strip():
+                        z_clean = cls.sanitize_bible_citations(str(z_val).strip())
+                        if not z_clean.startswith("[SIMULATED ZUMA RESPONSE]"):
+                            z_clean = f"[SIMULATED ZUMA RESPONSE] {z_clean}"
+                        if r_idx == 1: zuma_r1 = z_clean
+                        elif r_idx == 2: zuma_r2 = z_clean
+                        elif r_idx == 3: zuma_r3 = z_clean
+                        elif r_idx == 4: zuma_r4 = z_clean
+                        elif r_idx == 5: zuma_r5 = z_clean
+                        elif r_idx == 6: zuma_r6 = z_clean
+                        elif r_idx == 7: zuma_r7 = z_clean
+                        elif r_idx == 8: zuma_r8 = z_clean
+                    if o_val and str(o_val).strip():
+                        o_clean = cls.sanitize_bible_citations(str(o_val).strip())
+                        if not o_clean.startswith("[SOURCE QUOTE]"):
+                            o_clean = f"[SOURCE QUOTE] {o_clean}"
+                        if r_idx == 1: opp_speech_r1 = o_clean
+                        elif r_idx == 2: opp_speech_r2 = o_clean
+                        elif r_idx == 3: opp_speech_r3 = o_clean
+                        elif r_idx == 4: opp_speech_r4 = o_clean
+                        elif r_idx == 5: opp_speech_r5 = o_clean
+                        elif r_idx == 6: opp_speech_r6 = o_clean
+                        elif r_idx == 7: opp_speech_r7 = o_clean
+                        elif r_idx == 8: opp_speech_r8 = o_clean
 
         # 4. Construct 8 Canonical Rounds (16 Turns)
         rounds = [
@@ -1302,6 +1411,17 @@ Aturan Mutlak:
                     f"CLM-EXTRACANONICAL-RATIONALIZATION-002"
                 ]
             }
+
+        # Override cross_examination & epistemic_verdict with dynamic synthesis if available
+        if isinstance(dyn_sim, dict):
+            if dyn_sim.get("socratic_question"):
+                cross_examination[0]["socratic_question"] = cls.sanitize_bible_citations(str(dyn_sim["socratic_question"]))
+            if dyn_sim.get("target_dilemma"):
+                cross_examination[0]["target_dilemma"] = cls.sanitize_bible_citations(str(dyn_sim["target_dilemma"]))
+            if dyn_sim.get("presupposition_demolished"):
+                cross_examination[0]["presupposition_demolished"] = cls.sanitize_bible_citations(str(dyn_sim["presupposition_demolished"]))
+            if dyn_sim.get("verdict_summary"):
+                epistemic_verdict["verdict_summary"] = cls.sanitize_bible_citations(str(dyn_sim["verdict_summary"]))
 
         # 7. Persona Traceability (8 Tactical Steps)
         persona_traceability = [

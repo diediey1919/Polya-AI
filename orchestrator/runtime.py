@@ -910,7 +910,7 @@ class AgentRuntimeManager:
             res = None
             while attempts <= max_retries:
                 attempts += 1
-                res = adapter.dispatch(prompt, timeout=timeout, **kwargs)
+                res = self.dispatch(candidate, prompt, timeout=timeout, **kwargs)
                 # fallback_used is true ONLY if the consumed output is from a template/fallback source,
                 # not merely because there were prior attempts or retries.
                 # We determine this by checking if the provider is "template" or if no live provider output was consumed.

@@ -831,8 +831,10 @@ class PaymentService:
                 now_iso, now_iso
             ))
 
-        # Update user entitlement to PAYMENT_PENDING
-        EntitlementService.set_entitlement_state(user_id, EntitlementState.PAYMENT_PENDING)
+        # Update user entitlement to PAYMENT_PENDING only if not already active premium
+        current_ent = EntitlementService.get_entitlement(user_id)
+        if not current_ent.get("is_premium"):
+            EntitlementService.set_entitlement_state(user_id, EntitlementState.PAYMENT_PENDING)
 
         return {
             "transaction_id": tx_id,
@@ -1089,17 +1091,56 @@ class CaseFileGenerator:
             model_inv = result.get("model_invocation") or {}
             retrieval_status = result.get("retrieval_status", "insufficient_evidence")
 
+            # Ingest dynamic primary_evidence if evidence_items is empty
+            if not result.get("evidence_items") and synth and isinstance(synth.get("primary_evidence"), dict):
+                pe = synth["primary_evidence"]
+                pref = pe.get("passage_reference") or pe.get("passage")
+                if pref:
+                    try:
+                        from orchestrator.evidence_engine import Evidence
+                        dyn_item = Evidence.create_dynamic_evidence_item(
+                            passage_reference=pref,
+                            original_language=pe.get("original_language", "Koine Greek"),
+                            original_text=pe.get("original_text", ""),
+                            transliteration=pe.get("transliteration", ""),
+                            indonesian_translation=pe.get("indonesian_translation", ""),
+                            english_translation=pe.get("english_translation", ""),
+                            witnesses=pe.get("witnesses") or ["Codex Sinaiticus", "Codex Vaticanus"],
+                            tokens=pe.get("tokens") or [],
+                            critical_apparatus=pe.get("critical_apparatus", "")
+                        )
+                        result["evidence_items"] = [dyn_item.to_dict()]
+                        retrieval_status = "sufficient"
+                    except Exception as e_dyn:
+                        logger.warning(f"Services dynamic evidence ingestion error: {e_dyn}")
+
             ev_list = []
             sources_list = []
-            if retrieval_status == "sufficient":
+            if retrieval_status == "sufficient" or result.get("evidence_items"):
                 for e in result.get("evidence_items", []):
+                    # Format morphology breakdown from tokens if available
+                    raw_tokens = e.get("tokens") or []
+                    morph_parts = []
+                    if isinstance(raw_tokens, list) and raw_tokens:
+                        for t in raw_tokens:
+                            if isinstance(t, dict):
+                                sf = t.get("surface_form", "")
+                                lem = t.get("lemma", "")
+                                m = t.get("morph") or t.get("morphology", "")
+                                lm = t.get("meaning") or t.get("lexical_meaning", "")
+                                if sf or lem or m:
+                                    morph_parts.append(f"{sf} ({lem}): {m} — {lm}" if lem else f"{sf}: {m} — {lm}")
+                            elif isinstance(t, str):
+                                morph_parts.append(t)
+                    morph_display = " | ".join(morph_parts) if morph_parts else f"Witnesses: {', '.join(e.get('witnesses', []))}"
+
                     ev_list.append({
                         "language": e.get("original_language", "Koine Greek"),
                         "source_text": f"{e.get('original_text', '')} ({e.get('passage_reference', '')})",
                         "transliteration": e.get("transliteration", ""),
-                        "morphology": f"Witnesses: {', '.join(e.get('witnesses', []))}",
+                        "morphology": morph_display,
                         "manuscripts": e.get("witnesses", []),
-                        "critical_apparatus": f"Provenance SHA-256: {e.get('provenance_hash', '')}"
+                        "critical_apparatus": e.get("theological_implication") or f"Provenance SHA-256: {e.get('provenance_hash', '')}"
                     })
                 sources_list = [
                     {"citation": f"{e.get('passage_reference')} ({e.get('source_id')})", "type": "Primary Scripture Witness"}
@@ -1243,7 +1284,7 @@ class CaseFileGenerator:
             # Recovery-016: provenance integrity check.
             final_provider, final_provenance = CaseFileGenerator._resolve_final_provenance(model_inv, synth)
 
-            opp_display = opp_persp.upper()
+            opp_display = "JEWISH" if "JEWISH" in str(opp_persp_raw).upper() else opp_persp.upper()
             ctx_summary_templates = {
                 "en": f"Analyzed in {requested_mode} mode from {persp.upper()} perspective versus {opp_display} (Debate Language: {debate_locale}).",
                 "id": f"Dianalisis dalam mode {requested_mode} perspektif {persp.upper()} versus {opp_display} (Bahasa Debat: {debate_locale}).",
@@ -1288,7 +1329,7 @@ class CaseFileGenerator:
         except Exception as exc:
             logger.error(f"Real intelligence execution fallback: {exc}")
             case_id = f"CASE-{hashlib.md5(claim.encode('utf-8')).hexdigest()[:8].upper()}"
-            opp_display = opp_persp.upper()
+            opp_display = "JEWISH" if "JEWISH" in str(opp_persp_raw).upper() else opp_persp.upper()
             sim_deb = []
             fallback_prep = {}
             fallback_canonical_sim = None
