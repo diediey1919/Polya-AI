@@ -43,12 +43,59 @@ class ZumaDebatePersona:
     def sanitize_bible_terminology(text: str) -> str:
         """
         Enforces Polya Terminology Directive:
-        Replaces all occurrences of Alkitab and Injil with Bible.
+        Replaces occurrences of Alkitab and Injil with Bible, while:
+        1. Protecting Islamic theological phrases ("Injil Nabi Isa", "wahyu Injil", "Qur'anic Injil").
+        2. Converting specific 4 Gospel references to "kitab [Nama]" (e.g. Injil Yohanes -> kitab Yohanes).
+        3. Standardizing general references to "Bible".
         """
         if not text:
             return text
         import re
+
+        # 1. Protect Islamic theological phrases
+        protected_matches = []
+        def stash_match(m):
+            idx = len(protected_matches)
+            protected_matches.append(m.group(0))
+            return f"___POLYA_ISLAMIC_PROTECT_{idx}___"
+
+        islamic_pattern = re.compile(
+            r"\b(?:wahyu\s+Injil|Qur['’]?anic\s+Injil|Injil\s+Nabi\s+Isa(?:\s+Al-Masih|\s+al-Masih)?(?:\s+a\.s\.)?|Injil\s+(?:dalam|menurut)\s+Al-Qur['’]an|Injil\s+sejati\s+Nabi\s+Isa)\b",
+            re.IGNORECASE
+        )
+        text = islamic_pattern.sub(stash_match, text)
+
+        # 2. Specific 4 canonical books / Gospels
+        text = re.sub(r"\bTeks\s+Injil\s+Yohanes\b", "Teks kitab Yohanes", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bTeks\s+Injil\s+Lukas\b", "Teks kitab Lukas", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bTeks\s+Injil\s+Matius\b", "Teks kitab Matius", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bTeks\s+Injil\s+Markus\b", "Teks kitab Markus", text, flags=re.IGNORECASE)
+
+        text = re.sub(r"\bInjil\s+Yohanes\b", "kitab Yohanes", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bInjil\s+Lukas\b", "kitab Lukas", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bInjil\s+Matius\b", "kitab Matius", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bInjil\s+Markus\b", "kitab Markus", text, flags=re.IGNORECASE)
+
+        # 3. Canonical / collective / general Injil phrases
+        text = re.sub(r"\b(?:korpus\s+)?(?:empat|4)\s+Injil\s+kanonik\b", "korpus empat kitab kanonik Bible", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bInjil\s+Sinoptik\b", "kitab Sinoptik", text, flags=re.IGNORECASE)
+        text = re.sub(r"\binjil\s+sinoptik\b", "kitab sinoptik", text)
+        text = re.sub(r"\bantar-Injil\b", "antar-kitab Bible", text)
+        text = re.sub(r"\bantar-injil\b", "antar-kitab bible", text)
+        text = re.sub(r"\bTeks\s+Injil\s+Kanonikal\s*\(Kanon\s*66\s*Kitab\)", "Teks Kanonikal Bible (Kanon 66 Kitab)", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bTeks\s+Injil\s+Kanonikal\b", "Teks Kanonikal Bible", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bkitab-kitab\s+Injil\b", "kitab-kitab narasi Bible", text, flags=re.IGNORECASE)
+
+        text = re.sub(r"\bINJILNYA\b", "BIBLENYA", text)
+        text = re.sub(r"\bInjilnya\b", "Biblenya", text)
+        text = re.sub(r"\binjilnya\b", "biblenya", text)
+        text = re.sub(r"\bINJIL\b", "BIBLE", text)
+        text = re.sub(r"\bInjil\b", "Bible", text)
+        text = re.sub(r"\binjil\b", "bible", text)
+
+        # 4. Alkitab terms
         text = re.sub(r"\bAlkitabiah\b", "Biblika", text)
+        text = re.sub(r"\balkitabiah\b", "biblika", text)
         text = re.sub(r"\balkitabiyah\b", "biblika", text)
         text = re.sub(r"\bALKITABNYA\b", "BIBLENYA", text)
         text = re.sub(r"\bAlkitabnya\b", "Biblenya", text)
@@ -58,17 +105,14 @@ class ZumaDebatePersona:
         text = re.sub(r"\bAlkitabku\b", "Bibleku", text)
         text = re.sub(r"\balkitabku\b", "bibleku", text)
         text = re.sub(r"\bAlkitabu\b", "Biblemu", text)
-        text = re.sub(r"\bINJILNYA\b", "BIBLENYA", text)
-        text = re.sub(r"\bInjilnya\b", "Biblenya", text)
-        text = re.sub(r"\binjilnya\b", "biblenya", text)
-        text = re.sub(r"\bantar-injil\b", "antar-bible", text)
-        text = re.sub(r"\bantar-Injil\b", "antar-Bible", text)
         text = re.sub(r"\bALKITAB\b", "BIBLE", text)
         text = re.sub(r"\bAlkitab\b", "Bible", text)
         text = re.sub(r"\balkitab\b", "bible", text)
-        text = re.sub(r"\bINJIL\b", "BIBLE", text)
-        text = re.sub(r"\bInjil\b", "Bible", text)
-        text = re.sub(r"\binjil\b", "bible", text)
+
+        # 5. Restore protected Islamic theological text
+        for idx, orig in enumerate(protected_matches):
+            text = text.replace(f"___POLYA_ISLAMIC_PROTECT_{idx}___", orig)
+
         return text
 
     def analyze_claim_strategy(self, claim: str) -> Dict[str, Any]:

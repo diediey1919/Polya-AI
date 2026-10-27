@@ -447,6 +447,113 @@ CANONICAL_PHILOLOGY_KNOWLEDGE: Dict[str, Dict[str, Any]] = {
                 theological_interpretation="Pneumatological anchor establishing Holy Spirit as author and superintendent of biblical prophecy."
             )
         ]
+    },
+    "1 Yohanes 5:7-8": {
+        "passage_reference": "1 Yohanes 5:7-8",
+        "book": "1 Yohanes",
+        "chapter": 5,
+        "verse": 7,
+        "original_language": "Koine Greek",
+        "original_text": "ὅτι τρεῖς εἰσιν οἱ μαρτυροῦντες, τὸ πνεῦμα καὶ τὸ ὕδωρ καὶ τὸ αἷμα, καὶ οἱ τρεῖς εἰς τὸ ἕν εἰσιν. [Textus Receptus: ὅτι τρεῖς εἰσιν οἱ μαρτυροῦντες ἐν τῷ οὐρανῷ, ὁ Πατήρ, ὁ Λόγος, καὶ τὸ Ἅγιον Πνεῦμα· καὶ οὗτοι οἱ τρεῖς ἕν εἰσιν. καὶ τρεῖς εἰσιν οἱ μαρτυροῦντες ἐν τῇ γῇ, τὸ πνεῦμα καὶ τὸ ὕδωρ καὶ τὸ αἷμα· καὶ οἱ τρεῖς εἰς τὸ ἕν εἰσιν.]",
+        "transliteration": "hoti treis eisin hoi martyrountes, to pneuma kai to hydōr kai to haima, kai hoi treis eis to hen eisin. [Textus Receptus: hoti treis eisin hoi martyrountes en tō ouranō, ho Patēr, ho Logos, kai to Hagion Pneuma; kai houtoi hoi treis hen eisin. kai treis eisin hoi martyrountes en tē gē, to pneuma kai to hydōr kai to haima; kai hoi treis eis to hen eisin.]",
+        "english": "For there are three that testify: the Spirit, the water, and the blood; and the three agree as one. [Textus Receptus: in heaven: the Father, the Word, and the Holy Spirit; and these three are one. And there are three that testify on earth...]",
+        "indonesian": "Sebab ada tiga yang memberi kesaksian: Roh, air, dan darah, dan ketiganya bersepakat dalam satu kesaksian. [Varian Sisipan Textus Receptus: di dalam surga: Bapa, Firman, dan Roh Kudus; dan ketiganya adalah satu. Dan ada tiga yang bersaksi di bumi...]",
+        "tier": EvidenceTier.DIRECT_EVIDENCE,
+        "confidence": 0.99,
+        "witnesses": [
+            "Codex Sinaiticus (א01, Abad IV - Omit Comma)",
+            "Codex Vaticanus (B03, Abad IV - Omit Comma)",
+            "Codex Alexandrinus (A02, Abad V - Omit Comma)",
+            "Minuscule 61 (Codex Montfortianus, c. 1520 - Sisipan Latin)"
+        ],
+        "tokens": [
+            MorphologicalToken(
+                surface_form="μαρτυροῦντες",
+                lemma="μαρτυρέω (martyreō)",
+                part_of_speech="Verb / Participle",
+                morphology="Present Active Participle, Nominative Masculine Plural",
+                lexical_meaning="To testify, bear witness, give testimony (BDAG p. 617)",
+                syntactic_role="Substantival participle governing the subject phrase",
+                textual_fact="Articular masculine plural participle used with numeral treis.",
+                linguistic_interpretation="Substantivized participle functioning as the legal witnesses in discourse.",
+                theological_interpretation="Establishes the juridical triad of earthly witnesses in historical reality."
+            ),
+            MorphologicalToken(
+                surface_form="τὸ πνεῦμα",
+                lemma="πνεῦμα (pneuma)",
+                part_of_speech="Noun",
+                morphology="Nominative Neuter Singular",
+                lexical_meaning="Spirit, Divine Pneuma, Holy Spirit (BDAG p. 832)",
+                syntactic_role="First appositional nominative subject witness",
+                textual_fact="Directly attested in Codex Sinaiticus and Codex Vaticanus.",
+                linguistic_interpretation="Neuter noun governed by masculine articular participle via constructio ad sensum.",
+                theological_interpretation="The Spirit provides active supernatural testimony to Christ's messiahship."
+            ),
+            MorphologicalToken(
+                surface_form="τὸ ὕδωρ",
+                lemma="ὕδωρ (hydōr)",
+                part_of_speech="Noun",
+                morphology="Nominative Neuter Singular",
+                lexical_meaning="Water, historical baptism of Jesus (BDAG p. 1023)",
+                syntactic_role="Second appositional nominative subject witness",
+                textual_fact="Attested uniformly across all Alexandrian, Western, and Byzantine witnesses.",
+                linguistic_interpretation="Coordinated by polysyndeton conjunction kai.",
+                theological_interpretation="Points to the historical initiation of Jesus' earthly ministry through baptism."
+            ),
+            MorphologicalToken(
+                surface_form="τὸ αἷμα",
+                lemma="αἷμα (haima)",
+                part_of_speech="Noun",
+                morphology="Nominative Neuter Singular",
+                lexical_meaning="Blood, sacrificial death on the cross (BDAG p. 22)",
+                syntactic_role="Third appositional nominative subject witness",
+                textual_fact="Uniformly present without variation in all ancient Greek papyri and uncials.",
+                linguistic_interpretation="Final member of the earthly tripartite witness.",
+                theological_interpretation="Refutes Docetic/Cerinthian separation by confirming physical sacrificial death."
+            ),
+            MorphologicalToken(
+                surface_form="εἰς τὸ ἕν",
+                lemma="εἰς (eis) + ἕν (hen)",
+                part_of_speech="Preposition + Numeral",
+                morphology="Accusative Neuter Singular",
+                lexical_meaning="Toward the one / into unity of testimony (BDAG p. 291)",
+                syntactic_role="Prepositional phrase denoting convergence of testimony",
+                textual_fact="Syntactically distinct from ontological unity (ouk hen eisin, sed eis to hen).",
+                linguistic_interpretation="Denotes harmony and agreement of testimony, not ontological Trinity.",
+                theological_interpretation="Forensically proves that even the authentic Greek text affirms unity of purpose, not ontological hypostatic trinity."
+            )
+        ]
+    },
+    "1 Yohanes 5:7": {
+        "book": "1 Yohanes",
+        "chapter": 5,
+        "verse": 7,
+        "original_language": "Koine Greek",
+        "original_text": "ὅτι τρεῖς εἰσιν οἱ μαρτυροῦντες, [Textus Receptus: ὅτι τρεῖς εἰσιν οἱ μαρτυροῦντες ἐν τῷ οὐρανῷ, ὁ Πατήρ, ὁ Λόγος, καὶ τὸ Ἅγιον Πνεῦμα· καὶ οὗτοι οἱ τρεῖς ἕν εἰσιν.]",
+        "transliteration": "hoti treis eisin hoi martyrountes, [Textus Receptus: hoti treis eisin hoi martyrountes en tō ouranō, ho Patēr, ho Logos, kai to Hagion Pneuma; kai houtoi hoi treis hen eisin.]",
+        "english": "For there are three that testify: [Textus Receptus: in heaven: the Father, the Word, and the Holy Spirit; and these three are one.]",
+        "indonesian": "Sebab ada tiga yang memberi kesaksian: [Varian Sisipan Textus Receptus: di dalam surga: Bapa, Firman, dan Roh Kudus; dan ketiganya adalah satu.]",
+        "tier": EvidenceTier.DIRECT_EVIDENCE,
+        "confidence": 0.99,
+        "witnesses": [
+            "Codex Sinaiticus (א01, Abad IV - Omit Comma)",
+            "Codex Vaticanus (B03, Abad IV - Omit Comma)",
+            "Codex Alexandrinus (A02, Abad V - Omit Comma)",
+            "Minuscule 61 (Codex Montfortianus, c. 1520 - Sisipan Latin)"
+        ],
+        "tokens": [
+            MorphologicalToken(
+                surface_form="μαρτυροῦντες",
+                lemma="μαρτυρέω (martyreō)",
+                part_of_speech="Verb / Participle",
+                morphology="Present Active Participle, Nominative Masculine Plural",
+                lexical_meaning="To testify, bear witness (BDAG p. 617)",
+                syntactic_role="Substantival participle governing the subject phrase",
+                textual_fact="Articular masculine plural participle used with numeral treis.",
+                linguistic_interpretation="Substantivized participle functioning as the legal witnesses in discourse.",
+                theological_interpretation="Establishes the juridical count of witnesses."
+            )
+        ]
     }
 }
 
@@ -473,8 +580,20 @@ class EvidenceEngine:
         results: List[EvidenceItem] = []
         q_lower = query.lower()
 
+        # Check if an explicit verse is cited in the query
+        explicit_verse = None
+        try:
+            from orchestrator.exegesis_engine import ExegesisEngine
+            explicit_verse = ExegesisEngine.extract_explicit_verse(query)
+        except Exception:
+            pass
+
         # Topic relevance mapping for canonical verses
         def is_verse_relevant(ref: str) -> bool:
+            if explicit_verse:
+                # When explicit verse is cited, do not match unrelated verses by broad keywords
+                return bool(ref.lower() in explicit_verse.lower() or explicit_verse.lower() in ref.lower())
+
             if ref.lower() in q_lower:
                 return True
             if ref == "Roma 3:31":
@@ -541,6 +660,17 @@ class EvidenceEngine:
                     or ("petrus" in q_lower and any(w in q_lower for w in ["roh kudus", "nubuat", "nabi", "ilham", "bimbing", "digerakkan"]))
                     or ("roh kudus" in q_lower and any(w in q_lower for w in ["nabi", "nubuat", "kitab suci"]))
                 )
+            elif ref in ("1 Yohanes 5:7-8", "1 Yohanes 5:7"):
+                return (
+                    "1 yohanes" in q_lower
+                    or "1yohanes" in q_lower
+                    or "1 john" in q_lower
+                    or "comma johanneum" in q_lower
+                    or "comma" in q_lower
+                    or "tiga saksi" in q_lower
+                    or "interpolasi" in q_lower
+                    or ("yohanes" in q_lower and ("5:7" in q_lower or "5:8" in q_lower or "trinitas" in q_lower or "tritunggal" in q_lower))
+                )
             elif ref == "Kisah Para Rasul 10:15":
                 # Guard against false-positive matching when 1 Petrus / 2 Petrus is specified
                 if ("1 petrus" in q_lower or "2 petrus" in q_lower or "1petrus" in q_lower or "2petrus" in q_lower) and not ("kisah para rasul" in q_lower or "acts" in q_lower):
@@ -564,7 +694,7 @@ class EvidenceEngine:
                     book=data["book"],
                     chapter=data["chapter"],
                     verse=data["verse"],
-                    passage_reference=f"{data['book']} {data['chapter']}:{data['verse']}",
+                    passage_reference=data.get("passage_reference") or ref or f"{data['book']} {data['chapter']}:{data['verse']}",
                     original_language=data["original_language"],
                     original_text=data["original_text"],
                     transliteration=data["transliteration"],

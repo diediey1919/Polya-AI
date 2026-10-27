@@ -12,7 +12,7 @@ import json
 import os
 import sqlite3
 import uuid
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, field, fields
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
@@ -78,6 +78,8 @@ class CanonicalCaseFile:
     evidence_coverage: Optional[Dict[str, Any]] = None
     argument_strength: Optional[Dict[str, Any]] = None
     weakest_point: Optional[str] = None
+    canonical_simulation: Optional[Dict[str, Any]] = None
+    linguistic_exegesis: Optional[Dict[str, Any]] = None
     user_id: str = ""
     created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     updated_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
@@ -188,7 +190,9 @@ class CaseFileManager:
         if not row:
             return None
         data = json.loads(row["case_data_json"])
-        return CanonicalCaseFile(**data)
+        valid_fields = {f.name for f in fields(CanonicalCaseFile)}
+        filtered = {k: v for k, v in data.items() if k in valid_fields}
+        return CanonicalCaseFile(**filtered)
 
     def get_by_thread(self, thread_id: str) -> Optional[CanonicalCaseFile]:
         conn = self._get_connection()
@@ -199,7 +203,9 @@ class CaseFileManager:
         if not row:
             return None
         data = json.loads(row["case_data_json"])
-        return CanonicalCaseFile(**data)
+        valid_fields = {f.name for f in fields(CanonicalCaseFile)}
+        filtered = {k: v for k, v in data.items() if k in valid_fields}
+        return CanonicalCaseFile(**filtered)
 
 
     def list_case_files(self, user_id: str, limit: int = 50) -> List[Dict[str, Any]]:
@@ -233,7 +239,9 @@ class CaseFileManager:
         # Ensure user_id field is populated
         if "user_id" not in data:
             data["user_id"] = row_uid
-        return CanonicalCaseFile(**data)
+        valid_fields = {f.name for f in fields(CanonicalCaseFile)}
+        filtered = {k: v for k, v in data.items() if k in valid_fields}
+        return CanonicalCaseFile(**filtered)
 
 
 # Global singleton instance

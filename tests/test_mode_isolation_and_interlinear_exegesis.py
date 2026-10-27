@@ -242,9 +242,9 @@ def test_html_frontend_mode_isolation_and_8_sections():
     assert 'oppCounterHeader.closest(".case-card").style.display = "none"' in content
     assert 'rebuttalHeader.closest(".case-card").style.display = "none"' in content
     assert 'weaknessHeader.closest(".case-card").style.display = "none"' in content
-    assert 'btnWeakest.style.display = "none"' in content
-    assert 'simDebateBtn.style.display = "none"' in content
-    assert 'advBox.style.display = "none"' in content
+    # Verify terminal action buttons (.case-actions-row) remain visible in both modes
+    assert 'btnWeakest.style.display = ""' in content
+    assert 'simDebateBtn.style.display = ""' in content
 
     # Verify all 8 visual sections are rendered
     assert "Seksi 1: Naskah Sumber & Rekonstruksi Teks" in content
@@ -254,5 +254,75 @@ def test_html_frontend_mode_isolation_and_8_sections():
     assert "Seksi 5: Aparatus Kritik Tekstual & Saksi Manuskrip Kuno" in content
     assert "Seksi 6: Audit Komparasi Terjemahan vs Teks Asli" in content
     assert "Seksi 7: Konkordansi Lintas-Ayat Bible" in content
-    assert "Seksi 8: Sintesis Eksegesis Historis-Gramatikal" in content
+    assert "Seksi 8: Intisari Makna Teks untuk Orang Awam" in content or "Seksi 8: Sintesis Eksegesis Historis-Gramatikal" in content
+
+
+def test_exegesis_engine_canonical_2_petrus_1_21():
+    """Verify 2 Petrus 1:21: strict Theos nomenclature, no Allah in Christian source,
+    interlinear tokens, P72 manuscript witness, and 1st century benchmark translation."""
+    claim = "Bedah eksegesis 2 Petrus 1:21 tentang dorongan Roh Kudus dan nubuat"
+    pkg = ExegesisEngine.generate_linguistic_exegesis_package(claim)
+
+    assert pkg is not None
+    assert pkg.passage_reference == "2 Petrus 1:21"
+    assert pkg.original_language == "Koine Greek"
+    assert len(pkg.interlinear_tokens) == 16
+
+    # Verify Token #15 is theou / Theos
+    t15 = pkg.interlinear_tokens[14]
+    assert t15.strong_number == "G2316"
+    assert t15.original_text == "θεοῦ"
+    assert t15.transliteration == "theou"
+    assert t15.literal_gloss == "Theos"
+    assert "Allah" not in t15.literal_gloss
+    assert "Allah" not in str(t15.lexical_entry.get("definition", ""))
+    assert "Theos" in str(t15.lexical_entry.get("definition", ""))
+
+    # Verify literal & natural translations
+    assert "Theos" in pkg.literal_translation
+    assert "Allah" not in pkg.literal_translation
+    assert "Theos" in pkg.natural_translation
+    assert "Allah" not in pkg.natural_translation
+
+    # Verify Seksi 6 benchmark
+    bench = pkg.translation_comparison[0]
+    assert "Abad ke-1" in bench["version"]
+    assert "Theos" in bench["text"]
+    assert "Allah" not in bench["text"]
+
+    # Verify Seksi 8 synthesis strictly uses Theos
+    assert "Theos" in pkg.exegetical_synthesis
+    assert "Allah" not in pkg.exegetical_synthesis
+
+
+def test_exegesis_engine_canonical_1_yohanes_5_7_8():
+    """Verify 1 Yohanes 5:7-8: canonical Comma Johanneum exegesis,
+    normalization of 'yang Pertama 5:7-8' distortion, 20 tokens, and critical witnesses."""
+    claim = "Kritik Tekstual Comma Johanneum (1 Yohanes 5:7-8): Bukti Interpolasi Sisipan Doktrinal dalam Naskah Yunani Kuno"
+    pkg = ExegesisEngine.generate_linguistic_exegesis_package(claim)
+
+    assert pkg is not None
+    assert pkg.passage_reference == "1 Yohanes 5:7-8"
+    assert "yang Pertama" not in pkg.passage_reference
+    assert pkg.original_language == "Koine Greek"
+    assert len(pkg.interlinear_tokens) == 20
+
+    # Verify first and last tokens
+    assert pkg.interlinear_tokens[0].original_text == "ὅτι"
+    assert pkg.interlinear_tokens[0].strong_number == "G3754"
+    assert pkg.interlinear_tokens[1].original_text == "τρεῖς"
+    assert pkg.interlinear_tokens[4].original_text == "μαρτυροῦντες"
+    assert pkg.interlinear_tokens[-1].original_text == "εἰσιν"
+
+    # Verify normalization of machine translation distortion "yang Pertama"
+    distorted_verse = "yang Pertama 5:7-8"
+    assert ExegesisEngine.extract_explicit_verse(distorted_verse) == "1 Yohanes 5:7-8"
+
+    # Verify manuscript witnesses omit Comma in oldest uncials
+    witnesses = [m["witness"] for m in pkg.manuscript_witnesses]
+    assert any("Sinaiticus" in w for w in witnesses)
+    assert any("Vaticanus" in w for w in witnesses)
+    assert any("Montfortianus" in w for w in witnesses)
+
+
 

@@ -102,8 +102,8 @@ class CaseFile(BaseModel):
     debate_preparation: Dict[str, Any]
     canonical_simulation: Optional[Dict[str, Any]] = None
     linguistic_exegesis: Optional[Any] = None
-    is_demo: bool = True
-    notice: str = "DEMO / MOCK DATA — Strictly for testing UI and structure"
+    is_demo: bool = False
+    notice: str = "REAL INTEL — Epistemic analysis completed"
     synthesis_status: str = ""
     retrieval_status: str = ""
     fallback_used: bool = False

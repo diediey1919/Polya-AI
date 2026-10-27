@@ -44,7 +44,8 @@ tts-models/
 
 # Backup files
 *.bak
-*.backup
+*.bak*
+*.backup*
 *~
 
 # OS files

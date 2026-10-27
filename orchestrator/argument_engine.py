@@ -300,7 +300,7 @@ class ArgumentEngine:
                 # Default: christian_protestant
                 subject = "Yesus Kristus / Hakikat Keilahian & Kebangkitan Ragawi"
                 predicate = "proklamasi diri, keilahian substantif & kebangkitan historis"
-                objects = ["Teks Injil Kanonikal (Kanon 66 Kitab)", "Sintaksis Egō Eimi / Hen Esmen", "Bukti Jasmani Lukas 24:39-43"]
+                objects = ["Teks Kanonikal Bible (Kanon 66 Kitab)", "Sintaksis Egō Eimi / Hen Esmen", "Bukti Jasmani Lukas 24:39-43"]
                 scope = f"Gospel Christology & Bodily Resurrection vs Oposisi {opp_norm.upper()}"
                 if opp_norm == "islam":
                     counterclaims = [
@@ -314,13 +314,13 @@ class ArgumentEngine:
                     ]
                 elif opp_norm == "christian_catholic":
                     counterclaims = [
-                        "Pihak Katolik mendalilkan bahwa interpretasi nas Alkitab tidak dapat dipisahkan dari wibawa Tradisi Suci, kanon 73 kitab, dan Magisterium Gereja yang menolak penafsiran privat Sola Scriptura",
+                        "Pihak Katolik mendalilkan bahwa interpretasi nas Bible tidak dapat dipisahkan dari wibawa Tradisi Suci, kanon 73 kitab, dan Magisterium Gereja yang menolak penafsiran privat Sola Scriptura",
                         "Prinsip Sola Scriptura menegaskan bahwa Kitab Suci adalah norma berwibawa tertinggi yang menafsirkan dirinya sendiri (analogia scriptura) dan menguji seluruh tradisi gerejawi (2 Timotius 3:16-17)"
                     ]
                 elif opp_norm == "judaism":
                     counterclaims = [
                         "Teologi Yudaisme menolak klaim kemesiasan Yesus karena kriteria mesianik eskatologis Tanakh (pemulihan kerajaan Israel, perdamaian universal, Bait Suci) belum tergenapi secara fisik di dunia",
-                        "Kanon Alkitab membuktikan pola dua kedatangan Mesias: kedatangan pertama sebagai Hamba yang menderita penebus dosa (Yesaya 53, Lukas 24:44-46) dan kedatangan kedua dalam kemuliaan eskatologis (Daniel 7:13-14)"
+                        "Kanon Bible membuktikan pola dua kedatangan Mesias: kedatangan pertama sebagai Hamba yang menderita penebus dosa (Yesaya 53, Lukas 24:44-46) dan kedatangan kedua dalam kemuliaan eskatologis (Daniel 7:13-14)"
                     ]
                 else:
                     counterclaims = [
@@ -371,7 +371,7 @@ class ArgumentEngine:
                 objects = ["Pola Triadik Perjanjian Baru", "Kredo Ekumenis Nicea-Konstantinopel"]
                 scope = f"Biblical Triadic Formulas & Patristic Development vs Oposisi {opp_norm.upper()}"
                 counterclaims = [
-                    f"Oposisi {opp_norm.upper()} mempersoalkan ketiadaan istilah 'Tritunggal' secara eksplisit dalam Alkitab",
+                    f"Oposisi {opp_norm.upper()} mempersoalkan ketiadaan istilah 'Tritunggal' secara eksplisit dalam Bible",
                     "Pola triadik Perjanjian Baru membuktikan kesetaraan ilahi Bapa, Anak, dan Roh Kudus (Matius 28:19, 2 Korintus 13:13)"
                 ]
         else:
@@ -448,10 +448,10 @@ class ArgumentEngine:
         elif is_trinity:
             argument = ArgumentNode(
                 argument_id=arg_id,
-                claim="Doktrin Tritunggal merupakan kristalisasi ortodoks terhadap pola wahyu Alkitab yang konsisten, bukan doktrin impor pasca-Alkitab.",
+                claim="Doktrin Tritunggal merupakan kristalisasi ortodoks terhadap pola wahyu Bible yang konsisten, bukan doktrin impor pasca-kanon Bible.",
                 premises=[
                     "Premis 1: Naskah Perjanjian Baru memuat pola triadik yang menyetarakan Bapa, Anak, dan Roh Kudus (Matius 28:19, 2 Korintus 13:13).",
-                    "Premis 2: Monoteisme Alkitab (Ulangan 6:4: Shema Yisrael) menegaskan keesaan Allah tanpa menafikan diferensiasi relasional ilahi.",
+                    "Premis 2: Monoteisme Bible (Ulangan 6:4: Shema Yisrael) menegaskan keesaan Allah tanpa menafikan diferensiasi relasional ilahi.",
                     "Premis 3: Formulasi bapa gereja abad ke-4 merespons krisis teologis dengan meminjam leksikon filosofis untuk menjaga substansi iman biblika asli."
                 ],
                 evidence_items=[e.passage_reference for e in evidence],
@@ -464,9 +464,9 @@ class ArgumentEngine:
         else:
             argument = ArgumentNode(
                 argument_id=arg_id,
-                claim=f"Klaim '{claim.text}' berada di luar domain teologi teks naskah kuno; tidak ada bukti Alkitab atau dokumen korpus terkait.",
+                claim=f"Klaim '{claim.text}' berada di luar domain teologi teks naskah kuno; tidak ada bukti Bible atau dokumen korpus terkait.",
                 premises=[
-                    "Premis 1: Ruang lingkup korpus terbatas pada literatur kanonikal Alkitab, manuskrip kuno, dan literatur patristik/intertestamental.",
+                    "Premis 1: Ruang lingkup korpus terbatas pada literatur kanonikal Bible, manuskrip kuno, dan literatur patristik/intertestamental.",
                     "Premis 2: Klaim ini tidak memiliki korelasi teologis atau leksikal dengan naskah primer korpus."
                 ],
                 evidence_items=[],
@@ -549,7 +549,7 @@ class ArgumentEngine:
                     ),
                     opponent_assumptions=[
                         "Syariat kovenan para nabi bersifat opsional dan dapat dianulir tanpa mandat eksplisit kenabian.",
-                        "Surat-surat pastoral mengesampingkan sabda eksplisit Yesus di kitab-kitab Injil."
+                        "Surat-surat pastoral mengesampingkan sabda eksplisit Yesus di kitab-kitab narasi Bible."
                     ],
                     opponent_strength="FORMIDABLE",
                     weaknesses=[
@@ -705,7 +705,7 @@ class ArgumentEngine:
                             "Teologi Protestan klasik menegaskan fides viva (iman yang sejati niscaya berbuah kasih dan perbuatan baik)."
                         ],
                         rebuttal=(
-                            "Alkitab mengajarkan bahwa manusia dibenarkan karena iman cuma-cuma oleh anugerah Kristus (Roma 3:24, Efesus 2:8-9). "
+                            "Bible mengajarkan bahwa manusia dibenarkan karena iman cuma-cuma oleh anugerah Kristus (Roma 3:24, Efesus 2:8-9). "
                             "Perbuatan baik adalah buah yang menyertai keselamatan, bukan syarat meritokrasi manusiawi."
                         ),
                         rebuttal_evidence=["Roma 3:28", "Efesus 2:8-10", "Galatia 5:6"]
@@ -730,7 +730,7 @@ class ArgumentEngine:
                             "Teks kuno harus bebas dari pergulatan sejarah untuk dianggap autentik."
                         ],
                         weaknesses=[
-                            "Pertikaian di Antiokhia adalah soal konsistensi praktik pergaulan meja, bukan perselisihan dogmatis atas substansi Injil (Galatia 2:14-16).",
+                            "Pertikaian di Antiokhia adalah soal konsistensi praktik pergaulan meja, bukan perselisihan dogmatis atas substansi pewartaan rasuli (Galatia 2:14-16).",
                             "Pengakuan para rasul pilar di Galatia 2:9 menegaskan kesatuan pesan keselamatan yang satu dan sama."
                         ],
                         rebuttal=(
@@ -778,12 +778,12 @@ class ArgumentEngine:
             if p_norm == "christian_catholic":
                 return SteelmanCounterargument(
                     counterargument_id=carg_id,
-                    opponent_claim="Formulasi dua kodrat Kristus (keilahian dan kemanusiaan) merupakan inovasi pasca-apostolik Konsili Khalsedon yang tidak diajarkan secara eksplisit oleh teks Injil.",
+                    opponent_claim="Formulasi dua kodrat Kristus (keilahian dan kemanusiaan) merupakan inovasi pasca-apostolik Konsili Khalsedon yang tidak diajarkan secara eksplisit oleh teks Bible.",
                     opponent_evidence=[
                         "1 Timotius 2:5: 'Karena Allah itu esa dan esa pula Dia yang menjadi pengantara antara Allah dan manusia, yaitu manusia Kristus Yesus.'",
                         "Markus 10:18: 'Mengapa kaukatakan Aku baik? Tak seorang pun yang baik selain dari Allah saja.'"
                     ],
-                    opponent_reasoning="Ketiadaan rumusan teknis 'dua kodrat dalam satu pribadi' dalam teks Injil dianggap sebagai bukti perkembangan dogmatis eksternal gereja.",
+                    opponent_reasoning="Ketiadaan rumusan teknis 'dua kodrat dalam satu pribadi' dalam teks Bible dianggap sebagai bukti perkembangan dogmatis eksternal gereja.",
                     opponent_assumptions=[
                         "Doktrin apostolik harus menggunakan rumusan terminologis yang persis sama dengan kredo abad kelima.",
                         "Tradisi lisan gereja perdana tidak memiliki bobot normatif bersama teks tertulis."
@@ -791,7 +791,7 @@ class ArgumentEngine:
                     opponent_strength="FORMIDABLE",
                     weaknesses=[
                         "Tradisi Patristik abad ke-1 dan ke-2 (Ignatius dari Antiokhia, Irenaeus dari Lyon) telah bersaksi tegas tentang keilahian dan kemanusiaan Kristus.",
-                        "Teks Injil Yohanes 1:1, 1:14 dan Yohanes 10:30 menyatakan secara eksplisit bahwa Firman adalah Allah dan telah menjadi manusia."
+                        "Teks kitab Yohanes 1:1, 1:14 dan Yohanes 10:30 menyatakan secara eksplisit bahwa Firman adalah Allah dan telah menjadi manusia."
                     ],
                     rebuttal="Magisterium Gereja Katolik membela deposit iman para rasul: Konsili Khalsedon tidak menciptakan keilahian Kristus, melainkan merumuskan secara presisi apa yang telah disembah gereja sejak zaman para rasul.",
                     rebuttal_evidence=["Yohanes 1:1", "Yohanes 10:30", "Kolose 2:9"]
@@ -856,7 +856,7 @@ class ArgumentEngine:
                         "Psikologi kognitif dan antropologi agama membuktikan bahwa keyakinan subjektif dan pengalaman duka (grief hallucinations) dapat memicu proklamasi histeris yang diyakini secara fanatik.",
                         "Ketiadaan bukti koroboratif independen sezaman (dokumen Romawi/Yahudi non-Kristen) melemahkan klaim kepastian sejarah mukjizat biologis."
                     ],
-                    rebuttal="Metodologi sains empiris dan naturalisme historis menolak klaim supranatural. Ketiadaan bukti manuskrip sezaman dan kontradiksi narasi makam antar-Injil membuktikan proses pembentukan legenda dan mitologi pasca-kematian tokoh sejarah.",
+                    rebuttal="Metodologi sains empiris dan naturalisme historis menolak klaim supranatural. Ketiadaan bukti manuskrip sezaman dan kontradiksi narasi makam antar-kitab Bible membuktikan proses pembentukan legenda dan mitologi pasca-kematian tokoh sejarah.",
                     rebuttal_evidence=["1 Korintus 15:6", "Markus 16:8", "Matius 28:11-15"]
                 )
             else:
@@ -942,7 +942,7 @@ class ArgumentEngine:
                             "Gereja Katolik mengajarkan bahwa Kitab Suci lahir dari rahim Tradisi Gereja; penafsiran mandiri tanpa suksesi apostolik rentan mereduksi misteri sakramental."
                         ),
                         opponent_assumptions=[
-                            "Kanon Alkitab hanya dapat divalidasi oleh institusi kepausan.",
+                            "Kanon Bible hanya dapat divalidasi oleh institusi kepausan.",
                             "Tradisi lisan memiliki wibawa normatif setara naskah firman tertulis."
                         ],
                         opponent_strength="FORMIDABLE",
@@ -1015,7 +1015,7 @@ class ArgumentEngine:
             if p_norm == "christian_catholic":
                 return SteelmanCounterargument(
                     counterargument_id=carg_id,
-                    opponent_claim="Doktrin Tritunggal tidak memiliki dasar eksplisit dalam naskah Alkitab dan merupakan konstruksi filosofis Hellenistik yang dipaksakan pada Konsili Nicea.",
+                    opponent_claim="Doktrin Tritunggal tidak memiliki dasar eksplisit dalam naskah Bible dan merupakan konstruksi filosofis Hellenistik yang dipaksakan pada Konsili Nicea.",
                     opponent_evidence=[
                         "Ulangan 6:4: 'Dengarlah, hai orang Israel: TUHAN itu Allah kita, TUHAN itu esa!'",
                         "1 Korintus 8:6: 'Bagi kita hanya ada satu Allah saja, yaitu Bapa... dan satu Tuhan saja, yaitu Yesus Kristus.'"
@@ -1115,9 +1115,9 @@ class ArgumentEngine:
                         opponent_strength="FORMIDABLE",
                         weaknesses=[
                             "Mengabaikan formula baptisan Matius 28:19 yang menggunakan bentuk tunggal 'eis to onoma' (ke dalam satu nama) bagi Bapa, Anak, dan Roh Kudus.",
-                            "Monoteisme Alkitab membedakan antara 'unitarianisme mutlak' dengan 'monoteisme majemuk' yang diwahyukan dalam pola keselamatan Alkitab."
+                            "Monoteisme Bible membedakan antara 'unitarianisme mutlak' dengan 'monoteisme majemuk' yang diwahyukan dalam pola keselamatan Bible."
                         ],
-                        rebuttal="Alkitab mengajarkan monoteisme sejati (Ulangan 6:4): satu hakikat Allah yang menyatakan diri secara kekal dalam tiga pribadi (Bapa, Anak, Roh Kudus). Matius 28:19 menegaskan satu nama tunggal yang menyatukan ketiga pribadi ilahi.",
+                        rebuttal="Bible mengajarkan monoteisme sejati (Ulangan 6:4): satu hakikat Allah yang menyatakan diri secara kekal dalam tiga pribadi (Bapa, Anak, Roh Kudus). Matius 28:19 menegaskan satu nama tunggal yang menyatukan ketiga pribadi ilahi.",
                         rebuttal_evidence=["Matius 28:19", "2 Korintus 13:13", "Ulangan 6:4"]
                     )
                 elif opp_norm == "judaism":
@@ -1172,16 +1172,16 @@ class ArgumentEngine:
                             "Kredo Nicea-Konstantinopel",
                             "Tradisi Patristik Para Bapa Gereja"
                         ],
-                        opponent_reasoning="Menilai bahwa tanpa kewenangan mengajar Gereja Katolik, kanon Alkitab rentan disalahtafsirkan oleh aliran bidat.",
+                        opponent_reasoning="Menilai bahwa tanpa kewenangan mengajar Gereja Katolik, kanon Bible rentan disalahtafsirkan oleh aliran bidat.",
                         opponent_assumptions=[
                             "Kitab Suci tidak memiliki kejelasan internal (perspicuitas) mengenai keesaan Allah dan tiga pribadi.",
                             "Wibawa konsili mendahului wibawa firman tertulis."
                         ],
                         weaknesses=[
                             "Prinsip Sola Scriptura membuktikan bahwa Kitab Suci cukup dan jelas (sufficientia scripturae) menyatakan Bapa, Anak, dan Roh Kudus.",
-                            "Konsili ekumenis sejati hanya tunduk dan menguji diri pada otoritas firman tertulis Alkitab."
+                            "Konsili ekumenis sejati hanya tunduk dan menguji diri pada otoritas firman tertulis Bible."
                         ],
-                        rebuttal="Kebenaran Tritunggal berakar kokoh pada firman tertulis Alkitab (Sola Scriptura); konsili gereja sejati bertindak sebagai saksi firman yang menguji seluruh rumusan di hadapan naskah suci.",
+                        rebuttal="Kebenaran Tritunggal berakar kokoh pada firman tertulis Bible (Sola Scriptura); konsili gereja sejati bertindak sebagai saksi firman yang menguji seluruh rumusan di hadapan naskah suci.",
                         rebuttal_evidence=["Matius 28:19", "2 Timotius 3:16", "Yohanes 10:30"]
                     )
                 else:

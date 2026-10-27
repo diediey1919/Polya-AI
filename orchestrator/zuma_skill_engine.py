@@ -219,9 +219,67 @@ class ZumaSkillEngine:
         # Clean multiple spaces before colon or numbers
         text = re.sub(r'([A-Za-z])\s{2,}(\d+)', r'\1 \2', text)
 
-        # Standardize nomenclature "Bible"
+        # Standardize nomenclature "Bible" with Islamic theological protection and 4 Gospels smart handling
+        protected_matches = []
+        def stash_match(m):
+            idx = len(protected_matches)
+            protected_matches.append(m.group(0))
+            return f"___POLYA_ISLAMIC_PROTECT_{idx}___"
+
+        islamic_pattern = re.compile(
+            r"\b(?:wahyu\s+Injil|Qur['’]?anic\s+Injil|Injil\s+Nabi\s+Isa(?:\s+Al-Masih|\s+al-Masih)?(?:\s+a\.s\.)?|Injil\s+(?:dalam|menurut)\s+Al-Qur['’]an|Injil\s+sejati\s+Nabi\s+Isa)\b",
+            re.IGNORECASE
+        )
+        text = islamic_pattern.sub(stash_match, text)
+
+        # 4 canonical books / Gospels
+        text = re.sub(r"\bTeks\s+Injil\s+Yohanes\b", "Teks kitab Yohanes", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bTeks\s+Injil\s+Lukas\b", "Teks kitab Lukas", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bTeks\s+Injil\s+Matius\b", "Teks kitab Matius", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bTeks\s+Injil\s+Markus\b", "Teks kitab Markus", text, flags=re.IGNORECASE)
+
+        text = re.sub(r"\bInjil\s+Yohanes\b", "kitab Yohanes", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bInjil\s+Lukas\b", "kitab Lukas", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bInjil\s+Matius\b", "kitab Matius", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bInjil\s+Markus\b", "kitab Markus", text, flags=re.IGNORECASE)
+
+        # Collective / canonical / general Injil phrases
+        text = re.sub(r"\b(?:korpus\s+)?(?:empat|4)\s+Injil\s+kanonik\b", "korpus empat kitab kanonik Bible", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bInjil\s+Sinoptik\b", "kitab Sinoptik", text, flags=re.IGNORECASE)
+        text = re.sub(r"\binjil\s+sinoptik\b", "kitab sinoptik", text)
+        text = re.sub(r"\bantar-Injil\b", "antar-kitab Bible", text)
+        text = re.sub(r"\bantar-injil\b", "antar-kitab bible", text)
+        text = re.sub(r"\bTeks\s+Injil\s+Kanonikal\s*\(Kanon\s*66\s*Kitab\)", "Teks Kanonikal Bible (Kanon 66 Kitab)", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bTeks\s+Injil\s+Kanonikal\b", "Teks Kanonikal Bible", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bkitab-kitab\s+Injil\b", "kitab-kitab narasi Bible", text, flags=re.IGNORECASE)
+
+        text = re.sub(r"\bINJILNYA\b", "BIBLENYA", text)
+        text = re.sub(r"\bInjilnya\b", "Biblenya", text)
+        text = re.sub(r"\binjilnya\b", "biblenya", text)
+        text = re.sub(r"\bINJIL\b", "BIBLE", text)
+        text = re.sub(r"\bInjil\b", "Bible", text)
+        text = re.sub(r"\binjil\b", "bible", text)
+
+        # Alkitab terms
+        text = re.sub(r"\bAlkitabiah\b", "Biblika", text)
+        text = re.sub(r"\balkitabiah\b", "biblika", text)
+        text = re.sub(r"\balkitabiyah\b", "biblika", text)
+        text = re.sub(r"\bALKITABNYA\b", "BIBLENYA", text)
+        text = re.sub(r"\bAlkitabnya\b", "Biblenya", text)
+        text = re.sub(r"\balkitabnya\b", "biblenya", text)
+        text = re.sub(r"\bAlkitabmu\b", "Biblemu", text)
+        text = re.sub(r"\balkitabmu\b", "biblemu", text)
+        text = re.sub(r"\bAlkitabku\b", "Bibleku", text)
+        text = re.sub(r"\balkitabku\b", "bibleku", text)
+        text = re.sub(r"\bAlkitabu\b", "Biblemu", text)
+        text = re.sub(r"\bALKITAB\b", "BIBLE", text)
         text = re.sub(r"\bAlkitab\b", "Bible", text)
         text = re.sub(r"\balkitab\b", "bible", text)
+
+        # Restore protected Islamic theological text
+        for idx, orig in enumerate(protected_matches):
+            text = text.replace(f"___POLYA_ISLAMIC_PROTECT_{idx}___", orig)
+
         return text
 
     @classmethod
@@ -570,7 +628,8 @@ Wajib mencakup 8 tahap ZUMA berikut secara berurutan:
 
 Aturan Mutlak:
 - Gunakan nomenklatur Bible yang benar (contoh: *Yesaya 21:13-17*, *Roma 3:31*, dilarang singkatan seperti Mat/Rom/Yes).
-- Selalu gunakan istilah "Bible" (bukan Alkitab).
+- Selalu gunakan istilah "Bible" (dilarang keras menggunakan istilah "Alkitab" atau "Injil" untuk merujuk pada kitab suci Kristen).
+- Dilarang menyebut "Injil Matius / Markus / Lukas / Yohanes". Wajib sebut "kitab Matius", "kitab Markus", "kitab Lukas", "kitab Yohanes" atau langsung sebut nomor pasal dan ayatnya secara spesifik (misal: *Yohanes 1:1*).
 - Tanpa basa-basi, tanpa filler.
 - HANYA kembalikan JSON valid berupa array of 8 objects dengan struktur persis:
 [
@@ -1054,7 +1113,7 @@ Aturan Mutlak:
         else:
             opp_speech_r1 = {
                 "islam": f"[SOURCE QUOTE] Kami menguji klaim '{claim_clean}' dari perspektif tauhid murni para nabi. Segala pengajaran wajib diuji apakah selaras dengan kemahaesaan Allah tanpa persekutuan sekutu.",
-                "christian_protestant": f"[SOURCE QUOTE] Kami berpijak pada prinsip Sola Scriptura dan Kanon 66 Kitab Bible. Terkait '{claim_clean}', pengajaran iman sejati harus dibuktikan secara tertulis langsung dari Alkitab.",
+                "christian_protestant": f"[SOURCE QUOTE] Kami berpijak pada prinsip Sola Scriptura dan Kanon 66 Kitab Bible. Terkait '{claim_clean}', pengajaran iman sejati harus dibuktikan secara tertulis langsung dari Bible.",
                 "christian_catholic": f"[SOURCE QUOTE] Kami berpijak pada tradisi penafsiran gereja, Kanon 73 Kitab, dan konsensus para Bapa Gereja. Terkait '{claim_clean}', iman kami telah teruji berabad-abad dalam persekutuan suci.",
                 "judaism": f"[SOURCE QUOTE] Kami berpijak pada Tanakh Masoretik dan kovenan kekal Sinai. Terkait '{claim_clean}', segala ajaran wajib tunduk pada keabadian Torah dan larangan pembatalan mitzvot.",
                 "atheist_secular": f"[SOURCE QUOTE] Kami menguji klaim '{claim_clean}' dengan historiografi kritis dan beban pembuktian empiris. Tanpa bukti koroboratif independen, klaim supranatural tidak memiliki validitas ilmiah."
@@ -1094,7 +1153,7 @@ Aturan Mutlak:
 
             opp_speech_r6 = {
                 "islam": "[SOURCE QUOTE] Kitab suci para nabi terdahulu telah disempurnakan oleh wahyu terakhir; premis kanonikal Anda memiliki problem transmisi sejarah.",
-                "christian_protestant": "[SOURCE QUOTE] Otoritas tertinggi tetap pada naskah tertulis Alkitab, bukan pada konsili politik maupun tradisi manusia.",
+                "christian_protestant": "[SOURCE QUOTE] Otoritas tertinggi tetap pada naskah tertulis Bible, bukan pada konsili politik maupun tradisi manusia.",
                 "christian_catholic": "[SOURCE QUOTE] Otoritas gereja memiliki hak mengajar (magisterium) untuk merumuskan doktrin yang implisit dalam firman Tuhan.",
                 "judaism": "[SOURCE QUOTE] Ulangan 13:1-5 secara kategoris melarang kami mengikuti ajaran baru yang menyimpang dari Torah Sinai.",
                 "atheist_secular": "[SOURCE QUOTE] Beban pembuktian (burden of proof) tetap berada pada Anda yang mengajukan dalil supranatural."
@@ -1102,7 +1161,7 @@ Aturan Mutlak:
 
             opp_speech_r7 = {
                 "islam": "[SOURCE QUOTE] Kebenaran sejati menuntut kepatuhan mutlak pada kemurnian tauhid tanpa sekutu atau perantara ontologis.",
-                "christian_protestant": "[SOURCE QUOTE] Kami tetap berpegang pada kecukupan Alkitab (sufficientia scripturae) sebagai satu-satunya penuntun iman.",
+                "christian_protestant": "[SOURCE QUOTE] Kami tetap berpegang pada kecukupan Bible (sufficientia scripturae) sebagai satu-satunya penuntun iman.",
                 "christian_catholic": "[SOURCE QUOTE] Kami tetap meyakini bahwa Roh Kudus memimpin pemahaman gereja melampaui hurufiah teks naskah kuno.",
                 "judaism": "[SOURCE QUOTE] Hashem adalah esa mutlak (Echad); kami tidak menerima persekutuan apa pun dalam hakikat ilahi.",
                 "atheist_secular": "[SOURCE QUOTE] Varian ribuan manuskrip dan diskrepansi antarteks membuktikan proses transmisi manusiawi yang rentan kekeliruan."
@@ -1158,8 +1217,15 @@ Aturan Mutlak:
                     o_val = dyn_rounds[r_idx].get("opponent_speech") or dyn_rounds[r_idx].get("opponent")
                     if z_val and str(z_val).strip():
                         z_clean = cls.sanitize_bible_citations(str(z_val).strip())
-                        if not z_clean.startswith("[SIMULATED ZUMA RESPONSE]"):
-                            z_clean = f"[SIMULATED ZUMA RESPONSE] {z_clean}"
+                        if is_zh:
+                            if not z_clean.startswith("[ZUMA 模拟发言]"):
+                                if r_idx == 1 and not z_clean.startswith("请仔细听好"):
+                                    z_clean = f"[ZUMA 模拟发言] 请仔细听好。{z_clean}"
+                                else:
+                                    z_clean = f"[ZUMA 模拟发言] {z_clean}"
+                        else:
+                            if not z_clean.startswith("[SIMULATED ZUMA RESPONSE]"):
+                                z_clean = f"[SIMULATED ZUMA RESPONSE] {z_clean}"
                         if r_idx == 1: zuma_r1 = z_clean
                         elif r_idx == 2: zuma_r2 = z_clean
                         elif r_idx == 3: zuma_r3 = z_clean
@@ -1170,8 +1236,12 @@ Aturan Mutlak:
                         elif r_idx == 8: zuma_r8 = z_clean
                     if o_val and str(o_val).strip():
                         o_clean = cls.sanitize_bible_citations(str(o_val).strip())
-                        if not o_clean.startswith("[SOURCE QUOTE]"):
-                            o_clean = f"[SOURCE QUOTE] {o_clean}"
+                        if is_zh:
+                            if not o_clean.startswith("[引用原文]"):
+                                o_clean = f"[引用原文] {o_clean}"
+                        else:
+                            if not o_clean.startswith("[SOURCE QUOTE]"):
+                                o_clean = f"[SOURCE QUOTE] {o_clean}"
                         if r_idx == 1: opp_speech_r1 = o_clean
                         elif r_idx == 2: opp_speech_r2 = o_clean
                         elif r_idx == 3: opp_speech_r3 = o_clean
@@ -1366,7 +1436,7 @@ Aturan Mutlak:
             ]
             has_custom_persp = bool(ctx.get("user_perspective"))
             epistemic_verdict = {
-                "verdict_summary": f"ZUMA 辩证模拟证实：在 {user_p.upper()} 对比 {opp_p.upper()} 关于 '{motion}' 的辩论中，当面对正典文本 {p_primary} 的逐字研读与内在一致性审查时，对方的主张彻底瓦解。",
+                "verdict_summary": f"辩证模拟证实：在 {user_p.upper()} 对比 {opp_p.upper()} 关于 '{motion}' 的辩论中，当面对正典文本 {p_primary} 的逐字研读与内在一致性审查时，对方的主张彻底瓦解。",
                 "logical_superiority": f"肯定性批判（ZUMA 针对 {user_p.upper()} 的策略指导）" if has_custom_persp else "肯定性批判（ZUMA）",
                 "unsupported_claims_flagged": [
                     f"CLM-OPPOSITION-{p_primary.replace(' ', '-').replace(':', '-')}-001",
@@ -1404,7 +1474,7 @@ Aturan Mutlak:
             ]
             has_custom_persp = bool(ctx.get("user_perspective"))
             epistemic_verdict = {
-                "verdict_summary": f"Simulasi dialektika ZUMA persona membuktikan bahwa dalam diskursus {user_p.upper()} vs {opp_p.upper()} pada topik '{motion}', dalil pihak oposisi runtuh saat dihadapkan pada pembacaan verbatim naskah kanonik {p_primary} dan pengujian konsistensi internal.",
+                "verdict_summary": f"Adjudikasi dialektika forensik membuktikan bahwa dalam diskursus {user_p.upper()} vs {opp_p.upper()} pada topik '{motion}', metodologi Penguji Klaim meruntuhkan dalil pihak oposisi saat dihadapkan pada pembacaan verbatim naskah kanonik {p_primary} dan pengujian konsistensi internal.",
                 "logical_superiority": f"AFFIRMATIVE_CRITIQUE (ZUMA COACHING FOR {user_p.upper()})" if has_custom_persp else "AFFIRMATIVE_CRITIQUE (ZUMA)",
                 "unsupported_claims_flagged": [
                     f"CLM-OPPOSITION-{p_primary.replace(' ', '-').replace(':', '-')}-001",
@@ -1421,7 +1491,13 @@ Aturan Mutlak:
             if dyn_sim.get("presupposition_demolished"):
                 cross_examination[0]["presupposition_demolished"] = cls.sanitize_bible_citations(str(dyn_sim["presupposition_demolished"]))
             if dyn_sim.get("verdict_summary"):
-                epistemic_verdict["verdict_summary"] = cls.sanitize_bible_citations(str(dyn_sim["verdict_summary"]))
+                raw_vs = cls.sanitize_bible_citations(str(dyn_sim["verdict_summary"]))
+                raw_vs = re.sub(r'di pihak ZUMA', 'di pihak Penguji Klaim', raw_vs, flags=re.IGNORECASE)
+                raw_vs = re.sub(r'pihak ZUMA', 'pihak Penguji Klaim', raw_vs, flags=re.IGNORECASE)
+                raw_vs = re.sub(r'ZUMA persona', 'Penguji Klaim', raw_vs, flags=re.IGNORECASE)
+                raw_vs = re.sub(r'persona ZUMA', 'Penguji Klaim', raw_vs, flags=re.IGNORECASE)
+                raw_vs = re.sub(r'\bZUMA\b', 'Penguji Klaim', raw_vs)
+                epistemic_verdict["verdict_summary"] = raw_vs
 
         # 7. Persona Traceability (8 Tactical Steps)
         persona_traceability = [
@@ -1446,13 +1522,13 @@ Aturan Mutlak:
             "participants": [
                 {
                     "participant_id": "PART-ZUMA",
-                    "name": "Zulkifli M. Abbas (ZUMA)",
+                    "name": "Penguji Klaim",
                     "role": "AFFIRMATIVE_CRITIQUE",
                     "core_stance": "原始圣经抄本的法医式检验与对无经文支持教条的彻底驳斥。" if is_zh else ("Uji naskah primer kanonik LAI TB & penolakan dogma tanpa ayat." if is_id else "Forensic audit of primary biblical manuscripts & refutation of dogma without scripture.")
                 },
                 {
                     "participant_id": "PART-OPPONENT",
-                    "name": "对话者 / 教义辩护者" if is_zh else ("Interlocutor / Pembela Doktrin" if is_id else "Interlocutor / Doctrinal Defender"),
+                    "name": "Lawan Debat",
                     "role": "NEGATIVE_DEFENSE",
                     "core_stance": "神学传统与教义诠释的辩护。" if is_zh else ("Pembelaan tradisi teologis dan penafsiran dogmatis." if is_id else "Defense of theological tradition and dogmatic interpretation.")
                 }

@@ -9,8 +9,10 @@ Implements:
 - Standardized AgentResponse Contract with empirical execution evidence.
 """
 import abc
+import json
 import logging
 import os
+import re
 import shutil
 import subprocess
 import time
@@ -153,7 +155,10 @@ class HermesAdapter(BaseAgentAdapter):
         cid = f"hermes_{uuid.uuid4().hex[:8]}"
         now_iso = datetime.now(timezone.utc).isoformat()
         start = time.perf_counter()
-        timeout = int(os.environ.get("POLYA_HERMES_TIMEOUT", timeout))
+        if "POLYA_DISPATCH_TIMEOUT" in os.environ and int(os.environ["POLYA_DISPATCH_TIMEOUT"]) <= 10:
+            timeout = int(os.environ["POLYA_DISPATCH_TIMEOUT"])
+        elif timeout == 60 and "POLYA_HERMES_TIMEOUT" in os.environ:
+            timeout = int(os.environ["POLYA_HERMES_TIMEOUT"])
         model_label = kwargs.get("model", "hermes-agent-v3")
 
         if not self.is_available():
@@ -385,7 +390,10 @@ class ClaudeCodeAdapter(BaseAgentAdapter):
         # research budget (45s) is insufficient for Claude Code's startup
         # cost; this lets ops tune Claude Code's budget WITHOUT changing the
         # global routing timeout. Falls back to the passed `timeout`.
-        timeout = int(os.environ.get("POLYA_CLOUD_CODE_TIMEOUT", timeout))
+        if "POLYA_DISPATCH_TIMEOUT" in os.environ and int(os.environ["POLYA_DISPATCH_TIMEOUT"]) <= 10:
+            timeout = int(os.environ["POLYA_DISPATCH_TIMEOUT"])
+        elif timeout == 45 and "POLYA_CLOUD_CODE_TIMEOUT" in os.environ:
+            timeout = int(os.environ["POLYA_CLOUD_CODE_TIMEOUT"])
 
         if not self.is_available():
             return AgentResponse(
@@ -543,6 +551,153 @@ class AntiGravityAdapter(BaseAgentAdapter):
         )
 
 
+class GeminiAdapter(BaseAgentAdapter):
+    """Direct Google AI Studio Gemini Adapter (REST API).
+
+    Directly interacts with Google AI Studio generateContent endpoint:
+    https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}
+
+    Reads POLYA_GOOGLE_API_KEY, GOOGLE_API_KEY, or GEMINI_API_KEY from env or config files.
+    Default model: gemini-3.5-flash-lite (fast, high throughput).
+    Fallback model: gemini-flash-lite-latest.
+    """
+
+    def __init__(
+        self,
+        api_key: Optional[str] = None,
+        model: Optional[str] = None,
+        binary_path: Optional[str] = None,
+    ):
+        super().__init__("gemini", binary_path or "/usr/bin/python3")
+        self._api_key = api_key or os.environ.get("POLYA_GOOGLE_API_KEY") or os.environ.get("GOOGLE_API_KEY") or ""
+        if not self._api_key or self._api_key.startswith("sk-"):
+            cand = os.environ.get("GEMINI_API_KEY", "")
+            if cand and not cand.startswith("sk-"):
+                self._api_key = cand
+        if not self._api_key:
+            for env_path in [
+                "/home/ubuntu/Polya-AI/web/.env.production",
+                "/home/ubuntu/Polya-AI/.env",
+                "/home/ubuntu/.hermes/.env",
+            ]:
+                if os.path.exists(env_path):
+                    try:
+                        with open(env_path, "r", encoding="utf-8") as ef:
+                            for line in ef:
+                                line = line.strip()
+                                for key_name in ["POLYA_GOOGLE_API_KEY=", "GOOGLE_API_KEY=", "GEMINI_API_KEY="]:
+                                    if line.startswith(key_name):
+                                        val = line.split("=", 1)[1].strip("'\"")
+                                        if val and not val.startswith("sk-"):
+                                            self._api_key = val
+                                            break
+                                if self._api_key:
+                                    break
+                        if self._api_key:
+                            break
+                    except Exception:
+                        pass
+
+        self.model = model or os.environ.get("POLYA_GEMINI_MODEL", "gemini-3.5-flash-lite")
+        self.timeout = int(os.environ.get("POLYA_GEMINI_TIMEOUT", "120"))
+
+    def is_available(self) -> bool:
+        return bool(self._api_key)
+
+    def dispatch(self, prompt: str, timeout: int = 120, **kwargs) -> AgentResponse:
+        import json as _json
+        import urllib.request as _ureq
+        import urllib.error as _uerr
+
+        cid = f"gemini_{uuid.uuid4().hex[:8]}"
+        now_iso = datetime.now(timezone.utc).isoformat()
+        start = time.perf_counter()
+        model_name = kwargs.get("model", self.model)
+
+        if not self.is_available():
+            dur = 0
+            self._emit_observation(cid, "UNAVAILABLE", False, dur, model=model_name, fallback_used=True, error="missing Google API key")
+            return AgentResponse(
+                agent_name=self.agent_name,
+                status="UNAVAILABLE",
+                live_dispatched=False,
+                correlation_id=cid,
+                output="",
+                raw_response=None,
+                execution_time_ms=dur,
+                timestamp=now_iso,
+                provider="unknown",
+                error="Gemini adapter missing valid Google API key"
+            )
+
+        eff_timeout = timeout if timeout is not None else self.timeout
+        max_tokens = kwargs.get("max_tokens", 8192)
+
+        models_to_try = [model_name]
+        if model_name != "gemini-flash-lite-latest":
+            models_to_try.append("gemini-flash-lite-latest")
+
+        last_err = ""
+        for m in models_to_try:
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={self._api_key}"
+            payload = {
+                "contents": [{"parts": [{"text": prompt}]}],
+                "generationConfig": {
+                    "maxOutputTokens": max_tokens,
+                    "temperature": 0.2
+                }
+            }
+            data = _json.dumps(payload).encode("utf-8")
+            req = _ureq.Request(url, data=data, headers={"Content-Type": "application/json"}, method="POST")
+
+            try:
+                with _ureq.urlopen(req, timeout=eff_timeout) as resp:
+                    resp_body = resp.read().decode("utf-8")
+                    duration_ms = int((time.perf_counter() - start) * 1000)
+                    parsed_res = _json.loads(resp_body)
+                    candidates = parsed_res.get("candidates", [])
+                    if candidates and "content" in candidates[0]:
+                        parts = candidates[0]["content"].get("parts", [])
+                        text = "".join(p.get("text", "") for p in parts).strip()
+                        self._emit_observation(cid, "COMPLETED", True, duration_ms, model=m)
+                        return AgentResponse(
+                            agent_name=self.agent_name,
+                            status="COMPLETED",
+                            live_dispatched=True,
+                            correlation_id=cid,
+                            output=text,
+                            raw_response=resp_body,
+                            execution_time_ms=duration_ms,
+                            timestamp=now_iso,
+                            provider=f"live:google-gemini:{m}",
+                            metadata={"model": m, "candidates_count": len(candidates)}
+                        )
+                    else:
+                        last_err = f"No text content in response from {m}"
+            except _uerr.HTTPError as he:
+                err_body = he.read().decode("utf-8", "ignore")
+                last_err = f"HTTP {he.code} from {m}: {err_body[:200]}"
+                if he.code == 429:
+                    continue
+            except Exception as ex:
+                last_err = f"Request error for {m}: {str(ex)}"
+
+        duration_ms = int((time.perf_counter() - start) * 1000)
+        self._emit_observation(cid, "FAILED", False, duration_ms, model=model_name, fallback_used=True, error=last_err)
+        return AgentResponse(
+            agent_name=self.agent_name,
+            status="FAILED",
+            live_dispatched=False,
+            correlation_id=cid,
+            output="",
+            raw_response=None,
+            execution_time_ms=duration_ms,
+            timestamp=now_iso,
+            provider="unknown",
+            error=last_err
+        )
+
+
 class RouterAdapter(BaseAgentAdapter):
     """OpenAI-compatible adapter for the Polya 9Router gateway
     (http://127.0.0.1:20128/v1). Pure stdlib (urllib) — no new deps.
@@ -604,8 +759,8 @@ class RouterAdapter(BaseAgentAdapter):
                     except Exception:
                         pass
         self.model = model or os.environ.get("POLYA_ROUTER_MODEL", "General")
-        self.timeout = int(os.environ.get("POLYA_CLOUD_CODE_TIMEOUT",
-                                          os.environ.get("POLYA_ROUTER_TIMEOUT",
+        self.timeout = int(os.environ.get("POLYA_ROUTER_TIMEOUT",
+                                          os.environ.get("POLYA_CLOUD_CODE_TIMEOUT",
                                                          "120")))
 
     def is_available(self) -> bool:
@@ -616,7 +771,7 @@ class RouterAdapter(BaseAgentAdapter):
             return False
         return True
 
-    def dispatch(self, prompt: str, timeout: int = 60, **kwargs) -> AgentResponse:
+    def dispatch(self, prompt: str, timeout: int = 120, **kwargs) -> AgentResponse:
         import json as _json
         import urllib.request as _ureq
         import urllib.error as _uerr
@@ -640,11 +795,12 @@ class RouterAdapter(BaseAgentAdapter):
                 error="9Router adapter missing base_url or api_key",
             )
 
-        eff_timeout = min(timeout, self.timeout)
+        eff_timeout = timeout if timeout is not None else self.timeout
         payload = {
             "model": self.model,
             "messages": [{"role": "user", "content": prompt}],
-            "max_tokens": kwargs.get("max_tokens", 2048),
+            "max_tokens": kwargs.get("max_tokens", 8192),
+            "stream": False,
         }
         data = _json.dumps(payload).encode("utf-8")
         req_headers = {
@@ -771,6 +927,7 @@ class AgentRuntimeManager:
             "cloud_code": ClaudeCodeAdapter(),
             "anti_gravity": AntiGravityAdapter(),
             "9router": RouterAdapter(),
+            "gemini": GeminiAdapter(),
         }
 
     def get_adapter(self, agent_name: str) -> Optional[BaseAgentAdapter]:
@@ -988,6 +1145,104 @@ def _trail_append(
         "fallback_used": fallback_used,
         "error": (error[:200] if error else None),
     })
+
+
+def extract_and_sanitize_json(raw_text: str) -> Optional[Dict[str, Any]]:
+    """Extracts and parses a JSON object from raw LLM output with maximum resilience.
+
+    - Strips markdown code fences (```json, ```, etc.)
+    - Isolates balanced outer { ... } object
+    - Cleans trailing commas in arrays/objects
+    - Smart bracket/brace completion for slightly truncated outputs
+    - Falls back to ast.literal_eval if valid Python dict syntax
+    """
+    if not raw_text or not raw_text.strip():
+        return None
+    text = raw_text.strip()
+
+    # 1. Check for fenced code blocks
+    fence_pattern = re.compile(r"```(?:json)?\s*([\s\S]*?)\s*```", re.IGNORECASE)
+    matches = fence_pattern.findall(text)
+    candidates = []
+    if matches:
+        candidates.extend(matches)
+    candidates.append(text)
+
+    for cand in candidates:
+        cand = cand.strip()
+        start_idx = cand.find("{")
+        if start_idx == -1:
+            continue
+
+        # Balanced brace scan
+        brace_count = 0
+        end_idx = -1
+        in_string = False
+        escape = False
+        for i in range(start_idx, len(cand)):
+            ch = cand[i]
+            if escape:
+                escape = False
+                continue
+            if ch == "\\":
+                escape = True
+                continue
+            if ch == '"':
+                in_string = not in_string
+                continue
+            if not in_string:
+                if ch == "{":
+                    brace_count += 1
+                elif ch == "}":
+                    brace_count -= 1
+                    if brace_count == 0:
+                        end_idx = i
+                        break
+
+        json_candidate = cand[start_idx : end_idx + 1] if end_idx != -1 else cand[start_idx : cand.rfind("}") + 1]
+        if not json_candidate:
+            continue
+
+        # Try parsing json_candidate with cleanups
+        # 1. Direct loads
+        try:
+            res = json.loads(json_candidate)
+            if isinstance(res, dict):
+                return res
+        except Exception:
+            pass
+
+        # 2. Trailing commas cleanup
+        try:
+            cleaned = re.sub(r",\s*([\]}])", r"\1", json_candidate)
+            res = json.loads(cleaned)
+            if isinstance(res, dict):
+                return res
+        except Exception:
+            pass
+
+        # 3. Trailing repair fixes (for slightly truncated LLM outputs)
+        repair_fixes = ["", "}", "\"", "\"}", "\"]}", "}]}", "\"}]}", "}]}}", "\"}]}}"]
+        for fix in repair_fixes:
+            try:
+                candidate_fixed = json_candidate + fix
+                cleaned = re.sub(r",\s*([\]}])", r"\1", candidate_fixed)
+                res = json.loads(cleaned)
+                if isinstance(res, dict):
+                    return res
+            except Exception:
+                pass
+
+        # 4. ast.literal_eval fallback
+        try:
+            import ast
+            res = ast.literal_eval(json_candidate)
+            if isinstance(res, dict):
+                return res
+        except Exception:
+            pass
+
+    return None
 
 
 # Global singleton instance

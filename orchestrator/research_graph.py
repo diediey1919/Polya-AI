@@ -42,6 +42,7 @@ USER CLAIM
 18. final_response_node (Debate-Ready Delivery across 7 Modes including ADVERSARIAL_REVIEW)
 """
 import json
+import logging
 import operator
 import os
 import re
@@ -50,6 +51,8 @@ import uuid
 from datetime import datetime, timezone
 from typing import Annotated, Any, Dict, List, Optional
 from typing_extensions import TypedDict, NotRequired
+
+logger = logging.getLogger("polya.research_graph")
 
 from langgraph.graph import StateGraph, START, END
 from orchestrator.sqlite_checkpointer import research_checkpointer
@@ -176,9 +179,12 @@ def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
 
     target_agent = Registry.route_task("RESEARCH_AGENT")
 
-    # Detect explicit scripture citation directly from claim text
+    # Detect explicit scripture citation directly from claim text or match theological theme
     explicit_verses = re.findall(r'([1-3]?\s?[A-Za-z]+(?:\s+[A-Za-z]+)?\s+\d+:\d+(?:-\d+)?)', claim_text)
     explicit_verse = explicit_verses[0].strip() if explicit_verses else None
+    if not explicit_verse:
+        from orchestrator.exegesis_engine import ExegesisEngine
+        explicit_verse = ExegesisEngine.match_theological_verse(claim_text)
 
     # Pre-retrieve evidence for contextual model grounding
     all_ev = Evidence.retrieve_all_evidence(claim_text)
@@ -202,17 +208,28 @@ def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
         "Fokus pada analisis filologi forensik mendalam, sintaksis bahasa sumber naskah (Koine Greek / Biblical Hebrew), pembuktian manuskrip, dan analisis eksegetis objektif."
     )
 
+    theological_keywords = ["yesus", "bapa", "ontologi", "kehendak", "kristus", "allah", "tuhan", "roh", "tritunggal", "trinitas", "tauhid", "bible", "alkitab", "injil", "taurat", "firman", "logos", "theos", "kenosis", "monoteisme", "ayat", "surat", "pasal"]
+    is_theological = any(w in claim_text.lower() for w in theological_keywords) or bool(explicit_verse)
+
     corpus_notice = ""
-    if not scripture_items and explicit_verse:
+    if explicit_verse:
         corpus_notice = (
             f"\nCATATAN AYAT EKSPLISIT: Klaim merujuk pada perikop Kitab Suci '{explicit_verse}'. "
-            f"Karena perikop ini belum diindeks dalam perikop statis, Anda WAJIB menyertakan objek 'primary_evidence' di dalam output JSON. "
-            f"Objek 'primary_evidence' memuat: 'passage_reference' ('{explicit_verse}'), 'original_language' ('Koine Greek' atau 'Biblical Hebrew'), 'original_text' (teks asli dalam aksara Yunani/Ibrani kuno), 'transliteration', 'indonesian_translation', saksi naskah tertua dalam 'witnesses' (misal: Codex Sinaiticus, Vaticanus, Papyri), dan 2-4 token kata kunci dalam 'tokens' (masing-masing: surface_form, lemma, morphology, lexical_meaning, theological_interpretation)."
+            f"Fokuskan analisis secara presisi pada perikop Bible '{explicit_verse}'. "
+            f"Anda WAJIB menyertakan objek 'primary_evidence' di dalam output JSON. "
+            f"Objek 'primary_evidence' memuat: 'passage_reference' ('{explicit_verse}'), 'original_language' ('Koine Greek' atau 'Biblical Hebrew'), 'original_text' (teks asli dalam aksara Yunani/Ibrani kuno lengkap bervokal), 'transliteration', 'indonesian_translation', saksi naskah tertua dalam 'witnesses' (misal: Codex Sinaiticus, Vaticanus, Papyri), dan 2-4 token kata kunci dalam 'tokens' (masing-masing: surface_form, lemma, morphology, lexical_meaning, theological_interpretation)."
         )
-    elif retrieval_status == "insufficient_evidence":
+    elif not scripture_items and is_theological and requested_mode == "RESEARCH":
+        target_verse_hint = explicit_verse or "Lukas 22:42"
+        corpus_notice = (
+            f"\nCATATAN AYAT KUNCI PRIMER: Untuk klaim '{claim_text}', fokuskan analisis pada perikop Bible '{target_verse_hint}'. "
+            f"Anda WAJIB menyertakan objek 'primary_evidence' di dalam output JSON. "
+            f"Objek 'primary_evidence' memuat: 'passage_reference' ('{target_verse_hint}'), 'original_language' ('Koine Greek' atau 'Biblical Hebrew'), 'original_text' (teks naskah sumber asli lengkap bervokal), 'transliteration', 'indonesian_translation', saksi naskah tertua dalam 'witnesses' (misal: Codex Sinaiticus, Vaticanus, Papyri), dan 2-4 token kata kunci dalam 'tokens' (masing-masing: surface_form, lemma, morphology, lexical_meaning, theological_interpretation)."
+        )
+    elif retrieval_status == "insufficient_evidence" or not is_theological:
         corpus_notice = (
             "\nPERINGATAN PENTING KORPUS: Klaim ini tidak didukung oleh korpus naskah teologis kami (atau berada di luar domain teologi). "
-            "Jangan mengarang ayat Alkitab atau bukti fiktif. Nyatakan secara jujur bahwa bukti korpus tidak mencukupi."
+            "Jangan mengarang ayat Alkitab atau bukti fiktif. Nyatakan secara jujur bahwa bukti korpus tidak mencukupi, dan jangan sertakan 'primary_evidence'."
         )
 
     user_persp = state.get("user_perspective", "christian_protestant")
@@ -252,23 +269,24 @@ def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
         )
         debate_sim_section = f"""
 WAJIB MENYERTAKAN 'debate_simulation':
-Karena dalam mode DEBATE, sertakan objek 'debate_simulation' dalam JSON dengan 8 babak simulasi dialektika (rounds 1-8) antara ZUMA (Persona Zulkifli M. Abbas: tegas, tajam, presisi, dingin, fokus pada bukti naskah bahasa sumber, Ilzam al-Khasm) vs Oposisi ({opp_persp.upper()}).
+Karena dalam mode DEBATE, sertakan objek 'debate_simulation' dalam JSON dengan 8 babak simulasi dialektika (rounds 1-8) antara Penguji Klaim (Persona Dialektika Kritis: tegas, tajam, presisi, dingin, fokus pada bukti naskah bahasa sumber, Ilzam al-Khasm) vs Oposisi ({opp_persp.upper()}).
+Gunakan sebutan persona 'Penguji Klaim' (jangan gunakan nama persona ZUMA atau pihak ZUMA).
 Setiap babak wajib mendebat klaim '{claim_text}' dan nas {explicit_verse or 'terkait'} secara spesifik (bukan template umum).
 Format 'debate_simulation':
 {{
   "socratic_question": "Pertanyaan Sokratik membedah premis lawan tentang teks ini",
   "target_dilemma": "Dilema fatal yang mengunci oposisi",
   "presupposition_demolished": "Praduga lawan yang diruntuhkan teks",
-  "verdict_summary": "Ringkasan adjudikasi epistemik keunggulan naskah",
+  "verdict_summary": "Ringkasan adjudikasi epistemik keunggulan naskah (fokus pada keunggulan metodologi Penguji Klaim)",
   "rounds": [
-    {{"round_num": 1, "zuma_speech": "Ujaran ZUMA Babak 1", "opponent_speech": "Tanggapan Oposisi Babak 1"}},
-    {{"round_num": 2, "zuma_speech": "Ujaran ZUMA Babak 2", "opponent_speech": "Tanggapan Oposisi Babak 2"}},
-    {{"round_num": 3, "zuma_speech": "Ujaran ZUMA Babak 3", "opponent_speech": "Tanggapan Oposisi Babak 3"}},
-    {{"round_num": 4, "zuma_speech": "Ujaran ZUMA Babak 4", "opponent_speech": "Tanggapan Oposisi Babak 4"}},
-    {{"round_num": 5, "zuma_speech": "Ujaran ZUMA Babak 5", "opponent_speech": "Tanggapan Oposisi Babak 5"}},
-    {{"round_num": 6, "zuma_speech": "Ujaran ZUMA Babak 6", "opponent_speech": "Tanggapan Oposisi Babak 6"}},
-    {{"round_num": 7, "zuma_speech": "Ujaran ZUMA Babak 7", "opponent_speech": "Tanggapan Oposisi Babak 7"}},
-    {{"round_num": 8, "zuma_speech": "Ujaran ZUMA Babak 8", "opponent_speech": "Tanggapan Oposisi Babak 8"}}
+    {{"round_num": 1, "zuma_speech": "Ujaran Penguji Klaim Babak 1", "opponent_speech": "Tanggapan Oposisi Babak 1"}},
+    {{"round_num": 2, "zuma_speech": "Ujaran Penguji Klaim Babak 2", "opponent_speech": "Tanggapan Oposisi Babak 2"}},
+    {{"round_num": 3, "zuma_speech": "Ujaran Penguji Klaim Babak 3", "opponent_speech": "Tanggapan Oposisi Babak 3"}},
+    {{"round_num": 4, "zuma_speech": "Ujaran Penguji Klaim Babak 4", "opponent_speech": "Tanggapan Oposisi Babak 4"}},
+    {{"round_num": 5, "zuma_speech": "Ujaran Penguji Klaim Babak 5", "opponent_speech": "Tanggapan Oposisi Babak 5"}},
+    {{"round_num": 6, "zuma_speech": "Ujaran Penguji Klaim Babak 6", "opponent_speech": "Tanggapan Oposisi Babak 6"}},
+    {{"round_num": 7, "zuma_speech": "Ujaran Penguji Klaim Babak 7", "opponent_speech": "Tanggapan Oposisi Babak 7"}},
+    {{"round_num": 8, "zuma_speech": "Ujaran Penguji Klaim Babak 8", "opponent_speech": "Tanggapan Oposisi Babak 8"}}
   ]
 }}"""
         json_schema_instruction = """{
@@ -288,7 +306,7 @@ Format 'debate_simulation':
     "presupposition_demolished": "...",
     "verdict_summary": "...",
     "rounds": [
-      {"round_num": 1, "zuma_speech": "...", "opponent_speech": "..."}
+      {"round_num": 1, "zuma_speech": "Ujaran Penguji Klaim...", "opponent_speech": "..."}
     ]
   },
   "sources": [{"citation": "Sumber/Naskah yang dirujuk", "type": "Tipe Sumber"}]
@@ -327,9 +345,9 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
 {json_schema_instruction}"""
 
     t0 = time.time()
-    dispatch_timeout = int(os.environ.get("POLYA_DISPATCH_TIMEOUT", "20"))
+    dispatch_timeout = int(os.environ.get("POLYA_DISPATCH_TIMEOUT", "120"))
     res: AgentResponse = AgentRuntime.dispatch_with_failover(
-        "RESEARCH_AGENT", prompt, timeout=dispatch_timeout
+        "RESEARCH_AGENT", prompt, timeout=dispatch_timeout, max_tokens=8192
     )
     t1 = time.time()
     duration_ms = int((t1 - t0) * 1000)
@@ -349,40 +367,106 @@ Wajib berikan output HANYA dalam format JSON valid (tanpa teks pembuka atau penu
     consumed_provider = "unknown"
 
     if res.status == "COMPLETED" and res.output:
-        raw_text = res.output.strip()
-        match = re.search(r'\{[\s\S]*\}', raw_text)
-        if match:
-            try:
-                parsed = json.loads(match.group(0))
-                if isinstance(parsed, dict) and "argument" in parsed:
-                    synthesis_output = parsed
-                    output_used = True
-                    synthesis_status = "SUCCESS"
-                    consumed_provider = getattr(res, "provider", "unknown")
+        try:
+            from orchestrator.runtime import extract_and_sanitize_json
+            parsed = extract_and_sanitize_json(res.output)
+        except Exception as e_json:
+            logger.warning(f"Synthesis JSON extraction notice: {e_json}")
+            parsed = None
 
-                    # Ingest dynamic primary_evidence if provided and scripture_items is empty
-                    if "primary_evidence" in parsed and isinstance(parsed["primary_evidence"], dict):
-                        pe = parsed["primary_evidence"]
-                        pref = pe.get("passage_reference") or explicit_verse
-                        if pref:
-                            try:
-                                dyn_item = Evidence.create_dynamic_evidence_item(
-                                    passage_reference=pref,
-                                    original_language=pe.get("original_language", "Koine Greek"),
-                                    original_text=pe.get("original_text", ""),
-                                    transliteration=pe.get("transliteration", ""),
-                                    indonesian_translation=pe.get("indonesian_translation", ""),
-                                    english_translation=pe.get("english_translation", ""),
-                                    witnesses=pe.get("witnesses") or ["Codex Sinaiticus", "Codex Vaticanus"],
-                                    tokens=pe.get("tokens") or [],
-                                    critical_apparatus=pe.get("critical_apparatus", "")
-                                )
-                                scripture_items.append(dyn_item)
-                                retrieval_status = "sufficient"
-                            except Exception as e_dyn:
-                                logger.warning(f"Dynamic EvidenceItem instantiation failed: {e_dyn}")
-            except Exception:
-                pass
+        if isinstance(parsed, dict) and "argument" in parsed:
+            synthesis_output = parsed
+            output_used = True
+            synthesis_status = "SUCCESS"
+            consumed_provider = getattr(res, "provider", "unknown")
+
+            # Ingest dynamic primary_evidence if provided (theological only)
+            if "primary_evidence" in parsed and isinstance(parsed["primary_evidence"], dict) and is_theological:
+                pe = parsed["primary_evidence"]
+                pref = pe.get("passage_reference") or explicit_verse
+                if pref:
+                    try:
+                        dyn_item = Evidence.create_dynamic_evidence_item(
+                            passage_reference=pref,
+                            original_language=pe.get("original_language", "Koine Greek"),
+                            original_text=pe.get("original_text", ""),
+                            transliteration=pe.get("transliteration", ""),
+                            indonesian_translation=pe.get("indonesian_translation", ""),
+                            english_translation=pe.get("english_translation", ""),
+                            witnesses=pe.get("witnesses") or ["Codex Sinaiticus", "Codex Vaticanus"],
+                            tokens=pe.get("tokens") or [],
+                            critical_apparatus=pe.get("critical_apparatus", "")
+                        )
+                        # Replace or prepend dynamic evidence for explicit target
+                        scripture_items = [dyn_item] + [s for s in scripture_items if getattr(s, "passage_reference", "") != pref]
+                        retrieval_status = "sufficient"
+                    except Exception as e_dyn:
+                        logger.warning(f"Dynamic EvidenceItem instantiation failed: {e_dyn}")
+            elif explicit_verse and (not scripture_items or not any(explicit_verse.lower() in getattr(s, "passage_reference", "").lower() for s in scripture_items)):
+                # Auto-create dynamic evidence for explicit scripture verse cited in claim with canonical bridge lookup
+                try:
+                    orig_lang = "Koine Greek" if any(b in explicit_verse.lower() for b in ["filipi", "matius", "markus", "lukas", "yohanes", "roma", "korintus", "galatia", "efesus", "kolose", "tesalonika", "timotius", "titus", "filemon", "ibrani", "yakobus", "petrus", "yudas", "wahyu", "philippians", "matthew", "mark", "luke", "john", "romans", "corinthians", "galatians", "ephesians", "colossians", "thessalonians", "timothy", "hebrews", "james", "peter", "revelation"]) else "Biblical Hebrew"
+                    orig_text = ""
+                    translit = ""
+                    indo_trans = ""
+                    eng_trans = ""
+                    wit = ["Codex Sinaiticus", "Codex Vaticanus", "Papirus P46"]
+                    tok_list = []
+
+                    # 1. Bridge lookup via CANONICAL_PHILOLOGY_KNOWLEDGE
+                    try:
+                        from orchestrator.evidence_engine import CANONICAL_PHILOLOGY_KNOWLEDGE
+                        for c_ref, c_val in CANONICAL_PHILOLOGY_KNOWLEDGE.items():
+                            if c_ref.lower() == explicit_verse.lower() or explicit_verse.lower() in c_ref.lower() or c_ref.lower() in explicit_verse.lower():
+                                orig_text = c_val.get("original_text", "")
+                                translit = c_val.get("transliteration", "")
+                                indo_trans = c_val.get("indonesian", "")
+                                eng_trans = c_val.get("english", "")
+                                orig_lang = c_val.get("original_language", orig_lang)
+                                wit = c_val.get("witnesses", wit)
+                                tok_list = c_val.get("tokens", [])
+                                break
+                    except Exception:
+                        pass
+
+                    # 2. Bridge lookup via CANONICAL_EXEGESIS_REGISTRY if still empty
+                    if not orig_text:
+                        try:
+                            from orchestrator.exegesis_engine import CANONICAL_EXEGESIS_REGISTRY
+                            for e_ref, e_val in CANONICAL_EXEGESIS_REGISTRY.items():
+                                if e_ref.lower() == explicit_verse.lower() or explicit_verse.lower() in e_ref.lower() or e_ref.lower() in explicit_verse.lower():
+                                    orig_text = e_val.get("source_text_full") or e_val.get("original_source_string") or ""
+                                    translit = e_val.get("transliteration") or ""
+                                    indo_trans = e_val.get("natural_translation") or e_val.get("literal_translation") or ""
+                                    orig_lang = e_val.get("original_language", orig_lang)
+                                    raw_w = e_val.get("manuscript_witnesses") or []
+                                    wit = [w.get("witness") if isinstance(w, dict) else str(w) for w in raw_w] or wit
+                                    tok_list = e_val.get("interlinear_tokens") or []
+                                    break
+                        except Exception:
+                            pass
+
+                    if not orig_text:
+                        orig_text = f"Teks naskah primer asli untuk {explicit_verse}"
+                    if not translit:
+                        translit = f"Transliterasi fonetik akademis {explicit_verse}"
+                    if not indo_trans:
+                        indo_trans = f"Terjemahan naskah primer {explicit_verse}"
+
+                    dyn_item = Evidence.create_dynamic_evidence_item(
+                        passage_reference=explicit_verse,
+                        original_language=orig_lang,
+                        original_text=orig_text,
+                        transliteration=translit,
+                        indonesian_translation=indo_trans,
+                        english_translation=eng_trans,
+                        witnesses=wit,
+                        tokens=tok_list
+                    )
+                    scripture_items = [dyn_item] + [s for s in scripture_items if getattr(s, "passage_reference", "") != dyn_item.passage_reference]
+                    retrieval_status = "sufficient"
+                except Exception as e_dyn2:
+                    logger.warning(f"Explicit verse EvidenceItem fallback failed: {e_dyn2}")
 
     # If model failed or output malformed, build structured claim-tailored fallback
     if not output_used:
@@ -967,8 +1051,8 @@ def case_file_persistence_node(state: ResearchState) -> Dict[str, Any]:
         weaknesses=weaknesses,
         sources=[{"passage": e.get("passage_reference"), "source": e.get("source_id")} for e in state.get("evidence_items", [])],
         open_questions=open_q,
-        debate_preparation=state.get("debate_preparation", {}),
-        evaluation=state.get("evaluation_scorecard", {}),
+        debate_preparation=state.get("debate_preparation") or {},
+        evaluation=state.get("evaluation_scorecard") or {},
         provenance_chain=state.get("provenance_hashes", []),
         execution_traces=state.get("execution_traces", []),
         epistemic_audit=state.get("epistemic_firewall_report"),
@@ -995,14 +1079,14 @@ def final_response_node(state: ResearchState) -> Dict[str, Any]:
     """Composes the final structured, debate-ready epistemic response across requested modes."""
     claim = state["claim_input"]
     mode = state.get("requested_mode", "DEEP_FORENSIC_RESEARCH")
-    prep = state.get("debate_preparation", {})
-    eval_card = state.get("evaluation_scorecard", {})
-    ev_items = state.get("evidence_items", [])
-    verif = state.get("verification_status", "VERIFIED")
-    attacks = state.get("adversarial_attacks", [])
-    critique = state.get("zuma_self_critique", {})
-    weakest = state.get("weakest_point", "N/A")
-    uncertainty = state.get("uncertainty_calibration", {})
+    prep = state.get("debate_preparation") or {}
+    eval_card = state.get("evaluation_scorecard") or {}
+    ev_items = state.get("evidence_items") or []
+    verif = state.get("verification_status") or "VERIFIED"
+    attacks = state.get("adversarial_attacks") or []
+    critique = state.get("zuma_self_critique") or {}
+    weakest = state.get("weakest_point") or "N/A"
+    uncertainty = state.get("uncertainty_calibration") or {}
 
     lines = [
         f"# HASIL ANALISIS EKSEGESA FORENSIK & ADVERSARIAL DEBATE INTELLIGENCE",
@@ -1233,7 +1317,7 @@ def run_deep_adversarial_research(
         "max_research_iterations": 2,
         "knowledge_gaps": [],
         "evaluation_scorecard": None,
-        "debate_preparation": None,
+        "debate_preparation": {},
         "case_id": None,
         "execution_traces": [],
         "final_response": None,

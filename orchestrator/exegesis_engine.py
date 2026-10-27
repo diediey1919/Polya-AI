@@ -184,16 +184,17 @@ CANONICAL_EXEGESIS_REGISTRY: Dict[str, Dict[str, Any]] = {
             {"witness": "Codex Alexandrinus (A 02, Abad V)", "reading": "νόμον ἱστάνομεν (identik)", "status": "Tanpa varian aparatus"}
         ],
         "translation_comparison": [
+            {"version": "Makna Yunani Koine Abad ke-1", "text": "Apakah melalui iman ini kita meremehkan atau menghapuskan hukum Taurat? Sekali-kali tidak! Justru sebaliknya, kita membuat hukum Taurat itu berdiri tegak dan kukuh.", "critique": "Standar acuan akurasi utama: Mempertahankan kata kerja inklusif orang pertama jamak 'histanomen' (kita menegakkan) dan penolakan mutlak 'mē genoito' tanpa pergeseran redaksional."},
             {"version": "TB LAI", "text": "Jika demikian, adakah kami membatalkan hukum Taurat karena iman? Sama sekali tidak! Sebaliknya, kami menegakkannya.", "critique": "Penggunaan kata ganti 'kami' mempersempit subjek jamak 1P 'histanomen' yang seharusnya inklusif 'kita'."},
-            {"version": "KJV", "text": "Do we then make void the law through faith? God forbid: yea, we establish the law.", "critique": "'God forbid' adalah parafrase teologis idiomatik; teks Yunani tidak memuat kata 'Theos' (Allah)."},
+            {"version": "KJV", "text": "Do we then make void the law through faith? God forbid: yea, we establish the law.", "critique": "'God forbid' adalah parafrase teologis idiomatik; teks Yunani sama sekali tidak memuat kata 'Theos'."},
             {"version": "ESV", "text": "Do we then overthrow the law by this faith? By no means! On the contrary, we uphold the law.", "critique": "Menerjemahkan 'uphold' dengan presisi aspek gramatikal histanomen."}
         ],
         "corpus_cross_references": [
             {"reference": "Matius 5:17", "connection": "Yesus menyatakan kedatangan-Nya bukan meniadakan (katalysai) melainkan menggenapi (plērōsai), bersesuaian dengan histanomen pada Roma 3:31."},
             {"reference": "Roma 7:12", "connection": "Paulus mengafirmasi bahwa hukum Taurat itu kudus, benar, dan baik."},
-            {"reference": "Galatia 3:21", "connection": "Paulus mengulang formula 'mē genoito' terhadap tuduhan hukum Taurat bertentangan dengan janji Allah."}
+            {"reference": "Galatia 3:21", "connection": "Paulus mengulang formula 'mē genoito' terhadap tuduhan hukum Taurat bertentangan dengan janji-janji Theos."}
         ],
-        "exegetical_synthesis": "Eksegesis filologi forensik atas Roma 3:31 membuktikan secara tak terbantahkan bahwa doktrin keselamatan oleh iman (sola fide) tidak pernah dirancang oleh Paulus untuk menggantikan atau menghapus ketetapan moral Taurat. Sintaksis bahasa Yunani asli melalui aspek duratif 'histanomen' membuktikan pengukuhan status hukum tersebut."
+        "exegetical_synthesis": "Melalui bahasa Yunani aslinya, Rasul Paulus menegaskan dengan sangat lugas bahwa iman kepada Tuhan sama sekali bukan alasan untuk membuang atau membatalkan hukum Taurat. Kata 'histanomen' yang dipakainya berarti 'membuat sesuatu berdiri tegak dan kokoh'. Artinya, orang yang benar-benar beriman justru adalah orang yang menjunjung tinggi dan menegakkan hukum moral Tuhan, bukan meremehkan atau menghapuskannya."
     },
     "Yehezkiel 18:20": {
         "passage_reference": "Yehezkiel 18:20",
@@ -323,6 +324,7 @@ CANONICAL_EXEGESIS_REGISTRY: Dict[str, Dict[str, Any]] = {
             {"witness": "Septuaginta (LXX, Abad III SM)", "reading": "ψυχὴ ἡ ἁμαρτάνουσα, αὕτη ἀποθανεῖται", "status": "Terjemahan Yunani kuno verbatim"}
         ],
         "translation_comparison": [
+            {"version": "Makna Ibrani Kuno Abad Pertama/Masoretik", "text": "Jiwa/pribadi yang berbuat dosa, dia sendirilah yang harus menanggung kematian. Seorang anak tidak akan memikul hukuman atas kesalahan ayahnya, dan seorang ayah tidak akan memikul hukuman atas kesalahan anaknya.", "critique": "Standar acuan akurasi utama: Menegaskan prinsip yurisprudensi pertanggungjawaban individual mutlak 'nephesh ha-chote't hi tamut' tanpa konsep dosa warisan."},
             {"version": "TB LAI", "text": "Orang yang berbuat dosa, itu yang harus mati. Anak tidak akan turut menanggung kesalahan ayahnya.", "critique": "Akurat menerjemahkan 'nephesh' sebagai 'orang' dan 'hi' sebagai 'itu'."},
             {"version": "KJV", "text": "The soul that sinneth, it shall die. The son shall not bear the iniquity of the father.", "critique": "Mempertahankan terjemahan arkais 'soul' yang merefleksikan makna harafiah 'nephesh'."},
             {"version": "ESV", "text": "The soul who sins shall die. The son shall not suffer for the iniquity of the father.", "critique": "Penggunaan frasa 'suffer for' menerjemahkan nuansa yuridis nasa ba'awon."}
@@ -332,18 +334,18 @@ CANONICAL_EXEGESIS_REGISTRY: Dict[str, Dict[str, Any]] = {
             {"reference": "Yeremia 31:29-30", "connection": "Nubuat paralel tentang berakhirnya pepatah gigi ngilu dan penegasan tanggung jawab pribadi."},
             {"reference": "2 Raja-raja 14:6", "connection": "Penerapan historis oleh Raja Amazia yang membunuh para pembunuh ayahnya tetapi membiarkan anak-anak mereka hidup sesuai hukum Taurat."}
         ],
-        "exegetical_synthesis": "Teks Yehezkiel 18:20 secara ketat menetapkan kaidah yurisprudensi Alkitabiah bahwa tanggung jawab moral dan vonis pidana bersifat mutlak individual. Konstruksi Ibrani asli menolak mentah-mentah konsep warisan rasa bersalah atau hukuman kolektif tanpa perbuatan dosa personal."
+        "exegetical_synthesis": "Ayat ini memberikan penegasan yang sangat terang benderang dari teks Ibrani aslinya: setiap orang bertanggung jawab penuh atas perbuatannya sendiri di hadapan Tuhan. Anak tidak akan menanggung dosa ayahnya, dan ayah tidak akan menanggung dosa anaknya. Teks asli membantah anggapan bahwa manusia menanggung 'dosa warisan' dari orang lain, karena keadilan Tuhan menuntut hukuman hanya dijatuhkan kepada siapa yang benar-benar berbuat dosa secara pribadi."
     },
     "Yohanes 1:1": {
         "passage_reference": "Yohanes 1:1",
         "original_language": "Koine Greek",
         "source_text_full": "Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.",
-        "literal_translation": "Pada permulaan adalah sang Firman, dan sang Firman adalah berhadapan dengan sang Allah, dan bersifat ilahi adalah sang Firman.",
-        "natural_translation": "Pada mulanya adalah Firman; Firman itu bersama-sama dengan Allah dan Firman itu adalah Allah (berhakikat ilahi).",
+        "literal_translation": "Pada permulaan adalah sang Firman, dan sang Firman adalah berhadapan dengan sang Theos, dan bersifat ilahi adalah sang Firman.",
+        "natural_translation": "Pada mulanya adalah Firman; Firman itu bersama-sama dengan Theos dan Firman itu berhakikat ilahi.",
         "exegetical_context": ExegeticalContext(
             literary_genre="Prolog Teologis Himnis / Diskursus Kristologi Tinggi",
-            immediate_context="Prolog Injil Yohanes (ayat 1-18) yang meletakkan landasan identitas Logos sebelum inkarnasi menjadi manusia pada ayat 14.",
-            historical_cultural_setting="Akhir abad pertama Masehi di Efesus; berdialog dengan konsep 'Memra' (Firman kreatif Allah) dalam tradisi Targum Aramaic dan diskursus filsafat Hellenistik."
+            immediate_context="Prolog kitab Yohanes (ayat 1-18) yang meletakkan landasan identitas Logos sebelum inkarnasi menjadi manusia pada ayat 14.",
+            historical_cultural_setting="Akhir abad pertama Masehi di Efesus; berdialog dengan konsep 'Memra' (Firman kreatif Theos) dalam tradisi Targum Aramaic dan diskursus filsafat Hellenistik."
         ),
         "interlinear_tokens": [
             InterlinearWordToken(
@@ -487,7 +489,7 @@ CANONICAL_EXEGESIS_REGISTRY: Dict[str, Dict[str, Any]] = {
                 literal_gloss="sang / the",
                 syntactic_role="Definite Determiner",
                 lexical_entry={"source": "BDAG p. 690", "definition": "The", "semantic_range": "the specific"},
-                exegetical_note="Menunjuk Allah Bapa sebagai pribadi definit tunggal (Monotheism)."
+                exegetical_note="Menunjuk Theos Bapa sebagai pribadi definit tunggal (Monotheism)."
             ),
             InterlinearWordToken(
                 index=12,
@@ -497,10 +499,10 @@ CANONICAL_EXEGESIS_REGISTRY: Dict[str, Dict[str, Any]] = {
                 lemma="θεός (theos)",
                 morphology_code="N-AMS",
                 morphology_expanded="Noun, Accusative Masculine Singular",
-                literal_gloss="Allah / God",
+                literal_gloss="Theos",
                 syntactic_role="Object of Preposition",
-                lexical_entry={"source": "BDAG p. 450", "definition": "God, Supreme Being", "semantic_range": "the supreme Deity"},
-                exegetical_note="Objek relasi Logos adalah sang Allah Yang Mahakuasa."
+                lexical_entry={"source": "BDAG p. 450", "definition": "Theos, Pribadi Ilahi Tertinggi", "semantic_range": "Theos Bapa"},
+                exegetical_note="Objek relasi Logos adalah sang Theos Yang Mahakuasa."
             ),
             InterlinearWordToken(
                 index=13,
@@ -525,7 +527,7 @@ CANONICAL_EXEGESIS_REGISTRY: Dict[str, Dict[str, Any]] = {
                 morphology_expanded="Noun, Nominative Masculine Singular",
                 literal_gloss="bersifat ilahi / divine",
                 syntactic_role="Anarthrous Pre-verbal Predicate Nominative",
-                lexical_entry={"source": "BDAG p. 450", "definition": "God, of divine nature/essence", "semantic_range": "divine in character"},
+                lexical_entry={"source": "BDAG p. 450", "definition": "Theos, berhakikat ilahi / memiliki kualitas hakikat Theos", "semantic_range": "hakikat ilahi (qualitative)"},
                 exegetical_note="Kaidah Colwell-Harner: Predikat tanpa artikel (anarthrous) sebelum verba menekankan kualitas hakikat (qualitative force: berhakikat ilahi) dan bukan identitas person mutlak dengan Bapa."
             ),
             InterlinearWordToken(
@@ -580,16 +582,17 @@ CANONICAL_EXEGESIS_REGISTRY: Dict[str, Dict[str, Any]] = {
             {"witness": "Codex Vaticanus (B 03, Abad IV)", "reading": "καὶ θεὸς ἦν ὁ λόγος", "status": "Identik NA28"}
         ],
         "translation_comparison": [
-            {"version": "TB LAI", "text": "Pada mulanya adalah Firman; Firman itu bersama-sama dengan Allah dan Firman itu adalah Allah.", "critique": "Menyematkan artikel implisit pada 'Allah' kedua, menyamarkan perbedaan antara 'ton theon' (articular) dan 'theos' (anarthrous kualitatif)."},
+            {"version": "Makna Yunani Koine Abad ke-1", "text": "Pada mulanya Firman itu sudah ada, dan Firman itu berada bersama-sama di hadapan Theos, dan Firman itu memiliki sifat/hakikat ilahi.", "critique": "Standar acuan akurasi utama: Membedakan secara presisi antara 'ton theon' (Theos berpribadi dengan artikel definit) dan 'theos' tanpa artikel (anarthrous) yang menandai hakikat atau sifat keilahian, bukan identitas oknum yang sama."},
+            {"version": "TB LAI", "text": "Pada mulanya adalah Firman; Firman itu bersama-sama dengan Allah dan Firman itu adalah Allah.", "critique": "Menyematkan artikel implisit pada 'Theos' kedua, menyamarkan perbedaan antara 'ton theon' (articular) dan 'theos' (anarthrous kualitatif)."},
             {"version": "KJV", "text": "In the beginning was the Word, and the Word was with God, and the Word was God.", "critique": "Terjemahan tradisional yang tidak membedakan nuansa kualitatif Colwell-Harner."},
             {"version": "Moffatt", "text": "the Word was divine", "critique": "Mencerminkan nilai kualitatif aksara 'theos' anarthrous secara akurat."}
         ],
         "corpus_cross_references": [
             {"reference": "Kejadian 1:1", "connection": "Titik tolak 'Bereshit' (Pada mulanya) yang menjadi matriks penciptaan melalui firman."},
             {"reference": "1 Yohanes 1:1", "connection": "Membahas 'Firman hidup' yang ada sejak semula."},
-            {"reference": "Wahyu 19:13", "connection": "Gelar eskatologis Kristus sebagai 'Firman Allah' (Ho Logos tou Theou)."}
+            {"reference": "Wahyu 19:13", "connection": "Gelar eskatologis Kristus sebagai 'Firman Theos' (Ho Logos tou Theou)."}
         ],
-        "exegetical_synthesis": "Prolog Yohanes 1:1 secara gramatikal menyatakan pra-eksistensi kekal sang Logos dalam persekutuan akrab berhadapan muka dengan Allah (Bapa). Sintaksis anarthrous predikat 'theos' menetapkan bahwa Logos memiliki hakikat keilahian penuh tanpa membaurkan pribadi-Nya dengan Sang Bapa."
+        "exegetical_synthesis": "Dalam naskah Yunani aslinya, kalimat pembuka kitab Yohanes ini membedakan dua hal penting secara sangat cermat. Frasa 'bersama-sama dengan Theos' menggunakan kata 'ton theon' (memakai kata sandang tertentu yang menunjuk kepada Theos Yang Maha Esa). Sementara saat menyebut 'Firman itu adalah theos', kata 'theos' ditulis tanpa kata sandang, yang artinya Firman itu memiliki sifat dan kuasa ilahi, bukan berarti Firman itu adalah pribadi yang sama dengan Theos yang disertainya. Kesimpulan teks aslinya: Firman berasal dari Theos dan menyandang kemuliaan ilahi, namun tetap berdiri sebagai entitas yang berbeda dari Theos itu sendiri."
     },
     "Ulangan 6:4": {
         "passage_reference": "Ulangan 6:4",
@@ -693,6 +696,7 @@ CANONICAL_EXEGESIS_REGISTRY: Dict[str, Dict[str, Any]] = {
             {"witness": "Nash Papyrus (Abad II SM)", "reading": "Memuat Dekalog diikuti Ulangan 6:4 verbatim", "status": "Naskah liturgis tertua"}
         ],
         "translation_comparison": [
+            {"version": "Makna Ibrani Kuno Abad Pertama/Masoretik", "text": "Dengarkanlah hai Israel: YHWH adalah Allah kita, YHWH itu Esa (Satu-satunya / Mutlak Tak Terbagi)!", "critique": "Standar acuan akurasi utama: Mempertahankan makna kata 'Echad' sebagai keesaan mutlak dan singularitas numerik tak terbagi, menolak segala tafsiran kemajemukan wujud."},
             {"version": "TB LAI", "text": "TUHAN itu Allah kita, TUHAN itu esa!", "critique": "Akurat menangkap penegasan kredo 'esa'."},
             {"version": "KJV", "text": "The LORD our God is one LORD.", "critique": "Memasukkan kata kopula 'is' untuk kelancaran sintaksis Inggris."},
             {"version": "JPS Tanakh", "text": "The LORD is our God, the LORD alone.", "critique": "Menonjolkan makna 'echad' sebagai eksklusivitas kovenan ('alone')."}
@@ -700,9 +704,9 @@ CANONICAL_EXEGESIS_REGISTRY: Dict[str, Dict[str, Any]] = {
         "corpus_cross_references": [
             {"reference": "Zakharia 14:9", "connection": "'Pada waktu itu TUHAN adalah satu-satunya (Echad) dan nama-Nya satu-satunya.'"},
             {"reference": "Markus 12:29", "connection": "Yesus mengutip Shema sebagai hukum yang terutama dan paling utama dalam Taurat."},
-            {"reference": "1 Korintus 8:6", "connection": "Paulus menegaskan kembali Shema dalam terang pengenalan akan Kristus: 'namun bagi kita hanya ada satu Allah saja, yaitu Bapa...'."}
+            {"reference": "1 Korintus 8:6", "connection": "Paulus menegaskan kembali Shema dalam terang pengenalan akan Kristus: 'namun bagi kita hanya ada satu Theos saja, yaitu Bapa...'."}
         ],
-        "exegetical_synthesis": "Shema Yisrael dalam Ulangan 6:4 adalah proklamasi monoteisme murni Alkitab. Teks Ibrani asli menetapkan singularitas dan kesatuan tak terbagi dari Yahweh, meniadakan segala bentuk politeisme maupun pembagian esensi ketuhanan."
+        "exegetical_synthesis": "Kalimat ikrar agung (Shema) ini adalah dasar paling pokok dalam ajaran Alkitab: Tuhan itu Esa, Satu-satunya, dan tidak ada sekutu bagi-Nya. Kata Ibrani 'Echad' di sini menegaskan bahwa Tuhan kita adalah bilangan tunggal yang mutlak dan tidak terbagi-bagi. Teks ini menolak secara tegas segala bentuk penyembahan banyak tuhan maupun konsep pembagian zat Tuhan menjadi beberapa oknum."
     },
     "Matius 5:17": {
         "passage_reference": "Matius 5:17",
@@ -920,9 +924,10 @@ CANONICAL_EXEGESIS_REGISTRY: Dict[str, Dict[str, Any]] = {
         "manuscript_witnesses": [
             {"witness": "Codex Sinaiticus (א 01)", "reading": "Teks stabil bersesuaian dengan NA28", "status": "Naskah Aleksandria"},
             {"witness": "Codex Vaticanus (B 03)", "reading": "Teks stabil tanpa interpolasi", "status": "Naskah Kritis"},
-            {"witness": "P64/67 (Magdalen Papyrus, c. 200 M)", "reading": "Fragmen awal Injil Matius mendukung pembacaan konsensus", "status": "Saksi Papirus"}
+            {"witness": "P64/67 (Magdalen Papyrus, c. 200 M)", "reading": "Fragmen awal kitab Matius mendukung pembacaan konsensus", "status": "Saksi Papirus"}
         ],
         "translation_comparison": [
+            {"version": "Makna Yunani Koine Abad ke-1", "text": "Jangan sekali-kali kalian menduga bahwa kedatangan-Ku adalah untuk meruntuhkan atau membatalkan hukum Taurat maupun ajaran para nabi; Aku datang bukan untuk meruntuhkannya, melainkan untuk membawanya pada kepenuhan ketaatan yang sempurna.", "critique": "Standar acuan akurasi utama: Membedakan makna kata kerja 'katalysai' (meruntuhkan/membatalkan) dengan 'plērōsai' (menggenapi/melaksanakan secara paripurna), menegaskan validitas hukum permanen."},
             {"version": "TB LAI", "text": "Janganlah kamu menyangka, bahwa Aku datang untuk meniadakan hukum Taurat atau kitab para nabi. Aku datang bukan untuk meniadakannya, melainkan untuk menggenapinya.", "critique": "Terjemahan sangat akurat dan setia pada sintaksis Yunani."},
             {"version": "KJV", "text": "Think not that I am come to destroy the law, or the prophets: I am not come to destroy, but to fulfil.", "critique": "Kata 'destroy' mencerminkan makna destruktif dari katalysai."},
             {"version": "ESV", "text": "Do not think that I have come to abolish the Law or the Prophets; I have not come to abolish them but to fulfill them.", "critique": "Penggunaan kata 'abolish' menangkap presisi makna kata katalysai."}
@@ -932,7 +937,923 @@ CANONICAL_EXEGESIS_REGISTRY: Dict[str, Dict[str, Any]] = {
             {"reference": "Matius 5:18", "connection": "'Satu iota atau satu titik pun tidak akan ditiadakan dari hukum Taurat, sebelum semuanya terjadi.'"},
             {"reference": "Lukas 16:17", "connection": "'Lebih mudah langit dan bumi lenyap dari pada satu titik dari hukum Taurat batal.' Menegaskan ketetapan permanen hukum Taurat."}
         ],
-        "exegetical_synthesis": "Matius 5:17 adalah proklamasi resmi keabsahan permanen hukum Taurat dalam misi Yesus. Kata 'plērōsai' secara leksikal dan gramatikal berarti membawa hukum kepada ekspresi paripurna dan ketaatan sejati, bukan membatalkan otoritasnya."
+        "exegetical_synthesis": "Yesus sendiri dengan sangat tegas memperingatkan para pendengarnya agar tidak salah paham: kedatangan-Nya bukan untuk menghapus, meremehkan, atau membatalkan hukum Taurat dan kitab para nabi. Kata 'menggenapi' (plērōsai) dalam bahasa aslinya bermakna 'menjalankan sampai tuntas dan mengamalkannya dengan sempurna'. Jadi, hukum moral Tuhan tetap berlaku seutuhnya dan harus ditaati dengan sungguh-sungguh."
+    },
+    "Lukas 22:42": {
+        "passage_reference": "Lukas 22:42",
+        "original_language": "Koine Greek",
+        "source_text_full": "λέγων· Πάτερ, εἰ βούλει παρένεγκε τοῦτο τὸ ποτήριον ἀπ’ ἐμοῦ· πλὴν μὴ τὸ θέλημά μου ἀλλὰ τὸ σὸν γινέσθω.",
+        "literal_translation": "berkata: Bapa, jika Engkau mau ambillah ini sang cawan dari pada-Ku; tetapi bukan sang kehendak-Ku melainkan sang kepunyaan-Mu biarlah terjadi.",
+        "natural_translation": "kata-Nya: 'Ya Bapa-Ku, jikalau Engkau mau, ambillah cawan ini dari pada-Ku; tetapi bukanlah kehendak-Ku, melainkan kehendak-Mulah yang terjadi.'",
+        "exegetical_context": ExegeticalContext(
+            literary_genre="Narasi kitab Sinoptik / Doa Agoni Getsemani",
+            immediate_context="Perikop Lukas 22:39-46 di Bukit Zaitun menjelang penangkapan Yesus, menggambarkan pergumulan batin terdalam dan ketundukan mutlak subjek manusiawi kepada kehendak Bapa.",
+            historical_cultural_setting="Yudaisme abad pertama; 'cawan' (potērion) adalah metafora Perjanjian Lama yang merujuk pada penderitaan atau murka ilahi (Yesaya 51:17, Mazmur 75:8)."
+        ),
+        "interlinear_tokens": [
+            InterlinearWordToken(
+                index=1,
+                strong_number="G3004",
+                original_text="λέγων",
+                transliteration="legōn",
+                lemma="λέγω (legō)",
+                morphology_code="V-PPA-NMS",
+                morphology_expanded="Verb, Present Participle Active, Nominative Masculine Singular",
+                literal_gloss="berkata / saying",
+                syntactic_role="Circumstantial Participle of Speech",
+                lexical_entry={"source": "BDAG p. 588", "definition": "To speak, affirm, say", "semantic_range": "utter, declare, pray"},
+                exegetical_note="Partisip presen aktif yang mengarahkan fokus narasi langsung kepada seruan doa Yesus."
+            ),
+            InterlinearWordToken(
+                index=2,
+                strong_number="G3962",
+                original_text="Πάτερ",
+                transliteration="Pater",
+                lemma="πατήρ (patēr)",
+                morphology_code="N-VMS",
+                morphology_expanded="Noun, Vocative Masculine Singular",
+                literal_gloss="Bapa / Father",
+                syntactic_role="Vocative of Direct Address",
+                lexical_entry={"source": "BDAG p. 786", "definition": "Father, title of God as Supreme Sovereign", "semantic_range": "Progenitor, Supreme Being, Sovereign Deity"},
+                exegetical_note="Bentuk vokatif langsung; Yesus memanggil Theos Bapa sebagai otoritas tunggal di atas-Nya."
+            ),
+            InterlinearWordToken(
+                index=3,
+                strong_number="G1487",
+                original_text="εἰ",
+                transliteration="ei",
+                lemma="εἰ (ei)",
+                morphology_code="Cond",
+                morphology_expanded="Conditional Conjunction",
+                literal_gloss="jika / if",
+                syntactic_role="Protasis Marker",
+                lexical_entry={"source": "BDAG p. 277", "definition": "Marker of condition, if, whether", "semantic_range": "conditional clause, deferential hypothetical"},
+                exegetical_note="Menandai permohonan bersyarat yang sepenuhnya berserah kepada kedaulatan Bapa."
+            ),
+            InterlinearWordToken(
+                index=4,
+                strong_number="G1014",
+                original_text="βούλει",
+                transliteration="boulei",
+                lemma="βούλομαι (boulomai)",
+                morphology_code="V-PNI-2S",
+                morphology_expanded="Verb, Present Deponent Indicative, 2nd Person Singular",
+                literal_gloss="Engkau berkenan / You will, are willing",
+                syntactic_role="Protasis Finite Verb",
+                lexical_entry={"source": "BDAG p. 182", "definition": "To desire, wish, deliberate, will", "semantic_range": "sovereign intent, resolve"},
+                exegetical_note="Mengacu pada keputusan dan ketetapan kehendak Bapa yang berdaulat."
+            ),
+            InterlinearWordToken(
+                index=5,
+                strong_number="G3911",
+                original_text="παρένεγκε",
+                transliteration="parenenke",
+                lemma="παραφέρω (parapherō)",
+                morphology_code="V-AMA-2S",
+                morphology_expanded="Verb, Aorist Imperative Active, 2nd Person Singular",
+                literal_gloss="ambillah / take away, remove",
+                syntactic_role="Apodosis Imperative",
+                lexical_entry={"source": "BDAG p. 774", "definition": "To carry past, remove, turn away", "semantic_range": "avert, remove burden"},
+                exegetical_note="Aorist imperatif permohonan; bukan perintah melainkan permohonan santun seorang hamba."
+            ),
+            InterlinearWordToken(
+                index=6,
+                strong_number="G3778",
+                original_text="τοῦτο",
+                transliteration="touto",
+                lemma="οὗτος (houtos)",
+                morphology_code="D-ANS",
+                morphology_expanded="Demonstrative Pronoun, Accusative Neuter Singular",
+                literal_gloss="ini / this",
+                syntactic_role="Demonstrative Determiner",
+                lexical_entry={"source": "BDAG p. 740", "definition": "Demonstrative indicating immediate proximate entity", "semantic_range": "this specific item"},
+                exegetical_note="Menunjuk secara konkret pada cawan penderitaan yang ada tepat di hadapan-Nya."
+            ),
+            InterlinearWordToken(
+                index=7,
+                strong_number="G3588",
+                original_text="τὸ",
+                transliteration="to",
+                lemma="ὁ (ho)",
+                morphology_code="Art-ANS",
+                morphology_expanded="Article, Accusative Neuter Singular",
+                literal_gloss="sang / the",
+                syntactic_role="Definite Article",
+                lexical_entry={"source": "BDAG p. 690", "definition": "Definite article", "semantic_range": "the specific"},
+                exegetical_note="Mengkhususkan objek potērion."
+            ),
+            InterlinearWordToken(
+                index=8,
+                strong_number="G4221",
+                original_text="ποτήριον",
+                transliteration="potērion",
+                lemma="ποτήριον (potērion)",
+                morphology_code="N-ANS",
+                morphology_expanded="Noun, Accusative Neuter Singular",
+                literal_gloss="cawan / cup",
+                syntactic_role="Direct Object",
+                lexical_entry={"source": "BDAG p. 854", "definition": "Drinking vessel; figuratively the destiny allocated by God", "semantic_range": "cup of suffering or divine wrath"},
+                exegetical_note="Simbol kiasan biblika tentang murka dan cawan ujian dari Theos."
+            ),
+            InterlinearWordToken(
+                index=9,
+                strong_number="G575",
+                original_text="ἀπ’",
+                transliteration="ap'",
+                lemma="ἀπό (apo)",
+                morphology_code="Prep",
+                morphology_expanded="Preposition governing Genitive",
+                literal_gloss="dari / from",
+                syntactic_role="Preposition of Separation",
+                lexical_entry={"source": "BDAG p. 105", "definition": "Marker of separation, dissociation", "semantic_range": "away from"},
+                exegetical_note="Menandai pemisahan penderitaan dari subjek."
+            ),
+            InterlinearWordToken(
+                index=10,
+                strong_number="G1473",
+                original_text="ἐμοῦ",
+                transliteration="emou",
+                lemma="ἐγώ (egō)",
+                morphology_code="P-GS",
+                morphology_expanded="Personal Pronoun, 1st Person Genitive Singular",
+                literal_gloss="pada-Ku / Me",
+                syntactic_role="Object of Preposition",
+                lexical_entry={"source": "BDAG p. 275", "definition": "First-person pronoun", "semantic_range": "myself, me"},
+                exegetical_note="Menegaskan subjek persona Yesus sebagai pribadi yang rentan terhadap sengsara."
+            ),
+            InterlinearWordToken(
+                index=11,
+                strong_number="G4133",
+                original_text="πλὴν",
+                transliteration="plēn",
+                lemma="πλὴν (plēn)",
+                morphology_code="Adv",
+                morphology_expanded="Adversative Conjunction / Adverb",
+                literal_gloss="tetapi / nevertheless, yet",
+                syntactic_role="Adversative / Contrastive Conjunction",
+                lexical_entry={"source": "BDAG p. 826", "definition": "Marker of restriction or strong contrast, but, nevertheless", "semantic_range": "however, yet, only"},
+                exegetical_note="Kunci diskursus: memutuskan kontras mutlak antara harapan pribadi dengan kehendak ilahi Bapa."
+            ),
+            InterlinearWordToken(
+                index=12,
+                strong_number="G3361",
+                original_text="μὴ",
+                transliteration="mē",
+                lemma="μή (mē)",
+                morphology_code="Adv",
+                morphology_expanded="Negative Particle",
+                literal_gloss="bukan / not",
+                syntactic_role="Negation of Possessive Substantive",
+                lexical_entry={"source": "BDAG p. 645", "definition": "Marker of negative qualification", "semantic_range": "not, by no means"},
+                exegetical_note="Menolak realisasi kehendak manusiawi pribadi Yesus."
+            ),
+            InterlinearWordToken(
+                index=13,
+                strong_number="G3588",
+                original_text="τὸ",
+                transliteration="to",
+                lemma="ὁ (ho)",
+                morphology_code="Art-NNS",
+                morphology_expanded="Article, Nominative Neuter Singular",
+                literal_gloss="sang / the",
+                syntactic_role="Subject Article",
+                lexical_entry={"source": "BDAG p. 690", "definition": "Definite article", "semantic_range": "the"},
+                exegetical_note="Mensubstantifkan thelēma."
+            ),
+            InterlinearWordToken(
+                index=14,
+                strong_number="G2307",
+                original_text="θέλημά",
+                transliteration="thelēma",
+                lemma="θέλημα (thelēma)",
+                morphology_code="N-NNS",
+                morphology_expanded="Noun, Nominative Neuter Singular",
+                literal_gloss="kehendak / will",
+                syntactic_role="Subject of Contrast Clause",
+                lexical_entry={"source": "BDAG p. 447", "definition": "What one wishes or has determined, will, volition", "semantic_range": "purpose, desire, volition"},
+                exegetical_note="Nomina volitif; membuktikan secara ontologis bahwa Yesus memiliki pusat kehendak tersendiri."
+            ),
+            InterlinearWordToken(
+                index=15,
+                strong_number="G1473",
+                original_text="μου",
+                transliteration="mou",
+                lemma="ἐγώ (egō)",
+                morphology_code="P-GS",
+                morphology_expanded="Personal Pronoun, 1st Person Genitive Singular",
+                literal_gloss="Ku / My",
+                syntactic_role="Possessive Genitive Modifier",
+                lexical_entry={"source": "BDAG p. 275", "definition": "Genitive of first personal pronoun", "semantic_range": "of me, my"},
+                exegetical_note="Menyatakan kepemilikan definitif kehendak tersebut pada persona Yesus."
+            ),
+            InterlinearWordToken(
+                index=16,
+                strong_number="G235",
+                original_text="ἀλλὰ",
+                transliteration="alla",
+                lemma="ἀλλά (alla)",
+                morphology_code="Conj",
+                morphology_expanded="Adversative Conjunction",
+                literal_gloss="melainkan / but, rather",
+                syntactic_role="Strong Adversative Conjunction",
+                lexical_entry={"source": "BDAG p. 44", "definition": "Decisive adversative conjunction", "semantic_range": "but rather, on the contrary"},
+                exegetical_note="Mengalihkan prioritas ontologis secara mutlak kepada kehendak Bapa."
+            ),
+            InterlinearWordToken(
+                index=17,
+                strong_number="G3588",
+                original_text="τὸ",
+                transliteration="to",
+                lemma="ὁ (ho)",
+                morphology_code="Art-NNS",
+                morphology_expanded="Article, Nominative Neuter Singular",
+                literal_gloss="sang / the",
+                syntactic_role="Elliptical Article",
+                lexical_entry={"source": "BDAG p. 690", "definition": "Definite article", "semantic_range": "the"},
+                exegetical_note="Merujuk secara elipsis pada thelēma (kehendak)."
+            ),
+            InterlinearWordToken(
+                index=18,
+                strong_number="G4674",
+                original_text="σὸν",
+                transliteration="son",
+                lemma="σός (sos)",
+                morphology_code="S-2NS",
+                morphology_expanded="Possessive Pronominal Adjective, 2nd Person Neuter Singular",
+                literal_gloss="kepunyaan-Mu / Yours",
+                syntactic_role="Substantive Possessive Predicate",
+                lexical_entry={"source": "BDAG p. 936", "definition": "Possessive adjective of 2nd person, your, yours", "semantic_range": "thy, your will"},
+                exegetical_note="Menegaskan kedaulatan kehendak Bapa yang terpisah dan melampaui kehendak Yesus."
+            ),
+            InterlinearWordToken(
+                index=19,
+                strong_number="G1096",
+                original_text="γινέσθω",
+                transliteration="ginesthō",
+                lemma="γίνομαι (ginomai)",
+                morphology_code="V-PMM-3S",
+                morphology_expanded="Verb, Present Imperative Middle/Passive, 3rd Person Singular",
+                literal_gloss="biarlah terjadi / let it be done",
+                syntactic_role="Main Imperative Verb",
+                lexical_entry={"source": "BDAG p. 196", "definition": "To come into being, happen, be done, be fulfilled", "semantic_range": "take place, occur, be accomplished"},
+                exegetical_note="Aspek duratif dalam imperatif pihak ketiga; kepatuhan berlanjut hingga tuntas."
+            )
+        ],
+        "syntactic_exegesis": {
+            "poin_1": "Distingsi Dua Pusat Kehendak ('τὸ θέλημά μου' vs 'τὸ σὸν'): Naskah Koine Greek secara presisi mengontraskan dua klausa posesif nominal. Adanya dua kehendak yang secara potensial berbeda membuktikan distingsi ontologis dan personal antara Yesus dan Theos Bapa.",
+            "poin_2": "Konektor Adversatif Ganda ('πλὴν ... ἀλλὰ'): Partikel adversatif restriktif 'πλὴν' dan konjungsi eliminatif 'ἀλλὰ' membongkar struktur ketaatan hierarkis: kehendak persona Yesus ('μὴ τὸ θέλημά μου') secara volisional ditundukkan di bawah kehendak Bapa ('ἀλλὰ τὸ σὸν').",
+            "poin_3": "Mood Imperatif Volitif Pihak Ketiga ('γινέσθω'): Penggunaan verba 'γινέσθω' (present imperative middle/passive) menegaskan penyerahan kedaulatan mutlak kepada Bapa, bukan persekutuan setara (co-equality) ontologis."
+        },
+        "manuscript_witnesses": [
+            {"witness": "Papirus P75 (Bodmer XIV-XV, ca. 175-225 M)", "reading": "Teks tertua kitab Lukas; memuat pembacaan konsisten ayat 42 tanpa variasi pada frasa kehendak.", "status": "Saksi Papirus Tertua"},
+            {"witness": "Codex Sinaiticus (א 01, abad ke-4 M)", "reading": "Menyaksikan teks lengkap NA28: 'πλὴν μὴ τὸ θέλημά μου ἀλλὰ τὸ σὸν γινέσθω'.", "status": "Kodeks Aleksandria Utama"},
+            {"witness": "Codex Vaticanus (B 03, abad ke-4 M)", "reading": "Teks stabil bersesuaian penuh dengan konsensus naskah uncial Aleksandria.", "status": "Naskah Kritis Primer"}
+        ],
+        "translation_comparison": [
+            {"version": "Makna Yunani Koine Abad ke-1", "text": "Sambil berkata: 'Bapa, jika Engkau berkenan, singkirkanlah cawan ini dari hadapan-Ku; namun jangan kehendak-Ku yang terjadi, melainkan kehendak-Mu semata yang terlaksana.'", "critique": "Standar acuan akurasi utama: Mempertahankan partikel perlawanan tegas 'plēn' dan pemisahan eksplisit antara dua kehendak ('to thelēma mou' vs 'to son'), membuktikan distingsi subjek yang nyata antara Yesus dan Theos."},
+            {"version": "TB LAI", "text": "kata-Nya: 'Ya Bapa-Ku, jikalau Engkau mau, ambillah cawan ini dari pada-Ku; tetapi bukanlah kehendak-Ku, melainkan kehendak-Mulah yang terjadi.'", "critique": "Terjemahan sangat tepat dalam mempertahankan kontras adversatif antara kehendak-Ku dan kehendak-Mu."},
+            {"version": "KJV", "text": "Saying, Father, if thou be willing, remove this cup from me: nevertheless not my will, but thine, be done.", "critique": "Struktur bahasa Inggris klasik yang mempertahankan distingsi kehendak secara gamblang."},
+            {"version": "ESV", "text": "saying, 'Father, if you are willing, remove this cup from me. Nevertheless, not my will, but yours, be done.'", "critique": "Pilihan kata yang akurat dan setia terhadap aspek verba Yunani."}
+        ],
+        "corpus_cross_references": [
+            {"reference": "Matius 26:39", "connection": "Perikop paralel Getsemani: 'tetapi janganlah seperti yang Kukehendaki, melainkan seperti yang Engkau kehendaki.'"},
+            {"reference": "Yohanes 6:38", "connection": "Pernyataan eksplisit Yesus: 'Aku telah turun dari sorga bukan untuk melakukan kehendak-Ku, tetapi untuk melakukan kehendak Dia yang telah mengutus Aku.'"},
+            {"reference": "Ibrani 5:7-8", "connection": "Dalam hidup-Nya sebagai manusia, Yesus mempersembahkan doa dengan ratap tangis dan belajar menjadi taat."}
+        ],
+        "exegetical_synthesis": "Doa Yesus di taman Getsemani ini memperlihatkan kenyataan yang sangat gamblang: ada dua kehendak yang berbeda. Kehendak pribadi Yesus ('bukan kehendak-Ku') secara sadar ditundukkan di bawah kehendak Theos Sang Bapa ('melainkan kehendak-Mu'). Jika Yesus adalah Theos Yang Maha Esa itu sendiri, tentu tidak mungkin ada dua kehendak yang saling berbeda. Teks asli membuktikan bahwa Yesus adalah seorang hamba dan utusan yang taat sepenuhnya kepada perintah Theos Sang Pencipta."
+    },
+    "2 Petrus 1:21": {
+        "passage_reference": "2 Petrus 1:21",
+        "original_language": "Koine Greek",
+        "source_text_full": "οὐ γὰρ θελήματι ἀνθρώπου ἠνέχθη προφητεία ποτέ, ἀλλὰ ὑπὸ πνεύματος ἁγίου φερόμενοι ἐλάλησαν ἀπὸ θεοῦ ἄνθρωποι.",
+        "literal_translation": "Sebab bukan oleh kehendak manusia suatu nubuat pernah lahir, melainkan karena digerakkan oleh Roh Kudus, manusia-manusia berbicara membawa pesan dari Theos.",
+        "natural_translation": "Sebab nubuat tidak pernah lahir dari kehendak manusia, melainkan oleh dorongan Roh Kudus, manusia menyampaikan pesan yang datang dari Theos.",
+        "exegetical_context": ExegeticalContext(
+            literary_genre="Epistola Penggembalaan / Amanat Wasiat Apostolik",
+            immediate_context="Konteks 2 Petrus 1:16-21 tentang kepastian firman kenabian yang lebih teguh daripada pengalaman penglihatan empiris di atas gunung, menolak tuduhan mitos isapan jempol manusiawi.",
+            historical_cultural_setting="Ditulis menjelang kemartiran Rasul Petrus di Roma sekitar tahun 64-68 M; memperingatkan jemaat terhadap kemunculan pengajar sesat yang memutarbalikkan firman kenabian."
+        ),
+        "interlinear_tokens": [
+            InterlinearWordToken(
+                index=1,
+                strong_number="G3756",
+                original_text="οὐ",
+                transliteration="ou",
+                lemma="οὐ (ou)",
+                morphology_code="Adv-Neg",
+                morphology_expanded="Adverb - Negative",
+                literal_gloss="tidak / bukan",
+                syntactic_role="Partikel Negasi Absolut",
+                lexical_entry={"source": "Thayer", "definition": "Partikel penyangkalan objektif mutlak terhadap realitas faktawi.", "semantic_range": "Negasi absolut"},
+                exegetical_note="Menolak secara mutlak premis bahwa kehendak manusiawi pernah menjadi asal-usul timbulnya firman kenabian."
+            ),
+            InterlinearWordToken(
+                index=2,
+                strong_number="G1063",
+                original_text="γὰρ",
+                transliteration="gar",
+                lemma="γάρ (gar)",
+                morphology_code="Conj",
+                morphology_expanded="Conjunction",
+                literal_gloss="sebab / for",
+                syntactic_role="Konjungsi Penjelas Kausal",
+                lexical_entry={"source": "BDAG p. 189", "definition": "Partikel penjelas kausal yang meneguhkan argumen otoritas firman kenabian.", "semantic_range": "Kausalitas penjelas"},
+                exegetical_note="Menghubungkan alasan teologis mengapa firman kenabian tidak boleh ditafsirkan menurut kehendak pribadi (ay. 20)."
+            ),
+            InterlinearWordToken(
+                index=3,
+                strong_number="G2307",
+                original_text="θελήματι",
+                transliteration="thelēmati",
+                lemma="θέλημα (thelēma)",
+                morphology_code="N-DNS",
+                morphology_expanded="Noun - Dative Neuter Singular",
+                literal_gloss="oleh kehendak",
+                syntactic_role="Dative Instrumental / Kausalitas",
+                lexical_entry={"source": "BDAG p. 447", "definition": "Hasrat, kehendak, maksud, determinasi kehendak manusiawi.", "semantic_range": "Inisiatif kehendak ciptaan"},
+                exegetical_note="Dative instrumental; menegaskan bahwa determinasi kehendak manusia bukan instrumen pemicu nubuat."
+            ),
+            InterlinearWordToken(
+                index=4,
+                strong_number="G444",
+                original_text="ἀνθρώπου",
+                transliteration="anthrōpou",
+                lemma="ἄνθρωπος (anthrōpos)",
+                morphology_code="N-GMS",
+                morphology_expanded="Noun - Genitive Masculine Singular",
+                literal_gloss="manusia",
+                syntactic_role="Genitive of Origin / Subjective Genitive",
+                lexical_entry={"source": "BDAG p. 81", "definition": "Manusia, insan fana dalam keterbatasan ontologis ciptaan.", "semantic_range": "Agen manusiawi fana"},
+                exegetical_note="Genitive of source; membatasi bahwa manusia fana tidak memiliki daya kreatif untuk melahirkan nubuat ilahi."
+            ),
+            InterlinearWordToken(
+                index=5,
+                strong_number="G5342",
+                original_text="ἠνέχθη",
+                transliteration="ēnechthē",
+                lemma="φέρω (pherō)",
+                morphology_code="V-AIP-3S",
+                morphology_expanded="Verb - Aorist Indicative Passive - 3rd Person Singular",
+                literal_gloss="dibawa / dihasilkan",
+                syntactic_role="Predikat Verbal Pasif (Passivum Divinum)",
+                lexical_entry={"source": "BDAG p. 1052", "definition": "Dibawa, dimunculkan, diucapkan, digerakkan ke dalam eksistensi.", "semantic_range": "Tindakan pasif ilahi"},
+                exegetical_note="Aorist passive; menunjukkan tindakan historis titik balik di mana nubuat tidak pernah diinisiasi oleh manusia."
+            ),
+            InterlinearWordToken(
+                index=6,
+                strong_number="G4394",
+                original_text="προφητεία",
+                transliteration="prophēteia",
+                lemma="προφητεία (prophēteia)",
+                morphology_code="N-NFS",
+                morphology_expanded="Noun - Nominative Feminine Singular",
+                literal_gloss="nubuat",
+                syntactic_role="Subjek Gramatikal",
+                lexical_entry={"source": "BDAG p. 890", "definition": "Pengucapan firman yang diilhamkan, deklarasi kehendak ilahi.", "semantic_range": "Pewahyuan kenabian"},
+                exegetical_note="Subjek klausa; mencakup seluruh korpus pewahyuan kenabian dalam kitab suci."
+            ),
+            InterlinearWordToken(
+                index=7,
+                strong_number="G4218",
+                original_text="ποτέ",
+                transliteration="pote",
+                lemma="ποτέ (pote)",
+                morphology_code="Adv-Indef",
+                morphology_expanded="Adverb - Indefinite",
+                literal_gloss="pernah / sekali pun",
+                syntactic_role="Adverbia Temporal Universal",
+                lexical_entry={"source": "BDAG p. 855", "definition": "Suatu kali, pernah; dipadukan dengan 'ou' menghasilkan makna 'tidak pernah sama sekali'.", "semantic_range": "Cakupan temporal mutlak"},
+                exegetical_note="Penyangkalan temporal menyeluruh; menutup kemungkinan adanya pengecualian dalam sejarah kenabian."
+            ),
+            InterlinearWordToken(
+                index=8,
+                strong_number="G235",
+                original_text="ἀλλὰ",
+                transliteration="alla",
+                lemma="ἀλλά (alla)",
+                morphology_code="Conj",
+                morphology_expanded="Conjunction",
+                literal_gloss="melainkan / tetapi sebaliknya",
+                syntactic_role="Konjungsi Adversatif Kuat",
+                lexical_entry={"source": "BDAG p. 44", "definition": "Partikel kontras diametral tajam, membatalkan klausa negatif dan menggantikannya dengan realitas sejati.", "semantic_range": "Kontras antitesis"},
+                exegetical_note="Membangun kontras antitesis mutlak antara inisiatif manusiawi versus penggerak ilahi."
+            ),
+            InterlinearWordToken(
+                index=9,
+                strong_number="G5259",
+                original_text="ὑπὸ",
+                transliteration="hypo",
+                lemma="ὑπό (hypo)",
+                morphology_code="Prep",
+                morphology_expanded="Preposition",
+                literal_gloss="oleh",
+                syntactic_role="Preposisi Pelaku / Agensi Perantara",
+                lexical_entry={"source": "BDAG p. 1038", "definition": "Preposisi pengatur genitif penanda agensi pribadi atau spiritual aktif.", "semantic_range": "Agensi operatif"},
+                exegetical_note="Menandai Roh Kudus sebagai agen penggerak dinamis yang memegang kendali atas para nabi."
+            ),
+            InterlinearWordToken(
+                index=10,
+                strong_number="G4151",
+                original_text="πνεύματος",
+                transliteration="pneumatos",
+                lemma="πνεῦμα (pneuma)",
+                morphology_code="N-GNS",
+                morphology_expanded="Noun - Genitive Neuter Singular",
+                literal_gloss="Roh",
+                syntactic_role="Genitive of Personal Agency",
+                lexical_entry={"source": "BDAG p. 832", "definition": "Roh Ilahi, kuasa supranatural yang mengilhami utusan ilahi.", "semantic_range": "Roh Penggerak Wahyu"},
+                exegetical_note="Genitif pengatur agensi; kuasa dinamis yang menaungi dan memimpin akal budi para nabi."
+            ),
+            InterlinearWordToken(
+                index=11,
+                strong_number="G40",
+                original_text="ἁγίου",
+                transliteration="hagiou",
+                lemma="ἅγιος (hagios)",
+                morphology_code="Adj-GNS",
+                morphology_expanded="Adjective - Genitive Neuter Singular",
+                literal_gloss="Kudus",
+                syntactic_role="Atribut Modifikator",
+                lexical_entry={"source": "BDAG p. 10", "definition": "Kudus, suci, terpisah secara moral dan transenden dari dunia ciptaan.", "semantic_range": "Kekudusan hakiki"},
+                exegetical_note="Memastikan bahwa roh penggerak tersebut murni, sakral, dan tidak tercemar oleh dorongan profan ciptaan."
+            ),
+            InterlinearWordToken(
+                index=12,
+                strong_number="G5342",
+                original_text="φερόμενοι",
+                transliteration="pheromenoi",
+                lemma="φέρω (pherō)",
+                morphology_code="V-PPP-NMP",
+                morphology_expanded="Verb - Present Passive Participle - Nominative Masculine Plural",
+                literal_gloss="digerakkan / didorong",
+                syntactic_role="Partisip Sirkumstansial Cara/Sebab",
+                lexical_entry={"source": "BDAG p. 1053", "definition": "Dibawa serta, dikemudikan, diarahkan dayanya seperti kapal yang didorong angin kencang.", "semantic_range": "Gerakan pasif terbimbing"},
+                exegetical_note="Metafora maritim pelayaran; para nabi bukan pasif mekanis, melainkan akal budi dan kemampuan berbicara mereka diarahkan secara berdaulat oleh Roh Kudus."
+            ),
+            InterlinearWordToken(
+                index=13,
+                strong_number="G2980",
+                original_text="ἐλάλησαν",
+                transliteration="elalēsan",
+                lemma="λαλέω (laleō)",
+                morphology_code="V-AIA-3P",
+                morphology_expanded="Verb - Aorist Indicative Active - 3rd Person Plural",
+                literal_gloss="mereka berbicara",
+                syntactic_role="Predikat Verbal Utama",
+                lexical_entry={"source": "BDAG p. 582", "definition": "Berbicara, menyuarakan perkataan, memproklamasikan firman.", "semantic_range": "Penyuaraan pesan"},
+                exegetical_note="Aorist historis; mencatat aktivitas berbicara secara vokal dan tertulis oleh para nabi masa lampau."
+            ),
+            InterlinearWordToken(
+                index=14,
+                strong_number="G575",
+                original_text="ἀπὸ",
+                transliteration="apo",
+                lemma="ἀπό (apo)",
+                morphology_code="Prep",
+                morphology_expanded="Preposition",
+                literal_gloss="dari",
+                syntactic_role="Preposisi Sumber Mutlak",
+                lexical_entry={"source": "BDAG p. 105", "definition": "Preposisi penanda pemisahan, titik tolak, atau asal-usul kausal primer (ultimate origin).", "semantic_range": "Sumber asal usul mutlak"},
+                exegetical_note="Preposisi 'apo' menetapkan distingsi mutlak bahwa asal muasal isi firman adalah Theos, bukan manusia."
+            ),
+            InterlinearWordToken(
+                index=15,
+                strong_number="G2316",
+                original_text="θεοῦ",
+                transliteration="theou",
+                lemma="θεός (theos)",
+                morphology_code="N-GMS",
+                morphology_expanded="Noun - Genitive Masculine Singular",
+                literal_gloss="Theos",
+                syntactic_role="Genitive of Ultimate Source / Origin",
+                lexical_entry={"source": "BDAG p. 450", "definition": "Theos, sumber prima dan kausa tunggal pewahyuan.", "semantic_range": "Kausa prima / Sumber firman Theos"},
+                exegetical_note="Preposisi 'apo' diikuti genitif 'theou' menetapkan secara apodiktik bahwa Theos adalah sumber primer dan kausa prima yang mengutus pesan, sedangkan manusia hanyalah instrumen pembawa pesan."
+            ),
+            InterlinearWordToken(
+                index=16,
+                strong_number="G444",
+                original_text="ἄνθρωποι",
+                transliteration="anthrōpoi",
+                lemma="ἄνθρωπος (anthrōpos)",
+                morphology_code="N-NMP",
+                morphology_expanded="Noun - Nominative Masculine Plural",
+                literal_gloss="manusia-manusia",
+                syntactic_role="Subjek Gramatikal Jamak",
+                lexical_entry={"source": "BDAG p. 81", "definition": "Pribadi-pribadi manusia, para nabi utusan.", "semantic_range": "Subjek manusia pembawa amanah"},
+                exegetical_note="Subjek aktif dari verba elalēsan; manusia tetap berfungsi sebagai instrumen vokal historis yang menyampaikan firman tersebut."
+            )
+        ],
+        "syntactic_exegesis": {
+            "antithetical_parallelism": "Struktur antitesis biner: 'οὐ... θελήματι ἀνθρώπου' (bukan oleh kehendak manusia) dikontraskan secara tajam dengan 'ἀλλὰ ὑπὸ πνεύματος ἁγίου' (melainkan oleh Roh Kudus).",
+            "verbal_aspect_elalesan": "Verba aorist indikatif 'elalēsan' menegaskan tindakan historis faktual dari para nabi purba saat menyuarakan firman Theos.",
+            "participial_construction_pheromenoi": "Partisip pasif nominatif jamak 'pheromenoi' (digerakkan/didorong) berfungsi sirkumstansial terhadap subjek 'anthrōpoi', membuktikan para nabi berada di bawah dorongan berdaulat Roh Kudus.",
+            "source_preposition_apo_theou": "Konstruksi 'ἀπὸ θεοῦ' (dari Theos) menandai sumber asal-usul primer pewahyuan, menolak reduksi TB LAI yang menerjemahkan 'atas nama Allah' seolah hanya mandat delegatif."
+        },
+        "manuscript_witnesses": [
+            {
+                "manuscript_code": "𝔓72 (Bodmer VII-VIII)",
+                "date_century": "Abad ke-3/4 M",
+                "text_type": "Alexandrian Kuno",
+                "reading": "ἀπὸ θεοῦ ἄνθρωποι",
+                "evaluation": "Saksi papirus tertua yang memuat 1 dan 2 Petrus secara utuh; membaca 'ἀπὸ θεοῦ ἄνθρωποι' tanpa penambahan 'ἅγιοι'."
+            },
+            {
+                "manuscript_code": "Codex Vaticanus (B, 03)",
+                "date_century": "Abad ke-4 M (sekitar 325-350 M)",
+                "text_type": "Alexandrian Primer",
+                "reading": "ἀπὸ θεοῦ ἄνθρωποι",
+                "evaluation": "Naskah uncial utama yang menjadi rujukan kritis NA28/UBS5; secara solid mengonfirmasi pembacaan 'dari Theos manusia-manusia'."
+            },
+            {
+                "manuscript_code": "Codex Sinaiticus (א, 01)",
+                "date_century": "Abad ke-4 M (sekitar 330-360 M)",
+                "text_type": "Alexandrian Primer",
+                "reading": "ἀπὸ θεοῦ ἄνθρωποι",
+                "evaluation": "Koleksi uncial lengkap tertua; saksi independen yang menolak interpolasi kata 'ἅγιοι' (kudus) sebelum manusia."
+            },
+            {
+                "manuscript_code": "Codex Ephraemi Rescriptus (C, 04)",
+                "date_century": "Abad ke-5 M",
+                "text_type": "Alexandrian Sekunder",
+                "reading": "ἀπὸ θεοῦ ἄνθρωποι",
+                "evaluation": "Saksi uncial abad ke-5 yang mengukuhkan konsensus naskah Alexandrian awal."
+            }
+        ],
+        "translation_comparison": [
+            {
+                "version": "Makna Yunani Koine Abad ke-1",
+                "text": "Sebab nubuat tidak pernah lahir dari kehendak manusia, melainkan didorong oleh Roh Kudus, manusia-manusia berbicara membawa pesan dari Theos.",
+                "critique": "Standar acuan akurasi utama: Menjaga konstruksi partisip pasif 'pheromenoi' (digerakkan/didorong) dan preposisi 'apo theou' (dari Theos) sebagai penanda sumber mutlak firman kenabian."
+            },
+            {
+                "version": "TB LAI",
+                "text": "sebab tidak pernah nubuat dihasilkan oleh kehendak manusia, tetapi oleh dorongan Roh Kudus orang-orang berbicara atas nama Allah.",
+                "critique": "Frasa 'atas nama Allah' menyimpang dari preposisi Yunani asli 'apo theou' (dari Theos), mereduksi relasi sumber asal-usul ontologis firman menjadi sekadar perwakilan nama."
+            },
+            {
+                "version": "KJV",
+                "text": "For the prophecy came not in old time by the will of man: but holy men of God spake as they were moved by the Holy Ghost.",
+                "critique": "Mengikuti teks Byzantine yang menambahkan kata 'holy' (ἅγιοι) sebelum 'men of God', menyimpang dari naskah tertua P72 dan Vaticanus."
+            },
+            {
+                "version": "ESV",
+                "text": "For no prophecy was ever produced by the will of man, but men spoke from God as they were carried along by the Holy Spirit.",
+                "critique": "Akurat menangkap frasa 'spoke from God' (ἀπὸ θεοῦ) dan memadukan partisip pasif 'carried along by the Holy Spirit'."
+            }
+        ],
+        "corpus_cross_references": [
+            {
+                "reference": "2 Timotius 3:16",
+                "connection": "Prinsip 'theopneustos' (dihembuskan oleh Theos) yang menegaskan sumber ilahi firman kitab suci."
+            },
+            {
+                "reference": "Yeremia 1:9",
+                "connection": "Penggenapan formula kenabian di mana firman Theos ditaruh langsung ke mulut utusan-Nya."
+            },
+            {
+                "reference": "Kisah Para Rasul 1:16",
+                "connection": "Roh Kudus berfirman dengan perantaraan mulut Daud, menegaskan agensi ganda: Theos sebagai sumber, manusia sebagai instrumen."
+            }
+        ],
+        "exegetical_synthesis": "Ayat ini menjelaskan dengan sangat jernih bagaimana kitab-kitab suci kenabian lahir ke dunia. Penulis surat menegaskan bahwa tidak ada satu pun nubuat yang berasal dari pemikiran, rencana, atau kehendak pribadi manusia. Para nabi bukanlah pencipta ajaran. Sebaliknya, saat mereka berbicara dan mencatat firman, mereka digerakkan secara penuh oleh Roh Kudus, dan seluruh pesan yang keluar bersumber langsung dari Theos (menggunakan kata 'apo theou' yang berarti 'dari Theos'). Kesimpulannya: Para nabi hanyalah utusan pembawa pesan, Roh Kudus adalah penggeraknya, dan Theos adalah satu-satunya sumber mutlak dari setiap firman yang disampaikan."
+    },
+    "1 Yohanes 5:7-8": {
+        "passage_reference": "1 Yohanes 5:7-8",
+        "original_language": "Koine Greek",
+        "source_text_full": "ὅτι τρεῖς εἰσιν οἱ μαρτυροῦντες, τὸ πνεῦμα καὶ τὸ ὕδωρ καὶ τὸ αἷμα, καὶ οἱ τρεῖς εἰς τὸ ἕν εἰσιν. [Textus Receptus: ὅτι τρεῖς εἰσιν οἱ μαρτυροῦντες ἐν τῷ οὐρανῷ, ὁ Πατήρ, ὁ Λόγος, καὶ τὸ Ἅγιον Πνεῦμα· καὶ οὗτοι οἱ τρεῖς ἕν εἰσιν. καὶ τρεῖς εἰσιν οἱ μαρτυροῦντες ἐν τῇ γῇ, τὸ πνεῦμα καὶ τὸ ὕδωρ καὶ τὸ αἷμα· καὶ οἱ τρεῖς εἰς τὸ ἕν εἰσιν.]",
+        "literal_translation": "Karena tiga adalah yang sedang bersaksi: Sang Roh, dan sang air, dan sang darah; dan yang ketiga menuju kepada yang satu adalah. [Varian Textus Receptus: di dalam surga: Sang Bapa, Sang Firman, dan Roh Kudus; dan ketiga ini satu adanya; dan tiga yang bersaksi di bumi...]",
+        "natural_translation": "Sebab ada tiga yang memberi kesaksian: Roh, air, dan darah, dan ketiga saksi ini bersepakat menjadi satu tujuan kesaksian. (Catatan: Frasa trinitarian surgawi pada ayat 7 adalah interpolasi naskah Latin abad pertengahan yang tidak ada dalam naskah Yunani kuno asli).",
+        "exegetical_context": ExegeticalContext(
+            literary_genre="Epistola Katolik / Dokumen Kritik Tekstual & Polemik Antignostik",
+            immediate_context="Perikop 1 Yohanes 5:6-12 membahas dasar kesaksian bahwa Yesus Kristus datang melalui air (baptisan) dan darah (salib), dikukuhkan oleh tiga saksi di bumi: Roh, air, dan darah yang bersepakat dalam satu kesaksian historis.",
+            historical_cultural_setting="Ditulis pada akhir abad pertama Masehi di Efesus untuk menentang bidaah Cerinthus/Docetisme yang memisahkan kemanusiaan dan keilahian Yesus; formula Comma Johanneum tidak ditemukan dalam naskah Yunani sebelum abad ke-14 dan baru disisipkan ke naskah Textus Receptus abad ke-16 demi memenuhi tuntutan Erasmus."
+        ),
+        "interlinear_tokens": [
+            InterlinearWordToken(
+                index=1,
+                strong_number="G3754",
+                original_text="ὅτι",
+                transliteration="hoti",
+                lemma="ὅτι (hoti)",
+                morphology_code="Conj",
+                morphology_expanded="Conjunction, Causal",
+                literal_gloss="karena / for, because",
+                syntactic_role="Causal Conjunction",
+                lexical_entry={"source": "BDAG p. 731", "definition": "Conjunction introducing the basis or ground of a statement", "semantic_range": "because, since, that"},
+                exegetical_note="Membuka klausa alasan pembuktian keabsahan kesaksian ilahi."
+            ),
+            InterlinearWordToken(
+                index=2,
+                strong_number="G5140",
+                original_text="τρεῖς",
+                transliteration="treis",
+                lemma="τρεῖς (treis)",
+                morphology_code="Adj-NMP",
+                morphology_expanded="Adjective, Nominative Masculine Plural",
+                literal_gloss="tiga / three",
+                syntactic_role="Subject Complement / Predicate Numeral",
+                lexical_entry={"source": "BDAG p. 1015", "definition": "Three, numerical count of witnesses required by law", "semantic_range": "cardinal number three"},
+                exegetical_note="Merujuk pada prinsip yuridis Alkitabiah (Ulangan 19:15) mengenai keabsahan saksi sah."
+            ),
+            InterlinearWordToken(
+                index=3,
+                strong_number="G1510",
+                original_text="εἰσιν",
+                transliteration="eisin",
+                lemma="εἰμί (eimi)",
+                morphology_code="V-PIA-3P",
+                morphology_expanded="Verb, Present Indicative Active, 3rd Person Plural",
+                literal_gloss="adalah / are",
+                syntactic_role="Copula / Predicate Verb",
+                lexical_entry={"source": "BDAG p. 282", "definition": "To be, exist, function as copula", "semantic_range": "are, exist"},
+                exegetical_note="Menyatakan keberadaan aktif saksi-saksi tersebut."
+            ),
+            InterlinearWordToken(
+                index=4,
+                strong_number="G3588",
+                original_text="οἱ",
+                transliteration="hoi",
+                lemma="ὁ (ho)",
+                morphology_code="Art-NMP",
+                morphology_expanded="Definite Article, Nominative Masculine Plural",
+                literal_gloss="orang-orang yang / the (ones)",
+                syntactic_role="Substantivizing Article",
+                lexical_entry={"source": "BDAG p. 686", "definition": "Definite article functioning as substantivizer for participle", "semantic_range": "the ones"},
+                exegetical_note="Mempersonifikasikan partisip μαρτυροῦντες menjadi agen saksi legal."
+            ),
+            InterlinearWordToken(
+                index=5,
+                strong_number="G3140",
+                original_text="μαρτυροῦντες",
+                transliteration="martyrountes",
+                lemma="μαρτυρέω (martyreō)",
+                morphology_code="V-PPA-NMP",
+                morphology_expanded="Verb, Present Participle Active, Nominative Masculine Plural",
+                literal_gloss="sedang memberi kesaksian / bearing witness",
+                syntactic_role="Substantival Participle (Subject)",
+                lexical_entry={"source": "BDAG p. 617", "definition": "To bear witness, testify, confirm by testimony", "semantic_range": "testify, bear witness"},
+                exegetical_note="Bentuk partisip present aktif duratif: kesaksian yang terus berlangsung valid."
+            ),
+            InterlinearWordToken(
+                index=6,
+                strong_number="G3588",
+                original_text="τὸ",
+                transliteration="to",
+                lemma="ὁ (ho)",
+                morphology_code="Art-NNS",
+                morphology_expanded="Definite Article, Nominative Neuter Singular",
+                literal_gloss="sang / the",
+                syntactic_role="Definite Article",
+                lexical_entry={"source": "BDAG p. 686", "definition": "Definite article specifying subsequent neuter noun", "semantic_range": "the"},
+                exegetical_note="Menunjuk secara definit pada saksi pertama: Roh."
+            ),
+            InterlinearWordToken(
+                index=7,
+                strong_number="G4151",
+                original_text="πνεῦμα",
+                transliteration="pneuma",
+                lemma="πνεῦμα (pneuma)",
+                morphology_code="N-NNS",
+                morphology_expanded="Noun, Nominative Neuter Singular",
+                literal_gloss="Roh / Spirit",
+                syntactic_role="Appositive Subject Witness #1",
+                lexical_entry={"source": "BDAG p. 832", "definition": "Spirit, divine breath, the Holy Spirit as witness to truth", "semantic_range": "Spirit, breath"},
+                exegetical_note="Saksi internal supranatural yang mengonfirmasi kebenaran Kristus."
+            ),
+            InterlinearWordToken(
+                index=8,
+                strong_number="G2532",
+                original_text="καὶ",
+                transliteration="kai",
+                lemma="καί (kai)",
+                morphology_code="Conj",
+                morphology_expanded="Conjunction, Copulative",
+                literal_gloss="dan / and",
+                syntactic_role="Coordinate Conjunction",
+                lexical_entry={"source": "BDAG p. 499", "definition": "Connecting coordinate elements", "semantic_range": "and, also"},
+                exegetical_note="Menghubungkan saksi pertama dan saksi kedua."
+            ),
+            InterlinearWordToken(
+                index=9,
+                strong_number="G3588",
+                original_text="τὸ",
+                transliteration="to",
+                lemma="ὁ (ho)",
+                morphology_code="Art-NNS",
+                morphology_expanded="Definite Article, Nominative Neuter Singular",
+                literal_gloss="sang / the",
+                syntactic_role="Definite Article",
+                lexical_entry={"source": "BDAG p. 686", "definition": "Definite article", "semantic_range": "the"},
+                exegetical_note="Menunjuk definit pada saksi kedua: air."
+            ),
+            InterlinearWordToken(
+                index=10,
+                strong_number="G5204",
+                original_text="ὕδωρ",
+                transliteration="hydōr",
+                lemma="ὕδωρ (hydōr)",
+                morphology_code="N-NNS",
+                morphology_expanded="Noun, Nominative Neuter Singular",
+                literal_gloss="air / water",
+                syntactic_role="Appositive Subject Witness #2",
+                lexical_entry={"source": "BDAG p. 1025", "definition": "Water, specifically referring to the baptism of Jesus", "semantic_range": "water, baptism"},
+                exegetical_note="Merujuk pada peristiwa baptisan historis Yesus di sungai Yordan."
+            ),
+            InterlinearWordToken(
+                index=11,
+                strong_number="G2532",
+                original_text="καὶ",
+                transliteration="kai",
+                lemma="καί (kai)",
+                morphology_code="Conj",
+                morphology_expanded="Conjunction, Copulative",
+                literal_gloss="dan / and",
+                syntactic_role="Coordinate Conjunction",
+                lexical_entry={"source": "BDAG p. 499", "definition": "Connecting coordinate elements", "semantic_range": "and"},
+                exegetical_note="Menghubungkan saksi kedua dan saksi ketiga."
+            ),
+            InterlinearWordToken(
+                index=12,
+                strong_number="G3588",
+                original_text="τὸ",
+                transliteration="to",
+                lemma="ὁ (ho)",
+                morphology_code="Art-NNS",
+                morphology_expanded="Definite Article, Nominative Neuter Singular",
+                literal_gloss="sang / the",
+                syntactic_role="Definite Article",
+                lexical_entry={"source": "BDAG p. 686", "definition": "Definite article", "semantic_range": "the"},
+                exegetical_note="Menunjuk definit pada saksi ketiga: darah."
+            ),
+            InterlinearWordToken(
+                index=13,
+                strong_number="G129",
+                original_text="αἷμα",
+                transliteration="haima",
+                lemma="αἷμα (haima)",
+                morphology_code="N-NNS",
+                morphology_expanded="Noun, Nominative Neuter Singular",
+                literal_gloss="darah / blood",
+                syntactic_role="Appositive Subject Witness #3",
+                lexical_entry={"source": "BDAG p. 22", "definition": "Blood, referring to the death/crucifixion of Jesus", "semantic_range": "blood, sacrificial death"},
+                exegetical_note="Merujuk pada kematian fisik historis Yesus di atas kayu salib."
+            ),
+            InterlinearWordToken(
+                index=14,
+                strong_number="G2532",
+                original_text="καὶ",
+                transliteration="kai",
+                lemma="καί (kai)",
+                morphology_code="Conj",
+                morphology_expanded="Conjunction, Continuative",
+                literal_gloss="dan / and",
+                syntactic_role="Connective Conjunction",
+                lexical_entry={"source": "BDAG p. 499", "definition": "Continuing clause to state the result/agreement", "semantic_range": "and, also"},
+                exegetical_note="Memperkenalkan klausa kesepakatan ketiga saksi."
+            ),
+            InterlinearWordToken(
+                index=15,
+                strong_number="G3588",
+                original_text="οἱ",
+                transliteration="hoi",
+                lemma="ὁ (ho)",
+                morphology_code="Art-NMP",
+                morphology_expanded="Definite Article, Nominative Masculine Plural",
+                literal_gloss="orang-orang / the",
+                syntactic_role="Definite Article",
+                lexical_entry={"source": "BDAG p. 686", "definition": "Definite article", "semantic_range": "the"},
+                exegetical_note="Artikel maskulin jamak merujuk kembali kepada ketiga saksi."
+            ),
+            InterlinearWordToken(
+                index=16,
+                strong_number="G5140",
+                original_text="τρεῖς",
+                transliteration="treis",
+                lemma="τρεῖς (treis)",
+                morphology_code="Adj-NMP",
+                morphology_expanded="Adjective, Nominative Masculine Plural",
+                literal_gloss="tiga itu / three",
+                syntactic_role="Subject Nominative",
+                lexical_entry={"source": "BDAG p. 1015", "definition": "The three witnesses", "semantic_range": "three"},
+                exegetical_note="Subjek dari klausa kesepakatan kesaksian."
+            ),
+            InterlinearWordToken(
+                index=17,
+                strong_number="G1519",
+                original_text="εἰς",
+                transliteration="eis",
+                lemma="εἰς (eis)",
+                morphology_code="Prep",
+                morphology_expanded="Preposition with Accusative",
+                literal_gloss="menuju kepada / into, unto",
+                syntactic_role="Preposition of Purpose/Result",
+                lexical_entry={"source": "BDAG p. 288", "definition": "Denoting goal, result, agreement toward a single end", "semantic_range": "into, unto, toward"},
+                exegetical_note="Preposisi eis + akusatif hen menandakan kesepakatan menuju satu tujuan kesaksian (unison), bukan kesatuan esensi substansi."
+            ),
+            InterlinearWordToken(
+                index=18,
+                strong_number="G3588",
+                original_text="τὸ",
+                transliteration="to",
+                lemma="ὁ (ho)",
+                morphology_code="Art-ANS",
+                morphology_expanded="Definite Article, Accusative Neuter Singular",
+                literal_gloss="sang / the",
+                syntactic_role="Definite Article",
+                lexical_entry={"source": "BDAG p. 686", "definition": "Definite article specifying the unity", "semantic_range": "the"},
+                exegetical_note="Artikel akusatif neuter."
+            ),
+            InterlinearWordToken(
+                index=19,
+                strong_number="G1520",
+                original_text="ἕν",
+                transliteration="hen",
+                lemma="εἷς (heis)",
+                morphology_code="Adj-ANS",
+                morphology_expanded="Adjective, Accusative Neuter Singular",
+                literal_gloss="satu (kesepakatan) / one",
+                syntactic_role="Object of Preposition",
+                lexical_entry={"source": "BDAG p. 291", "definition": "One, united in intent, in agreement", "semantic_range": "one, unison"},
+                exegetical_note="Menegaskan bahwa ketiga saksi tersebut sepakat dan menunjuk pada satu tujuan pembuktian yang sama."
+            ),
+            InterlinearWordToken(
+                index=20,
+                strong_number="G1510",
+                original_text="εἰσιν",
+                transliteration="eisin",
+                lemma="εἰμί (eimi)",
+                morphology_code="V-PIA-3P",
+                morphology_expanded="Verb, Present Indicative Active, 3rd Person Plural",
+                literal_gloss="adalah / are",
+                syntactic_role="Copula",
+                lexical_entry={"source": "BDAG p. 282", "definition": "To be", "semantic_range": "are"},
+                exegetical_note="Menutup klausa naskah asli NA28."
+            )
+        ],
+        "syntactic_exegesis": {
+            "participle_witness": "Partisipium Present Aktif 'hoi martyrountes' (οἱ μαρτυροῦντες) menggunakan artikel maskulin jamak padahal merujuk pada tiga nomina netral (pneuma, hydōr, haima). Ini merupakan konstruksi personifikasi tata bahasa yang menyatukan ketiga saksi historis di bumi.",
+            "prepositional_direction": "Frasa preposisional 'eis to hen eisin' (εἰς τὸ ἕν εἰσιν) secara gramatikal berarti 'bersepakat menuju satu tujuan kesaksian', bukan kesatuan esensi ontologis ('hen eisin' mutlak). Ketiga saksi memiliki kesaksian yang selaras.",
+            "interpolational_absence": "Ketiadaan frasa 'en tō ouranō... kai houtoi hoi treis hen eisin' pada naskah Yunani paling awal membuktikan bahwa naskah asli NA28 tidak memuat klausa surgawi; sisipan tersebut baru diadaptasi ke naskah Yunani pada abad ke-16 (Minuscule 61) demi memenuhi tuntutan Erasmus."
+        },
+        "manuscript_witnesses": [
+            {
+                "witness": "Codex Sinaiticus (א 01, Abad IV)",
+                "reading": "Omit Comma Johanneum (membaca hanya ayat 7-8 versi pendek: Roh, air, dan darah)",
+                "status": "Autentik / Saksi Kritis Aleksandria"
+            },
+            {
+                "witness": "Codex Vaticanus (B 03, Abad IV)",
+                "reading": "Omit Comma Johanneum secara mutlak; tidak ada indikasi frasa trinitarian surgawi",
+                "status": "Autentik / Saksi Kritis Tertua"
+            },
+            {
+                "witness": "Codex Alexandrinus (A 02, Abad V)",
+                "reading": "Omit Comma Johanneum; menegaskan ketiadaan klausa surgawi dalam tradisi naskah kuno",
+                "status": "Autentik / Saksi Utama Perjanjian Baru"
+            },
+            {
+                "witness": "Minuscule 61 (Codex Montfortianus, ~1520 M)",
+                "reading": "Memuat Comma Johanneum hasil terjemahan balik dari Vulgata Latin ke bahasa Yunani yang dipaksakan kepada Erasmus",
+                "status": "Interpolasi / Sisipan Abad ke-16"
+            }
+        ],
+        "translation_comparison": [
+            {
+                "version": "Makna Yunani Koine Abad ke-1",
+                "text": "Sebab ada tiga yang sedang memberi kesaksian: Roh, dan air, dan darah; dan ketiga-tiganya sepakat menjadi satu.",
+                "critique": "Standar acuan akurasi filologis naskah asli tanpa pergeseran doktrinal tradisi terjemahan."
+            },
+            {
+                "version": "TB LAI",
+                "text": "Sebab ada tiga yang memberi kesaksian [di dalam sorga: Bapa, Firman dan Roh Kudus; dan ketiganya adalah satu. Dan ada tiga yang memberi kesaksian di bumi]: Roh dan air dan darah dan ketiganya adalah satu.",
+                "critique": "Mencetak teks sisipan dalam tanda kurung sebagai pengakuan implisit ketiadaan formula surgawi dalam naskah sumber Yunani kuno."
+            },
+            {
+                "version": "KJV",
+                "text": "For there are three that bear record in heaven, the Father, the Word, and the Holy Ghost: and these three are one. And there are three that bear witness in earth, the spirit, and the water, and the blood: and these three agree in one.",
+                "critique": "Mengadopsi utuh interpolasi Comma Johanneum dari Textus Receptus era Erasmus tanpa catatan kritis tekstual."
+            },
+            {
+                "version": "ESV",
+                "text": "For there are three that testify: the Spirit and the water and the blood; and these three agree.",
+                "critique": "Setia mengikuti naskah kritis NA28/UBS5 dengan menghilangkan klausa sisipan surgawi sepenuhnya."
+            }
+        ],
+        "corpus_cross_references": [
+            {
+                "reference": "Yohanes 8:17-18",
+                "connection": "Prinsip dua atau tiga saksi dalam Taurat (Ulangan 19:15) yang diterapkan Yesus dalam mengesahkan kesaksian hukum yang sah."
+            },
+            {
+                "reference": "1 Yohanes 5:6",
+                "connection": "Konteks langsung yang mendahului ayat ini: Yesus Kristus datang dengan air dan darah, bukan dengan air saja."
+            },
+            {
+                "reference": "Ulangan 19:15",
+                "connection": "Kaidah yurisprudensi Alkitabiah bahwa suatu perkara baru sah atas keterangan dua atau tiga orang saksi."
+            }
+        ],
+        "exegetical_synthesis": "Kritik tekstual naskah kuno membuktikan secara mutlak bahwa ayat 1 Yohanes 5:7 versi asli naskah Yunani abad pertama hanya berbunyi: 'Ada tiga yang memberi kesaksian: Roh, air, dan darah; dan ketiganya adalah satu kesepakatan.' Frasa tritunggal 'di surga: Bapa, Firman, dan Roh Kudus' sama sekali TIDAK PERNAH DITULIS oleh rasul Yohanes, melainkan merupakan sisipan (interpolasi) tradisi naskah Latin abad pertengahan yang dimasukkan ke dalam Textus Receptus pada abad ke-16. Naskah-naskah tertua dan paling dapat dipercaya (Codex Sinaiticus, Codex Vaticanus, Codex Alexandrinus) tidak memuat frasa tersebut. Oleh karena itu, menjadikan 1 Yohanes 5:7 sebagai bukti doktrin Tritunggal adalah kekeliruan fatal yang bertentangan dengan fakta filologi dan manuskrip naskah asli Bible."
     }
 }
 
@@ -942,6 +1863,38 @@ class ExegesisEngine:
     Dedicated Linguistic & Interlinear Exegesis Engine.
     Conforms to BibleHub Text Analysis standard for ancient source languages.
     """
+
+    @classmethod
+    def match_theological_verse(cls, text: str) -> Optional[str]:
+        """Dynamically identifies the primary Bible verse from thematic keywords in user claims/motions."""
+        if not text:
+            return None
+        t_low = text.lower()
+        if any(w in t_low for w in ["kehendak yesus", "kehendak bapa", "getsemani", "cawan", "krisis ontologis", "dua kehendak", "lukas 22", "lukas 22:42", "thelēma", "bukanlah kehendak-ku", "kehendak-mulah yang terjadi"]):
+            return "Lukas 22:42"
+        if any(w in t_low for w in ["matius 26", "matius 26:39", "seperti yang kukehendaki"]):
+            return "Lukas 22:42"
+        if any(w in t_low for w in ["yohanes 1:1", "firman itu adalah allah", "pada mulanya adalah firman", "en arche", "logos"]):
+            return "Yohanes 1:1"
+        if any(w in t_low for w in ["ulangan 6:4", "shema yisrael", "tuhan itu esa", "allah itu esa"]):
+            return "Ulangan 6:4"
+        if any(w in t_low for w in ["yehezkiel 18:20", "dosa waris", "dosa turunan", "anak menanggung dosa", "ha-nefesh ha-chote't"]):
+            return "Yehezkiel 18:20"
+        if any(w in t_low for w in ["matius 5:17", "meniadakan hukum taurat", "menggenapi hukum taurat", "katalysai"]):
+            return "Matius 5:17"
+        if any(w in t_low for w in ["roma 3:31", "histanomen", "membatalkan hukum taurat", "menegakkan hukum taurat"]):
+            return "Roma 3:31"
+        if any(w in t_low for w in ["2 petrus 1:21", "2 petrus 1", "2 peter 1:21", "kehendak manusia", "didorong oleh roh kudus", "dorongan roh kudus", "apo theou", "theou anthropoi", "pheromenoi"]):
+            return "2 Petrus 1:21"
+        if any(w in t_low for w in ["yohanes 10:30", "aku dan bapa adalah satu", "hen esmen"]):
+            return "Yohanes 10:30"
+        if any(w in t_low for w in ["yohanes 14:28", "bapa lebih besar", "meizon mou"]):
+            return "Yohanes 14:28"
+        if any(w in t_low for w in ["roh kudus", "parakletos", "penghibur", "yohanes 14:16"]):
+            return "Yohanes 14:16"
+        if any(w in t_low for w in ["1 yohanes 5", "1 yoh 5", "comma johanneum", "tiga saksi", "bapa firman dan roh kudus", "martyrountes"]):
+            return "1 Yohanes 5:7-8"
+        return None
 
     @classmethod
     def match_canonical_verse(cls, text: str) -> Optional[str]:
@@ -955,6 +1908,11 @@ class ExegesisEngine:
             if ref.lower() in t_low:
                 return ref
 
+        # Check theological keyword match
+        theological_match = cls.match_theological_verse(text)
+        if theological_match and theological_match in CANONICAL_EXEGESIS_REGISTRY:
+            return theological_match
+
         # Check semantic/thematic match
         if ("roma 3:31" in t_low) or ("histanomen" in t_low) or ("membatalkan hukum taurat" in t_low and "iman" in t_low):
             return "Roma 3:31"
@@ -966,16 +1924,93 @@ class ExegesisEngine:
             return "Ulangan 6:4"
         if ("matius 5:17" in t_low) or ("matthew 5:17" in t_low) or ("katalysai" in t_low) or ("bukan meniadakan melainkan menggenapi" in t_low):
             return "Matius 5:17"
+        if ("lukas 22:42" in t_low) or ("kehendak yesus" in t_low and "kehendak bapa" in t_low):
+            return "Lukas 22:42"
+        if ("2 petrus 1:21" in t_low) or ("2 peter 1:21" in t_low) or ("dorongan roh kudus" in t_low and "nubuat" in t_low) or ("apo theou" in t_low):
+            return "2 Petrus 1:21"
+        if ("1 yohanes 5" in t_low) or ("1 john 5" in t_low) or ("comma johanneum" in t_low) or ("tiga saksi" in t_low and "darah" in t_low):
+            return "1 Yohanes 5:7-8"
 
         return None
 
     @classmethod
     def extract_explicit_verse(cls, text: str) -> Optional[str]:
-        """Extracts verse citation like 'Roma 3:31' or 'Yehezkiel 18:20'."""
+        """Extracts verse citation like 'Filipi 2:6-7', 'Roma 3:31', or 'Yehezkiel 18:20'.
+        
+        Strictly matches canonical Bible book names in Indonesian and English,
+        preventing extraction of prepended words (e.g. 'eksegesis Filipi 2:6-7').
+        """
         if not text:
             return None
+
+        # Pre-sanitize known English-to-Indonesian translation distortions of numbered books
+        text = re.sub(r'\b(?:yang\s+)?pertama\s+(\d+:\d+(?:-\d+)?)', r'1 Yohanes \1', text, flags=re.IGNORECASE)
+        text = re.sub(r'\b(?:yang\s+)?kedua\s+(\d+:\d+(?:-\d+)?)', r'2 Yohanes \1', text, flags=re.IGNORECASE)
+        text = re.sub(r'\b(?:yang\s+)?ketiga\s+(\d+:\d+(?:-\d+)?)', r'3 Yohanes \1', text, flags=re.IGNORECASE)
+
+        books = [
+            "1 Samuel", "2 Samuel", "1 Raja-raja", "2 Raja-raja", "1 Tawarikh", "2 Tawarikh",
+            "1 Korintus", "2 Korintus", "1 Tesalonika", "2 Tesalonika", "1 Timotius", "2 Timotius",
+            "1 Petrus", "2 Petrus", "1 Yohanes", "2 Yohanes", "3 Yohanes", "Kisah Para Rasul", "Kidung Agung",
+            "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles", "1 Corinthians", "2 Corinthians",
+            "1 Thessalonians", "2 Thessalonians", "1 Timothy", "2 Timothy", "1 Peter", "2 Peter",
+            "1 John", "2 John", "3 John", "Song of Solomon", "Song of Songs",
+            "Kejadian", "Keluaran", "Imamat", "Bilangan", "Ulangan", "Yosua", "Hakim-hakim", "Rut",
+            "Ezra", "Nehemia", "Ester", "Ayub", "Mazmur", "Amsal", "Pengkhotbah",
+            "Yesaya", "Yeremia", "Ratapan", "Yehezkiel", "Daniel", "Hosea", "Yoel", "Amos", "Obaja",
+            "Yunus", "Mikha", "Nahum", "Habakuk", "Zefanya", "Hagai", "Zakharia", "Maleakhi",
+            "Matius", "Markus", "Lukas", "Yohanes", "Roma", "Galatia", "Efesus", "Filipi", "Kolose",
+            "Titus", "Filemon", "Ibrani", "Yakobus", "Yudas", "Wahyu",
+            "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges", "Ruth",
+            "Nehemiah", "Esther", "Job", "Psalms", "Psalm", "Proverbs", "Ecclesiastes",
+            "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Obadiah",
+            "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi",
+            "Matthew", "Mark", "Luke", "John", "Acts", "Romans", "Galatians", "Ephesians", "Philippians", "Colossians",
+            "Hebrews", "James", "Jude", "Revelation"
+        ]
+        books_pat = "|".join(re.escape(b) for b in sorted(books, key=len, reverse=True))
+        m = re.search(rf"\b({books_pat})\s+(\d+:\d+(?:-\d+)?)\b", text, re.IGNORECASE)
+        if m:
+            matched_raw_book = m.group(1)
+            norm_book = next((b for b in books if b.lower() == matched_raw_book.lower()), matched_raw_book)
+            return f"{norm_book} {m.group(2)}"
+
+        # Secondary fallback: standard chapter:verse pattern without noise prefixes
         matches = re.findall(r'([1-3]?\s?[A-Za-z]+(?:\s+[A-Za-z]+)?\s+\d+:\d+(?:-\d+)?)', text)
-        return matches[0].strip() if matches else None
+        if matches:
+            res = matches[0].strip()
+            for noise in ["eksegesis ", "analisis ", "bedah ", "ayat ", "surat ", "teks ", "kitab ", "pada ", "dalam ", "in "]:
+                if res.lower().startswith(noise):
+                    res = res[len(noise):].strip()
+            if not res.lower().startswith("yang ") and not res.lower().startswith("pertama "):
+                return res
+        return None
+
+    @classmethod
+    def get_canonical_registry(cls) -> Dict[str, Any]:
+        """Returns the canonical exegesis registry."""
+        return CANONICAL_EXEGESIS_REGISTRY
+
+    @classmethod
+    def get_canonical_package(cls, ref: str) -> Optional[LinguisticExegesisPackage]:
+        """Instantiates full LinguisticExegesisPackage for a canonical reference."""
+        data = CANONICAL_EXEGESIS_REGISTRY.get(ref)
+        if not data:
+            return None
+        return LinguisticExegesisPackage(
+            passage_reference=data["passage_reference"],
+            original_language=data["original_language"],
+            source_text_full=data["source_text_full"],
+            literal_translation=data["literal_translation"],
+            natural_translation=data["natural_translation"],
+            exegetical_context=data["exegetical_context"],
+            interlinear_tokens=data["interlinear_tokens"],
+            syntactic_exegesis=data["syntactic_exegesis"],
+            manuscript_witnesses=data["manuscript_witnesses"],
+            translation_comparison=data["translation_comparison"],
+            corpus_cross_references=data["corpus_cross_references"],
+            exegetical_synthesis=data["exegetical_synthesis"]
+        )
 
     @classmethod
     def generate_linguistic_exegesis_package(
@@ -988,23 +2023,54 @@ class ExegesisEngine:
         """
         Builds complete LinguisticExegesisPackage from canonical registry or dynamic synthesis.
         """
-        # Step 1: Check canonical registry by match
-        matched_ref = cls.match_canonical_verse(claim)
-        if not matched_ref and evidence_items:
+        # Step 1: Check for explicit verse in claim or evidence first
+        explicit_verse = cls.extract_explicit_verse(claim)
+        if not explicit_verse and evidence_items:
             for ev in evidence_items:
                 pref = ev.get("passage_reference") if isinstance(ev, dict) else getattr(ev, "passage_reference", None)
                 if pref:
-                    matched_ref = cls.match_canonical_verse(pref)
-                    if matched_ref:
+                    explicit_verse = cls.extract_explicit_verse(pref) or pref
+                    if explicit_verse:
                         break
 
-        if not matched_ref and synthesis_output:
+        if not explicit_verse and synthesis_output:
             pe = synthesis_output.get("primary_evidence")
             if isinstance(pe, dict):
                 pref = pe.get("passage_reference") or pe.get("passage")
                 if pref:
-                    matched_ref = cls.match_canonical_verse(pref)
+                    explicit_verse = cls.extract_explicit_verse(pref) or pref
 
+        # If LLM returned full linguistic_exegesis, validate and map it first
+        if synthesis_output and isinstance(synthesis_output.get("linguistic_exegesis"), dict):
+            pkg = cls.parse_exegesis_package(synthesis_output["linguistic_exegesis"])
+            if pkg:
+                return pkg
+
+        # Step 2: If an explicit verse is present:
+        if explicit_verse:
+            # Check canonical registry only if this explicit verse matches one of the canonical entries
+            matched_canonical = cls.match_canonical_verse(explicit_verse)
+            if matched_canonical and matched_canonical in CANONICAL_EXEGESIS_REGISTRY:
+                data = CANONICAL_EXEGESIS_REGISTRY[matched_canonical]
+                return LinguisticExegesisPackage(
+                    passage_reference=data["passage_reference"],
+                    original_language=data["original_language"],
+                    source_text_full=data["source_text_full"],
+                    literal_translation=data["literal_translation"],
+                    natural_translation=data["natural_translation"],
+                    exegetical_context=data["exegetical_context"],
+                    interlinear_tokens=data["interlinear_tokens"],
+                    syntactic_exegesis=data["syntactic_exegesis"],
+                    manuscript_witnesses=data["manuscript_witnesses"],
+                    translation_comparison=data["translation_comparison"],
+                    corpus_cross_references=data["corpus_cross_references"],
+                    exegetical_synthesis=data["exegetical_synthesis"]
+                )
+            # Otherwise build structural package for this specific explicit verse!
+            return cls._build_structural_package(explicit_verse, claim, evidence_items)
+
+        # Step 3: If NO explicit verse, check thematic match against canonical registry
+        matched_ref = cls.match_canonical_verse(claim) or cls.match_theological_verse(claim)
         if matched_ref and matched_ref in CANONICAL_EXEGESIS_REGISTRY:
             data = CANONICAL_EXEGESIS_REGISTRY[matched_ref]
             return LinguisticExegesisPackage(
@@ -1022,46 +2088,30 @@ class ExegesisEngine:
                 exegetical_synthesis=data["exegetical_synthesis"]
             )
 
-        # Step 2: Dynamic fallback or LLM-extracted exegesis
-        explicit_verse = cls.extract_explicit_verse(claim)
-        if not explicit_verse and evidence_items:
-            for ev in evidence_items:
-                pref = ev.get("passage_reference") if isinstance(ev, dict) else getattr(ev, "passage_reference", None)
-                if pref:
-                    explicit_verse = pref
-                    break
+        # Dynamic fallback determined strictly by topic (never fall back to scripture for out-of-corpus/non-theological claims)
+        theological_keywords = ["yesus", "bapa", "ontologi", "kehendak", "kristus", "allah", "tuhan", "roh", "tritunggal", "trinitas", "tauhid", "bible", "alkitab", "injil", "taurat", "firman", "logos", "theos", "kenosis", "monoteisme", "ayat", "surat", "pasal"]
+        is_theological = any(w in claim.lower() for w in theological_keywords)
+        if not is_theological and not evidence_items:
+            return None
 
-        if not explicit_verse and synthesis_output:
-            pe = synthesis_output.get("primary_evidence")
-            if isinstance(pe, dict):
-                explicit_verse = pe.get("passage_reference") or pe.get("passage")
-
-        # If LLM returned full linguistic_exegesis, validate and map it
-        if synthesis_output and isinstance(synthesis_output.get("linguistic_exegesis"), dict):
-            pkg = cls.parse_exegesis_package(synthesis_output["linguistic_exegesis"])
-            if pkg:
-                return pkg
-
-        # If explicit verse exists but not in registry, construct structural exegesis package
-        if explicit_verse:
-            return cls._build_structural_package(explicit_verse, claim, evidence_items)
-
-        # Default fallback to Roma 3:31 if research mode is active but claim has no specific verse
-        data = CANONICAL_EXEGESIS_REGISTRY["Roma 3:31"]
-        return LinguisticExegesisPackage(
-            passage_reference=data["passage_reference"],
-            original_language=data["original_language"],
-            source_text_full=data["source_text_full"],
-            literal_translation=data["literal_translation"],
-            natural_translation=data["natural_translation"],
-            exegetical_context=data["exegetical_context"],
-            interlinear_tokens=data["interlinear_tokens"],
-            syntactic_exegesis=data["syntactic_exegesis"],
-            manuscript_witnesses=data["manuscript_witnesses"],
-            translation_comparison=data["translation_comparison"],
-            corpus_cross_references=data["corpus_cross_references"],
-            exegetical_synthesis=data["exegetical_synthesis"]
-        )
+        inferred_verse = "Lukas 22:42" if any(w in claim.lower() for w in ["yesus", "bapa", "ontologi", "kehendak", "kristus"]) else "Matius 5:17"
+        if inferred_verse in CANONICAL_EXEGESIS_REGISTRY:
+            data = CANONICAL_EXEGESIS_REGISTRY[inferred_verse]
+            return LinguisticExegesisPackage(
+                passage_reference=data["passage_reference"],
+                original_language=data["original_language"],
+                source_text_full=data["source_text_full"],
+                literal_translation=data["literal_translation"],
+                natural_translation=data["natural_translation"],
+                exegetical_context=data["exegetical_context"],
+                interlinear_tokens=data["interlinear_tokens"],
+                syntactic_exegesis=data["syntactic_exegesis"],
+                manuscript_witnesses=data["manuscript_witnesses"],
+                translation_comparison=data["translation_comparison"],
+                corpus_cross_references=data["corpus_cross_references"],
+                exegetical_synthesis=data["exegetical_synthesis"]
+            )
+        return cls._build_structural_package(inferred_verse, claim, evidence_items)
 
     @classmethod
     def parse_exegesis_package(cls, le_dict: Any) -> Optional[LinguisticExegesisPackage]:
@@ -1074,16 +2124,16 @@ class ExegesisEngine:
                 if isinstance(tk, dict):
                     tokens.append(InterlinearWordToken(
                         index=tk.get("index", idx + 1),
-                        strong_number=tk.get("strong_number", f"G{idx+1000}"),
-                        original_text=tk.get("original_text", ""),
+                        strong_number=tk.get("strong_number") or f"G{idx+1000}",
+                        original_text=tk.get("original_text") or tk.get("text") or tk.get("word") or tk.get("greek") or tk.get("hebrew") or "",
                         transliteration=tk.get("transliteration", ""),
-                        lemma=tk.get("lemma", ""),
-                        morphology_code=tk.get("morphology_code", "N-AMS"),
-                        morphology_expanded=tk.get("morphology_expanded", "Morphology breakdown"),
-                        literal_gloss=tk.get("literal_gloss", ""),
-                        syntactic_role=tk.get("syntactic_role", "Syntactic component"),
+                        lemma=tk.get("lemma") or tk.get("root") or tk.get("radix") or "",
+                        morphology_code=tk.get("morphology_code") or tk.get("morph") or "N-AMS",
+                        morphology_expanded=tk.get("morphology_expanded") or tk.get("parsing") or "Morphology breakdown",
+                        literal_gloss=tk.get("literal_gloss") or tk.get("gloss") or tk.get("meaning") or tk.get("translation") or "",
+                        syntactic_role=tk.get("syntactic_role") or tk.get("syntax") or "Syntactic component",
                         lexical_entry=tk.get("lexical_entry", {}) if isinstance(tk.get("lexical_entry"), dict) else {},
-                        exegetical_note=tk.get("exegetical_note", "")
+                        exegetical_note=tk.get("exegetical_note") or tk.get("note") or ""
                     ))
                 elif isinstance(tk, InterlinearWordToken):
                     tokens.append(tk)
@@ -1099,10 +2149,15 @@ class ExegesisEngine:
             elif isinstance(ctx_data, ExegeticalContext):
                 exe_ctx = ctx_data
 
+            pref = le_dict.get("passage_reference") or le_dict.get("passage") or le_dict.get("reference") or le_dict.get("verse") or ""
+            if "pertama" in pref.lower() and not any(b.lower() in pref.lower() for b in ["samuel", "raja", "tawarikh", "korintus", "tesalonika", "timotius", "petrus", "yohanes"]):
+                pref = re.sub(r'^(?:yang\s+)?pertama\s+', '1 Yohanes ', pref, flags=re.IGNORECASE)
+            clean_pref = cls.extract_explicit_verse(pref) or pref
+
             return LinguisticExegesisPackage(
-                passage_reference=le_dict.get("passage_reference", ""),
+                passage_reference=clean_pref,
                 original_language=le_dict.get("original_language", "Koine Greek"),
-                source_text_full=le_dict.get("source_text_full", ""),
+                source_text_full=le_dict.get("source_text_full") or le_dict.get("source_text", ""),
                 literal_translation=le_dict.get("literal_translation", ""),
                 natural_translation=le_dict.get("natural_translation", ""),
                 exegetical_context=exe_ctx,
@@ -1171,8 +2226,10 @@ class ExegesisEngine:
                 {"witness": "Papyrus Chester Beatty / Bodmer (P46/P66/P75)", "reading": "Saksi papirus kanonikal awal abad II-III M", "status": "Saksi Papirus Tertua"}
             ]
 
-        # Ensure at least 3 translation comparisons
+        # Ensure benchmark 1st century meaning followed by at least 3 translation comparisons
+        benchmark_version = "Makna Ibrani Kuno Abad Pertama/Masoretik" if is_ot else "Makna Yunani Koine Abad ke-1"
         translation_comparison = [
+            {"version": benchmark_version, "text": f"Rekonstruksi makna harfiah dan kontekstual {passage_ref} berdasarkan tata bahasa dan leksikografi abad pertama.", "critique": "Standar acuan akurasi filologis naskah asli tanpa pergeseran doktrinal tradisi terjemahan."},
             {"version": "TB LAI", "text": f"Terjemahan Baru LAI untuk {passage_ref}", "critique": "Evaluasi ketepatan sintaksis terhadap teks asli."},
             {"version": "KJV", "text": f"King James Version reading for {passage_ref}", "critique": "Audit idiom penerjemahan tradisi Textus Receptus."},
             {"version": "ESV", "text": f"English Standard Version rendering for {passage_ref}", "critique": "Audit literalitas modern berbasis naskah kritis terpercaya."}
@@ -1205,5 +2262,5 @@ class ExegesisEngine:
             manuscript_witnesses=manuscript_witnesses,
             translation_comparison=translation_comparison,
             corpus_cross_references=corpus_cross_references,
-            exegetical_synthesis=f"Sintesis akhir eksegesis historis-gramatikal objektif untuk perikop {passage_ref} berbasis kaidah filologi forensik naskah primer."
+            exegetical_synthesis=f"Intisari kesimpulan makna ayat {passage_ref}: Menurut bahasa aslinya, teks ini menegaskan prinsip kebenaran yang kokoh dan harus dipahami sesuai maksud awal naskah tanpa dipelintir oleh penafsiran doktrin modern."
         )

@@ -115,7 +115,7 @@ def formulate_theological_motion(raw_text: str, passages: List[str], yt_title: s
         sub_motions.append("Eksaminasi Yohanes 17:21 Mengenai Murid-Murid Menjadi Satu Sama Seperti Bapa dan Anak")
 
     if any(p.startswith("Yohanes 1:1") or p.startswith("Yohanes 1:14") for p in passages) or ("pada mulanya firman" in t_lower or "logos" in t_lower or "firman menjadi daging" in t_lower):
-        candidates.append((11, "Kristologi & Kemanusiaan Yesus", "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)"))
+        candidates.append((11, "Kristologi & Kemanusiaan Yesus", "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)"))
         sub_motions.append("Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea")
         sub_motions.append("Status Inkarnasi Firman dalam Sejarah Pemikiran Patristik dan Pergeseran Makna Monoteisme")
 
@@ -194,12 +194,12 @@ def formulate_theological_motion(raw_text: str, passages: List[str], yt_title: s
         sub_motions.append("Penghapusan Comma Johanneum pada Edisi Kritis Modern (Nestle-Aland NA28 / UBS5)")
 
     if any(p.startswith("Markus 16:9") or p.startswith("Yohanes 7:53") for p in passages) or ("akhiran markus" in t_lower or "pericope adulterae" in t_lower):
-        candidates.append((11, "Audit Tekstual, Filologi & Varian Naskah", "Audit Integritas Penutupan Injil Markus (Markus 16:9-20) dan Kisah Perempuan Berzina (Yohanes 7:53–8:11)"))
+        candidates.append((11, "Audit Tekstual, Filologi & Varian Naskah", "Audit Integritas Penutupan Markus 16:9-20 dan Kisah Perempuan Berzina (Yohanes 7:53–8:11)"))
         sub_motions.append("Bukti Ketiadaan Perikop dalam Codex Sinaiticus dan Codex Vaticanus Abad ke-4 M")
 
     if ("manuskrip" in t_lower or "naskah kuno" in t_lower or "sinaiticus" in t_lower or "vaticanus" in t_lower) and ("varian" in t_lower or "korupsi" in t_lower or "papirus" in t_lower or "dss" in t_lower):
         candidates.append((10, "Audit Tekstual, Filologi & Varian Naskah", "Audit Filologis Manuskrip Kuno (Codex Sinaiticus & Vaticanus): Varian Tekstual dan Implikasi Teologisnya"))
-        sub_motions.append("Perbandingan Papirus Tertua P46 dan P66 dengan Teks Cetak Alkitab Modern")
+        sub_motions.append("Perbandingan Papirus Tertua P46 dan P66 dengan Teks Cetak Bible Modern")
 
     if ("terjemahan" in t_lower or "lai" in t_lower) and ("bahasa ibrani" in t_lower or "bahasa yunani" in t_lower or "salah terjemah" in t_lower or "kamus" in t_lower or "leksikon" in t_lower):
         candidates.append((10, "Audit Tekstual, Filologi & Varian Naskah", "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine"))

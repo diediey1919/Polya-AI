@@ -74,19 +74,19 @@ class AgentCapabilityRegistry:
     def __init__(self):
         self._registry: Dict[str, AgentCapability] = {}
         self._role_mappings: Dict[str, List[str]] = {
-            "RESEARCH_AGENT": ["cloud_code", "hermes", "9router"],
-            "SOURCE_AGENT": ["anti_gravity", "cloud_code"],
-            "PHILOLOGY_AGENT": ["cloud_code"],
-            "SCRIPTURE_AGENT": ["cloud_code", "hermes"],
-            "HISTORY_AGENT": ["cloud_code", "hermes"],
-            "THEOLOGY_AGENT": ["cloud_code", "hermes"],
-            "ARGUMENT_AGENT": ["cloud_code", "hermes"],
-            "COUNTERARGUMENT_AGENT": ["cloud_code", "hermes"],
-            "VERIFICATION_AGENT": ["anti_gravity", "cloud_code", "codex"],
-            "FACT_CHECK_AGENT": ["anti_gravity", "cloud_code"],
-            "SYNTHESIS_AGENT": ["cloud_code", "hermes"],
-            "DEBATE_AGENT": ["hermes", "cloud_code"],
-            "EVALUATION_AGENT": ["cloud_code", "anti_gravity"]
+            "RESEARCH_AGENT": ["9router", "gemini", "hermes", "cloud_code"],
+            "SOURCE_AGENT": ["anti_gravity", "gemini", "cloud_code"],
+            "PHILOLOGY_AGENT": ["gemini", "cloud_code"],
+            "SCRIPTURE_AGENT": ["gemini", "cloud_code", "hermes"],
+            "HISTORY_AGENT": ["gemini", "cloud_code", "hermes"],
+            "THEOLOGY_AGENT": ["gemini", "cloud_code", "hermes"],
+            "ARGUMENT_AGENT": ["gemini", "cloud_code", "hermes"],
+            "COUNTERARGUMENT_AGENT": ["gemini", "cloud_code", "hermes"],
+            "VERIFICATION_AGENT": ["anti_gravity", "gemini", "cloud_code", "codex"],
+            "FACT_CHECK_AGENT": ["anti_gravity", "gemini", "cloud_code"],
+            "SYNTHESIS_AGENT": ["9router", "gemini", "cloud_code", "hermes"],
+            "DEBATE_AGENT": ["hermes", "gemini", "cloud_code"],
+            "EVALUATION_AGENT": ["gemini", "cloud_code", "anti_gravity"]
         }
         self._register_default_profiles()
 
@@ -197,6 +197,30 @@ class AgentCapabilityRegistry:
             supports_verification=True,
             cost_class=CostClass.LOW,
             latency_class=LatencyClass.BATCH
+        ))
+
+        # 6. Gemini Direct (Native Google AI Studio)
+        self.register(AgentCapability(
+            agent_id="gemini",
+            runtime="gemini_direct_http",
+            capabilities={
+                "deep_reasoning", "philology", "exegesis", "theology",
+                "counterargument", "synthesis", "source_criticism",
+                "hebrew", "greek"
+            },
+            specialties=[
+                "Koine Greek Syntax", "Biblical Hebrew Semantics", "Pauline Hermeneutics",
+                "Steelman Counterarguments", "Forensic Exegesis"
+            ],
+            model="gemini-3.5-flash-lite",
+            max_context=1000000,
+            supports_tools=False,
+            supports_research=True,
+            supports_code=True,
+            supports_reasoning=True,
+            supports_verification=True,
+            cost_class=CostClass.LOW,
+            latency_class=LatencyClass.INTERACTIVE
         ))
 
     def register(self, capability: AgentCapability):

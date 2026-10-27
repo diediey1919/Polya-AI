@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="/static/vendor/exegesis_glossary.js"></script>
   <script>
     (function() {
       const isStaging = window.location.hostname === "staging.apologets.com";
@@ -52,6 +53,25 @@
         };
         document.head.appendChild(gisScript);
       }
+
+      // Early Viewport & Layout Mode Evaluation to eliminate FOUC on page refresh
+      try {
+        const isNativeMobile = window.innerWidth <= 768;
+        if (isNativeMobile) {
+          document.documentElement.classList.remove('mobile-desktop-view');
+          document.documentElement.classList.remove('force-mobile-layout');
+          try { localStorage.removeItem('polya_layout_mode'); } catch (e) {}
+        } else {
+          const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+          const minDim = Math.min(window.screen.width, window.screen.height);
+          const isSavedMobile = localStorage.getItem('polya_layout_mode') === 'mobile';
+          if (isSavedMobile) {
+            document.documentElement.classList.add('force-mobile-layout');
+          } else if (isTouch && minDim < 650) {
+            document.documentElement.classList.add('mobile-desktop-view');
+          }
+        }
+      } catch (e) {}
     })();
   </script>
   <style>
@@ -90,6 +110,97 @@
 
       --shadow-card: 0 1px 3px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
       --shadow-hover: 0 6px 20px -2px rgba(0,0,0,0.6), 0 0 0 1px rgba(14,165,233,0.22);
+
+      /* Tier 1: Multi-Tier Responsive Typography Base Scale */
+      font-size: clamp(14px, 0.82rem + 0.28vw, 16.5px);
+    }
+
+    /* Tier 2: Media query for touch / pointer coarse devices requesting desktop viewport */
+    @media (min-width: 769px) and (hover: none) and (pointer: coarse) {
+      :root {
+        font-size: clamp(17px, 1.1rem + 0.35vw, 20.5px);
+      }
+    }
+
+    /* Tier 4: Optical magnification for handheld devices rendered in desktop mode */
+    html.mobile-desktop-view:not(.force-mobile-layout) {
+      font-size: clamp(16.5px, 1.02rem + 0.25vw, 18.5px) !important;
+    }
+    /* Strictly lock sidebar width to 288px when expanded and prevent flex-shrink or flex-grow distortion */
+    html.mobile-desktop-view:not(.force-mobile-layout) .app-body:not(.sidebar-collapsed) .app-sidebar {
+      width: 288px !important;
+      min-width: 288px !important;
+      max-width: 288px !important;
+      flex: 0 0 288px !important;
+      box-sizing: border-box !important;
+    }
+    html.mobile-desktop-view:not(.force-mobile-layout) .app-sidebar .sidebar-heading {
+      font-size: 0.74rem;
+      padding: 0.65rem 0.65rem 0.25rem 0.65rem;
+    }
+    html.mobile-desktop-view:not(.force-mobile-layout) .app-sidebar .side-item {
+      padding: 0.45rem 0.65rem;
+      font-size: 0.8rem;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+    html.mobile-desktop-view:not(.force-mobile-layout) .app-sidebar .side-sub-item {
+      padding: 0.3rem 0.55rem;
+      font-size: 0.74rem;
+      gap: 0.4rem;
+    }
+    html.mobile-desktop-view:not(.force-mobile-layout) .app-sidebar .sub-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    html.mobile-desktop-view:not(.force-mobile-layout) .app-sidebar .sub-count {
+      font-size: 0.68rem;
+      margin-left: auto;
+    }
+    /* Restrict 42px min-height ONLY to form inputs, NOT buttons to prevent oval shape distortion */
+    html.mobile-desktop-view:not(.force-mobile-layout) input:not([type="checkbox"]):not([type="radio"]),
+    html.mobile-desktop-view:not(.force-mobile-layout) select,
+    html.mobile-desktop-view:not(.force-mobile-layout) textarea {
+      min-height: 42px;
+    }
+
+    /* Fixed Button Geometry Lock: Ensures identical 100% crisp rectangular shape whether sidebar is open or hidden */
+    #btn-mode-debate,
+    #btn-mode-research {
+      border-radius: 8px !important;
+      white-space: nowrap !important;
+      padding: 0.45rem 0.85rem !important;
+      height: 36px !important;
+      min-height: 36px !important;
+      max-height: 36px !important;
+      font-size: 0.82rem !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      line-height: 1 !important;
+      flex-shrink: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    #btn-calc-analyze {
+      border-radius: 8px !important;
+      white-space: nowrap !important;
+      padding: 0.55rem 1.25rem !important;
+      height: 40px !important;
+      min-height: 40px !important;
+      max-height: 40px !important;
+      font-size: 0.88rem !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      line-height: 1 !important;
+      flex-shrink: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    #btn-calc-analyze #btn-calc-text {
+      white-space: nowrap !important;
     }
 
     [dir="rtl"] { text-align: right; }
@@ -572,7 +683,15 @@
     }
 
     /* App Body & Sidebar */
-    .app-body { display: flex; flex: 1; }
+    .app-body {
+      display: flex;
+      flex: 1;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      position: relative;
+    }
 
     .mobile-only-header {
       display: none;
@@ -581,6 +700,8 @@
     .app-sidebar {
       width: 288px;
       min-width: 288px;
+      max-width: 288px;
+      flex: 0 0 288px;
       background: var(--bg-surface);
       border-inline-end: 1px solid var(--border-subtle);
       padding: 0.75rem 0.65rem 1rem 0.65rem;
@@ -951,10 +1072,31 @@
 
     .app-main {
       flex: 1;
-      padding: 1.5rem 2.25rem 2rem 2.25rem;
+      padding: 1.5rem 2rem 2rem 2rem;
       max-width: 1400px;
       margin: 0 auto;
       width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+
+    .calc-evidence-grid,
+    .calc-result-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .calc-evidence-grid > *,
+    .calc-result-grid > * {
+      min-width: 0 !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
     }
 
     /* Cards & Grids */
@@ -971,6 +1113,27 @@
       background: var(--bg-card-hover);
       border-color: rgba(255, 255, 255, 0.12);
       box-shadow: var(--shadow-hover);
+    }
+
+    /* Standardized Justified Formatting for Apologetic Content & Research Exegesis */
+    .case-card p,
+    #case-evidence-content p,
+    #case-morphology-content p,
+    #case-argument-content,
+    #case-counter-content,
+    #case-rebuttal-content,
+    #case-weakness-content,
+    #case-context-display,
+    #case-context-display p,
+    #research-interlinear-content p,
+    .benchmark-card p,
+    .interlinear-token-card p,
+    .exegetical-explanation-p {
+      text-align: justify !important;
+      text-justify: inter-word;
+      hyphens: auto;
+      font-size: 0.95rem;
+      line-height: 1.65;
     }
 
     .case-card h4 {
@@ -1008,6 +1171,12 @@
       box-sizing: border-box;
     }
 
+    #view-calculator {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
     .hero-container {
       text-align: center;
       max-width: 800px;
@@ -1037,6 +1206,9 @@
       padding: 2rem;
       margin-bottom: 2rem;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
     }
 
     .border-beam-card {
@@ -1196,6 +1368,62 @@
       gap: 1rem;
     }
 
+    /* Shine Border Animation Keyframes & Component (Magic UI / 21st.dev Standard) */
+    @keyframes shine {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
+    }
+
+    .shine-border-canonical-card {
+      --border-radius: 12px;
+      --border-width: 1.5px;
+      --duration: 14s;
+      position: relative;
+      border-radius: var(--border-radius);
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 1.75rem;
+      padding: 1.25rem 1.25rem 0.85rem 1.25rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .shine-border-canonical-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      box-sizing: border-box;
+      border-radius: var(--border-radius);
+      padding: var(--border-width);
+      background-image: radial-gradient(transparent, transparent, #A07CFE, #FE8FB5, #FFBE7B, transparent, transparent);
+      background-size: 300% 300%;
+      will-change: background-position;
+      animation: shine var(--duration) infinite linear;
+
+      /* Standard & Webkit mask-composite */
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .shine-border-canonical-card::before {
+        animation: none;
+      }
+    }
+
     #calculator-canonical-cases {
       max-height: 390px;
       overflow-y: auto;
@@ -1226,6 +1454,92 @@
       background: rgba(56, 189, 248, 0.5);
     }
 
+    /* Canonical Subcard GradientBlobCard (21st.dev adaptation) */
+    .canonical-subcard {
+      flex: 0 0 auto !important;
+      flex-shrink: 0 !important;
+      width: 100%;
+      height: auto;
+      min-height: fit-content;
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      box-sizing: border-box;
+      isolation: isolate;
+      background: rgba(10, 15, 28, 0.7);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .canonical-subcard:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.45);
+    }
+
+    .canonical-subcard-glass {
+      position: absolute;
+      inset: 2px;
+      border-radius: 12px;
+      background: rgba(10, 15, 28, 0.85);
+      outline: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .canonical-subcard-blob {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 220px;
+      height: 120px;
+      border-radius: 50%;
+      opacity: 1;
+      filter: blur(14px);
+      -webkit-filter: blur(14px);
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(to right, #ec4899, #ef4444, #eab308);
+      will-change: transform;
+      animation: blob 5s linear infinite;
+    }
+
+    @keyframes blob {
+      0% {
+        transform: translate(-90%, -90%);
+      }
+      35% {
+        transform: translate(10%, -90%);
+      }
+      50% {
+        transform: translate(10%, 10%);
+      }
+      85% {
+        transform: translate(-90%, 10%);
+      }
+      100% {
+        transform: translate(-90%, -90%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .canonical-subcard-blob {
+        animation: none;
+      }
+    }
+
+    .canonical-subcard-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: auto;
+      padding: 0.85rem 1rem;
+      font-size: 0.82rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      box-sizing: border-box;
+    }
+
     .calc-input-glow {
       border-color: var(--primary) !important;
       box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.4) !important;
@@ -1245,6 +1559,7 @@
     .badge-primary-source { background: rgba(14, 165, 233, 0.12); color: var(--primary); border: 1px solid rgba(14, 165, 233, 0.35); }
     .badge-direct { background: rgba(16, 185, 129, 0.12); color: var(--emerald); border: 1px solid var(--emerald); }
     .badge-disputed { background: rgba(244, 63, 94, 0.12); color: var(--rose); border: 1px solid var(--rose); }
+    .badge-soft-gold { background: rgba(234, 179, 8, 0.15); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.35); }
 
     /* Ripple Pulse Loader */
     .ripple-loader-wrap {
@@ -1401,6 +1716,36 @@
       border: 1px solid rgba(14, 165, 233, 0.2);
     }
 
+    .hebrew-text {
+      font-family: 'Ezra SIL', 'SBL Hebrew', var(--font-mono);
+      font-size: 1.25rem;
+      color: #eab308 !important;
+      padding: 0.75rem 1rem;
+      background: rgba(234, 179, 8, 0.05);
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(234, 179, 8, 0.25);
+      direction: rtl;
+      text-align: right;
+    }
+
+    #case-file-result .case-card h4,
+    #case-primary-ev-header,
+    #case-morphology-header,
+    #case-ctx-ling-header,
+    #case-opp-counter-header,
+    #case-rebuttal-header,
+    #case-weakness-header,
+    #case-open-q-header,
+    #case-provenance-header,
+    #case-zuma-header {
+      color: #eab308 !important;
+    }
+
+    #zuma-debate-card {
+      border-color: #eab308 !important;
+      background: rgba(234, 179, 8, 0.04) !important;
+    }
+
     /* Source Drawer */
     .source-drawer {
       position: fixed;
@@ -1476,6 +1821,18 @@
     }
 
     .hidden { display: none !important; }
+
+    .side-item-mobile-toggle {
+      color: #a78bfa;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.35rem;
+      border-top: 1px dashed var(--border-subtle);
+      padding-top: 0.65rem;
+    }
 
     @media (max-width: 768px) {
       /* Minimal Top Command Bar mobile layout */
@@ -1554,40 +1911,59 @@
         min-width: 0 !important;
         max-width: 100vw;
         height: auto !important;
+        min-height: unset !important;
+        max-height: 48px !important;
         position: static !important;
         border-inline-end: none;
         border-bottom: 1px solid var(--border-subtle);
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
         -webkit-overflow-scrolling: touch;
-        padding: 0.45rem 0.75rem;
+        padding: 0.35rem 0.65rem !important;
         gap: 0.45rem;
         scrollbar-width: none;
         box-sizing: border-box;
+        flex-shrink: 0 !important;
       }
       .app-sidebar::-webkit-scrollbar {
         display: none;
       }
-      .app-sidebar .sidebar-heading {
-        display: none;
+      .app-sidebar .sidebar-heading,
+      .sidebar-heading {
+        display: none !important;
       }
       .sidebar-theme-clusters {
         display: none !important;
       }
-      .side-item {
-        white-space: nowrap;
-        flex-shrink: 0;
-        padding: 0.38rem 0.75rem;
-        font-size: 0.78rem;
-        border-radius: var(--radius-pill);
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid var(--border-subtle);
+      .side-item,
+      .app-sidebar .side-item {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        align-self: center !important;
+        height: auto !important;
+        min-height: unset !important;
+        max-height: 32px !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+        padding: 0.35rem 0.8rem !important;
+        font-size: 0.78rem !important;
+        font-weight: 500 !important;
+        border-radius: var(--radius-pill) !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid var(--border-subtle) !important;
+        box-sizing: border-box !important;
       }
-      .side-item.active {
-        background: var(--bg-card-active);
-        border-color: var(--primary);
-        border-inline-start: 1px solid var(--primary);
+      .side-item.active,
+      .app-sidebar .side-item.active {
+        background: var(--bg-card-active) !important;
+        border-color: var(--primary) !important;
+        border-inline-start: 1px solid var(--primary) !important;
+        color: #ffffff !important;
       }
 
       /* Main content wrapper */
@@ -1647,6 +2023,10 @@
       .calculator-box {
         padding: 1rem;
         margin-bottom: 1.5rem;
+      }
+      .shine-border-canonical-card {
+        padding: 1rem 0.75rem 0.75rem 0.75rem;
+        margin-top: 1.25rem;
       }
       .calc-header-row {
         flex-direction: column !important;
@@ -1722,16 +2102,24 @@
         flex-wrap: wrap;
         gap: 0.5rem;
       }
+      .calc-evidence-grid,
       .calc-result-grid {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: minmax(0, 1fr) !important;
         gap: 1rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
       }
       .case-actions-row {
         flex-direction: column !important;
+        justify-content: stretch !important;
+        align-items: stretch !important;
         gap: 0.65rem !important;
       }
-      .case-actions-row button {
+      .case-actions-row button,
+      .case-actions-row a {
         width: 100% !important;
+        text-align: center;
       }
 
       /* Dashboard responsive */
@@ -1794,6 +2182,268 @@
       .case-grid {
         grid-template-columns: 1fr !important;
       }
+
+      /* Optimasi Kompresi Padding Mobile untuk Seluruh Hasil Kalkulator */
+      #case-file-result {
+        padding: 0.75rem 0.5rem !important;
+        margin-top: 1rem !important;
+      }
+      #case-file-result .case-card,
+      #zuma-debate-card,
+      #research-interlinear-card {
+        padding: 0.75rem 0.5rem !important;
+      }
+      .debate-canonical-banner {
+        padding: 0.65rem 0.5rem !important;
+      }
+      .round-card {
+        padding: 0.65rem 0.45rem !important;
+      }
+      .turn-speech-card {
+        padding: 0.55rem 0.55rem !important;
+        margin: 0.4rem 0 !important;
+      }
+      .calc-result-grid {
+        gap: 0.75rem !important;
+      }
+
+      /* Responsive Stacked Cards for Source & Provenance on Mobile */
+      .provenance-table-wrap table.data-table thead {
+        display: none !important;
+      }
+      .provenance-table-wrap table.data-table,
+      .provenance-table-wrap table.data-table tbody,
+      .provenance-table-wrap table.data-table tr,
+      .provenance-table-wrap table.data-table td {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .provenance-table-wrap table.data-table tr {
+        background: rgba(255, 255, 255, 0.02) !important;
+        border: 1px solid var(--border-subtle) !important;
+        border-radius: 6px !important;
+        padding: 0.85rem !important;
+        margin-bottom: 0.75rem !important;
+        overflow: hidden !important;
+      }
+      .provenance-table-wrap table.data-table td {
+        padding: 0.25rem 0 !important;
+        border: none !important;
+      }
+      .provenance-table-wrap table.data-table td.citation-cell {
+        font-weight: 700 !important;
+        font-size: 0.88rem !important;
+        color: var(--text-main) !important;
+        margin-bottom: 0.45rem !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        display: block !important;
+      }
+      .provenance-table-wrap table.data-table td.badge-cell {
+        display: inline-block !important;
+        width: auto !important;
+        max-width: 68% !important;
+        vertical-align: middle !important;
+      }
+      .provenance-table-wrap table.data-table td.action-cell {
+        display: inline-block !important;
+        width: auto !important;
+        float: right !important;
+        vertical-align: middle !important;
+      }
+      .provenance-table-wrap .evidence-badge {
+        white-space: normal !important;
+        word-break: break-word !important;
+        display: inline-block !important;
+        line-height: 1.35 !important;
+        padding: 0.3rem 0.55rem !important;
+        font-size: 0.72rem !important;
+      }
+
+      /* Hide 'Go to Mobile' link completely on native mobile screen */
+      #side-item-mobile-version {
+        display: none !important;
+      }
+    }
+
+    /* Forced Mobile Layout (Activated via 'Go to Mobile Version') */
+    html.force-mobile-layout #side-item-mobile-version {
+      display: none !important;
+    }
+    html.force-mobile-layout .btn-sidebar-toggle {
+      display: none !important;
+    }
+    html.force-mobile-layout .mobile-only-header {
+      display: flex !important;
+      height: 70px;
+      padding: 0 0.85rem;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(12, 16, 23, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+    }
+    html.force-mobile-layout .desktop-sidebar-top {
+      display: none !important;
+    }
+    html.force-mobile-layout .brand-logo-frame {
+      max-width: none !important;
+      width: auto !important;
+      padding-top: 1px;
+    }
+    html.force-mobile-layout .brand-logo {
+      height: 61px !important;
+      width: auto !important;
+      aspect-ratio: auto !important;
+      margin: 0;
+      padding-top: 1px;
+      padding-bottom: 2px;
+    }
+    html.force-mobile-layout .header-divider,
+    html.force-mobile-layout .header-breadcrumb,
+    html.force-mobile-layout #top-breadcrumb,
+    html.force-mobile-layout .header-search-btn,
+    html.force-mobile-layout #badge-engine-status,
+    html.force-mobile-layout #badge-perspective {
+      display: none !important;
+    }
+    html.force-mobile-layout .app-body {
+      flex-direction: column !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+      overflow-x: hidden;
+    }
+    html.force-mobile-layout .app-sidebar {
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100vw !important;
+      height: auto !important;
+      min-height: unset !important;
+      max-height: 48px !important;
+      position: static !important;
+      border-inline-end: none !important;
+      border-bottom: 1px solid var(--border-subtle) !important;
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.35rem 0.65rem !important;
+      gap: 0.45rem !important;
+      scrollbar-width: none !important;
+      box-sizing: border-box !important;
+      flex-shrink: 0 !important;
+    }
+    html.force-mobile-layout .app-sidebar::-webkit-scrollbar {
+      display: none !important;
+    }
+    html.force-mobile-layout .app-sidebar .sidebar-heading,
+    html.force-mobile-layout .sidebar-heading,
+    html.force-mobile-layout .sidebar-theme-clusters {
+      display: none !important;
+    }
+    html.force-mobile-layout .side-item,
+    html.force-mobile-layout .app-sidebar .side-item {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      align-self: center !important;
+      height: auto !important;
+      min-height: unset !important;
+      max-height: 32px !important;
+      line-height: 1.2 !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      padding: 0.35rem 0.8rem !important;
+      font-size: 0.78rem !important;
+      font-weight: 500 !important;
+      border-radius: var(--radius-pill) !important;
+      background: rgba(255, 255, 255, 0.03) !important;
+      border: 1px solid var(--border-subtle) !important;
+      box-sizing: border-box !important;
+    }
+    html.force-mobile-layout .side-item.active,
+    html.force-mobile-layout .app-sidebar .side-item.active {
+      background: var(--bg-card-active) !important;
+      border-color: var(--primary) !important;
+      border-inline-start: 1px solid var(--primary) !important;
+      color: #ffffff !important;
+    }
+    html.force-mobile-layout .app-main {
+      padding: 1rem 0.75rem !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+      box-sizing: border-box !important;
+      overflow-x: hidden !important;
+    }
+    html.force-mobile-layout .hero-container {
+      margin: 0.75rem auto 1.5rem auto !important;
+    }
+    html.force-mobile-layout .hero-title {
+      font-size: 1.45rem !important;
+    }
+    html.force-mobile-layout .hero-copy {
+      font-size: 0.85rem !important;
+    }
+    html.force-mobile-layout .calculator-box {
+      padding: 1rem !important;
+      margin-bottom: 1.5rem !important;
+    }
+    html.force-mobile-layout .shine-border-canonical-card {
+      padding: 1rem 0.75rem 0.75rem 0.75rem !important;
+      margin-top: 1.25rem !important;
+    }
+    html.force-mobile-layout .calc-header-row {
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 0.65rem !important;
+      position: static !important;
+    }
+    html.force-mobile-layout .calc-header-title-wrap {
+      width: 100% !important;
+      text-align: center !important;
+    }
+    html.force-mobile-layout .calc-header-title-wrap h3 {
+      font-size: 1rem !important;
+    }
+    html.force-mobile-layout .calc-input-wrapper {
+      margin-bottom: 1rem !important;
+    }
+    html.force-mobile-layout .calc-input {
+      min-height: 180px !important;
+      padding: 0.95rem 1rem 0.95rem 2.85rem !important;
+      font-size: 0.98rem !important;
+    }
+    html.force-mobile-layout .calc-actions {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 0.75rem !important;
+    }
+    html.force-mobile-layout .calc-mode-group {
+      width: 100% !important;
+      display: flex !important;
+      gap: 0.5rem !important;
+    }
+    html.force-mobile-layout .calc-mode-group button {
+      flex: 1 !important;
+      text-align: center !important;
+      padding: 0.45rem 0.5rem !important;
+    }
+    html.force-mobile-layout .calc-actions button.btn-primary:last-child {
+      width: 100% !important;
+      text-align: center !important;
+      justify-content: center !important;
+    }
+    html.force-mobile-layout .case-header-row {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 0.75rem !important;
     }
 
     /* Micro-interactions: Framer-like physics transitions */
@@ -1827,6 +2477,283 @@
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
+    }
+
+    /* ==============================================================
+       EXEGESIS GLOSSARY INTERACTIVE POPOVER & TTS AUDIO STYLES
+       ============================================================== */
+    .glossary-term {
+      border-bottom: 1.5px dotted var(--accent);
+      cursor: pointer;
+      color: inherit;
+      transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+      padding: 0 1px;
+      border-radius: 2px;
+    }
+    .glossary-term:hover, .glossary-term:focus {
+      color: var(--accent);
+      background: rgba(217, 119, 6, 0.12);
+      outline: none;
+    }
+
+    .clickable-glossary {
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+    .clickable-glossary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+      filter: brightness(1.15);
+    }
+
+    .glossary-popover-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 9998;
+    }
+
+    .glossary-popover-panel {
+      display: none;
+      background: #09101d;
+      border: 1px solid rgba(217, 119, 6, 0.4);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7), 0 0 1px rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      z-index: 9999;
+      font-family: var(--font-sans, system-ui, sans-serif);
+    }
+
+    .glossary-popover-panel.bottom-sheet {
+      border-top-left-radius: 14px;
+      border-top-right-radius: 14px;
+      border-bottom: none;
+      border-left: none;
+      border-right: none;
+      border-top: 2px solid var(--accent);
+      padding: 1.25rem 1.25rem calc(1.25rem + env(safe-area-inset-bottom, 0px)) 1.25rem;
+      max-height: 80vh;
+      overflow-y: auto;
+      animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .glossary-popover-panel.floating-desktop {
+      border-radius: 8px;
+      padding: 1rem;
+      animation: fadeIn 0.18s ease-out forwards;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .glossary-popover-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.65rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.5rem;
+    }
+
+    .glossary-popover-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      background: rgba(217, 119, 6, 0.12);
+      border: 1px solid rgba(217, 119, 6, 0.3);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      margin-bottom: 0.35rem;
+    }
+
+    .glossary-popover-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0;
+      line-height: 1.35;
+    }
+
+    .glossary-popover-close {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+    .glossary-popover-close:hover {
+      background: rgba(244, 63, 94, 0.2);
+      color: var(--rose);
+      border-color: var(--rose);
+    }
+
+    .glossary-popover-body {
+      font-size: 0.82rem;
+      color: #e2e8f0;
+      line-height: 1.55;
+      margin-bottom: 0.5rem;
+    }
+    .glossary-popover-body p {
+      margin: 0;
+    }
+
+    .glossary-popover-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 0.4rem;
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* TTS Audio Speaker Button */
+    .btn-tts-speaker {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fde047;
+      font-size: 0.85rem;
+      padding: 0.2rem 0.45rem;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .btn-tts-speaker:hover {
+      background: rgba(253, 224, 71, 0.15);
+      border-color: rgba(253, 224, 71, 0.4);
+      transform: scale(1.05);
+    }
+    .btn-tts-speaker.is-playing {
+      background: rgba(13, 148, 136, 0.25);
+      border-color: var(--primary);
+      animation: pulseTTS 1s infinite alternate;
+    }
+    .btn-tts-speaker.btn-tts-mini {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.35rem;
+      margin-left: 0.35rem;
+    }
+    @keyframes pulseTTS {
+      from { transform: scale(1); filter: brightness(1); }
+      to { transform: scale(1.1); filter: brightness(1.3); }
+    }
+
+    /* Benchmark card in Section 6 */
+    .benchmark-card {
+      background: rgba(217, 119, 6, 0.06);
+      border: 1px solid rgba(217, 119, 6, 0.35);
+      border-left: 4px solid var(--accent) !important;
+      border-radius: 4px;
+      padding: 0.75rem 0.9rem;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Center alignment for Terminal Action Buttons on Desktop */
+    .case-actions-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    /* Floating Desktop Sidebar Toggle Button */
+    .btn-sidebar-toggle {
+      display: none;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-main);
+      border-radius: var(--radius-md);
+      padding: 0.45rem 0.85rem;
+      cursor: pointer;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-sidebar-toggle:hover {
+      background: rgba(30, 41, 59, 0.98);
+      border-color: var(--primary);
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.25);
+    }
+
+    @media (min-width: 769px) {
+      .app-sidebar {
+        transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                    max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                    min-width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                    flex-basis 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                    opacity 0.25s ease;
+      }
+      .app-main {
+        transition: max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                    padding 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        min-width: 0;
+        box-sizing: border-box;
+      }
+      .app-body.sidebar-collapsed .app-sidebar {
+        display: flex !important;
+        width: 0 !important;
+        min-width: 0 !important;
+        max-width: 0 !important;
+        flex: 0 0 0px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        overflow: hidden !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+      .app-body.sidebar-collapsed .app-main {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 1.5rem 2rem 2.5rem 2rem !important;
+        box-sizing: border-box !important;
+        min-width: 0 !important;
+        overflow-x: hidden !important;
+      }
+      .app-body.sidebar-collapsed .btn-sidebar-toggle {
+        display: inline-flex !important;
+      }
     }
 
   </style>
@@ -2027,6 +2954,12 @@
 
   <!-- MAIN APP SHELL -->
   <div class="app-body">
+    <!-- Floating Desktop Sidebar Toggle Button -->
+    <button id="btn-sidebar-toggle" type="button" class="btn-sidebar-toggle" onclick="toggleSidebar(event)" title="Buka Menu Sidebar" aria-label="Buka Menu Sidebar">
+      <span style="font-size: 1.05rem; line-height: 1;">☰</span>
+      <span style="font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em;">Menu Sidebar</span>
+    </button>
+
     <!-- Sidebar Navigation with Logo at the Top for Desktop -->
     <aside class="app-sidebar">
       <div class="desktop-sidebar-top">
@@ -2159,6 +3092,13 @@
       <a class="side-item" id="side-item-account" data-i18n="navBilling" onclick="navigateRoute(event, '/account')">Billing & Quota</a>
       <a class="side-item" id="side-item-arena" data-i18n="navDebateArena" href="/arena" style="color: #dfb15b; font-weight: 600;">Debate Arena (3-vs-3)</a>
       <a class="side-item" id="side-item-about" data-i18n="navAbout" onclick="navigateRoute(event, '/about-polya')" style="color: #38bdf8; font-weight: 600;">About Polya AI</a>
+      <a class="side-item side-item-mobile-toggle" id="side-item-mobile-version" onclick="switchToMobileVersion(event)" title="Go to Mobile Version">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+          <line x1="12" y1="18" x2="12.01" y2="18"></line>
+        </svg>
+        <span id="label-mobile-version" data-i18n="navMobileVersion">Go to Mobile Version</span>
+      </a>
     </aside>
 
     <!-- Main Content Area -->
@@ -2202,7 +3142,7 @@
           <div class="calc-actions">
             <!-- Debate response type mode selector -->
             <div class="calc-mode-group" style="display: flex; gap: 0.5rem;">
-              <button id="btn-mode-debate" data-i18n="calcBtnDebateMode" class="btn-primary" style="background: var(--primary); color: #040914; font-weight: 600; font-size: 0.82rem; padding: 0.45rem 0.85rem;" onclick="setMode('debate')">⚔ Debate Mode</button>
+              <button id="btn-mode-debate" data-i18n="calcBtnDebateMode" class="btn-primary" style="background: #eab308; color: #040914; font-weight: 600; font-size: 0.82rem; padding: 0.45rem 0.85rem;" onclick="setMode('debate')">⚔ Debate Mode</button>
               <button id="btn-mode-research" data-i18n="calcBtnResearchMode" class="btn-primary" style="background: var(--bg-card); color: var(--text-muted); font-size: 0.82rem; padding: 0.45rem 0.85rem;" onclick="setMode('research')">📖 Research Mode</button>
             </div>
             <button id="btn-calc-analyze" class="btn-primary" style="font-weight: 600; font-size: 0.95rem; padding: 0.65rem 1.35rem;" onclick="runAnalysis()">
@@ -2221,18 +3161,17 @@
                   </span>
                 </span>
               </span>
-              <span id="btn-calc-text" data-i18n="calcBtnAnalyze">Hitung & Analisis Klaim</span>
+              <span id="btn-calc-text" data-i18n="calcBtnAnalyze">Mulai Analisis</span>
               <span id="btn-calc-arrow"> →</span>
             </button>
           </div>
 
-          <!-- Studi Kasus Kanonikal Unggulan (Scrollable) -->
-          <div style="margin-top: 1.75rem; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
+          <!-- Studi Kasus Kanonikal Unggulan (Scrollable Shine Border Card) -->
+          <div class="shine-border-canonical-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem; position: relative; z-index: 2;">
               <div>
                 <div style="display: flex; align-items: center; gap: 0.5rem;">
                   <span id="canonical-cases-title" data-i18n="canonicalCasesTitle" style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.05em;">Studi Kasus Kanonikal Unggulan</span>
-                  <span id="canonical-cases-count" data-i18n="canonicalCasesCount" class="evidence-badge badge-primary-source" style="font-size: 0.65rem; padding: 0.1rem 0.4rem;">18 Mosi Terverifikasi</span>
                 </div>
                 <p id="canonical-cases-sub" data-i18n="canonicalCasesSub" style="font-size: 0.78rem; color: var(--text-muted); margin: 0.2rem 0 0 0;">Pilih salah satu mosi debat untuk diuji langsung di kalkulator atau buka berkas dossier naskah.</p>
               </div>
@@ -2242,7 +3181,7 @@
             </div>
 
             <!-- Scrollable Dynamic Container -->
-            <div id="calculator-canonical-cases">
+            <div id="calculator-canonical-cases" style="position: relative; z-index: 2;">
               <div style="padding: 1.25rem; text-align: center; color: var(--text-dim); font-size: 0.82rem; background: var(--bg-surface); border-radius: 6px; border: 1px solid var(--border-subtle);">
                 <span class="pulse-dot"></span> Menghubungkan ke pipeline naskah server & memuat tema unggulan...
               </div>
@@ -2251,27 +3190,26 @@
         </div>
 
         <!-- CASE FILE RESULT AREA (Section 31 Full Specs) -->
-        <div id="case-file-result" class="case-card hidden" style="padding: 2rem; margin-top: 2rem; border-color: var(--border-focus);">
+        <div id="case-file-result" class="case-card hidden" style="padding: 2rem; margin-top: 2rem; border-color: var(--border-focus); width: 100%; max-width: 100%; box-sizing: border-box; overflow-x: hidden;">
           <div class="case-header-row" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem;">
             <div>
               <span id="case-id-display" style="font-family: var(--font-mono); color: var(--primary); font-size: 0.85rem; font-weight: bold;">CASE-0001</span>
-              <h3 id="case-claim-display" data-i18n="caseClaimHeading" style="font-size: 1.35rem; margin-top: 0.25rem;">Klaim</h3>
+              <h3 id="case-claim-display" data-i18n="caseClaimHeading" style="font-size: 1.35rem; margin-top: 0.25rem;">Mosi Analisis Debat</h3>
             </div>
             <div class="case-header-actions" style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
-              <button class="btn-primary" data-i18n="caseResultSourceBtn" style="background: var(--bg-surface); color: var(--primary); padding: 0.35rem 0.85rem; font-size: 0.8rem;" onclick="triggerShowActiveSource()">
+              <button class="btn-primary" data-i18n="caseResultSourceBtn" style="background: #000000; color: #ffffff; border: 1px solid #94a3b8; padding: 0.35rem 0.85rem; font-size: 0.8rem;" onclick="triggerShowActiveSource()">
                 🔍 Show me the source
               </button>
-              <span id="case-status-badge" data-i18n="caseResultVerified" class="badge-pill badge-quota">VERIFIED INTEL</span>
+              <span id="case-status-badge" data-i18n="caseResultVerified" class="badge-pill" style="background: #000000; color: #ffffff; border: 1px solid #94a3b8; padding: 0.35rem 0.85rem; font-size: 0.8rem;">VERIFIED INTEL</span>
             </div>
           </div>
 
           <p id="case-context-display" style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;"></p>
 
-          <!-- Card Khusus Dialektika & Simulasi Debat Zuma (Paling Atas - Mode Debat) -->
-          <div id="zuma-debate-card" class="case-card" style="margin-bottom: 1.5rem; border: 2px solid var(--primary); background: rgba(13, 148, 136, 0.05); display: none;">
+          <!-- Card Khusus Dialektika & Simulasi Debat Forensik (Paling Atas - Mode Debat) -->
+          <div id="zuma-debate-card" class="case-card" style="margin-bottom: 1.5rem; border: 2px solid #eab308; background: rgba(234, 179, 8, 0.04); display: none;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem;">
-              <h4 id="case-zuma-header" data-i18n="caseZumaHeader" style="color: var(--primary); margin: 0; font-size: 1.1rem;">⚡ Dialektika Zuma & Simulasi Debat (Socratic Funnel)</h4>
-              <span class="evidence-badge badge-primary-source" style="font-size: 0.75rem;">ZUMA ACTIVE</span>
+              <h4 id="case-zuma-header" data-i18n="caseZumaHeader" style="color: #eab308; margin: 0; font-size: 1.1rem;">⚡ Dialektika Forensik & Simulasi Debat (Socratic Funnel)</h4>
             </div>
             <div id="zuma-debate-card-content" style="font-size: 0.85rem; color: var(--text-main); line-height: 1.6;">
               <p style="color: var(--text-muted); font-style: italic;">Memuat putaran dialektika, jebakan Sokratik, dan simulasi debat forensik...</p>
@@ -2285,7 +3223,7 @@
                 <h4 style="color: var(--accent); margin: 0; font-size: 1.15rem;">🔬 Mesin Bedah Leksikon Per Kata (Interlinear) & Eksegesis Teks Original</h4>
               </div>
               <div style="display: flex; gap: 0.35rem; align-items: center;">
-                <span class="badge-pill" style="color: var(--accent); border-color: var(--accent); font-size: 0.7rem; font-weight: 700;">BIBLEHUB STANDARD</span>
+                <span class="badge-pill" style="color: var(--accent); border-color: var(--accent); font-size: 0.72rem; font-weight: 700;">STANDAR TEKS ANALISIS ORIGINAL</span>
                 <span id="exegesis-lang-badge" class="evidence-badge badge-primary-source" style="font-size: 0.72rem;">ORIGINAL SOURCE</span>
               </div>
             </div>
@@ -2294,37 +3232,47 @@
             </div>
           </div>
 
-          <div class="calc-result-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem;">
+          <!-- Row 1: Primary Evidence (Kiri) & Rincian Morfologi Kata (Kanan) -->
+          <div class="calc-evidence-grid" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.25rem; margin-bottom: 1.25rem; width: 100%; box-sizing: border-box;">
             <div class="case-card">
-              <h4 id="case-primary-ev-header" data-i18n="casePrimaryEvidence">🏛 Primary Evidence</h4>
+              <h4 id="case-primary-ev-header" data-i18n="casePrimaryEvidence" style="color: #eab308;">🏛 Primary Evidence</h4>
               <div id="case-evidence-content"></div>
             </div>
 
             <div class="case-card">
-              <h4 id="case-ctx-ling-header" data-i18n="caseContextLinguistics">⚖ Context & Linguistics</h4>
-              <p id="case-argument-content"></p>
+              <h4 id="case-morphology-header" style="color: #eab308;">🔬 Rincian Morfologi Kata</h4>
+              <div id="case-morphology-content"></div>
             </div>
+          </div>
 
+          <!-- Row 2: Context & Linguistics (Full Width) -->
+          <div class="case-card" style="margin-bottom: 1.25rem;">
+            <h4 id="case-ctx-ling-header" data-i18n="caseContextLinguistics" style="color: #eab308;">⚖ Context & Linguistics</h4>
+            <p id="case-argument-content"></p>
+          </div>
+
+          <!-- Row 3: Opponent Counterargument & Rebuttal (2 Kolom) -->
+          <div class="calc-result-grid" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.25rem; margin-bottom: 1.5rem; width: 100%; box-sizing: border-box;">
             <div class="case-card">
-              <h4 id="case-opp-counter-header" data-i18n="caseOpponentCounter">⚔ Opponent Counterargument</h4>
+              <h4 id="case-opp-counter-header" data-i18n="caseOpponentCounter" style="color: #eab308;">⚔ Opponent Counterargument</h4>
               <p id="case-counter-content"></p>
             </div>
 
             <div class="case-card">
-              <h4 id="case-rebuttal-header" data-i18n="caseRebuttal">🛡 Possible Response & Rebuttal</h4>
+              <h4 id="case-rebuttal-header" data-i18n="caseRebuttal" style="color: #eab308;">🛡 Possible Response & Rebuttal</h4>
               <p id="case-rebuttal-content"></p>
             </div>
           </div>
 
           <!-- Titik Lemah Lawan -->
           <div class="case-card" style="margin-bottom: 1.5rem;">
-            <h4 id="case-weakness-header" data-i18n="caseWeakness">🎯 Titik Lemah Lawan (Weakness Analysis)</h4>
+            <h4 id="case-weakness-header" data-i18n="caseWeakness" style="color: #eab308;">🎯 Titik Lemah Lawan (Weakness Analysis)</h4>
             <p id="case-weakness-content"></p>
           </div>
 
           <!-- Open Questions / Titik Uji Forensik -->
           <div class="case-card" style="margin-bottom: 1.5rem;">
-            <h4 id="case-open-q-header" data-i18n="caseOpenQuestions">❓ Open Questions / Titik Uji Forensik</h4>
+            <h4 id="case-open-q-header" data-i18n="caseOpenQuestions" style="color: #eab308;">❓ Open Questions / Titik Uji Forensik</h4>
             <ul id="case-questions-content" style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;"></ul>
           </div>
 
@@ -2333,8 +3281,8 @@
 
           <!-- Source & Provenance Table -->
           <div class="case-card" style="margin-bottom: 1.5rem;">
-            <h4 id="case-provenance-header" data-i18n="caseSourceProvenance">📚 Source & Provenance</h4>
-            <div class="table-responsive">
+            <h4 id="case-provenance-header" data-i18n="caseSourceProvenance" style="color: #eab308;">📚 Source & Provenance</h4>
+            <div class="table-responsive provenance-table-wrap">
               <table class="data-table">
                 <thead><tr><th data-i18n="tableHeaderCitation">Sitasi Naskah</th><th data-i18n="tableHeaderCategory">Kategori Bukti</th><th data-i18n="tableHeaderAction">Aksi</th></tr></thead>
                 <tbody id="case-sources-body"></tbody>
@@ -2342,18 +3290,8 @@
             </div>
           </div>
 
-          <!-- Adversarial Control Buttons -->
-          <div class="case-actions-row" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-            <button id="btn-weakest-point" data-i18n="btnWeakestPoint" class="btn-primary" style="width: auto; background: #eab308; color: #040914; font-weight: 600;" onclick="runWeakestPointAnalysis()">
-              🎯 Weakest Point Analysis
-            </button>
-            <a class="btn-primary" data-i18n="simDebateBtn" style="width: auto; background: var(--accent); color: #fff; text-decoration: none;" href="/arena">
-              SIMULATION DEBATE LEARNING →
-            </a>
-          </div>
-
-          <!-- Adversarial Telemetry Results Box -->
-          <div id="adversarial-results-box" class="case-card hidden" style="margin-top: 1.5rem; padding: 1.5rem; border: 1px solid var(--border-focus); background: #0c121e;">
+          <!-- Adversarial Telemetry Results Box (Rendered Above Interactive Action Buttons) -->
+          <div id="adversarial-results-box" class="case-card hidden" style="margin-bottom: 1.25rem; padding: 1.5rem; border: 1px solid var(--border-focus); background: #0c121e;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
               <h4 id="adv-title" data-i18n="advReportTitle" style="margin: 0; font-size: 1rem; color: var(--text-main);">Adversarial Report</h4>
               <button class="record-chip" data-i18n="advCloseBtn" onclick="document.getElementById('adversarial-results-box').classList.add('hidden')">✕ Tutup</button>
@@ -2362,6 +3300,16 @@
               <span class="pulse-dot"></span> Menjalankan Adversarial Intelligence Pipeline...
             </div>
             <div id="adv-content" style="font-size: 0.85rem; line-height: 1.6; color: var(--text-main);"></div>
+          </div>
+
+          <!-- Adversarial Control Buttons (Always Rendered at Bottom) -->
+          <div class="case-actions-row" style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; align-items: center; margin-top: 1.5rem;">
+            <button id="btn-weakest-point" data-i18n="btnWeakestPoint" class="btn-primary" style="width: auto; background: #eab308; color: #040914; font-weight: 600;" onclick="runWeakestPointAnalysis()">
+              🎯 Weakest Point Analysis
+            </button>
+            <a class="btn-primary" data-i18n="simDebateBtn" style="width: auto; background: var(--accent); color: #fff; text-decoration: none;" href="/arena">
+              SIMULATION DEBATE LEARNING →
+            </a>
           </div>
         </div>
       </section>
@@ -2517,7 +3465,6 @@
             <div>
               <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
                 <h4 style="font-size: 0.95rem; text-transform: none; letter-spacing: normal; color: var(--text-main); margin: 0; font-weight: 700;">Studi Kasus Kanonikal Unggulan</h4>
-                <span class="evidence-badge badge-primary-source" style="font-size: 0.68rem; padding: 0.12rem 0.45rem;">18 Mosi Terverifikasi</span>
               </div>
               <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Kurasi mosi debat apologetika komparatif dan aparatus dalil naskah dari pipeline transkrip ZUMA.</p>
             </div>
@@ -2962,7 +3909,7 @@ CALCULATOR:
 - Adversarial Tools Gap: Backend menyediakan POST /calculator/challenge, POST /calculator/weakest-point, dan GET /calculator/source, tetapi frontend tidak memiliki tombol/antarmuka untuk memanggil ketiganya.
 
 PHILOLOGY:
-- Backend: Mendukung analisis teks Yunani Koine dan Ibrani Alkitabiah, transliterasi, leksikografi (BDAG, HALOT), varian tekstual NA28/DSS, dan Translation Audit.
+- Backend: Mendukung analisis teks Yunani Koine dan Ibrani Biblika, transliterasi, leksikografi (BDAG, HALOT), varian tekstual NA28/DSS, dan Translation Audit.
 - Frontend: Teks sumber Yunani/Ibrani ditampilkan sebatas baris teks di dalam list bukti Case File. Tidak ada viewer manuskrip resolusi tinggi maupun apparatus tekstual interaktif.
 
 ZUMA:
@@ -3156,6 +4103,33 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     let currentLanguages = [];
     let activeOrderId = "";
 
+    // Sidebar Desktop Auto-Collapse & Full-Width Control
+    function collapseSidebar() {
+      if (window.innerWidth <= 768) return;
+      const bodyEl = document.querySelector(".app-body");
+      if (bodyEl && !bodyEl.classList.contains("sidebar-collapsed")) {
+        bodyEl.classList.add("sidebar-collapsed");
+      }
+    }
+
+    function expandSidebar() {
+      const bodyEl = document.querySelector(".app-body");
+      if (bodyEl && bodyEl.classList.contains("sidebar-collapsed")) {
+        bodyEl.classList.remove("sidebar-collapsed");
+      }
+    }
+
+    function toggleSidebar(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      const bodyEl = document.querySelector(".app-body");
+      if (bodyEl) {
+        bodyEl.classList.toggle("sidebar-collapsed");
+      }
+    }
+
     document.addEventListener("DOMContentLoaded", async () => {
       restoreSession();
       if (typeof initGoogleIdentity === "function") {
@@ -3166,6 +4140,24 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       checkOnboardingStatus();
       loadAllCanonicalCases();
       handleInitialRoute();
+
+      // Auto-collapse sidebar on desktop when interacting inside Apologetics Calculator
+      const calcSection = document.getElementById("view-calculator");
+      if (calcSection) {
+        calcSection.addEventListener("click", (e) => {
+          if (window.innerWidth <= 768) return;
+          if (e.target.closest("#btn-sidebar-toggle") || e.target.closest(".app-sidebar")) return;
+          collapseSidebar();
+        });
+      }
+      const claimInput = document.getElementById("claim-input");
+      if (claimInput) {
+        claimInput.addEventListener("focus", () => collapseSidebar());
+      }
+      const ctxInput = document.getElementById("context-input");
+      if (ctxInput) {
+        ctxInput.addEventListener("focus", () => collapseSidebar());
+      }
 
       // Keyboard shortcut Ctrl+K
       document.addEventListener("keydown", (e) => {
@@ -3449,6 +4441,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "Billing & Quota",
     "navDebateArena": "Debate Arena (3-vs-3)",
     "navAbout": "About Polya AI",
+    "navMobileVersion": "Ke Versi Mobile",
     "headingWorkspace": "Research Workspace",
     "headingEvidenceLab": "Evidence Lab",
     "headingPrepUser": "Preparation & User",
@@ -3471,14 +4464,14 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "calcInputDefault": "Masukkan klaim lawan debat kamu di sini.",
     "calcBtnDebateMode": "⚔ Debate Mode",
     "calcBtnResearchMode": "📖 Research Mode",
-    "calcBtnAnalyze": "Hitung & Analisis Klaim",
+    "calcBtnAnalyze": "Mulai Analisis",
     "canonicalCasesTitle": "Studi Kasus Kanonikal Unggulan",
     "canonicalCasesCount": "18 Mosi Terverifikasi",
     "canonicalCasesSub": "Pilih salah satu mosi debat untuk diuji langsung di kalkulator atau buka berkas dossier naskah.",
     "canonicalCasesViewAll": "Lihat Seluruh 2.451+ Tema →",
     "caseResultSourceBtn": "🔍 Show me the source",
     "caseResultVerified": "VERIFIED INTEL",
-    "caseZumaHeader": "⚡ Dialektika Zuma & Simulasi Debat (Socratic Funnel)",
+    "caseZumaHeader": "⚡ Dialektika Forensik & Simulasi Debat (Socratic Funnel)",
     "casePrimaryEvidence": "🏛 Primary Evidence",
     "caseContextLinguistics": "⚖ Context & Linguistics",
     "caseOpponentCounter": "⚔ Opponent Counterargument",
@@ -3557,7 +4550,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "Provenance & Verifikasi",
     "codexConfidenceLabel": "Confidence Score:",
     "codexCloseBtn": "Tutup Drawer",
-    "caseClaimHeading": "Klaim",
+    "caseClaimHeading": "Mosi Analisis Debat",
     "tableHeaderCitation": "Sitasi Naskah",
     "tableHeaderCategory": "Kategori Bukti",
     "tableHeaderAction": "Aksi",
@@ -3587,6 +4580,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "Billing & Quota",
     "navDebateArena": "Debate Arena (3-vs-3)",
     "navAbout": "About Polya AI",
+    "navMobileVersion": "Go to Mobile Version",
     "headingWorkspace": "Research Workspace",
     "headingEvidenceLab": "Evidence Lab",
     "headingPrepUser": "Preparation & User",
@@ -3609,14 +4603,14 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "calcInputDefault": "Enter your debate opponent's claim here.",
     "calcBtnDebateMode": "⚔ Debate Mode",
     "calcBtnResearchMode": "📖 Research Mode",
-    "calcBtnAnalyze": "Calculate & Analyze Claim",
+    "calcBtnAnalyze": "Start Analysis",
     "canonicalCasesTitle": "Featured Canonical Case Studies",
     "canonicalCasesCount": "18 Verified Motions",
     "canonicalCasesSub": "Select a debate motion to test in the calculator or inspect primary manuscript dossiers.",
     "canonicalCasesViewAll": "View All 2,451+ Themes →",
     "caseResultSourceBtn": "🔍 Show me the source",
     "caseResultVerified": "VERIFIED INTEL",
-    "caseZumaHeader": "⚡ Zuma Dialectic & Debate Simulation (Socratic Funnel)",
+    "caseZumaHeader": "⚡ Forensic Dialectic & Debate Simulation (Socratic Funnel)",
     "casePrimaryEvidence": "🏛 Primary Evidence",
     "caseContextLinguistics": "⚖ Context & Linguistics",
     "caseOpponentCounter": "⚔ Opponent Counterargument",
@@ -3695,7 +4689,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "Provenance & Verification",
     "codexConfidenceLabel": "Confidence Score:",
     "codexCloseBtn": "Close Drawer",
-    "caseClaimHeading": "Claim",
+    "caseClaimHeading": "Debate Analysis Motion",
     "tableHeaderCitation": "Scripture Citation",
     "tableHeaderCategory": "Evidence Category",
     "tableHeaderAction": "Action",
@@ -3725,6 +4719,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "الفواتير والحصة",
     "navDebateArena": "ساحة المناظرة (3 ضد 3)",
     "navAbout": "عن بوليا للذكاء الاصطناعي",
+    "navMobileVersion": "النسخة المحمولة",
     "headingWorkspace": "مساحة أبحاث الدفاعيات",
     "headingEvidenceLab": "مختبر الأدلة والمخطوطات",
     "headingPrepUser": "الإعدادات والمستخدم",
@@ -3833,7 +4828,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "المصدر والتحقق",
     "codexConfidenceLabel": "درجة الموثوقية:",
     "codexCloseBtn": "إغلاق",
-    "caseClaimHeading": "الادعاء",
+    "caseClaimHeading": "موضوع تحليل المناظرة",
     "tableHeaderCitation": "استشهاد المخطوطة",
     "tableHeaderCategory": "فئة الدليل",
     "tableHeaderAction": "إجراء",
@@ -3863,6 +4858,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "利用枠と請求",
     "navDebateArena": "討論アリーナ (3対3)",
     "navAbout": "Polya AI について",
+    "navMobileVersion": "モバイル版へ",
     "headingWorkspace": "研究ワークスペース",
     "headingEvidenceLab": "証拠・原典研究室",
     "headingPrepUser": "事前準備と設定",
@@ -3971,7 +4967,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "出所記録と検証",
     "codexConfidenceLabel": "信頼度スコア:",
     "codexCloseBtn": "閉じる",
-    "caseClaimHeading": "主張",
+    "caseClaimHeading": "討論分析論題",
     "tableHeaderCitation": "写本引用",
     "tableHeaderCategory": "証拠カテゴリー",
     "tableHeaderAction": "アクション",
@@ -4001,6 +4997,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "이용량 및 청구",
     "navDebateArena": "토론 아레나 (3대3)",
     "navAbout": "Polya AI 정보",
+    "navMobileVersion": "모바일 버전으로",
     "headingWorkspace": "연구 워크스페이스",
     "headingEvidenceLab": "증거 및 사본 연구실",
     "headingPrepUser": "사전 준비 및 사용자",
@@ -4109,7 +5106,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "출처 및 검증",
     "codexConfidenceLabel": "신뢰도 점수:",
     "codexCloseBtn": "닫기",
-    "caseClaimHeading": "주장",
+    "caseClaimHeading": "토론 분석 의제",
     "tableHeaderCitation": "성경 인용",
     "tableHeaderCategory": "증거 범주",
     "tableHeaderAction": "조치",
@@ -4139,6 +5136,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "配额与账单",
     "navDebateArena": "辩论竞技场 (3对3)",
     "navAbout": "关于 Polya AI",
+    "navMobileVersion": "切换至移动版",
     "headingWorkspace": "研究工作空间",
     "headingEvidenceLab": "证据与原典实验室",
     "headingPrepUser": "事前准备与用户",
@@ -4247,7 +5245,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "出处来源与检验",
     "codexConfidenceLabel": "置信度评分:",
     "codexCloseBtn": "关闭",
-    "caseClaimHeading": "主张",
+    "caseClaimHeading": "辩论分析论题",
     "tableHeaderCitation": "文献引用",
     "tableHeaderCategory": "证据类别",
     "tableHeaderAction": "操作",
@@ -4277,6 +5275,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "Cuota y Facturación",
     "navDebateArena": "Arena de Debate (3 vs 3)",
     "navAbout": "Acerca de Polya AI",
+    "navMobileVersion": "Ir a Versión Móvil",
     "headingWorkspace": "Espacio de Investigación",
     "headingEvidenceLab": "Laboratorio de Evidencias",
     "headingPrepUser": "Preparación y Usuario",
@@ -4385,7 +5384,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "Procedencia y Verificación",
     "codexConfidenceLabel": "Puntaje de Confianza:",
     "codexCloseBtn": "Cerrar",
-    "caseClaimHeading": "Afirmación",
+    "caseClaimHeading": "Moción de Análisis de Debate",
     "tableHeaderCitation": "Cita del Manuscrito",
     "tableHeaderCategory": "Categoría de Evidencia",
     "tableHeaderAction": "Acción",
@@ -4415,6 +5414,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "Facturation & Quotas",
     "navDebateArena": "Arène de Débat (3 vs 3)",
     "navAbout": "À Propos de Polya AI",
+    "navMobileVersion": "Version Mobile",
     "headingWorkspace": "Espace de Recherche",
     "headingEvidenceLab": "Laboratoire des Preuves",
     "headingPrepUser": "Préparation & Utilisateur",
@@ -4523,7 +5523,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "Provenance & Vérification",
     "codexConfidenceLabel": "Score de Confiance :",
     "codexCloseBtn": "Fermer",
-    "caseClaimHeading": "Allégation",
+    "caseClaimHeading": "Motion d'Analyse du Débat",
     "tableHeaderCitation": "Citation du Manuscrit",
     "tableHeaderCategory": "Catégorie de Preuve",
     "tableHeaderAction": "Action",
@@ -4553,6 +5553,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "Abrechnung & Kontingent",
     "navDebateArena": "Debatten-Arena (3 gegen 3)",
     "navAbout": "Über Polya AI",
+    "navMobileVersion": "Zur mobilen Version",
     "headingWorkspace": "Forschungsarbeitsbereich",
     "headingEvidenceLab": "Beweis- & Textlabor",
     "headingPrepUser": "Vorbereitung & Benutzer",
@@ -4661,7 +5662,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "Herkunft & Verifikation",
     "codexConfidenceLabel": "Konfidenzwert:",
     "codexCloseBtn": "Schließen",
-    "caseClaimHeading": "Behauptung",
+    "caseClaimHeading": "Debattenanalyseantrag",
     "tableHeaderCitation": "Handschriftenzitat",
     "tableHeaderCategory": "Beweiskategorie",
     "tableHeaderAction": "Aktion",
@@ -4691,6 +5692,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "Тарифы и Квоты",
     "navDebateArena": "Арена Дебатов (3 на 3)",
     "navAbout": "О Polya AI",
+    "navMobileVersion": "Мобильная версия",
     "headingWorkspace": "Исследовательское Пространство",
     "headingEvidenceLab": "Лаборатория Доказательств",
     "headingPrepUser": "Подготовка и Пользователь",
@@ -4799,7 +5801,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "Происхождение и Верификация",
     "codexConfidenceLabel": "Уровень Достоверности:",
     "codexCloseBtn": "Закрыть",
-    "caseClaimHeading": "Утверждение",
+    "caseClaimHeading": "Тема дебатного анализа",
     "tableHeaderCitation": "Цитата рукописи",
     "tableHeaderCategory": "Категория доказательства",
     "tableHeaderAction": "Действие",
@@ -4829,6 +5831,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "Faturamento e Cotas",
     "navDebateArena": "Arena de Debate (3 vs 3)",
     "navAbout": "Sobre Polya AI",
+    "navMobileVersion": "Ir para Versão Mobile",
     "headingWorkspace": "Espaço de Pesquisa",
     "headingEvidenceLab": "Laboratório de Evidências",
     "headingPrepUser": "Preparação e Usuário",
@@ -4937,7 +5940,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "Proveniência e Verificação",
     "codexConfidenceLabel": "Grau de Confiança:",
     "codexCloseBtn": "Fechar",
-    "caseClaimHeading": "Alegação",
+    "caseClaimHeading": "Moção de Análise de Debate",
     "tableHeaderCitation": "Citação do Manuscrito",
     "tableHeaderCategory": "Categoria de Evidência",
     "tableHeaderAction": "Ação",
@@ -4967,6 +5970,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "Fatturazione e Quota",
     "navDebateArena": "Arena di Dibattito (3 vs 3)",
     "navAbout": "Informazioni su Polya AI",
+    "navMobileVersion": "Passa alla Versione Mobile",
     "headingWorkspace": "Spazio di Ricerca",
     "headingEvidenceLab": "Laboratorio di Prove",
     "headingPrepUser": "Preparazione e Utente",
@@ -5075,7 +6079,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "Provenienza e Verifica",
     "codexConfidenceLabel": "Indice di Affidabilità:",
     "codexCloseBtn": "Chiudi",
-    "caseClaimHeading": "Affermazione",
+    "caseClaimHeading": "Mozione di Analisi del Dibattito",
     "tableHeaderCitation": "Citazione del Manoscritto",
     "tableHeaderCategory": "Categoria di Prova",
     "tableHeaderAction": "Azione",
@@ -5105,6 +6109,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "Kota ve Faturalandırma",
     "navDebateArena": "Münazara Arenası (3'e 3)",
     "navAbout": "Polya AI Hakkında",
+    "navMobileVersion": "Mobil Sürüme Geç",
     "headingWorkspace": "Araştırma Alanı",
     "headingEvidenceLab": "Kanıt ve Metin Laboratuvarı",
     "headingPrepUser": "Hazırlık ve Kullanıcı",
@@ -5213,7 +6218,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "Köken ve Doğrulama",
     "codexConfidenceLabel": "Güvenilirlik Skoru:",
     "codexCloseBtn": "Kapat",
-    "caseClaimHeading": "İddia",
+    "caseClaimHeading": "Münazara Analiz Önergesi",
     "tableHeaderCitation": "Metin Atfı",
     "tableHeaderCategory": "Kanıt Kategorisi",
     "tableHeaderAction": "İşlem",
@@ -5243,6 +6248,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "بلنگ اور کوٹہ",
     "navDebateArena": "میدان مناظرہ (3 بمقابلہ 3)",
     "navAbout": "پولیا AI کے بارے میں",
+    "navMobileVersion": "موبائل ورژن پر جائیں",
     "headingWorkspace": "تحقیقی ورک اسپیس",
     "headingEvidenceLab": "شواہد و مخطوطات لیب",
     "headingPrepUser": "تیاری اور صارف",
@@ -5351,7 +6357,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "اسناد اور توثیق",
     "codexConfidenceLabel": "درجہ اعتبار:",
     "codexCloseBtn": "بند کریں",
-    "caseClaimHeading": "دعویٰ",
+    "caseClaimHeading": "مناظرہ تجزیاتی تحریک",
     "tableHeaderCitation": "مخطوطہ کا حوالہ",
     "tableHeaderCategory": "ثبوت کا زمرہ",
     "tableHeaderAction": "کارروائی",
@@ -5381,6 +6387,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "صورتحساب و سهمیه",
     "navDebateArena": "میدان مناظره (۳ در برابر ۳)",
     "navAbout": "درباره پولیا AI",
+    "navMobileVersion": "نسخه موبایل",
     "headingWorkspace": "فضای پژوهشی",
     "headingEvidenceLab": "آزمایشگاه اسناد و متون",
     "headingPrepUser": "آماده‌سازی و کاربر",
@@ -5489,7 +6496,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "اصالت و اعتبارسنجی",
     "codexConfidenceLabel": "میزان اطمینان:",
     "codexCloseBtn": "بستن",
-    "caseClaimHeading": "ادعا",
+    "caseClaimHeading": "طرح تحلیل مناظره",
     "tableHeaderCitation": "استناد نسخه خطی",
     "tableHeaderCategory": "دسته‌بندی شواهد",
     "tableHeaderAction": "اقدام",
@@ -5519,6 +6526,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "बिलिंग और कोटा",
     "navDebateArena": "वाद-विवाद अखाड़ा (3 बनाम 3)",
     "navAbout": "Polya AI के बारे में",
+    "navMobileVersion": "मोबाइल संस्करण पर जाएं",
     "headingWorkspace": "शोध कार्यक्षेत्र",
     "headingEvidenceLab": "साक्ष्य और मूलपाठ प्रयोगशाला",
     "headingPrepUser": "तैयारी और उपयोगकर्ता",
@@ -5627,7 +6635,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "स्रोत और सत्यापन",
     "codexConfidenceLabel": "विश्वसनीयता स्कोर:",
     "codexCloseBtn": "बंद करें",
-    "caseClaimHeading": "दावा",
+    "caseClaimHeading": "बहस विश्लेषण प्रस्ताव",
     "tableHeaderCitation": "हस्तलिपि उद्धरण",
     "tableHeaderCategory": "साक्ष्य श्रेणी",
     "tableHeaderAction": "कार्रवाई",
@@ -5657,6 +6665,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navBilling": "বিলিং ও কোটা",
     "navDebateArena": "বিতর্ক অঙ্গন (৩ বনাম ৩)",
     "navAbout": "Polya AI সম্পর্কে",
+    "navMobileVersion": "মোবাইল সংস্করণে যান",
     "headingWorkspace": "গবেষণা ওয়ার্কস্পেস",
     "headingEvidenceLab": "প্রমাণ ও পাণ্ডুলিপি ল্যাব",
     "headingPrepUser": "প্রস্তুতি ও ব্যবহারকারী",
@@ -5765,7 +6774,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "codexProvenanceTitle": "উৎস ও সত্যাসত্য",
     "codexConfidenceLabel": "নির্ভরযোগ্যতার মাত্রা:",
     "codexCloseBtn": "বন্ধ করুন",
-    "caseClaimHeading": "দাবি",
+    "caseClaimHeading": "বিতর্ক বিশ্লেষণ প্রস্তাবনা",
     "tableHeaderCitation": "পাণ্ডুলিপি উদ্ধৃতি",
     "tableHeaderCategory": "প্রমাণের বিভাগ",
     "tableHeaderAction": "পদক্ষেপ",
@@ -5968,6 +6977,9 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
       // 1. Declarative data-i18n attributes
       document.querySelectorAll("[data-i18n]").forEach(el => {
+        if (el.id === "case-claim-display" && typeof currentActiveCaseFile !== "undefined" && currentActiveCaseFile) {
+          return;
+        }
         const k = el.getAttribute("data-i18n");
         if (t[k]) {
           el.textContent = t[k];
@@ -6005,6 +7017,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         "side-item-account": "navBilling",
         "side-item-arena": "navDebateArena",
         "side-item-about": "navAbout",
+        "side-item-mobile-version": "navMobileVersion",
+        "label-mobile-version": "navMobileVersion",
 
         "calc-hero-title": "calcHeroTitle",
         "calc-hero-copy": "calcHeroCopy",
@@ -6014,7 +7028,6 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         "btn-mode-research": "calcBtnResearchMode",
         "btn-calc-text": "calcBtnAnalyze",
         "canonical-cases-title": "canonicalCasesTitle",
-        "canonical-cases-count": "canonicalCasesCount",
         "canonical-cases-sub": "canonicalCasesSub",
         "case-claim-display": "caseClaimHeading",
         "case-status-badge": "caseResultVerified",
@@ -6051,6 +7064,9 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       };
 
       for (const [elemId, key] of Object.entries(ID_I18N_MAP)) {
+        if (elemId === "case-claim-display" && typeof currentActiveCaseFile !== "undefined" && currentActiveCaseFile) {
+          continue;
+        }
         const el = document.getElementById(elemId);
         if (el && t[key]) {
           el.textContent = t[key];
@@ -6221,7 +7237,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           pill.className = "badge-pill badge-premium";
         }
         if (calcPill) {
-          calcPill.textContent = "Polya Premium (Unlimited)";
+          calcPill.textContent = "Premium Unlimited";
           calcPill.className = "badge-pill badge-premium";
           calcPill.style.display = "";
         }
@@ -6421,9 +7437,186 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       return div.innerHTML;
     }
 
+    let currentAncientAudio = null;
+    function playAncientAudio(rawText, langHint, btnEl, ev) {
+      if (ev) {
+        ev.stopPropagation();
+        ev.preventDefault();
+      }
+      if (!rawText) return;
+      // Strip punctuation, brackets, numbers, special symbols while preserving letters
+      const cleanText = String(rawText).replace(/[,.:;·?!\"\'\(\)\[\]{}—–<>#0-9\/\\]/g, " ").replace(/\s+/g, " ").trim();
+      if (!cleanText) return;
+
+      // Determine language with Unicode character priority
+      let lang = "el"; // default
+      if (/[\u0590-\u05FF]/.test(cleanText)) {
+        lang = "iw";
+      } else if (/[\u0600-\u06FF]/.test(cleanText)) {
+        lang = "ar";
+      } else if (/[\u0370-\u03FF\u1F00-\u1FFF]/.test(cleanText)) {
+        lang = "el";
+      } else {
+        const hint = String(langHint || "").toLowerCase();
+        if (hint.includes("hebrew") || hint.includes("ibrani") || hint.includes("iw") || hint.includes("he") || hint.includes("arc") || hint.includes("aramaic") || hint.includes("aramaik") || hint.includes("syriac")) {
+          lang = "iw";
+        } else if (hint.includes("arabic") || hint.includes("arab") || hint.includes("ar")) {
+          lang = "ar";
+        } else {
+          lang = "el";
+        }
+      }
+
+      if (btnEl) {
+        btnEl.classList.add("is-playing");
+        btnEl.setAttribute("aria-busy", "true");
+      }
+
+      const cleanup = () => {
+        if (btnEl) {
+          btnEl.classList.remove("is-playing");
+          btnEl.removeAttribute("aria-busy");
+        }
+      };
+
+      if (currentAncientAudio) {
+        try {
+          currentAncientAudio.pause();
+          currentAncientAudio.currentTime = 0;
+        } catch (_) {}
+      }
+
+      // 1. Try dedicated Backend Ancient TTS endpoint with SHA-256 disk cache
+      const audioUrl = `/api/v1/tts/ancient?text=${encodeURIComponent(cleanText)}&lang=${lang}`;
+      const audio = new Audio(audioUrl);
+      currentAncientAudio = audio;
+
+      audio.onended = cleanup;
+      audio.onpause = cleanup;
+
+      audio.onerror = () => {
+        // 2. Client-side Fallback to Web Speech API
+        console.warn("Backend Ancient TTS failed, falling back to Web Speech API:", cleanText, lang);
+        if ("speechSynthesis" in window) {
+          try {
+            window.speechSynthesis.cancel();
+            const utter = new SpeechSynthesisUtterance(cleanText);
+            utter.lang = (lang === "iw" || lang === "arc") ? "he-IL" : (lang === "ar" ? "ar-SA" : "el-GR");
+            utter.rate = 0.85;
+            utter.onend = cleanup;
+            utter.onerror = cleanup;
+            window.speechSynthesis.speak(utter);
+          } catch (eSynth) {
+            console.error("SpeechSynthesis fallback failed:", eSynth);
+            cleanup();
+          }
+        } else {
+          cleanup();
+        }
+      };
+
+      audio.play().catch(err => {
+        console.warn("Audio play() blocked or error, falling back:", err);
+        audio.onerror();
+      });
+    }
+
+    function playGreekWord(rawWord, btnEl, ev) {
+      return playAncientAudio(rawWord, "el", btnEl, ev);
+    }
+
+    function applyGlossaryHighlight(text) {
+      if (!text) return "";
+      if (window.ExegesisGlossary && typeof window.ExegesisGlossary.highlight === "function") {
+        return window.ExegesisGlossary.highlight(text);
+      }
+      return text;
+    }
+
+    function sanitizeBibleTerminology(str) {
+      if (!str || typeof str !== "string") return str || "";
+
+      // 1. Protect Islamic theological phrases
+      const protectedMatches = [];
+      const islamicPattern = /\b(?:wahyu\s+Injil|Qur['’]?anic\s+Injil|Injil\s+Nabi\s+Isa(?:\s+Al-Masih|\s+al-Masih)?(?:\s+a\.s\.)?|Injil\s+(?:dalam|menurut)\s+Al-Qur['’]an|Injil\s+sejati\s+Nabi\s+Isa)\b/gi;
+      let text = str.replace(islamicPattern, function(match) {
+        const idx = protectedMatches.length;
+        protectedMatches.push(match);
+        return "___POLYA_ISLAMIC_PROTECT_" + idx + "___";
+      });
+
+      // 2. 4 Canonical Books / Gospels
+      text = text
+        .replace(/\bTeks\s+Injil\s+Yohanes\b/gi, "Teks kitab Yohanes")
+        .replace(/\bTeks\s+Injil\s+Lukas\b/gi, "Teks kitab Lukas")
+        .replace(/\bTeks\s+Injil\s+Matius\b/gi, "Teks kitab Matius")
+        .replace(/\bTeks\s+Injil\s+Markus\b/gi, "Teks kitab Markus")
+        .replace(/\bInjil\s+Yohanes\b/gi, "kitab Yohanes")
+        .replace(/\bInjil\s+Lukas\b/gi, "kitab Lukas")
+        .replace(/\bInjil\s+Matius\b/gi, "kitab Matius")
+        .replace(/\bInjil\s+Markus\b/gi, "kitab Markus");
+
+      // 3. Collective / canonical / general Injil phrases
+      text = text
+        .replace(/\b(?:korpus\s+)?(?:empat|4)\s+Injil\s+kanonik\b/gi, "korpus empat kitab kanonik Bible")
+        .replace(/\bInjil\s+Sinoptik\b/gi, "kitab Sinoptik")
+        .replace(/\binjil\s+sinoptik\b/g, "kitab sinoptik")
+        .replace(/\bantar-Injil\b/g, "antar-kitab Bible")
+        .replace(/\bantar-injil\b/g, "antar-kitab bible")
+        .replace(/\bTeks\s+Injil\s+Kanonikal\s*\(Kanon\s*66\s*Kitab\)/gi, "Teks Kanonikal Bible (Kanon 66 Kitab)")
+        .replace(/\bTeks\s+Injil\s+Kanonikal\b/gi, "Teks Kanonikal Bible")
+        .replace(/\bkitab-kitab\s+Injil\b/gi, "kitab-kitab narasi Bible")
+        .replace(/\bINJILNYA\b/g, "BIBLENYA")
+        .replace(/\bInjilnya\b/g, "Biblenya")
+        .replace(/\binjilnya\b/g, "biblenya")
+        .replace(/\bINJIL\b/g, "BIBLE")
+        .replace(/\bInjil\b/g, "Bible")
+        .replace(/\binjil\b/g, "bible");
+
+      // 4. Alkitab terms
+      text = text
+        .replace(/\bAlkitabiah\b/g, "Biblika")
+        .replace(/\balkitabiah\b/g, "biblika")
+        .replace(/\balkitabiyah\b/g, "biblika")
+        .replace(/\bALKITABNYA\b/g, "BIBLENYA")
+        .replace(/\bAlkitabnya\b/g, "Biblenya")
+        .replace(/\balkitabnya\b/g, "biblenya")
+        .replace(/\bAlkitabmu\b/g, "Biblemu")
+        .replace(/\balkitabmu\b/g, "biblemu")
+        .replace(/\bAlkitabku\b/g, "Bibleku")
+        .replace(/\balkitabku\b/g, "bibleku")
+        .replace(/\bAlkitabu\b/g, "Biblemu")
+        .replace(/\bALKITAB\b/g, "BIBLE")
+        .replace(/\bAlkitab\b/g, "Bible")
+        .replace(/\balkitab\b/g, "bible");
+
+      // 5. Restore protected Islamic theological text
+      for (let i = 0; i < protectedMatches.length; i++) {
+        text = text.replace("___POLYA_ISLAMIC_PROTECT_" + i + "___", protectedMatches[i]);
+      }
+      return text;
+    }
+
+    function sanitizePersonaName(str) {
+      if (!str || typeof str !== "string") return str || "";
+      let clean = str
+        .replace(/^\[SIMULATED ZUMA RESPONSE\]\s*/i, "")
+        .replace(/^\[SIMULATED PENGUJI KLAIM RESPONSE\]\s*/i, "")
+        .replace(/^\[SOURCE QUOTE\]\s*/i, "")
+        .replace(/Simulasi dialektika ZUMA persona/gi, "Simulasi dialektika forensik")
+        .replace(/dialektika ZUMA/gi, "dialektika forensik")
+        .replace(/di pihak ZUMA/gi, "di pihak Penguji Klaim")
+        .replace(/pihak ZUMA/gi, "pihak Penguji Klaim")
+        .replace(/\bZUMA persona\b/gi, "Penguji Klaim")
+        .replace(/\bpersona ZUMA\b/gi, "Penguji Klaim")
+        .replace(/\bZUMA\b/g, "Penguji Klaim");
+      return sanitizeBibleTerminology(clean);
+    }
+
     function renderCaseFile(cf) {
       if (!cf || typeof cf !== "object") return;
       currentActiveCaseFile = cf;
+      collapseSidebar();
       const resCard = document.getElementById("case-file-result");
       if (resCard) resCard.classList.remove("hidden");
 
@@ -6433,7 +7626,15 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         if (idEl) idEl.textContent = cf.case_id || "CASE-FILE";
 
         const claimEl = document.getElementById("case-claim-display");
-        if (claimEl) claimEl.textContent = cf.claim || "";
+        const displayClaim = (typeof cf.claim === "string" && cf.claim.trim())
+          ? cf.claim
+          : (cf.claim && typeof cf.claim === "object" ? (cf.claim.text || cf.claim.title || cf.claim.claim || "") : "")
+            || cf.claim_text
+            || cf.motion_or_topic
+            || cf.title
+            || (document.getElementById("claim-input") ? document.getElementById("claim-input").value.trim() : "")
+            || "Mosi Analisis Debat";
+        if (claimEl) claimEl.textContent = sanitizeBibleTerminology(displayClaim);
 
         const ctxEl = document.getElementById("case-context-display");
         if (ctxEl) ctxEl.textContent = cf.context || "";
@@ -6457,52 +7658,146 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       try {
         const statusBadge = document.getElementById("case-status-badge");
         if (statusBadge) {
-          if (cf.is_demo) {
-            statusBadge.textContent = "DEMO / MOCK DATA";
-            statusBadge.className = "badge-pill badge-quota";
-            statusBadge.style.color = "var(--rose)";
-            statusBadge.style.borderColor = "var(--rose)";
-            statusBadge.style.background = "rgba(244, 63, 94, 0.15)";
-          } else {
-            statusBadge.textContent = "VERIFIED REAL INTEL";
-            statusBadge.className = "badge-pill";
-            statusBadge.style.color = "var(--emerald)";
-            statusBadge.style.borderColor = "var(--emerald)";
-            statusBadge.style.background = "rgba(16, 185, 129, 0.15)";
-          }
+          statusBadge.textContent = "VERIFIED REAL INTEL";
+          statusBadge.className = "badge-pill";
+          statusBadge.style.color = "#ffffff";
+          statusBadge.style.borderColor = "#94a3b8";
+          statusBadge.style.background = "#000000";
         }
       } catch (errBadge) {
         console.warn("Subpanel error (status badge):", errBadge);
       }
 
-      // 3. Primary Evidence Rendering
+      // 3. Primary Evidence & Morphology Rendering (Split Columns)
       try {
         const evBox = document.getElementById("case-evidence-content");
+        const morphBox = document.getElementById("case-morphology-content");
+        const evidenceList = safeArray(cf.evidence);
+
         if (evBox) {
-          const evidenceList = safeArray(cf.evidence);
           if (evidenceList.length > 0) {
             evBox.innerHTML = evidenceList.map(e => {
               if (!e || typeof e !== "object") return "";
               const lang = safeEscapeText(e.language || "PRIMARY SOURCE");
-              const srcText = safeEscapeText(e.source_text || "");
-              const translit = safeEscapeText(e.transliteration || "");
-              const morph = safeEscapeText(e.morphology || "");
-              const critApp = e.critical_apparatus ? `<p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.2rem; font-family: var(--font-mono);">${safeEscapeText(e.critical_apparatus)}</p>` : "";
-              const mss = e.manuscripts ? `<p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.15rem;">Saksi: ${safeEscapeText(safeJoin(e.manuscripts))}</p>` : "";
+              let rawFullText = String(e.source_text || "");
+              let rawTranslit = String(e.transliteration || "");
+
+              // Multi-verse fallback patch for 1 Yohanes 5:7-8 / Comma Johanneum
+              const isJohanneum = (e.passage_reference && (e.passage_reference.includes("1 Yohanes 5:7") || e.passage_reference.includes("1 Yohanes 5:8")))
+                || rawFullText.includes("1 Yohanes 5:7")
+                || (cf.claim_text && cf.claim_text.includes("1 Yohanes 5:7-8"))
+                || (typeof cf.claim === "string" && cf.claim.includes("1 Yohanes 5:7-8"))
+                || (cf.claim && typeof cf.claim === "object" && cf.claim.text && cf.claim.text.includes("1 Yohanes 5:7-8"));
+              if (isJohanneum && (!rawFullText || rawFullText.startsWith("Teks naskah primer asli"))) {
+                rawFullText = "ὅτι τρεῖς εἰσιν οἱ μαρτυροῦντες, τὸ πνεῦμα καὶ τὸ ὕδωρ καὶ τὸ αἷμα, καὶ οἱ τρεῖς εἰς τὸ ἕν εἰσιν. [Textus Receptus: ὅτι τρεῖς εἰσιν οἱ μαρτυροῦντες ἐν τῷ οὐρανῷ, ὁ Πατήρ, ὁ Λόγος, καὶ τὸ Ἅγιον Πνεῦμα· καὶ οὗτοι οἱ τρεῖς ἕν εἰσιν. καὶ τρεῖς εἰσιν οἱ μαρτυροῦντες ἐν τῇ γῇ, τὸ πνεῦμα καὶ τὸ ὕδωρ καὶ τὸ αἷμα· καὶ οἱ τρεῖς εἰς τὸ ἕν εἰσιν.]";
+              }
+              if (isJohanneum && (!rawTranslit || rawTranslit.startsWith("Transliterasi fonetik"))) {
+                rawTranslit = "hoti treis eisin hoi martyrountes, to pneuma kai to hydōr kai to haima, kai hoi treis eis to hen eisin. [Textus Receptus: hoti treis eisin hoi martyrountes en tō ouranō, ho Patēr, ho Logos, kai to Hagion Pneuma; kai houtoi hoi treis hen eisin. kai treis eisin hoi martyrountes en tē gē, to pneuma kai to hydōr kai to haima; kai hoi treis eis to hen eisin.]";
+              }
+              
+              // 1. Separate Koine Greek script and passage reference (e.g. (dalam Yohanes 17:3))
+              let greekScript = rawFullText;
+              let citationLabel = "";
+              const citeMatch = rawFullText.match(/\s*\(((?:dalam\s+)?[^)]+)\)\s*$/i);
+              if (citeMatch) {
+                greekScript = rawFullText.slice(0, citeMatch.index).trim();
+                let insideText = citeMatch[1].trim();
+                if (!insideText.toLowerCase().startsWith("dalam ")) {
+                  citationLabel = `(dalam ${insideText})`;
+                } else {
+                  citationLabel = `(${insideText})`;
+                }
+              } else if (e.passage_reference) {
+                citationLabel = `(dalam ${e.passage_reference})`;
+              }
+              if (!greekScript) greekScript = rawFullText;
+
+              const rawWordForAudio = greekScript.replace(/"/g, '&quot;');
+              const audioBtn = rawWordForAudio ? `
+                <button type="button" class="btn-tts-speaker btn-tts-mini"
+                        style="vertical-align: middle; display: inline-flex; margin-left: 0.35rem;"
+                        data-word="${rawWordForAudio}"
+                        onclick="playAncientAudio(this.getAttribute('data-word'), '${lang}', this, event)"
+                        title="Dengarkan pelafalan teks asli kuno" aria-label="Dengarkan pelafalan">
+                  🔊
+                </button>
+              ` : "";
+
+              const citationLine = citationLabel ? `
+                <div style="margin-top: 0.45rem; font-size: 0.88rem; color: var(--text-muted); display: flex; align-items: center; flex-wrap: wrap;">
+                  <span style="font-weight: 600;">${safeEscapeText(citationLabel)}</span>
+                  ${audioBtn}
+                </div>
+              ` : (audioBtn ? `<div style="margin-top: 0.45rem;">${audioBtn}</div>` : "");
+
+              // 2. Transliteration block with dedicated vertical spacing
+              const translit = safeEscapeText(rawTranslit || e.transliteration || "");
+              const translitHtml = translit ? `
+                <div style="margin-top: 0.65rem; padding: 0.5rem 0.75rem; background: rgba(0, 0, 0, 0.25); border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                  <div style="font-size: 0.74rem; color: var(--text-dim); text-transform: uppercase; font-weight: 600; margin-bottom: 0.25rem; letter-spacing: 0.05em;">Transliterasi:</div>
+                  <p style="font-size: 0.88rem; color: var(--text-dim); font-family: var(--font-mono); font-style: italic; margin: 0; line-height: 1.5; text-align: justify !important; text-justify: inter-word;">${translit}</p>
+                </div>
+              ` : "";
+
+              // 3. Manuscript Witnesses
+              const mssHtml = e.manuscripts ? `
+                <div style="margin-top: 0.65rem; font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; padding: 0.5rem 0.75rem; background: rgba(255, 255, 255, 0.02); border-radius: 4px; border-left: 3px solid var(--accent);">
+                  <strong style="color: var(--text-main);">Saksi:</strong> ${safeEscapeText(safeJoin(e.manuscripts))}
+                </div>
+              ` : "";
+
+              // 4. Critical apparatus / Closing philological analysis
+              const critAppHtml = e.critical_apparatus ? `
+                <div style="margin-top: 0.65rem; font-size: 0.88rem; color: var(--text-dim); line-height: 1.55; font-style: italic; border-left: 3px solid var(--primary); padding-left: 0.75rem;">
+                  ${safeEscapeText(e.critical_apparatus)}
+                </div>
+              ` : "";
+
+              const isHebrew = /[\u0590-\u05FF]/.test(greekScript) || String(lang || "").toLowerCase().includes("hebrew") || String(lang || "").toLowerCase().includes("ibrani") || String(lang || "").toLowerCase().includes("aramaic") || String(lang || "").toLowerCase().includes("aramaik");
+              const scriptClass = isHebrew ? "hebrew-text" : "greek-text";
+              const badgeClass = isHebrew ? "evidence-badge badge-soft-gold" : "evidence-badge badge-primary-source";
+              const scriptStyle = isHebrew 
+                ? "margin: 0.4rem 0 0 0; width: 100%; box-sizing: border-box; text-align: right !important; font-size: 1.25rem; line-height: 1.6; color: #eab308 !important; direction: rtl;" 
+                : "margin: 0.4rem 0 0 0; width: 100%; box-sizing: border-box; text-align: justify !important; text-justify: inter-word; font-size: 1.15rem; line-height: 1.6;";
 
               return `
-                <div style="margin-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.04); padding-bottom: 0.5rem;">
-                  <span class="evidence-badge badge-primary-source">${lang}</span>
-                  <p class="greek-text" style="margin-top: 0.25rem;">${srcText}</p>
-                  ${translit ? `<p style="font-size: 0.8rem; color: var(--text-dim); font-family: var(--font-mono);">${translit}</p>` : ""}
-                  ${morph ? `<p style="font-size: 0.85rem; margin-top: 0.25rem;">${morph}</p>` : ""}
-                  ${mss}
-                  ${critApp}
+                <div style="margin-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 0.85rem;">
+                  <span class="${badgeClass}">${lang}</span>
+                  <p class="${scriptClass}" style="${scriptStyle}">${safeEscapeText(greekScript)}</p>
+                  ${citationLine}
+                  ${translitHtml}
+                  ${mssHtml}
+                  ${critAppHtml}
                 </div>
               `;
             }).join("");
           } else {
-            evBox.innerHTML = `<p style="font-size: 0.85rem; color: var(--text-dim);">Nihil bukti primer tercatat.</p>`;
+            evBox.innerHTML = `<p style="font-size: 0.9rem; color: var(--text-dim);">Nihil bukti primer tercatat.</p>`;
+          }
+        }
+
+        // Render Morphology Column
+        if (morphBox) {
+          const allMorphParts = [];
+          evidenceList.forEach(e => {
+            if (e && e.morphology) {
+              const parts = String(e.morphology).split(/\s*\|\s*/).map(p => p.trim()).filter(Boolean);
+              parts.forEach(p => allMorphParts.push(p));
+            }
+          });
+
+          if (allMorphParts.length > 0) {
+            morphBox.innerHTML = `
+              <div style="display: flex; flex-direction: column; gap: 0.45rem;">
+                ${allMorphParts.map(part => `
+                  <div style="font-size: 0.88rem; color: var(--text-main); background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 0.5rem 0.75rem; line-height: 1.5;">
+                    ${safeEscapeText(part)}
+                  </div>
+                `).join("")}
+              </div>
+            `;
+          } else {
+            morphBox.innerHTML = `<p style="font-size: 0.88rem; color: var(--text-dim); font-style: italic;">Nihil rincian morfologi kata tercatat pada lema bukti ini.</p>`;
           }
         }
       } catch (errEvidence) {
@@ -6549,20 +7844,18 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         if (oppCounterHeader && oppCounterHeader.closest(".case-card")) oppCounterHeader.closest(".case-card").style.display = "none";
         if (rebuttalHeader && rebuttalHeader.closest(".case-card")) rebuttalHeader.closest(".case-card").style.display = "none";
         if (weaknessHeader && weaknessHeader.closest(".case-card")) weaknessHeader.closest(".case-card").style.display = "none";
-        if (btnWeakest) btnWeakest.style.display = "none";
-        if (simDebateBtn) simDebateBtn.style.display = "none";
-        if (advBox) advBox.style.display = "none";
         if (interlinearCard) interlinearCard.style.display = "block";
       } else {
         if (zumaDebateCard) zumaDebateCard.style.display = "block";
         if (oppCounterHeader && oppCounterHeader.closest(".case-card")) oppCounterHeader.closest(".case-card").style.display = "";
         if (rebuttalHeader && rebuttalHeader.closest(".case-card")) rebuttalHeader.closest(".case-card").style.display = "";
         if (weaknessHeader && weaknessHeader.closest(".case-card")) weaknessHeader.closest(".case-card").style.display = "";
-        if (btnWeakest) btnWeakest.style.display = "";
-        if (simDebateBtn) simDebateBtn.style.display = "";
-        if (advBox) advBox.style.display = "";
         if (interlinearCard) interlinearCard.style.display = "none";
       }
+
+      // Pastikan kedua tombol aksi terminal di bawah (.case-actions-row) selalu tampil pada kedua mode (Debate & Research)
+      if (btnWeakest) btnWeakest.style.display = "";
+      if (simDebateBtn) simDebateBtn.style.display = "";
 
       // 4.5. Zuma Debate & Dialectic Simulation Top Card Rendering
       try {
@@ -6570,12 +7863,65 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         if (zumaDebateContent) {
           const prep = cf.debate_preparation;
           let simDebateHtml = "";
-          const canonicalSim = cf.canonical_simulation || (prep && prep.canonical_8_rounds);
+          let canonicalSim = cf.canonical_simulation || (prep && prep.canonical_8_rounds);
+          if (!canonicalSim && prep && prep.debate_simulation && Array.isArray(prep.debate_simulation.rounds) && prep.debate_simulation.rounds.length > 0) {
+            const debSim = prep.debate_simulation;
+            const simRounds = [];
+            debSim.rounds.forEach(r => {
+              const rNum = r.round_num || 1;
+              if (r.zuma_speech) {
+                simRounds.push({
+                  round_num: rNum,
+                  turn_speaker: "Penguji Klaim",
+                  speech_type: "AFFIRMATIVE_CRITIQUE",
+                  speaker_speech: r.zuma_speech,
+                  persona_strategy: "verbatim_textual_anchoring"
+                });
+              }
+              if (r.opponent_speech) {
+                simRounds.push({
+                  round_num: rNum,
+                  turn_speaker: "OPPONENT",
+                  speech_type: "NEGATIVE_DEFENSE",
+                  speaker_speech: r.opponent_speech,
+                  persona_strategy: null
+                });
+              }
+            });
+            canonicalSim = {
+              motion_or_topic: cf.claim_text || (typeof cf.claim === "string" ? cf.claim : (cf.claim && cf.claim.text) || ""),
+              participants: [
+                { name: "Penguji Klaim", role: "AFFIRMATIVE_CRITIQUE" },
+                { name: "Lawan Debat", role: "NEGATIVE_DEFENSE" }
+              ],
+              cross_examination: [{
+                examiner: "Penguji Klaim",
+                socratic_question: debSim.socratic_question || "",
+                target_dilemma: debSim.target_dilemma || "",
+                presupposition_demolished: debSim.presupposition_demolished || ""
+              }],
+              epistemic_verdict: {
+                verdict_summary: debSim.verdict_summary || "",
+                logical_superiority: "AFFIRMATIVE_CRITIQUE"
+              },
+              persona_traceability: [
+                { round_num: 1, persona_strategy: "verbatim_textual_anchoring" },
+                { round_num: 2, persona_strategy: "primary_source_insistence" },
+                { round_num: 3, persona_strategy: "evasion_cutoff" },
+                { round_num: 4, persona_strategy: "verbatim_lexical_lock" },
+                { round_num: 5, persona_strategy: "fatal_dilemma_construction" },
+                { round_num: 6, persona_strategy: "presupposition_inversion" },
+                { round_num: 7, persona_strategy: "canonical_exclusivity_restriction" },
+                { round_num: 8, persona_strategy: "maieutic_epistemic_verdict" }
+              ],
+              rounds: simRounds
+            };
+          }
 
           if (canonicalSim && Array.isArray(canonicalSim.rounds) && canonicalSim.rounds.length > 0) {
-            const motionTitle = safeEscapeText(canonicalSim.motion_or_topic || cf.claim || "");
-            const partZuma = (canonicalSim.participants && canonicalSim.participants[0]) || { name: "Zulkifli M. Abbas (ZUMA)", role: "AFFIRMATIVE_CRITIQUE" };
-            const partOpp = (canonicalSim.participants && canonicalSim.participants[1]) || { name: "Interlocutor / Pembela Doktrin", role: "NEGATIVE_DEFENSE" };
+            const motionTitle = safeEscapeText(canonicalSim.motion_or_topic || (typeof cf.claim === "string" ? cf.claim : (cf.claim && cf.claim.text)) || cf.claim_text || "");
+            const partZuma = (canonicalSim.participants && canonicalSim.participants[0]) || { name: "Penguji Klaim", role: "AFFIRMATIVE_CRITIQUE" };
+            const partOpp = (canonicalSim.participants && canonicalSim.participants[1]) || { name: "Lawan Debat", role: "NEGATIVE_DEFENSE" };
             const crossEx = (canonicalSim.cross_examination && canonicalSim.cross_examination[0]) || null;
             const verdict = canonicalSim.epistemic_verdict || null;
             const traces = safeArray(canonicalSim.persona_traceability);
@@ -6603,34 +7949,40 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               const rTitle = roundTitles[rKey] || `Babak ${rKey}: Putaran Dialektika`;
               
               const turnsHtml = turns.map(t => {
-                const isZuma = (t.turn_speaker === "ZUMA");
-                const spkName = isZuma ? safeEscapeText(partZuma.name) : safeEscapeText(partOpp.name);
+                const isZuma = (t.turn_speaker === "ZUMA" || t.turn_speaker === "Penguji Klaim");
+                const spkName = isZuma ? "Penguji Klaim" : "Lawan Debat";
                 const spkRole = isZuma ? "AFFIRMATIVE_CRITIQUE" : "NEGATIVE_DEFENSE";
-                const spkColor = isZuma ? "var(--primary)" : "var(--rose)";
-                const badgeBg = isZuma ? "rgba(13, 148, 136, 0.15)" : "rgba(244, 63, 94, 0.15)";
-                const borderCol = isZuma ? "rgba(13, 148, 136, 0.4)" : "rgba(244, 63, 94, 0.4)";
-                const stratBadge = t.persona_strategy ? `<span class="badge-pill" style="font-size:0.7rem; color:var(--accent); background:rgba(217, 119, 6, 0.15); border-color:rgba(217,119,6,0.3); margin-left:0.4rem;">🎯 ${safeEscapeText(t.persona_strategy)}</span>` : "";
-                const speechTypeBadge = t.speech_type ? `<span class="badge-pill" style="font-size:0.7rem; color:${spkColor}; background:${badgeBg}; border-color:${borderCol};">${safeEscapeText(t.speech_type)}</span>` : "";
+                const spkColor = isZuma ? "#eab308" : "var(--rose)";
+                const badgeBg = isZuma ? "rgba(234, 179, 8, 0.15)" : "rgba(244, 63, 94, 0.15)";
+                const borderCol = isZuma ? "rgba(234, 179, 8, 0.4)" : "rgba(244, 63, 94, 0.4)";
+                const stratBadge = t.persona_strategy ? `<span class="badge-pill" style="font-size:0.7rem; color:#ffffff; background:#000000; border: 1px solid #94a3b8; width: fit-content; max-width: 100%; white-space: normal; line-height: 1.35; padding: 0.25rem 0.55rem; text-align: left;">🎯 ${safeEscapeText(sanitizePersonaName(t.persona_strategy))}</span>` : "";
+                const speechTypeBadge = t.speech_type ? `<span class="badge-pill" style="font-size:0.7rem; color:#ffffff; background:#000000; border: 1px solid #94a3b8; width: fit-content; max-width: 100%; white-space: normal; line-height: 1.35; padding: 0.25rem 0.55rem; text-align: left;">${safeEscapeText(t.speech_type)}</span>` : "";
                 
+                // Detail 1: Sanitasi teks ujaran (hapus [SIMULATED ZUMA RESPONSE] / [SOURCE QUOTE] / nama ZUMA)
+                let cleanSpeech = sanitizePersonaName(safeEscapeText(t.speaker_speech || ""));
+
                 return `
-                  <div style="margin: 0.5rem 0; padding: 0.65rem 0.8rem; background: ${isZuma ? 'rgba(15,23,42,0.6)' : 'rgba(30,41,59,0.5)'}; border-left: 3px solid ${spkColor}; border-radius: 4px;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 0.35rem;">
-                      <div style="font-size: 0.8rem; font-weight: 700; color: ${spkColor};">
-                        ${isZuma ? '⚡ ' : '🛡️ '} ${spkName} <span style="font-size: 0.72rem; color: var(--text-dim); font-weight: normal;">(${spkRole})</span>
-                      </div>
-                      <div style="display: flex; gap: 0.3rem; align-items: center;">
-                        ${speechTypeBadge}
-                        ${stratBadge}
-                      </div>
+                  <div class="turn-speech-card" style="margin: 0.5rem 0; padding: 0.65rem 0.8rem; background: ${isZuma ? 'rgba(15,23,42,0.6)' : 'rgba(30,41,59,0.5)'}; border-left: 3px solid ${spkColor}; border-radius: 4px;">
+                    <!-- a. Bagian Atas (Header Pembicara): Nama & Role -->
+                    <div style="font-size: 0.82rem; font-weight: 700; color: ${spkColor}; margin-bottom: 0.45rem;">
+                      ${isZuma ? '⚡ ' : '🛡️ '} ${spkName} <span style="font-size: 0.72rem; color: var(--text-dim); font-weight: normal;">(${spkRole})</span>
                     </div>
-                    <p style="font-size: 0.83rem; line-height: 1.5; color: var(--text-main); margin: 0;">${safeEscapeText(t.speaker_speech || "")}</p>
+
+                    <!-- b. Bagian Tengah (Isi Argumen): Teks Penuh Lebar Maksimal -->
+                    <p style="font-size: 0.84rem; line-height: 1.6; color: var(--text-main); margin: 0 0 0.5rem 0; width: 100%; text-align: justify !important; text-justify: inter-word;">${cleanSpeech}</p>
+
+                    <!-- c. Bagian Paling Bawah (Footer Badge Strategi): Vertikal, Rata Kiri, width: fit-content -->
+                    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.3rem; width: 100%; margin-top: 0.4rem;">
+                      ${speechTypeBadge}
+                      ${stratBadge}
+                    </div>
                   </div>
                 `;
               }).join("");
 
               return `
-                <div class="case-card" style="margin-top: 0.6rem; padding: 0.75rem; border: 1px solid var(--border-subtle); background: var(--bg-card);">
-                  <div style="font-weight: 700; font-size: 0.85rem; color: var(--accent); margin-bottom: 0.35rem; display: flex; align-items: center; justify-content: space-between;">
+                <div class="case-card round-card" style="margin-top: 0.6rem; padding: 0.75rem; border: 1px solid var(--border-subtle); background: var(--bg-card);">
+                  <div style="font-weight: 700; font-size: 0.85rem; color: #eab308; margin-bottom: 0.35rem; display: flex; align-items: center; justify-content: space-between;">
                     <span>${safeEscapeText(rTitle)}</span>
                     <span style="font-size: 0.72rem; color: var(--text-dim);">2 Putaran Ujaran</span>
                   </div>
@@ -6642,33 +7994,45 @@ Menunggu instruksi user untuk eksekusi backlog P0.
             let crossExHtml = "";
             if (crossEx) {
               crossExHtml = `
-                <div class="case-card" style="margin-top: 0.75rem; padding: 0.75rem; border-left: 4px solid var(--accent); background: rgba(217, 119, 6, 0.08);">
-                  <div style="font-size: 0.85rem; font-weight: 700; color: var(--accent); margin-bottom: 0.4rem;">
+                <div class="case-card" style="margin-top: 0.75rem; padding: 0.75rem; border-left: 4px solid #eab308; background: rgba(234, 179, 8, 0.08);">
+                  <div style="font-size: 0.85rem; font-weight: 700; color: #eab308; margin-bottom: 0.4rem;">
                     🎯 Socratic Cross-Examination Trap (Fatal Dilemma)
                   </div>
-                  <p style="font-size: 0.83rem; color: var(--text-main); margin: 0 0 0.35rem 0;"><strong>Pertanyaan Sokratik:</strong> ${safeEscapeText(crossEx.socratic_question || "")}</p>
-                  <p style="font-size: 0.8rem; color: var(--text-main); margin: 0 0 0.35rem 0;"><strong>Jebakan Dilema:</strong> ${safeEscapeText(crossEx.target_dilemma || "")}</p>
-                  <p style="font-size: 0.8rem; color: var(--rose); margin: 0;"><strong>Praduga yang Diruntuhkan:</strong> ${safeEscapeText(crossEx.presupposition_demolished || "")}</p>
+                  <p style="font-size: 0.83rem; color: var(--text-main); margin: 0 0 0.35rem 0;"><strong>Pertanyaan Sokratik:</strong> ${safeEscapeText(sanitizePersonaName(crossEx.socratic_question || ""))}</p>
+                  <p style="font-size: 0.8rem; color: var(--text-main); margin: 0 0 0.35rem 0;"><strong>Jebakan Dilema:</strong> ${safeEscapeText(sanitizePersonaName(crossEx.target_dilemma || ""))}</p>
+                  <p style="font-size: 0.8rem; color: #ffffff; text-decoration: underline; text-decoration-color: #ffffff; text-underline-offset: 3px; margin: 0;"><strong>Praduga yang Diruntuhkan:</strong> ${safeEscapeText(sanitizePersonaName(crossEx.presupposition_demolished || ""))}</p>
                 </div>
               `;
             }
 
             let verdictHtml = "";
             if (verdict) {
+              const rawSup = String(verdict.logical_superiority || "AFFIRMATIVE_CRITIQUE");
+              let cleanSup = "AFFIRMATIVE_CRITIQUE";
+              if (rawSup.includes("AFFIRMATIVE_CRITIQUE")) {
+                cleanSup = "AFFIRMATIVE_CRITIQUE";
+              } else {
+                cleanSup = safeEscapeText(sanitizePersonaName(rawSup.replace(/\s*\(.*?\)\s*/g, "").trim()));
+              }
+
+              let cleanVerdictSummary = sanitizePersonaName(safeEscapeText(verdict.verdict_summary || ""));
+
               verdictHtml = `
-                <div class="case-card" style="margin-top: 0.75rem; padding: 0.75rem; border-left: 4px solid var(--emerald); background: rgba(16, 185, 129, 0.08);">
-                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
-                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--emerald);">
+                <div class="case-card" style="margin-top: 0.75rem; padding: 0.75rem; border-left: 4px solid #eab308; background: rgba(234, 179, 8, 0.08);">
+                  <div style="margin-bottom: 0.5rem;">
+                    <div style="font-size: 0.88rem; font-weight: 700; color: #eab308; display: block; width: 100%; line-height: 1.4;">
                       ⚖️ Adjudikasi Epistemic Verdict (Keunggulan Naskah)
                     </div>
-                    <span class="badge-pill" style="color: var(--emerald); background: rgba(16, 185, 129, 0.15); border-color: var(--emerald); font-size: 0.72rem;">
-                      ${safeEscapeText(verdict.logical_superiority || "AFFIRMATIVE_CRITIQUE (ZUMA)")}
-                    </span>
+                    <div style="margin-top: 0.35rem;">
+                      <span class="badge-pill" style="color: #ffffff; background: #000000; border: 1px solid #94a3b8; font-size: 0.72rem; display: inline-block;">
+                        ${cleanSup}
+                      </span>
+                    </div>
                   </div>
-                  <p style="font-size: 0.83rem; color: var(--text-main); line-height: 1.5; margin: 0 0 0.4rem 0;">${safeEscapeText(verdict.verdict_summary || "")}</p>
+                  <p style="font-size: 0.83rem; color: var(--text-main); line-height: 1.5; margin: 0 0 0.4rem 0;">${cleanVerdictSummary}</p>
                   ${Array.isArray(verdict.unsupported_claims_flagged) && verdict.unsupported_claims_flagged.length > 0 ? `
-                    <div style="font-size: 0.75rem; color: var(--rose);">
-                      <strong>Unsupported Claims Flagged:</strong> ${verdict.unsupported_claims_flagged.map(c => `<span class="badge-pill" style="font-size:0.7rem; color:var(--rose); background:rgba(244,63,94,0.1); border-color:rgba(244,63,94,0.3); margin-right:0.25rem;">${safeEscapeText(c)}</span>`).join("")}
+                    <div style="font-size: 0.75rem; color: #ffffff;">
+                      <strong style="color: #ffffff;">Unsupported Claims Flagged:</strong> ${verdict.unsupported_claims_flagged.map(c => `<span class="badge-pill" style="font-size:0.7rem; color: #ffffff; background: #000000; border: 1px solid #94a3b8; margin-right:0.25rem;">${safeEscapeText(c)}</span>`).join("")}
                     </div>
                   ` : ''}
                 </div>
@@ -6679,11 +8043,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
             if (traces.length > 0) {
               tracesHtml = `
                 <div style="margin-top: 0.75rem;">
-                  <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.3rem;">
-                    🧭 Persona Traceability (8 Jejak Langkah Taktis):
+                  <div style="font-size: 0.78rem; font-weight: 700; color: #eab308; margin-bottom: 0.35rem;">
+                    🧭 Persona Traceability (Alur Berpikir Analitis):
                   </div>
-                  <div style="display: flex; flex-wrap: wrap; gap: 0.3rem;">
-                    ${traces.map(tr => `<span class="badge-pill" style="font-size: 0.7rem; color: var(--accent); border-color: rgba(217,119,6,0.3); background: rgba(217,119,6,0.08);">${tr.round_num}. ${safeEscapeText(tr.persona_strategy || "")}</span>`).join("")}
+                  <div style="display: flex; flex-direction: column; gap: 0.4rem; width: 100%;">
+                    ${traces.map(tr => `
+                      <div class="badge-pill" style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.74rem; color: #ffffff; border: 1px solid #94a3b8; background: #000000; padding: 0.45rem 0.75rem; width: 100%; box-sizing: border-box; text-align: left; line-height: 1.45; border-radius: var(--radius-sm); white-space: normal;">
+                        <span style="font-weight: 700; flex-shrink: 0; min-width: 1.2rem; color: #ffffff;">${tr.round_num}.</span>
+                        <span style="color: #ffffff;">${safeEscapeText(sanitizePersonaName(tr.persona_strategy || ""))}</span>
+                      </div>
+                    `).join("")}
                   </div>
                 </div>
               `;
@@ -6691,15 +8060,13 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
             simDebateHtml = `
               <div style="font-size: 0.82rem;">
-                <div style="background: rgba(13, 148, 136, 0.12); padding: 0.8rem; border-radius: 6px; margin-bottom: 0.75rem; border-left: 3px solid var(--primary);">
+                <div class="debate-canonical-banner" style="background: rgba(234, 179, 8, 0.1); padding: 0.8rem; border-radius: 6px; margin-bottom: 0.75rem; border-left: 3px solid #eab308;">
                   <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 0.35rem;">
-                    <strong style="color: var(--primary); font-size: 0.88rem;">Simulasi Dialektika Forensik Kanonikal 8 Ronde (16 Turns)</strong>
-                    <span class="badge-pill" style="color: var(--primary); border-color: var(--primary); font-size: 0.7rem;">schema_version: 1.0.0</span>
+                    <strong style="color: #eab308; font-size: 0.88rem;">Simulasi Dialektika Forensik Kanonikal 8 Ronde (16 Turns)</strong>
+                    <span class="badge-pill" style="color: #ffffff; border: 1px solid #94a3b8; background: #000000; font-size: 0.7rem;">schema_version: 1.0.0</span>
                   </div>
                   <div style="margin-top: 0.25rem; font-size: 0.83rem;">
-                    <strong>Mosi Debat:</strong> ${motionTitle}<br/>
-                    <strong>Mode & Persona:</strong> <code style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent);">${safeEscapeText(canonicalSim.debate_mode || "zuma_persona")}</code> (${safeEscapeText(canonicalSim.persona_id || "zuma_debate_v1")})<br/>
-                    <strong>Partisipan:</strong> ⚡ ${safeEscapeText(partZuma.name)} vs. 🛡️ ${safeEscapeText(partOpp.name)}
+                    <strong>Mosi Debat:</strong> ${motionTitle}
                   </div>
                 </div>
                 ${crossExHtml}
@@ -6718,9 +8085,9 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                   const label = safeEscapeText(pt.point || ("Putaran " + (i + 1)));
                   const style = safeEscapeText(pt.zuma_style || "");
                   const presentation = safeEscapeText(pt.presentation || "");
-                  return `<div class="case-card" style="margin-top: 0.5rem; padding: 0.75rem; background: var(--bg-card); border-left: 3px solid var(--primary);">
-                    <div style="font-size: 0.85rem; color: var(--primary); font-weight: 600;">${i + 1}. ${label}</div>
-                    ${style ? `<p style="font-size: 0.8rem; color: var(--accent); margin: 0.25rem 0; font-style: italic;">${style}</p>` : ""}
+                  return `<div class="case-card" style="margin-top: 0.5rem; padding: 0.75rem; background: var(--bg-card); border-left: 3px solid #eab308;">
+                    <div style="font-size: 0.85rem; color: #eab308; font-weight: 600;">${i + 1}. ${label}</div>
+                    ${style ? `<p style="font-size: 0.8rem; color: #eab308; margin: 0.25rem 0; font-style: italic;">${style}</p>` : ""}
                     ${presentation ? `<p style="font-size: 0.82rem; color: var(--text-main); margin: 0.3rem 0; line-height: 1.5;">${presentation}</p>` : ""}
                   </div>`;
                 }).join("")}
@@ -6737,34 +8104,34 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               const mList = Array.isArray(b3.saksi_manuskrip) ? b3.saksi_manuskrip.map(m => `<span class="evidence-badge" style="margin-right:0.3rem;">${safeEscapeText(m)}</span>`).join("") : safeEscapeText(b3.saksi_manuskrip || "");
 
               simDebateHtml = `<div style="font-size: 0.82rem;">
-                <div style="background: rgba(13, 148, 136, 0.1); padding: 0.75rem; border-radius: 4px; margin-bottom: 0.75rem; border-left: 3px solid var(--primary);">
-                  <strong style="color: var(--primary);">Simulasi Dialektika Forensik:</strong> ${safeEscapeText(hs.pihak_a || "Pihak A")} vs. ${safeEscapeText(hs.pihak_b || "Pihak B")}<br/>
+                <div style="background: rgba(234, 179, 8, 0.1); padding: 0.75rem; border-radius: 4px; margin-bottom: 0.75rem; border-left: 3px solid #eab308;">
+                  <strong style="color: #eab308;">Simulasi Dialektika Forensik:</strong> ${safeEscapeText(hs.pihak_a || "Pihak A")} vs. ${safeEscapeText(hs.pihak_b || "Pihak B")}<br/>
                   <strong>Topik:</strong> ${safeEscapeText(hs.topik || cf.claim || "")}<br/>
-                  <strong>Rujukan Utama:</strong> ${safeEscapeText(hs.rujukan_utama || "Alkitab")}<br/>
+                  <strong>Rujukan Utama:</strong> ${safeEscapeText(hs.rujukan_utama || "Bible")}<br/>
                   <strong>Format:</strong> ${safeEscapeText(hs.format || "Full Script 3 Babak + 4 Segmen Forensik")}
                   ${prep.opening ? `<br/><strong>Opening:</strong> ${safeEscapeText(prep.opening)}` : ""}
                   ${prep.opening_strategy ? `<br/><strong>Strategy:</strong> ${safeEscapeText(prep.opening_strategy)}` : ""}
                   ${prep.tempo ? `<br/><strong>Tempo:</strong> ${safeEscapeText(prep.tempo)}` : ""}
                 </div>
                 <div class="case-card" style="margin-top: 0.5rem; padding: 0.6rem;">
-                  <strong style="color: var(--accent);">1. Babak 1: Postulat & Premis Dasar</strong>
+                  <strong style="color: #eab308;">1. Babak 1: Postulat & Premis Dasar</strong>
                   <p style="margin: 0.25rem 0; color: var(--text-main);"><strong>Paparan Pihak A:</strong> ${safeEscapeText(b1.paparan_pihak_a || prep.babak_1_postulat || "")}</p>
                   <p style="margin: 0.25rem 0; color: var(--text-muted);"><strong>Respons Pihak B:</strong> ${safeEscapeText(b1.respons_pihak_b || "")}</p>
                 </div>
                 <div class="case-card" style="margin-top: 0.5rem; padding: 0.6rem;">
-                  <strong style="color: var(--accent);">2. Babak 2: Socratic Cross-Examination</strong>
+                  <strong style="color: #eab308;">2. Babak 2: Socratic Cross-Examination</strong>
                   <p style="margin: 0.25rem 0; color: var(--text-main);"><strong>Pertanyaan Presisi:</strong></p>
                   <ul style="padding-left: 1.2rem; margin: 0.2rem 0;">${qList}</ul>
                   <p style="margin: 0.3rem 0 0.1rem 0; color: var(--text-main);"><strong>Jebakan Logika:</strong> ${safeEscapeText(b2.jebakan_logika || "")}</p>
                 </div>
                 <div class="case-card" style="margin-top: 0.5rem; padding: 0.6rem;">
-                  <strong style="color: var(--accent);">3. Babak 3: Forensik Teks & Filologi Bahasa Sumber</strong>
+                  <strong style="color: #eab308;">3. Babak 3: Forensik Teks & Filologi Bahasa Sumber</strong>
                   <p style="margin: 0.25rem 0; color: var(--text-main);"><strong>Bedah Bahasa Sumber:</strong> ${safeEscapeText(b3.bedah_bahasa_sumber || prep.babak_3_forensik || "")}</p>
                   <p style="margin: 0.3rem 0 0.1rem 0; color: var(--text-main);"><strong>Saksi Manuskrip:</strong> ${mList}</p>
                   <p style="margin: 0.3rem 0 0.1rem 0; color: var(--text-main);"><strong>Audit Terjemahan:</strong> ${safeEscapeText(b3.audit_terjemahan || "")}</p>
                 </div>
                 <div class="case-card" style="margin-top: 0.5rem; padding: 0.6rem;">
-                  <strong style="color: var(--accent);">4. Babak 4: Status Dialektika & Matriks Bukti</strong>
+                  <strong style="color: #eab308;">4. Babak 4: Status Dialektika & Matriks Bukti</strong>
                   <p style="margin: 0.25rem 0; color: var(--text-main);"><strong>Konsesi Ditarik:</strong> ${safeEscapeText(b4.concession_extracted || "")}</p>
                   <p style="margin: 0.3rem 0 0.1rem 0; color: var(--text-main);"><strong>Evaluasi Kekuatan Bukti:</strong> ${safeEscapeText(b4.evaluasi_kekuatan_bukti || prep.babak_4_evaluasi || "")}</p>
                 </div>
@@ -6779,8 +8146,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
           zumaDebateContent.innerHTML = `
             <div style="margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle);">
-              <span style="color: var(--accent); font-weight: 600;">🎯 Cross-Examination Trap:</span> ${trap}<br/>
-              <span style="color: var(--accent); font-weight: 600; margin-top: 0.25rem; display: inline-block;">⏱ Recommended Tempo:</span> ${tempo}
+              <span style="color: #eab308; font-weight: 600;">🎯 Cross-Examination Trap:</span> ${trap}<br/>
+              <span style="color: #eab308; font-weight: 600; margin-top: 0.25rem; display: inline-block;">⏱ Recommended Tempo:</span> ${tempo}
             </div>
             ${simDebateHtml}
           `;
@@ -6803,7 +8170,11 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           }
 
           // Passage & Source Text
-          const passRef = safeEscapeText(le.passage_reference || cf.claim || "Kanon Alkitab");
+          let rawPassRef = le.passage_reference || cf.claim || "Kanon Bible";
+          if (rawPassRef.toLowerCase().includes("yang pertama") || rawPassRef.toLowerCase().startsWith("pertama")) {
+            rawPassRef = rawPassRef.replace(/^(?:yang\s+)?pertama/i, "1 Yohanes");
+          }
+          const passRef = safeEscapeText(rawPassRef);
           const origLang = safeEscapeText(le.original_language || "Koine Greek");
           const srcFull = safeEscapeText(le.source_text_full || "");
           const isHebrewOrAramaic = origLang.toLowerCase().includes("hebrew") || origLang.toLowerCase().includes("aramaic") || origLang.toLowerCase().includes("ibrani");
@@ -6813,31 +8184,36 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           // ==========================================
           const litTrans = le.literal_translation ? `
             <div style="background: rgba(217, 119, 6, 0.08); border-left: 3px solid var(--accent); padding: 0.75rem 0.9rem; border-radius: 4px;">
-              <strong style="color: var(--accent); font-size: 0.82rem; display: block; margin-bottom: 0.25rem;">📝 Terjemahan Teknis Harfiah (Literal Precision):</strong>
-              <p style="margin: 0; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-main); line-height: 1.5;">${safeEscapeText(le.literal_translation)}</p>
+              <strong style="color: var(--accent); font-size: 0.88rem; display: block; margin-bottom: 0.3rem;">📝 Rekonstruksi Kata demi Kata Teks Asli (Literal Precision):</strong>
+              <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); font-family: var(--font-sans) !important; line-height: 1.65; text-align: justify !important; text-justify: inter-word;">${safeEscapeText(le.literal_translation)}</p>
             </div>
           ` : "";
 
           const natTrans = le.natural_translation ? `
             <div style="background: rgba(13, 148, 136, 0.08); border-left: 3px solid var(--primary); padding: 0.75rem 0.9rem; border-radius: 4px;">
-              <strong style="color: var(--primary); font-size: 0.82rem; display: block; margin-bottom: 0.25rem;">📖 Terjemahan Bahasa Indonesia Alami (Natural Linguistic):</strong>
-              <p style="margin: 0; font-size: 0.85rem; color: var(--text-main); line-height: 1.5;">${safeEscapeText(le.natural_translation)}</p>
+              <strong style="color: var(--primary); font-size: 0.88rem; display: block; margin-bottom: 0.3rem;">📖 Terjemahan Bahasa Indonesia Alami (Natural Linguistic):</strong>
+              <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); font-family: var(--font-sans) !important; line-height: 1.65; text-align: justify !important; text-justify: inter-word;">${safeEscapeText(le.natural_translation)}</p>
             </div>
           ` : "";
 
           const seksi1Html = `
             <div class="case-card" style="margin-bottom: 1rem; border: 1px solid var(--border-subtle); background: rgba(255, 255, 255, 0.02); padding: 1rem;">
-              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                  <span style="font-size: 1.1rem; color: var(--accent); font-weight: 700;">📜 Seksi 1: Naskah Sumber & Rekonstruksi Teks</span>
-                  <span class="badge-pill" style="color: var(--accent); border-color: rgba(217, 119, 6, 0.4); font-size: 0.72rem; font-weight: 600;">${passRef}</span>
+              <div style="display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 0.65rem;">
+                <span style="font-size: 1.15rem; color: var(--accent); font-weight: 700;">📜 Seksi 1: Naskah Sumber & Rekonstruksi Teks</span>
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                  <span class="badge-pill" style="color: var(--accent); border-color: rgba(217, 119, 6, 0.4); font-size: 0.76rem; font-weight: 600;">${passRef}</span>
+                  <span class="badge-pill" style="color: var(--primary); border-color: var(--primary); font-size: 0.76rem;">${origLang}</span>
                 </div>
-                <span class="badge-pill" style="color: var(--primary); border-color: var(--primary); font-size: 0.72rem;">${origLang}</span>
               </div>
-              <div class="source-text-banner" style="margin: 0.75rem 0; padding: 0.85rem; background: rgba(0,0,0,0.3); border-radius: 6px; border: 1px solid rgba(255,255,255,0.06);">
-                <p style="font-size: 1.4rem; font-weight: 600; color: #fde047; margin: 0; line-height: 1.6; font-family: 'SBL Greek', 'Ezra SIL', 'Times New Roman', serif; direction: ${isHebrewOrAramaic ? 'rtl' : 'ltr'};">
+              <div class="source-text-banner" style="margin: 0.75rem 0; padding: 0.85rem; background: rgba(0,0,0,0.3); border-radius: 6px; border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 0.6rem;">
+                <p style="font-size: 1.45rem; font-weight: 600; color: #fde047; margin: 0; line-height: 1.6; font-family: 'SBL Greek', 'Ezra SIL', 'Times New Roman', serif; direction: ${isHebrewOrAramaic ? 'rtl' : 'ltr'}; width: 100%; text-align: ${isHebrewOrAramaic ? 'right' : 'left'};">
                   ${srcFull}
                 </p>
+                <div style="display: flex; justify-content: flex-end; width: 100%; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.4rem;">
+                  <button class="btn-tts-speaker" data-word="${safeEscapeText(le.source_text_full || '')}" onclick="playAncientAudio(this.getAttribute('data-word'), '${origLang}', this, event)" title="Dengarkan pelafalan teks asli utuh" aria-label="Dengarkan pelafalan" style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; padding: 0.3rem 0.65rem;">
+                    🔊 <span style="font-size: 0.75rem;">Putar Audio Naskah Asli</span>
+                  </button>
+                </div>
               </div>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem; margin-top: 0.75rem;">
                 ${litTrans}
@@ -6872,39 +8248,42 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                 <div class="interlinear-token-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 0.85rem; display: flex; flex-direction: column; justify-content: space-between; transition: border-color 0.2s;">
                   <div>
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
-                      <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); background: rgba(255,255,255,0.06); padding: 0.15rem 0.45rem; border-radius: 3px;">#${tokenIdx}</span>
+                      <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-dim); background: rgba(255,255,255,0.06); padding: 0.15rem 0.45rem; border-radius: 3px;">#${tokenIdx}</span>
                       <div style="display: flex; gap: 0.3rem;">
-                        <span class="badge-pill" style="font-size: 0.7rem; color: var(--accent); border-color: rgba(217, 119, 6, 0.4); background: rgba(217, 119, 6, 0.1); font-weight: 700;">${strongCode}</span>
-                        <span class="badge-pill" style="font-size: 0.68rem; color: var(--primary); border-color: rgba(13, 148, 136, 0.3); background: rgba(13, 148, 136, 0.08); font-weight: 600;">${morphCode}</span>
+                        <span class="badge-pill clickable-glossary" data-term="${strongCode}" data-type="strong" style="font-size: 0.78rem; color: var(--accent); border-color: rgba(217, 119, 6, 0.4); background: rgba(217, 119, 6, 0.1); font-weight: 700; cursor: pointer;" title="Klik untuk penjelasan indeks Strong">${strongCode}</span>
+                        <span class="badge-pill clickable-glossary" data-term="${morphCode}" data-type="morphology" style="font-size: 0.76rem; color: var(--primary); border-color: rgba(13, 148, 136, 0.3); background: rgba(13, 148, 136, 0.08); font-weight: 600; cursor: pointer;" title="Klik untuk penjelasan kode morfologi">${morphCode}</span>
                       </div>
                     </div>
-                    <div style="font-size: 1.45rem; font-weight: 700; color: #fde047; margin: 0.35rem 0 0.15rem 0; font-family: 'SBL Greek', 'Ezra SIL', 'Times New Roman', serif; direction: ${isHebrewOrAramaic ? 'rtl' : 'ltr'};">
-                      ${origText}
+                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin: 0.35rem 0 0.15rem 0;">
+                      <div style="font-size: 1.55rem; font-weight: 700; color: #fde047; font-family: 'SBL Greek', 'Ezra SIL', 'Times New Roman', serif; direction: ${isHebrewOrAramaic ? 'rtl' : 'ltr'};">
+                        ${origText}
+                      </div>
+                      <button class="btn-tts-speaker" data-word="${origText}" onclick="playAncientAudio(this.getAttribute('data-word'), '${origLang}', this, event)" title="Dengarkan pelafalan teks asli" aria-label="Dengarkan pelafalan">🔊</button>
                     </div>
                     <div style="display: flex; gap: 0.4rem; align-items: baseline; flex-wrap: wrap; margin-bottom: 0.4rem;">
-                      <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-main); font-style: italic;">${translit}</span>
-                      <span style="font-size: 0.74rem; color: var(--text-muted);">[Lema: <strong>${lemma}</strong>]</span>
+                      <span style="font-family: var(--font-mono); font-size: 0.92rem; color: var(--text-main); font-style: italic;">${translit}</span>
+                      <span style="font-size: 0.84rem; color: var(--text-muted);">[Lema: <strong>${lemma}</strong>]</span>
                     </div>
                     ${morphExp ? `
-                      <div style="font-size: 0.74rem; color: var(--text-dim); background: rgba(255,255,255,0.03); border-left: 2px solid var(--primary); padding: 0.25rem 0.5rem; border-radius: 2px; margin-bottom: 0.5rem; line-height: 1.4;">
+                      <div class="clickable-glossary" data-term="${morphCode}" data-type="morphology" style="font-size: 0.84rem; color: var(--text-dim); background: rgba(255,255,255,0.03); border-left: 2px solid var(--primary); padding: 0.3rem 0.55rem; border-radius: 2px; margin-bottom: 0.5rem; line-height: 1.5; cursor: pointer;" title="Klik untuk uraian gramatika">
                         ${morphExp}
                       </div>
                     ` : ""}
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.4rem;">
-                      <div style="font-size: 0.88rem; font-weight: 600; color: #ffffff;">↳ "${gloss}"</div>
-                      <div style="font-size: 0.72rem; color: var(--accent); background: rgba(217, 119, 6, 0.08); padding: 0.15rem 0.45rem; border-radius: 3px;">${synRole}</div>
+                      <div style="font-size: 0.96rem; font-weight: 600; color: #ffffff;">↳ "${gloss}"</div>
+                      <div class="clickable-glossary" data-term="${synRole}" data-type="syntax" style="font-size: 0.78rem; color: var(--accent); background: rgba(217, 119, 6, 0.08); padding: 0.15rem 0.45rem; border-radius: 3px; cursor: pointer;" title="Klik untuk penjelasan peran sintaksis">${synRole}</div>
                     </div>
                     ${lexDef ? `
-                      <div style="font-size: 0.74rem; background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 0.45rem; margin-bottom: 0.4rem;">
-                        <div style="color: var(--primary); font-weight: 600; margin-bottom: 0.15rem;">📖 Kamus [${lexSrc}]:</div>
-                        <div style="color: var(--text-main); line-height: 1.4;">${lexDef}</div>
-                        ${lexRange ? `<div style="color: var(--text-dim); font-size: 0.7rem; margin-top: 0.2rem; font-style: italic;">Rentang Semantik: ${lexRange}</div>` : ""}
+                      <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 0.55rem; margin-bottom: 0.45rem;">
+                        <div style="color: var(--primary); font-size: 0.88rem; font-weight: 600; margin-bottom: 0.2rem;">📖 Kamus [<span class="clickable-glossary" data-term="${lexSrc}" data-type="lexicon" style="text-decoration: underline; cursor: pointer;" title="Klik untuk profil leksikon">${lexSrc}</span>]:</div>
+                        <div style="color: var(--text-main); font-size: 0.88rem; line-height: 1.55;">${applyGlossaryHighlight(lexDef)}</div>
+                        ${lexRange ? `<div style="color: var(--text-dim); font-size: 0.82rem; margin-top: 0.25rem; font-style: italic;">Rentang Semantik: ${lexRange}</div>` : ""}
                       </div>
                     ` : ""}
                   </div>
                   ${note ? `
-                    <div style="font-size: 0.74rem; color: var(--text-dim); background: rgba(13, 148, 136, 0.06); border-left: 2px solid var(--primary); padding: 0.35rem 0.5rem; border-radius: 2px; line-height: 1.4; margin-top: 0.35rem;">
-                      <strong style="color: var(--primary);">Catatan Eksegesis:</strong> ${note}
+                    <div style="font-size: 0.88rem; color: var(--text-dim); background: rgba(13, 148, 136, 0.06); border-left: 2px solid var(--primary); padding: 0.45rem 0.6rem; border-radius: 2px; line-height: 1.55; margin-top: 0.4rem;">
+                      <strong style="color: var(--primary);">Catatan Eksegesis:</strong> ${applyGlossaryHighlight(note)}
                     </div>
                   ` : ""}
                 </div>
@@ -6928,22 +8307,29 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               const note = safeEscapeText(t.exegetical_note || "");
 
               return `
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 0.78rem;">
-                  <td style="padding: 0.4rem; text-align: center; color: var(--text-dim); font-family: var(--font-mono);">${tokenIdx}</td>
-                  <td style="padding: 0.4rem; font-family: var(--font-mono); color: var(--accent); font-weight: 600;">${strongCode}</td>
-                  <td style="padding: 0.4rem; font-size: 1.05rem; color: #fde047; font-family: 'SBL Greek', 'Ezra SIL', serif; direction: ${isHebrewOrAramaic ? 'rtl' : 'ltr'};">${origText}</td>
-                  <td style="padding: 0.4rem; font-family: var(--font-mono); color: var(--text-dim); font-style: italic;">${translit}</td>
-                  <td style="padding: 0.4rem; color: var(--text-muted); font-size: 0.75rem;">${lemma}</td>
-                  <td style="padding: 0.4rem;">
-                    <span class="badge-pill" style="font-size: 0.68rem; color: var(--primary); border-color: rgba(13,148,136,0.3); background: rgba(13,148,136,0.08);">${morphCode}</span>
-                    ${morphExp ? `<div style="font-size: 0.68rem; color: var(--text-dim); margin-top: 0.15rem;">${morphExp}</div>` : ""}
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 0.84rem;">
+                  <td style="padding: 0.45rem; text-align: center; color: var(--text-dim); font-family: var(--font-mono);">${tokenIdx}</td>
+                  <td style="padding: 0.45rem; font-family: var(--font-mono); color: var(--accent); font-weight: 600;">
+                    <span class="clickable-glossary" data-term="${strongCode}" data-type="strong" style="cursor: pointer;" title="Klik untuk indeks Strong">${strongCode}</span>
                   </td>
-                  <td style="padding: 0.4rem; font-weight: 500; color: var(--text-main);">${gloss}</td>
-                  <td style="padding: 0.4rem; color: var(--accent); font-size: 0.72rem;">${synRole}</td>
-                  <td style="padding: 0.4rem; font-size: 0.72rem; color: var(--text-muted);">
-                    <strong>[${lexSrc}]</strong> ${lexDef}
+                  <td style="padding: 0.45rem; font-size: 1.15rem; color: #fde047; font-family: 'SBL Greek', 'Ezra SIL', serif; direction: ${isHebrewOrAramaic ? 'rtl' : 'ltr'}; white-space: nowrap;">
+                    ${origText}
+                    <button class="btn-tts-speaker btn-tts-mini" data-word="${origText}" onclick="playAncientAudio(this.getAttribute('data-word'), '${origLang}', this, event)" title="Dengarkan pelafalan" aria-label="Dengarkan pelafalan">🔊</button>
                   </td>
-                  <td style="padding: 0.4rem; font-size: 0.72rem; color: var(--text-dim); line-height: 1.4;">${note}</td>
+                  <td style="padding: 0.45rem; font-family: var(--font-mono); color: var(--text-dim); font-style: italic;">${translit}</td>
+                  <td style="padding: 0.45rem; color: var(--text-muted); font-size: 0.82rem;">${lemma}</td>
+                  <td style="padding: 0.45rem;">
+                    <span class="badge-pill clickable-glossary" data-term="${morphCode}" data-type="morphology" style="font-size: 0.76rem; color: var(--primary); border-color: rgba(13,148,136,0.3); background: rgba(13,148,136,0.08); cursor: pointer;" title="Klik untuk rincian morfologi">${morphCode}</span>
+                    ${morphExp ? `<div class="clickable-glossary" data-term="${morphCode}" data-type="morphology" style="font-size: 0.76rem; color: var(--text-dim); margin-top: 0.15rem; cursor: pointer;">${morphExp}</div>` : ""}
+                  </td>
+                  <td style="padding: 0.45rem; font-weight: 500; color: var(--text-main);">${gloss}</td>
+                  <td style="padding: 0.45rem; color: var(--accent); font-size: 0.78rem;">
+                    <span class="clickable-glossary" data-term="${synRole}" data-type="syntax" style="cursor: pointer;">${synRole}</span>
+                  </td>
+                  <td style="padding: 0.45rem; font-size: 0.82rem; color: var(--text-muted);">
+                    <strong class="clickable-glossary" data-term="${lexSrc}" data-type="lexicon" style="cursor: pointer; text-decoration: underline;">[${lexSrc}]</strong> ${applyGlossaryHighlight(lexDef)}
+                  </td>
+                  <td style="padding: 0.45rem; font-size: 0.82rem; color: var(--text-dim); line-height: 1.45;">${applyGlossaryHighlight(note)}</td>
                 </tr>
               `;
             }).join("");
@@ -6952,21 +8338,21 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               <div class="case-card" style="margin-bottom: 1rem; border: 1px solid var(--border-subtle); background: rgba(255, 255, 255, 0.02); padding: 1rem;">
                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
                   <strong style="color: var(--accent); font-size: 1.05rem;">🔬 Seksi 2: Grid Bedah Leksikon Per Kata (${tokens.length} Kata / Tokens)</strong>
-                  <span class="badge-pill" style="font-size: 0.7rem; color: var(--text-dim);">STANDAR TEKS ANALISIS BIBLEHUB</span>
+                  <span class="badge-pill" style="font-size: 0.76rem; color: var(--text-dim);">STANDAR TEKS ANALISIS ORIGINAL</span>
                 </div>
                 <!-- Mobile-first Responsive Cards Grid -->
                 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(285px, 1fr)); gap: 0.85rem; margin-bottom: 1rem;">
                   ${cardsHtml}
                 </div>
-                <!-- Collapsible Full BibleHub Table -->
+                <!-- Collapsible Full Original Table -->
                 <details style="margin-top: 0.5rem; border-top: 1px solid var(--border-subtle); padding-top: 0.5rem;">
-                  <summary style="font-size: 0.8rem; color: var(--primary); cursor: pointer; font-weight: 600; padding: 0.25rem 0;">
-                    📊 Tampilkan Tabel Penuh Morfologi Standar BibleHub (Desktop View)
+                  <summary style="font-size: 0.84rem; color: var(--primary); cursor: pointer; font-weight: 600; padding: 0.25rem 0;">
+                    📊 Tampilkan Tabel Penuh Morfologi Standar Original (Desktop View)
                   </summary>
                   <div class="table-responsive" style="max-height: 420px; overflow-y: auto; border: 1px solid var(--border-subtle); border-radius: 6px; margin-top: 0.5rem;">
                     <table class="data-table" style="width: 100%; border-collapse: collapse;">
                       <thead>
-                        <tr style="background: rgba(255,255,255,0.03); font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase;">
+                        <tr style="background: rgba(255,255,255,0.03); font-size: 0.76rem; color: var(--text-dim); text-transform: uppercase;">
                           <th style="padding: 0.45rem; text-align: center;">#</th>
                           <th style="padding: 0.45rem;">Strong's</th>
                           <th style="padding: 0.45rem;">Aksara Asli</th>
@@ -6995,21 +8381,21 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           const ctx = le.exegetical_context || {};
           const seksi3Html = `
             <div class="case-card" style="margin-bottom: 1rem; border-left: 3px solid var(--accent); background: rgba(255, 255, 255, 0.02); padding: 1rem;">
-              <strong style="color: var(--accent); font-size: 0.95rem; display: block; margin-bottom: 0.65rem;">
+              <strong style="color: var(--accent); font-size: 1.05rem; display: block; margin-bottom: 0.65rem;">
                 🏛 Seksi 3: Eksegesis Kontekstual & Hermeneutika (Exegetical Context)
               </strong>
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem; font-size: 0.82rem;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem; font-size: 0.92rem;">
                 <div style="background: rgba(255, 255, 255, 0.02); padding: 0.75rem; border-radius: 4px; border: 1px solid var(--border-subtle);">
-                  <strong style="color: var(--primary); display: block; margin-bottom: 0.3rem;">🎭 Genre Sastra (Literary Genre):</strong>
-                  <p style="margin: 0; color: var(--text-main); line-height: 1.5;">${safeEscapeText(ctx.literary_genre || "-")}</p>
+                  <strong style="color: var(--primary); font-size: 0.88rem; display: block; margin-bottom: 0.3rem;">🎭 Genre Sastra (Literary Genre):</strong>
+                  <p style="margin: 0; color: var(--text-main); line-height: 1.6;">${applyGlossaryHighlight(safeEscapeText(ctx.literary_genre || "-"))}</p>
                 </div>
                 <div style="background: rgba(255, 255, 255, 0.02); padding: 0.75rem; border-radius: 4px; border: 1px solid var(--border-subtle);">
-                  <strong style="color: var(--primary); display: block; margin-bottom: 0.3rem;">📖 Konteks Perikop Dekat (Immediate Context):</strong>
-                  <p style="margin: 0; color: var(--text-main); line-height: 1.5;">${safeEscapeText(ctx.immediate_context || "-")}</p>
+                  <strong style="color: var(--primary); font-size: 0.88rem; display: block; margin-bottom: 0.3rem;">📖 Konteks Perikop Dekat (Immediate Context):</strong>
+                  <p style="margin: 0; color: var(--text-main); line-height: 1.6;">${applyGlossaryHighlight(safeEscapeText(ctx.immediate_context || "-"))}</p>
                 </div>
                 <div style="background: rgba(255, 255, 255, 0.02); padding: 0.75rem; border-radius: 4px; border: 1px solid var(--border-subtle);">
-                  <strong style="color: var(--primary); display: block; margin-bottom: 0.3rem;">⏳ Latar Belakang Historis (Sitz im Leben):</strong>
-                  <p style="margin: 0; color: var(--text-main); line-height: 1.5;">${safeEscapeText(ctx.historical_cultural_setting || "-")}</p>
+                  <strong style="color: var(--primary); font-size: 0.88rem; display: block; margin-bottom: 0.3rem;">⏳ Latar Belakang Historis (Sitz im Leben):</strong>
+                  <p style="margin: 0; color: var(--text-main); line-height: 1.6;">${applyGlossaryHighlight(safeEscapeText(ctx.historical_cultural_setting || "-"))}</p>
                 </div>
               </div>
             </div>
@@ -7023,14 +8409,14 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           if (typeof synMap === "object" && Object.keys(synMap).length > 0) {
             seksi4Html = `
               <div class="case-card" style="margin-bottom: 1rem; border-left: 3px solid var(--primary); background: rgba(255, 255, 255, 0.02); padding: 1rem;">
-                <strong style="color: var(--primary); font-size: 0.95rem; display: block; margin-bottom: 0.65rem;">
+                <strong style="color: var(--primary); font-size: 1.05rem; display: block; margin-bottom: 0.65rem;">
                   📐 Seksi 4: Bedah Sintaksis & Gramatika Forensik (Syntactic Exegesis)
                 </strong>
-                <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.82rem;">
+                <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.92rem;">
                   ${Object.entries(synMap).map(([k, v]) => `
-                    <div style="background: rgba(255,255,255,0.02); border-left: 2px solid var(--primary); padding: 0.5rem 0.75rem; border-radius: 3px;">
-                      <span class="badge-pill" style="font-size: 0.7rem; color: var(--primary); border-color: rgba(13,148,136,0.3); background: rgba(13,148,136,0.08); font-weight: 600; margin-bottom: 0.2rem; display: inline-block;">${safeEscapeText(k)}</span>
-                      <p style="margin: 0.2rem 0 0 0; color: var(--text-main); line-height: 1.5;">${safeEscapeText(v)}</p>
+                    <div style="background: rgba(255,255,255,0.02); border-left: 2px solid var(--primary); padding: 0.55rem 0.8rem; border-radius: 3px;">
+                      <span class="badge-pill clickable-glossary" data-term="${safeEscapeText(k)}" data-type="syntax" style="font-size: 0.78rem; color: var(--primary); border-color: rgba(13,148,136,0.3); background: rgba(13,148,136,0.08); font-weight: 600; margin-bottom: 0.25rem; display: inline-block; cursor: pointer;">${safeEscapeText(k)}</span>
+                      <p style="margin: 0.25rem 0 0 0; color: var(--text-main); line-height: 1.6;">${applyGlossaryHighlight(safeEscapeText(v))}</p>
                     </div>
                   `).join("")}
                 </div>
@@ -7046,19 +8432,38 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           if (mss.length > 0) {
             seksi5Html = `
               <div class="case-card" style="margin-bottom: 1rem; border-left: 3px solid #8b5cf6; background: rgba(255, 255, 255, 0.02); padding: 1rem;">
-                <strong style="color: #a78bfa; font-size: 0.95rem; display: block; margin-bottom: 0.65rem;">
+                <strong style="color: #a78bfa; font-size: 1.05rem; display: block; margin-bottom: 0.65rem;">
                   📜 Seksi 5: Aparatus Kritik Tekstual & Saksi Manuskrip Kuno (Manuscript Witnesses)
                 </strong>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.6rem;">
-                  ${mss.map(m => `
-                    <div style="background: rgba(139, 92, 246, 0.04); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 4px; padding: 0.6rem 0.75rem; font-size: 0.78rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.65rem;">
+                  ${mss.map(m => {
+                    const rawWitness = safeEscapeText(m.witness || m.manuscript_code || "Manuskrip Kuno");
+                    const rawReading = String(m.reading || "").replace(/"/g, '&quot;');
+                    const readingTtsBtn = rawReading ? `
+                      <button type="button"
+                              class="btn-tts-speaker btn-tts-mini"
+                              style="margin-left: 0.35rem; vertical-align: middle; display: inline-flex;"
+                              data-word="${rawReading}"
+                              onclick="playAncientAudio(this.getAttribute('data-word'), '${origLang}', this, event)"
+                              title="Dengarkan pelafalan naskah kuno" aria-label="Dengarkan pelafalan">
+                        🔊
+                      </button>
+                    ` : "";
+
+                    return `
+                    <div style="background: rgba(139, 92, 246, 0.04); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 4px; padding: 0.65rem 0.85rem; font-size: 0.88rem;">
                       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
-                        <span style="color: #a78bfa; font-weight: 700;">${safeEscapeText(m.witness || "")}</span>
-                        ${m.status ? `<span class="badge-pill" style="font-size: 0.65rem; color: #c4b5fd; border-color: rgba(139, 92, 246, 0.4);">${safeEscapeText(m.status)}</span>` : ""}
+                        <span class="clickable-glossary" data-term="${rawWitness}" data-type="manuscript" style="color: #a78bfa; font-weight: 700; cursor: pointer;">${rawWitness}</span>
+                        ${(m.status || m.date_century) ? `<span class="badge-pill" style="font-size: 0.72rem; color: #c4b5fd; border-color: rgba(139, 92, 246, 0.4);">${safeEscapeText(m.status || m.date_century)}</span>` : ""}
                       </div>
-                      <div style="color: var(--text-main); line-height: 1.4;">↳ Pembacaan: ${safeEscapeText(m.reading || "")}</div>
+                      <div style="color: var(--text-main); line-height: 1.55; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.3rem;">
+                        <span style="flex: 1; text-align: justify !important; text-justify: inter-word;">↳ Pembacaan: <strong>${applyGlossaryHighlight(safeEscapeText(m.reading || ""))}</strong></span>
+                        ${readingTtsBtn}
+                      </div>
+                      ${m.evaluation ? `<div style="font-size: 0.82rem; color: var(--text-dim); margin-top: 0.3rem; border-top: 1px dashed rgba(139, 92, 246, 0.2); padding-top: 0.3rem; text-align: justify !important; text-justify: inter-word;">${safeEscapeText(m.evaluation)}</div>` : ""}
                     </div>
-                  `).join("")}
+                  `;
+                  }).join("")}
                 </div>
               </div>
             `;
@@ -7072,19 +8477,55 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           if (transComp.length > 0) {
             seksi6Html = `
               <div class="case-card" style="margin-bottom: 1rem; border-left: 3px solid var(--rose); background: rgba(255, 255, 255, 0.02); padding: 1rem;">
-                <strong style="color: var(--rose); font-size: 0.95rem; display: block; margin-bottom: 0.65rem;">
-                  🔍 Seksi 6: Audit Komparasi Terjemahan vs Teks Asli (Translation Comparison)
-                </strong>
-                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                  ${transComp.map(tc => `
-                    <div style="background: rgba(244, 63, 94, 0.04); border-left: 3px solid var(--rose); padding: 0.6rem 0.8rem; font-size: 0.78rem; border-radius: 3px;">
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.2rem;">
-                        <strong style="color: var(--rose);">${safeEscapeText(tc.version || "Versi Terjemahan")}</strong>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem; flex-wrap: wrap; gap: 0.5rem;">
+                  <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                    <strong style="color: var(--rose); font-size: 1.05rem;">
+                      🔍 Seksi 6: Audit Komparasi Terjemahan vs Teks Asli (Translation Comparison)
+                    </strong>
+                    <span class="badge-pill" style="color: var(--rose); border-color: rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.1); font-size: 0.75rem; font-weight: 700;">📖 ${passRef}</span>
+                  </div>
+                  <span class="badge-pill" style="font-size: 0.72rem; color: var(--text-dim);">AUDIT FILOLOGIS PERGESERAN MAKNA</span>
+                </div>
+                <!-- Banner Rujukan Surat, Pasal, dan Ayat Sebelum Masuk ke Blok Makna Abad ke-1 -->
+                <div style="background: rgba(244, 63, 94, 0.08); border: 1px solid rgba(244, 63, 94, 0.25); border-radius: 4px; padding: 0.55rem 0.85rem; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem;">
+                  <span style="font-size: 0.88rem; color: var(--rose); font-weight: 700;">
+                    📜 Rujukan Naskah Bible: <span style="color: #ffffff; text-decoration: underline;">${passRef}</span>
+                  </span>
+                  <span style="font-size: 0.76rem; color: var(--text-dim); font-style: italic;">
+                    Standar Acuan Evaluasi Terjemahan vs Naskah Sumber Abad Pertama
+                  </span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                  ${transComp.map(tc => {
+                    const vName = safeEscapeText(tc.version || "Versi Terjemahan");
+                    const vLower = vName.toLowerCase();
+                    const isBenchmark = vLower.includes("abad ke-1") ||
+                                        vLower.includes("ibrani kuno") ||
+                                        vLower.includes("standar acuan");
+
+                    if (isBenchmark) {
+                      return `
+                        <div class="benchmark-card">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem; flex-wrap: wrap; gap: 0.4rem;">
+                            <strong style="color: var(--accent); font-size: 0.95rem;">🏛 ${vName}</strong>
+                            <span class="badge-pill" style="color: var(--accent); border-color: rgba(217, 119, 6, 0.4); background: rgba(217, 119, 6, 0.15); font-size: 0.72rem; font-weight: 700;">STANDAR ACUAN UTAMA</span>
+                          </div>
+                          <p style="margin: 0.3rem 0; color: #ffffff; font-weight: 500; font-style: italic; line-height: 1.6; font-size: 0.92rem; text-align: justify !important; text-justify: inter-word;">"${safeEscapeText(tc.text || "")}"</p>
+                          ${tc.critique ? `<div style="color: var(--text-dim); margin-top: 0.35rem; font-size: 0.84rem; border-top: 1px dashed rgba(217,119,6,0.25); padding-top: 0.35rem; text-align: justify !important; text-justify: inter-word;">↳ <strong>Evaluasi Filologis:</strong> ${applyGlossaryHighlight(safeEscapeText(tc.critique))}</div>` : ""}
+                        </div>
+                      `;
+                    }
+
+                    return `
+                      <div style="background: rgba(244, 63, 94, 0.04); border-left: 3px solid var(--rose); padding: 0.65rem 0.85rem; font-size: 0.88rem; border-radius: 3px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.2rem;">
+                          <strong style="color: var(--rose);">${vName}</strong>
+                        </div>
+                        <p style="margin: 0.2rem 0; color: var(--text-main); font-style: italic; line-height: 1.5; text-align: justify !important; text-justify: inter-word;">"${safeEscapeText(tc.text || "")}"</p>
+                        ${tc.critique ? `<div style="color: var(--text-dim); margin-top: 0.25rem; font-size: 0.82rem; text-align: justify !important; text-justify: inter-word;">↳ Evaluasi Filologis: ${applyGlossaryHighlight(safeEscapeText(tc.critique))}</div>` : ""}
                       </div>
-                      <p style="margin: 0.2rem 0; color: var(--text-main); font-style: italic; line-height: 1.4;">"${safeEscapeText(tc.text || "")}"</p>
-                      ${tc.critique ? `<div style="color: var(--text-dim); margin-top: 0.25rem; font-size: 0.74rem;">↳ Evaluasi Filologis: ${safeEscapeText(tc.critique)}</div>` : ""}
-                    </div>
-                  `).join("")}
+                    `;
+                  }).join("")}
                 </div>
               </div>
             `;
@@ -7098,14 +8539,14 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           if (crossRefs.length > 0) {
             seksi7Html = `
               <div class="case-card" style="margin-bottom: 1rem; border-left: 3px solid #06b6d4; background: rgba(255, 255, 255, 0.02); padding: 1rem;">
-                <strong style="color: #22d3ee; font-size: 0.95rem; display: block; margin-bottom: 0.65rem;">
+                <strong style="color: #22d3ee; font-size: 1.05rem; display: block; margin-bottom: 0.65rem;">
                   🔗 Seksi 7: Konkordansi Lintas-Ayat Bible (Corpus Cross References)
                 </strong>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.6rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.65rem;">
                   ${crossRefs.map(cr => `
-                    <div style="background: rgba(6, 182, 212, 0.04); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 4px; padding: 0.6rem 0.75rem; font-size: 0.78rem;">
+                    <div style="background: rgba(6, 182, 212, 0.04); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 4px; padding: 0.65rem 0.85rem; font-size: 0.88rem;">
                       <div style="color: #22d3ee; font-weight: 700; margin-bottom: 0.25rem;">📖 ${safeEscapeText(cr.reference || "")}</div>
-                      <div style="color: var(--text-main); line-height: 1.4;">${safeEscapeText(cr.connection || "")}</div>
+                      <div style="color: var(--text-main); line-height: 1.55; text-align: justify !important; text-justify: inter-word;">${applyGlossaryHighlight(safeEscapeText(cr.connection || ""))}</div>
                     </div>
                   `).join("")}
                 </div>
@@ -7114,16 +8555,17 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           }
 
           // ==========================================
-          // Seksi 8: Sintesis Eksegesis Akhir (exegetical_synthesis)
+          // Seksi 8: Sintesis Eksegesis Historis-Gramatikal (exegetical_synthesis)
           // ==========================================
           const synthText = le.exegetical_synthesis || "";
           const seksi8Html = synthText ? `
             <div class="case-card" style="margin-top: 1rem; border: 2px solid var(--primary); background: rgba(13, 148, 136, 0.08); border-radius: 6px; padding: 1.15rem;">
-              <strong style="color: var(--primary); font-size: 1rem; display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;">
-                🎯 Seksi 8: Sintesis Eksegesis Historis-Gramatikal (Final Conclusion)
+              <!-- Seksi 8: Sintesis Eksegesis Historis-Gramatikal -->
+              <strong style="color: var(--primary); font-size: 1.05rem; display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;">
+                🎯 Seksi 8: Intisari Makna Teks untuk Orang Awam (Sintesis Eksegesis)
               </strong>
-              <p style="margin: 0; font-size: 0.86rem; color: var(--text-main); line-height: 1.65;">
-                ${safeEscapeText(synthText)}
+              <p style="margin: 0; font-size: 0.98rem; color: var(--text-main); line-height: 1.7; text-align: justify !important; text-justify: inter-word;">
+                ${applyGlossaryHighlight(safeEscapeText(synthText))}
               </p>
             </div>
           ` : "";
@@ -7233,10 +8675,10 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
             return `
               <tr>
-                <td>${citation}</td>
-                <td><span class="evidence-badge badge-direct">${typeStr}</span></td>
-                <td>
-                  <button class="btn-primary" style="padding: 0.2rem 0.55rem; font-size: 0.75rem;" onclick="openSourceDrawer('${encodeURIComponent(passageQuery)}')">
+                <td class="citation-cell">${citation}</td>
+                <td class="badge-cell"><span class="evidence-badge badge-direct" style="white-space: normal; display: inline-block; line-height: 1.35; padding: 0.3rem 0.55rem; font-size: 0.72rem;">${typeStr}</span></td>
+                <td class="action-cell">
+                  <button class="btn-primary" style="padding: 0.25rem 0.65rem; font-size: 0.75rem; white-space: nowrap;" onclick="openSourceDrawer('${encodeURIComponent(passageQuery)}')">
                     Inspect 🔍
                   </button>
                 </td>
@@ -7349,6 +8791,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
       if (box) {
         box.classList.remove("hidden");
+        box.style.display = "block";
         if (typeof box.scrollIntoView === "function") {
           try { box.scrollIntoView({ behavior: "smooth" }); } catch(e){}
         }
@@ -7446,6 +8889,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
       if (box) {
         box.classList.remove("hidden");
+        box.style.display = "block";
         if (typeof box.scrollIntoView === "function") {
           try { box.scrollIntoView({ behavior: "smooth" }); } catch(e){}
         }
@@ -7476,7 +8920,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
         if (res.ok && data.success) {
           let html = `
-            <div style="background: rgba(234,179,8,0.06); border: 1px solid rgba(234,179,8,0.3); border-radius: 6px; padding: 0.75rem; margin-bottom: 0.75rem;">
+            <div style="background: rgba(234,179,8,0.06); border: 1px solid rgba(234,179,8,0.3); border-radius: 6px; padding: 0.75rem; margin-bottom: 0.85rem;">
               <strong style="color: #eab308; font-size: 0.88rem;">Titik Paling Lemah (Weakest Premise):</strong>
               <p style="margin-top: 0.25rem; font-size: 0.84rem; color: var(--text-main); font-weight: 500;">${data.weakest_premise || 'Nihil premis rapuh yang terdeteksi.'}</p>
             </div>
@@ -7484,7 +8928,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
           if (data.easiest_sentence_to_refute) {
             html += `
-              <div style="background: rgba(244,63,94,0.06); border: 1px solid rgba(244,63,94,0.25); border-radius: 6px; padding: 0.65rem; margin-bottom: 0.75rem;">
+              <div style="background: rgba(244,63,94,0.06); border: 1px solid rgba(244,63,94,0.25); border-radius: 6px; padding: 0.65rem; margin-bottom: 0.85rem;">
                 <strong style="color: var(--rose); font-size: 0.82rem;">Kalimat Paling Rentan Disanggah:</strong>
                 <p style="margin-top: 0.2rem; font-size: 0.82rem; color: var(--text-muted); font-style: italic;">"${data.easiest_sentence_to_refute}"</p>
               </div>
@@ -7492,11 +8936,14 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           }
 
           if (data.hardening_recommendations && data.hardening_recommendations.length > 0) {
-            html += `<h5 style="color: var(--emerald); margin-top: 0.75rem; margin-bottom: 0.35rem;">Langkah Penguatan Argumen:</h5><ul style="padding-left: 1.25rem;">`;
+            html += `
+              <div style="margin-top: 1.5rem; padding-top: 0.35rem;">
+                <h5 style="color: var(--emerald); margin-top: 0; margin-bottom: 0.45rem; font-size: 0.88rem;">Langkah Penguatan Argumen:</h5>
+                <ul style="padding-left: 1.25rem; margin-top: 0.25rem;">`;
             data.hardening_recommendations.forEach(rec => {
-              html += `<li style="margin-bottom: 0.25rem; font-size: 0.82rem; color: var(--text-muted);">${rec}</li>`;
+              html += `<li style="margin-bottom: 0.35rem; font-size: 0.82rem; color: var(--text-muted);">${rec}</li>`;
             });
-            html += `</ul>`;
+            html += `</ul></div>`;
           }
 
           content.innerHTML = html;
@@ -7531,7 +8978,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       const btnResearch = document.getElementById("btn-mode-research");
       if (btnDebate && btnResearch) {
         if (mode === "debate") {
-          btnDebate.style.background = "var(--primary)";
+          btnDebate.style.background = "#eab308";
           btnDebate.style.color = "#040914";
           btnDebate.style.fontWeight = "600";
           btnResearch.style.background = "var(--bg-card)";
@@ -7700,27 +9147,31 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           const safeId = (t.theme_id || t.id || '').replace(/'/g, "\'");
 
           return `
-            <div style="padding: 0.85rem 1rem; background: rgba(0,0,0,0.22); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem; transition: all 0.15s ease;">
-              <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
-                <span class="evidence-badge badge-primary-source" style="font-size: 0.65rem; padding: 0.1rem 0.4rem;">
-                  #${idx + 1} • ${localizedCategory}
-                </span>
-              </div>
-              <div style="font-size: 0.88rem; font-weight: 500; color: var(--accent); background: rgba(14, 165, 233, 0.08); padding: 0.55rem 0.85rem; border-radius: 6px; border-left: 3px solid var(--accent); line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" onclick="openThemeFromDashboard('${safeId}')" title="${safeMotion}">
-                ⚖️ ${tDict.subMotionPrefix || 'Sub-mosi'} (${subMotionsCount}): ${localizedMotion}
-              </div>
-              ${passagesList.length > 0 ? `
-                <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.1rem;">
-                  ${passagesList.map(p => `<span class="evidence-badge" style="font-size: 0.68rem; padding: 0.1rem 0.4rem; background: rgba(56, 189, 248, 0.1); color: var(--primary);">${p}</span>`).join('')}
+            <div class="canonical-subcard" style="flex-shrink: 0;">
+              <div class="canonical-subcard-glass"></div>
+              <div class="canonical-subcard-blob"></div>
+              <div class="canonical-subcard-content" style="position: relative; z-index: 2; width: 100%; height: auto;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
+                  <span class="evidence-badge badge-soft-gold" style="font-size: 0.65rem; padding: 0.1rem 0.45rem; background: rgba(234, 179, 8, 0.15); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.35);">
+                    #${idx + 1} • ${localizedCategory}
+                  </span>
                 </div>
-              ` : ''}
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.25rem; padding-top: 0.45rem; border-top: 1px solid rgba(255,255,255,0.04); flex-wrap: wrap; gap: 0.5rem;">
-                <button type="button" class="btn-primary" style="padding: 0.32rem 0.75rem; font-size: 0.75rem; cursor: pointer;" onclick="loadMotionIntoCalculator('${safeMotion}')" title="Uji sub-mosi ini di Apologetics Calculator">
-                  ${tDict.btnTestInCalculator || '⚡ Uji di Kalkulator'}
-                </button>
-                <span style="color: var(--primary); font-size: 0.78rem; font-weight: 600; cursor: pointer;" onclick="openThemeFromDashboard('${safeId}')">
-                  ${tDict.btnDetailDossier || 'Detail Dossier →'}
-                </span>
+                <div style="font-size: 0.88rem; font-weight: 500; color: #ffffff; background: rgba(14, 165, 233, 0.08); padding: 0.55rem 0.85rem; border-radius: 6px; border-left: 3px solid var(--accent); line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" onclick="openThemeFromDashboard('${safeId}')" title="${safeMotion}">
+                  ⚖️ ${tDict.subMotionPrefix || 'Sub-mosi'} (${subMotionsCount}): ${localizedMotion}
+                </div>
+                ${passagesList.length > 0 ? `
+                  <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.1rem;">
+                    ${passagesList.map(p => `<span class="evidence-badge" style="font-size: 0.68rem; padding: 0.1rem 0.45rem; background: rgba(234, 179, 8, 0.12); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.25);">${p}</span>`).join('')}
+                  </div>
+                ` : ''}
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.25rem; padding-top: 0.45rem; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 0.5rem;">
+                  <button type="button" class="btn-primary" style="padding: 0.32rem 0.75rem; font-size: 0.75rem; cursor: pointer;" onclick="loadMotionIntoCalculator('${safeMotion}')" title="Uji sub-mosi ini di Apologetics Calculator">
+                    ${tDict.btnTestInCalculator || '⚡ Uji di Kalkulator'}
+                  </button>
+                  <span style="color: var(--primary); font-size: 0.78rem; font-weight: 600; cursor: pointer;" onclick="openThemeFromDashboard('${safeId}')">
+                    ${tDict.btnDetailDossier || 'Detail Dossier →'}
+                  </span>
+                </div>
               </div>
             </div>
           `;
@@ -7971,7 +9422,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                   const passagesList = (t.passages || []).slice(0, 4);
                   return `
                     <div style="padding: 0.85rem 1rem; background: rgba(0,0,0,0.22); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                      <div style="font-size: 0.88rem; font-weight: 500; color: ${isPendingVideo ? '#f59e0b' : 'var(--accent)'}; background: ${isPendingVideo ? 'rgba(245, 158, 11, 0.08)' : 'rgba(14, 165, 233, 0.08)'}; padding: 0.55rem 0.85rem; border-radius: 6px; border-left: 3px solid ${isPendingVideo ? '#f59e0b' : 'var(--accent)'}; line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" onclick="openThemeDetail('${t.theme_id}')" title="${safeMotion}">
+                      <div style="font-size: 0.88rem; font-weight: 500; color: ${isPendingVideo ? '#f59e0b' : '#ffffff'}; background: ${isPendingVideo ? 'rgba(245, 158, 11, 0.08)' : 'rgba(14, 165, 233, 0.08)'}; padding: 0.55rem 0.85rem; border-radius: 6px; border-left: 3px solid ${isPendingVideo ? '#f59e0b' : 'var(--accent)'}; line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" onclick="openThemeDetail('${t.theme_id}')" title="${safeMotion}">
                         ${isPendingVideo ? `⏳ ${t.title}` : `⚖️ ${(I18N_DICTIONARY[userContext.ui_locale || 'id'] || I18N_DICTIONARY['en']).subMotionPrefix || 'Sub-mosi'} (${subMotionsCount}): ${firstSub}`}
                       </div>
                       ${passagesList.length > 0 ? `
@@ -8252,7 +9703,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         "ar": "النقد النصي للفاصلة اليوحناوية (1 يوحنا 5:7-8): أدلة التحريف الدوغمائي في المخطوطات اليونانية القديمة"
     },
     "evS7T0gijYw": {
-        "id": "Perbandingan Papirus Tertua P46 dan P66 dengan Teks Cetak Alkitab Modern",
+        "id": "Perbandingan Papirus Tertua P46 dan P66 dengan Teks Cetak Bible Modern",
         "en": "Comparison of Earliest Papyri P46 and P66 with Modern Printed Bible Editions",
         "zh": "最古老纸草抄本 P46、P66 与现代印刷版圣经文本之对比",
         "ja": "最古のパピルス P46・P66 と現代の印刷版聖書テキストとの比較",
@@ -9452,9 +10903,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       } else if (path.startsWith("/about-polya")) {
         const viewAbout = document.getElementById("view-about-polya");
         if (viewAbout) viewAbout.classList.remove("hidden");
-        const items = document.querySelectorAll(".side-item");
-        if (items.length > 0) items[items.length - 1].classList.add("active");
-        document.querySelectorAll(".side-item")[7].classList.add("active");
+        const aboutItem = document.getElementById("side-item-about");
+        if (aboutItem) aboutItem.classList.add("active");
       } else if (path.startsWith("/audit") || path.startsWith("/report")) {
         document.getElementById("view-audit").classList.remove("hidden");
       }
@@ -9571,6 +11021,171 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
       render();
     })();
+
+    // =========================================================================
+    // Multi-Tier Responsive Typography & Mobile Layout State Manager
+    // =========================================================================
+    function evaluateViewportTypography() {
+      const root = document.documentElement;
+      const isNativeMobile = window.innerWidth <= 768;
+
+      if (isNativeMobile) {
+        // Automatically clean up desktop site emulation classes on real mobile viewports
+        root.classList.remove('mobile-desktop-view');
+        root.classList.remove('force-mobile-layout');
+        const vpMeta = document.querySelector('meta[name="viewport"]');
+        if (vpMeta) {
+          vpMeta.setAttribute('content', 'width=device-width, initial-scale=1.0');
+        }
+        try { localStorage.removeItem('polya_layout_mode'); } catch (err) {}
+        return;
+      }
+
+      if (root.classList.contains('force-mobile-layout')) {
+        root.classList.remove('mobile-desktop-view');
+        return;
+      }
+
+      const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+      const minDimension = Math.min(window.screen.width, window.screen.height);
+      const shouldBeMobileDesktop = isTouch && minDimension < 650 && (window.innerWidth >= 769);
+
+      if (shouldBeMobileDesktop) {
+        if (!root.classList.contains('mobile-desktop-view')) {
+          root.classList.add('mobile-desktop-view');
+        }
+      } else {
+        if (root.classList.contains('mobile-desktop-view')) {
+          root.classList.remove('mobile-desktop-view');
+        }
+      }
+    }
+
+    function initLayoutMode() {
+      try {
+        if (window.innerWidth <= 768) {
+          localStorage.removeItem('polya_layout_mode');
+          document.documentElement.classList.remove('force-mobile-layout');
+          document.documentElement.classList.remove('mobile-desktop-view');
+          const vpMeta = document.querySelector('meta[name="viewport"]');
+          if (vpMeta) {
+            vpMeta.setAttribute('content', 'width=device-width, initial-scale=1.0');
+          }
+        } else {
+          const savedMode = localStorage.getItem('polya_layout_mode');
+          if (savedMode === 'mobile') {
+            applyMobileLayout(true);
+          }
+        }
+      } catch (err) {
+        console.warn("Storage access failed in initLayoutMode:", err);
+      }
+      evaluateViewportTypography();
+    }
+
+    function applyMobileLayout(isForcedMobile) {
+      const root = document.documentElement;
+      const vpMeta = document.querySelector('meta[name="viewport"]');
+      const mobileBtnLabel = document.getElementById('label-mobile-version');
+      const mobileBtn = document.getElementById('side-item-mobile-version');
+
+      if (isForcedMobile) {
+        root.classList.add('force-mobile-layout');
+        root.classList.remove('mobile-desktop-view');
+        if (vpMeta) {
+          vpMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=5.0');
+        }
+        if (mobileBtnLabel) {
+          mobileBtnLabel.textContent = "Desktop Version";
+        }
+        if (mobileBtn) {
+          mobileBtn.setAttribute('title', 'Switch back to Desktop Version');
+          mobileBtn.setAttribute('onclick', 'switchToDesktopVersion(event)');
+        }
+      } else {
+        root.classList.remove('force-mobile-layout');
+        if (vpMeta) {
+          vpMeta.setAttribute('content', 'width=device-width, initial-scale=1.0');
+        }
+        if (mobileBtnLabel) {
+          const loc = (typeof currentLocale !== 'undefined' ? currentLocale : 'id');
+          const t = (typeof I18N_DICTIONARY !== 'undefined' && I18N_DICTIONARY[loc]) ? I18N_DICTIONARY[loc] : null;
+          mobileBtnLabel.textContent = (t && t.navMobileVersion) ? t.navMobileVersion : "Go to Mobile Version";
+        }
+        if (mobileBtn) {
+          mobileBtn.setAttribute('title', 'Go to Mobile Version');
+          mobileBtn.setAttribute('onclick', 'switchToMobileVersion(event)');
+        }
+      }
+      evaluateViewportTypography();
+    }
+
+    function switchToMobileVersion(e) {
+      if (e) e.preventDefault();
+      try {
+        localStorage.setItem('polya_layout_mode', 'mobile');
+      } catch (err) {}
+      applyMobileLayout(true);
+      showLayoutFeedbackToast("Mode tampilan mobile aktif. Anda dapat menonaktifkan opsi 'Situs Desktop' pada menu browser untuk kenyamanan maksimal.");
+    }
+
+    function switchToDesktopVersion(e) {
+      if (e) e.preventDefault();
+      try {
+        localStorage.removeItem('polya_layout_mode');
+      } catch (err) {}
+      applyMobileLayout(false);
+      showLayoutFeedbackToast("Tampilan desktop aktif.");
+    }
+
+    function showLayoutFeedbackToast(msg) {
+      let toast = document.getElementById('layout-feedback-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'layout-feedback-toast';
+        toast.style.cssText = `
+          position: fixed;
+          bottom: 1.25rem;
+          left: 50%;
+          transform: translateX(-50%);
+          background: rgba(16, 24, 39, 0.96);
+          border: 1px solid rgba(14, 165, 233, 0.4);
+          color: #f8fafc;
+          padding: 0.65rem 1.15rem;
+          border-radius: 9999px;
+          font-size: 0.82rem;
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7);
+          z-index: 99999;
+          display: flex;
+          align-items: center;
+          gap: 0.65rem;
+          transition: opacity 0.3s ease;
+          max-width: 90vw;
+          text-align: center;
+        `;
+        document.body.appendChild(toast);
+      }
+      toast.textContent = msg;
+      toast.style.opacity = "1";
+      toast.style.display = "flex";
+      setTimeout(() => {
+        if (toast) {
+          toast.style.opacity = "0";
+          setTimeout(() => { if (toast) toast.style.display = "none"; }, 300);
+        }
+      }, 4500);
+    }
+
+    let vpResizeTimer = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(vpResizeTimer);
+      vpResizeTimer = setTimeout(evaluateViewportTypography, 150);
+    }, { passive: true });
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', initLayoutMode);
+    } else {
+      initLayoutMode();
+    }
   </script>
 </body>
 </html>

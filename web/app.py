@@ -40,8 +40,8 @@ training_service = DebateTrainingService.get_instance()
 
 
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Request, HTTPException, UploadFile, File, Depends, Header
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Request, HTTPException, UploadFile, File, Depends, Header, Query
+from fastapi.responses import HTMLResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from groq import Groq
@@ -248,6 +248,75 @@ async def generate_gemini_tts(text: str, voice: str = "Kore") -> Optional[str]:
     return await loop.run_in_executor(None, _call_gemini)
 
 
+async def generate_ancient_speech(text: str, lang: str = "el") -> Optional[bytes]:
+    """Generates audio pronunciation for ancient/scriptural languages (Greek, Hebrew, Aramaic, Arabic)
+    with SHA-256 disk caching and gTTS engine."""
+    if not text or not text.strip():
+        return None
+
+    # Clean punctuation, brackets, diacritical apparatus markers, and numbers
+    clean_text = re.sub(r'[,.:;·?!\"\'\(\)\[\]{}—–<>#0-9\n\r\t/\\-]', ' ', text).strip()
+    clean_text = re.sub(r'\s+', ' ', clean_text)
+    if not clean_text:
+        return None
+
+    # Language mapping with unicode character detection fallback
+    norm_lang = (lang or "").strip().lower()
+    if re.search(r'[\u0590-\u05FF]', clean_text):
+        gtts_lang = "iw"
+    elif re.search(r'[\u0600-\u06FF]', clean_text):
+        gtts_lang = "ar"
+    elif re.search(r'[\u0370-\u03FF\u1F00-\u1FFF]', clean_text):
+        gtts_lang = "el"
+    elif norm_lang in ["he", "iw", "hebrew", "ibrani", "arc", "aramaic", "aramaik", "syriac"]:
+        gtts_lang = "iw"
+    elif norm_lang in ["ar", "arabic", "arab"]:
+        gtts_lang = "ar"
+    else:
+        gtts_lang = "el"
+
+    try:
+        AUDIO_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    except Exception:
+        pass
+
+    cache_key = hashlib.sha256(f"ancient_tts:{gtts_lang}:{clean_text}".encode("utf-8")).hexdigest()
+    cache_file = AUDIO_CACHE_DIR / f"{cache_key}.mp3"
+    if cache_file.exists() and cache_file.stat().st_size > 100:
+        try:
+            with open(cache_file, "rb") as f:
+                return f.read()
+        except Exception as e:
+            logger.warning(f"Error reading Ancient TTS cache: {e}")
+
+    loop = asyncio.get_event_loop()
+    def _synth():
+        try:
+            from gtts import gTTS
+            tts = gTTS(text=clean_text, lang=gtts_lang)
+            buf = io.BytesIO()
+            tts.write_to_fp(buf)
+            audio_bytes = buf.getvalue()
+            if audio_bytes and len(audio_bytes) > 100:
+                try:
+                    with open(cache_file, "wb") as f:
+                        f.write(audio_bytes)
+                except Exception as ce:
+                    logger.warning(f"Error saving Ancient TTS to cache: {ce}")
+                return audio_bytes
+        except Exception as err:
+            logger.error(f"Ancient TTS synthesis error for '{clean_text}' ({gtts_lang}): {err}")
+            return None
+        return None
+
+    return await loop.run_in_executor(None, _synth)
+
+
+async def generate_greek_word_tts(word: str) -> Optional[bytes]:
+    """Backwards compatibility alias for Greek word TTS."""
+    return await generate_ancient_speech(word, lang="el")
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup sequence:
@@ -293,6 +362,33 @@ except Exception:
 STATIC_DIR = os.path.join(os.path.dirname(__file__), "static")
 os.makedirs(STATIC_DIR, exist_ok=True)
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+
+@app.get("/api/v1/tts/ancient")
+async def get_ancient_tts(
+    text: str = Query(..., description="Ancient text to synthesize"),
+    lang: str = Query("el", description="Language code: el (Greek), he/iw (Hebrew), arc (Aramaic), ar (Arabic)")
+):
+    """Returns MP3 audio pronunciation for ancient languages with SHA-256 disk caching."""
+    if not text or not text.strip():
+        raise HTTPException(status_code=400, detail="Parameter 'text' is required")
+
+    audio_bytes = await generate_ancient_speech(text, lang=lang)
+    if not audio_bytes:
+        raise HTTPException(status_code=500, detail=f"Failed to synthesize ancient speech ({lang})")
+
+    return Response(
+        content=audio_bytes,
+        media_type="audio/mpeg",
+        headers={
+            "Cache-Control": "public, max-age=31536000, immutable",
+            "Content-Disposition": f'inline; filename="ancient_{lang}.mp3"'
+        }
+    )
+
+@app.get("/api/v1/tts/greek")
+async def get_greek_tts(text: str = Query(..., description="Greek word to synthesize")):
+    """Backwards-compatible alias for Greek TTS."""
+    return await get_ancient_tts(text=text, lang="el")
 
 # ---------------------------------------------------------------------------
 # Database Initialization
