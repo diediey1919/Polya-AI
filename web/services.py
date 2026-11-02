@@ -750,6 +750,24 @@ class PaymentService:
     """Midtrans Payment Service with strict SHA-512 Signature verification."""
     DEFAULT_AMOUNT = 99000
 
+    PLAN_TIERS = {
+        "premium": {
+            "name": "Polya Premium (Debater Tier)",
+            "monthly": {"price_usd": 9, "amount_idr": 145000, "label": "3 Months Plan"},
+            "annual": {"price_usd": 79, "amount_idr": 1250000, "label": "Forever Plan"},
+        },
+        "professional": {
+            "name": "Polya Professional (Scholar Tier - Best Value)",
+            "monthly": {"price_usd": 19, "amount_idr": 299000, "label": "3 Months Plan"},
+            "annual": {"price_usd": 149, "amount_idr": 2350000, "label": "Forever Plan"},
+        },
+        "enterprise": {
+            "name": "Polya Enterprise (Institution & Team Tier)",
+            "monthly": {"price_usd": 79, "amount_idr": 1250000, "label": "3 Months Plan"},
+            "annual": {"price_usd": 599, "amount_idr": 9500000, "label": "Forever Plan"},
+        },
+    }
+
     @classmethod
     def get_server_key(cls) -> str:
         return os.environ.get("MIDTRANS_SERVER_KEY", "").strip()
@@ -772,17 +790,26 @@ class PaymentService:
         return "https://app.midtrans.com/snap/v1/transactions" if cls.is_production() else "https://app.sandbox.midtrans.com/snap/v1/transactions"
 
     @classmethod
-    def create_checkout(cls, user_id: str, idempotency_key: Optional[str] = None) -> Dict[str, Any]:
+    def create_checkout(cls, user_id: str, idempotency_key: Optional[str] = None, plan_id: str = "premium", cycle: str = "monthly") -> Dict[str, Any]:
         order_id = f"POLYA-{int(datetime.now().timestamp())}-{uuid.uuid4().hex[:6].upper()}"
         tx_id = f"TX-{uuid.uuid4().hex}"
         now_iso = datetime.now(timezone.utc).isoformat()
         server_key = cls.get_server_key()
         client_key = cls.get_client_key()
 
+        plan_key = plan_id.lower() if plan_id and plan_id.lower() in cls.PLAN_TIERS else "premium"
+        cycle_key = "annual" if cycle and ("annual" in cycle.lower() or "forever" in cycle.lower()) else "monthly"
+        plan_info = cls.PLAN_TIERS[plan_key]
+        tier_details = plan_info[cycle_key]
+        gross_amount = tier_details["amount_idr"]
+        item_name = f"{plan_info['name']} - {tier_details['label']}"
+
         snap_token = None
         redirect_url = None
         metadata = {
-            "plan": "polya_premium_unlimited",
+            "plan": plan_key,
+            "cycle": cycle_key,
+            "price_usd": tier_details["price_usd"],
             "user_id": user_id
         }
 
@@ -798,14 +825,14 @@ class PaymentService:
                 payload = {
                     "transaction_details": {
                         "order_id": order_id,
-                        "gross_amount": cls.DEFAULT_AMOUNT
+                        "gross_amount": gross_amount
                     },
                     "item_details": [
                         {
-                            "id": "polya_premium_unlimited",
-                            "price": cls.DEFAULT_AMOUNT,
+                            "id": f"polya_{plan_key}_{cycle_key}",
+                            "price": gross_amount,
                             "quantity": 1,
-                            "name": "Polya Premium Access (Full Capability)"
+                            "name": item_name[:50]
                         }
                     ],
                     "customer_details": {
@@ -827,7 +854,7 @@ class PaymentService:
                     metadata["redirect_url"] = redirect_url
                     logger.info(f"Midtrans Snap token acquired successfully for {order_id}: {snap_token}")
                 else:
-                    logger.error(f"Midtrans Snap API error [status_code={resp.status_code}]")
+                    logger.error(f"Midtrans Snap API error [status_code={resp.status_code}]: {resp.text}")
             except requests.Timeout:
                 logger.error("Midtrans Snap API request timed out")
             except Exception as e:
@@ -846,7 +873,7 @@ class PaymentService:
                 created_at, updated_at
             ) VALUES (?, ?, ?, ?, 'IDR', 'midtrans', 'pending', 'PAYMENT_PENDING', ?, ?, ?, ?)
             """, (
-                tx_id, user_id, order_id, cls.DEFAULT_AMOUNT, idempotency_key or tx_id,
+                tx_id, user_id, order_id, gross_amount, idempotency_key or tx_id,
                 json.dumps(metadata),
                 now_iso, now_iso
             ))
@@ -854,14 +881,17 @@ class PaymentService:
         # Update user entitlement to PAYMENT_PENDING only if not already active premium
         current_ent = EntitlementService.get_entitlement(user_id)
         if not current_ent.get("is_premium"):
-            EntitlementService.set_entitlement_state(user_id, EntitlementState.PAYMENT_PENDING)
+            EntitlementService.set_entitlement_state(user_id, EntitlementState.PAYMENT_PENDING, plan=plan_key)
 
         return {
             "transaction_id": tx_id,
             "order_id": order_id,
-            "amount": cls.DEFAULT_AMOUNT,
+            "amount": gross_amount,
             "currency": "IDR",
-            "formatted_amount": "Rp99.000",
+            "price_usd": tier_details["price_usd"],
+            "plan_id": plan_key,
+            "cycle": cycle_key,
+            "formatted_amount": f"${tier_details['price_usd']} (Rp{gross_amount:,})",
             "status": "PAYMENT_PENDING",
             "redirect_url": redirect_url,
             "snap_token": snap_token,
@@ -924,7 +954,7 @@ class PaymentService:
         # 3. Transactional update with idempotency & out-of-order protection
         with db_transaction() as conn:
             cursor = conn.cursor()
-            cursor.execute("SELECT user_id, amount, internal_status FROM payment_transactions WHERE order_id = ?", (order_id,))
+            cursor.execute("SELECT user_id, amount, internal_status, metadata_json FROM payment_transactions WHERE order_id = ?", (order_id,))
             tx_row = cursor.fetchone()
 
             if not tx_row:
@@ -932,6 +962,13 @@ class PaymentService:
 
             user_id = tx_row["user_id"]
             current_status = tx_row["internal_status"]
+            plan_name = "premium"
+            if tx_row["metadata_json"]:
+                try:
+                    m = json.loads(tx_row["metadata_json"])
+                    plan_name = m.get("plan", "premium")
+                except Exception:
+                    plan_name = "premium"
 
             # Out-of-order protection: once settled, do not downgrade to pending or failed
             if current_status == EntitlementState.PREMIUM_ACTIVE.value and new_internal_state != EntitlementState.PREMIUM_ACTIVE:
@@ -968,13 +1005,13 @@ class PaymentService:
             # Update entitlement state inside the transaction; preserve existing activated_at timestamp
             cursor.execute("""
             INSERT INTO user_entitlements (user_id, state, plan, activated_at, updated_at)
-            VALUES (?, ?, 'premium', ?, ?)
+            VALUES (?, ?, ?, ?, ?)
             ON CONFLICT(user_id) DO UPDATE SET
                 state = excluded.state,
                 plan = excluded.plan,
                 activated_at = CASE WHEN excluded.state = 'PREMIUM_ACTIVE' THEN COALESCE(user_entitlements.activated_at, excluded.activated_at) ELSE user_entitlements.activated_at END,
                 updated_at = excluded.updated_at
-            """, (user_id, new_internal_state.value, now_iso, now_iso))
+            """, (user_id, new_internal_state.value, plan_name, now_iso, now_iso))
 
         return True, f"Transaction {order_id} updated to {new_internal_state.value}"
 

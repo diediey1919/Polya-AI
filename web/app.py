@@ -2246,6 +2246,11 @@ async def get_user_training_stats_endpoint(user_id: str):
 @app.get("/settings")
 @app.get("/account")
 @app.get("/account/{subpath:path}")
+@app.get("/pricing")
+@app.get("/pricing/{subpath:path}")
+@app.get("/plans")
+@app.get("/ancient-courses")
+@app.get("/kursus-bahasa-kuno")
 @app.get("/audit")
 @app.get("/report")
 async def get_index():

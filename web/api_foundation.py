@@ -127,6 +127,8 @@ class AnalyzeRequest(BaseModel):
 class CheckoutRequest(BaseModel):
     user_id: Optional[str] = "guest_user"
     idempotency_key: Optional[str] = None
+    plan_id: Optional[str] = "premium"
+    cycle: Optional[str] = "monthly"
 
 
 class SessionAuthRequest(BaseModel):
@@ -374,7 +376,12 @@ async def create_checkout(req: CheckoutRequest, authorization: Optional[str] = H
     user_id = req.user_id or "guest_user"
     effective_user_id = verify_user_access(user_id, authorization)
     try:
-        tx = PaymentService.create_checkout(effective_user_id, req.idempotency_key)
+        tx = PaymentService.create_checkout(
+            effective_user_id,
+            req.idempotency_key,
+            plan_id=req.plan_id or "premium",
+            cycle=req.cycle or "monthly"
+        )
         return tx
     except PaymentGatewayError as e:
         raise HTTPException(status_code=e.status_code, detail={"error": "PAYMENT_GATEWAY_ERROR", "message": e.message})

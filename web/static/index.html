@@ -1381,8 +1381,9 @@
       }
     }
 
-    .shine-border-canonical-card {
-      --border-radius: 12px;
+    .shine-border-canonical-card,
+    .shine-border-panel {
+      --border-radius: 14px;
       --border-width: 1.5px;
       --duration: 14s;
       position: relative;
@@ -1396,7 +1397,8 @@
       overflow: hidden;
     }
 
-    .shine-border-canonical-card::before {
+    .shine-border-canonical-card::before,
+    .shine-border-panel::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -1418,8 +1420,14 @@
       z-index: 1;
     }
 
+    .shine-border-panel > * {
+      position: relative;
+      z-index: 2;
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      .shine-border-canonical-card::before {
+      .shine-border-canonical-card::before,
+      .shine-border-panel::before {
         animation: none;
       }
     }
@@ -1728,6 +1736,40 @@
       text-align: right;
     }
 
+    /* ==============================================================
+       UNIFIED OUTPUT ANALYSIS STYLING (Studi Kasus Kanonikal Unggulan Theme)
+       ============================================================== */
+    #case-file-result {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    #case-file-result.shine-border-panel {
+      padding: 1.75rem !important;
+      margin-top: 2rem !important;
+      background: var(--bg-card) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 14px !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45) !important;
+    }
+
+    #case-file-result .case-card {
+      background: rgba(10, 15, 28, 0.75) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 12px !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+      padding: 1.35rem 1.45rem !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+      position: relative !important;
+      box-sizing: border-box !important;
+    }
+
+    #case-file-result .case-card:hover {
+      border-color: rgba(255, 255, 255, 0.16) !important;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45) !important;
+    }
+
     #case-file-result .case-card h4,
     #case-primary-ev-header,
     #case-morphology-header,
@@ -1737,13 +1779,95 @@
     #case-weakness-header,
     #case-open-q-header,
     #case-provenance-header,
-    #case-zuma-header {
-      color: #eab308 !important;
+    #case-zuma-header,
+    #adv-title {
+      font-size: 1.20rem !important;
+      font-weight: 700 !important;
+      color: #fbbf24 !important;
+      margin: 0 0 0.85rem 0 !important;
+      line-height: 1.35 !important;
+      letter-spacing: normal !important;
+    }
+
+    #case-file-result .case-card p,
+    #case-argument-content,
+    #case-counter-content,
+    #case-rebuttal-content,
+    #case-weakness-content {
+      font-size: 0.98rem !important;
+      line-height: 1.72 !important;
+      color: #f1f5f9 !important;
+      margin: 0;
+      text-align: left !important;
+    }
+
+    #case-questions-content {
+      font-size: 0.96rem !important;
+      line-height: 1.72 !important;
+      color: #f1f5f9 !important;
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    #case-questions-content li {
+      margin-bottom: 0.65rem !important;
     }
 
     #zuma-debate-card {
-      border-color: #eab308 !important;
-      background: rgba(234, 179, 8, 0.04) !important;
+      border-radius: 14px !important;
+      border: 1px solid rgba(234, 179, 8, 0.35) !important;
+      background: rgba(10, 15, 28, 0.85) !important;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    #adversarial-results-box {
+      border-radius: 14px !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      background: rgba(10, 15, 28, 0.85) !important;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* Provenance Table Styling Clean-up */
+    .provenance-table-wrap table.data-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: none;
+    }
+
+    .provenance-table-wrap table.data-table thead th {
+      background: rgba(255, 255, 255, 0.03);
+      color: #94a3b8;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+
+    .provenance-table-wrap table.data-table tbody tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      transition: background 0.15s ease;
+    }
+
+    .provenance-table-wrap table.data-table tbody tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .provenance-table-wrap table.data-table tbody td {
+      padding: 0.85rem 1rem;
+      border: none;
+      vertical-align: middle;
+    }
+
+    .provenance-table-wrap table.data-table td.citation-cell {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #f8fafc;
     }
 
     /* Source Drawer */
@@ -2185,26 +2309,31 @@
 
       /* Optimasi Kompresi Padding Mobile untuk Seluruh Hasil Kalkulator */
       #case-file-result {
-        padding: 0.75rem 0.5rem !important;
-        margin-top: 1rem !important;
+        padding: 1.15rem 0.85rem !important;
+        margin-top: 1.25rem !important;
+        width: 100% !important;
+        max-width: 100vw !important;
       }
       #case-file-result .case-card,
       #zuma-debate-card,
       #research-interlinear-card {
-        padding: 0.75rem 0.5rem !important;
+        padding: 1.15rem 0.95rem !important;
+        margin-bottom: 1.15rem !important;
       }
       .debate-canonical-banner {
-        padding: 0.65rem 0.5rem !important;
+        padding: 0.85rem 0.95rem !important;
       }
       .round-card {
-        padding: 0.65rem 0.45rem !important;
+        padding: 0.95rem 0.85rem !important;
       }
       .turn-speech-card {
-        padding: 0.55rem 0.55rem !important;
-        margin: 0.4rem 0 !important;
+        padding: 0.75rem 0.85rem !important;
+        margin: 0.5rem 0 !important;
       }
-      .calc-result-grid {
-        gap: 0.75rem !important;
+      .calc-result-grid,
+      .calc-evidence-grid {
+        gap: 1rem !important;
+        grid-template-columns: 1fr !important;
       }
 
       /* Responsive Stacked Cards for Source & Provenance on Mobile */
@@ -2220,21 +2349,21 @@
         box-sizing: border-box !important;
       }
       .provenance-table-wrap table.data-table tr {
-        background: rgba(255, 255, 255, 0.02) !important;
-        border: 1px solid var(--border-subtle) !important;
-        border-radius: 6px !important;
-        padding: 0.85rem !important;
-        margin-bottom: 0.75rem !important;
+        background: rgba(10, 15, 28, 0.75) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 10px !important;
+        padding: 1rem !important;
+        margin-bottom: 0.85rem !important;
         overflow: hidden !important;
       }
       .provenance-table-wrap table.data-table td {
-        padding: 0.25rem 0 !important;
+        padding: 0.35rem 0 !important;
         border: none !important;
       }
       .provenance-table-wrap table.data-table td.citation-cell {
         font-weight: 700 !important;
-        font-size: 0.88rem !important;
-        color: var(--text-main) !important;
+        font-size: 1.02rem !important;
+        color: #ffffff !important;
         margin-bottom: 0.45rem !important;
         white-space: normal !important;
         word-break: break-word !important;
@@ -2257,8 +2386,8 @@
         word-break: break-word !important;
         display: inline-block !important;
         line-height: 1.35 !important;
-        padding: 0.3rem 0.55rem !important;
-        font-size: 0.72rem !important;
+        padding: 0.35rem 0.65rem !important;
+        font-size: 0.78rem !important;
       }
 
       /* Hide 'Go to Mobile' link completely on native mobile screen */
@@ -2444,6 +2573,23 @@
       flex-direction: column !important;
       align-items: flex-start !important;
       gap: 0.75rem !important;
+    }
+    html.force-mobile-layout #case-file-result {
+      padding: 1.15rem 0.85rem !important;
+      margin-top: 1.25rem !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+    }
+    html.force-mobile-layout #case-file-result .case-card,
+    html.force-mobile-layout #zuma-debate-card,
+    html.force-mobile-layout #research-interlinear-card {
+      padding: 1.15rem 0.95rem !important;
+      margin-bottom: 1.15rem !important;
+    }
+    html.force-mobile-layout .calc-result-grid,
+    html.force-mobile-layout .calc-evidence-grid {
+      grid-template-columns: 1fr !important;
+      gap: 1rem !important;
     }
 
     /* Micro-interactions: Framer-like physics transitions */
@@ -2756,6 +2902,557 @@
       }
     }
 
+  
+    /* ==========================================================================
+       PRICING & PLANS VIEW STYLES (#view-pricing)
+       Dark Glass & Shine Border Palette matching apologets.com
+       ========================================================================== */
+    #view-pricing {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 4rem 1rem;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .pricing-limit-alert-banner {
+      background: linear-gradient(135deg, rgba(234, 179, 8, 0.18), rgba(217, 119, 6, 0.1));
+      border: 1px solid rgba(234, 179, 8, 0.55);
+      border-radius: 12px;
+      padding: 1.1rem 1.35rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 25px rgba(234, 179, 8, 0.2);
+      animation: alertPulseGlow 3s infinite ease-in-out;
+      display: flex;
+      align-items: center;
+    }
+
+    @keyframes alertPulseGlow {
+      0%, 100% { border-color: rgba(234, 179, 8, 0.55); box-shadow: 0 0 20px rgba(234, 179, 8, 0.15); }
+      50% { border-color: rgba(234, 179, 8, 0.85); box-shadow: 0 0 35px rgba(234, 179, 8, 0.35); }
+    }
+
+    .pricing-header-wrap {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 2.5rem auto;
+      position: relative;
+    }
+
+    .pricing-zap-badge-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .pricing-zap-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1.15rem;
+      border-radius: 9999px;
+      background: rgba(30, 58, 138, 0.25);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+      backdrop-filter: blur(8px);
+    }
+
+    .pricing-zap-badge svg {
+      animation: zapFlash 2s infinite ease-in-out;
+    }
+
+    @keyframes zapFlash {
+      0%, 100% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+
+    .pricing-main-title {
+      font-family: var(--font-serif);
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #ffffff;
+      margin: 0 0 1rem 0;
+      letter-spacing: -0.02em;
+    }
+
+    .pricing-main-title .vcr-word {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: top;
+      margin-right: 0.22em;
+      animation: verticalWordReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes verticalWordReveal {
+      0% { opacity: 0; transform: translateY(100%); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .pricing-subtitle {
+      font-size: 1.02rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin: 0 auto;
+      max-width: 700px;
+    }
+
+    /* Interactive Switches */
+    .pricing-switches-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.85rem;
+    }
+
+    .pricing-switch-container {
+      position: relative;
+      display: inline-flex;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 9999px;
+      padding: 0.3rem;
+      backdrop-filter: blur(12px);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .pricing-switch-btn {
+      position: relative;
+      z-index: 2;
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.55rem 1.15rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: color 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .pricing-switch-btn.active {
+      color: #ffffff;
+    }
+
+    .pricing-switch-btn:hover:not(.active) {
+      color: #e2e8f0;
+    }
+
+    .pricing-switch-indicator {
+      position: absolute;
+      top: 0.3rem;
+      bottom: 0.3rem;
+      left: 0.3rem;
+      width: calc(50% - 0.3rem);
+      background: linear-gradient(135deg, rgba(30, 64, 175, 0.85), rgba(28, 125, 255, 0.9));
+      border: 1px solid rgba(96, 165, 250, 0.4);
+      border-radius: 9999px;
+      box-shadow: 0 2px 8px rgba(28, 125, 255, 0.35);
+      transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Cards Grid */
+    .pricing-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      align-items: stretch;
+      margin-top: 1.75rem;
+    }
+
+    .pricing-card {
+      background: rgba(10, 15, 28, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.85rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+      position: relative;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      overflow: visible;
+      box-sizing: border-box;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.16);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .pricing-card.card-featured {
+      border: 1px solid rgba(234, 179, 8, 0.45);
+      box-shadow: 0 0 30px rgba(234, 179, 8, 0.15), 0 8px 32px rgba(0, 0, 0, 0.55);
+    }
+
+    .pricing-card-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #f59e0b, #eab308, #d97706);
+      color: #040914;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.95rem;
+      border-radius: 9999px;
+      box-shadow: 0 4px 12px rgba(234, 179, 8, 0.35);
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    .pricing-card-badge.enterprise-badge {
+      background: linear-gradient(135deg, #6366f1, #38bdf8);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+    }
+
+    .pricing-tier-name {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      margin: 0 0 0.35rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .pricing-tier-tagline {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      margin: 0;
+      line-height: 1.4;
+      min-height: 2.2em;
+    }
+
+    .pricing-price-box {
+      margin: 1.25rem 0 1.5rem 0;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .pricing-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+    }
+
+    .pricing-curr-symbol {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #cbd5e1;
+    }
+
+    .pricing-amount {
+      font-size: 2.85rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      display: inline-block;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .pricing-amount.number-flow-anim {
+      animation: numberFlowPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes numberFlowPop {
+      0% { transform: scale(0.85); opacity: 0.4; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .pricing-original-price {
+      font-size: 1.15rem;
+      color: #64748b;
+      text-decoration: line-through;
+      margin-left: 0.35rem;
+      font-weight: 500;
+    }
+
+    .pricing-period-label {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      margin-left: auto;
+      font-weight: 500;
+    }
+
+    .pricing-savings-pill {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+    }
+
+    .pricing-features-heading {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      margin: 0 0 0.85rem 0;
+    }
+
+    .pricing-features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.75rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .pricing-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.84rem;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+
+    .pricing-check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(28, 125, 255, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.2);
+    }
+
+    .card-featured .pricing-check-icon {
+      background: rgba(234, 179, 8, 0.15);
+      border-color: rgba(234, 179, 8, 0.4);
+      color: #eab308;
+      box-shadow: 0 0 8px rgba(234, 179, 8, 0.2);
+    }
+
+    .btn-purchase-cta {
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      border-radius: 9999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.25s ease;
+      text-align: center;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    .btn-purchase-standard {
+      background: linear-gradient(135deg, #1e40af, #2563eb, #38bdf8);
+      color: #ffffff;
+      border: 2px solid rgba(56, 189, 248, 0.5);
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-purchase-standard:hover {
+      filter: brightness(1.15);
+      box-shadow: 0 6px 22px rgba(37, 99, 235, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-purchase-gold {
+      background: linear-gradient(135deg, #f59e0b, #eab308, #fbbf24);
+      color: #040914;
+      border: 2px solid #fef08a;
+      box-shadow: 0 4px 18px rgba(234, 179, 8, 0.4);
+    }
+
+    .btn-purchase-gold:hover {
+      filter: brightness(1.12);
+      box-shadow: 0 6px 26px rgba(234, 179, 8, 0.55);
+      transform: translateY(-1px);
+    }
+
+    .btn-purchase-enterprise {
+      background: linear-gradient(135deg, #4f46e5, #6366f1, #06b6d4);
+      color: #ffffff;
+      border: 2px solid rgba(129, 140, 248, 0.5);
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+    }
+
+    .btn-purchase-enterprise:hover {
+      filter: brightness(1.15);
+      box-shadow: 0 6px 22px rgba(99, 102, 241, 0.5);
+      transform: translateY(-1px);
+    }
+
+    /* Ancient Course Modal */
+    .ancient-track-card {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1rem 1.15rem;
+      margin-bottom: 0.85rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .ancient-track-card:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .ancient-track-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0 0 0.35rem 0;
+    }
+
+    .ancient-track-body {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Additional Styling for Pricing, Ancient Courses, & Calculator */
+    .pricing-idr-sub {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      margin-top: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-weight: 500;
+    }
+
+    .pricing-trust-strip {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .pricing-matrix-section table th,
+    .pricing-matrix-section table td {
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .pricing-faq-section .faq-item {
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .pricing-faq-section .faq-item:hover {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    /* Ancient Course Interactive Sample Player */
+    .ancient-sample-box {
+      background: rgba(10, 15, 28, 0.75);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 12px;
+      padding: 1.15rem 1.35rem;
+      margin-top: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .ancient-sample-tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .ancient-sample-tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #94a3b8;
+      padding: 0.35rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .ancient-sample-tab-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .ancient-sample-tab-btn.active {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .ancient-pill-chunk {
+      display: inline-block;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      padding: 0.25rem 0.6rem;
+      margin: 0.2rem 0.25rem 0.2rem 0;
+      font-size: 0.78rem;
+      color: #cbd5e1;
+    }
+
+    .ancient-pill-chunk strong {
+      color: #e2e8f0;
+    }
+
+    .quick-chip-btn {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      padding: 0.3rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.74rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .quick-chip-btn:hover {
+      background: rgba(30, 41, 59, 0.9);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
   </style>
 </head>
 <body>
@@ -3009,7 +3706,7 @@
             </span>
             <span id="sb-model-badge" class="sidebar-profile-badge badge-model">Polya 2.1</span>
           </div>
-          <a class="sidebar-profile-item" onclick="navigateRoute(event, '/account')">
+          <a class="sidebar-profile-item" onclick="navigateRoute(event, '/pricing')">
             <span>Subscription</span>
             <span id="sb-sub-badge" class="sidebar-profile-badge badge-sub">FREE</span>
           </a>
@@ -3088,6 +3785,19 @@
       <a class="side-item" id="side-item-pipeline" data-i18n="navPipeline" onclick="navigateRoute(event, '/pipeline')">Exegesis Pipeline</a>
 
       <div class="sidebar-heading" id="side-heading-prep" data-i18n="headingPrepUser">Preparation & User</div>
+      <a class="side-item" id="side-item-pricing" data-i18n="navPricing" onclick="navigateRoute(event, '/pricing')">
+        <span style="display: flex; align-items: center; gap: 0.45rem;">
+          <span>💎</span>
+          <span id="side-item-pricing-title">Pricing & Plans</span>
+        </span>
+      </a>
+      <a class="side-item" id="side-item-ancient-course" data-i18n="navAncientCourse" onclick="handleAncientCourseClick(event)">
+        <span style="display: flex; align-items: center; gap: 0.45rem;">
+          <span>🎓</span>
+          <span id="side-item-ancient-course-title">Kursus Bahasa Kuno</span>
+        </span>
+      </a>
+
       <a class="side-item" id="side-item-settings" data-i18n="navSettings" onclick="navigateRoute(event, '/settings')">Settings</a>
       <a class="side-item" id="side-item-account" data-i18n="navBilling" onclick="navigateRoute(event, '/account')">Billing & Quota</a>
       <a class="side-item" id="side-item-arena" data-i18n="navDebateArena" href="/arena" style="color: #dfb15b; font-weight: 600;">Debate Arena (3-vs-3)</a>
@@ -3130,13 +3840,28 @@
                 <option value="judaism">Konteks Lawan: Yudaisme</option>
                 <option value="atheist_secular">Konteks Lawan: Ateis / Sekuler</option>
               </select>
-              <span id="calc-quota-pill" class="badge-pill badge-quota" style="font-size: 0.72rem; padding: 0.2rem 0.55rem; white-space: nowrap;">5 Free</span>
+              <span id="calc-quota-pill" class="badge-pill badge-quota" style="font-size: 0.72rem; padding: 0.2rem 0.55rem; white-space: nowrap; cursor: pointer;" title="Lihat Paket & Kuota" onclick="navigateRoute(event, '/pricing')">5 Free</span>
             </div>
           </div>
 
           <div class="calc-input-wrapper">
             <span class="calc-input-icon">🔍</span>
             <textarea id="claim-input" class="calc-input" rows="5" placeholder="Masukkan klaim lawan debat kamu di sini..." onfocus="handleClaimFocus(this)">Masukkan klaim lawan debat kamu di sini.</textarea>
+          </div>
+
+          <!-- Quick Prompt Suggestion Chips -->
+          <div class="calc-quick-chips" style="margin-top: 0.65rem; margin-bottom: 0.25rem;">
+            <div style="font-size: 0.74rem; color: #94a3b8; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.35rem;">
+              <span>💡</span>
+              <span style="font-weight: 600;">Contoh Mosi Populer (Klik untuk Mengisi):</span>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
+              <button type="button" class="quick-chip-btn" onclick="fillClaim('Yohanes 10:30 menyatakan bahwa Yesus dan Bapa adalah satu esensi ketuhanan')">Yohanes 10:30 (Satu Esensi)</button>
+              <button type="button" class="quick-chip-btn" onclick="fillClaim('Yohanes 1:1 membuktikan Yesus adalah Allah yang kekal (Theos en ho Logos)')">Yohanes 1:1 (Firman adalah Allah)</button>
+              <button type="button" class="quick-chip-btn" onclick="fillClaim('Yesaya 9:5 menubuatkan kelahiran anak yang bergelar Allah yang Perkasa (El Gibbor)')">Yesaya 9:5 (Penasihat Ajaib)</button>
+              <button type="button" class="quick-chip-btn" onclick="fillClaim('Matius 24:36 menunjukkan Yesus tidak tahu hari kiamat sehingga mustahil Dia Mahatahu')">Matius 24:36 (Ketidaktahuan Hari)</button>
+              <button type="button" class="quick-chip-btn" onclick="fillClaim('Ulangan 6:4 Shema Yisrael menegaskan ketauhidan mutlak (Echad)')">Ulangan 6:4 (Shema Yisrael)</button>
+            </div>
           </div>
 
           <div class="calc-actions">
@@ -3190,44 +3915,44 @@
         </div>
 
         <!-- CASE FILE RESULT AREA (Section 31 Full Specs) -->
-        <div id="case-file-result" class="case-card hidden" style="padding: 2rem; margin-top: 2rem; border-color: var(--border-focus); width: 100%; max-width: 100%; box-sizing: border-box; overflow-x: hidden;">
-          <div class="case-header-row" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem;">
+        <div id="case-file-result" class="case-card hidden shine-border-panel" style="padding: 2rem; margin-top: 2rem; width: 100%; max-width: 100%; box-sizing: border-box; overflow-x: hidden;">
+          <div class="case-header-row" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 1.15rem;">
             <div>
-              <span id="case-id-display" style="font-family: var(--font-mono); color: var(--primary); font-size: 0.85rem; font-weight: bold;">CASE-0001</span>
-              <h3 id="case-claim-display" data-i18n="caseClaimHeading" style="font-size: 1.35rem; margin-top: 0.25rem;">Mosi Analisis Debat</h3>
+              <span id="case-id-display" style="font-family: var(--font-mono); color: var(--primary); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.05em;">CASE-0001</span>
+              <h3 id="case-claim-display" data-i18n="caseClaimHeading" style="font-size: 1.6rem; font-weight: 700; color: #ffffff; line-height: 1.35; margin-top: 0.35rem; word-break: break-word;">Mosi Analisis Debat</h3>
             </div>
-            <div class="case-header-actions" style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
-              <button class="btn-primary" data-i18n="caseResultSourceBtn" style="background: #000000; color: #ffffff; border: 1px solid #94a3b8; padding: 0.35rem 0.85rem; font-size: 0.8rem;" onclick="triggerShowActiveSource()">
+            <div class="case-header-actions" style="display: flex; gap: 0.65rem; align-items: center; flex-wrap: wrap;">
+              <button class="btn-primary" data-i18n="caseResultSourceBtn" style="background: #000000; color: #ffffff; border: 1px solid #94a3b8; padding: 0.45rem 1rem; font-size: 0.84rem; font-weight: 600;" onclick="triggerShowActiveSource()">
                 🔍 Show me the source
               </button>
-              <span id="case-status-badge" data-i18n="caseResultVerified" class="badge-pill" style="background: #000000; color: #ffffff; border: 1px solid #94a3b8; padding: 0.35rem 0.85rem; font-size: 0.8rem;">VERIFIED INTEL</span>
+              <span id="case-status-badge" data-i18n="caseResultVerified" class="badge-pill" style="background: #000000; color: #ffffff; border: 1px solid #94a3b8; padding: 0.45rem 1rem; font-size: 0.84rem; font-weight: 600;">VERIFIED INTEL</span>
             </div>
           </div>
 
-          <p id="case-context-display" style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;"></p>
+          <p id="case-context-display" style="color: #cbd5e1; font-size: 1rem; line-height: 1.65; margin-bottom: 1.75rem;"></p>
 
           <!-- Card Khusus Dialektika & Simulasi Debat Forensik (Paling Atas - Mode Debat) -->
-          <div id="zuma-debate-card" class="case-card" style="margin-bottom: 1.5rem; border: 2px solid #eab308; background: rgba(234, 179, 8, 0.04); display: none;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem;">
-              <h4 id="case-zuma-header" data-i18n="caseZumaHeader" style="color: #eab308; margin: 0; font-size: 1.1rem;">⚡ Dialektika Forensik & Simulasi Debat (Socratic Funnel)</h4>
+          <div id="zuma-debate-card" class="case-card shine-border-panel" style="margin-bottom: 1.5rem; display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
+              <h4 id="case-zuma-header" data-i18n="caseZumaHeader" style="color: #fbbf24; margin: 0; font-size: 1.25rem; font-weight: 700;">⚡ Dialektika Forensik & Simulasi Debat (Socratic Funnel)</h4>
             </div>
-            <div id="zuma-debate-card-content" style="font-size: 0.85rem; color: var(--text-main); line-height: 1.6;">
+            <div id="zuma-debate-card-content" style="font-size: 0.98rem; color: var(--text-main); line-height: 1.7;">
               <p style="color: var(--text-muted); font-style: italic;">Memuat putaran dialektika, jebakan Sokratik, dan simulasi debat forensik...</p>
             </div>
           </div>
 
           <!-- Card Khusus Mesin Bedah Leksikon Per Kata (Interlinear) & Eksegesis Teks Original (Mode Research) -->
-          <div id="research-interlinear-card" class="case-card" style="margin-bottom: 1.5rem; border: 2px solid var(--accent); background: rgba(217, 119, 6, 0.03); display: none;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+          <div id="research-interlinear-card" class="case-card shine-border-panel" style="margin-bottom: 1.5rem; display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
               <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <h4 style="color: var(--accent); margin: 0; font-size: 1.15rem;">🔬 Mesin Bedah Leksikon Per Kata (Interlinear) & Eksegesis Teks Original</h4>
+                <h4 style="color: var(--accent); margin: 0; font-size: 1.25rem; font-weight: 700;">🔬 Mesin Bedah Leksikon Per Kata (Interlinear) & Eksegesis Teks Original</h4>
               </div>
               <div style="display: flex; gap: 0.35rem; align-items: center;">
-                <span class="badge-pill" style="color: var(--accent); border-color: var(--accent); font-size: 0.72rem; font-weight: 700;">STANDAR TEKS ANALISIS ORIGINAL</span>
-                <span id="exegesis-lang-badge" class="evidence-badge badge-primary-source" style="font-size: 0.72rem;">ORIGINAL SOURCE</span>
+                <span class="badge-pill" style="color: var(--accent); border-color: var(--accent); font-size: 0.76rem; font-weight: 700;">STANDAR TEKS ANALISIS ORIGINAL</span>
+                <span id="exegesis-lang-badge" class="evidence-badge badge-primary-source" style="font-size: 0.76rem;">ORIGINAL SOURCE</span>
               </div>
             </div>
-            <div id="research-interlinear-content" style="font-size: 0.85rem; color: var(--text-main); line-height: 1.6;">
+            <div id="research-interlinear-content" style="font-size: 0.98rem; color: var(--text-main); line-height: 1.7;">
               <p style="color: var(--text-muted); font-style: italic;">Memuat analisis interlinear kata-per-kata dan konteks eksegesis komprehensif...</p>
             </div>
           </div>
@@ -3235,45 +3960,45 @@
           <!-- Row 1: Primary Evidence (Kiri) & Rincian Morfologi Kata (Kanan) -->
           <div class="calc-evidence-grid" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.25rem; margin-bottom: 1.25rem; width: 100%; box-sizing: border-box;">
             <div class="case-card">
-              <h4 id="case-primary-ev-header" data-i18n="casePrimaryEvidence" style="color: #eab308;">🏛 Primary Evidence</h4>
+              <h4 id="case-primary-ev-header" data-i18n="casePrimaryEvidence" style="color: #fbbf24;">🏛 Primary Evidence</h4>
               <div id="case-evidence-content"></div>
             </div>
 
             <div class="case-card">
-              <h4 id="case-morphology-header" style="color: #eab308;">🔬 Rincian Morfologi Kata</h4>
+              <h4 id="case-morphology-header" style="color: #fbbf24;">🔬 Rincian Morfologi Kata</h4>
               <div id="case-morphology-content"></div>
             </div>
           </div>
 
           <!-- Row 2: Context & Linguistics (Full Width) -->
           <div class="case-card" style="margin-bottom: 1.25rem;">
-            <h4 id="case-ctx-ling-header" data-i18n="caseContextLinguistics" style="color: #eab308;">⚖ Context & Linguistics</h4>
+            <h4 id="case-ctx-ling-header" data-i18n="caseContextLinguistics" style="color: #fbbf24;">⚖ Context & Linguistics</h4>
             <p id="case-argument-content"></p>
           </div>
 
           <!-- Row 3: Opponent Counterargument & Rebuttal (2 Kolom) -->
           <div class="calc-result-grid" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.25rem; margin-bottom: 1.5rem; width: 100%; box-sizing: border-box;">
             <div class="case-card">
-              <h4 id="case-opp-counter-header" data-i18n="caseOpponentCounter" style="color: #eab308;">⚔ Opponent Counterargument</h4>
+              <h4 id="case-opp-counter-header" data-i18n="caseOpponentCounter" style="color: #fbbf24;">⚔ Opponent Counterargument</h4>
               <p id="case-counter-content"></p>
             </div>
 
             <div class="case-card">
-              <h4 id="case-rebuttal-header" data-i18n="caseRebuttal" style="color: #eab308;">🛡 Possible Response & Rebuttal</h4>
+              <h4 id="case-rebuttal-header" data-i18n="caseRebuttal" style="color: #fbbf24;">🛡 Possible Response & Rebuttal</h4>
               <p id="case-rebuttal-content"></p>
             </div>
           </div>
 
           <!-- Titik Lemah Lawan -->
           <div class="case-card" style="margin-bottom: 1.5rem;">
-            <h4 id="case-weakness-header" data-i18n="caseWeakness" style="color: #eab308;">🎯 Titik Lemah Lawan (Weakness Analysis)</h4>
+            <h4 id="case-weakness-header" data-i18n="caseWeakness" style="color: #fbbf24;">🎯 Titik Lemah Lawan (Weakness Analysis)</h4>
             <p id="case-weakness-content"></p>
           </div>
 
           <!-- Open Questions / Titik Uji Forensik -->
           <div class="case-card" style="margin-bottom: 1.5rem;">
-            <h4 id="case-open-q-header" data-i18n="caseOpenQuestions" style="color: #eab308;">❓ Open Questions / Titik Uji Forensik</h4>
-            <ul id="case-questions-content" style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;"></ul>
+            <h4 id="case-open-q-header" data-i18n="caseOpenQuestions" style="color: #fbbf24;">❓ Open Questions / Titik Uji Forensik</h4>
+            <ul id="case-questions-content" style="padding-left: 1.25rem; font-size: 0.96rem; color: #f1f5f9; line-height: 1.72;"></ul>
           </div>
 
           <!-- Debate Preparation (Dipindahkan ke Card Khusus Paling Atas) -->
@@ -3281,7 +4006,7 @@
 
           <!-- Source & Provenance Table -->
           <div class="case-card" style="margin-bottom: 1.5rem;">
-            <h4 id="case-provenance-header" data-i18n="caseSourceProvenance" style="color: #eab308;">📚 Source & Provenance</h4>
+            <h4 id="case-provenance-header" data-i18n="caseSourceProvenance" style="color: #fbbf24;">📚 Source & Provenance</h4>
             <div class="table-responsive provenance-table-wrap">
               <table class="data-table">
                 <thead><tr><th data-i18n="tableHeaderCitation">Sitasi Naskah</th><th data-i18n="tableHeaderCategory">Kategori Bukti</th><th data-i18n="tableHeaderAction">Aksi</th></tr></thead>
@@ -3291,15 +4016,15 @@
           </div>
 
           <!-- Adversarial Telemetry Results Box (Rendered Above Interactive Action Buttons) -->
-          <div id="adversarial-results-box" class="case-card hidden" style="margin-bottom: 1.25rem; padding: 1.5rem; border: 1px solid var(--border-focus); background: #0c121e;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-              <h4 id="adv-title" data-i18n="advReportTitle" style="margin: 0; font-size: 1rem; color: var(--text-main);">Adversarial Report</h4>
+          <div id="adversarial-results-box" class="case-card hidden shine-border-panel" style="margin-bottom: 1.5rem; padding: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
+              <h4 id="adv-title" data-i18n="advReportTitle" style="margin: 0; font-size: 1.15rem; font-weight: 700; color: #fbbf24;">Adversarial Report</h4>
               <button class="record-chip" data-i18n="advCloseBtn" onclick="document.getElementById('adversarial-results-box').classList.add('hidden')">✕ Tutup</button>
             </div>
             <div id="adv-loader" style="display: none; padding: 1rem; text-align: center; color: var(--primary);">
               <span class="pulse-dot"></span> Menjalankan Adversarial Intelligence Pipeline...
             </div>
-            <div id="adv-content" style="font-size: 0.85rem; line-height: 1.6; color: var(--text-main);"></div>
+            <div id="adv-content" style="font-size: 0.98rem; line-height: 1.7; color: var(--text-main);"></div>
           </div>
 
           <!-- Adversarial Control Buttons (Always Rendered at Bottom) -->
@@ -4083,6 +4808,440 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: PRICING & PLANS (USD $) -->
+      <section id="view-pricing" class="hidden">
+        <!-- Limit Trigger Alert Banner -->
+        <div id="pricing-limit-alert-banner" class="pricing-limit-alert-banner hidden">
+          <div style="display: flex; align-items: center; gap: 0.85rem; width: 100%;">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(234, 179, 8, 0.2); border: 1px solid rgba(234, 179, 8, 0.4); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; color: #eab308; flex-shrink: 0;">⚡</div>
+            <div style="flex: 1; text-align: left;">
+              <div style="font-weight: 700; font-size: 0.95rem; color: #ffffff;">Kuota 5 Analisis Gratis Anda Telah Habis</div>
+              <div style="font-size: 0.82rem; color: #cbd5e1; margin-top: 0.15rem;">Pilih Tier ($9 / $19 / $79) untuk Melanjutkan Dialektika Forensik &amp; Bedah Naskah Tanpa Batas.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Header Section -->
+        <div class="pricing-header-wrap">
+          <div class="pricing-zap-badge-wrap">
+            <div class="pricing-zap-badge">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#eab308" stroke="#eab308" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <span>Time to connect — Upgrade Your Epistemic Arsenal</span>
+            </div>
+          </div>
+
+          <h1 class="pricing-main-title">
+            <span class="vcr-word">Let's</span>
+            <span class="vcr-word">get</span>
+            <span class="vcr-word">started</span>
+            <span class="vcr-word">—</span>
+            <span class="vcr-word">Choose</span>
+            <span class="vcr-word">Your</span>
+            <span class="vcr-word">Dialectical</span>
+            <span class="vcr-word">&amp;</span>
+            <span class="vcr-word">Philological</span>
+            <span class="vcr-word">Tier</span>
+          </h1>
+
+          <p class="pricing-subtitle">
+            Unlock unlimited forensic dialectics, ancient manuscript apparatus, and Polyglot biblical language courses.
+          </p>
+
+          <!-- Interactive Pricing Switches -->
+          <div class="pricing-switches-wrap">
+            <!-- Period Switch -->
+            <div class="pricing-switch-container" id="pricing-cycle-switch" title="Pilih Periode Akses">
+              <div class="pricing-switch-indicator" id="cycle-switch-indicator"></div>
+              <button type="button" class="pricing-switch-btn active" id="btn-cycle-monthly" onclick="setPricingCycle('monthly')">
+                Monthly / 3 Months
+              </button>
+              <button type="button" class="pricing-switch-btn" id="btn-cycle-annual" onclick="setPricingCycle('annual')">
+                Annual / Forever
+              </button>
+            </div>
+
+            <!-- Scope Switch -->
+            <div class="pricing-switch-container" id="pricing-scope-switch" title="Pilih Lingkup Lisensi">
+              <div class="pricing-switch-indicator" id="scope-switch-indicator"></div>
+              <button type="button" class="pricing-switch-btn active" id="btn-scope-personal" onclick="setPricingScope('personal')">
+                Personal (Premium/Pro)
+              </button>
+              <button type="button" class="pricing-switch-btn" id="btn-scope-corporate" onclick="setPricingScope('corporate')">
+                Corporate / Institution
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards Comparison Grid -->
+        <div class="pricing-cards-grid" id="pricing-cards-grid">
+          <!-- Card 1: Premium -->
+          <div class="pricing-card" id="pricing-card-premium">
+            <div>
+              <div class="pricing-tier-name">
+                <span>🥇</span>
+                <span>PREMIUM</span>
+              </div>
+              <p class="pricing-tier-tagline">Debater &amp; Personal Active</p>
+
+              <div class="pricing-price-box">
+                <div class="pricing-price-row">
+                  <span class="pricing-curr-symbol">$</span>
+                  <span class="pricing-amount" id="price-val-premium">9</span>
+                  <span class="pricing-original-price" id="orig-val-premium">$13</span>
+                  <span class="pricing-period-label" id="period-val-premium">/ 3 months</span>
+                </div>
+                <div class="pricing-idr-sub" id="idr-val-premium">
+                  <span>🇮🇩</span> <span>Setara: ~Rp 145.000 via QRIS / VA</span>
+                </div>
+                <span class="pricing-savings-pill">Hemat 45% Peluncuran Perdana</span>
+              </div>
+
+              <div class="pricing-features-heading">What's inside:</div>
+              <ul class="pricing-features-list">
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>150 Apologetics Calculator Analyses / month:</strong> Akses penuh Debate Mode (Socratic Funnel 8 Babak / 16 Giliran ZUMA).</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Standard Research Mode:</strong> Leksikon dasar, konteks historis, dan rujukan silang kanonikal.</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Weakest Point Analysis:</strong> Pemetaan 3 titik rapuh struktural dari premis lawan.</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Ancient Language Course (Foundation):</strong> Pengenalan Ibrani Kuno &amp; Yunani Koine Metode Polyglot (alfabet, fonetik dasar, phrase chunking).</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Ancient Manuscript Audio (TTS):</strong> 30x pemutaran audio pelafalan otentik per hari.</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Apparatus &amp; Knowledge Base:</strong> 3 saksi naskah utama &amp; akses 2.451+ Tema Mosi Terverifikasi.</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>AI Debate Sparring:</strong> 5 sesi 1-on-1 sparring/bln + Distraction-Free Teleprompter Mode.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <button type="button" class="btn-purchase-cta btn-purchase-standard" onclick="handlePlanPurchase('premium')">
+                <span>Purchase / Pilih Paket Premium</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2: Professional (Best Value) -->
+          <div class="pricing-card card-featured shine-border-panel" id="pricing-card-professional">
+            <div class="pricing-card-badge">⭐ MOST POPULAR / BEST VALUE</div>
+            <div>
+              <div class="pricing-tier-name">
+                <span>💎</span>
+                <span>PROFESSIONAL</span>
+              </div>
+              <p class="pricing-tier-tagline">Scholar, Exegete &amp; Apologetics Researcher</p>
+
+              <div class="pricing-price-box">
+                <div class="pricing-price-row">
+                  <span class="pricing-curr-symbol" style="color: #fde047;">$</span>
+                  <span class="pricing-amount" id="price-val-professional" style="color: #ffffff;">19</span>
+                  <span class="pricing-original-price" id="orig-val-professional">$28</span>
+                  <span class="pricing-period-label" id="period-val-professional">/ 3 months</span>
+                </div>
+                <div class="pricing-idr-sub" id="idr-val-professional" style="color: #fde047;">
+                  <span>🇮🇩</span> <span>Setara: ~Rp 299.000 via QRIS / VA</span>
+                </div>
+                <span class="pricing-savings-pill" style="color: #fde047; background: rgba(234, 179, 8, 0.12); border-color: rgba(234, 179, 8, 0.3);">Hemat 45% — Paling Direkomendasikan</span>
+              </div>
+
+              <div class="pricing-features-heading">What's inside:</div>
+              <ul class="pricing-features-list">
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Unlimited Apologetics Analyses:</strong> Fair Usage 1.500/bln with Turbo Stream AI Reasoning (latensi rendah).</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Full Forensic Research Mode (8 Seksi):</strong> Bedah radix, sintaksis kata per kata, leksikon BDAG &amp; HALOT, audit pergeseran terjemahan (LXX, Vulgata, modern).</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Advanced Adversarial Inspection:</strong> Weakest Point Analysis + Epistemic Fragility Score Index &amp; peta kerentanan premis.</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Full Access Ancient Language Course (Ibrani, Yunani Koine &amp; Aramaik):</strong> Kurikulum penuh Metode Polyglot (natural immersion, auditory shadowing, phrase chunking) dipadu Morfologi &amp; Tata Bahasa Eksegetis.</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Unlimited Ancient Audio (TTS) &amp; Full Codex Inspector:</strong> Akses saksi naskah tertua (Codex Sinaiticus, Vaticanus, Alexandrinus, Papyri, Dead Sea Scrolls).</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Unlimited 1-on-1 AI Debate Sparring Simulator:</strong> Latihan interaktif tanpa batas + pencarian semantik mendalam di 2.451+ tema mosi.</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Academic Dossier Export:</strong> Ekspor sitasi ilmiah lengkap BibTeX, Markdown, dan Teleprompter panggung.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <button type="button" class="btn-purchase-cta btn-purchase-gold" onclick="handlePlanPurchase('professional')">
+                <span>Purchase / Pilih Paket Professional</span>
+                <span>⭐</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3: Enterprise -->
+          <div class="pricing-card" id="pricing-card-enterprise">
+            <div class="pricing-card-badge enterprise-badge">🏛 INSTITUTION &amp; TEAM</div>
+            <div>
+              <div class="pricing-tier-name">
+                <span>🏛</span>
+                <span>ENTERPRISE</span>
+              </div>
+              <p class="pricing-tier-tagline">Seminary, Academy, Research Ministry &amp; Debating Team</p>
+
+              <div class="pricing-price-box">
+                <div class="pricing-price-row">
+                  <span class="pricing-curr-symbol">$</span>
+                  <span class="pricing-amount" id="price-val-enterprise">79</span>
+                  <span class="pricing-original-price" id="orig-val-enterprise">$115</span>
+                  <span class="pricing-period-label" id="period-val-enterprise">/ 3 months</span>
+                </div>
+                <div class="pricing-idr-sub" id="idr-val-enterprise" style="color: #38bdf8;">
+                  <span>🇮🇩</span> <span>Setara: ~Rp 1.250.000 via QRIS / VA</span>
+                </div>
+                <span class="pricing-savings-pill" style="color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">Hemat 45% Skala Tim &amp; Lembaga</span>
+              </div>
+
+              <div class="pricing-features-heading">What's inside:</div>
+              <ul class="pricing-features-list">
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Unmetered Unlimited Access:</strong> Seluruh fitur Professional tanpa batasan kuota untuk seluruh anggota tim.</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Multi-Seat Team License:</strong> Hingga 10 Akun Terpadu untuk komunitas riset, kampus, atau tim debat.</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Polyglot Ancient Language Classroom &amp; Syllabus:</strong> Dashboard progres belajar anggota, unduhan modul silabus PDF &amp; audio MP3 offline.</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>Custom 3-vs-3 Parliamentary FSM &amp; Ingestion:</strong> Kustomisasi rubrik penjurian AI Arena &amp; injeksi basis data literatur internal institusi.</span>
+                </li>
+                <li class="pricing-feature-item">
+                  <span class="pricing-check-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 10l-7.5 7.5L13 16"></path></svg>
+                  </span>
+                  <span><strong>White-Label PDF Dossier &amp; Dedicated Instance:</strong> Ekspor dokumen resmi berlogo institusi + server AI prioritas tinggi.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <button type="button" class="btn-purchase-cta btn-purchase-enterprise" onclick="handlePlanPurchase('enterprise')">
+                <span>Purchase / Pilih Paket Enterprise</span>
+                <span>🏛</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Midtrans Supported Payment Gateways & Trust Strip -->
+        <div class="pricing-trust-strip" style="margin-top: 2.25rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(56, 189, 248, 0.15); display: flex; align-items: center; justify-content: center; color: #38bdf8; font-size: 1.15rem; flex-shrink: 0;">🔒</div>
+            <div>
+              <div style="font-weight: 700; color: #ffffff; font-size: 0.88rem;">Pembayaran Resmi &amp; Terverifikasi via Midtrans Snap</div>
+              <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 0.15rem;">Aktivasi instan otomatis 24/7. Mendukung QRIS (GoPay, OVO, ShopeePay, DANA), Virtual Account BCA / Mandiri / BRI / BNI, dan Kartu Kredit.</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="badge-pill" style="background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255, 255, 255, 0.12); color: #cbd5e1; font-size: 0.75rem; padding: 0.25rem 0.65rem;">QRIS Instan</span>
+            <span class="badge-pill" style="background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255, 255, 255, 0.12); color: #cbd5e1; font-size: 0.75rem; padding: 0.25rem 0.65rem;">Bank VA</span>
+            <span class="badge-pill" style="background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255, 255, 255, 0.12); color: #cbd5e1; font-size: 0.75rem; padding: 0.25rem 0.65rem;">Visa / Mastercard</span>
+            <span class="badge-pill" style="background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255, 255, 255, 0.12); color: #cbd5e1; font-size: 0.75rem; padding: 0.25rem 0.65rem;">E-Wallet</span>
+          </div>
+        </div>
+
+        <!-- Feature Comparison Matrix -->
+        <div class="pricing-matrix-section" style="margin-top: 3rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; text-align: center; margin-bottom: 0.5rem;">
+            Matriks Perbandingan Fitur Komprehensif
+          </h3>
+          <p style="text-align: center; color: #94a3b8; font-size: 0.84rem; margin-bottom: 1.5rem; max-width: 680px; margin-left: auto; margin-right: auto;">
+            Pilih paket yang paling sesuai dengan kebutuhan riset, debat panggung, atau kajian akademis institusi Anda.
+          </p>
+
+          <div style="overflow-x: auto; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; background: rgba(10, 15, 28, 0.75);">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.84rem; color: #cbd5e1; text-align: left;">
+              <thead>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.12); background: rgba(15, 23, 42, 0.85);">
+                  <th style="padding: 1rem 1.25rem; color: #ffffff; font-weight: 700;">Fitur &amp; Kemampuan</th>
+                  <th style="padding: 1rem; color: #94a3b8; font-weight: 600; text-align: center;">Free Trial</th>
+                  <th style="padding: 1rem; color: #38bdf8; font-weight: 700; text-align: center;">Premium ($9)</th>
+                  <th style="padding: 1rem; color: #fde047; font-weight: 700; text-align: center; background: rgba(234, 179, 8, 0.08);">Professional ($19)</th>
+                  <th style="padding: 1rem; color: #a78bfa; font-weight: 700; text-align: center;">Enterprise ($79)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                  <td style="padding: 0.85rem 1.25rem; font-weight: 600; color: #ffffff;">Kuota Apologetics Calculator</td>
+                  <td style="padding: 0.85rem; text-align: center; color: #94a3b8;">5 Analisis Total</td>
+                  <td style="padding: 0.85rem; text-align: center;">150 Analisis / bln</td>
+                  <td style="padding: 0.85rem; text-align: center; background: rgba(234, 179, 8, 0.05); font-weight: 700; color: #ffffff;">Unlimited (FUP 1.500/bln)</td>
+                  <td style="padding: 0.85rem; text-align: center; font-weight: 700; color: #ffffff;">Unmetered (Tanpa Batas)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                  <td style="padding: 0.85rem 1.25rem; font-weight: 600; color: #ffffff;">Socratic Dialectic Funnel (ZUMA)</td>
+                  <td style="padding: 0.85rem; text-align: center; color: #64748b;">Dasar (Ringkasan)</td>
+                  <td style="padding: 0.85rem; text-align: center;">8 Babak / 16 Giliran</td>
+                  <td style="padding: 0.85rem; text-align: center; background: rgba(234, 179, 8, 0.05); color: #fde047;">8 Babak + Turbo Stream</td>
+                  <td style="padding: 0.85rem; text-align: center; color: #a78bfa;">Custom Parliamentary FSM</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                  <td style="padding: 0.85rem 1.25rem; font-weight: 600; color: #ffffff;">Eksegesis Filologi Forensik 8 Seksi</td>
+                  <td style="padding: 0.85rem; text-align: center; color: #64748b;">—</td>
+                  <td style="padding: 0.85rem; text-align: center;">Leksikon Dasar</td>
+                  <td style="padding: 0.85rem; text-align: center; background: rgba(234, 179, 8, 0.05); color: #fde047;">Lengkap (BDAG, HALOT, Gesenius)</td>
+                  <td style="padding: 0.85rem; text-align: center; color: #a78bfa;">Lengkap + Dossier Ekspor</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                  <td style="padding: 0.85rem 1.25rem; font-weight: 600; color: #ffffff;">Saksi Manuskrip Kuno (Aparatus Kritis)</td>
+                  <td style="padding: 0.85rem; text-align: center; color: #64748b;">1 Saksi Naskah</td>
+                  <td style="padding: 0.85rem; text-align: center;">3 Saksi Naskah Utama</td>
+                  <td style="padding: 0.85rem; text-align: center; background: rgba(234, 179, 8, 0.05); color: #fde047;">Sinaiticus, Vaticanus, DSS, Papyri</td>
+                  <td style="padding: 0.85rem; text-align: center; color: #a78bfa;">Full Corpus + Custom Database</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                  <td style="padding: 0.85rem 1.25rem; font-weight: 600; color: #ffffff;">Kursus Bahasa Kuno (Metode Polyglot)</td>
+                  <td style="padding: 0.85rem; text-align: center; color: #64748b;">—</td>
+                  <td style="padding: 0.85rem; text-align: center;">Modul Dasar (Fonetik &amp; Alfabet)</td>
+                  <td style="padding: 0.85rem; text-align: center; background: rgba(234, 179, 8, 0.05); color: #fde047;">Kurikulum Penuh (Ibrani, Yunani, Aramaik)</td>
+                  <td style="padding: 0.85rem; text-align: center; color: #a78bfa;">Syllabus Lengkap + Progres Tim</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                  <td style="padding: 0.85rem 1.25rem; font-weight: 600; color: #ffffff;">Audio Pelafalan Otentik Naskah Kuno</td>
+                  <td style="padding: 0.85rem; text-align: center; color: #64748b;">—</td>
+                  <td style="padding: 0.85rem; text-align: center;">30x / hari</td>
+                  <td style="padding: 0.85rem; text-align: center; background: rgba(234, 179, 8, 0.05); color: #fde047;">Unlimited Pelafalan</td>
+                  <td style="padding: 0.85rem; text-align: center; color: #a78bfa;">High-Bitrate Dedicated TTS</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.85rem 1.25rem; font-weight: 600; color: #ffffff;">Lisensi &amp; Jumlah Akun</td>
+                  <td style="padding: 0.85rem; text-align: center; color: #94a3b8;">1 Pengguna Tamu</td>
+                  <td style="padding: 0.85rem; text-align: center;">1 Pengguna Personal</td>
+                  <td style="padding: 0.85rem; text-align: center; background: rgba(234, 179, 8, 0.05); color: #fde047;">1 Pengguna Peneliti</td>
+                  <td style="padding: 0.85rem; text-align: center; color: #a78bfa;">Hingga 10 Akun Tim Institusi</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Pricing FAQ Section -->
+        <div class="pricing-faq-section" style="margin-top: 3.5rem; margin-bottom: 2rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; text-align: center; margin-bottom: 0.5rem;">
+            Pertanyaan yang Sering Diajukan (FAQ)
+          </h3>
+          <p style="text-align: center; color: #94a3b8; font-size: 0.84rem; margin-bottom: 1.5rem;">
+            Informasi lengkap mengenai aktivasi langganan, materi kursus, dan metode pembayaran.
+          </p>
+
+          <div style="max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem;">
+            <div class="faq-item" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; overflow: hidden;">
+              <button type="button" onclick="toggleFaq(this)" style="width: 100%; text-align: left; padding: 1rem 1.25rem; background: transparent; border: none; color: #ffffff; font-weight: 600; font-size: 0.9rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                <span>Bagaimana cara kerja periode "Monthly / 3 Months" dan "Annual / Forever"?</span>
+                <span class="faq-arrow" style="color: var(--primary); transition: transform 0.2s ease;">▼</span>
+              </button>
+              <div class="faq-answer hidden" style="padding: 0 1.25rem 1rem 1.25rem; font-size: 0.83rem; color: #94a3b8; line-height: 1.6;">
+                Paket 3 Bulan memberikan akses penuh selama 90 hari tanpa perpanjangan otomatis paksa (tidak ada tagihan tersembunyi). Paket Forever memberikan lisensi seumur hidup untuk seluruh pembaruan engine dan basis data masa depan.
+              </div>
+            </div>
+
+            <div class="faq-item" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; overflow: hidden;">
+              <button type="button" onclick="toggleFaq(this)" style="width: 100%; text-align: left; padding: 1rem 1.25rem; background: transparent; border: none; color: #ffffff; font-weight: 600; font-size: 0.9rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                <span>Kapan akses fitur dan kursus aktif setelah saya menyelesaikan pembayaran?</span>
+                <span class="faq-arrow" style="color: var(--primary); transition: transform 0.2s ease;">▼</span>
+              </button>
+              <div class="faq-answer hidden" style="padding: 0 1.25rem 1rem 1.25rem; font-size: 0.83rem; color: #94a3b8; line-height: 1.6;">
+                Aktivasi berlangsung seketika secara otomatis via webhook Midtrans begitu notifikasi sukses diterima oleh server Polya. Kuota analisis kalkulator dan modul kursus bahasa kuno langsung terbuka tanpa perlu konfirmasi manual.
+              </div>
+            </div>
+
+            <div class="faq-item" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; overflow: hidden;">
+              <button type="button" onclick="toggleFaq(this)" style="width: 100%; text-align: left; padding: 1rem 1.25rem; background: transparent; border: none; color: #ffffff; font-weight: 600; font-size: 0.9rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                <span>Bagaimana cara mengakses modul Kursus Bahasa Kuno (Metode Polyglot)?</span>
+                <span class="faq-arrow" style="color: var(--primary); transition: transform 0.2s ease;">▼</span>
+              </button>
+              <div class="faq-answer hidden" style="padding: 0 1.25rem 1rem 1.25rem; font-size: 0.83rem; color: #94a3b8; line-height: 1.6;">
+                Setelah berlangganan Tier Premium atau Professional, Anda dapat membuka modal "Kursus Bahasa Kuno" melalui menu navigasi sidebar atau langsung dari badge di hasil analisis eksegesis. Anda akan mendapatkan modul interaktif, panduan chunking fonetik, dan audio shadowing.
+              </div>
+            </div>
+
+            <div class="faq-item" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; overflow: hidden;">
+              <button type="button" onclick="toggleFaq(this)" style="width: 100%; text-align: left; padding: 1rem 1.25rem; background: transparent; border: none; color: #ffffff; font-weight: 600; font-size: 0.9rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                <span>Metode pembayaran apa saja yang diterima?</span>
+                <span class="faq-arrow" style="color: var(--primary); transition: transform 0.2s ease;">▼</span>
+              </button>
+              <div class="faq-answer hidden" style="padding: 0 1.25rem 1rem 1.25rem; font-size: 0.83rem; color: #94a3b8; line-height: 1.6;">
+                Kami mendukung seluruh pembayaran resmi Indonesia melalui gateway Midtrans: QRIS (GoPay, OVO, Dana, ShopeePay, LinkAja), Virtual Account bank-bank besar (BCA, Mandiri, BRI, BNI, Permata), serta Kartu Kredit / Debit internasional (Visa, MasterCard, JCB).
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -7260,12 +8419,19 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         }
         if (calcPill) {
           if (rem <= 0) {
-            calcPill.textContent = "";
-            calcPill.style.display = "none";
+            calcPill.textContent = "⚡ Upgrade Plan";
+            calcPill.style.display = "";
+            calcPill.className = "badge-pill badge-quota";
+            calcPill.style.background = "#eab308";
+            calcPill.style.color = "#040914";
+            calcPill.style.cursor = "pointer";
+            calcPill.onclick = (e) => navigateRoute(e, '/pricing');
           } else {
             calcPill.textContent = `${rem} Free`;
             calcPill.style.display = "";
             calcPill.className = "badge-pill badge-quota";
+            calcPill.style.cursor = "pointer";
+            calcPill.onclick = (e) => navigateRoute(e, '/pricing');
           }
         }
         if (heroCta) {
@@ -7303,6 +8469,15 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       if (btn) btn.disabled = true;
       if (loader) loader.style.display = "inline-flex";
       if (btnText) btnText.style.display = "none";
+
+      // Pre-flight check: intercept if free quota is exhausted
+      if (typeof currentUsage !== "undefined" && currentUsage && currentUsage.remaining <= 0 && !currentUsage.is_premium) {
+        if (btn) btn.disabled = false;
+        if (loader) loader.style.display = "none";
+        if (btnText) btnText.style.display = "inline";
+        triggerPricingLimitGate();
+        return;
+      }
 
       const token = getStoredToken();
       const headers = { "Content-Type": "application/json" };
@@ -7350,9 +8525,11 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       // Step 3: Handle HTTP status codes
       if (!res.ok) {
         if (res.status === 402) {
-          const errMsg = (data && data.detail && data.detail.message) ? data.detail.message : "Kuota 5 analisis gratis kamu telah habis. Lanjutkan dengan Polya Premium.";
-          alert(errMsg);
-          if (typeof openCheckoutModal === "function") openCheckoutModal();
+          if (btn) btn.disabled = false;
+          if (loader) loader.style.display = "none";
+          if (btnText) btnText.style.display = "inline";
+          triggerPricingLimitGate();
+          return;
         } else if (res.status === 401 || res.status === 403) {
           const authMsg = (data && data.detail) ? (typeof data.detail === "string" ? data.detail : JSON.stringify(data.detail)) : "Sesi autentikasi tidak valid atau kedaluwarsa. Silakan login ulang.";
           alert("Autentikasi ditolak (" + res.status + "): " + authMsg);
@@ -7724,31 +8901,31 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               ` : "";
 
               const citationLine = citationLabel ? `
-                <div style="margin-top: 0.45rem; font-size: 0.88rem; color: var(--text-muted); display: flex; align-items: center; flex-wrap: wrap;">
+                <div style="margin-top: 0.5rem; font-size: 0.95rem; color: #cbd5e1; display: flex; align-items: center; flex-wrap: wrap;">
                   <span style="font-weight: 600;">${safeEscapeText(citationLabel)}</span>
                   ${audioBtn}
                 </div>
-              ` : (audioBtn ? `<div style="margin-top: 0.45rem;">${audioBtn}</div>` : "");
+              ` : (audioBtn ? `<div style="margin-top: 0.5rem;">${audioBtn}</div>` : "");
 
               // 2. Transliteration block with dedicated vertical spacing
               const translit = safeEscapeText(rawTranslit || e.transliteration || "");
               const translitHtml = translit ? `
-                <div style="margin-top: 0.65rem; padding: 0.5rem 0.75rem; background: rgba(0, 0, 0, 0.25); border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.05);">
-                  <div style="font-size: 0.74rem; color: var(--text-dim); text-transform: uppercase; font-weight: 600; margin-bottom: 0.25rem; letter-spacing: 0.05em;">Transliterasi:</div>
-                  <p style="font-size: 0.88rem; color: var(--text-dim); font-family: var(--font-mono); font-style: italic; margin: 0; line-height: 1.5; text-align: justify !important; text-justify: inter-word;">${translit}</p>
+                <div style="margin-top: 0.75rem; padding: 0.65rem 0.85rem; background: rgba(0, 0, 0, 0.35); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.06);">
+                  <div style="font-size: 0.8rem; color: #94a3b8; text-transform: uppercase; font-weight: 700; margin-bottom: 0.25rem; letter-spacing: 0.05em;">Transliterasi:</div>
+                  <p style="font-size: 0.96rem; color: #f1f5f9; font-family: var(--font-mono); font-style: italic; margin: 0; line-height: 1.65; text-align: left !important;">${translit}</p>
                 </div>
               ` : "";
 
               // 3. Manuscript Witnesses
               const mssHtml = e.manuscripts ? `
-                <div style="margin-top: 0.65rem; font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; padding: 0.5rem 0.75rem; background: rgba(255, 255, 255, 0.02); border-radius: 4px; border-left: 3px solid var(--accent);">
-                  <strong style="color: var(--text-main);">Saksi:</strong> ${safeEscapeText(safeJoin(e.manuscripts))}
+                <div style="margin-top: 0.75rem; font-size: 0.94rem; color: #e2e8f0; line-height: 1.65; padding: 0.65rem 0.85rem; background: rgba(255, 255, 255, 0.03); border-radius: 8px; border-left: 3px solid var(--accent);">
+                  <strong style="color: #ffffff;">Saksi:</strong> ${safeEscapeText(safeJoin(e.manuscripts))}
                 </div>
               ` : "";
 
               // 4. Critical apparatus / Closing philological analysis
               const critAppHtml = e.critical_apparatus ? `
-                <div style="margin-top: 0.65rem; font-size: 0.88rem; color: var(--text-dim); line-height: 1.55; font-style: italic; border-left: 3px solid var(--primary); padding-left: 0.75rem;">
+                <div style="margin-top: 0.75rem; font-size: 0.94rem; color: #cbd5e1; line-height: 1.65; font-style: italic; border-left: 3px solid var(--primary); padding-left: 0.85rem;">
                   ${safeEscapeText(e.critical_apparatus)}
                 </div>
               ` : "";
@@ -7757,11 +8934,11 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               const scriptClass = isHebrew ? "hebrew-text" : "greek-text";
               const badgeClass = isHebrew ? "evidence-badge badge-soft-gold" : "evidence-badge badge-primary-source";
               const scriptStyle = isHebrew 
-                ? "margin: 0.4rem 0 0 0; width: 100%; box-sizing: border-box; text-align: right !important; font-size: 1.25rem; line-height: 1.6; color: #eab308 !important; direction: rtl;" 
-                : "margin: 0.4rem 0 0 0; width: 100%; box-sizing: border-box; text-align: justify !important; text-justify: inter-word; font-size: 1.15rem; line-height: 1.6;";
+                ? "margin: 0.5rem 0 0.25rem 0; width: 100%; box-sizing: border-box; text-align: right !important; font-size: 1.42rem; line-height: 1.85; color: #fde047 !important; direction: rtl; font-family: 'Ezra SIL', 'SBL Hebrew', serif;" 
+                : "margin: 0.5rem 0 0.25rem 0; width: 100%; box-sizing: border-box; text-align: left !important; font-size: 1.32rem; line-height: 1.75; color: #fde047 !important; font-weight: 500; font-family: 'SBL Greek', 'Times New Roman', serif;";
 
               return `
-                <div style="margin-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 0.85rem;">
+                <div style="margin-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1rem;">
                   <span class="${badgeClass}">${lang}</span>
                   <p class="${scriptClass}" style="${scriptStyle}">${safeEscapeText(greekScript)}</p>
                   ${citationLine}
@@ -7772,7 +8949,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               `;
             }).join("");
           } else {
-            evBox.innerHTML = `<p style="font-size: 0.9rem; color: var(--text-dim);">Nihil bukti primer tercatat.</p>`;
+            evBox.innerHTML = `<p style="font-size: 0.95rem; color: var(--text-dim);">Nihil bukti primer tercatat.</p>`;
           }
         }
 
@@ -7788,16 +8965,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
           if (allMorphParts.length > 0) {
             morphBox.innerHTML = `
-              <div style="display: flex; flex-direction: column; gap: 0.45rem;">
+              <div style="display: flex; flex-direction: column; gap: 0.55rem;">
                 ${allMorphParts.map(part => `
-                  <div style="font-size: 0.88rem; color: var(--text-main); background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 0.5rem 0.75rem; line-height: 1.5;">
+                  <div style="font-size: 0.95rem; color: #f8fafc; background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 0.65rem 0.85rem; line-height: 1.6;">
                     ${safeEscapeText(part)}
                   </div>
                 `).join("")}
               </div>
             `;
           } else {
-            morphBox.innerHTML = `<p style="font-size: 0.88rem; color: var(--text-dim); font-style: italic;">Nihil rincian morfologi kata tercatat pada lema bukti ini.</p>`;
+            morphBox.innerHTML = `<p style="font-size: 0.95rem; color: var(--text-dim); font-style: italic;">Nihil rincian morfologi kata tercatat pada lema bukti ini.</p>`;
           }
         }
       } catch (errEvidence) {
@@ -7952,27 +9129,27 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                 const isZuma = (t.turn_speaker === "ZUMA" || t.turn_speaker === "Penguji Klaim");
                 const spkName = isZuma ? "Penguji Klaim" : "Lawan Debat";
                 const spkRole = isZuma ? "AFFIRMATIVE_CRITIQUE" : "NEGATIVE_DEFENSE";
-                const spkColor = isZuma ? "#eab308" : "var(--rose)";
+                const spkColor = isZuma ? "#fbbf24" : "var(--rose)";
                 const badgeBg = isZuma ? "rgba(234, 179, 8, 0.15)" : "rgba(244, 63, 94, 0.15)";
                 const borderCol = isZuma ? "rgba(234, 179, 8, 0.4)" : "rgba(244, 63, 94, 0.4)";
-                const stratBadge = t.persona_strategy ? `<span class="badge-pill" style="font-size:0.7rem; color:#ffffff; background:#000000; border: 1px solid #94a3b8; width: fit-content; max-width: 100%; white-space: normal; line-height: 1.35; padding: 0.25rem 0.55rem; text-align: left;">🎯 ${safeEscapeText(sanitizePersonaName(t.persona_strategy))}</span>` : "";
-                const speechTypeBadge = t.speech_type ? `<span class="badge-pill" style="font-size:0.7rem; color:#ffffff; background:#000000; border: 1px solid #94a3b8; width: fit-content; max-width: 100%; white-space: normal; line-height: 1.35; padding: 0.25rem 0.55rem; text-align: left;">${safeEscapeText(t.speech_type)}</span>` : "";
+                const stratBadge = t.persona_strategy ? `<span class="badge-pill" style="font-size:0.78rem; color:#ffffff; background:#0b0f19; border: 1px solid #64748b; width: fit-content; max-width: 100%; white-space: normal; line-height: 1.4; padding: 0.3rem 0.65rem; text-align: left; border-radius: 6px;">🎯 ${safeEscapeText(sanitizePersonaName(t.persona_strategy))}</span>` : "";
+                const speechTypeBadge = t.speech_type ? `<span class="badge-pill" style="font-size:0.78rem; color:#ffffff; background:#0b0f19; border: 1px solid #64748b; width: fit-content; max-width: 100%; white-space: normal; line-height: 1.4; padding: 0.3rem 0.65rem; text-align: left; border-radius: 6px;">${safeEscapeText(t.speech_type)}</span>` : "";
                 
                 // Detail 1: Sanitasi teks ujaran (hapus [SIMULATED ZUMA RESPONSE] / [SOURCE QUOTE] / nama ZUMA)
                 let cleanSpeech = sanitizePersonaName(safeEscapeText(t.speaker_speech || ""));
 
                 return `
-                  <div class="turn-speech-card" style="margin: 0.5rem 0; padding: 0.65rem 0.8rem; background: ${isZuma ? 'rgba(15,23,42,0.6)' : 'rgba(30,41,59,0.5)'}; border-left: 3px solid ${spkColor}; border-radius: 4px;">
+                  <div class="turn-speech-card" style="margin: 0.65rem 0; padding: 0.85rem 1.1rem; background: ${isZuma ? 'rgba(15,23,42,0.7)' : 'rgba(24,32,47,0.65)'}; border-left: 3px solid ${spkColor}; border-radius: 8px; border-top: none; border-right: none; border-bottom: none;">
                     <!-- a. Bagian Atas (Header Pembicara): Nama & Role -->
-                    <div style="font-size: 0.82rem; font-weight: 700; color: ${spkColor}; margin-bottom: 0.45rem;">
-                      ${isZuma ? '⚡ ' : '🛡️ '} ${spkName} <span style="font-size: 0.72rem; color: var(--text-dim); font-weight: normal;">(${spkRole})</span>
+                    <div style="font-size: 0.95rem; font-weight: 700; color: ${spkColor}; margin-bottom: 0.45rem;">
+                      ${isZuma ? '⚡ ' : '🛡️ '} ${spkName} <span style="font-size: 0.78rem; color: #94a3b8; font-weight: normal;">(${spkRole})</span>
                     </div>
 
                     <!-- b. Bagian Tengah (Isi Argumen): Teks Penuh Lebar Maksimal -->
-                    <p style="font-size: 0.84rem; line-height: 1.6; color: var(--text-main); margin: 0 0 0.5rem 0; width: 100%; text-align: justify !important; text-justify: inter-word;">${cleanSpeech}</p>
+                    <p style="font-size: 0.98rem; line-height: 1.72; color: #f8fafc; margin: 0 0 0.65rem 0; width: 100%; text-align: left !important; word-break: break-word;">${cleanSpeech}</p>
 
                     <!-- c. Bagian Paling Bawah (Footer Badge Strategi): Vertikal, Rata Kiri, width: fit-content -->
-                    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.3rem; width: 100%; margin-top: 0.4rem;">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.35rem; width: 100%; margin-top: 0.45rem;">
                       ${speechTypeBadge}
                       ${stratBadge}
                     </div>
@@ -7981,10 +9158,10 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               }).join("");
 
               return `
-                <div class="case-card round-card" style="margin-top: 0.6rem; padding: 0.75rem; border: 1px solid var(--border-subtle); background: var(--bg-card);">
-                  <div style="font-weight: 700; font-size: 0.85rem; color: #eab308; margin-bottom: 0.35rem; display: flex; align-items: center; justify-content: space-between;">
+                <div class="case-card round-card" style="margin-top: 0.85rem; padding: 1.1rem 1.25rem; border: 1px solid rgba(255, 255, 255, 0.06); background: rgba(15, 20, 32, 0.65); border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.25);">
+                  <div style="font-weight: 700; font-size: 1.08rem; color: #fbbf24; margin-bottom: 0.6rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem;">
                     <span>${safeEscapeText(rTitle)}</span>
-                    <span style="font-size: 0.72rem; color: var(--text-dim);">2 Putaran Ujaran</span>
+                    <span style="font-size: 0.82rem; color: #94a3b8; font-weight: normal;">2 Putaran Ujaran</span>
                   </div>
                   ${turnsHtml}
                 </div>
@@ -7994,13 +9171,13 @@ Menunggu instruksi user untuk eksekusi backlog P0.
             let crossExHtml = "";
             if (crossEx) {
               crossExHtml = `
-                <div class="case-card" style="margin-top: 0.75rem; padding: 0.75rem; border-left: 4px solid #eab308; background: rgba(234, 179, 8, 0.08);">
-                  <div style="font-size: 0.85rem; font-weight: 700; color: #eab308; margin-bottom: 0.4rem;">
+                <div class="case-card" style="margin-top: 0.85rem; padding: 1.1rem 1.25rem; background: rgba(234, 179, 8, 0.06); border: 1px solid rgba(234, 179, 8, 0.25); border-radius: 12px;">
+                  <div style="font-size: 1.08rem; font-weight: 700; color: #fbbf24; margin-bottom: 0.6rem;">
                     🎯 Socratic Cross-Examination Trap (Fatal Dilemma)
                   </div>
-                  <p style="font-size: 0.83rem; color: var(--text-main); margin: 0 0 0.35rem 0;"><strong>Pertanyaan Sokratik:</strong> ${safeEscapeText(sanitizePersonaName(crossEx.socratic_question || ""))}</p>
-                  <p style="font-size: 0.8rem; color: var(--text-main); margin: 0 0 0.35rem 0;"><strong>Jebakan Dilema:</strong> ${safeEscapeText(sanitizePersonaName(crossEx.target_dilemma || ""))}</p>
-                  <p style="font-size: 0.8rem; color: #ffffff; text-decoration: underline; text-decoration-color: #ffffff; text-underline-offset: 3px; margin: 0;"><strong>Praduga yang Diruntuhkan:</strong> ${safeEscapeText(sanitizePersonaName(crossEx.presupposition_demolished || ""))}</p>
+                  <p style="font-size: 0.96rem; line-height: 1.68; color: #f8fafc; margin: 0 0 0.45rem 0;"><strong style="color: #fbbf24;">Pertanyaan Sokratik:</strong> ${safeEscapeText(sanitizePersonaName(crossEx.socratic_question || ""))}</p>
+                  <p style="font-size: 0.96rem; line-height: 1.68; color: #f8fafc; margin: 0 0 0.45rem 0;"><strong style="color: #fbbf24;">Jebakan Dilema:</strong> ${safeEscapeText(sanitizePersonaName(crossEx.target_dilemma || ""))}</p>
+                  <p style="font-size: 0.96rem; line-height: 1.68; color: #f8fafc; margin: 0;"><strong style="color: #fbbf24;">Praduga yang Diruntuhkan:</strong> <span style="text-decoration: underline; text-underline-offset: 3px;">${safeEscapeText(sanitizePersonaName(crossEx.presupposition_demolished || ""))}</span></p>
                 </div>
               `;
             }
@@ -8018,21 +9195,21 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               let cleanVerdictSummary = sanitizePersonaName(safeEscapeText(verdict.verdict_summary || ""));
 
               verdictHtml = `
-                <div class="case-card" style="margin-top: 0.75rem; padding: 0.75rem; border-left: 4px solid #eab308; background: rgba(234, 179, 8, 0.08);">
-                  <div style="margin-bottom: 0.5rem;">
-                    <div style="font-size: 0.88rem; font-weight: 700; color: #eab308; display: block; width: 100%; line-height: 1.4;">
+                <div class="case-card" style="margin-top: 0.85rem; padding: 1.1rem 1.25rem; background: rgba(234, 179, 8, 0.06); border: 1px solid rgba(234, 179, 8, 0.25); border-radius: 12px;">
+                  <div style="margin-bottom: 0.6rem;">
+                    <div style="font-size: 1.08rem; font-weight: 700; color: #fbbf24; display: block; width: 100%; line-height: 1.4;">
                       ⚖️ Adjudikasi Epistemic Verdict (Keunggulan Naskah)
                     </div>
-                    <div style="margin-top: 0.35rem;">
-                      <span class="badge-pill" style="color: #ffffff; background: #000000; border: 1px solid #94a3b8; font-size: 0.72rem; display: inline-block;">
+                    <div style="margin-top: 0.45rem;">
+                      <span class="badge-pill" style="color: #ffffff; background: #0b0f19; border: 1px solid #64748b; font-size: 0.78rem; padding: 0.3rem 0.65rem; border-radius: 6px; display: inline-block;">
                         ${cleanSup}
                       </span>
                     </div>
                   </div>
-                  <p style="font-size: 0.83rem; color: var(--text-main); line-height: 1.5; margin: 0 0 0.4rem 0;">${cleanVerdictSummary}</p>
+                  <p style="font-size: 0.98rem; color: #f8fafc; line-height: 1.72; margin: 0 0 0.45rem 0;">${cleanVerdictSummary}</p>
                   ${Array.isArray(verdict.unsupported_claims_flagged) && verdict.unsupported_claims_flagged.length > 0 ? `
-                    <div style="font-size: 0.75rem; color: #ffffff;">
-                      <strong style="color: #ffffff;">Unsupported Claims Flagged:</strong> ${verdict.unsupported_claims_flagged.map(c => `<span class="badge-pill" style="font-size:0.7rem; color: #ffffff; background: #000000; border: 1px solid #94a3b8; margin-right:0.25rem;">${safeEscapeText(c)}</span>`).join("")}
+                    <div style="font-size: 0.82rem; color: #ffffff; margin-top: 0.45rem;">
+                      <strong style="color: #fbbf24;">Unsupported Claims Flagged:</strong> ${verdict.unsupported_claims_flagged.map(c => `<span class="badge-pill" style="font-size:0.75rem; color: #ffffff; background: #0b0f19; border: 1px solid #64748b; margin-right:0.35rem; padding: 0.25rem 0.55rem; border-radius: 4px;">${safeEscapeText(c)}</span>`).join("")}
                     </div>
                   ` : ''}
                 </div>
@@ -8042,15 +9219,15 @@ Menunggu instruksi user untuk eksekusi backlog P0.
             let tracesHtml = "";
             if (traces.length > 0) {
               tracesHtml = `
-                <div style="margin-top: 0.75rem;">
-                  <div style="font-size: 0.78rem; font-weight: 700; color: #eab308; margin-bottom: 0.35rem;">
+                <div style="margin-top: 0.85rem;">
+                  <div style="font-size: 0.95rem; font-weight: 700; color: #fbbf24; margin-bottom: 0.5rem;">
                     🧭 Persona Traceability (Alur Berpikir Analitis):
                   </div>
-                  <div style="display: flex; flex-direction: column; gap: 0.4rem; width: 100%;">
+                  <div style="display: flex; flex-direction: column; gap: 0.45rem; width: 100%;">
                     ${traces.map(tr => `
-                      <div class="badge-pill" style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.74rem; color: #ffffff; border: 1px solid #94a3b8; background: #000000; padding: 0.45rem 0.75rem; width: 100%; box-sizing: border-box; text-align: left; line-height: 1.45; border-radius: var(--radius-sm); white-space: normal;">
-                        <span style="font-weight: 700; flex-shrink: 0; min-width: 1.2rem; color: #ffffff;">${tr.round_num}.</span>
-                        <span style="color: #ffffff;">${safeEscapeText(sanitizePersonaName(tr.persona_strategy || ""))}</span>
+                      <div class="badge-pill" style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.88rem; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(10, 15, 28, 0.85); padding: 0.6rem 0.9rem; width: 100%; box-sizing: border-box; text-align: left; line-height: 1.5; border-radius: 8px; white-space: normal;">
+                        <span style="font-weight: 700; flex-shrink: 0; min-width: 1.3rem; color: #fbbf24;">${tr.round_num}.</span>
+                        <span style="color: #f8fafc;">${safeEscapeText(sanitizePersonaName(tr.persona_strategy || ""))}</span>
                       </div>
                     `).join("")}
                   </div>
@@ -8059,18 +9236,18 @@ Menunggu instruksi user untuk eksekusi backlog P0.
             }
 
             simDebateHtml = `
-              <div style="font-size: 0.82rem;">
-                <div class="debate-canonical-banner" style="background: rgba(234, 179, 8, 0.1); padding: 0.8rem; border-radius: 6px; margin-bottom: 0.75rem; border-left: 3px solid #eab308;">
-                  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 0.35rem;">
-                    <strong style="color: #eab308; font-size: 0.88rem;">Simulasi Dialektika Forensik Kanonikal 8 Ronde (16 Turns)</strong>
-                    <span class="badge-pill" style="color: #ffffff; border: 1px solid #94a3b8; background: #000000; font-size: 0.7rem;">schema_version: 1.0.0</span>
+              <div>
+                <div class="debate-canonical-banner" style="background: rgba(234, 179, 8, 0.08); padding: 1rem 1.2rem; border-radius: 12px; margin-bottom: 0.85rem; border-left: 3px solid #eab308; border-top: 1px solid rgba(234, 179, 8, 0.15); border-right: 1px solid rgba(234, 179, 8, 0.15); border-bottom: 1px solid rgba(234, 179, 8, 0.15);">
+                  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.45rem;">
+                    <strong style="color: #fbbf24; font-size: 1.05rem;">Simulasi Dialektika Forensik Kanonikal 8 Ronde (16 Turns)</strong>
+                    <span class="badge-pill" style="color: #ffffff; border: 1px solid #64748b; background: #0b0f19; font-size: 0.76rem; padding: 0.25rem 0.6rem; border-radius: 6px;">schema_version: 1.0.0</span>
                   </div>
-                  <div style="margin-top: 0.25rem; font-size: 0.83rem;">
-                    <strong>Mosi Debat:</strong> ${motionTitle}
+                  <div style="margin-top: 0.35rem; font-size: 0.96rem; line-height: 1.65; color: #f8fafc;">
+                    <strong style="color: #fbbf24;">Mosi Debat:</strong> ${motionTitle}
                   </div>
                 </div>
                 ${crossExHtml}
-                <div style="margin-top: 0.75rem;">
+                <div style="margin-top: 0.85rem;">
                   ${roundsHtml}
                 </div>
                 ${verdictHtml}
@@ -8080,15 +9257,15 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           } else {
             const debateList = (prep && (prep.simulated_debate || prep.forensic_simulation || prep.dialectic_stages || prep.zuma_simulated_debate)) || [];
             if (Array.isArray(debateList) && debateList.length > 0) {
-              simDebateHtml = `<div style="margin-top: 0.5rem;">
+              simDebateHtml = `<div style="margin-top: 0.65rem;">
                 ${debateList.map((pt, i) => {
                   const label = safeEscapeText(pt.point || ("Putaran " + (i + 1)));
                   const style = safeEscapeText(pt.zuma_style || "");
                   const presentation = safeEscapeText(pt.presentation || "");
-                  return `<div class="case-card" style="margin-top: 0.5rem; padding: 0.75rem; background: var(--bg-card); border-left: 3px solid #eab308;">
-                    <div style="font-size: 0.85rem; color: #eab308; font-weight: 600;">${i + 1}. ${label}</div>
-                    ${style ? `<p style="font-size: 0.8rem; color: #eab308; margin: 0.25rem 0; font-style: italic;">${style}</p>` : ""}
-                    ${presentation ? `<p style="font-size: 0.82rem; color: var(--text-main); margin: 0.3rem 0; line-height: 1.5;">${presentation}</p>` : ""}
+                  return `<div class="case-card" style="margin-top: 0.65rem; padding: 0.95rem 1.15rem; background: rgba(15, 20, 32, 0.65); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; border-left: 3px solid #fbbf24;">
+                    <div style="font-size: 1rem; color: #fbbf24; font-weight: 700;">${i + 1}. ${label}</div>
+                    ${style ? `<p style="font-size: 0.88rem; color: #fbbf24; margin: 0.3rem 0; font-style: italic;">${style}</p>` : ""}
+                    ${presentation ? `<p style="font-size: 0.96rem; color: #f8fafc; margin: 0.35rem 0 0 0; line-height: 1.68;">${presentation}</p>` : ""}
                   </div>`;
                 }).join("")}
               </div>`;
@@ -8103,37 +9280,37 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               const qList = Array.isArray(b2.pertanyaan_presisi) ? b2.pertanyaan_presisi.map(q => `<li>${safeEscapeText(q)}</li>`).join("") : safeEscapeText(b2.pertanyaan_presisi || prep.babak_2_cross_exam || "");
               const mList = Array.isArray(b3.saksi_manuskrip) ? b3.saksi_manuskrip.map(m => `<span class="evidence-badge" style="margin-right:0.3rem;">${safeEscapeText(m)}</span>`).join("") : safeEscapeText(b3.saksi_manuskrip || "");
 
-              simDebateHtml = `<div style="font-size: 0.82rem;">
-                <div style="background: rgba(234, 179, 8, 0.1); padding: 0.75rem; border-radius: 4px; margin-bottom: 0.75rem; border-left: 3px solid #eab308;">
-                  <strong style="color: #eab308;">Simulasi Dialektika Forensik:</strong> ${safeEscapeText(hs.pihak_a || "Pihak A")} vs. ${safeEscapeText(hs.pihak_b || "Pihak B")}<br/>
-                  <strong>Topik:</strong> ${safeEscapeText(hs.topik || cf.claim || "")}<br/>
-                  <strong>Rujukan Utama:</strong> ${safeEscapeText(hs.rujukan_utama || "Bible")}<br/>
-                  <strong>Format:</strong> ${safeEscapeText(hs.format || "Full Script 3 Babak + 4 Segmen Forensik")}
-                  ${prep.opening ? `<br/><strong>Opening:</strong> ${safeEscapeText(prep.opening)}` : ""}
-                  ${prep.opening_strategy ? `<br/><strong>Strategy:</strong> ${safeEscapeText(prep.opening_strategy)}` : ""}
-                  ${prep.tempo ? `<br/><strong>Tempo:</strong> ${safeEscapeText(prep.tempo)}` : ""}
+              simDebateHtml = `<div>
+                <div style="background: rgba(234, 179, 8, 0.08); padding: 0.95rem 1.15rem; border-radius: 12px; margin-bottom: 0.85rem; border-left: 3px solid #eab308; border-top: 1px solid rgba(234, 179, 8, 0.15); border-right: 1px solid rgba(234, 179, 8, 0.15); border-bottom: 1px solid rgba(234, 179, 8, 0.15); font-size: 0.96rem; line-height: 1.65;">
+                  <strong style="color: #fbbf24;">Simulasi Dialektika Forensik:</strong> ${safeEscapeText(hs.pihak_a || "Pihak A")} vs. ${safeEscapeText(hs.pihak_b || "Pihak B")}<br/>
+                  <strong style="color: #fbbf24;">Topik:</strong> ${safeEscapeText(hs.topik || cf.claim || "")}<br/>
+                  <strong style="color: #fbbf24;">Rujukan Utama:</strong> ${safeEscapeText(hs.rujukan_utama || "Bible")}<br/>
+                  <strong style="color: #fbbf24;">Format:</strong> ${safeEscapeText(hs.format || "Full Script 3 Babak + 4 Segmen Forensik")}
+                  ${prep.opening ? `<br/><strong style="color: #fbbf24;">Opening:</strong> ${safeEscapeText(prep.opening)}` : ""}
+                  ${prep.opening_strategy ? `<br/><strong style="color: #fbbf24;">Strategy:</strong> ${safeEscapeText(prep.opening_strategy)}` : ""}
+                  ${prep.tempo ? `<br/><strong style="color: #fbbf24;">Tempo:</strong> ${safeEscapeText(prep.tempo)}` : ""}
                 </div>
-                <div class="case-card" style="margin-top: 0.5rem; padding: 0.6rem;">
-                  <strong style="color: #eab308;">1. Babak 1: Postulat & Premis Dasar</strong>
-                  <p style="margin: 0.25rem 0; color: var(--text-main);"><strong>Paparan Pihak A:</strong> ${safeEscapeText(b1.paparan_pihak_a || prep.babak_1_postulat || "")}</p>
-                  <p style="margin: 0.25rem 0; color: var(--text-muted);"><strong>Respons Pihak B:</strong> ${safeEscapeText(b1.respons_pihak_b || "")}</p>
+                <div class="case-card" style="margin-top: 0.65rem; padding: 0.95rem 1.15rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.06); background: rgba(15, 20, 32, 0.65);">
+                  <strong style="color: #fbbf24; font-size: 1.05rem;">1. Babak 1: Postulat & Premis Dasar</strong>
+                  <p style="margin: 0.4rem 0; color: #f8fafc; font-size: 0.96rem; line-height: 1.68;"><strong>Paparan Pihak A:</strong> ${safeEscapeText(b1.paparan_pihak_a || prep.babak_1_postulat || "")}</p>
+                  <p style="margin: 0.4rem 0 0 0; color: #cbd5e1; font-size: 0.96rem; line-height: 1.68;"><strong>Respons Pihak B:</strong> ${safeEscapeText(b1.respons_pihak_b || "")}</p>
                 </div>
-                <div class="case-card" style="margin-top: 0.5rem; padding: 0.6rem;">
-                  <strong style="color: #eab308;">2. Babak 2: Socratic Cross-Examination</strong>
-                  <p style="margin: 0.25rem 0; color: var(--text-main);"><strong>Pertanyaan Presisi:</strong></p>
-                  <ul style="padding-left: 1.2rem; margin: 0.2rem 0;">${qList}</ul>
-                  <p style="margin: 0.3rem 0 0.1rem 0; color: var(--text-main);"><strong>Jebakan Logika:</strong> ${safeEscapeText(b2.jebakan_logika || "")}</p>
+                <div class="case-card" style="margin-top: 0.65rem; padding: 0.95rem 1.15rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.06); background: rgba(15, 20, 32, 0.65);">
+                  <strong style="color: #fbbf24; font-size: 1.05rem;">2. Babak 2: Socratic Cross-Examination</strong>
+                  <p style="margin: 0.4rem 0 0.2rem 0; color: #f8fafc; font-size: 0.96rem;"><strong>Pertanyaan Presisi:</strong></p>
+                  <ul style="padding-left: 1.25rem; margin: 0.3rem 0; font-size: 0.96rem; line-height: 1.68; color: #f8fafc;">${qList}</ul>
+                  <p style="margin: 0.4rem 0 0.1rem 0; color: #f8fafc; font-size: 0.96rem; line-height: 1.68;"><strong>Jebakan Logika:</strong> ${safeEscapeText(b2.jebakan_logika || "")}</p>
                 </div>
-                <div class="case-card" style="margin-top: 0.5rem; padding: 0.6rem;">
-                  <strong style="color: #eab308;">3. Babak 3: Forensik Teks & Filologi Bahasa Sumber</strong>
-                  <p style="margin: 0.25rem 0; color: var(--text-main);"><strong>Bedah Bahasa Sumber:</strong> ${safeEscapeText(b3.bedah_bahasa_sumber || prep.babak_3_forensik || "")}</p>
-                  <p style="margin: 0.3rem 0 0.1rem 0; color: var(--text-main);"><strong>Saksi Manuskrip:</strong> ${mList}</p>
-                  <p style="margin: 0.3rem 0 0.1rem 0; color: var(--text-main);"><strong>Audit Terjemahan:</strong> ${safeEscapeText(b3.audit_terjemahan || "")}</p>
+                <div class="case-card" style="margin-top: 0.65rem; padding: 0.95rem 1.15rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.06); background: rgba(15, 20, 32, 0.65);">
+                  <strong style="color: #fbbf24; font-size: 1.05rem;">3. Babak 3: Forensik Teks & Filologi Bahasa Sumber</strong>
+                  <p style="margin: 0.4rem 0; color: #f8fafc; font-size: 0.96rem; line-height: 1.68;"><strong>Bedah Bahasa Sumber:</strong> ${safeEscapeText(b3.bedah_bahasa_sumber || prep.babak_3_forensik || "")}</p>
+                  <p style="margin: 0.4rem 0; color: #f8fafc; font-size: 0.96rem; line-height: 1.68;"><strong>Saksi Manuskrip:</strong> ${mList}</p>
+                  <p style="margin: 0.4rem 0 0 0; color: #f8fafc; font-size: 0.96rem; line-height: 1.68;"><strong>Audit Terjemahan:</strong> ${safeEscapeText(b3.audit_terjemahan || "")}</p>
                 </div>
-                <div class="case-card" style="margin-top: 0.5rem; padding: 0.6rem;">
-                  <strong style="color: #eab308;">4. Babak 4: Status Dialektika & Matriks Bukti</strong>
-                  <p style="margin: 0.25rem 0; color: var(--text-main);"><strong>Konsesi Ditarik:</strong> ${safeEscapeText(b4.concession_extracted || "")}</p>
-                  <p style="margin: 0.3rem 0 0.1rem 0; color: var(--text-main);"><strong>Evaluasi Kekuatan Bukti:</strong> ${safeEscapeText(b4.evaluasi_kekuatan_bukti || prep.babak_4_evaluasi || "")}</p>
+                <div class="case-card" style="margin-top: 0.65rem; padding: 0.95rem 1.15rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.06); background: rgba(15, 20, 32, 0.65);">
+                  <strong style="color: #fbbf24; font-size: 1.05rem;">4. Babak 4: Status Dialektika & Matriks Bukti</strong>
+                  <p style="margin: 0.4rem 0; color: #f8fafc; font-size: 0.96rem; line-height: 1.68;"><strong>Konsesi Ditarik:</strong> ${safeEscapeText(b4.concession_extracted || "")}</p>
+                  <p style="margin: 0.4rem 0 0 0; color: #f8fafc; font-size: 0.96rem; line-height: 1.68;"><strong>Evaluasi Kekuatan Bukti:</strong> ${safeEscapeText(b4.evaluasi_kekuatan_bukti || prep.babak_4_evaluasi || "")}</p>
                 </div>
               </div>`;
             } else {
@@ -8145,9 +9322,9 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           const tempo = prep && prep.recommended_tempo ? safeEscapeText(prep.recommended_tempo) : "Kendalikan tempo, paksa konesi langsung pada ayat.";
 
           zumaDebateContent.innerHTML = `
-            <div style="margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle);">
-              <span style="color: #eab308; font-weight: 600;">🎯 Cross-Examination Trap:</span> ${trap}<br/>
-              <span style="color: #eab308; font-weight: 600; margin-top: 0.25rem; display: inline-block;">⏱ Recommended Tempo:</span> ${tempo}
+            <div style="margin-bottom: 0.85rem; padding-bottom: 0.5rem; font-size: 0.96rem; color: #f8fafc; line-height: 1.65;">
+              <span style="color: #fbbf24; font-weight: 700;">🎯 Cross-Examination Trap:</span> ${trap}<br/>
+              <span style="color: #fbbf24; font-weight: 700; margin-top: 0.35rem; display: inline-block;">⏱ Recommended Tempo:</span> ${tempo}
             </div>
             ${simDebateHtml}
           `;
@@ -8920,28 +10097,28 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
         if (res.ok && data.success) {
           let html = `
-            <div style="background: rgba(234,179,8,0.06); border: 1px solid rgba(234,179,8,0.3); border-radius: 6px; padding: 0.75rem; margin-bottom: 0.85rem;">
-              <strong style="color: #eab308; font-size: 0.88rem;">Titik Paling Lemah (Weakest Premise):</strong>
-              <p style="margin-top: 0.25rem; font-size: 0.84rem; color: var(--text-main); font-weight: 500;">${data.weakest_premise || 'Nihil premis rapuh yang terdeteksi.'}</p>
+            <div style="background: rgba(234, 179, 8, 0.07); border: 1px solid rgba(234, 179, 8, 0.25); border-radius: 12px; padding: 1.1rem 1.25rem; margin-bottom: 1rem;">
+              <strong style="color: #fbbf24; font-size: 1.05rem; font-weight: 700;">Titik Paling Lemah (Weakest Premise):</strong>
+              <p style="margin-top: 0.4rem; font-size: 0.98rem; line-height: 1.72; color: #f8fafc; font-weight: 500;">${data.weakest_premise || 'Nihil premis rapuh yang terdeteksi.'}</p>
             </div>
           `;
 
           if (data.easiest_sentence_to_refute) {
             html += `
-              <div style="background: rgba(244,63,94,0.06); border: 1px solid rgba(244,63,94,0.25); border-radius: 6px; padding: 0.65rem; margin-bottom: 0.85rem;">
-                <strong style="color: var(--rose); font-size: 0.82rem;">Kalimat Paling Rentan Disanggah:</strong>
-                <p style="margin-top: 0.2rem; font-size: 0.82rem; color: var(--text-muted); font-style: italic;">"${data.easiest_sentence_to_refute}"</p>
+              <div style="background: rgba(244, 63, 94, 0.07); border: 1px solid rgba(244, 63, 94, 0.25); border-radius: 12px; padding: 1.1rem 1.25rem; margin-bottom: 1rem;">
+                <strong style="color: #fb7185; font-size: 1.05rem; font-weight: 700;">Kalimat Paling Rentan Disanggah:</strong>
+                <p style="margin-top: 0.4rem; font-size: 0.98rem; line-height: 1.72; color: #f1f5f9; font-style: italic;">"${data.easiest_sentence_to_refute}"</p>
               </div>
             `;
           }
 
           if (data.hardening_recommendations && data.hardening_recommendations.length > 0) {
             html += `
-              <div style="margin-top: 1.5rem; padding-top: 0.35rem;">
-                <h5 style="color: var(--emerald); margin-top: 0; margin-bottom: 0.45rem; font-size: 0.88rem;">Langkah Penguatan Argumen:</h5>
-                <ul style="padding-left: 1.25rem; margin-top: 0.25rem;">`;
+              <div style="margin-top: 1.5rem; padding-top: 0.5rem;">
+                <h5 style="color: #38bdf8; margin-top: 0; margin-bottom: 0.6rem; font-size: 1.08rem; font-weight: 700;">Langkah Penguatan Argumen:</h5>
+                <ul style="padding-left: 1.25rem; margin-top: 0.35rem;">`;
             data.hardening_recommendations.forEach(rec => {
-              html += `<li style="margin-bottom: 0.35rem; font-size: 0.82rem; color: var(--text-muted);">${rec}</li>`;
+              html += `<li style="margin-bottom: 0.55rem; font-size: 0.96rem; line-height: 1.72; color: #cbd5e1;">${rec}</li>`;
             });
             html += `</ul></div>`;
           }
@@ -10865,7 +12042,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     }
 
     function dispatchRoute(path) {
-      ["calculator", "dashboard", "themes", "knowledge", "persona", "pipeline", "settings", "account", "audit", "about-polya"].forEach(v => {
+      ["calculator", "dashboard", "themes", "knowledge", "persona", "pipeline", "settings", "account", "audit", "about-polya", "pricing"].forEach(v => {
         const el = document.getElementById(`view-${v}`);
         if (el) el.classList.add("hidden");
       });
@@ -10905,6 +12082,14 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         if (viewAbout) viewAbout.classList.remove("hidden");
         const aboutItem = document.getElementById("side-item-about");
         if (aboutItem) aboutItem.classList.add("active");
+      } else if (path.startsWith("/pricing") || path.startsWith("/plans")) {
+        const viewPricing = document.getElementById("view-pricing");
+        if (viewPricing) viewPricing.classList.remove("hidden");
+        const pricingItem = document.getElementById("side-item-pricing");
+        if (pricingItem) pricingItem.classList.add("active");
+        if (typeof initPricingView === "function") initPricingView();
+      } else if (path.startsWith("/kursus-bahasa-kuno") || path.startsWith("/ancient-courses")) {
+        if (typeof handleAncientCourseClick === "function") handleAncientCourseClick();
       } else if (path.startsWith("/audit") || path.startsWith("/report")) {
         document.getElementById("view-audit").classList.remove("hidden");
       }
@@ -11186,6 +12371,400 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     } else {
       initLayoutMode();
     }
+  
+    // ==========================================================================
+    // PRICING & PLANS INTERACTIVE CONTROLLER
+    // ==========================================================================
+    let currentPricingCycle = "monthly"; // "monthly" | "annual"
+    let currentPricingScope = "personal"; // "personal" | "corporate"
+
+    const PRICING_DATA = {
+      premium: {
+        name: "PREMIUM",
+        monthly: { price: 9, original: 13, period: "/ 3 months", idr: "Rp 145.000" },
+        annual: { price: 79, original: 115, period: "/ forever", idr: "Rp 1.250.000" }
+      },
+      professional: {
+        name: "PROFESSIONAL",
+        monthly: { price: 19, original: 28, period: "/ 3 months", idr: "Rp 299.000" },
+        annual: { price: 149, original: 216, period: "/ forever", idr: "Rp 2.350.000" }
+      },
+      enterprise: {
+        name: "ENTERPRISE",
+        monthly: { price: 79, original: 115, period: "/ 3 months", idr: "Rp 1.250.000" },
+        annual: { price: 599, original: 869, period: "/ forever", idr: "Rp 9.500.000" }
+      }
+    };
+
+    function initPricingView() {
+      // Check if arriving via limit gate
+      const limitReason = sessionStorage.getItem("polya_pricing_limit_reason");
+      const banner = document.getElementById("pricing-limit-alert-banner");
+      if (limitReason === "quota_exhausted" && banner) {
+        banner.classList.remove("hidden");
+        sessionStorage.removeItem("polya_pricing_limit_reason");
+      }
+      renderPricingPrices();
+    }
+
+    function triggerPricingLimitGate() {
+      sessionStorage.setItem("polya_pricing_limit_reason", "quota_exhausted");
+      navigateRoute(null, "/pricing");
+      const banner = document.getElementById("pricing-limit-alert-banner");
+      if (banner) banner.classList.remove("hidden");
+      const pricingAnchor = document.getElementById("view-pricing");
+      if (pricingAnchor) {
+        pricingAnchor.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function setPricingCycle(cycle) {
+      currentPricingCycle = cycle;
+      const btnMonthly = document.getElementById("btn-cycle-monthly");
+      const btnAnnual = document.getElementById("btn-cycle-annual");
+      const indicator = document.getElementById("cycle-switch-indicator");
+
+      if (cycle === "annual") {
+        if (btnMonthly) btnMonthly.classList.remove("active");
+        if (btnAnnual) btnAnnual.classList.add("active");
+        if (indicator) indicator.style.transform = "translateX(100%)";
+      } else {
+        if (btnMonthly) btnMonthly.classList.add("active");
+        if (btnAnnual) btnAnnual.classList.remove("active");
+        if (indicator) indicator.style.transform = "translateX(0%)";
+      }
+      renderPricingPrices();
+    }
+
+    function setPricingScope(scope) {
+      currentPricingScope = scope;
+      const btnPersonal = document.getElementById("btn-scope-personal");
+      const btnCorporate = document.getElementById("btn-scope-corporate");
+      const indicator = document.getElementById("scope-switch-indicator");
+
+      const cardPrem = document.getElementById("pricing-card-premium");
+      const cardPro = document.getElementById("pricing-card-professional");
+      const cardEnt = document.getElementById("pricing-card-enterprise");
+
+      if (scope === "corporate") {
+        if (btnPersonal) btnPersonal.classList.remove("active");
+        if (btnCorporate) btnCorporate.classList.add("active");
+        if (indicator) indicator.style.transform = "translateX(100%)";
+        if (cardPrem) cardPrem.style.opacity = "0.45";
+        if (cardPro) cardPro.style.opacity = "0.45";
+        if (cardEnt) {
+          cardEnt.style.opacity = "1";
+          cardEnt.classList.add("card-featured");
+          cardEnt.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      } else {
+        if (btnPersonal) btnPersonal.classList.add("active");
+        if (btnCorporate) btnCorporate.classList.remove("active");
+        if (indicator) indicator.style.transform = "translateX(0%)";
+        if (cardPrem) cardPrem.style.opacity = "1";
+        if (cardPro) cardPro.style.opacity = "1";
+        if (cardEnt) {
+          cardEnt.style.opacity = "1";
+          cardEnt.classList.remove("card-featured");
+        }
+      }
+    }
+
+    function renderPricingPrices() {
+      ["premium", "professional", "enterprise"].forEach(tier => {
+        const data = PRICING_DATA[tier][currentPricingCycle];
+        const priceEl = document.getElementById(`price-val-${tier}`);
+        const origEl = document.getElementById(`orig-val-${tier}`);
+        const periodEl = document.getElementById(`period-val-${tier}`);
+        const idrEl = document.getElementById(`idr-val-${tier}`);
+
+        if (priceEl) {
+          priceEl.classList.remove("number-flow-anim");
+          void priceEl.offsetWidth; // trigger reflow
+          priceEl.textContent = data.price;
+          priceEl.classList.add("number-flow-anim");
+        }
+        if (origEl) origEl.textContent = `$${data.original}`;
+        if (periodEl) periodEl.textContent = data.period;
+        if (idrEl && data.idr) {
+          idrEl.innerHTML = `<span>🇮🇩</span> <span>Setara: ~${data.idr} via QRIS / VA</span>`;
+        }
+      });
+    }
+
+    function toggleFaq(btn) {
+      const item = btn.closest(".faq-item");
+      if (!item) return;
+      const ans = item.querySelector(".faq-answer");
+      const arrow = item.querySelector(".faq-arrow");
+      if (ans) {
+        const isNowHidden = ans.classList.toggle("hidden");
+        if (arrow) {
+          arrow.style.transform = isNowHidden ? "rotate(0deg)" : "rotate(180deg)";
+        }
+      }
+    }
+
+    function fillClaim(text) {
+      const input = document.getElementById("claim-input");
+      if (input) {
+        input.value = text;
+        input.focus();
+      }
+    }
+
+    async function handlePlanPurchase(planId) {
+      const cycle = currentPricingCycle || "monthly";
+      const token = getStoredToken();
+      const headers = { "Content-Type": "application/json" };
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+
+      try {
+        const res = await fetch("/api/v1/payment/checkout", {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify({
+            user_id: currentUserId,
+            plan_id: planId,
+            cycle: cycle
+          })
+        });
+
+        const tx = await res.json();
+        if (res.ok && tx.snap_token) {
+          if (typeof window.snap !== "undefined" && window.snap.pay) {
+            window.snap.pay(tx.snap_token, {
+              onSuccess: function(result) {
+                alert("Pembayaran berhasil! Akses " + planId.toUpperCase() + " Anda telah aktif.");
+                location.reload();
+              },
+              onPending: function(result) {
+                alert("Menunggu penyelesaian pembayaran...");
+              },
+              onError: function(result) {
+                alert("Pembayaran gagal atau dibatalkan.");
+              },
+              onClose: function() {
+                console.log("Midtrans popup ditutup oleh pengguna.");
+              }
+            });
+          } else {
+            // Fallback to existing checkout modal
+            if (typeof openCheckoutModal === "function") {
+              openCheckoutModal();
+            }
+          }
+        } else {
+          const errMsg = tx.detail?.message || tx.detail || "Gagal membuat pesanan pembayaran Midtrans.";
+          alert("Gagal memproses pembayaran: " + errMsg);
+        }
+      } catch (err) {
+        console.error("Purchase error:", err);
+        alert("Gagal terhubung ke gateway pembayaran. Periksa koneksi internet Anda.");
+      }
+    }
+
+    function handleAncientCourseClick(e) {
+      if (e) e.preventDefault();
+      const modal = document.getElementById("ancient-course-modal");
+      if (modal) modal.classList.remove("hidden");
+    }
+
+    function closeAncientCourseModal() {
+      const modal = document.getElementById("ancient-course-modal");
+      if (modal) modal.classList.add("hidden");
+    }
+
+    function switchAncientSampleTab(tabName) {
+      const tabs = ["hebrew", "greek", "aramaic"];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`btn-tab-${t}`);
+        const panel = document.getElementById(`ancient-tab-${t}`);
+        if (btn) {
+          if (t === tabName) btn.classList.add("active");
+          else btn.classList.remove("active");
+        }
+        if (panel) {
+          if (t === tabName) panel.classList.remove("hidden");
+          else panel.classList.add("hidden");
+        }
+      });
+    }
+
+    function playAncientAudioDemo(lang, text, btn, ev) {
+      const langCodeMap = {
+        hebrew: "iw",
+        greek: "el",
+        aramaic: "arc"
+      };
+      const langCode = langCodeMap[lang] || "el";
+      if (typeof playAncientAudio === "function") {
+        playAncientAudio(text, langCode, btn, ev);
+      }
+    }
+
   </script>
+
+  <!-- ANCIENT LANGUAGE COURSE SYLLABUS MODAL -->
+  <div id="ancient-course-modal" class="overlay hidden">
+    <div class="modal-card" style="max-width: 780px; text-align: left; padding: 1.75rem 2rem; max-height: 90vh; overflow-y: auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
+        <div style="display: flex; align-items: center; gap: 0.65rem;">
+          <span style="font-size: 1.6rem;">🎓</span>
+          <div>
+            <h3 style="margin: 0; font-size: 1.25rem; font-weight: 700; color: #ffffff;">Kursus Bahasa Kuno (Metode Polyglot)</h3>
+            <p style="margin: 0.15rem 0 0 0; font-size: 0.8rem; color: var(--text-muted);">Kurikulum Terpadu Ibrani Biblika, Yunani Koine &amp; Aramaik untuk Apologetika &amp; Eksegesis Forensik</p>
+          </div>
+        </div>
+        <button type="button" onclick="closeAncientCourseModal()" style="background: transparent; border: none; color: var(--text-dim); font-size: 1.4rem; cursor: pointer;">✕</button>
+      </div>
+
+      <!-- Tracks Overview -->
+      <div class="ancient-track-card">
+        <div class="ancient-track-title">
+          <span>📜</span>
+          <span>Track 1: Bahasa Ibrani Kuno (Biblical Hebrew — Tanakh &amp; Masoretik)</span>
+        </div>
+        <p class="ancient-track-body">
+          • <strong>Metode Polyglot:</strong> Natural immersion &amp; auditory shadowing untuk penguasaan 22 konsonan Ibrani dan vokalisasi Tiberias.<br>
+          • <strong>Morfologi Forensik:</strong> Bedah sistem akar tri-konsonan (<em>Shorashim</em>), 7 pola konjugasi kata kerja (<em>Binyanim: Qal, Niphal, Piel, Pual, Hiphil, Hophal, Hitpael</em>), serta penandaan aksen naskah masoretik (Biblia Hebraica Stuttgartensia / BHS).
+        </p>
+      </div>
+
+      <div class="ancient-track-card">
+        <div class="ancient-track-title">
+          <span>🏛️</span>
+          <span>Track 2: Bahasa Yunani Koine (New Testament Greek — NA28 &amp; Papyri)</span>
+        </div>
+        <p class="ancient-track-body">
+          • <strong>Metode Polyglot:</strong> <em>Phrase chunking</em> frasa apologetika kunci (misal: <em>en arche en ho logos</em>, <em>theos en ho logos</em>), pembedaan fonetik Erasmus vs Historis Kuno.<br>
+          • <strong>Morfologi Forensik:</strong> Deklinasi 5 kasus kata benda (Nominatif, Genitif, Datif, Akusatif, Vokatif), sistem verba aspek waktu (Aoris, Present, Perfect), dan audit aparatus kritis naskah tertua (P46, P66, Codex Vaticanus).
+        </p>
+      </div>
+
+      <div class="ancient-track-card">
+        <div class="ancient-track-title">
+          <span>🏺</span>
+          <span>Track 3: Bahasa Aramaik Biblika (Imperial Aramaic &amp; Targum)</span>
+        </div>
+        <p class="ancient-track-body">
+          • <strong>Metode Polyglot:</strong> Pengenalan dialek Aramaik Timur &amp; Barat, fonetik Targum Onkelos, serta frasa Semitik otentik dalam tradisi Perjanjian Baru.<br>
+          • <strong>Morfologi Forensik:</strong> Analisis bagian Aramaik Kitab Daniel dan Ezra serta perbandingannya dengan dialek Qumran / Naskah Laut Mati.
+        </p>
+      </div>
+
+      <!-- Interactive Sample & Audio Shadowing Box -->
+      <div class="ancient-sample-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
+          <div style="font-weight: 700; color: #38bdf8; font-size: 0.88rem; display: flex; align-items: center; gap: 0.4rem;">
+            <span>🎧</span>
+            <span>Uji Coba Langsung Metode Polyglot (Sample Audio &amp; Chunking)</span>
+          </div>
+          <span class="badge-pill" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-size: 0.72rem; padding: 0.15rem 0.5rem;">Interactive Demo</span>
+        </div>
+
+        <div class="ancient-sample-tabs">
+          <button type="button" class="ancient-sample-tab-btn active" id="btn-tab-hebrew" onclick="switchAncientSampleTab('hebrew')">Ibrani (Kejadian 1:1)</button>
+          <button type="button" class="ancient-sample-tab-btn" id="btn-tab-greek" onclick="switchAncientSampleTab('greek')">Yunani (Yohanes 1:1)</button>
+          <button type="button" class="ancient-sample-tab-btn" id="btn-tab-aramaic" onclick="switchAncientSampleTab('aramaic')">Aramaik (Markus 5:41)</button>
+        </div>
+
+        <!-- Hebrew Tab Content -->
+        <div id="ancient-tab-hebrew" class="ancient-sample-panel">
+          <div style="font-size: 1.2rem; font-family: var(--font-hebrew, serif); color: #fde047; direction: rtl; text-align: right; margin-bottom: 0.35rem; line-height: 1.6;">
+            בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃
+          </div>
+          <div style="font-size: 0.8rem; color: #94a3b8; font-style: italic; margin-bottom: 0.65rem;">
+            Transliterasi: Bərē’šīṯ bārā’ ’Ĕlōhīm ’ēṯ haššāmayim wə’ēṯ hā’āreṣ (Kejadian 1:1)
+          </div>
+          <div style="margin-bottom: 0.75rem;">
+            <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase; margin-bottom: 0.25rem;">Phrase Chunking Unit:</div>
+            <span class="ancient-pill-chunk"><strong>בְּרֵאשִׁית</strong> Pada permulaan</span>
+            <span class="ancient-pill-chunk"><strong>בָּרָא</strong> Dia menciptakan (Qal Perf)</span>
+            <span class="ancient-pill-chunk"><strong>אֱלֹהִים</strong> Allah</span>
+            <span class="ancient-pill-chunk"><strong>אֵת הַשָּׁמַיִם</strong> langit itu</span>
+            <span class="ancient-pill-chunk"><strong>וְאֵת הָאָרֶץ</strong> dan bumi itu</span>
+          </div>
+          <button type="button" class="btn-primary" style="padding: 0.4rem 0.95rem; font-size: 0.78rem; background: rgba(56, 189, 248, 0.2); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8;" onclick="playAncientAudioDemo('hebrew', 'Bərē’šīṯ bārā’ ’Ĕlōhīm ’ēṯ haššāmayim wə’ēṯ hā’āreṣ', this, event)">
+            🔊 Putar Pelafalan Fonetik Tiberias (Audio Shadowing)
+          </button>
+        </div>
+
+        <!-- Greek Tab Content -->
+        <div id="ancient-tab-greek" class="ancient-sample-panel hidden">
+          <div style="font-size: 1.15rem; font-family: var(--font-serif); color: #38bdf8; margin-bottom: 0.35rem; line-height: 1.5;">
+            Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.
+          </div>
+          <div style="font-size: 0.8rem; color: #94a3b8; font-style: italic; margin-bottom: 0.65rem;">
+            Transliterasi: En archē ēn ho logos, kai ho logos ēn pros ton theon, kai theos ēn ho logos (Yohanes 1:1)
+          </div>
+          <div style="margin-bottom: 0.75rem;">
+            <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase; margin-bottom: 0.25rem;">Phrase Chunking Unit:</div>
+            <span class="ancient-pill-chunk"><strong>Ἐν ἀρχῇ</strong> Pada mulanya</span>
+            <span class="ancient-pill-chunk"><strong>ἦν ὁ λόγος</strong> adalah Sang Firman</span>
+            <span class="ancient-pill-chunk"><strong>πρὸς τὸν θεόν</strong> bersama dengan Allah</span>
+            <span class="ancient-pill-chunk"><strong>καὶ θεὸς ἦν</strong> dan Allah-lah adanya</span>
+          </div>
+          <button type="button" class="btn-primary" style="padding: 0.4rem 0.95rem; font-size: 0.78rem; background: rgba(56, 189, 248, 0.2); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8;" onclick="playAncientAudioDemo('greek', 'En arche en ho logos, kai ho logos en pros ton theon, kai theos en ho logos', this, event)">
+            🔊 Putar Pelafalan Historis Koine (Audio Shadowing)
+          </button>
+        </div>
+
+        <!-- Aramaic Tab Content -->
+        <div id="ancient-tab-aramaic" class="ancient-sample-panel hidden">
+          <div style="font-size: 1.2rem; font-family: var(--font-hebrew, serif); color: #a78bfa; direction: rtl; text-align: right; margin-bottom: 0.35rem; line-height: 1.6;">
+            טְלִיתָא קוּמִי / מַלְכָּא לְעָלְמִין חֱיִי
+          </div>
+          <div style="font-size: 0.8rem; color: #94a3b8; font-style: italic; margin-bottom: 0.65rem;">
+            Transliterasi: Ṭəlīṯā qūmī (Markus 5:41) / Malkā lə‘āləmīn ḥĕyī (Daniel 2:4b)
+          </div>
+          <div style="margin-bottom: 0.75rem;">
+            <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase; margin-bottom: 0.25rem;">Phrase Chunking Unit:</div>
+            <span class="ancient-pill-chunk"><strong>טְלִיתָא</strong> Hai anak perempuan</span>
+            <span class="ancient-pill-chunk"><strong>קוּמִי</strong> Bangkitlah!</span>
+            <span class="ancient-pill-chunk"><strong>מַלְכָּא</strong> Ya Raja</span>
+            <span class="ancient-pill-chunk"><strong>לְעָלְמִין חֱיִי</strong> Hiduplah selamanya!</span>
+          </div>
+          <button type="button" class="btn-primary" style="padding: 0.4rem 0.95rem; font-size: 0.78rem; background: rgba(56, 189, 248, 0.2); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8;" onclick="playAncientAudioDemo('aramaic', 'Talitha kumi, malka le-almin cheyi', this, event)">
+            🔊 Putar Pelafalan Semitik Aramaik (Audio Shadowing)
+          </button>
+        </div>
+      </div>
+
+      <!-- 4 Pillars of Polyglot Method Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem; margin-top: 1rem; margin-bottom: 1rem;">
+        <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.75rem;">
+          <div style="font-weight: 700; color: #38bdf8; font-size: 0.8rem; margin-bottom: 0.2rem;">1. Auditory Shadowing</div>
+          <div style="font-size: 0.72rem; color: #94a3b8;">Refleks telinga melatih pengucapan akurat naskah primer secara natural.</div>
+        </div>
+        <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.75rem;">
+          <div style="font-weight: 700; color: #fde047; font-size: 0.8rem; margin-bottom: 0.2rem;">2. Phrase Chunking</div>
+          <div style="font-size: 0.72rem; color: #94a3b8;">Menghafal unit frasa bermakna utuh tanpa terhambat tabel mati.</div>
+        </div>
+        <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.75rem;">
+          <div style="font-weight: 700; color: #34d399; font-size: 0.8rem; margin-bottom: 0.2rem;">3. Syntax &amp; Codex</div>
+          <div style="font-size: 0.72rem; color: #94a3b8;">Koneksi langsung ke naskah tertua (Sinaiticus, NA28, Dead Sea Scrolls).</div>
+        </div>
+        <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.75rem;">
+          <div style="font-weight: 700; color: #f472b6; font-size: 0.8rem; margin-bottom: 0.2rem;">4. Ilzam al-Khasm Drill</div>
+          <div style="font-size: 0.72rem; color: #94a3b8;">Praktik dialektika langsung membedah klaim polemik berbasis naskah sumber.</div>
+        </div>
+      </div>
+
+      <!-- Tier Availability Callout -->
+      <div style="background: rgba(30, 58, 138, 0.2); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 12px; padding: 1rem 1.25rem; margin-top: 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+        <div>
+          <div style="font-weight: 700; color: #ffffff; font-size: 0.9rem;">Akses Modul Kursus:</div>
+          <div style="font-size: 0.82rem; color: #cbd5e1; margin-top: 0.2rem;">
+            Modul Dasar tersedia di Tier <strong>Premium ($9)</strong>. Kurikulum Penuh + Morfologi Eksegetis &amp; Audio TTS tersedia di Tier <strong>Professional ($19)</strong>.
+          </div>
+        </div>
+        <button type="button" class="btn-primary" style="background: var(--gold); color: #040914; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1.25rem; white-space: nowrap;" onclick="closeAncientCourseModal(); navigateRoute(event, '/pricing');">
+          Buka di Tier Professional ($19) →
+        </button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
