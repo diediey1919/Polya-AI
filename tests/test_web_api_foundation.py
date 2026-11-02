@@ -223,7 +223,7 @@ def test_09_webhook_valid_signature_settles_and_activates_entitlement(temp_web_d
     checkout = PaymentService.create_checkout("paying_user")
     order_id = checkout["order_id"]
     status_code = "200"
-    gross_amount = "99000.00"
+    gross_amount = f"{checkout['amount']}.00"
 
     raw = f"{order_id}{status_code}{gross_amount}{secret}"
     valid_sig = hashlib.sha512(raw.encode("utf-8")).hexdigest()
@@ -279,7 +279,7 @@ def test_11_webhook_non_settlement_does_not_activate_premium(temp_web_db):
     checkout = PaymentService.create_checkout("pending_user")
     order_id = checkout["order_id"]
     status_code = "201"
-    gross_amount = "99000"
+    gross_amount = str(checkout["amount"])
 
     raw = f"{order_id}{status_code}{gross_amount}{secret}"
     sig = hashlib.sha512(raw.encode("utf-8")).hexdigest()
@@ -308,7 +308,7 @@ def test_12_webhook_idempotency_and_out_of_order_protection(temp_web_db):
     checkout = PaymentService.create_checkout("replay_user")
     order_id = checkout["order_id"]
     status_code = "200"
-    gross_amount = "99000"
+    gross_amount = str(checkout["amount"])
 
     raw = f"{order_id}{status_code}{gross_amount}{secret}"
     sig = hashlib.sha512(raw.encode("utf-8")).hexdigest()
@@ -815,7 +815,7 @@ def test_20_staging_google_auth_and_midtrans_idempotency(temp_web_db, monkeypatc
     checkout = PaymentService.create_checkout("staging_test_user")
     order_id = checkout["order_id"]
     status_code = "200"
-    gross_amount = "99000"
+    gross_amount = str(checkout["amount"])
 
     raw_sig = f"{order_id}{status_code}{gross_amount}{secret_key}"
     valid_sig = hashlib.sha512(raw_sig.encode("utf-8")).hexdigest()
@@ -892,6 +892,50 @@ def test_20_staging_google_auth_and_midtrans_idempotency(temp_web_db, monkeypatc
     assert success is True
     healed_ent = EntitlementService.get_entitlement("staging_test_user")
     assert healed_ent["state"] == EntitlementState.PREMIUM_ACTIVE.value
+
+
+def test_21_multi_tier_pricing_checkout_and_entitlement_plan_persistence(temp_web_db):
+    """POLYA-WEB-10: Test multi-tier checkout (professional, enterprise) and webhook plan activation."""
+    from services import PaymentService, EntitlementService, EntitlementState
+    import hashlib
+
+    secret = "midtrans_test_secret_key_456"
+
+    # 1. Professional annual plan checkout
+    pro_checkout = PaymentService.create_checkout("pro_user", plan_id="professional", cycle="annual")
+    assert pro_checkout["plan_id"] == "professional"
+    assert pro_checkout["cycle"] == "annual"
+    assert pro_checkout["amount"] == 2350000
+    assert pro_checkout["price_usd"] == 149
+
+    # Settle via webhook
+    pro_order_id = pro_checkout["order_id"]
+    status_code = "200"
+    gross_amount = str(pro_checkout["amount"])
+    raw = f"{pro_order_id}{status_code}{gross_amount}{secret}"
+    sig = hashlib.sha512(raw.encode("utf-8")).hexdigest()
+
+    payload = {
+        "order_id": pro_order_id,
+        "status_code": status_code,
+        "gross_amount": gross_amount,
+        "signature_key": sig,
+        "transaction_status": "settlement"
+    }
+    success, msg = PaymentService.process_webhook(payload, server_key=secret)
+    assert success is True
+
+    ent = EntitlementService.get_entitlement("pro_user")
+    assert ent["state"] == EntitlementState.PREMIUM_ACTIVE.value
+    assert ent["plan"] == "professional"
+
+    # 2. Enterprise monthly plan checkout
+    ent_checkout = PaymentService.create_checkout("ent_user", plan_id="enterprise", cycle="monthly")
+    assert ent_checkout["plan_id"] == "enterprise"
+    assert ent_checkout["cycle"] == "monthly"
+    assert ent_checkout["amount"] == 1250000
+    assert ent_checkout["price_usd"] == 79
+
 
 
 
