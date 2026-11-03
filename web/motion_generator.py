@@ -9,8 +9,15 @@ DEBATE_DIR = os.path.join(REPO_ROOT, "data", "video_pipeline", "06_debate")
 STATIC_JSON = os.path.join(REPO_ROOT, "web", "static", "apologets_sidebar_themes.json")
 
 
+_CORPUS_DEBATE_MOTIONS_CACHE = None
+
+
 def get_corpus_debate_motions() -> list:
     """Mengembalikan daftar lengkap 2.638 mosi debat korpus ZUMA dari 06_debate dan apologets_sidebar_themes.json."""
+    global _CORPUS_DEBATE_MOTIONS_CACHE
+    if _CORPUS_DEBATE_MOTIONS_CACHE is not None:
+        return _CORPUS_DEBATE_MOTIONS_CACHE
+
     themes = []
     debates_by_vid = {}
 
@@ -99,6 +106,7 @@ def get_corpus_debate_motions() -> list:
     if not themes and debates_by_vid:
         themes = list(debates_by_vid.values())
 
+    _CORPUS_DEBATE_MOTIONS_CACHE = themes
     return themes
 
 

@@ -148,9 +148,73 @@ async def get_language_registry():
     return {"languages": LANGUAGE_REGISTRY, "default": "en"}
 
 
+_POPULAR_MOTIONS_CATALOG_CACHE = None
+
+def get_popular_motions_catalog_data():
+    global _POPULAR_MOTIONS_CATALOG_CACHE
+    if _POPULAR_MOTIONS_CATALOG_CACHE is not None:
+        return _POPULAR_MOTIONS_CATALOG_CACHE
+    catalog_path = os.path.join(WEB_DIR, "static", "popular_motions_catalog.json")
+    if os.path.isfile(catalog_path):
+        try:
+            with open(catalog_path, "r", encoding="utf-8") as f:
+                _POPULAR_MOTIONS_CATALOG_CACHE = json.load(f)
+                return _POPULAR_MOTIONS_CATALOG_CACHE
+        except Exception as e:
+            logger.error(f"Error loading {catalog_path}: {e}")
+    return {"success": False, "count": 0, "categories": {}, "items": []}
+
+
 @router.get("/claims/examples")
 async def get_example_claims():
     return {"claims": CANONICAL_DEMO_CLAIMS}
+
+
+@router.get("/claims/directory")
+async def get_claims_directory(
+    category: Optional[str] = None,
+    q: Optional[str] = None,
+    limit: Optional[int] = None,
+    offset: Optional[int] = 0
+):
+    """
+    Returns full catalog of 2,456 verified debate motions classified into:
+    'perjanjian_lama' (Tanakh), 'perjanjian_baru' (Injil & Epistola), and 'lainnya' (Tematik & Filologi).
+    Supports instant keyword search filtering, limit, and offset.
+    """
+    data = get_popular_motions_catalog_data()
+    items = data.get("items", [])
+
+    if category and category.lower() != "all":
+        cat_lower = category.lower()
+        items = [it for it in items if it.get("category") == cat_lower]
+
+    if q:
+        query_terms = q.lower().split()
+        items = [
+            it for it in items
+            if all(
+                t in (it.get("label", "") + " " + it.get("claim", "") + " " + it.get("book_or_cluster", "")).lower()
+                for t in query_terms
+            )
+        ]
+
+    total_found = len(items)
+    off = max(0, offset or 0)
+    if limit and limit > 0:
+        items = items[off:off + limit]
+    elif off > 0:
+        items = items[off:]
+
+    return {
+        "success": True,
+        "total": total_found,
+        "offset": off,
+        "limit": limit,
+        "count": len(items),
+        "categories": data.get("categories", {}),
+        "items": items
+    }
 
 
 @router.get("/context")
@@ -642,10 +706,25 @@ async def get_knowledge_evidence_endpoint():
 from web.motion_generator import get_corpus_debate_motions
 
 @router.get("/themes")
-async def list_themes_endpoint():
+async def list_themes_endpoint(limit: Optional[int] = None, offset: Optional[int] = 0):
     """Returns dynamic catalog of 300+ professional theological debate motion themes derived from transcript content analysis."""
     themes = get_corpus_debate_motions()
-    return {"success": True, "count": len(themes), "themes": themes}
+    total_count = len(themes)
+    off = max(0, offset or 0)
+    if limit and limit > 0:
+        sliced = themes[off:off + limit]
+    elif off > 0:
+        sliced = themes[off:]
+    else:
+        sliced = themes
+    return {
+        "success": True,
+        "total": total_count,
+        "count": len(sliced),
+        "offset": off,
+        "limit": limit,
+        "themes": sliced
+    }
 
 
 @router.get("/themes/{theme_id}")

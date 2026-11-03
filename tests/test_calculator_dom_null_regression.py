@@ -183,3 +183,84 @@ async def test_calculator_quota_exhausted_returns_402():
     )
     assert st6 == 402
     assert data6["detail"]["error"] == "QUOTA_EXHAUSTED"
+
+
+def test_index_html_sidebar_auto_collapse_bindings():
+    """Validates presence and completeness of auto-collapse sidebar bindings across Calculator, Dashboard, and Persona Dialektika."""
+    html = read_index_html()
+
+    # 1. CSS layout rule encompasses calculator, dashboard, and persona views
+    assert "#view-calculator," in html
+    assert "#view-dashboard," in html
+    assert "#view-persona {" in html
+
+    # 2. View section click bindings for auto-collapsing sidebar
+    assert 'const calcSection = document.getElementById("view-calculator");' in html
+    assert 'const dashSection = document.getElementById("view-dashboard");' in html
+    assert 'const personaSection = document.getElementById("view-persona");' in html
+
+    # 3. Form input auto-collapse bindings on persona view
+    assert '"zuma-topic-input"' in html
+    assert '"zuma-pos-select"' in html
+    assert '"zuma-diff-select"' in html
+    assert '"zuma-arg-claim"' in html
+    assert '"zuma-arg-reasoning"' in html
+
+    # 4. startZumaSparringSession calls collapseSidebar()
+    pattern = r"async\s+function\s+startZumaSparringSession\s*\(\)\s*\{\s*collapseSidebar\(\);"
+    assert re.search(pattern, html) is not None, "startZumaSparringSession() must immediately call collapseSidebar()"
+
+    # 5. Full width expansion on persona cards without restrictive max-width
+    assert 'id="zuma-setup-box" class="case-card border-beam-card" style="padding: 1.5rem; margin-bottom: 1.5rem; width: 100%; max-width: 100%; box-sizing: border-box;"' in html
+    zuma_setup_slice = html[html.find('id="zuma-setup-box"'):html.find('id="zuma-setup-box"') + 200]
+    assert 'max-width: 650px' not in zuma_setup_slice
+
+    # 6. Sidebar toggle spacing clearance on collapsed persona view
+    assert '.app-body.sidebar-collapsed #view-persona' in html
+    assert 'padding-top: 2.75rem' in html
+
+
+def test_nimbus_liquid_navbar_mobile_menu_mapping():
+    """Validates Nimbus UI Liquid Navbar 7 buttons, routes, accessibility attributes, and route sync."""
+    html = read_index_html()
+
+    # 1. Navbar container and ID
+    assert 'id="mobile-top-nav"' in html
+    assert 'class="nimbus-nav"' in html
+
+    # 2. Seven navigation buttons with exact routes
+    assert 'data-route="/"' in html
+    assert 'data-route="/themes"' in html
+    assert 'data-route="/persona"' in html
+    assert 'data-route="/kursus-bahasa-kuno"' in html
+    assert 'data-route="/pricing"' in html
+    assert 'data-route="/pipeline"' in html
+    assert 'data-route="/settings"' in html
+
+    # 3. Accessibility labels and titles
+    assert 'aria-label="Apologetics Calculator"' in html
+    assert 'aria-label="Tema & Mosi Debat"' in html
+    assert 'aria-label="Persona Dialektika (ZUMA Cockpit)"' in html
+    assert 'aria-label="Kursus Bahasa Kuno (Metode Polyglot)"' in html
+    assert 'aria-label="Pricing & Plans"' in html
+    assert 'aria-label="Exegesis Pipeline"' in html
+    assert 'aria-label="Settings"' in html
+
+    # 4. Route sync logic in JS
+    assert 'navigateRoute(null, "/persona");' in html
+    assert 'navigateRoute(null, "/kursus-bahasa-kuno");' in html
+    assert 'navigateRoute(null, "/pricing");' in html
+    assert 'navigateRoute(null, "/pipeline");' in html
+    assert 'navigateRoute(null, "/settings");' in html
+    assert 'path.startsWith("/persona")' in html
+    assert 'path.startsWith("/kursus-bahasa-kuno")' in html
+    assert 'path.startsWith("/pipeline")' in html
+    assert 'path.startsWith("/settings")' in html
+
+    # 5. Position order verification: button 4 is /pipeline
+    pipeline_pos = html.find('data-route="/pipeline"')
+    kursus_pos = html.find('data-route="/kursus-bahasa-kuno"')
+    pricing_pos = html.find('data-route="/pricing"')
+    settings_pos = html.find('data-route="/settings"')
+    assert pipeline_pos < kursus_pos < pricing_pos < settings_pos
+

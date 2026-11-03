@@ -2253,6 +2253,16 @@ async def get_user_training_stats_endpoint(user_id: str):
 @app.get("/kursus-bahasa-kuno")
 @app.get("/audit")
 @app.get("/report")
+@app.get("/about-polya")
+@app.get("/about-polya/{subpath:path}")
+@app.get("/about")
+@app.get("/terms")
+@app.get("/terms/{subpath:path}")
+@app.get("/terms-and-conditions")
+@app.get("/terms-and-conditions/{subpath:path}")
+@app.get("/tos")
+@app.head("/terms")
+@app.head("/terms/{subpath:path}")
 async def get_index():
     headers = {"Cache-Control": "no-cache, no-store, must-revalidate"}
     index_file = os.path.join(STATIC_DIR, "index.html")
