@@ -35,9 +35,9 @@ async def test_claims_directory_endpoint_returns_catalog():
     assert "perjanjian_lama" in cats
     assert "perjanjian_baru" in cats
     assert "lainnya" in cats
-    assert cats["perjanjian_lama"] == 736
-    assert cats["perjanjian_baru"] == 1530
-    assert cats["lainnya"] == 190
+    assert cats["perjanjian_lama"] == 802
+    assert cats["perjanjian_baru"] == 1654
+    assert cats.get("lainnya", 0) == 0
 
 
 @pytest.mark.anyio
@@ -125,9 +125,9 @@ def test_index_html_motion_directory_dom_elements():
     assert 'data-cat="perjanjian_baru"' in html
     assert 'data-cat="lainnya"' in html
     assert 'id="count-tab-all">2.456<' in html
-    assert 'id="count-tab-pl">736<' in html
-    assert 'id="count-tab-pb">1.530<' in html
-    assert 'id="count-tab-lainnya">190<' in html
+    assert 'id="count-tab-pl">802<' in html
+    assert 'id="count-tab-pb">1.654<' in html
+    assert 'id="count-tab-lainnya">0<' in html
 
     # Script Controllers & Optimization Constants
     assert 'function loadMotionDirectoryData()' in html
@@ -169,6 +169,10 @@ async def test_claims_directory_catalog_quality_and_uniqueness():
         claim = it.get("claim", "")
         assert claim != generic_template_1, f"Item {it.get('id')} still has generic template 1"
         assert not claim.startswith(generic_template_2), f"Item {it.get('id')} still has generic template 2: {claim}"
-        # Category must be valid
-        assert it.get("category") in {"perjanjian_lama", "perjanjian_baru", "lainnya"}
+        # Category must be valid kanon
+        assert it.get("category") in {"perjanjian_lama", "perjanjian_baru"}
+        # Must not contain raw youtube noise
+        assert "kwkw" not in claim.lower()
+        assert "addduuuhhhaaiii" not in claim.lower()
+        assert "fooollll" not in claim.lower()
 

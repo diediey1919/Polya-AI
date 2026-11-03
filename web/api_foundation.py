@@ -179,7 +179,7 @@ async def get_claims_directory(
 ):
     """
     Returns full catalog of 2,456 verified debate motions classified into:
-    'perjanjian_lama' (Tanakh), 'perjanjian_baru' (Injil & Epistola), and 'lainnya' (Tematik & Filologi).
+    'perjanjian_baru' (1.654 mosi) and 'perjanjian_lama' (802 mosi).
     Supports instant keyword search filtering, limit, and offset.
     """
     data = get_popular_motions_catalog_data()

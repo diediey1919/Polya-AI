@@ -3,8 +3,9 @@
 Refine Popular Motions Catalog:
 1. Eliminates duplicate template claims across all 2,456 items.
 2. Ensures 100% of items have explicit Bible Book, Chapter, and Verse passages.
-3. Maps all 190 items in 'Kategori Lainnya' to unique, substantive theological claims based on their YouTube catalog title and dialogue rounds.
-4. Preserves backward compatibility with index.html, /api/v1/claims/directory, and pytest suites.
+3. Maps all 190 items previously in 'Kategori Lainnya' to 'perjanjian_baru' (124 items) and 'perjanjian_lama' (66 items).
+4. Sanitizes all raw YouTube titles, slang, and polemical suffixes from claims while strictly preserving valid Bible citations and source-language theological terms.
+5. Preserves backward compatibility with index.html, /api/v1/claims/directory, and pytest suites.
 """
 import os
 import sys
@@ -17,11 +18,68 @@ CATALOG_PATH = os.path.join(REPO_ROOT, "web", "static", "popular_motions_catalog
 DB_PATH = "/home/ubuntu/.polya/polya_index.db"
 DEBATE_DIR = os.path.join(REPO_ROOT, "data", "video_pipeline", "06_debate")
 
+PL_BOOKS = {
+    'Kejadian', 'Keluaran', 'Imamat', 'Bilangan', 'Ulangan',
+    'Yosua', 'Hakim-hakim', 'Rut', '1 Samuel', '2 Samuel',
+    '1 Raja-raja', '2 Raja-raja', '1 Tawarikh', '2 Tawarikh',
+    'Ezra', 'Nehemia', 'Ester', 'Ayub', 'Mazmur', 'Amsal',
+    'Pengkhotbah', 'Kidung Agung', 'Yesaya', 'Yeremia', 'Ratapan',
+    'Yehezkiel', 'Daniel', 'Hosea', 'Yoel', 'Amos', 'Obaja',
+    'Yunus', 'Mikha', 'Nahum', 'Habakuk', 'Zefanya', 'Hagai',
+    'Zakharia', 'Maleakhi'
+}
+
+PB_BOOKS = {
+    'Matius', 'Markus', 'Lukas', 'Yohanes', 'Kisah Para Rasul',
+    'Roma', '1 Korintus', '2 Korintus', 'Galatia', 'Efesus',
+    'Filipi', 'Kolose', '1 Tesalonika', '2 Tesalonika',
+    '1 Timotius', '2 Timotius', 'Titus', 'Filemon', 'Ibrani',
+    'Yakobus', '1 Petrus', '2 Petrus', '1 Yohanes', '2 Yohanes',
+    '3 Yohanes', 'Yudas', 'Wahyu'
+}
+
+ALL_BOOKS = sorted(list(PL_BOOKS) + list(PB_BOOKS), key=len, reverse=True)
+BOOK_PATTERN = '|'.join(re.escape(b) for b in ALL_BOOKS)
+
+def is_bible_ref(text: str) -> bool:
+    """Checks if text begins with or represents an authoritative Bible book reference."""
+    return bool(re.search(rf'^(?:{BOOK_PATTERN})\b', text.strip()))
+
+def is_theological_term(text: str) -> bool:
+    """Checks if parenthesized string is an authentic source-language theological phrase."""
+    known_terms = {'theos en ho logos', 'el gibbor', 'echad', 'logos firman'}
+    return text.strip().lower() in known_terms
+
 def clean_yt_title(t: str) -> str:
     t = re.sub(r'(?i)\b(?:alhamdulillah|masya\s*allah|takbir+|takbii+r+|kwkw+|ngakak|viral+|viralkan|terbaru|detik2|gempar|trending|bikin\s*geger)\b', '', t)
     t = re.sub(r'[\.\!\?\:\#\*\@\-\_]{2,}', ' ', t)
     t = re.sub(r'\s+', ' ', t).strip(' -.,')
     return t
+
+def sanitize_claim(claim: str) -> str:
+    """
+    Sanitizes raw YouTube video titles, dialog quotes, and trailing slang from claims.
+    Preserves valid Bible citations like (Wahyu 5:5) and source-language phrases.
+    """
+    dossier_match = re.search(r'\s*(\[Dossier Ref:\s*[^\]]+\])\s*$', claim)
+    dossier_suffix = ''
+    if dossier_match:
+        dossier_suffix = ' ' + dossier_match.group(1).strip()
+        claim = claim[:dossier_match.start()].strip()
+
+    connector_rx = r':\s*(?:Menguji Klaim Polemik dalam Dialog|Landasan Eksegesis Dialog Ahli Kitab dalam|Menegakkan Nilai Ketauhidan Transenden dalam|Analisis Kritis Pengharapan Eskatologis dalam|Eksaminasi Kriteria Kebenaran Nubuat dalam|Beban Pembuktian Tekstual Interlocutor dalam)\s*[\'\"“].*?[\'\"”]\s*$'
+    claim = re.sub(connector_rx, '', claim, flags=re.IGNORECASE)
+
+    general_dalam_quote = r'\s+dalam\s+(?:Dialog\s+)?[\'\"“].*?[\'\"”]\s*$'
+    claim = re.sub(general_dalam_quote, '', claim, flags=re.IGNORECASE)
+
+    m_paren = re.search(r'\s*\(([^)]+)\)\s*$', claim)
+    if m_paren:
+        paren_content = m_paren.group(1).strip()
+        if not is_bible_ref(paren_content) and not is_theological_term(paren_content):
+            claim = claim[:m_paren.start()].strip()
+
+    return (claim + dossier_suffix).strip()
 
 SYAHADAT_VERSES = [
     ('Markus 12:29', 'Markus', 'Pengakuan Iman Monoteisme Murni Menolak Doktrin Trinitas Konsili'),
@@ -125,10 +183,9 @@ def main():
         meta = yt_metadata.get(item_id, {})
         raw_yt_title = meta.get("title", "")
         cleaned_yt_title = clean_yt_title(raw_yt_title) if raw_yt_title else ""
-        theme = meta.get("primary_theme", "")
 
         # ---------------------------------------------------------------------
-        # Case 1: Tab 'Kategori Lainnya' (190 Items)
+        # Case 1: Tab 'Kategori Lainnya' (190 Items) Reclassified to PL/PB
         # ---------------------------------------------------------------------
         if category == "lainnya":
             tl = raw_yt_title.lower()
@@ -141,7 +198,7 @@ def main():
                 book = p_tuple[1]
                 core_topic = p_tuple[2]
                 label = f"{passage} — {core_topic[:42]}..."
-                claim = f"{core_topic} Berdasarkan Teks {passage}: Menguji Klaim Polemik dalam Dialog '{cleaned_yt_title}'" if cleaned_yt_title else f"{core_topic} Berdasarkan Teks {passage}"
+                claim = f"{core_topic} Berdasarkan Teks {passage}"
             elif any(k in tl for k in ['ali imran', 'bacaan', 'ngaji', 'surah', 'tilawah', 'alquran', 'al-qur']):
                 p_tuple = ALI_IMRAN_VERSES[ali_imran_idx % len(ALI_IMRAN_VERSES)]
                 ali_imran_idx += 1
@@ -149,7 +206,7 @@ def main():
                 book = p_tuple[1]
                 core_topic = p_tuple[2]
                 label = f"{passage} — {core_topic[:42]}..."
-                claim = f"{core_topic} Berdasarkan Teks {passage}: Landasan Eksegesis Dialog Ahli Kitab dalam '{cleaned_yt_title}'" if cleaned_yt_title else f"{core_topic} Berdasarkan Teks {passage}"
+                claim = f"{core_topic} Berdasarkan Teks {passage}"
             elif any(k in tl for k in ['mesjid', 'masjid', 'nur maulida']):
                 p_tuple = RUMAH_IBADAH_VERSES[rumah_ibadah_idx % len(RUMAH_IBADAH_VERSES)]
                 rumah_ibadah_idx += 1
@@ -157,7 +214,7 @@ def main():
                 book = p_tuple[1]
                 core_topic = p_tuple[2]
                 label = f"{passage} — {core_topic[:42]}..."
-                claim = f"{core_topic} Berdasarkan Teks {passage}: Menegakkan Nilai Ketauhidan Transenden dalam '{cleaned_yt_title}'" if cleaned_yt_title else f"{core_topic} Berdasarkan Teks {passage}"
+                claim = f"{core_topic} Berdasarkan Teks {passage}"
             elif 'eskatologi' in cl or any(k in tl for k in ['surga', 'neraka', 'kiamat', 'eskatologi', 'lubang jarum']):
                 p_tuple = ESKATOLOGI_VERSES[eskatologi_idx % len(ESKATOLOGI_VERSES)]
                 eskatologi_idx += 1
@@ -165,7 +222,7 @@ def main():
                 book = p_tuple[1]
                 core_topic = p_tuple[2]
                 label = f"{passage} — {core_topic[:42]}..."
-                claim = f"{core_topic} Menurut Teks {passage}: Analisis Kritis Pengharapan Eskatologis dalam '{cleaned_yt_title}'" if cleaned_yt_title else f"{core_topic} Menurut Teks {passage}"
+                claim = f"{core_topic} Menurut Teks {passage}"
             elif any(k in tl for k in ['nabi', 'muhammad', 'kenabian', 'rasul']):
                 p_tuple = KENABIAN_VERSES[kenabian_idx % len(KENABIAN_VERSES)]
                 kenabian_idx += 1
@@ -173,7 +230,7 @@ def main():
                 book = p_tuple[1]
                 core_topic = p_tuple[2]
                 label = f"{passage} — {core_topic[:42]}..."
-                claim = f"{core_topic} Berdasarkan Teks {passage}: Eksaminasi Kriteria Kebenaran Nubuat dalam '{cleaned_yt_title}'" if cleaned_yt_title else f"{core_topic} Berdasarkan Teks {passage}"
+                claim = f"{core_topic} Berdasarkan Teks {passage}"
             else:
                 p_tuple = BEREA_VERSES[berea_idx % len(BEREA_VERSES)]
                 berea_idx += 1
@@ -181,13 +238,14 @@ def main():
                 book = p_tuple[1]
                 core_topic = p_tuple[2]
                 label = f"{passage} — {core_topic[:42]}..."
-                claim = f"{core_topic} Melalui Eksaminasi Teks {passage}: Beban Pembuktian Tekstual Interlocutor dalam '{cleaned_yt_title}'" if cleaned_yt_title else f"{core_topic} Melalui Eksaminasi Teks {passage}"
+                claim = f"{core_topic} Melalui Eksaminasi Teks {passage}"
+
+            category = "perjanjian_baru" if book in PB_BOOKS else "perjanjian_lama"
 
         # ---------------------------------------------------------------------
         # Case 2: Perjanjian Baru & Perjanjian Lama with generic template text
         # ---------------------------------------------------------------------
         elif "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks" in current_claim:
-            # Extract target passage from claim or passage
             m_pass = passage or ""
             if not m_pass:
                 m_match = re.search(r"Teks\s+([A-Za-z0-9\s\:]+)", current_claim)
@@ -196,10 +254,7 @@ def main():
             passage = m_pass
             label = f"{passage} — Verifikasi Eksegesis Verbatim Naskah"
             claim = f"Klaim Otoritas Naskah {passage}: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible"
-            if cleaned_yt_title:
-                claim += f" ({cleaned_yt_title})"
         elif not passage and "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia" in current_claim:
-            # Specific translation distortion audit passages
             DISTORTION_VERSES = [
                 ('Yeremia 8:8', 'Yeremia', 'perjanjian_lama', 'Kritik Pena Dusta Ahli Taurat: Audit Distorsi Penerjemahan LAI TB vs Naskah Sumber'),
                 ('Amsal 30:5-6', 'Amsal', 'perjanjian_lama', 'Larangan Menambahi Firman Allah: Verifikasi Kejujuran Penerjemahan LAI TB'),
@@ -212,9 +267,16 @@ def main():
             book = dv[1]
             category = dv[2]
             label = f"{passage} — {dv[3][:42]}..."
-            claim = f"{dv[3]} ({cleaned_yt_title})" if cleaned_yt_title else dv[3]
+            claim = dv[3]
         else:
-            claim = current_claim
+            claim = sanitize_claim(current_claim)
+
+        # Enforce canonical classification
+        if category not in {"perjanjian_lama", "perjanjian_baru"}:
+            category = "perjanjian_baru" if book in PB_BOOKS else "perjanjian_lama"
+
+        # Sanitize claim once more to be 100% clean
+        claim = sanitize_claim(claim)
 
         # Ensure uniqueness
         if claim in seen_claims:
@@ -231,10 +293,11 @@ def main():
             "is_popular": is_popular
         })
 
-    cat_stats = {}
-    for it in refined_items:
-        c_name = it["category"]
-        cat_stats[c_name] = cat_stats.get(c_name, 0) + 1
+    cat_stats = {
+        "perjanjian_baru": sum(1 for it in refined_items if it["category"] == "perjanjian_baru"),
+        "perjanjian_lama": sum(1 for it in refined_items if it["category"] == "perjanjian_lama"),
+        "lainnya": sum(1 for it in refined_items if it["category"] == "lainnya")
+    }
 
     print("Refined category stats:", cat_stats)
     no_passage_cnt = sum(1 for it in refined_items if not it.get("passage"))

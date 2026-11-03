@@ -4735,14 +4735,14 @@
                   <button type="button" class="motion-dir-tab active" data-cat="all" onclick="filterMotionCategory('all')">
                     Semua (<span id="count-tab-all">2.456</span>)
                   </button>
-                  <button type="button" class="motion-dir-tab" data-cat="perjanjian_lama" onclick="filterMotionCategory('perjanjian_lama')">
-                    Perjanjian Lama (<span id="count-tab-pl">736</span>)
-                  </button>
                   <button type="button" class="motion-dir-tab" data-cat="perjanjian_baru" onclick="filterMotionCategory('perjanjian_baru')">
-                    Perjanjian Baru (<span id="count-tab-pb">1.530</span>)
+                    Perjanjian Baru (<span id="count-tab-pb">1.654</span>)
                   </button>
-                  <button type="button" class="motion-dir-tab" data-cat="lainnya" onclick="filterMotionCategory('lainnya')">
-                    Kategori Lainnya (<span id="count-tab-lainnya">190</span>)
+                  <button type="button" class="motion-dir-tab" data-cat="perjanjian_lama" onclick="filterMotionCategory('perjanjian_lama')">
+                    Perjanjian Lama (<span id="count-tab-pl">802</span>)
+                  </button>
+                  <button type="button" class="motion-dir-tab" data-cat="lainnya" style="display: none;" onclick="filterMotionCategory('lainnya')">
+                    Kategori Lainnya (<span id="count-tab-lainnya">0</span>)
                   </button>
                 </div>
                 <div id="motion-dir-status" style="font-size: 0.72rem; color: #94a3b8; white-space: nowrap;">
@@ -13839,9 +13839,9 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               const countPb = document.getElementById("count-tab-pb");
               const countLainnya = document.getElementById("count-tab-lainnya");
               if (countAll) countAll.textContent = (data.total || data.items.length).toLocaleString("id-ID");
-              if (countPl && data.categories.perjanjian_lama) countPl.textContent = data.categories.perjanjian_lama.toLocaleString("id-ID");
-              if (countPb && data.categories.perjanjian_baru) countPb.textContent = data.categories.perjanjian_baru.toLocaleString("id-ID");
-              if (countLainnya && data.categories.lainnya) countLainnya.textContent = data.categories.lainnya.toLocaleString("id-ID");
+              if (countPl && data.categories.perjanjian_lama !== undefined) countPl.textContent = data.categories.perjanjian_lama.toLocaleString("id-ID");
+              if (countPb && data.categories.perjanjian_baru !== undefined) countPb.textContent = data.categories.perjanjian_baru.toLocaleString("id-ID");
+              if (countLainnya && data.categories.lainnya !== undefined) countLainnya.textContent = data.categories.lainnya.toLocaleString("id-ID");
             }
             return _motionDirectoryCatalog;
           }
