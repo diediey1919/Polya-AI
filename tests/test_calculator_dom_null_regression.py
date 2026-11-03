@@ -264,3 +264,44 @@ def test_nimbus_liquid_navbar_mobile_menu_mapping():
     settings_pos = html.find('data-route="/settings"')
     assert pipeline_pos < kursus_pos < pricing_pos < settings_pos
 
+
+def test_calculator_dom_hierarchy_order():
+    """Validates top-to-bottom DOM hierarchy in Apologetics Calculator card:
+    1. Opponent selector & quota pill
+    2. Claim input wrapper
+    3. Action buttons (Debate/Research mode & Mulai Analisis)
+    4. Quick prompt chips
+    5. Motion directory panel
+    6. Canonical case studies card
+    """
+    html = read_index_html()
+    calc_view_idx = html.find('id="view-calculator"')
+    assert calc_view_idx != -1
+
+    calc_html = html[calc_view_idx:]
+    pos_opponent = calc_html.find('id="calc-opponent-select"')
+    pos_input = calc_html.find('id="claim-input"')
+    pos_actions = calc_html.find('class="calc-actions"')
+    pos_btn_debate = calc_html.find('id="btn-mode-debate"')
+    pos_btn_analyze = calc_html.find('id="btn-calc-analyze"')
+    pos_quick_chips = calc_html.find('class="calc-quick-chips"')
+    pos_quick_featured = calc_html.find('id="quick-chips-featured"')
+    pos_motion_dir = calc_html.find('id="motion-directory-panel"')
+    pos_canonical_card = calc_html.find('class="shine-border-canonical-card"')
+
+    assert pos_opponent != -1
+    assert pos_input != -1
+    assert pos_actions != -1
+    assert pos_btn_debate != -1
+    assert pos_btn_analyze != -1
+    assert pos_quick_chips != -1
+    assert pos_quick_featured != -1
+    assert pos_motion_dir != -1
+    assert pos_canonical_card != -1
+
+    # Verified hierarchy:
+    assert pos_opponent < pos_input < pos_actions < pos_quick_chips < pos_motion_dir < pos_canonical_card
+    assert pos_actions < pos_btn_debate < pos_quick_chips
+    assert pos_actions < pos_btn_analyze < pos_quick_chips
+
+
