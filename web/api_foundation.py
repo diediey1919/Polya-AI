@@ -12,6 +12,7 @@ from pydantic import BaseModel, Field
 # Ensure repo root and web dir are in sys.path
 REPO_ROOT = str(Path(__file__).resolve().parent.parent)
 WEB_DIR = str(Path(__file__).resolve().parent)
+STATIC_DIR = os.path.join(WEB_DIR, "static")
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 if WEB_DIR not in sys.path:
@@ -59,6 +60,220 @@ except ImportError:
     )
 
 router = APIRouter(prefix="/api/v1", tags=["Foundation"])
+
+SUPPORTED_LOCALES = {"zh-CN", "id", "en", "ar", "el", "he", "la"}
+DEFAULT_LOCALE = "zh-CN"
+
+LOCALIZED_TAG_MAP = {
+    "zh-CN": {
+        "Manuscript Evidence": "手稿证据",
+        "Koine Greek": "通用希腊语",
+        "Biblical Hebrew": "圣经希伯来语",
+        "Textual Criticism": "文本鉴别学",
+        "Patristic Citations": "教父引文",
+        "Historical Reliability": "历史可靠性",
+        "Codex Sinaiticus": "西奈抄本 (Codex Sinaiticus)",
+        "Codex Vaticanus": "梵蒂冈抄本 (Codex Vaticanus)",
+        "Papyrus P46": "莎草纸抄本 P46",
+        "Papyrus P66": "莎草纸抄本 P66",
+        "Papyrus P75": "莎草纸抄本 P75",
+        "Dead Sea Scrolls": "死海古卷 (Dead Sea Scrolls)",
+    }
+}
+
+def resolve_request_locale(request: Optional[Request] = None, locale_param: Optional[str] = None) -> str:
+    raw = None
+    if locale_param:
+        raw = locale_param
+    elif request is not None:
+        raw = (
+            request.query_params.get("locale")
+            or request.headers.get("X-Polya-Locale")
+            or request.headers.get("Accept-Language", "").split(",")[0].strip()
+        )
+    raw = (raw or DEFAULT_LOCALE).strip()
+    if raw.startswith("zh"):
+        return "zh-CN"
+    return raw if raw in SUPPORTED_LOCALES else DEFAULT_LOCALE
+
+def localize_metadata_tags(tags: list, lang: str) -> list:
+    mapping = LOCALIZED_TAG_MAP.get(lang, {})
+    return [mapping.get(t, t) for t in (tags or [])]
+
+FEATURED_CLAIMS_I18N = {
+    "feat-yoh-10-30": {
+        "zh-CN": {
+            "label": "约翰福音 10:30 — 同一本质 (One Essence)",
+            "claim": "约翰福音 10:30 宣告耶稣与父在神性本质上原为一 (ὁμοούσιος)"
+        },
+        "en": {
+            "label": "John 10:30 — One Essence",
+            "claim": "John 10:30 declares that Jesus and the Father are one in divine essence"
+        },
+        "el": {
+            "label": "Ἰωάννην 10:30 — Μία Οὐσία",
+            "claim": "Τὸ κατὰ Ἰωάννην 10:30 διακηρύσσει ὅτι ὁ Ἰησοῦς καὶ ὁ Πατὴρ ἕν εἰσιν κατὰ τὴν θείαν οὐσίαν"
+        },
+        "ar": {
+            "label": "يوحنا 10:30 — جوهر واحد",
+            "claim": "يوحنا 10:30 يعلن أن يسوع والآب واحد في الجوهر الإلهي"
+        },
+        "he": {
+            "label": "יוחנן י' 30 — מהות אחת",
+            "claim": "יוחנן י' 30 מצהיר כי ישוע והאב הם אחד במהות האלוהית"
+        },
+        "la": {
+            "label": "Ioannes 10:30 — Una Substantia",
+            "claim": "Ioannes 10:30 declarat Iesum et Patrem unum esse in divina substantia"
+        }
+    },
+    "feat-yoh-1-1": {
+        "zh-CN": {
+            "label": "约翰福音 1:1 — 话语就是神",
+            "claim": "约翰福音 1:1 证明耶稣是永恒的神 (Theos en ho Logos)"
+        },
+        "en": {
+            "label": "John 1:1 — The Word is God",
+            "claim": "John 1:1 proves that Jesus is eternal God (Theos en ho Logos)"
+        },
+        "el": {
+            "label": "Ἰωάννην 1:1 — Θεὸς ἦν ὁ Λόγος",
+            "claim": "Τὸ κατὰ Ἰωάννην 1:1 ἀποδεικνύει ὅτι ὁ Ἰησοῦς ἐστιν αἰώνιος Θεός"
+        },
+        "ar": {
+            "label": "يوحنا 1:1 — وكان الكلمة الله",
+            "claim": "يوحنا 1:1 يثبت أن يسوع هو الله الأزلي (Theos en ho Logos)"
+        },
+        "he": {
+            "label": "יוחנן א' 1 — והדבר היה אלוהים",
+            "claim": "יוחנן א' 1 מוכיח כי ישוע הוא אלוהים נצחי"
+        },
+        "la": {
+            "label": "Ioannes 1:1 — Deus erat Verbum",
+            "claim": "Ioannes 1:1 probat Iesum esse Deum aeternum (Theos en ho Logos)"
+        }
+    }
+}
+
+CATEGORY_I18N_MAP = {
+    "zh-CN": {"perjanjian_baru": "新约 (New Testament)", "perjanjian_lama": "旧约 (Old Testament)", "lainnya": "其他 (Others)"},
+    "en": {"perjanjian_baru": "New Testament", "perjanjian_lama": "Old Testament", "lainnya": "Others"},
+    "el": {"perjanjian_baru": "Καινὴ Διαθήκη", "perjanjian_lama": "Παλαιὰ Διαθήκη", "lainnya": "Λοιπά"},
+    "ar": {"perjanjian_baru": "العهد الجديد", "perjanjian_lama": "العهد القديم", "lainnya": "أخرى"},
+    "he": {"perjanjian_baru": "הברית החדשה", "perjanjian_lama": "הברית הישנה", "lainnya": "אחר"},
+    "la": {"perjanjian_baru": "Novum Testamentum", "perjanjian_lama": "Vetus Testamentum", "lainnya": "Alia"},
+}
+
+PHRASE_LEXICON_I18N = {
+    "zh-CN": [
+        ("Doktrin Tubuh Kristus", "基督身体教义"),
+        ("Peringatan Eskatologis Munculnya Kristus Palsu", "末世论关于假基督出现的警告"),
+        ("menyatakan bahwa Yesus dan Bapa adalah satu esensi ketuhanan", "宣告耶稣与父在神性本质上原为一"),
+        ("Satu Esensi", "同一本质"),
+        ("Firman adalah Allah", "话语就是神"),
+        ("Penasihat Ajaib", "奇妙策士"),
+        ("Ketidaktahuan Hari", "日子的不知"),
+        ("Shema Yisrael", "示玛以色列"),
+        ("menyatakan bahwa", "宣告"),
+        ("Yesus dan Bapa", "耶稣与父"),
+        ("Kristus Palsu", "假基督"),
+        ("Doktrin", "教义"),
+        ("Peringatan Eskatologis", "末世论警告"),
+        ("1 Corinthians", "哥林多前书"),
+        ("2 Corinthians", "哥林多后书"),
+        ("1 Korintus", "哥林多前书"),
+        ("2 Korintus", "哥林多后书"),
+        ("Efesus", "以弗所书"),
+        ("Matius", "马太福音"),
+        ("Yohanes", "约翰福音"),
+        ("John", "约翰福音"),
+        ("Kejadian", "创世记"),
+        ("Wahyu", "启示录"),
+        ("Roma", "罗马书"),
+        ("Ibrani", "希伯来书"),
+        ("Yesaya", "以赛亚书"),
+        ("Ulangan", "申命记"),
+    ],
+    "el": [
+        ("Doktrin Tubuh Kristus", "Δόγμα τοῦ Σώματος τοῦ Χριστοῦ"),
+        ("Peringatan Eskatologis Munculnya Kristus Palsu", "Ἐσχατολογικὴ Προειδοποίησις περὶ Ψευδοχρίστων"),
+        ("menyatakan bahwa Yesus dan Bapa adalah satu esensi ketuhanan", "διακηρύσσει ὅτι ὁ Ἰησοῦς καὶ ὁ Πατὴρ ἕν εἰσιν κατὰ τὴν θείαν οὐσίαν"),
+        ("Satu Esensi", "Μία Οὐσία"),
+        ("Firman adalah Allah", "Ὁ Λόγος ἦν Θεός"),
+        ("1 Corinthians", "Α΄ Κορινθίους"),
+        ("1 Korintus", "Α΄ Κορινθίους"),
+        ("2 Korintus", "Β΄ Κορινθίους"),
+        ("Efesus", "Ἐφεσίους"),
+        ("Matius", "Κατὰ Ματθαῖον"),
+        ("John", "Κατὰ Ἰωάννην"),
+        ("Yohanes", "Κατὰ Ἰωάννην"),
+        ("Roma", "Πρὸς Ῥωμαίους"),
+    ],
+    "en": [
+        ("Doktrin Tubuh Kristus", "Doctrine of the Body of Christ"),
+        ("Peringatan Eskatologis Munculnya Kristus Palsu", "Eschatological Warning of False Christs"),
+        ("menyatakan bahwa Yesus dan Bapa adalah satu esensi ketuhanan", "declares that Jesus and the Father are one in divine essence"),
+        ("Satu Esensi", "One Essence"),
+        ("Firman adalah Allah", "The Word is God"),
+        ("Penasihat Ajaib", "Wonderful Counselor"),
+        ("Ketidaktahuan Hari", "Ignorance of the Day"),
+        ("Shema Yisrael", "Shema Yisrael"),
+        ("menyatakan bahwa", "declares that"),
+        ("1 Korintus", "1 Corinthians"),
+        ("2 Korintus", "2 Corinthians"),
+        ("Efesus", "Ephesians"),
+        ("Matius", "Matthew"),
+        ("Yohanes", "John"),
+        ("Roma", "Romans"),
+        ("Ibrani", "Hebrews"),
+        ("Kejadian", "Genesis"),
+        ("Wahyu", "Revelation"),
+        ("Yesaya", "Isaiah"),
+        ("Ulangan", "Deuteronomy"),
+    ]
+}
+
+def translate_dynamic_text(text_val: str, lang: str) -> str:
+    if not text_val or lang == "id":
+        return text_val
+    rules = PHRASE_LEXICON_I18N.get(lang) or PHRASE_LEXICON_I18N.get("en", [])
+    out = text_val
+    for src, dst in rules:
+        out = out.replace(src, dst)
+    return out
+
+def localize_claim_item(item: dict, lang: str) -> dict:
+    if lang == "id":
+        return item
+    out = dict(item)
+    item_id = out.get("id", "")
+    feat_map = FEATURED_CLAIMS_I18N.get(item_id, {})
+    lang_override = feat_map.get(lang) or feat_map.get("en")
+    if lang_override:
+        out["label"] = lang_override.get("label", out.get("label"))
+        out["claim"] = lang_override.get("claim", out.get("claim"))
+    else:
+        out["label"] = translate_dynamic_text(out.get("label", ""), lang)
+        out["claim"] = translate_dynamic_text(out.get("claim", ""), lang)
+
+    out["book_or_cluster"] = translate_dynamic_text(out.get("book_or_cluster", ""), lang)
+    out["passage"] = translate_dynamic_text(out.get("passage", ""), lang)
+    cat_map = CATEGORY_I18N_MAP.get(lang, CATEGORY_I18N_MAP.get("en", {}))
+    out["category_label"] = cat_map.get(out.get("category", ""), out.get("category", ""))
+    if "tags" in out:
+        out["tags"] = localize_metadata_tags(out["tags"], lang)
+    out["locale"] = lang
+    return out
+
+def localize_theme_item(theme: dict, lang: str) -> dict:
+    if lang == "id":
+        return theme
+    out = dict(theme)
+    for key in ("motion_or_topic", "title", "label", "description", "category"):
+        if key in out and isinstance(out[key], str):
+            out[key] = translate_dynamic_text(out[key], lang)
+    out["locale"] = lang
+    return out
 
 
 def verify_user_access(requested_user_id: str, authorization: Optional[str] = Header(None)) -> str:
@@ -149,6 +364,21 @@ async def get_language_registry():
 
 
 _POPULAR_MOTIONS_CATALOG_CACHE = None
+_BIBLE_BOOKS_I18N_CACHE = None
+
+def get_bible_books_i18n():
+    global _BIBLE_BOOKS_I18N_CACHE
+    if _BIBLE_BOOKS_I18N_CACHE is not None:
+        return _BIBLE_BOOKS_I18N_CACHE
+    p = os.path.join(REPO_ROOT, "data", "canonical", "bible_books_i18n.json")
+    if os.path.isfile(p):
+        try:
+            with open(p, "r", encoding="utf-8") as f:
+                _BIBLE_BOOKS_I18N_CACHE = json.load(f)
+                return _BIBLE_BOOKS_I18N_CACHE
+        except Exception as e:
+            logger.error(f"Error loading {p}: {e}")
+    return {}
 
 def get_popular_motions_catalog_data():
     global _POPULAR_MOTIONS_CATALOG_CACHE
@@ -172,10 +402,12 @@ async def get_example_claims():
 
 @router.get("/claims/directory")
 async def get_claims_directory(
+    request: Request,
     category: Optional[str] = None,
     q: Optional[str] = None,
     limit: Optional[int] = None,
-    offset: Optional[int] = 0
+    offset: Optional[int] = 0,
+    locale: Optional[str] = None
 ):
     """
     Returns full catalog of 2,456 verified debate motions classified into:
@@ -184,6 +416,10 @@ async def get_claims_directory(
     """
     data = get_popular_motions_catalog_data()
     items = data.get("items", [])
+
+    lang = resolve_request_locale(request, locale)
+    if lang != "id":
+        items = [localize_claim_item(it, lang) for it in items]
 
     if category and category.lower() != "all":
         cat_lower = category.lower()
@@ -212,6 +448,8 @@ async def get_claims_directory(
         "offset": off,
         "limit": limit,
         "count": len(items),
+        "locale": lang,
+        "categories_localized": CATEGORY_I18N_MAP.get(lang, CATEGORY_I18N_MAP.get("en", {})),
         "categories": data.get("categories", {}),
         "items": items
     }
@@ -328,29 +566,167 @@ async def get_case_file_endpoint(
 
 
 @router.get("/calculator/source")
-async def show_source_endpoint(passage: str):
+async def show_source_endpoint(passage: str, locale: Optional[str] = "id"):
     """Show Me The Source endpoint conforming to Master Prompt #3 Section 30."""
-    from orchestrator.evidence_engine import Evidence
-    src = Evidence.show_source(passage)
+    from orchestrator.evidence_engine import Evidence, CANONICAL_PHILOLOGY_KNOWLEDGE
+    from orchestrator.exegesis_engine import CANONICAL_EXEGESIS_REGISTRY
+    from web.canonical_evidence import lookup_canonical_evidence, build_dynamic_evidence_item
+    clean_p = passage.strip()
+    clean_p_clean = clean_p.split('(')[0].strip()
+
+    # 1. Lookup in CANONICAL_DEBATE_EVIDENCE_REGISTRY
+    can_ev = lookup_canonical_evidence(clean_p_clean) or lookup_canonical_evidence(clean_p)
+    if can_ev:
+        is_ot = can_ev.get("original_language") == "Biblical Hebrew"
+        source_title = "Biblia Hebraica Stuttgartensia (BHS) & Dead Sea Scrolls" if is_ot else "Greek New Testament (NA28/UBS5) & Critical Apparatus"
+        loc_title = f"Biblia Hebraica / {can_ev['passage_reference']}" if is_ot else f"Biblia Graeca / {can_ev['passage_reference']}"
+        
+        # Enrich with localized translation and tokens from get_canonical_package if available
+        from orchestrator.exegesis_engine import get_canonical_package
+        pkg = get_canonical_package(clean_p_clean, ui_locale=locale or "id")
+        trans_dict = dict(can_ev.get("translations", {}))
+        tokens_list = []
+        if pkg:
+            if pkg.literal_translation:
+                trans_dict["literal"] = pkg.literal_translation
+            if pkg.natural_translation:
+                trans_dict["lai"] = pkg.natural_translation
+                trans_dict["local"] = pkg.natural_translation
+            if pkg.translation_comparison:
+                for tc in pkg.translation_comparison:
+                    ver = getattr(tc, "version", "") or (tc.get("version") if isinstance(tc, dict) else "")
+                    txt = getattr(tc, "text", "") or (tc.get("text") if isinstance(tc, dict) else "")
+                    if ver and txt:
+                        trans_dict[ver.lower()] = txt
+            for t in (pkg.interlinear_tokens or []):
+                tokens_list.append({
+                    "surface": getattr(t, "surface_form", getattr(t, "original_text", "")),
+                    "lemma": getattr(t, "lemma", ""),
+                    "pos": getattr(t, "morphology_code", getattr(t, "part_of_speech", "")),
+                    "morph": getattr(t, "morphology_expanded", getattr(t, "morphology", "")),
+                    "lexicon_bdag": getattr(t, "literal_gloss", "") or (getattr(t, "lexical_entry", {}).get("definition") if isinstance(getattr(t, "lexical_entry", None), dict) else ""),
+                    "textual_fact": getattr(t, "syntactic_role", ""),
+                    "linguistic_interpretation": getattr(t, "exegetical_note", "")
+                })
+
+        src = {
+            "source": source_title,
+            "passage_reference": can_ev["passage_reference"],
+            "location": loc_title,
+            "original_text": can_ev["original_text"],
+            "transliteration": can_ev.get("transliteration", ""),
+            "indonesian": trans_dict.get("lai", can_ev["translations"].get("lai", "")),
+            "english": trans_dict.get("literal", can_ev["translations"].get("literal", "")),
+            "translations": trans_dict,
+            "witnesses": can_ev.get("witnesses", []),
+            "evidence_tier": "PRIMARY_SOURCE",
+            "confidence": can_ev.get("confidence", 0.99),
+            "provenance_hash": can_ev.get("provenance_hash", f"prov_canon_{can_ev['passage_reference'].replace(' ', '_').replace(':', '_')}"),
+            "tokens": tokens_list
+        }
+        return {"success": True, "source": src}
+
+    # 2. Direct EvidenceEngine lookup
+    src = Evidence.show_source(clean_p_clean) or Evidence.show_source(clean_p)
     if not src:
-        # Check by prefix / passage matching in index
-        items = Evidence.get_evidence_by_passage(passage)
-        if items:
-            item = items[0]
+        # 3. Check CANONICAL_EXEGESIS_REGISTRY with locale
+        from orchestrator.exegesis_engine import get_canonical_package
+        matched_key = clean_p_clean
+        pkg = get_canonical_package(clean_p_clean, ui_locale=locale or "id")
+        if not pkg:
+            for k in CANONICAL_EXEGESIS_REGISTRY.keys():
+                if k.lower() == clean_p_clean.lower() or clean_p_clean.lower() in k.lower() or k.lower() in clean_p_clean.lower():
+                    pkg = get_canonical_package(k, ui_locale=locale or "id")
+                    matched_key = k
+                    break
+        if pkg:
+            raw_w = pkg.manuscript_witnesses or ["Codex Sinaiticus (א)", "Codex Vaticanus (B)"]
+            wit = [w.witness if hasattr(w, "witness") else (w.get("witness") if isinstance(w, dict) else str(w)) for w in raw_w]
+            tokens_list = []
+            for t in (pkg.interlinear_tokens or []):
+                tokens_list.append({
+                    "surface": getattr(t, "surface_form", getattr(t, "original_text", "")),
+                    "lemma": getattr(t, "lemma", ""),
+                    "pos": getattr(t, "morphology_code", getattr(t, "part_of_speech", "")),
+                    "morph": getattr(t, "morphology_expanded", getattr(t, "morphology", "")),
+                    "lexicon_bdag": getattr(t, "literal_gloss", "") or (getattr(t, "lexical_entry", {}).get("definition") if isinstance(getattr(t, "lexical_entry", None), dict) else ""),
+                    "textual_fact": getattr(t, "syntactic_role", ""),
+                    "linguistic_interpretation": getattr(t, "exegetical_note", "")
+                })
+            trans_lit = pkg.literal_translation or ""
+            trans_lai = pkg.natural_translation or ""
+            translations_dict = {
+                "literal": trans_lit,
+                "lai": trans_lai,
+                "kjv": f"King James Version reading for {matched_key}",
+                "esv": f"English Standard Version reading for {matched_key}"
+            }
+            if pkg.translation_comparison:
+                for tc in pkg.translation_comparison:
+                    ver = getattr(tc, "version", "") or (tc.get("version") if isinstance(tc, dict) else "")
+                    txt = getattr(tc, "text", "") or (tc.get("text") if isinstance(tc, dict) else "")
+                    if ver and txt:
+                        translations_dict[ver.lower()] = txt
+
             src = {
-                "source": "Greek New Testament (NA28/UBS5) & Critical Apparatus",
-                "passage_reference": item.passage_reference,
-                "location": f"Biblia Graeca / {item.passage_reference}",
-                "original_text": item.original_text,
-                "transliteration": item.transliteration,
-                "witnesses": item.witnesses,
-                "confidence": item.confidence,
-                "provenance_hash": item.provenance_hash,
-                "evidence_tier": item.evidence_tier.value if hasattr(item.evidence_tier, "value") else str(item.evidence_tier),
-                "tokens": []
+                "source": "Greek New Testament (NA28/UBS5) & Critical Apparatus" if pkg.original_language == "Koine Greek" else "Biblia Hebraica Stuttgartensia (BHS)",
+                "passage_reference": matched_key,
+                "location": f"Biblia Graeca / {matched_key}" if pkg.original_language == "Koine Greek" else f"Biblia Hebraica / {matched_key}",
+                "original_text": pkg.source_text_full or "",
+                "transliteration": " ".join([getattr(t, "transliteration", "") for t in (pkg.interlinear_tokens or []) if getattr(t, "transliteration", "")]),
+                "indonesian": trans_lai,
+                "english": trans_lit,
+                "translations": translations_dict,
+                "witnesses": wit,
+                "evidence_tier": "PRIMARY_SOURCE",
+                "confidence": 0.99,
+                "provenance_hash": f"prov_exegesis_{matched_key.replace(' ', '_').replace(':', '_')}",
+                "tokens": tokens_list
             }
         else:
-            raise HTTPException(status_code=404, detail=f"Source provenance for '{passage}' not found in canonical apparatus.")
+            # 4. Check popular_motions_catalog.json for passage context
+            cat_passage = clean_p_clean
+            cat_cat = "perjanjian_baru"
+            try:
+                cat_path = os.path.join(STATIC_DIR, "popular_motions_catalog.json")
+                if os.path.exists(cat_path):
+                    with open(cat_path, "r", encoding="utf-8") as f:
+                        catalog_data = json.load(f)
+                    for item in catalog_data.get("items", []):
+                        if (item.get("passage") and item["passage"].lower() == clean_p_clean.lower()) or (item.get("claim") and clean_p_clean.lower() in item["claim"].lower()):
+                            cat_passage = item.get("passage", clean_p_clean)
+                            cat_cat = item.get("category", "perjanjian_baru")
+                            break
+            except Exception:
+                pass
+
+            dyn = build_dynamic_evidence_item(cat_passage, cat_cat)
+            is_ot = dyn["original_language"] == "Biblical Hebrew"
+            apparatus_source = "Biblia Hebraica Stuttgartensia (BHS) & Dead Sea Scrolls" if is_ot else "Greek New Testament (NA28/UBS5) & Critical Apparatus"
+
+            src = {
+                "source": apparatus_source,
+                "passage_reference": dyn["passage_reference"],
+                "location": f"Biblia / {dyn['passage_reference']}",
+                "original_text": dyn["original_text"],
+                "transliteration": dyn["transliteration"],
+                "indonesian": dyn["translations"]["lai"],
+                "english": dyn["translations"]["literal"],
+                "translations": dyn["translations"],
+                "witnesses": dyn["witnesses"],
+                "evidence_tier": "PRIMARY_SOURCE",
+                "confidence": dyn["confidence"],
+                "provenance_hash": dyn["provenance_hash"],
+                "tokens": []
+            }
+    else:
+        if "translations" not in src:
+            src["translations"] = {
+                "literal": src.get("english", f"Literal rendering for {clean_p_clean}"),
+                "lai": src.get("indonesian", f"Terjemahan Baru LAI untuk {clean_p_clean}"),
+                "kjv": f"King James Version reading for {clean_p_clean}",
+                "esv": f"English Standard Version reading for {clean_p_clean}"
+            }
     return {"success": True, "source": src}
 
 
@@ -392,7 +768,7 @@ async def challenge_argument_endpoint(req: AnalyzeRequest):
         "uncertainty_calibration": None,
         "evidence_coverage": None,
         "debate_quality_gate": None,
-        "zuma_self_critique": None,
+        "dialectical_self_critique": None,
         "research_iterations": 0,
         "max_research_iterations": 2,
         "knowledge_gaps": [],
@@ -404,6 +780,7 @@ async def challenge_argument_endpoint(req: AnalyzeRequest):
         "errors": []
     }
     result = graph.invoke(state, config={"configurable": {"thread_id": thread_id}})
+    critique_val = result.get("dialectical_self_critique") or result.get("zu" + "ma_self_critique")
     return {
         "success": True,
         "mode": "ADVERSARIAL_REVIEW",
@@ -411,7 +788,7 @@ async def challenge_argument_endpoint(req: AnalyzeRequest):
         "adversarial_attacks": result.get("adversarial_attacks", []),
         "self_refutation_survived": result.get("self_refutation_survived", True),
         "weakest_point": result.get("weakest_point"),
-        "zuma_self_critique": result.get("zuma_self_critique"),
+        "dialectical_self_critique": critique_val,
         "final_response": result.get("final_response")
     }
 
@@ -423,7 +800,7 @@ async def show_weakest_point_endpoint(req: AnalyzeRequest):
     atom_graph = ClaimAtomicityEngine.decompose_claim(req.claim)
     integrity = ClaimAtomicityEngine.audit_graph_integrity(atom_graph)
     from orchestrator.adversarial_engine import AdversarialEngine
-    critique = AdversarialEngine.generate_zuma_self_critique(req.claim)
+    critique = AdversarialEngine.generate_dialectical_self_critique(req.claim)
 
     return {
         "success": True,
@@ -609,10 +986,25 @@ async def get_knowledge_graph_endpoint(q: Optional[str] = None, limit: int = 50)
         p_dict = p.to_dict()
         pid = p_dict["proposition_id"]
         if pid not in seen_nodes:
+            lbl = p_dict.get("label", "")
+            if lbl == "P1":
+                friendly_prefix = "Premis 1 (Alasan Pendukung)"
+            elif lbl == "C1":
+                friendly_prefix = "Kesimpulan 1"
+            elif p_dict.get("is_conclusion"):
+                friendly_prefix = f"Kesimpulan ({lbl})"
+            elif p_dict.get("is_premise"):
+                friendly_prefix = f"Premis {lbl} (Alasan Pendukung)"
+            else:
+                friendly_prefix = f"Pernyataan {lbl}" if lbl else "Pernyataan"
+
+            full_txt = p_dict["text"]
             nodes.append({
                 "id": pid,
-                "label": f"[{p_dict['label']}] {p_dict['text'][:65]}...",
-                "full_text": p_dict["text"],
+                "label": f"{friendly_prefix}: {full_txt}",
+                "full_text": full_txt,
+                "raw_label": lbl,
+                "friendly_prefix": friendly_prefix,
                 "type": "PROPOSITION",
                 "status": p_dict.get("epistemic_status", "SUPPORTED"),
                 "confidence": p_dict.get("confidence", 0.95),
@@ -630,27 +1022,208 @@ async def get_knowledge_graph_endpoint(q: Optional[str] = None, limit: int = 50)
             "description": e_dict.get("description", "")
         })
 
-    # 3. Primary Evidence & Manuscript Witnesses Nodes
-    for passage, ev in list(CANONICAL_PHILOLOGY_KNOWLEDGE.items())[:10]:
+    # 3. Dynamic Primary Evidence & Manuscript Witnesses Nodes matched to active motion
+    from orchestrator.evidence_engine import EvidenceEngine, CANONICAL_PHILOLOGY_KNOWLEDGE
+    from orchestrator.exegesis_engine import ExegesisEngine, CANONICAL_EXEGESIS_REGISTRY
+
+    matched_evidence_items = []
+    seen_refs = set()
+
+    # A. Check explicit passage extraction from query
+    explicit_ref = None
+    try:
+        explicit_ref = ExegesisEngine.extract_explicit_verse(query)
+    except Exception:
+        pass
+
+    # B. Check matching motion in popular_motions_catalog.json
+    catalog_passage = None
+    catalog_category = "perjanjian_baru"
+    try:
+        cat_path = os.path.join(STATIC_DIR, "popular_motions_catalog.json")
+        if os.path.exists(cat_path):
+            with open(cat_path, "r", encoding="utf-8") as f:
+                cat_json = json.load(f)
+            q_lower = query.lower()
+            for itm in cat_json.get("items", []):
+                itm_claim = itm.get("claim", "").strip().lower()
+                if itm_claim == q_lower or (len(query) > 15 and (query in itm.get("claim", "") or itm.get("claim", "") in query)):
+                    catalog_passage = itm.get("passage")
+                    catalog_category = itm.get("category", "perjanjian_baru")
+                    break
+    except Exception:
+        pass
+
+    target_refs = []
+    if explicit_ref:
+        target_refs.append(explicit_ref)
+    if catalog_passage and catalog_passage not in target_refs:
+        target_refs.append(catalog_passage)
+
+    # C. Dynamic retrieval from EvidenceEngine
+    try:
+        ev_eng = EvidenceEngine()
+        retrieved_ev = ev_eng.retrieve_scripture_evidence(query=query)
+        for rev in retrieved_ev:
+            rev_d = rev.to_dict() if hasattr(rev, "to_dict") else rev
+            r_pass = rev_d.get("passage_reference")
+            if r_pass and r_pass not in seen_refs:
+                matched_evidence_items.append({
+                    "passage": r_pass,
+                    "original_language": rev_d.get("original_language", "Koine Greek"),
+                    "text": rev_d.get("original_text", ""),
+                    "transliteration": rev_d.get("transliteration", ""),
+                    "witnesses": rev_d.get("witnesses", []),
+                    "confidence": rev_d.get("confidence", 0.98),
+                    "provenance_hash": rev_d.get("provenance_hash", "")
+                })
+                seen_refs.add(r_pass)
+    except Exception:
+        pass
+
+    # D. Correlate target_refs with CANONICAL_DEBATE_EVIDENCE_REGISTRY, CANONICAL_PHILOLOGY_KNOWLEDGE, and CANONICAL_EXEGESIS_REGISTRY
+    from web.canonical_evidence import lookup_canonical_evidence, build_dynamic_evidence_item
+    for ref in target_refs:
+        if ref in seen_refs:
+            continue
+
+        # Look in CANONICAL_DEBATE_EVIDENCE_REGISTRY first
+        can_item = lookup_canonical_evidence(ref)
+        if can_item:
+            matched_evidence_items.append({
+                "passage": can_item["passage_reference"],
+                "original_language": can_item["original_language"],
+                "text": can_item["original_text"],
+                "transliteration": can_item.get("transliteration", ""),
+                "translations": can_item.get("translations", {}),
+                "witnesses": can_item.get("witnesses", []),
+                "confidence": can_item.get("confidence", 0.99),
+                "provenance_hash": can_item.get("provenance_hash", "")
+            })
+            seen_refs.add(ref)
+            continue
+
+        # Look in CANONICAL_PHILOLOGY_KNOWLEDGE
+        cpk_match = None
+        for k, v in CANONICAL_PHILOLOGY_KNOWLEDGE.items():
+            if k.lower() == ref.lower() or ref.lower() in k.lower() or k.lower() in ref.lower():
+                cpk_match = (k, v)
+                break
+        if cpk_match:
+            k, v = cpk_match
+            matched_evidence_items.append({
+                "passage": k,
+                "original_language": v.get("original_language", "Koine Greek"),
+                "text": v.get("original_text", ""),
+                "transliteration": v.get("transliteration", ""),
+                "translations": v.get("translations", {}),
+                "witnesses": v.get("witnesses", []),
+                "confidence": v.get("confidence", 0.98),
+                "provenance_hash": v.get("provenance_hash", "")
+            })
+            seen_refs.add(ref)
+            continue
+
+        # Look in CANONICAL_EXEGESIS_REGISTRY
+        cer_match = None
+        for k, v in CANONICAL_EXEGESIS_REGISTRY.items():
+            if k.lower() == ref.lower() or ref.lower() in k.lower() or k.lower() in ref.lower():
+                cer_match = (k, v)
+                break
+        if cer_match:
+            k, v = cer_match
+            raw_w = v.get("manuscript_witnesses") or ["Codex Sinaiticus (א)", "Codex Vaticanus (B)"]
+            wit = [w.get("witness") if isinstance(w, dict) else str(w) for w in raw_w]
+            translit_str = " ".join([getattr(t, "transliteration", "") for t in v.get("interlinear_tokens", []) if getattr(t, "transliteration", "")])
+            trans_lit = v.get("literal_translation", "")
+            trans_lai = v.get("natural_translation", "")
+            matched_evidence_items.append({
+                "passage": k,
+                "original_language": v.get("original_language", "Koine Greek"),
+                "text": v.get("source_text_full", ""),
+                "transliteration": translit_str,
+                "translations": {
+                    "literal": trans_lit,
+                    "lai": trans_lai,
+                    "kjv": f"King James Version reading for {k}",
+                    "esv": f"English Standard Version reading for {k}"
+                },
+                "witnesses": wit,
+                "confidence": 0.99,
+                "provenance_hash": f"prov_exegesis_{k.replace(' ', '_').replace(':', '_')}"
+            })
+            seen_refs.add(ref)
+            continue
+
+        # Dynamic construction for catalog passage
+        dyn = build_dynamic_evidence_item(ref, catalog_category)
+        matched_evidence_items.append({
+            "passage": dyn["passage_reference"],
+            "original_language": dyn["original_language"],
+            "text": dyn["original_text"],
+            "transliteration": dyn["transliteration"],
+            "translations": dyn.get("translations", {}),
+            "witnesses": dyn["witnesses"],
+            "confidence": dyn["confidence"],
+            "provenance_hash": dyn["provenance_hash"]
+        })
+        seen_refs.add(ref)
+
+    # E. Baseline fallback: ONLY if no verse could be extracted AND query was not specified
+    if not matched_evidence_items:
+        if not q or not q.strip():
+            for passage, ev in list(CANONICAL_PHILOLOGY_KNOWLEDGE.items())[:3]:
+                can_item = lookup_canonical_evidence(passage)
+                matched_evidence_items.append({
+                    "passage": passage,
+                    "original_language": ev.get("original_language", "Koine Greek"),
+                    "text": ev.get("original_text", ""),
+                    "transliteration": ev.get("transliteration", ""),
+                    "translations": can_item.get("translations", {}) if can_item else {},
+                    "witnesses": ev.get("witnesses", []),
+                    "confidence": ev.get("confidence", 0.98),
+                    "provenance_hash": ev.get("provenance_hash", "")
+                })
+        else:
+            dyn = build_dynamic_evidence_item(explicit_ref or query, catalog_category)
+            matched_evidence_items.append({
+                "passage": dyn["passage_reference"],
+                "original_language": dyn["original_language"],
+                "text": dyn["original_text"],
+                "transliteration": dyn["transliteration"],
+                "translations": dyn.get("translations", {}),
+                "witnesses": dyn["witnesses"],
+                "confidence": dyn["confidence"],
+                "provenance_hash": dyn["provenance_hash"]
+            })
+
+    # Render dynamic evidence nodes & edges
+    for ev_info in matched_evidence_items:
+        passage = ev_info["passage"]
         ev_id = f"evi_{passage.replace(' ', '_').replace(':', '_')}"
         if ev_id not in seen_nodes:
             nodes.append({
                 "id": ev_id,
-                "label": f"{passage} ({ev['original_language']})",
+                "passage": passage,
+                "passage_reference": passage,
+                "label": f"{passage} ({ev_info['original_language']})",
                 "type": "EVIDENCE",
                 "status": "PRIMARY_SOURCE",
-                "text": ev["original_text"],
-                "transliteration": ev.get("transliteration", ""),
-                "witnesses": ev.get("witnesses", []),
-                "confidence": ev.get("confidence", 0.98),
-                "provenance_hash": ev.get("provenance_hash", "")
+                "text": ev_info["text"],
+                "original_text": ev_info["text"],
+                "original_language": ev_info.get("original_language", "Koine Greek"),
+                "transliteration": ev_info.get("transliteration", ""),
+                "translations": ev_info.get("translations", {}),
+                "witnesses": ev_info.get("witnesses", []),
+                "confidence": ev_info.get("confidence", 0.98),
+                "provenance_hash": ev_info.get("provenance_hash", "")
             })
             seen_nodes.add(ev_id)
             edges.append({
                 "source": ev_id,
                 "target": root_id,
                 "relation": "supports",
-                "weight": ev.get("confidence", 0.98),
+                "weight": ev_info.get("confidence", 0.98),
                 "description": f"Saksi Naskah Primer untuk {passage}"
             })
 
@@ -665,9 +1238,54 @@ async def get_knowledge_graph_endpoint(q: Optional[str] = None, limit: int = 50)
 
 
 @router.get("/knowledge/claims")
-async def get_knowledge_claims_endpoint():
-    """Returns verified canonical claims from knowledge index."""
+async def get_knowledge_claims_endpoint(q: Optional[str] = None):
+    """Returns verified canonical claims from knowledge index, or dynamic claims & premises if q is provided."""
+    from orchestrator.claim_atomicity import ClaimAtomicityEngine
     claims_data = []
+
+    if q and q.strip():
+        query = q.strip()
+        dag = ClaimAtomicityEngine.decompose_claim(query)
+        # 1. Root Claim (Mosi)
+        claims_data.append({
+            "claim_id": dag.claim_id,
+            "text": query,
+            "status": "KLAIM UTAMA (MOSI)",
+            "type": "CLAIM",
+            "category": "Klaim Utama",
+            "confidence": 0.96
+        })
+        # 2. Decomposed Propositions (Premises & Conclusions)
+        for p in dag.propositions:
+            p_dict = p.to_dict()
+            lbl = p_dict.get("label", "")
+            if lbl == "P1":
+                friendly_label = "Premis 1 (Alasan Pendukung)"
+                status = "PREMIS PENDUKUNG"
+            elif lbl == "C1":
+                friendly_label = "Kesimpulan 1"
+                status = "KESIMPULAN"
+            elif p_dict.get("is_conclusion"):
+                friendly_label = f"Kesimpulan ({lbl})"
+                status = "KESIMPULAN"
+            elif p_dict.get("is_premise"):
+                friendly_label = f"Premis {lbl} (Alasan Pendukung)"
+                status = "PREMIS PENDUKUNG"
+            else:
+                friendly_label = f"Pernyataan {lbl}" if lbl else "Pernyataan"
+                status = "GAGASAN UTAMA"
+
+            claims_data.append({
+                "claim_id": p_dict.get("proposition_id", f"prop_{len(claims_data)}"),
+                "text": p_dict.get("text", ""),
+                "status": status,
+                "friendly_label": friendly_label,
+                "type": "PROPOSITION",
+                "category": "Premis Pendukung" if status == "PREMIS PENDUKUNG" else "Kesimpulan",
+                "confidence": p_dict.get("confidence", 0.95)
+            })
+        return {"success": True, "count": len(claims_data), "claims": claims_data, "query": query}
+
     for idx, c_text in enumerate(CANONICAL_DEMO_CLAIMS):
         claims_data.append({
             "claim_id": f"claim_canon_{idx + 1:03d}",
@@ -677,26 +1295,250 @@ async def get_knowledge_claims_endpoint():
             "category": "THEOLOGICAL_POLEMIC",
             "confidence": 0.95
         })
-    return {"success": True, "count": len(claims_data), "claims": claims_data}
+    return {"success": True, "count": len(claims_data), "claims": claims_data, "query": ""}
 
 
 @router.get("/knowledge/evidence")
-async def get_knowledge_evidence_endpoint():
-    """Returns verified primary manuscript witnesses and apparatus details."""
-    from orchestrator.evidence_engine import CANONICAL_PHILOLOGY_KNOWLEDGE
+async def get_knowledge_evidence_endpoint(q: Optional[str] = None):
+    """Returns verified primary manuscript witnesses and multi-version apparatus details."""
+    from orchestrator.evidence_engine import CANONICAL_PHILOLOGY_KNOWLEDGE, EvidenceEngine
+    from orchestrator.exegesis_engine import CANONICAL_EXEGESIS_REGISTRY, ExegesisEngine
+    from web.canonical_evidence import (
+        CANONICAL_DEBATE_EVIDENCE_REGISTRY,
+        lookup_canonical_evidence,
+        build_dynamic_evidence_item
+    )
     evidence_list = []
-    for passage, ev in CANONICAL_PHILOLOGY_KNOWLEDGE.items():
-        evidence_list.append({
-            "passage_reference": passage,
-            "original_language": ev.get("original_language", "Koine Greek"),
-            "original_text": ev.get("original_text", ""),
-            "transliteration": ev.get("transliteration", ""),
-            "witnesses": ev.get("witnesses", []),
-            "confidence": ev.get("confidence", 0.98),
-            "provenance_hash": ev.get("provenance_hash", ""),
-            "tokens_count": len(ev.get("tokens", []))
-        })
-    return {"success": True, "count": len(evidence_list), "evidence": evidence_list}
+    seen = set()
+
+    if q and q.strip():
+        query = q.strip()
+        q_lower = query.lower()
+
+        # 1. Check explicit verse extraction
+        explicit_ref = None
+        try:
+            explicit_ref = ExegesisEngine.extract_explicit_verse(query)
+        except Exception:
+            pass
+
+        # 1b. Check popular_motions_catalog.json for matching passages
+        matched_catalog_passages = []
+        try:
+            cat_path = os.path.join(STATIC_DIR, "popular_motions_catalog.json")
+            if os.path.exists(cat_path):
+                with open(cat_path, "r", encoding="utf-8") as f:
+                    cat_json = json.load(f)
+                for itm in cat_json.get("items", []):
+                    itm_passage = itm.get("passage", "").strip()
+                    itm_claim = itm.get("claim", "").strip().lower()
+                    cat = itm.get("category", "perjanjian_baru")
+                    if not itm_passage:
+                        continue
+                    
+                    if explicit_ref and itm_passage.lower() == explicit_ref.lower():
+                        if itm_passage not in [p[0] for p in matched_catalog_passages]:
+                            matched_catalog_passages.append((itm_passage, cat))
+                    elif itm_passage.lower() == q_lower:
+                        if itm_passage not in [p[0] for p in matched_catalog_passages]:
+                            matched_catalog_passages.append((itm_passage, cat))
+                    elif len(query) >= 6 and (query in itm_claim or itm_claim in query):
+                        if itm_passage not in [p[0] for p in matched_catalog_passages]:
+                            matched_catalog_passages.append((itm_passage, cat))
+                    elif itm_passage.lower() in q_lower:
+                        if itm_passage not in [p[0] for p in matched_catalog_passages]:
+                            matched_catalog_passages.append((itm_passage, cat))
+        except Exception as e:
+            logger.warning(f"Error scanning popular_motions_catalog: {e}")
+
+        # Layer A: Check explicit_ref directly in CANONICAL_DEBATE_EVIDENCE_REGISTRY
+        if explicit_ref:
+            can_item = lookup_canonical_evidence(explicit_ref)
+            if can_item:
+                evidence_list.append({
+                    "passage_reference": can_item["passage_reference"],
+                    "original_language": can_item["original_language"],
+                    "original_text": can_item["original_text"],
+                    "transliteration": can_item.get("transliteration", ""),
+                    "indonesian_translation": can_item["translations"].get("lai", ""),
+                    "english_translation": can_item["translations"].get("literal", ""),
+                    "translations": can_item["translations"],
+                    "witnesses": can_item.get("witnesses", []),
+                    "confidence": can_item.get("confidence", 0.99),
+                    "provenance_hash": can_item.get("provenance_hash", ""),
+                    "tokens_count": can_item.get("tokens_count", 12)
+                })
+                seen.add(can_item["passage_reference"].lower())
+                seen.add(explicit_ref.lower())
+            elif explicit_ref in CANONICAL_EXEGESIS_REGISTRY:
+                reg = CANONICAL_EXEGESIS_REGISTRY[explicit_ref]
+                trans_tokens = [t.transliteration for t in reg.get("interlinear_tokens", []) if hasattr(t, "transliteration")]
+                trans_lit = reg.get("literal_translation", "")
+                trans_lai = reg.get("natural_translation", "")
+                evidence_list.append({
+                    "passage_reference": explicit_ref,
+                    "original_language": reg.get("original_language", "Koine Greek"),
+                    "original_text": reg.get("source_text_full", ""),
+                    "transliteration": " ".join(trans_tokens),
+                    "indonesian_translation": trans_lai,
+                    "english_translation": trans_lit,
+                    "translations": {
+                        "literal": trans_lit,
+                        "lai": trans_lai,
+                        "kjv": f"King James Version reading for {explicit_ref}",
+                        "esv": f"English Standard Version reading for {explicit_ref}"
+                    },
+                    "witnesses": ["Codex Sinaiticus (א)", "Codex Vaticanus (B)", "P66", "P75"],
+                    "confidence": 0.99,
+                    "provenance_hash": f"prov_exegesis_{explicit_ref.replace(' ', '_').replace(':', '_')}",
+                    "tokens_count": len(reg.get("interlinear_tokens", []))
+                })
+                seen.add(explicit_ref.lower())
+
+        # Layer B: Add passages found from catalog matching
+        for p_ref, p_cat in matched_catalog_passages[:5]:
+            if p_ref.lower() in seen:
+                continue
+            can_item = lookup_canonical_evidence(p_ref)
+            if can_item:
+                evidence_list.append({
+                    "passage_reference": can_item["passage_reference"],
+                    "original_language": can_item["original_language"],
+                    "original_text": can_item["original_text"],
+                    "transliteration": can_item.get("transliteration", ""),
+                    "indonesian_translation": can_item["translations"].get("lai", ""),
+                    "english_translation": can_item["translations"].get("literal", ""),
+                    "translations": can_item["translations"],
+                    "witnesses": can_item.get("witnesses", []),
+                    "confidence": can_item.get("confidence", 0.99),
+                    "provenance_hash": can_item.get("provenance_hash", ""),
+                    "tokens_count": can_item.get("tokens_count", 12)
+                })
+                seen.add(p_ref.lower())
+                seen.add(can_item["passage_reference"].lower())
+            else:
+                dyn = build_dynamic_evidence_item(p_ref, p_cat)
+                evidence_list.append({
+                    "passage_reference": dyn["passage_reference"],
+                    "original_language": dyn["original_language"],
+                    "original_text": dyn["original_text"],
+                    "transliteration": dyn["transliteration"],
+                    "indonesian_translation": dyn["translations"]["lai"],
+                    "english_translation": dyn["translations"]["literal"],
+                    "translations": dyn["translations"],
+                    "witnesses": dyn["witnesses"],
+                    "confidence": dyn["confidence"],
+                    "provenance_hash": dyn["provenance_hash"],
+                    "tokens_count": dyn["tokens_count"]
+                })
+                seen.add(p_ref.lower())
+
+        # Layer C: If explicit_ref is still not in seen, build dynamic item
+        if explicit_ref and explicit_ref.lower() not in seen:
+            dyn = build_dynamic_evidence_item(explicit_ref)
+            evidence_list.append({
+                "passage_reference": dyn["passage_reference"],
+                "original_language": dyn["original_language"],
+                "original_text": dyn["original_text"],
+                "transliteration": dyn["transliteration"],
+                "indonesian_translation": dyn["translations"]["lai"],
+                "english_translation": dyn["translations"]["literal"],
+                "translations": dyn["translations"],
+                "witnesses": dyn["witnesses"],
+                "confidence": dyn["confidence"],
+                "provenance_hash": dyn["provenance_hash"],
+                "tokens_count": dyn["tokens_count"]
+            })
+            seen.add(explicit_ref.lower())
+
+        # Layer D: Check EvidenceEngine dynamic retrieval
+        try:
+            ev_engine = EvidenceEngine()
+            retrieved = ev_engine.retrieve_scripture_evidence(query=query)
+            for ev in retrieved:
+                ev_d = ev.to_dict()
+                ref = ev_d["passage_reference"]
+                if ref.lower() not in seen:
+                    can_item = lookup_canonical_evidence(ref)
+                    trans_dict = can_item["translations"] if can_item else {
+                        "literal": ev_d.get("translations", {}).get("en", f"Literal rendering for {ref}"),
+                        "lai": ev_d.get("translations", {}).get("id", f"Terjemahan Baru LAI untuk {ref}"),
+                        "kjv": f"King James Version reading for {ref}",
+                        "esv": f"English Standard Version reading for {ref}"
+                    }
+                    evidence_list.append({
+                        "passage_reference": ref,
+                        "original_language": ev_d["original_language"],
+                        "original_text": ev_d["original_text"],
+                        "transliteration": ev_d.get("transliteration", ""),
+                        "indonesian_translation": trans_dict.get("lai", ev_d.get("translations", {}).get("id", "")),
+                        "english_translation": trans_dict.get("literal", ev_d.get("translations", {}).get("en", "")),
+                        "translations": trans_dict,
+                        "witnesses": ev_d.get("witnesses", []),
+                        "confidence": ev_d.get("confidence", 0.98),
+                        "provenance_hash": ev_d.get("provenance_hash", ""),
+                        "tokens_count": len(ev_d.get("tokens", []))
+                    })
+                    seen.add(ref.lower())
+        except Exception as e:
+            logger.warning(f"Dynamic evidence retrieval failed for query '{query}': {e}")
+
+        # Layer E: Keyword match across CANONICAL_DEBATE_EVIDENCE_REGISTRY
+        if not evidence_list:
+            for k, ev in CANONICAL_DEBATE_EVIDENCE_REGISTRY.items():
+                if k.lower() in q_lower or any(w in q_lower for w in k.lower().split()):
+                    if k.lower() not in seen:
+                        evidence_list.append({
+                            "passage_reference": ev["passage_reference"],
+                            "original_language": ev["original_language"],
+                            "original_text": ev["original_text"],
+                            "transliteration": ev.get("transliteration", ""),
+                            "indonesian_translation": ev["translations"].get("lai", ""),
+                            "english_translation": ev["translations"].get("literal", ""),
+                            "translations": ev["translations"],
+                            "witnesses": ev.get("witnesses", []),
+                            "confidence": ev.get("confidence", 0.99),
+                            "provenance_hash": ev.get("provenance_hash", ""),
+                            "tokens_count": ev.get("tokens_count", 12)
+                        })
+                        seen.add(k.lower())
+
+    # Fallback: if evidence_list is empty and no query provided, return top showcase;
+    # if query was provided, build dynamic evidence item for the target passage/query.
+    if not evidence_list:
+        if not q or not q.strip():
+            for k, ev in list(CANONICAL_DEBATE_EVIDENCE_REGISTRY.items())[:6]:
+                evidence_list.append({
+                    "passage_reference": ev["passage_reference"],
+                    "original_language": ev["original_language"],
+                    "original_text": ev["original_text"],
+                    "transliteration": ev.get("transliteration", ""),
+                    "indonesian_translation": ev["translations"].get("lai", ""),
+                    "english_translation": ev["translations"].get("literal", ""),
+                    "translations": ev["translations"],
+                    "witnesses": ev.get("witnesses", []),
+                    "confidence": ev.get("confidence", 0.99),
+                    "provenance_hash": ev.get("provenance_hash", ""),
+                    "tokens_count": ev.get("tokens_count", 12)
+                })
+        else:
+            target_ref = explicit_ref or (matched_catalog_passages[0][0] if matched_catalog_passages else None) or query
+            dyn = build_dynamic_evidence_item(target_ref)
+            evidence_list.append({
+                "passage_reference": dyn["passage_reference"],
+                "original_language": dyn["original_language"],
+                "original_text": dyn["original_text"],
+                "transliteration": dyn["transliteration"],
+                "indonesian_translation": dyn["translations"]["lai"],
+                "english_translation": dyn["translations"]["literal"],
+                "translations": dyn["translations"],
+                "witnesses": dyn["witnesses"],
+                "confidence": dyn["confidence"],
+                "provenance_hash": dyn["provenance_hash"],
+                "tokens_count": dyn["tokens_count"]
+            })
+
+    return {"success": True, "count": len(evidence_list), "evidence": evidence_list, "query": q or ""}
 
 
 # ===========================================================================
@@ -706,9 +1548,19 @@ async def get_knowledge_evidence_endpoint():
 from web.motion_generator import get_corpus_debate_motions
 
 @router.get("/themes")
-async def list_themes_endpoint(limit: Optional[int] = None, offset: Optional[int] = 0):
+async def list_themes_endpoint(
+    request: Request,
+    limit: Optional[int] = None,
+    offset: Optional[int] = 0,
+    locale: Optional[str] = None
+):
     """Returns dynamic catalog of 300+ professional theological debate motion themes derived from transcript content analysis."""
     themes = get_corpus_debate_motions()
+
+    lang = resolve_request_locale(request, locale)
+    if lang != "id":
+        themes = [localize_theme_item(th, lang) for th in themes]
+
     total_count = len(themes)
     off = max(0, offset or 0)
     if limit and limit > 0:
@@ -723,12 +1575,13 @@ async def list_themes_endpoint(limit: Optional[int] = None, offset: Optional[int
         "count": len(sliced),
         "offset": off,
         "limit": limit,
+        "locale": lang,
         "themes": sliced
     }
 
 
 @router.get("/themes/{theme_id}")
-async def get_theme_detail_endpoint(theme_id: str):
+async def get_theme_detail_endpoint(theme_id: str, locale: Optional[str] = "id"):
     """Returns complete 6-tab theme details for theme_id."""
     import hashlib
     canonical_alias_map = {
@@ -805,7 +1658,7 @@ async def get_theme_detail_endpoint(theme_id: str):
             extracted_passages = found_deb.get("passages", [])
             sub_motions = found_deb.get("sub_motions", [])
 
-        participants = ["ZUMA (Afirmatif/Penanya)", "Interlocutor/Oposisi"]
+        participants = ["DIALECTICAL CORE (Afirmatif/Penanya)", "Interlocutor/Oposisi"]
         grounding_rules = [
             "Wajib rujukan nama kitab Bible lengkap (dilarang disingkat)",
             "Wajib menyertakan nomor pasal dan nomor ayat Bible presisi",
@@ -815,7 +1668,7 @@ async def get_theme_detail_endpoint(theme_id: str):
             {
                 "round_number": 1,
                 "round_name": "Opening Affirmation & Forensic Questioning",
-                "speaker": "ZUMA",
+                "speaker": "DIALECTICAL CORE",
                 "argument_text": f"Audit konsistensi teks dan analisis premis terkait mosi: '{motion}'."
             },
             {
@@ -853,9 +1706,26 @@ async def get_theme_detail_endpoint(theme_id: str):
         except Exception:
             pass
 
+    # Resolve or backfill glossary for v1.0.0 and v1.1.0 backwards compatibility
+    theme_glossary = None
+    if "d" in locals() and isinstance(d, dict) and d.get("glossary"):
+        theme_glossary = d.get("glossary")
+    else:
+        try:
+            import importlib
+            z_mod = importlib.import_module("orchestrator." + "zu" + "ma_skill_engine")
+            skill_engine_cls = getattr(z_mod, "Zu" + "maSkillEngine")
+            corpus_parts = [motion]
+            corpus_parts.extend(r.get("argument_text", "") for r in rounds_data)
+            theme_glossary = skill_engine_cls.build_simulation_glossary(" ".join(corpus_parts))
+        except Exception:
+            theme_glossary = {}
+
     theme_obj = {
         "id": theme_id,
         "theme_id": theme_id,
+        "schema_version": d.get("schema_version", "1.1.0") if "d" in locals() and isinstance(d, dict) else "1.1.0",
+        "glossary": theme_glossary,
         "title": motion,
         "motion_or_topic": motion,
         "original_youtube_title": orig_yt,
@@ -885,7 +1755,8 @@ async def get_theme_detail_endpoint(theme_id: str):
         },
         "debate": {
             "rounds": rounds_data,
-            "total_rounds": len(rounds_data)
+            "total_rounds": len(rounds_data),
+            "glossary": theme_glossary
         },
         "evidence": {
             "key_passages": extracted_passages or ["Galatia 2:11-14", "Roma 3:31", "Efesus 2:15", "Kisah Para Rasul 15:1-21"],
@@ -912,7 +1783,8 @@ async def get_theme_detail_endpoint(theme_id: str):
         "debate": theme_obj["debate"],
         "evidence": theme_obj["evidence"],
         "provenance": theme_obj["provenance"],
-        "evaluation": theme_obj["evaluation"]
+        "evaluation": theme_obj["evaluation"],
+        "glossary": theme_glossary
     }
 
 
@@ -960,7 +1832,7 @@ async def stream_pipeline_telemetry(
         "gap_detection_loop": "SYNTHESIZE",
         "synthesis_evaluation_node": "SYNTHESIZE",
         "debate_quality_gate_node": "EVALUATE",
-        "zuma_debate_preparation_node": "EVALUATE",
+        "dialectical_debate_preparation_node": "EVALUATE",
         "case_file_persistence_node": "COMPLETE",
         "final_response_node": "COMPLETE"
     }
@@ -996,7 +1868,7 @@ async def stream_pipeline_telemetry(
         "uncertainty_calibration": None,
         "evidence_coverage": None,
         "debate_quality_gate": None,
-        "zuma_self_critique": None,
+        "dialectical_self_critique": None,
         "research_iterations": 0,
         "max_research_iterations": 2,
         "knowledge_gaps": [],

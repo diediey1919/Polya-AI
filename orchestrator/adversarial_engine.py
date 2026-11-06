@@ -188,7 +188,7 @@ class DebateQualityGateResult:
 class AdversarialEngine:
     """
     Coordinates Adversarial Debate Agents, Self-Refutation Loops,
-    Citation Overreach Detection, Fallacy Detection, and ZUMA Self-Critique.
+    Citation Overreach Detection, Fallacy Detection, and Dialectical Self-Critique.
     """
 
     @classmethod
@@ -337,8 +337,8 @@ class AdversarialEngine:
         )
 
     @classmethod
-    def generate_zuma_self_critique(cls, final_argument: str) -> ZumaSelfCritiqueReport:
-        """Executes dynamic ZUMA Self-Critique mapped directly to the claim (Section 23)."""
+    def generate_dialectical_self_critique(cls, final_argument: str) -> ZumaSelfCritiqueReport:
+        """Executes dynamic Dialectical Self-Critique mapped directly to the claim."""
         clean_claim = (final_argument or "Klaim Teologis").strip()
         return ZumaSelfCritiqueReport(
             what_skilled_opponent_would_attack=(
@@ -357,6 +357,10 @@ class AdversarialEngine:
                 "Tuntut lawan menghadirkan tandingan teks primer dengan kaidah hermeneutika gramatiko-historis yang setara."
             ]
         )
+
+    @classmethod
+    def generate_zuma_self_critique(cls, final_argument: str) -> ZumaSelfCritiqueReport:
+        return cls.generate_dialectical_self_critique(final_argument)
 
     @classmethod
     def evaluate_debate_quality_gate(
