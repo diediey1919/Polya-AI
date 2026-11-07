@@ -269,9 +269,16 @@ def research_dispatch_node(state: ResearchState) -> Dict[str, Any]:
         )
         debate_sim_section = f"""
 WAJIB MENYERTAKAN 'debate_simulation':
-Karena dalam mode DEBATE, sertakan objek 'debate_simulation' dalam JSON dengan 8 babak simulasi dialektika (rounds 1-8) antara Penguji Klaim (Persona Dialektika Kritis: tegas, tajam, presisi, dingin, fokus pada bukti naskah bahasa sumber, Ilzam al-Khasm) vs Oposisi ({opp_persp.upper()}).
+Karena dalam mode DEBATE, sertakan objek 'debate_simulation' dalam JSON dengan 8 babak simulasi dialektika (rounds 1-8) antara Penguji Klaim vs Oposisi ({opp_persp.upper()}).
 Gunakan sebutan persona 'Penguji Klaim' (jangan gunakan nama persona ZUMA atau pihak ZUMA).
 Setiap babak wajib mendebat klaim '{claim_text}' dan nas {explicit_verse or 'terkait'} secara spesifik (bukan template umum).
+
+GAYA BAHASA & DIALEKTIKA (STREET-SMART SOCRATIC DIALECTIC):
+- PENGUJI KLAIM (AFFIRMATIVE_CRITIQUE): Berbicara mengalir santai, tajam secara logika Sokratik, menggunakan analogi sehari-hari yang mudah dicerna pembaca awam, dan tetap presisi pada naskah bahasa sumber tanpa retorika mimbar atau khotbah yang kaku.
+- LAWAN DEBAT (NEGATIVE_DEFENSE): Merespons secara manusiawi, interaktif, dan mencerminkan argumen diskusi publik nyata—bukan kutipan kredo satu kalimat yang pasif. Lawan berargumen secara realistis (misalnya mengajukan perikop pembanding, pemaknaan alegoris/kiasan, atau tradisi teologis) sehingga terbangun percakapan dialektika dua arah yang hidup sebelum dikunci secara metodologis oleh Penguji Klaim.
+- KEBERSIHAN TEKS (AUDIO TTS SAFE): Seluruh teks ucapan dialog (zuma_speech, opponent_speech) WAJIB berupa teks murni polos (plain text) TANPA tag HTML mentah apa pun (<span...>, <b>, dst.) agar sintesis audio TTS di app.py tetap bersih dan pelafalan berjalan alami.
+- GLOSARIUM: Wajib membuat objek glossary berisi 2–4 istilah spesifik mosi (istilah teknis, teologis, atau filologis) beserta kategori, definisi awam 1 kalimat, dan analogi sederhana dalam kehidupan nyata.
+
 Format 'debate_simulation':
 {{
   "socratic_question": "Pertanyaan Sokratik membedah premis lawan tentang teks ini",
@@ -287,6 +294,9 @@ Format 'debate_simulation':
     {{"round_num": 6, "zuma_speech": "Ujaran Penguji Klaim Babak 6", "opponent_speech": "Tanggapan Oposisi Babak 6"}},
     {{"round_num": 7, "zuma_speech": "Ujaran Penguji Klaim Babak 7", "opponent_speech": "Tanggapan Oposisi Babak 7"}},
     {{"round_num": 8, "zuma_speech": "Ujaran Penguji Klaim Babak 8", "opponent_speech": "Tanggapan Oposisi Babak 8"}}
+  ],
+  "glossary": [
+    {{"term": "Istilah", "category": "Logika/Teologi/Tekstual", "short_def": "Definisi awam 1 kalimat", "analogy": "Analogi sederhana dalam kehidupan sehari-hari"}}
   ]
 }}"""
         json_schema_instruction = """{
@@ -307,6 +317,9 @@ Format 'debate_simulation':
     "verdict_summary": "...",
     "rounds": [
       {"round_num": 1, "zuma_speech": "Ujaran Penguji Klaim...", "opponent_speech": "..."}
+    ],
+    "glossary": [
+      {"term": "Istilah", "category": "Kategori", "short_def": "Definisi awam 1 kalimat", "analogy": "Analogi sederhana"}
     ]
   },
   "sources": [{"citation": "Sumber/Naskah yang dirujuk", "type": "Tipe Sumber"}]
@@ -1005,6 +1018,12 @@ def linguistic_exegesis_node(state: ResearchState) -> Dict[str, Any]:
         from web.services import CaseFileGenerator
         pkg = CaseFileGenerator.generate_linguistic_exegesis(
             claim=claim_text,
+            context={
+                "ui_locale": state.get("ui_locale", "id"),
+                "debate_locale": state.get("debate_locale", "id"),
+                "user_perspective": state.get("user_perspective"),
+                "opponent_perspective": state.get("opponent_perspective")
+            },
             evidence_items=evidence_items,
             synthesis_output=synth
         )
@@ -1065,7 +1084,8 @@ def case_file_persistence_node(state: ResearchState) -> Dict[str, Any]:
         evidence_coverage=state.get("evidence_coverage"),
         argument_strength=state.get("evaluation_scorecard"),
         weakest_point=state.get("weakest_point"),
-        user_id=state.get("user_id", "")
+        user_id=state.get("user_id", ""),
+        locale=state.get("ui_locale") or state.get("debate_locale") or "id"
     )
 
     CaseFiles.save_case_file(case_file)

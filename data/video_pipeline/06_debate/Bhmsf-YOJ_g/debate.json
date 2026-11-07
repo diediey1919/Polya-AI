@@ -4,8 +4,8 @@
   "corpus_id": "video-689",
   "youtube_id": "Bhmsf-YOJ_g",
   "url": "https://www.youtube.com/watch?v=Bhmsf-YOJ_g",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Matius 7",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Matius 7",
+  "motion_or_topic": "Klaim Otoritas Naskah Matius 7:21: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah Matius 7:21: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "MENGGELEGAR SEANTERO ..PROTESTAN INI NGAKU PAULUS NABI PALSU..MANTAAAP",
   "source_video_title": "MENGGELEGAR SEANTERO ..PROTESTAN INI NGAKU PAULUS NABI PALSU..MANTAAAP",
   "debate_mode": "zuma_persona",
@@ -14,15 +14,16 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks Matius 7 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah Matius 7:21: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 7:21 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 7",
-    "Yeremia 50",
+    "Matius 7:21",
+    "Yeremia 50:2",
     "Yeremia 50:17",
-    "Matius 15",
-    "1 Petrus 2",
-    "2 Petrus 2"
+    "Matius 15:24",
+    "1 Petrus 2:22",
+    "2 Petrus 2:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -51,12 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 7",
-      "Yeremia 50",
+      "Matius 7:21",
+      "Yeremia 50:2",
       "Yeremia 50:17",
-      "Matius 15",
-      "1 Petrus 2",
-      "2 Petrus 2"
+      "Matius 15:24",
+      "1 Petrus 2:22",
+      "2 Petrus 2:1"
     ]
   },
   "rounds": [

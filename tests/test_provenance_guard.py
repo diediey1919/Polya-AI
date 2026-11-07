@@ -149,6 +149,8 @@ class TestDispatchWithFailoverProvenance(unittest.TestCase):
                 return [("mock", FakeAdapter("mock", [live_resp]))]
             def get_adapter(self, name):
                 return FakeAdapter(name, [live_resp])
+            def dispatch(self, agent_name, prompt, **kwargs):
+                return self.get_adapter(agent_name).dispatch(prompt, **kwargs)
 
         fm = FakeManager()
         import orchestrator.runtime as rt
@@ -171,6 +173,8 @@ class TestDispatchWithFailoverProvenance(unittest.TestCase):
                 return [("mock", FakeAdapter("mock", [fail_resp]))]
             def get_adapter(self, name):
                 return FakeAdapter(name, [fail_resp])
+            def dispatch(self, agent_name, prompt, **kwargs):
+                return self.get_adapter(agent_name).dispatch(prompt, **kwargs)
 
         result = rt.AgentRuntimeManager.dispatch_with_failover(
             fm := FakeManager(), "RESEARCH_AGENT", "test prompt", timeout=5
@@ -190,6 +194,8 @@ class TestDispatchWithFailoverProvenance(unittest.TestCase):
                 return [("mock", FakeAdapter("mock", [timeout_resp]))]
             def get_adapter(self, name):
                 return FakeAdapter(name, [timeout_resp])
+            def dispatch(self, agent_name, prompt, **kwargs):
+                return self.get_adapter(agent_name).dispatch(prompt, **kwargs)
 
         result = rt.AgentRuntimeManager.dispatch_with_failover(
             FakeManager(), "RESEARCH_AGENT", "test prompt", timeout=5
@@ -219,6 +225,9 @@ class TestDispatchWithFailoverProvenance(unittest.TestCase):
                     r2 = _mk("b", "TIMEOUT", provider="unknown")
                     return FakeAdapter("b", [r2])
                 return None
+            def dispatch(self, agent_name, prompt, **kwargs):
+                adapter = self.get_adapter(agent_name)
+                return adapter.dispatch(prompt, **kwargs) if adapter else None
 
         result = rt.AgentRuntimeManager.dispatch_with_failover(
             FakeManager(), "RESEARCH_AGENT", "test prompt", timeout=5

@@ -14,19 +14,17 @@
   "category": "Kristologi & Kemanusiaan Yesus",
   "cluster_theme": "Kristologi & Kemanusiaan Yesus",
   "sub_motions": [
-    "Analisis Kehendak Yesus yang Berbeda dari Kehendak Bapa dalam Kritis Ontologis",
-    "Doa Permohonan Kelepasan dari Maut (Ibrani 5:7) Sebagai Bukti Ketergantungan Makhluk Fana",
-    "Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea"
+    "Doa Yesus di Getsemani (Matius 26:39): Keterbatasan Ontologis dan Kehendak Manusia vs Kemahakuasaan Ilahi",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 26:39 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Matius 26:39"
   ],
   "passages": [
-    "Yesaya 53",
-    "Yohanes 13",
-    "Yohanes 12",
+    "Matius 26:39",
+    "Yesaya 53:1-12",
+    "Yohanes 13:34",
+    "Yohanes 12:49",
     "Yohanes 13:23",
-    "Yohanes 23",
-    "Yohanes 3:000",
-    "Yohanes 5",
-    "Kisah Para Rasul 27"
+    "Yohanes 23:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yesaya 53",
-      "Yohanes 13",
-      "Yohanes 12",
+      "Matius 26:39",
+      "Yesaya 53:1-12",
+      "Yohanes 13:34",
+      "Yohanes 12:49",
       "Yohanes 13:23",
-      "Yohanes 23",
-      "Yohanes 3:000",
-      "Yohanes 5",
-      "Kisah Para Rasul 27"
+      "Yohanes 23:1"
     ]
   },
   "rounds": [

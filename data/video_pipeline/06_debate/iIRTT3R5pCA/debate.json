@@ -4,8 +4,8 @@
   "corpus_id": "video-1100",
   "youtube_id": "iIRTT3R5pCA",
   "url": "https://www.youtube.com/watch?v=iIRTT3R5pCA",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Yesaya 9",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Yesaya 9",
+  "motion_or_topic": "Klaim Otoritas Naskah Yesaya 9:5: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah Yesaya 9:5: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "HATI-HATI MODEL PENIPUAN MENGATASNAMAKAN BANGZUMA..INI CONTOHNYA",
   "source_video_title": "HATI-HATI MODEL PENIPUAN MENGATASNAMAKAN BANGZUMA..INI CONTOHNYA",
   "debate_mode": "zuma_persona",
@@ -14,10 +14,11 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks Yesaya 9 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah Yesaya 9:5: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yesaya 9:5 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Yesaya 9"
+    "Yesaya 9:5"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -46,7 +47,7 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yesaya 9"
+      "Yesaya 9:5"
     ]
   },
   "rounds": [

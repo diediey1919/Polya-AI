@@ -4,8 +4,8 @@
   "corpus_id": "video-1354",
   "youtube_id": "gbcoYMtBpvY",
   "url": "https://www.youtube.com/watch?v=gbcoYMtBpvY",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: gbcoYMtBpvY]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: gbcoYMtBpvY]",
   "original_youtube_title": "ESMOSI SI DAUD...DUNGUTZ",
   "source_video_title": "ESMOSI SI DAUD...DUNGUTZ",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: gbcoYMtBpvY]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yesaya 9:5 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Yesaya 9",
-    "Yesaya 96",
-    "Yesaya 53",
+    "Yesaya 9:5",
+    "Yesaya 96:1",
+    "Yesaya 53:1-12",
     "1 Korintus 6:14",
-    "1 Korintus 6",
-    "Kejadian 3",
-    "Yesaya 1",
-    "Yesaya 5"
+    "1 Korintus 6:1",
+    "Kejadian 3:15"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yesaya 9",
-      "Yesaya 96",
-      "Yesaya 53",
+      "Yesaya 9:5",
+      "Yesaya 96:1",
+      "Yesaya 53:1-12",
       "1 Korintus 6:14",
-      "1 Korintus 6",
-      "Kejadian 3",
-      "Yesaya 1",
-      "Yesaya 5"
+      "1 Korintus 6:1",
+      "Kejadian 3:15"
     ]
   },
   "rounds": [

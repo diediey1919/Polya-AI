@@ -4,8 +4,8 @@
   "corpus_id": "video-1866",
   "youtube_id": "caikXdxZbPA",
   "url": "https://www.youtube.com/watch?v=caikXdxZbPA",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Kriteria Kerajaan Sorga Melalui Ketaatan Kehendak Bapa Bukan Seruan Tuhan-Tuhan Berdasarkan Teks Matius 7:21 [Dossier Ref: caikXdxZbPA]",
+  "title": "Kriteria Kerajaan Sorga Melalui Ketaatan Kehendak Bapa Bukan Seruan Tuhan-Tuhan Berdasarkan Teks Matius 7:21 [Dossier Ref: caikXdxZbPA]",
   "original_youtube_title": "ALHAMDULILLAH SYAHADAT LAGI.. OTEN MENANGIS LAGI..perpuluhan berkurang",
   "source_video_title": "ALHAMDULILLAH SYAHADAT LAGI.. OTEN MENANGIS LAGI..perpuluhan berkurang",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Kriteria Kerajaan Sorga Melalui Ketaatan Kehendak Bapa Bukan Seruan Tuhan-Tuhan Berdasarkan Teks Matius 7:21 [Dossier Ref: caikXdxZbPA]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 7:21 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Matius 7:21"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Matius 7:21"
+    ]
   },
   "rounds": [
     {

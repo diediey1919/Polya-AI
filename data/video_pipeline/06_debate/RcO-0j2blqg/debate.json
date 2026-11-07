@@ -4,8 +4,8 @@
   "corpus_id": "video-1294",
   "youtube_id": "RcO-0j2blqg",
   "url": "https://www.youtube.com/watch?v=RcO-0j2blqg",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: RcO-0j2blqg]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: RcO-0j2blqg]",
   "original_youtube_title": "OT3n INI MAL0 AKAN KELAKUAN OT3N lainnya ..M4NTAP kalii baaahh",
   "source_video_title": "OT3n INI MAL0 AKAN KELAKUAN OT3N lainnya ..M4NTAP kalii baaahh",
   "debate_mode": "zuma_persona",
@@ -14,12 +14,13 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: RcO-0j2blqg]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Maleakhi 0:1 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Maleakhi 0",
-    "Bilangan 31",
-    "1 Yohanes 2"
+    "Maleakhi 0:1",
+    "Bilangan 31:17-18",
+    "1 Yohanes 2:22"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -48,9 +49,9 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Maleakhi 0",
-      "Bilangan 31",
-      "1 Yohanes 2"
+      "Maleakhi 0:1",
+      "Bilangan 31:17-18",
+      "1 Yohanes 2:22"
     ]
   },
   "rounds": [

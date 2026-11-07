@@ -4,8 +4,8 @@
   "corpus_id": "video-2041",
   "youtube_id": "XfxWSZMW6_I",
   "url": "https://www.youtube.com/watch?v=XfxWSZMW6_I",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: XfxWSZMW6_I]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: XfxWSZMW6_I]",
   "original_youtube_title": "SI MENCERDASKAN KABUR KRN SADAR TUHANNYA DAGING",
   "source_video_title": "SI MENCERDASKAN KABUR KRN SADAR TUHANNYA DAGING",
   "debate_mode": "zuma_persona",
@@ -14,14 +14,15 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: XfxWSZMW6_I]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Kolose 2:9 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Kolose 2",
-    "Filipi 2",
-    "Roma 14",
-    "Roma 10",
-    "Mazmur 33"
+    "Kolose 2:9",
+    "Filipi 2:5-8",
+    "Roma 14:12",
+    "Roma 10:9",
+    "Mazmur 33:6"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -50,11 +51,11 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Kolose 2",
-      "Filipi 2",
-      "Roma 14",
-      "Roma 10",
-      "Mazmur 33"
+      "Kolose 2:9",
+      "Filipi 2:5-8",
+      "Roma 14:12",
+      "Roma 10:9",
+      "Mazmur 33:6"
     ]
   },
   "rounds": [

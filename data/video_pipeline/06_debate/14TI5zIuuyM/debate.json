@@ -4,8 +4,8 @@
   "corpus_id": "video-2237",
   "youtube_id": "14TI5zIuuyM",
   "url": "https://www.youtube.com/watch?v=14TI5zIuuyM",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Peringatan Kanonik Penutup: Eksaminasi Pergeseran Terjemahan Naskah Yunani [Dossier Ref: 14TI5zIuuyM]",
+  "title": "Peringatan Kanonik Penutup: Eksaminasi Pergeseran Terjemahan Naskah Yunani [Dossier Ref: 14TI5zIuuyM]",
   "original_youtube_title": "INI RAHASIA ZULKIFLI MA MENGAPA OTEN BISA TERBIRIT_BIRIT OLEH ALQURAN..",
   "source_video_title": "INI RAHASIA ZULKIFLI MA MENGAPA OTEN BISA TERBIRIT_BIRIT OLEH ALQURAN..",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Peringatan Kanonik Penutup: Eksaminasi Pergeseran Terjemahan Naskah Yunani [Dossier Ref: 14TI5zIuuyM]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Wahyu 22:18-19 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Wahyu 22:18-19"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Wahyu 22:18-19"
+    ]
   },
   "rounds": [
     {

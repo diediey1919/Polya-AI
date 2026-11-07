@@ -4,8 +4,8 @@
   "corpus_id": "video-2238",
   "youtube_id": "40CLiqL8yd4",
   "url": "https://www.youtube.com/watch?v=40CLiqL8yd4",
-  "motion_or_topic": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
-  "title": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
+  "motion_or_topic": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: 40CLiqL8yd4]",
+  "title": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: 40CLiqL8yd4]",
   "original_youtube_title": "PENGHUJAT OTAK JADUL",
   "source_video_title": "PENGHUJAT OTAK JADUL",
   "debate_mode": "zuma_persona",
@@ -14,14 +14,15 @@
   "category": "Kristologi & Kemanusiaan Yesus",
   "cluster_theme": "Kristologi & Kemanusiaan Yesus",
   "sub_motions": [
-    "Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea",
-    "Status Inkarnasi Firman dalam Sejarah Pemikiran Patristik dan Pergeseran Makna Monoteisme",
-    "Kontradiksi Logika 1+1+1=1 vs Kemutlakan Keberadaan Dzat Tunggal Maha Kuasa"
+    "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: 40CLiqL8yd4]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 1:1 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Yohanes 1:1"
   ],
   "passages": [
-    "Matius 1",
-    "Yohanes 17",
-    "Yohanes 14"
+    "Yohanes 1:1",
+    "Matius 1:1",
+    "Yohanes 17:3",
+    "Yohanes 14:28"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -50,9 +51,10 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 1",
-      "Yohanes 17",
-      "Yohanes 14"
+      "Yohanes 1:1",
+      "Matius 1:1",
+      "Yohanes 17:3",
+      "Yohanes 14:28"
     ]
   },
   "rounds": [

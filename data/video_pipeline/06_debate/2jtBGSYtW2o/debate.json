@@ -4,8 +4,8 @@
   "corpus_id": "video-1709",
   "youtube_id": "2jtBGSYtW2o",
   "url": "https://www.youtube.com/watch?v=2jtBGSYtW2o",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: 2jtBGSYtW2o]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: 2jtBGSYtW2o]",
   "original_youtube_title": "Akhirnya babak Belur dan KaBuR.. Dajjal makin marah pengikutnya dibantai satu2 oleh BangZuma",
   "source_video_title": "Akhirnya babak Belur dan KaBuR.. Dajjal makin marah pengikutnya dibantai satu2 oleh BangZuma",
   "debate_mode": "zuma_persona",
@@ -14,12 +14,13 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: 2jtBGSYtW2o]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Kejadian 17:1-7 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Kejadian 17",
-    "Matius 24",
-    "Kisah Para Rasul 1"
+    "Kejadian 17:1-7",
+    "Matius 24:36",
+    "Kisah Para Rasul 1:7"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -48,9 +49,9 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Kejadian 17",
-      "Matius 24",
-      "Kisah Para Rasul 1"
+      "Kejadian 17:1-7",
+      "Matius 24:36",
+      "Kisah Para Rasul 1:7"
     ]
   },
   "rounds": [

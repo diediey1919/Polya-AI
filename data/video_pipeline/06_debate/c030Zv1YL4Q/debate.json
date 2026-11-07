@@ -4,8 +4,8 @@
   "corpus_id": "video-549",
   "youtube_id": "c030Zv1YL4Q",
   "url": "https://www.youtube.com/watch?v=c030Zv1YL4Q",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Galatia 3",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Galatia 3",
+  "motion_or_topic": "Klaim Otoritas Naskah Galatia 3:13: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah Galatia 3:13: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "OTEN INI MALU KENAK SKAK..",
   "source_video_title": "OTEN INI MALU KENAK SKAK..",
   "debate_mode": "zuma_persona",
@@ -14,13 +14,14 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks Galatia 3 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah Galatia 3:13: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Galatia 3:13 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Galatia 3",
-    "Ulangan 27",
+    "Galatia 3:13",
+    "Ulangan 27:26",
     "Keluaran 2:73",
-    "Yohanes 8"
+    "Yohanes 8:40"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -49,10 +50,10 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Galatia 3",
-      "Ulangan 27",
+      "Galatia 3:13",
+      "Ulangan 27:26",
       "Keluaran 2:73",
-      "Yohanes 8"
+      "Yohanes 8:40"
     ]
   },
   "rounds": [

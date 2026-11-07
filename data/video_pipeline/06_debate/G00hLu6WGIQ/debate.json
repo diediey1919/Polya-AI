@@ -4,8 +4,8 @@
   "corpus_id": "video-1640",
   "youtube_id": "G00hLu6WGIQ",
   "url": "https://www.youtube.com/watch?v=G00hLu6WGIQ",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: G00hLu6WGIQ]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: G00hLu6WGIQ]",
   "original_youtube_title": "DISKUSI SARAT ILMU..YESUS ADA DUA OKNUM..PART-1",
   "source_video_title": "DISKUSI SARAT ILMU..YESUS ADA DUA OKNUM..PART-1",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: G00hLu6WGIQ]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 17:3 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Yohanes 17",
-    "Yohanes 14",
+    "Yohanes 17:3",
+    "Yohanes 14:28",
     "Yohanes 1:78",
-    "Yohanes 1",
-    "Yohanes 2",
-    "Yohanes 3",
-    "Yohanes 5",
-    "Wahyu 70"
+    "Yohanes 1:1",
+    "Yohanes 2:1",
+    "Yohanes 3:16"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 17",
-      "Yohanes 14",
+      "Yohanes 17:3",
+      "Yohanes 14:28",
       "Yohanes 1:78",
-      "Yohanes 1",
-      "Yohanes 2",
-      "Yohanes 3",
-      "Yohanes 5",
-      "Wahyu 70"
+      "Yohanes 1:1",
+      "Yohanes 2:1",
+      "Yohanes 3:16"
     ]
   },
   "rounds": [

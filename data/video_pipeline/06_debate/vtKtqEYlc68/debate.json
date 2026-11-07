@@ -4,8 +4,8 @@
   "corpus_id": "video-329",
   "youtube_id": "vtKtqEYlc68",
   "url": "https://www.youtube.com/watch?v=vtKtqEYlc68",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: vtKtqEYlc68]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: vtKtqEYlc68]",
   "original_youtube_title": "MENGHARUKAN..VIRALKAN.. ENDING YG SANGAT ..",
   "source_video_title": "MENGHARUKAN..VIRALKAN.. ENDING YG SANGAT ..",
   "debate_mode": "zuma_persona",
@@ -14,13 +14,14 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: vtKtqEYlc68]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah 1 Samuel 16:7 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "1 Samuel 16",
-    "Yesaya 53",
-    "1 Yohanes 1",
-    "Kisah Para Rasul 26"
+    "1 Samuel 16:7",
+    "Yesaya 53:1-12",
+    "1 Yohanes 1:1",
+    "Kisah Para Rasul 26:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -49,10 +50,10 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "1 Samuel 16",
-      "Yesaya 53",
-      "1 Yohanes 1",
-      "Kisah Para Rasul 26"
+      "1 Samuel 16:7",
+      "Yesaya 53:1-12",
+      "1 Yohanes 1:1",
+      "Kisah Para Rasul 26:1"
     ]
   },
   "rounds": [

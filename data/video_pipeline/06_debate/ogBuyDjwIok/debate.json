@@ -4,8 +4,8 @@
   "corpus_id": "video-2281",
   "youtube_id": "ogBuyDjwIok",
   "url": "https://www.youtube.com/watch?v=ogBuyDjwIok",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Lukas 14",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Lukas 14",
+  "motion_or_topic": "Klaim Otoritas Naskah Lukas 14:26: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah Lukas 14:26: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "Y3SU5 BUKAN KETURUNAN DAUD RAJA ISAI",
   "source_video_title": "Y3SU5 BUKAN KETURUNAN DAUD RAJA ISAI",
   "debate_mode": "zuma_persona",
@@ -14,16 +14,16 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks Lukas 14 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah Lukas 14:26: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Lukas 14:26 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Lukas 14",
-    "Daniel 7",
-    "Matius 22",
-    "Markus 12",
-    "Lukas 20",
-    "Yeremia 36",
-    "Matius 1"
+    "Lukas 14:26",
+    "Daniel 7:13-14",
+    "Matius 22:1",
+    "Markus 12:29",
+    "Lukas 20:38",
+    "Yeremia 36:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -52,13 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Lukas 14",
-      "Daniel 7",
-      "Matius 22",
-      "Markus 12",
-      "Lukas 20",
-      "Yeremia 36",
-      "Matius 1"
+      "Lukas 14:26",
+      "Daniel 7:13-14",
+      "Matius 22:1",
+      "Markus 12:29",
+      "Lukas 20:38",
+      "Yeremia 36:1"
     ]
   },
   "rounds": [

@@ -4,8 +4,8 @@
   "corpus_id": "video-1178",
   "youtube_id": "ch9LLMElr_s",
   "url": "https://www.youtube.com/watch?v=ch9LLMElr_s",
-  "motion_or_topic": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
-  "title": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
+  "motion_or_topic": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: ch9LLMElr_s]",
+  "title": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: ch9LLMElr_s]",
   "original_youtube_title": "PERTANYAANMU KETINGGIAN OTEN..OTAKMU GK AKAN MUAT JAWABAN ALQURAN..",
   "source_video_title": "PERTANYAANMU KETINGGIAN OTEN..OTAKMU GK AKAN MUAT JAWABAN ALQURAN..",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Kristologi & Kemanusiaan Yesus",
   "cluster_theme": "Kristologi & Kemanusiaan Yesus",
   "sub_motions": [
-    "Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea",
-    "Status Inkarnasi Firman dalam Sejarah Pemikiran Patristik dan Pergeseran Makna Monoteisme",
-    "Kritik Konsep Tri-Tunggal Berdasarkan Teks Perjanjian Lama yang Menolak Segala Bentuk Representasi Jamak"
+    "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: ch9LLMElr_s]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 1:1 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Yohanes 1:1"
   ],
   "passages": [
-    "Matius 23",
-    "Yohanes 17",
-    "Matius 4",
-    "Matius 26",
-    "Lukas 2",
-    "Matius 6",
-    "Matius 5",
-    "Ibrani 5"
+    "Yohanes 1:1",
+    "Matius 23:1-3",
+    "Yohanes 17:3",
+    "Matius 4:10",
+    "Matius 26:39",
+    "Lukas 2:52"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 23",
-      "Yohanes 17",
-      "Matius 4",
-      "Matius 26",
-      "Lukas 2",
-      "Matius 6",
-      "Matius 5",
-      "Ibrani 5"
+      "Yohanes 1:1",
+      "Matius 23:1-3",
+      "Yohanes 17:3",
+      "Matius 4:10",
+      "Matius 26:39",
+      "Lukas 2:52"
     ]
   },
   "rounds": [

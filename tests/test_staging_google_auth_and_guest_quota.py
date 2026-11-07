@@ -29,7 +29,7 @@ from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Tuple
 
 import pytest
-import jwt
+jwt = pytest.importorskip("jwt")
 
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 WEB_DIR = os.path.join(REPO_ROOT, "web")
@@ -42,6 +42,8 @@ if WEB_DIR not in sys.path:
 TEST_SECRET = "staging_test_auth_secret_minimum_32_characters_for_hmac_256"
 os.environ["POLYA_AUTH_SECRET"] = TEST_SECRET
 os.environ["POLYA_ENV"] = "staging"
+if "POLYA_DB_PATH" not in os.environ:
+    os.environ["POLYA_DB_PATH"] = os.path.join(REPO_ROOT, "data", "polya_arena_staging.db")
 
 from web.app import app
 from web.services import (

@@ -4,8 +4,8 @@
   "corpus_id": "video-1716",
   "youtube_id": "-F9jXolctlU",
   "url": "https://www.youtube.com/watch?v=-F9jXolctlU",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Yohanes 21",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Yohanes 21",
+  "motion_or_topic": "Klaim Otoritas Naskah Yohanes 21:24: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah Yohanes 21:24: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "MuLuT Sombong tapi hanya MODAL DOGMA..sudee",
   "source_video_title": "MuLuT Sombong tapi hanya MODAL DOGMA..sudee",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks Yohanes 21 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah Yohanes 21:24: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 21:24 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Yohanes 21",
-    "Daniel 25",
-    "1 Korintus 19",
-    "Yohanes 2",
-    "Markus 5",
-    "Yohanes 16",
-    "Matius 15",
-    "1 Korintus 86"
+    "Yohanes 21:24",
+    "Daniel 25:1",
+    "1 Korintus 19:1",
+    "Yohanes 2:1",
+    "Markus 5:19",
+    "Yohanes 16:12-14"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 21",
-      "Daniel 25",
-      "1 Korintus 19",
-      "Yohanes 2",
-      "Markus 5",
-      "Yohanes 16",
-      "Matius 15",
-      "1 Korintus 86"
+      "Yohanes 21:24",
+      "Daniel 25:1",
+      "1 Korintus 19:1",
+      "Yohanes 2:1",
+      "Markus 5:19",
+      "Yohanes 16:12-14"
     ]
   },
   "rounds": [

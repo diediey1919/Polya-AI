@@ -4,8 +4,8 @@
   "corpus_id": "video-788",
   "youtube_id": "RSE8crF1QwU",
   "url": "https://www.youtube.com/watch?v=RSE8crF1QwU",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: RSE8crF1QwU]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: RSE8crF1QwU]",
   "original_youtube_title": "PENDETA INI NANGIS DIBUAT BANGZUMA..MERENGEK  MALU..GEGER",
   "source_video_title": "PENDETA INI NANGIS DIBUAT BANGZUMA..MERENGEK  MALU..GEGER",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: RSE8crF1QwU]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 21:24 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Yohanes 21:24"
   ],
   "passages": [
-    "Yohanes 21",
-    "Imamat 1",
-    "Matius 8",
-    "Yohanes 1",
-    "Matius 19",
-    "Matius 20",
-    "Imamat 18",
-    "Imamat 20"
+    "Yohanes 21:24",
+    "Imamat 1:4",
+    "Matius 8:1",
+    "Yohanes 1:1",
+    "Matius 19:16-17",
+    "Matius 20:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 21",
-      "Imamat 1",
-      "Matius 8",
-      "Yohanes 1",
-      "Matius 19",
-      "Matius 20",
-      "Imamat 18",
-      "Imamat 20"
+      "Yohanes 21:24",
+      "Imamat 1:4",
+      "Matius 8:1",
+      "Yohanes 1:1",
+      "Matius 19:16-17",
+      "Matius 20:1"
     ]
   },
   "rounds": [

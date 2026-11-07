@@ -76,9 +76,9 @@ class IsolatedBenchmarkWorkspace:
         )
         self.engine = DatabaseEngine(db_config)
 
-        # Apply authoritative migrations 001-026
+        # Apply authoritative migrations 001-026 (strictly capping before 027)
         self.runner = MigrationRunner(self.engine, self.migrations_dir)
-        applied = self.runner.apply_pending()
+        applied = self.runner.apply_pending(target_migration_id="026_pericope_segmentation")
 
         # Epistemic invariant: Migration 027+ is strictly forbidden
         for mig in applied:

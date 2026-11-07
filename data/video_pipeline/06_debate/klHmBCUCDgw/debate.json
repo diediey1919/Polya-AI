@@ -4,8 +4,8 @@
   "corpus_id": "video-2121",
   "youtube_id": "klHmBCUCDgw",
   "url": "https://www.youtube.com/watch?v=klHmBCUCDgw",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Larangan Menambahi Firman Allah: Verifikasi Kejujuran Penerjemahan LAI TB",
+  "title": "Larangan Menambahi Firman Allah: Verifikasi Kejujuran Penerjemahan LAI TB",
   "original_youtube_title": "ALLAHU AKBAR KEBENARAN ALQURAN TIDAK TERELAKKAN..",
   "source_video_title": "ALLAHU AKBAR KEBENARAN ALQURAN TIDAK TERELAKKAN..",
   "debate_mode": "zuma_persona",
@@ -14,10 +14,12 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Larangan Menambahi Firman Allah: Verifikasi Kejujuran Penerjemahan LAI TB",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Amsal 30:5-6 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Amsal 30:5-6"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -44,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Amsal 30:5-6"
+    ]
   },
   "rounds": [
     {

@@ -4,8 +4,8 @@
   "corpus_id": "video-1947",
   "youtube_id": "O4sdqusC0nI",
   "url": "https://www.youtube.com/watch?v=O4sdqusC0nI",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Ulangan 21",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Ulangan 21",
+  "motion_or_topic": "Klaim Otoritas Naskah Ulangan 21:22-23: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah Ulangan 21:22-23: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "FauLus bertobat dr MeNgajarkam ajaran Kr1573n.. Kapan klien SadaR?",
   "source_video_title": "FauLus bertobat dr MeNgajarkam ajaran Kr1573n.. Kapan klien SadaR?",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks Ulangan 21 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah Ulangan 21:22-23: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Ulangan 21:22-23 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Ulangan 21",
-    "Amsal 17",
-    "Ulangan 27",
-    "Ibrani 5",
-    "Ibrani 57",
-    "Filipi 2",
-    "Galatia 2",
-    "Efesus 2"
+    "Ulangan 21:22-23",
+    "Amsal 17:1",
+    "Ulangan 27:26",
+    "Ibrani 5:7-9",
+    "Ibrani 57:1",
+    "Filipi 2:5-8"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Ulangan 21",
-      "Amsal 17",
-      "Ulangan 27",
-      "Ibrani 5",
-      "Ibrani 57",
-      "Filipi 2",
-      "Galatia 2",
-      "Efesus 2"
+      "Ulangan 21:22-23",
+      "Amsal 17:1",
+      "Ulangan 27:26",
+      "Ibrani 5:7-9",
+      "Ibrani 57:1",
+      "Filipi 2:5-8"
     ]
   },
   "rounds": [

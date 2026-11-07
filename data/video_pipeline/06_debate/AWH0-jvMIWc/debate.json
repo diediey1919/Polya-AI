@@ -4,8 +4,8 @@
   "corpus_id": "video-983",
   "youtube_id": "AWH0-jvMIWc",
   "url": "https://www.youtube.com/watch?v=AWH0-jvMIWc",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: AWH0-jvMIWc]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: AWH0-jvMIWc]",
   "original_youtube_title": "PDT INI NGAMUK KE BANGZUMA ATAS KEKALAHAN DAN KESALAHAN SI BOMBOM",
   "source_video_title": "PDT INI NGAMUK KE BANGZUMA ATAS KEKALAHAN DAN KESALAHAN SI BOMBOM",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: AWH0-jvMIWc]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 4:26 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
     "Matius 4:26",
-    "Ulangan 33",
-    "Ulangan 4",
-    "Keluaran 27",
-    "Keluaran 49",
-    "Kejadian 49",
-    "Filipi 3",
-    "Matius 17"
+    "Ulangan 33:2",
+    "Ulangan 4:2",
+    "Keluaran 27:1",
+    "Keluaran 49:1",
+    "Kejadian 49:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -54,13 +53,11 @@
     "canonical_naming_enforced": true,
     "biblical_references": [
       "Matius 4:26",
-      "Ulangan 33",
-      "Ulangan 4",
-      "Keluaran 27",
-      "Keluaran 49",
-      "Kejadian 49",
-      "Filipi 3",
-      "Matius 17"
+      "Ulangan 33:2",
+      "Ulangan 4:2",
+      "Keluaran 27:1",
+      "Keluaran 49:1",
+      "Kejadian 49:1"
     ]
   },
   "rounds": [

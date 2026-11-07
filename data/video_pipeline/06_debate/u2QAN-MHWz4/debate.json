@@ -4,8 +4,8 @@
   "corpus_id": "video-1519",
   "youtube_id": "u2QAN-MHWz4",
   "url": "https://www.youtube.com/watch?v=u2QAN-MHWz4",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: u2QAN-MHWz4]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: u2QAN-MHWz4]",
   "original_youtube_title": "7 SERI_GaLa AHLI Bhs Arab DIBUAT TERKENTUT2 NANAH D4r@h OLEH BangZuma",
   "source_video_title": "7 SERI_GaLa AHLI Bhs Arab DIBUAT TERKENTUT2 NANAH D4r@h OLEH BangZuma",
   "debate_mode": "zuma_persona",
@@ -14,12 +14,12 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: u2QAN-MHWz4]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 5:17-19 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 5",
-    "Markus 16",
+    "Matius 5:17-19",
+    "Markus 16:9-20",
     "Markus 1:61",
     "Markus 16:17"
   ],
@@ -50,8 +50,8 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 5",
-      "Markus 16",
+      "Matius 5:17-19",
+      "Markus 16:9-20",
       "Markus 1:61",
       "Markus 16:17"
     ]

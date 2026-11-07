@@ -13,6 +13,217 @@ from web.models import (
     LinguisticExegesisPackage
 )
 
+try:
+    from orchestrator.canonical_exegesis_it import CANONICAL_EXEGESIS_REGISTRY_IT
+except ImportError:
+    CANONICAL_EXEGESIS_REGISTRY_IT = {}
+
+try:
+    from orchestrator.canonical_exegesis_en import CANONICAL_EXEGESIS_REGISTRY_EN
+except ImportError:
+    CANONICAL_EXEGESIS_REGISTRY_EN = {}
+
+try:
+    from orchestrator.canonical_exegesis_multilingual import (
+        CANONICAL_EXEGESIS_REGISTRY_MULTILINGUAL,
+        get_multilingual_canonical_package
+    )
+except ImportError:
+    CANONICAL_EXEGESIS_REGISTRY_MULTILINGUAL = {}
+    get_multilingual_canonical_package = None
+
+BIBLE_LOCALE_TRANSLATION_MAP: Dict[str, Dict[str, str]] = {
+    "id": {
+        "benchmark_label_nt": "Makna Yunani Koine Abad ke-1",
+        "benchmark_label_ot": "Makna Ibrani Kuno Abad Pertama/Masoretik",
+        "benchmark_critique": "Standar acuan akurasi utama teks naskah asli abad pertama.",
+        "local_code": "TB LAI",
+        "local_name": "Terjemahan Baru LAI",
+        "language_name": "Bahasa Indonesia",
+        "local_critique": "Evaluasi ketepatan sintaksis terhadap teks asli.",
+        "kjv_critique": "Audit idiom penerjemahan tradisi Textus Receptus.",
+        "esv_critique": "Audit literalitas modern berbasis naskah kritis terpercaya."
+    },
+    "it": {
+        "benchmark_label_nt": "Significato del Greco Koine del I Secolo",
+        "benchmark_label_ot": "Significato dell'Ebraico Antico del I Secolo",
+        "benchmark_critique": "Standard di accuratezza primario dei manoscritti originali del I secolo.",
+        "local_code": "CEI",
+        "local_name": "Bibbia CEI (Conferenza Episcopale Italiana)",
+        "language_name": "Italiano",
+        "local_critique": "Valutazione dell'accuratezza sintattica rispetto al testo sorgente.",
+        "kjv_critique": "Audit idiomatico della tradizione di traduzione del Textus Receptus.",
+        "esv_critique": "Audit di letteralità moderna basato su testimoni manoscritti affidabili."
+    },
+    "en": {
+        "benchmark_label_nt": "1st-Century Koine Greek Meaning",
+        "benchmark_label_ot": "1st-Century Ancient Hebrew Meaning",
+        "benchmark_critique": "Primary benchmark of 1st-century manuscript accuracy.",
+        "local_code": "NIV",
+        "local_name": "New International Version",
+        "language_name": "English",
+        "local_critique": "Evaluation of syntactic fidelity to the original source text.",
+        "kjv_critique": "Idiomatic translation audit of the Textus Receptus tradition.",
+        "esv_critique": "Modern literal accuracy audit based on reliable critical text."
+    },
+    "es": {
+        "benchmark_label_nt": "Significado del Griego Koiné del Siglo I",
+        "benchmark_label_ot": "Significado del Hebreo Antiguo del Siglo I",
+        "benchmark_critique": "Estándar de referencia primario de los manuscritos del siglo I.",
+        "local_code": "RVR1960",
+        "local_name": "Reina-Valera 1960",
+        "language_name": "Español",
+        "local_critique": "Evaluación de la precisión sintáctica respecto al texto fuente original.",
+        "kjv_critique": "Auditoría idiomática de la tradición de traducción del Textus Receptus.",
+        "esv_critique": "Auditoría de literalidad moderna basada en manuscritos críticos confiables."
+    },
+    "fr": {
+        "benchmark_label_nt": "Sens du Grec Koinè du Ier Siècle",
+        "benchmark_label_ot": "Sens de l'Hébreu Ancien du Ier Siècle",
+        "benchmark_critique": "Norme de référence primaire des manuscrits du Ier siècle.",
+        "local_code": "LSG",
+        "local_name": "Louis Segond",
+        "language_name": "Français",
+        "local_critique": "Évaluation de l'exactitude syntaxique par rapport au texte source original.",
+        "kjv_critique": "Audit idiomatique de la tradition de traduction du Textus Receptus.",
+        "esv_critique": "Audit de littéralité moderne fondé sur des manuscrits critiques fiables."
+    },
+    "de": {
+        "benchmark_label_nt": "Bedeutung des Koine-Griechischen des 1. Jahrhunderts",
+        "benchmark_label_ot": "Bedeutung des Antiken Hebräisch des 1. Jahrhunderts",
+        "benchmark_critique": "Primärer Genauigkeitsmaßstab der Handschriften des 1. Jahrhunderts.",
+        "local_code": "LUT",
+        "local_name": "Lutherbibel",
+        "language_name": "Deutsch",
+        "local_critique": "Bewertung der syntaktischen Genauigkeit gegenüber dem Originaltext.",
+        "kjv_critique": "Idiomatisches Übersetzungsaudit der Textus-Receptus-Tradition.",
+        "esv_critique": "Modernes wörtliches Audit auf Basis verlässlicher kritischer Handschriften."
+    },
+    "pt": {
+        "benchmark_label_nt": "Significado do Grego Koiné do Século I",
+        "benchmark_label_ot": "Significado do Hebraico Antigo do Século I",
+        "benchmark_critique": "Padrão de referência primário de precisão dos manuscritos do século I.",
+        "local_code": "ARA",
+        "local_name": "Almeida Revista e Atualizada",
+        "language_name": "Português",
+        "local_critique": "Avaliação da precisão sintática em relação ao texto original.",
+        "kjv_critique": "Auditoria idiomática da tradição de tradução do Textus Receptus.",
+        "esv_critique": "Auditoria de literalidade moderna baseada em manuscritos críticos."
+    },
+    "ru": {
+        "benchmark_label_nt": "Значение койне I века",
+        "benchmark_label_ot": "Значение древнееврейского текста I века",
+        "benchmark_critique": "Основной эталон точности рукописей I века.",
+        "local_code": "SYNODAL",
+        "local_name": "Синодальный перевод",
+        "language_name": "Русский",
+        "local_critique": "Оценка синтаксической точности по отношению к первоисточнику.",
+        "kjv_critique": "Идиоматический аудит традиции перевода Textus Receptus.",
+        "esv_critique": "Современный текстологический аудит на основе критического текста."
+    },
+    "tr": {
+        "benchmark_label_nt": "1. Yüzyıl Koine Grekçe Anlamı",
+        "benchmark_label_ot": "1. Yüzyıl Antik İbranice Anlamı",
+        "benchmark_critique": "1. yüzyıl orijinal el yazması doğruluğunun birincil kıyaslama standardı.",
+        "local_code": "TCL02",
+        "local_name": "Kutsal Kitap Yeni Çeviri (TCL02)",
+        "language_name": "Türkçe",
+        "local_critique": "Kaynak metne göre sözdizimsel doğruluk değerlendirmesi.",
+        "kjv_critique": "Textus Receptus tercüme geleneğinin deyimsel denetimi.",
+        "esv_critique": "Güvenilir eleştirel el yazmalarına dayalı modern harfi denetim."
+    },
+    "ar": {
+        "benchmark_label_nt": "معنى اليونانية الكوينية في القرن الأول",
+        "benchmark_label_ot": "معنى العبرية القديمة في القرن الأول",
+        "benchmark_critique": "معيار الدقة الأساسي للمخطوطات الأصلية في القرن الأول.",
+        "local_code": "NAV",
+        "local_name": "الترجمة العربية المشتركة / فان دايك",
+        "language_name": "العربية",
+        "local_critique": "تقييم الدقة النحوية مقارنة بالنص الأصلي.",
+        "kjv_critique": "تدقيق ترجمة تقليد النص المتلقى (Textus Receptus).",
+        "esv_critique": "تدقيق الدقة الحرفية الحديثة استناداً إلى المخطوطات النقدية."
+    },
+    "zh": {
+        "benchmark_label_nt": "公元1世纪通用希腊语原意",
+        "benchmark_label_ot": "公元1世纪古希伯来语原意",
+        "benchmark_critique": "公元1世纪原始手抄本文献准确性的首要基准。",
+        "local_code": "CUV",
+        "local_name": "圣经和合本 (CUV)",
+        "language_name": "中文",
+        "local_critique": "对照原始手抄本文献的句法精确度评估。",
+        "kjv_critique": "公认文本 (Textus Receptus) 翻译传统的惯用语审计。",
+        "esv_critique": "基于可靠评判手抄本的现代字面翻译审计。"
+    },
+    "ja": {
+        "benchmark_label_nt": "1世紀コイネー・ギリシャ語の原意",
+        "benchmark_label_ot": "1世紀古代ヘブライ語の原意",
+        "benchmark_critique": "1世紀の原典写本の正確性における第一の基準標準。",
+        "local_code": "新改訳",
+        "local_name": "新改訳聖書",
+        "language_name": "日本語",
+        "local_critique": "原典テキストに対する統語論的正確性の評価。",
+        "kjv_critique": "受容テキスト (Textus Receptus) 翻訳伝統の慣用句監査。",
+        "esv_critique": "信頼できる批評テキストに基づく近代的逐語的監査。"
+    },
+    "ko": {
+        "benchmark_label_nt": "1세기 코이네 헬라어 원의",
+        "benchmark_label_ot": "1세기 고대 히브리어 원의",
+        "benchmark_critique": "1세기 원본 사본 정확성의 1차 기준 표준.",
+        "local_code": "개역개정",
+        "local_name": "개역개정 성경",
+        "language_name": "한국어",
+        "local_critique": "원문 텍스트에 대한 구문론적 정확성 평가.",
+        "kjv_critique": "수용 텍스트 (Textus Receptus) 번역 전통의 관용적 감사.",
+        "esv_critique": "신뢰할 수 있는 비평 사본에 기반한 현대적 축자적 감사."
+    },
+    "ur": {
+        "benchmark_label_nt": "پہلی صدی کا کوئنے یونانی مفہوم",
+        "benchmark_label_ot": "پہلی صدی کا قدیم عبرانی مفہوم",
+        "benchmark_critique": "پہلی صدی کے اصل مخطوطات کی بنیادی درستگی کا معیار۔",
+        "local_code": "URDU-GV",
+        "local_name": "کتابِ مقدس (اردو جیو ورژن)",
+        "language_name": "Urdu",
+        "local_critique": "اصل متن کے مقابلے میں نحوی درستگی کی جانچ۔",
+        "kjv_critique": "ٹیکسٹس ریسپٹس کے ترجمے کی روایتی جانچ۔",
+        "esv_critique": "قابل اعتماد تنقیدی مخطوطات پر مبنی جدید لفظی آڈٹ۔"
+    },
+    "fa": {
+        "benchmark_label_nt": "معنای یونانی کوئنه قرن اول",
+        "benchmark_label_ot": "معنای عبری باستان قرن اول",
+        "benchmark_critique": "معیار اصلی صحت دست‌نوشته‌های قرن اول.",
+        "local_code": "PCB",
+        "local_name": "ترجمه هزاره نو (PCB)",
+        "language_name": "Persian",
+        "local_critique": "ارزیابی دقت نحوی نسبت به متن اصلی منبع.",
+        "kjv_critique": "ممیزی اصطلاحات سنت ترجمه تکستوس رسیپتوس.",
+        "esv_critique": "ممیزی تحت‌اللفظی مدرن بر اساس دست‌نوشته‌های انتقادی معتبر."
+    },
+    "hi": {
+        "benchmark_label_nt": "प्रथम शताब्दी का कॉइने यूनानी अर्थ",
+        "benchmark_label_ot": "प्रथम शताब्दी का प्राचीन इब्रानी अर्थ",
+        "benchmark_critique": "प्रथम शताब्दी की मूल पांडुलिपि सटीकता का प्राथमिक मानक।",
+        "local_code": "HIN-BSI",
+        "local_name": "पवित्र बाइबिल (BSI)",
+        "language_name": "Hindi",
+        "local_critique": "मूल स्रोत पाठ के संबंध में वाक्य-विन्यास सटीकता का मूल्यांकन।",
+        "kjv_critique": "टेक्स्टस रिसेप्टस अनुवाद परंपरा का मुहावरेदार ऑडिट।",
+        "esv_critique": "विश्वसनीय आलोचनात्मक पांडुलिपियों पर आधारित आधुनिक शाब्दिक ऑडिट।"
+    },
+    "bn": {
+        "benchmark_label_nt": "প্রথম শতাব্দীর কোইনে গ্রিক অর্থ",
+        "benchmark_label_ot": "প্রথম শতাব্দীর প্রাচীন ইব্রীয় অর্থ",
+        "benchmark_critique": "প্রথম শতাব্দীর মূল পাণ্ডুলিপির নির্ভুলতার প্রাথমিক মানদণ্ড।",
+        "local_code": "BEN-BSI",
+        "local_name": "পবিত্র বাইবেল (BSI)",
+        "language_name": "Bengali",
+        "local_critique": "মূল উৎস পাঠ্যের সাপেক্ষে বাক্যতাত্ত্বিক নির্ভুলতা মূল্যায়ন।",
+        "kjv_critique": "টেক্সটাস রিসেপ্টাস অনুবাদ ঐতিহ্যের বাগ্ধারাগত নিরীক্ষা।",
+        "esv_critique": "নির্ভরযোগ্য সমালোচনামূলক পাণ্ডুলিপির ওপর ভিত্তি করে আধুনিক আক্ষরিক নিরীক্ষা।"
+    }
+}
+
+_LOCALIZED_CANONICAL_CACHE: Dict[Any, LinguisticExegesisPackage] = {}
+
 logger = logging.getLogger("polya.exegesis_engine")
 
 CANONICAL_EXEGESIS_REGISTRY: Dict[str, Dict[str, Any]] = {
@@ -1854,6 +2065,190 @@ CANONICAL_EXEGESIS_REGISTRY: Dict[str, Dict[str, Any]] = {
             }
         ],
         "exegetical_synthesis": "Kritik tekstual naskah kuno membuktikan secara mutlak bahwa ayat 1 Yohanes 5:7 versi asli naskah Yunani abad pertama hanya berbunyi: 'Ada tiga yang memberi kesaksian: Roh, air, dan darah; dan ketiganya adalah satu kesepakatan.' Frasa tritunggal 'di surga: Bapa, Firman, dan Roh Kudus' sama sekali TIDAK PERNAH DITULIS oleh rasul Yohanes, melainkan merupakan sisipan (interpolasi) tradisi naskah Latin abad pertengahan yang dimasukkan ke dalam Textus Receptus pada abad ke-16. Naskah-naskah tertua dan paling dapat dipercaya (Codex Sinaiticus, Codex Vaticanus, Codex Alexandrinus) tidak memuat frasa tersebut. Oleh karena itu, menjadikan 1 Yohanes 5:7 sebagai bukti doktrin Tritunggal adalah kekeliruan fatal yang bertentangan dengan fakta filologi dan manuskrip naskah asli Bible."
+    },
+    "Yesaya 9:5": {
+        "passage_reference": "Yesaya 9:5",
+        "original_language": "Biblical Hebrew",
+        "source_text_full": "כִּי־יֶ֣לֶד יֻלַּד־לָ֗נוּ בֵּ֚ן נִתַּן־לָ֔נוּ וַתְּהִ֥י הַמִּשְׂרָ֖ה עַל־שִׁכְמ֑וֹ וַיִּקְרָ֨א שְׁמ֜וֹ פֶּ֠לֶא יוֹעֵץ֙ אֵ֣ל גִּבּ֔וֹר אֲבִיעַ֖ד שַׂר־שָׁלֽוֹם׃",
+        "literal_translation": "Sebab seorang anak telah lahir untuk kita, seorang putera telah diberikan untuk kita; dan lambang pemerintahan ada di atas bahunya; dan namanya dipanggil: Penasihat Ajaib, Pahlawan Perkasa, Bapa Pelindung Abadi, Pemimpin Perdamaian.",
+        "natural_translation": "Sebab seorang anak telah lahir untuk kita, seorang putera telah diberikan untuk kita; lambang pemerintahan ada di atas bahunya, dan namanya disebutkan orang: Penasihat Ajaib, Allah yang Perkasa, Bapa yang Kekal, Raja Damai.",
+        "exegetical_context": ExegeticalContext(
+            literary_genre="Nubuatan Kerajaan / Puisi Pembebasan Monarki Daud Abad ke-8 SM",
+            immediate_context="Yesaya pasal 7-9 berlatar belakang krisis Perang Siro-Efraim (734-732 SM) ketika kerajaan Yehuda di bawah Raja Ahas terancam invasi. Kelahiran anak ini adalah tanda pembebasan ilahi bagi dinasti Daud.",
+            historical_cultural_setting="Yudaisme abad ke-8 SM; gelar-gelar takhta penobatan raja Timur Dekat Kuno. 'El Gibbor' secara semantik Ibrani berarti pahlawan tangguh perkasa (bdk. Yehezkiel 32:21 'ele gibborim'). Terjemahan Septuaginta (LXX Papirus 965 abad ke-3 SM) menerjemahkannya sebagai 'Megales boules angelos' (Utusan Nasihat Agung), bukan Allah Pencipta."
+        ),
+        "interlinear_tokens": [
+            InterlinearWordToken(
+                index=1,
+                strong_number="H3206",
+                original_text="יֶלֶד",
+                transliteration="yeled",
+                lemma="יֶלֶד (yeled)",
+                morphology_code="N-ms",
+                morphology_expanded="Noun Masculine Singular",
+                literal_gloss="seorang anak / a child",
+                syntactic_role="Grammatical Subject of passive predicate",
+                lexical_entry={"source": "BDB p. 408 / HALOT", "definition": "Child, boy, royal male infant", "semantic_range": "offspring, young boy"},
+                exegetical_note="Menegaskan kelahiran manusia nyata dalam waktu sejarah (Pangeran Hizkia pada krisis abad ke-8 SM), bukan entitas pra-eksisten ilahi."
+            ),
+            InterlinearWordToken(
+                index=2,
+                strong_number="H3205",
+                original_text="יֻלַּד",
+                transliteration="yullad",
+                lemma="יָלַד (yalad)",
+                morphology_code="V-Pual-Perf-3ms",
+                morphology_expanded="Verb Pual Perfect 3rd Person Masculine Singular",
+                literal_gloss="telah dilahirkan / is born",
+                syntactic_role="Main Passive Predicate Verb",
+                lexical_entry={"source": "BDB p. 408", "definition": "To be born, brought forth physically", "semantic_range": "born into existence"},
+                exegetical_note="Bentuk perfect profetis menegaskan kepastian mutlak kelahiran seorang bayi manusia di bumi."
+            ),
+            InterlinearWordToken(
+                index=3,
+                strong_number="H1121",
+                original_text="בֵּן",
+                transliteration="ben",
+                lemma="בֵּן (ben)",
+                morphology_code="N-ms",
+                morphology_expanded="Noun Masculine Singular",
+                literal_gloss="seorang putera / a son",
+                syntactic_role="Second Parallel Subject",
+                lexical_entry={"source": "BDB p. 119", "definition": "Son, royal male descendant, heir to the Davidic throne", "semantic_range": "successor, royal heir"},
+                exegetical_note="Paralelisme sinonim dengan 'yeled'; menandai pewaris sah takhta Daud."
+            ),
+            InterlinearWordToken(
+                index=4,
+                strong_number="H6382",
+                original_text="פֶּלֶא יוֹעֵץ",
+                transliteration="pele yo'etz",
+                lemma="פֶּלֶא (pele) + יָעַץ (ya'ats)",
+                morphology_code="N-ms + V-Qal-Prtcpl-ms",
+                morphology_expanded="Noun Masculine Singular + Verb Qal Participle Masculine Singular",
+                literal_gloss="Penasihat Ajaib / Wonder Counselor",
+                syntactic_role="First Compound Throne Title",
+                lexical_entry={"source": "BDB p. 810, 419", "definition": "Extraordinary planner, wonder-counselor in statecraft and military strategy", "semantic_range": "wise advisor, exceptional strategist"},
+                exegetical_note="Kualitas hikmat administratif dan strategi militer yang dikaruniakan Allah kepada raja untuk membebaskan rakyat dari Asyur."
+            ),
+            InterlinearWordToken(
+                index=5,
+                strong_number="H410",
+                original_text="אֵל גִּבּוֹר",
+                transliteration="'el gibbor",
+                lemma="אֵל ('el) + גִּבּוֹר (gibbor)",
+                morphology_code="N-ms + Adj-ms",
+                morphology_expanded="Noun Masculine Singular + Adjective Masculine Singular",
+                literal_gloss="Pahlawan Perkasa / Mighty Hero / Mighty Champion",
+                syntactic_role="Second Compound Throne Title",
+                lexical_entry={"source": "BDB p. 42, 149 / HALOT", "definition": "Mighty hero, divine champion, strong ruler (cf. Ezekiel 32:21)", "semantic_range": "valiant warrior, mighty leader"},
+                exegetical_note="Dalam semantik Ibrani Semitik, 'el' digunakan untuk penguasa atau manusia perkasa (Yehezkiel 32:21 'ele gibborim'; Keluaran 15:15 'ele moav'). Septuaginta tertua (LXX) menerjemahkannya sebagai 'Megales boules angelos' (Utusan Nasihat Agung), membuktikan teks tidak dipahami sebagai Allah Pencipta."
+            ),
+            InterlinearWordToken(
+                index=6,
+                strong_number="H1",
+                original_text="אֲבִיעַד",
+                transliteration="'avi'ad",
+                lemma="אָב ('av) + עַד ('ad)",
+                morphology_code="N-msc + N-ms",
+                morphology_expanded="Noun Masculine Construct + Noun Masculine Singular",
+                literal_gloss="Bapa Pelindung Abadi / Father of the Age",
+                syntactic_role="Third Compound Throne Title",
+                lexical_entry={"source": "BDB p. 3, 723", "definition": "Father of eternity, enduring protector of subjects", "semantic_range": "perpetual patron, benevolent ruler"},
+                exegetical_note="Gelar monarki Timur Dekat Kuno di mana raja disebut sebagai 'bapa pelindung' bagi rakyatnya sepanjang masa pemerintahannya."
+            ),
+            InterlinearWordToken(
+                index=7,
+                strong_number="H8269",
+                original_text="שַׂר־שָׁלוֹם",
+                transliteration="sar-shalom",
+                lemma="שַׂר (sar) + שָׁלוֹם (shalom)",
+                morphology_code="N-msc + N-ms",
+                morphology_expanded="Noun Masculine Construct + Noun Masculine Singular",
+                literal_gloss="Pemimpin Perdamaian / Prince of Peace",
+                syntactic_role="Fourth Compound Throne Title",
+                lexical_entry={"source": "BDB p. 978, 1022", "definition": "Prince of tranquility, ruler who brings cessation of warfare and covenant wholeness", "semantic_range": "peacemaker, tranquil leader"},
+                exegetical_note="Raja yang menghentikan peperangan agresi Asyur dan menegakkan shalom (kesejahteraan sosial holistik)."
+            )
+        ],
+        "manuscript_witnesses": [
+            {
+                "witness": "Dead Sea Scrolls (1QIsa a)",
+                "date_range": "c. 150-100 SM",
+                "text_type": "Qumran Proto-Masoretic",
+                "reading": "אל גבור ('l gbwr) — identik konsonantal dengan MT",
+                "status": "Autentik / Saksi Ibrani Tertua Pra-Kristen"
+            },
+            {
+                "witness": "Codex Leningradensis (B19a)",
+                "date_range": "1008 M",
+                "text_type": "Teks Masoretik Standar BHS",
+                "reading": "אֵל גִּבּוֹר ('Ēl Gibbôr)",
+                "status": "Autentik / Naskah Lengkap Masoretik"
+            },
+            {
+                "witness": "Aleppo Codex (Keter Aram Tzova)",
+                "date_range": "c. 920 M",
+                "text_type": "Teks Masoretik Ben Asher",
+                "reading": "אֵל גִּבּוֹר ('Ēl Gibbôr)",
+                "status": "Autentik / Tradisi Akurat Tiberias"
+            },
+            {
+                "witness": "Septuaginta (LXX Papirus 965 & Codex Vaticanus)",
+                "date_range": "Abad III SM - IV M",
+                "text_type": "Hellenistik Alexandria",
+                "reading": "Μεγάλης βουλῆς ἄγγελος (Megales boules angelos - Utusan Nasihat Agung)",
+                "status": "Terjemahan Kuno / Menolak Keilahian Inkarnatif"
+            },
+            {
+                "witness": "Targum Yonatan",
+                "date_range": "Abad I M",
+                "text_type": "Aramaik Sinagoge",
+                "reading": "Dinamakan namanya oleh Dia yang Ajaib Penasihat... pembawa damai",
+                "status": "Eksegesis Sinagoge Kuno / Teosentris"
+            }
+        ],
+        "syntactic_exegesis": {
+            "prophetic_perfect": "Verba 'yullad' (Pual perfect) dan 'nittan' (Niphal perfect) menggunakan konstruksi perfectum propheticum, menyatakan kepastian kelahiran seorang anak manusia dalam ruang dan waktu historis dinasti Daud.",
+            "compound_throne_names": "Keempat nama takhta ('Pele Yoetz', 'El Gibbor', 'Avi'ad', 'Sar Shalom') merupakan konstruksi aposisi atributif yang melukiskan kepemimpinan teokratis raja bawahan (vassal king) di bawah naungan Yahweh.",
+            "semantic_field_el": "Kata 'el' dalam konstruksi 'El Gibbor' secara gramatika bertindak sebagai nomina yang dimodifikasi ajektiva 'gibbor' (pahlawan/perkasa), setara dengan pemakaian dalam Yehezkiel 32:21 ('ele gibborim' = para pemimpin/pahlawan perkasa). Septuaginta (LXX Papirus 965) menerjemahkannya sebagai 'Megales boules angelos' (Utusan Nasihat Agung)."
+        },
+        "translation_comparison": [
+            {
+                "version": "Teks Masoretik (BHS)",
+                "text": "כִּי־יֶ֣לֶד יֻלַּד־לָ֗נוּ... וַיִּקְרָ֨א שְׁמ֜וֹ פֶּ֠לֶא יוֹעֵץ֙ אֵ֣ל גִּבּ֔וֹר אֲבִיעַ֖ד שַׂר־שָׁלֽוֹם",
+                "critique": "Naskah Ibrani standar; 'El Gibbor' merupakan idiom monarki pahlawan perkasa."
+            },
+            {
+                "version": "Septuaginta (LXX)",
+                "text": "καὶ καλεῖται τὸ ὄνομα αὐτοῦ Μεγάλης βουλῆς ἄγγελος",
+                "critique": "Menerjemahkan gelar tersebut sebagai 'Malaikat/Utusan Nasihat Agung' (angelos), membuktikan para rabi Yahudi abad ke-3 SM tidak memahaminya sebagai keilahian ontologis."
+            },
+            {
+                "version": "Terjemahan Baru LAI",
+                "text": "namanya disebutkan orang: Penasihat Ajaib, Allah yang Perkasa, Bapa yang Kekal, Raja Damai.",
+                "critique": "Penggunaan huruf kapital 'Allah yang Perkasa' menimbulkan kerancuan dogmatis seolah anak tersebut berhakikat Allah Pencipta."
+            },
+            {
+                "version": "KJV",
+                "text": "his name shall be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.",
+                "critique": "Mengikuti terjemahan Vulgata Latin 'Deus fortis' yang dipengaruhi teologi patristik pasca-Nicea."
+            }
+        ],
+        "corpus_cross_references": [
+            {
+                "reference": "Yehezkiel 32:21",
+                "connection": "Penggunaan frasa jamak 'ele gibborim' untuk para pahlawan/raja perkasa bangsa-bangsa, membuktikan kata 'el' bermakna pemimpin/pahlawan perkasa dalam sastra Ibrani."
+            },
+            {
+                "reference": "Keluaran 15:15",
+                "connection": "Penggunaan kata 'ele moav' untuk para penguasa/pemimpin perkasa Moab."
+            },
+            {
+                "reference": "Yesaya 7:14",
+                "connection": "Nubuatan Imanuel yang berlatar belakang krisis sejarah sezaman (Perang Siro-Efraim) pada masa pemerintahan Raja Ahas."
+            }
+        ],
+        "exegetical_synthesis": "Analisis filologi forensik terhadap naskah Ibrani asli Yesaya 9:5 (Masoretic Text & Dead Sea Scrolls 1QIsa a) membuktikan secara tegas bahwa teks berbicara tentang kelahiran seorang anak manusia dalam konteks monarki Daud (secara historis Pangeran Hizkia). Frasa 'El Gibbor' (אֵל גִּבּוֹר) dalam gramatika Semitik bermakna 'pahlawan perkasa' atau 'pemimpin yang tangguh' (bdk. Yehezkiel 32:21). Saksi terjemahan tertua, Septuaginta (LXX), menerjemahkannya sebagai 'Megales boules angelos' (Utusan Nasihat Agung), membuktikan bahwa para sarjana Yahudi pra-Kristen sama sekali tidak membaca ayat ini sebagai klaim bahwa bayi tersebut adalah Tuhan Allah itu sendiri. Penerjemahan modern yang mengkapitalisasi 'Allah yang Perkasa' adalah distorsi terjemahan dogmatis yang mengabaikan kaidah leksikografi dan konteks sastra naskah primer."
     }
 }
 
@@ -1894,6 +2289,8 @@ class ExegesisEngine:
             return "Yohanes 14:16"
         if any(w in t_low for w in ["1 yohanes 5", "1 yoh 5", "comma johanneum", "tiga saksi", "bapa firman dan roh kudus", "martyrountes"]):
             return "1 Yohanes 5:7-8"
+        if any(w in t_low for w in ["yesaya 9", "yesaya 9:5", "yesaya 9:6", "el gibbor", "pele yoetz", "sar shalom", "allah yang perkasa", "penasihat ajaib", "raja damai"]):
+            return "Yesaya 9:5"
         return None
 
     @classmethod
@@ -1914,22 +2311,24 @@ class ExegesisEngine:
             return theological_match
 
         # Check semantic/thematic match
-        if ("roma 3:31" in t_low) or ("histanomen" in t_low) or ("membatalkan hukum taurat" in t_low and "iman" in t_low):
+        if ("roma 3:31" in t_low) or ("romani 3:31" in t_low) or ("romans 3:31" in t_low) or ("histanomen" in t_low) or ("membatalkan hukum taurat" in t_low and "iman" in t_low):
             return "Roma 3:31"
-        if ("yehezkiel 18:20" in t_low) or ("ezekiel 18:20" in t_low) or ("ha-nefesh ha-chote't" in t_low) or ("dosa waris" in t_low and "anak" in t_low):
+        if ("yehezkiel 18:20" in t_low) or ("ezechiele 18:20" in t_low) or ("ezekiel 18:20" in t_low) or ("ha-nefesh ha-chote't" in t_low) or ("dosa waris" in t_low and "anak" in t_low):
             return "Yehezkiel 18:20"
-        if ("yohanes 1:1" in t_low) or ("john 1:1" in t_low) or ("en arche en ho logos" in t_low) or ("firman itu adalah allah" in t_low):
+        if ("yohanes 1:1" in t_low) or ("giovanni 1:1" in t_low) or ("john 1:1" in t_low) or ("en arche en ho logos" in t_low) or ("firman itu adalah allah" in t_low):
             return "Yohanes 1:1"
-        if ("ulangan 6:4" in t_low) or ("deuteronomy 6:4" in t_low) or ("shema yisrael" in t_low) or ("tuhan itu esa" in t_low):
+        if ("ulangan 6:4" in t_low) or ("deuteronomio 6:4" in t_low) or ("deuteronomy 6:4" in t_low) or ("shema yisrael" in t_low) or ("tuhan itu esa" in t_low):
             return "Ulangan 6:4"
-        if ("matius 5:17" in t_low) or ("matthew 5:17" in t_low) or ("katalysai" in t_low) or ("bukan meniadakan melainkan menggenapi" in t_low):
+        if ("matius 5:17" in t_low) or ("matteo 5:17" in t_low) or ("matthew 5:17" in t_low) or ("katalysai" in t_low) or ("bukan meniadakan melainkan menggenapi" in t_low):
             return "Matius 5:17"
-        if ("lukas 22:42" in t_low) or ("kehendak yesus" in t_low and "kehendak bapa" in t_low):
+        if ("lukas 22:42" in t_low) or ("luca 22:42" in t_low) or ("luke 22:42" in t_low) or ("kehendak yesus" in t_low and "kehendak bapa" in t_low):
             return "Lukas 22:42"
-        if ("2 petrus 1:21" in t_low) or ("2 peter 1:21" in t_low) or ("dorongan roh kudus" in t_low and "nubuat" in t_low) or ("apo theou" in t_low):
+        if ("2 petrus 1:21" in t_low) or ("2 pietro 1:21" in t_low) or ("2 peter 1:21" in t_low) or ("dorongan roh kudus" in t_low and "nubuat" in t_low) or ("apo theou" in t_low):
             return "2 Petrus 1:21"
-        if ("1 yohanes 5" in t_low) or ("1 john 5" in t_low) or ("comma johanneum" in t_low) or ("tiga saksi" in t_low and "darah" in t_low):
+        if ("1 yohanes 5" in t_low) or ("1 giovanni 5" in t_low) or ("1 john 5" in t_low) or ("comma johanneum" in t_low) or ("tiga saksi" in t_low and "darah" in t_low):
             return "1 Yohanes 5:7-8"
+        if ("yesaya 9:5" in t_low) or ("yesaya 9:6" in t_low) or ("isaia 9:5" in t_low) or ("isaia 9:6" in t_low) or ("isaiah 9:6" in t_low) or ("yesaya 9" in t_low) or ("el gibbor" in t_low):
+            return "Yesaya 9:5"
 
         return None
 
@@ -1955,6 +2354,8 @@ class ExegesisEngine:
             "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles", "1 Corinthians", "2 Corinthians",
             "1 Thessalonians", "2 Thessalonians", "1 Timothy", "2 Timothy", "1 Peter", "2 Peter",
             "1 John", "2 John", "3 John", "Song of Solomon", "Song of Songs",
+            "1 Corinzi", "2 Corinzi", "1 Tessalonicesi", "2 Tessalonicesi", "1 Timoteo", "2 Timoteo",
+            "1 Pietro", "2 Pietro", "1 Giovanni", "2 Giovanni", "3 Giovanni", "Atti degli Apostoli", "Atti",
             "Kejadian", "Keluaran", "Imamat", "Bilangan", "Ulangan", "Yosua", "Hakim-hakim", "Rut",
             "Ezra", "Nehemia", "Ester", "Ayub", "Mazmur", "Amsal", "Pengkhotbah",
             "Yesaya", "Yeremia", "Ratapan", "Yehezkiel", "Daniel", "Hosea", "Yoel", "Amos", "Obaja",
@@ -1966,7 +2367,12 @@ class ExegesisEngine:
             "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Obadiah",
             "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi",
             "Matthew", "Mark", "Luke", "John", "Acts", "Romans", "Galatians", "Ephesians", "Philippians", "Colossians",
-            "Hebrews", "James", "Jude", "Revelation"
+            "Hebrews", "James", "Jude", "Revelation",
+            "Genesi", "Esodo", "Levitico", "Numeri", "Deuteronomio", "Giosuè", "Giudici",
+            "Salmi", "Salmo", "Proverbi", "Ecclesiaste", "Isaia", "Geremia", "Lamentazioni", "Ezechiele", "Daniele",
+            "Osea", "Gioele", "Giona", "Michea", "Naum", "Abacuc", "Sofonia", "Aggeo", "Zaccaria", "Malachia",
+            "Matteo", "Marco", "Luca", "Giovanni", "Romani", "Galati", "Efesini", "Filippesi", "Colossesi",
+            "Tito", "Filemone", "Ebrei", "Giacomo", "Giuda", "Apocalisse"
         ]
         books_pat = "|".join(re.escape(b) for b in sorted(books, key=len, reverse=True))
         m = re.search(rf"\b({books_pat})\s+(\d+:\d+(?:-\d+)?)\b", text, re.IGNORECASE)
@@ -1992,25 +2398,209 @@ class ExegesisEngine:
         return CANONICAL_EXEGESIS_REGISTRY
 
     @classmethod
-    def get_canonical_package(cls, ref: str) -> Optional[LinguisticExegesisPackage]:
-        """Instantiates full LinguisticExegesisPackage for a canonical reference."""
-        data = CANONICAL_EXEGESIS_REGISTRY.get(ref)
-        if not data:
+    def get_canonical_package(cls, ref: str, locale: str = "id") -> Optional[LinguisticExegesisPackage]:
+        """
+        Instantiates full LinguisticExegesisPackage for a canonical reference,
+        localized according to the requested locale.
+        Uses in-memory cache _LOCALIZED_CANONICAL_CACHE keyed by (ref, locale).
+        """
+        loc = (locale or "id").strip().lower()
+        if loc.startswith("id"):
+            loc_key = "id"
+        elif loc.startswith("it"):
+            loc_key = "it"
+        elif loc.startswith("en"):
+            loc_key = "en"
+        elif loc.startswith("es"):
+            loc_key = "es"
+        elif loc.startswith("fr"):
+            loc_key = "fr"
+        elif loc.startswith("de"):
+            loc_key = "de"
+        else:
+            loc_key = loc
+
+        cache_key = (ref, loc_key)
+        if cache_key in _LOCALIZED_CANONICAL_CACHE:
+            return _LOCALIZED_CANONICAL_CACHE[cache_key]
+
+        base_data = CANONICAL_EXEGESIS_REGISTRY.get(ref)
+        if not base_data:
             return None
-        return LinguisticExegesisPackage(
-            passage_reference=data["passage_reference"],
-            original_language=data["original_language"],
-            source_text_full=data["source_text_full"],
-            literal_translation=data["literal_translation"],
-            natural_translation=data["natural_translation"],
-            exegetical_context=data["exegetical_context"],
-            interlinear_tokens=data["interlinear_tokens"],
-            syntactic_exegesis=data["syntactic_exegesis"],
-            manuscript_witnesses=data["manuscript_witnesses"],
-            translation_comparison=data["translation_comparison"],
-            corpus_cross_references=data["corpus_cross_references"],
-            exegetical_synthesis=data["exegetical_synthesis"]
+
+        # 1. Italian localized package
+        if loc_key == "it" and ref in CANONICAL_EXEGESIS_REGISTRY_IT:
+            it_data = CANONICAL_EXEGESIS_REGISTRY_IT[ref]
+            base_tokens = base_data.get("interlinear_tokens", [])
+            overrides = {o["index"]: o for o in it_data.get("interlinear_tokens_override", [])}
+            it_tokens = []
+            for t in base_tokens:
+                ov = overrides.get(t.index)
+                if ov:
+                    it_tokens.append(InterlinearWordToken(
+                        index=t.index,
+                        strong_number=t.strong_number,
+                        original_text=t.original_text,
+                        transliteration=t.transliteration,
+                        lemma=t.lemma,
+                        morphology_code=t.morphology_code,
+                        morphology_expanded=t.morphology_expanded,
+                        literal_gloss=ov.get("literal_gloss", t.literal_gloss),
+                        syntactic_role=ov.get("syntactic_role", t.syntactic_role),
+                        lexical_entry=t.lexical_entry,
+                        exegetical_note=ov.get("exegetical_note", t.exegetical_note)
+                    ))
+                else:
+                    it_tokens.append(t)
+
+            it_comp = [dict(c) for c in it_data["translation_comparison"]]
+            if it_comp:
+                it_comp[0]["is_benchmark"] = True
+
+            pkg = LinguisticExegesisPackage(
+                passage_reference=it_data["passage_reference"],
+                original_language=it_data["original_language"],
+                source_text_full=it_data["source_text_full"],
+                literal_translation=it_data["literal_translation"],
+                natural_translation=it_data["natural_translation"],
+                exegetical_context=it_data["exegetical_context"],
+                interlinear_tokens=it_tokens,
+                syntactic_exegesis=it_data["syntactic_exegesis"],
+                manuscript_witnesses=it_data["manuscript_witnesses"],
+                translation_comparison=it_comp,
+                corpus_cross_references=it_data["corpus_cross_references"],
+                exegetical_synthesis=it_data["exegetical_synthesis"]
+            )
+            _LOCALIZED_CANONICAL_CACHE[cache_key] = pkg
+            return pkg
+
+        # 2. English localized package
+        if loc_key == "en" and ref in CANONICAL_EXEGESIS_REGISTRY_EN:
+            en_data = CANONICAL_EXEGESIS_REGISTRY_EN[ref]
+            base_tokens = base_data.get("interlinear_tokens", [])
+            overrides = {o["index"]: o for o in en_data.get("interlinear_tokens_override", [])}
+            en_tokens = []
+            for t in base_tokens:
+                ov = overrides.get(t.index)
+                if ov:
+                    en_tokens.append(InterlinearWordToken(
+                        index=t.index,
+                        strong_number=t.strong_number,
+                        original_text=t.original_text,
+                        transliteration=t.transliteration,
+                        lemma=t.lemma,
+                        morphology_code=t.morphology_code,
+                        morphology_expanded=t.morphology_expanded,
+                        literal_gloss=ov.get("literal_gloss", t.literal_gloss),
+                        syntactic_role=ov.get("syntactic_role", t.syntactic_role),
+                        lexical_entry=t.lexical_entry,
+                        exegetical_note=ov.get("exegetical_note", t.exegetical_note)
+                    ))
+                else:
+                    en_tokens.append(t)
+
+            en_comp = [dict(c) for c in en_data["translation_comparison"]]
+            if en_comp:
+                en_comp[0]["is_benchmark"] = True
+
+            pkg = LinguisticExegesisPackage(
+                passage_reference=en_data["passage_reference"],
+                original_language=en_data["original_language"],
+                source_text_full=en_data["source_text_full"],
+                literal_translation=en_data["literal_translation"],
+                natural_translation=en_data["natural_translation"],
+                exegetical_context=en_data["exegetical_context"],
+                interlinear_tokens=en_tokens,
+                syntactic_exegesis=en_data["syntactic_exegesis"],
+                manuscript_witnesses=en_data["manuscript_witnesses"],
+                translation_comparison=en_comp,
+                corpus_cross_references=en_data["corpus_cross_references"],
+                exegetical_synthesis=en_data["exegetical_synthesis"]
+            )
+            _LOCALIZED_CANONICAL_CACHE[cache_key] = pkg
+            return pkg
+
+        # 3. Base Indonesian canonical package
+        if loc_key == "id":
+            id_comp = [dict(c) for c in base_data["translation_comparison"]]
+            if id_comp:
+                id_comp[0]["is_benchmark"] = True
+
+            pkg = LinguisticExegesisPackage(
+                passage_reference=base_data["passage_reference"],
+                original_language=base_data["original_language"],
+                source_text_full=base_data["source_text_full"],
+                literal_translation=base_data["literal_translation"],
+                natural_translation=base_data["natural_translation"],
+                exegetical_context=base_data["exegetical_context"],
+                interlinear_tokens=base_data["interlinear_tokens"],
+                syntactic_exegesis=base_data["syntactic_exegesis"],
+                manuscript_witnesses=base_data["manuscript_witnesses"],
+                translation_comparison=id_comp,
+                corpus_cross_references=base_data["corpus_cross_references"],
+                exegetical_synthesis=base_data["exegetical_synthesis"]
+            )
+            _LOCALIZED_CANONICAL_CACHE[cache_key] = pkg
+            return pkg
+
+        # 4. Multilingual dynamic canonical package for other 14 languages
+        loc_map = BIBLE_LOCALE_TRANSLATION_MAP.get(loc_key, BIBLE_LOCALE_TRANSLATION_MAP.get("en", {}))
+        if get_multilingual_canonical_package:
+            multi_pkg = get_multilingual_canonical_package(ref, loc_key, base_data, loc_map)
+            if multi_pkg:
+                _LOCALIZED_CANONICAL_CACHE[cache_key] = multi_pkg
+                return multi_pkg
+
+        is_ot = base_data.get("original_language", "").lower().startswith("biblical hebrew") or "ibrani" in base_data.get("original_language", "").lower()
+        bench_label = loc_map.get("benchmark_label_ot") if is_ot else loc_map.get("benchmark_label_nt", "1st-Century Original Source Meaning")
+        local_code = loc_map.get("local_code", "Standard Translation")
+        local_crit = loc_map.get("local_critique", "Evaluation of syntactic fidelity to the original source text.")
+        kjv_crit = loc_map.get("kjv_critique", "Idiomatic translation audit of the Textus Receptus tradition.")
+        esv_crit = loc_map.get("esv_critique", "Modern literal accuracy audit based on reliable critical text.")
+
+        source_base = CANONICAL_EXEGESIS_REGISTRY_EN.get(ref) or base_data
+        base_comp = source_base.get("translation_comparison", [])
+
+        adapted_comp = [
+            {
+                "version": bench_label,
+                "text": base_comp[0].get("text", "") if len(base_comp) > 0 else "",
+                "critique": loc_map.get("benchmark_critique", ""),
+                "is_benchmark": True
+            },
+            {
+                "version": local_code,
+                "text": f"{loc_map.get('local_name', local_code)}: {ref}",
+                "critique": local_crit
+            },
+            {
+                "version": "KJV",
+                "text": base_comp[2].get("text", "") if len(base_comp) > 2 else "King James Version text",
+                "critique": kjv_crit
+            },
+            {
+                "version": "ESV",
+                "text": base_comp[3].get("text", "") if len(base_comp) > 3 else "English Standard Version text",
+                "critique": esv_crit
+            }
+        ]
+
+        pkg = LinguisticExegesisPackage(
+            passage_reference=source_base["passage_reference"],
+            original_language=source_base["original_language"],
+            source_text_full=source_base["source_text_full"],
+            literal_translation=source_base["literal_translation"],
+            natural_translation=source_base["natural_translation"],
+            exegetical_context=source_base["exegetical_context"],
+            interlinear_tokens=source_base.get("interlinear_tokens", base_data.get("interlinear_tokens", [])),
+            syntactic_exegesis=source_base["syntactic_exegesis"],
+            manuscript_witnesses=source_base["manuscript_witnesses"],
+            translation_comparison=adapted_comp,
+            corpus_cross_references=source_base["corpus_cross_references"],
+            exegetical_synthesis=source_base["exegetical_synthesis"]
         )
+        _LOCALIZED_CANONICAL_CACHE[cache_key] = pkg
+        return pkg
 
     @classmethod
     def generate_linguistic_exegesis_package(
@@ -2018,11 +2608,20 @@ class ExegesisEngine:
         claim: str,
         evidence_items: Optional[List[Any]] = None,
         synthesis_output: Optional[Dict[str, Any]] = None,
-        context: Optional[Any] = None
+        context: Optional[Any] = None,
+        locale: Optional[str] = "id"
     ) -> Optional[LinguisticExegesisPackage]:
         """
         Builds complete LinguisticExegesisPackage from canonical registry or dynamic synthesis.
         """
+        # Resolve target locale
+        loc = locale or "id"
+        if context:
+            if isinstance(context, dict):
+                loc = context.get("ui_locale") or context.get("debate_locale") or loc
+            else:
+                loc = getattr(context, "ui_locale", None) or getattr(context, "debate_locale", None) or loc
+
         # Step 1: Check for explicit verse in claim or evidence first
         explicit_verse = cls.extract_explicit_verse(claim)
         if not explicit_verse and evidence_items:
@@ -2051,42 +2650,14 @@ class ExegesisEngine:
             # Check canonical registry only if this explicit verse matches one of the canonical entries
             matched_canonical = cls.match_canonical_verse(explicit_verse)
             if matched_canonical and matched_canonical in CANONICAL_EXEGESIS_REGISTRY:
-                data = CANONICAL_EXEGESIS_REGISTRY[matched_canonical]
-                return LinguisticExegesisPackage(
-                    passage_reference=data["passage_reference"],
-                    original_language=data["original_language"],
-                    source_text_full=data["source_text_full"],
-                    literal_translation=data["literal_translation"],
-                    natural_translation=data["natural_translation"],
-                    exegetical_context=data["exegetical_context"],
-                    interlinear_tokens=data["interlinear_tokens"],
-                    syntactic_exegesis=data["syntactic_exegesis"],
-                    manuscript_witnesses=data["manuscript_witnesses"],
-                    translation_comparison=data["translation_comparison"],
-                    corpus_cross_references=data["corpus_cross_references"],
-                    exegetical_synthesis=data["exegetical_synthesis"]
-                )
+                return cls.get_canonical_package(matched_canonical, locale=loc)
             # Otherwise build structural package for this specific explicit verse!
-            return cls._build_structural_package(explicit_verse, claim, evidence_items)
+            return cls._build_structural_package(explicit_verse, claim, evidence_items, locale=loc)
 
         # Step 3: If NO explicit verse, check thematic match against canonical registry
         matched_ref = cls.match_canonical_verse(claim) or cls.match_theological_verse(claim)
         if matched_ref and matched_ref in CANONICAL_EXEGESIS_REGISTRY:
-            data = CANONICAL_EXEGESIS_REGISTRY[matched_ref]
-            return LinguisticExegesisPackage(
-                passage_reference=data["passage_reference"],
-                original_language=data["original_language"],
-                source_text_full=data["source_text_full"],
-                literal_translation=data["literal_translation"],
-                natural_translation=data["natural_translation"],
-                exegetical_context=data["exegetical_context"],
-                interlinear_tokens=data["interlinear_tokens"],
-                syntactic_exegesis=data["syntactic_exegesis"],
-                manuscript_witnesses=data["manuscript_witnesses"],
-                translation_comparison=data["translation_comparison"],
-                corpus_cross_references=data["corpus_cross_references"],
-                exegetical_synthesis=data["exegetical_synthesis"]
-            )
+            return cls.get_canonical_package(matched_ref, locale=loc)
 
         # Dynamic fallback determined strictly by topic (never fall back to scripture for out-of-corpus/non-theological claims)
         theological_keywords = ["yesus", "bapa", "ontologi", "kehendak", "kristus", "allah", "tuhan", "roh", "tritunggal", "trinitas", "tauhid", "bible", "alkitab", "injil", "taurat", "firman", "logos", "theos", "kenosis", "monoteisme", "ayat", "surat", "pasal"]
@@ -2096,22 +2667,8 @@ class ExegesisEngine:
 
         inferred_verse = "Lukas 22:42" if any(w in claim.lower() for w in ["yesus", "bapa", "ontologi", "kehendak", "kristus"]) else "Matius 5:17"
         if inferred_verse in CANONICAL_EXEGESIS_REGISTRY:
-            data = CANONICAL_EXEGESIS_REGISTRY[inferred_verse]
-            return LinguisticExegesisPackage(
-                passage_reference=data["passage_reference"],
-                original_language=data["original_language"],
-                source_text_full=data["source_text_full"],
-                literal_translation=data["literal_translation"],
-                natural_translation=data["natural_translation"],
-                exegetical_context=data["exegetical_context"],
-                interlinear_tokens=data["interlinear_tokens"],
-                syntactic_exegesis=data["syntactic_exegesis"],
-                manuscript_witnesses=data["manuscript_witnesses"],
-                translation_comparison=data["translation_comparison"],
-                corpus_cross_references=data["corpus_cross_references"],
-                exegetical_synthesis=data["exegetical_synthesis"]
-            )
-        return cls._build_structural_package(inferred_verse, claim, evidence_items)
+            return cls.get_canonical_package(inferred_verse, locale=loc)
+        return cls._build_structural_package(inferred_verse, claim, evidence_items, locale=loc)
 
     @classmethod
     def parse_exegesis_package(cls, le_dict: Any) -> Optional[LinguisticExegesisPackage]:
@@ -2173,14 +2730,27 @@ class ExegesisEngine:
             return None
 
     @classmethod
-    def _build_structural_package(cls, passage_ref: str, claim: str, evidence_items: Optional[List[Any]]) -> LinguisticExegesisPackage:
+    def _build_structural_package(cls, passage_ref: str, claim: str, evidence_items: Optional[List[Any]], locale: str = "id") -> LinguisticExegesisPackage:
         """Constructs an accurate structural exegesis package for any scripture citation with 3+ witnesses, 3+ translations, and 3+ cross-references."""
+        loc = (locale or "id").strip().lower()
+        if loc.startswith("it"):
+            loc_key = "it"
+        elif loc.startswith("en"):
+            loc_key = "en"
+        elif loc.startswith("id"):
+            loc_key = "id"
+        else:
+            loc_key = loc
+
+        loc_map = BIBLE_LOCALE_TRANSLATION_MAP.get(loc_key, BIBLE_LOCALE_TRANSLATION_MAP.get("en", {}))
+
         is_ot = any(book.lower() in passage_ref.lower() for book in [
             "kejadian", "keluaran", "imamat", "bilangan", "ulangan", "yosua", "hakim", "rut",
             "samuel", "raja", "tawarikh", "ezra", "nehemia", "ester", "ayub", "mazmur", "amsal",
             "pengkhotbah", "kidung", "yesaya", "yeremia", "ratapan", "yehezkiel", "daniel",
             "hosea", "yoel", "amos", "obaja", "yunus", "mikha", "nahum", "habakuk", "zefanya",
-            "hagai", "zakharia", "maleakhi", "genesis", "exodus", "psalm", "isaiah", "jeremiah", "ezekiel"
+            "hagai", "zakharia", "maleakhi", "genesis", "exodus", "psalm", "isaiah", "jeremiah", "ezekiel",
+            "genesi", "esodo", "levitico", "numeri", "deuteronomio", "giosue", "giudici", "salmi", "proverbi", "ezechiele"
         ])
         orig_lang = "Biblical Hebrew" if is_ot else "Koine Greek"
         source_standard = "Biblia Hebraica Stuttgartensia (BHS Codex Leningradensis)" if is_ot else "Nestle-Aland Novum Testamentum Graece (NA28 / UBS5)"
@@ -2198,6 +2768,28 @@ class ExegesisEngine:
         tokens = []
         for i, w in enumerate(words[:8]):
             code = f"H{1000+i}" if is_ot else f"G{2000+i}"
+            if loc_key == "it":
+                morph_exp = f"Analisi morfologica standard BibleHub per la pericope {passage_ref}"
+                lit_gloss = f"significato letterale parola {i+1}"
+                syn_role = "Costituente Sintattico della Proposizione"
+                lex_def = f"Definizione lessicale accademica della parola {w}"
+                lex_range = "Contesto manoscritto primario"
+                exe_note = f"Rilevanza ermeneutica della parola '{w}' nella pericope {passage_ref}."
+            elif loc_key != "id":
+                morph_exp = f"Official BibleHub morphological parsing for passage {passage_ref}"
+                lit_gloss = f"literal gloss word {i+1}"
+                syn_role = "Syntactic Constituent of Clause"
+                lex_def = f"Academic lexical definition of word {w}"
+                lex_range = "Primary manuscript context"
+                exe_note = f"Hermeneutical significance of '{w}' in passage {passage_ref}."
+            else:
+                morph_exp = f"Parsing resmi standar BibleHub perikop {passage_ref}"
+                lit_gloss = f"makna harfiah kata {i+1}"
+                syn_role = "Konstituen Sintaksis Klausa"
+                lex_def = f"Definisi leksikal akademis kata {w}"
+                lex_range = "Konteks naskah primer"
+                exe_note = f"Signifikansi hermeneutis kata '{w}' dalam perikop {passage_ref}."
+
             tokens.append(InterlinearWordToken(
                 index=i + 1,
                 strong_number=code,
@@ -2205,62 +2797,158 @@ class ExegesisEngine:
                 transliteration=f"translit_{i+1}",
                 lemma=f"lemma_{i+1}",
                 morphology_code="V-Qal-Imperf-3ms" if is_ot else "V-PIA-3S",
-                morphology_expanded=f"Parsing resmi standar BibleHub perikop {passage_ref}",
-                literal_gloss=f"makna harfiah kata {i+1}",
-                syntactic_role="Konstituen Sintaksis Klausa",
-                lexical_entry={"source": "HALOT / BDB" if is_ot else "BDAG", "definition": f"Definisi leksikal akademis kata {w}", "semantic_range": "Konteks naskah primer"},
-                exegetical_note=f"Signifikansi hermeneutis kata '{w}' dalam perikop {passage_ref}."
+                morphology_expanded=morph_exp,
+                literal_gloss=lit_gloss,
+                syntactic_role=syn_role,
+                lexical_entry={"source": "HALOT / BDB" if is_ot else "BDAG", "definition": lex_def, "semantic_range": lex_range},
+                exegetical_note=exe_note
             ))
 
         # Ensure at least 3 manuscript witnesses
         if is_ot:
-            manuscript_witnesses = [
-                {"witness": "Codex Leningradensis (B19a, 1008 M)", "reading": "Konsisten dengan konsonan & vokalisasi Teks Masoret", "status": "Saksi Primer MT"},
-                {"witness": "Septuaginta (LXX, Abad III SM)", "reading": "Penerjemahan Yunani kuno pra-Masehi", "status": "Saksi Tekstual Kuno"},
-                {"witness": "Naskah Laut Mati / Dead Sea Scrolls (DSS)", "reading": "Konfirmasi tradisi ortografi Qumran", "status": "Saksi Pra-Masehi"}
-            ]
+            if loc_key == "it":
+                manuscript_witnesses = [
+                    {"witness": "Codex Leningradensis (B19a, 1008 d.C.)", "reading": "Conforme alla vocalizzazione e consonanti del Testo Masoretico", "status": "Testimone Primario TM"},
+                    {"witness": "Septuaginta (LXX, III sec. a.C.)", "reading": "Antica traduzione greca pre-cristiana", "status": "Testimone Testuale Antico"},
+                    {"witness": "Rotoli del Mar Morto / Dead Sea Scrolls (DSS)", "reading": "Conferma della tradizione ortografica di Qumran", "status": "Testimone Pre-Cristiano"}
+                ]
+            elif loc_key != "id":
+                manuscript_witnesses = [
+                    {"witness": "Codex Leningradensis (B19a, 1008 AD)", "reading": "Consistent with Masoretic Text consonants & vowels", "status": "Primary MT Witness"},
+                    {"witness": "Septuagint (LXX, 3rd c. BC)", "reading": "Pre-Christian ancient Greek translation", "status": "Ancient Textual Witness"},
+                    {"witness": "Dead Sea Scrolls (DSS, 2nd c. BC)", "reading": "Confirms Qumran orthographic tradition", "status": "Pre-Christian Witness"}
+                ]
+            else:
+                manuscript_witnesses = [
+                    {"witness": "Codex Leningradensis (B19a, 1008 M)", "reading": "Konsisten dengan konsonan & vokalisasi Teks Masoret", "status": "Saksi Primer MT"},
+                    {"witness": "Septuaginta (LXX, Abad III SM)", "reading": "Penerjemahan Yunani kuno pra-Masehi", "status": "Saksi Tekstual Kuno"},
+                    {"witness": "Naskah Laut Mati / Dead Sea Scrolls (DSS)", "reading": "Konfirmasi tradisi ortografi Qumran", "status": "Saksi Pra-Masehi"}
+                ]
         else:
-            manuscript_witnesses = [
-                {"witness": "Codex Sinaiticus (א 01, Abad IV)", "reading": "Konsisten dengan saksi teks NA28", "status": "Teks Aleksandria"},
-                {"witness": "Codex Vaticanus (B 03, Abad IV)", "reading": "Naskah kritis primer tanpa interpolasi", "status": "Naskah Kritis"},
-                {"witness": "Papyrus Chester Beatty / Bodmer (P46/P66/P75)", "reading": "Saksi papirus kanonikal awal abad II-III M", "status": "Saksi Papirus Tertua"}
-            ]
+            if loc_key == "it":
+                manuscript_witnesses = [
+                    {"witness": "Codex Sinaiticus (א 01, IV sec.)", "reading": "Conforme al testo critico NA28", "status": "Testo Alessandrino"},
+                    {"witness": "Codex Vaticanus (B 03, IV sec.)", "reading": "Manoscritto critico primario senza interpolazioni", "status": "Manoscritto Critico"},
+                    {"witness": "Papiro Chester Beatty / Bodmer (P46/P66/P75)", "reading": "Testimone papiraceo canonico del II-III sec. d.C.", "status": "Papiro più Antico"}
+                ]
+            elif loc_key != "id":
+                manuscript_witnesses = [
+                    {"witness": "Codex Sinaiticus (א 01, 4th c.)", "reading": "Consistent with NA28 critical text", "status": "Alexandrian Primary Witness"},
+                    {"witness": "Codex Vaticanus (B 03, 4th c.)", "reading": "Primary critical manuscript without interpolations", "status": "Primary Critical Text"},
+                    {"witness": "Papyrus Chester Beatty / Bodmer (P46/P66/P75)", "reading": "Canonical early papyrus witness of the 2nd-3rd c. AD", "status": "Earliest Papyrus Witness"}
+                ]
+            else:
+                manuscript_witnesses = [
+                    {"witness": "Codex Sinaiticus (א 01, Abad IV)", "reading": "Konsisten dengan saksi teks NA28", "status": "Teks Aleksandria"},
+                    {"witness": "Codex Vaticanus (B 03, Abad IV)", "reading": "Naskah kritis primer tanpa interpolasi", "status": "Naskah Kritis"},
+                    {"witness": "Papyrus Chester Beatty / Bodmer (P46/P66/P75)", "reading": "Saksi papirus kanonikal awal abad II-III M", "status": "Saksi Papirus Tertua"}
+                ]
 
-        # Ensure benchmark 1st century meaning followed by at least 3 translation comparisons
-        benchmark_version = "Makna Ibrani Kuno Abad Pertama/Masoretik" if is_ot else "Makna Yunani Koine Abad ke-1"
+        # Dynamic Translation Comparison Matrix (4 Rows)
+        bench_label = loc_map.get("benchmark_label_ot") if is_ot else loc_map.get("benchmark_label_nt", "1st-Century Original Source Meaning")
+        bench_critique = loc_map.get("benchmark_critique", "Primary benchmark of 1st-century manuscript accuracy.")
+        local_code = loc_map.get("local_code", "TB LAI")
+        local_critique = loc_map.get("local_critique", "Evaluation of syntactic fidelity to the original source text.")
+        kjv_crit = loc_map.get("kjv_critique", "Audit idiom penerjemahan tradisi Textus Receptus." if loc_key == "id" else "Idiomatic translation audit of Textus Receptus tradition.")
+        esv_crit = loc_map.get("esv_critique", "Audit literalitas modern berbasis naskah kritis terpercaya." if loc_key == "id" else "Modern literal accuracy audit based on reliable critical text.")
+
+        if loc_key == "it":
+            bench_text = f"Ricostruzione del significato letterale e contestuale di {passage_ref} basata sulla grammatica e lessicografia del primo secolo."
+            local_text = f"Lettura della Bibbia CEI per la pericope {passage_ref}"
+            kjv_text = f"King James Version reading for {passage_ref}"
+            esv_text = f"English Standard Version rendering for {passage_ref}"
+        elif loc_key != "id":
+            bench_text = f"Literal and contextual reconstruction of {passage_ref} based on 1st-century grammar and lexicography."
+            local_text = f"{loc_map.get('local_name', local_code)} reading for {passage_ref}"
+            kjv_text = f"King James Version reading for {passage_ref}"
+            esv_text = f"English Standard Version rendering for {passage_ref}"
+        else:
+            bench_text = f"Rekonstruksi makna harfiah dan kontekstual {passage_ref} berdasarkan tata bahasa dan leksikografi abad pertama."
+            local_text = f"Terjemahan Baru LAI untuk {passage_ref}"
+            kjv_text = f"King James Version reading for {passage_ref}"
+            esv_text = f"English Standard Version rendering for {passage_ref}"
+
         translation_comparison = [
-            {"version": benchmark_version, "text": f"Rekonstruksi makna harfiah dan kontekstual {passage_ref} berdasarkan tata bahasa dan leksikografi abad pertama.", "critique": "Standar acuan akurasi filologis naskah asli tanpa pergeseran doktrinal tradisi terjemahan."},
-            {"version": "TB LAI", "text": f"Terjemahan Baru LAI untuk {passage_ref}", "critique": "Evaluasi ketepatan sintaksis terhadap teks asli."},
-            {"version": "KJV", "text": f"King James Version reading for {passage_ref}", "critique": "Audit idiom penerjemahan tradisi Textus Receptus."},
-            {"version": "ESV", "text": f"English Standard Version rendering for {passage_ref}", "critique": "Audit literalitas modern berbasis naskah kritis terpercaya."}
+            {"version": bench_label, "text": bench_text, "critique": bench_critique},
+            {"version": local_code, "text": local_text, "critique": local_critique},
+            {"version": "KJV", "text": kjv_text, "critique": kjv_crit},
+            {"version": "ESV", "text": esv_text, "critique": esv_crit}
         ]
 
         # Ensure at least 3 cross references
-        corpus_cross_references = [
-            {"reference": f"{passage_ref} Konteks Kanon", "connection": "Keterkaitan langsung dalam korpus kanonik kitab terkait."},
-            {"reference": "Roma 3:31" if is_ot else "Ulangan 6:4", "connection": "Harmonisasi teologis dan konfirmasi prinsip kovenan Bible."},
-            {"reference": "Matius 5:17" if is_ot else "Yehezkiel 18:20", "connection": "Kesesuaian internal hukum dan keadilan Alkitabiah lintas-wasiat."}
-        ]
+        cross_ref_target1 = "Roma 3:31" if is_ot else "Ulangan 6:4"
+        cross_ref_target2 = "Matius 5:17" if is_ot else "Yehezkiel 18:20"
+        if loc_key == "it":
+            corpus_cross_references = [
+                {"reference": f"{passage_ref} (Contesto Canonico)", "connection": "Collegamento diretto all'interno del corpus canonico del libro corrispondente."},
+                {"reference": cross_ref_target1, "connection": "Armonizzazione teologica e conferma dei principi dell'alleanza biblica."},
+                {"reference": cross_ref_target2, "connection": "Coerenza interna di legge e giustizia attraverso entrambi i Testamenti."}
+            ]
+            lit_trans = f"Ricostruzione letterale della pericope {passage_ref} basata sull'ordine sintattico originale."
+            nat_trans = f"Traduzione naturale e contestuale in lingua italiana per {passage_ref}."
+            genre_desc = "Canone delle Scritture / Narrazione e Oracolo dell'Alleanza"
+            ctx_imm = f"Analisi della pericope immediata per {passage_ref} nell'integrità del capitolo e del libro."
+            sitz_desc = f"Sitz im Leben del testo originale all'epoca della redazione di {passage_ref}."
+            syn_aspect = f"Analisi dell'aspetto verbale di {passage_ref} secondo le regole grammaticali della lingua sorgente."
+            syn_struct = "Mappatura dei ruoli di soggetto, predicato e relazioni preposizionali secondo lo standard BibleHub."
+            syn_disc = "Valutazione della funzione discorsiva della proposizione nell'argomentazione teologica/giuridica della Bibbia."
+            synth_desc = f"Sintesi del significato essenziale del versetto {passage_ref}: Nella lingua originale, il testo sancisce principi solidi da comprendere secondo l'intenzione originaria senza forzature dogmatiche successive."
+        elif loc_key != "id":
+            corpus_cross_references = [
+                {"reference": f"{passage_ref} Canonical Context", "connection": "Direct thematic connection within the canonical corpus of the respective book."},
+                {"reference": cross_ref_target1, "connection": "Theological harmonization and confirmation of biblical covenant principles."},
+                {"reference": cross_ref_target2, "connection": "Internal coherence of law and righteous justice across both testaments."}
+            ]
+            lit_trans = f"Literal reconstruction of passage {passage_ref} based on original syntactic word order."
+            nat_trans = f"Natural and contextual English translation for passage {passage_ref}."
+            genre_desc = "Canonical Scripture Text / Covenant Narrative and Prophetic Oracle"
+            ctx_imm = f"Immediate pericope context analysis for {passage_ref} within the integrity of chapter and book."
+            sitz_desc = f"Historical Sitz im Leben of the original text during the authorship era of {passage_ref}."
+            syn_aspect = f"Verbal aspect analysis of {passage_ref} according to original source language grammar."
+            syn_struct = "Subject, predicate, and prepositional relation mapping following BibleHub standards."
+            syn_disc = "Evaluation of clause discourse function within the biblical theological/juridical argument."
+            synth_desc = f"Core exegetical synthesis of passage {passage_ref}: In the original source language, this text establishes firm principles that must be understood according to the author's primary intent without doctrinal distortion."
+        else:
+            corpus_cross_references = [
+                {"reference": f"{passage_ref} Konteks Kanon", "connection": "Keterkaitan langsung dalam korpus kanonik kitab terkait."},
+                {"reference": cross_ref_target1, "connection": "Harmonisasi teologis dan konfirmasi prinsip kovenan Bible."},
+                {"reference": cross_ref_target2, "connection": "Kesesuaian internal hukum dan keadilan Alkitabiah lintas-wasiat."}
+            ]
+            lit_trans = f"Rekonstruksi harfiah perikop {passage_ref} berbasis urutan sintaksis asli."
+            nat_trans = f"Terjemahan bahasa Indonesia alami dan kontekstual untuk perikop {passage_ref}."
+            genre_desc = "Kanon Teks Kitab Suci / Narasi & Orakel Kovenan"
+            ctx_imm = f"Analisis perikop dekat untuk {passage_ref} dalam keutuhan pasal dan tema kitab."
+            sitz_desc = f"Sitz im Leben naskah asli pada era penulisan kitab {passage_ref}."
+            syn_aspect = f"Analisis aspek verba naskah {passage_ref} menurut kaidah gramatika bahasa sumber asli."
+            syn_struct = "Pemetaan peran subjek, predikat, dan relasi preposisi menurut standar BibleHub."
+            syn_disc = "Evaluasi fungsi wacana klausa dalam konteks argumentasi teologis/yuridis Bible."
+            synth_desc = f"Intisari kesimpulan makna ayat {passage_ref}: Menurut bahasa aslinya, teks ini menegaskan prinsip kebenaran yang kokoh dan harus dipahami sesuai maksud awal naskah tanpa dipelintir oleh penafsiran doktrin modern."
 
         return LinguisticExegesisPackage(
             passage_reference=passage_ref,
             original_language=orig_lang,
             source_text_full=ev_src or f"Rekonstruksi naskah kritis {passage_ref} berdasarkan {source_standard}",
-            literal_translation=f"Rekonstruksi harfiah perikop {passage_ref} berbasis urutan sintaksis asli.",
-            natural_translation=f"Terjemahan bahasa Indonesia alami dan kontekstual untuk perikop {passage_ref}.",
+            literal_translation=lit_trans,
+            natural_translation=nat_trans,
             exegetical_context=ExegeticalContext(
-                literary_genre="Kanon Teks Kitab Suci / Narasi & Orakel Kovenan",
-                immediate_context=f"Analisis perikop dekat untuk {passage_ref} dalam keutuhan pasal dan tema kitab.",
-                historical_cultural_setting=f"Sitz im Leben naskah asli pada era penulisan kitab {passage_ref}."
+                literary_genre=genre_desc,
+                immediate_context=ctx_imm,
+                historical_cultural_setting=sitz_desc
             ),
             interlinear_tokens=tokens,
             syntactic_exegesis={
-                "verbal_aspect": f"Analisis aspek verba naskah {passage_ref} menurut kaidah gramatika bahasa sumber asli.",
-                "syntactic_structure": "Pemetaan peran subjek, predikat, dan relasi preposisi menurut standar BibleHub.",
-                "discourse_function": "Evaluasi fungsi wacana klausa dalam konteks argumentasi teologis/yuridis Bible."
+                "verbal_aspect": syn_aspect,
+                "syntactic_structure": syn_struct,
+                "discourse_function": syn_disc
             },
             manuscript_witnesses=manuscript_witnesses,
             translation_comparison=translation_comparison,
             corpus_cross_references=corpus_cross_references,
-            exegetical_synthesis=f"Intisari kesimpulan makna ayat {passage_ref}: Menurut bahasa aslinya, teks ini menegaskan prinsip kebenaran yang kokoh dan harus dipahami sesuai maksud awal naskah tanpa dipelintir oleh penafsiran doktrin modern."
+            exegetical_synthesis=synth_desc
         )
+
+
+def get_canonical_package(ref: str, ui_locale: str = "id") -> Optional[LinguisticExegesisPackage]:
+    """Module-level convenience wrapper for ExegesisEngine.get_canonical_package."""
+    return ExegesisEngine.get_canonical_package(ref, locale=ui_locale)
+

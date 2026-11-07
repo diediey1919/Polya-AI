@@ -4,8 +4,8 @@
   "corpus_id": "video-2468",
   "youtube_id": "AagbA5lg980",
   "url": "https://www.youtube.com/watch?v=AagbA5lg980",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: AagbA5lg980]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: AagbA5lg980]",
   "original_youtube_title": "Arrogant and then ran away.. Pastor Chris",
   "source_video_title": "Arrogant and then ran away.. Pastor Chris",
   "debate_mode": "zuma_persona",
@@ -14,18 +14,16 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: AagbA5lg980]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 4:10 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 4",
-    "Kejadian 6",
-    "Keluaran 19",
-    "Ulangan 7",
-    "Markus 7",
-    "Ulangan 9",
-    "Ulangan 31",
-    "Ulangan 32"
+    "Matius 4:10",
+    "Kejadian 6:6",
+    "Keluaran 19:1",
+    "Ulangan 7:1",
+    "Markus 7:6-9",
+    "Ulangan 9:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -54,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 4",
-      "Kejadian 6",
-      "Keluaran 19",
-      "Ulangan 7",
-      "Markus 7",
-      "Ulangan 9",
-      "Ulangan 31",
-      "Ulangan 32"
+      "Matius 4:10",
+      "Kejadian 6:6",
+      "Keluaran 19:1",
+      "Ulangan 7:1",
+      "Markus 7:6-9",
+      "Ulangan 9:1"
     ]
   },
   "rounds": [

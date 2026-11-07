@@ -4,8 +4,8 @@
   "corpus_id": "video-2096",
   "youtube_id": "zdzSnMBPwDw",
   "url": "https://www.youtube.com/watch?v=zdzSnMBPwDw",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: zdzSnMBPwDw]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: zdzSnMBPwDw]",
   "original_youtube_title": "DARI MANA KR!$TEN DAPAT KATA ALLAH ??SIMAK JAWABANNYA",
   "source_video_title": "DARI MANA KR!$TEN DAPAT KATA ALLAH ??SIMAK JAWABANNYA",
   "debate_mode": "zuma_persona",
@@ -14,12 +14,13 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: zdzSnMBPwDw]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Mazmur 92:1 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Mazmur 92",
-    "1 Raja-raja 8",
-    "2 Tawarikh 6"
+    "Mazmur 92:1",
+    "1 Raja-raja 8:27",
+    "2 Tawarikh 6:18"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -48,9 +49,9 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Mazmur 92",
-      "1 Raja-raja 8",
-      "2 Tawarikh 6"
+      "Mazmur 92:1",
+      "1 Raja-raja 8:27",
+      "2 Tawarikh 6:18"
     ]
   },
   "rounds": [

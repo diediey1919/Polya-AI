@@ -90,6 +90,39 @@ async def test_p1_knowledge_evidence_and_claims_endpoints():
         assert cl_data["success"] is True
         assert cl_data["count"] > 0
 
+@pytest.mark.anyio
+async def test_p1_knowledge_evidence_and_claims_dynamic_query():
+    """Knowledge claims and evidence endpoints return query-synchronized claims, premises, and scripture witnesses."""
+    async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app), base_url="http://testserver") as client:
+        # 1. Test dynamic claims decomposition for Yohanes 1:1 motion
+        motion_q = "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal"
+        res_cl = await client.get(f"/api/v1/knowledge/claims?q={motion_q}")
+        assert res_cl.status_code == 200
+        cl_data = res_cl.json()
+        assert cl_data["success"] is True
+        assert cl_data["count"] >= 3
+        statuses = [c["status"] for c in cl_data["claims"]]
+        assert "KLAIM UTAMA (MOSI)" in statuses
+        assert "PREMIS PENDUKUNG" in statuses
+        assert "KESIMPULAN" in statuses
+
+        # 2. Test dynamic scripture & manuscript retrieval for Yohanes 1:1
+        res_ev = await client.get(f"/api/v1/knowledge/evidence?q={motion_q}")
+        assert res_ev.status_code == 200
+        ev_data = res_ev.json()
+        assert ev_data["success"] is True
+        assert ev_data["count"] >= 1
+        assert ev_data["evidence"][0]["passage_reference"] == "Yohanes 1:1"
+        assert "witnesses" in ev_data["evidence"][0]
+        assert len(ev_data["evidence"][0]["witnesses"]) > 0
+
+        # 3. Test dynamic scripture retrieval for Roma 3:31 motion
+        res_ev_roma = await client.get("/api/v1/knowledge/evidence?q=Paulus menegakkan hukum Taurat (Roma 3:31)")
+        assert res_ev_roma.status_code == 200
+        ev_roma_data = res_ev_roma.json()
+        assert ev_roma_data["success"] is True
+        assert any("Roma 3:31" in e["passage_reference"] for e in ev_roma_data["evidence"])
+
 # ---------------------------------------------------------------------------
 # Subtask B: Themes Explorer Tests
 # ---------------------------------------------------------------------------

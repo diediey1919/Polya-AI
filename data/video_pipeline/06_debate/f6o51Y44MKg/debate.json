@@ -4,8 +4,8 @@
   "corpus_id": "video-388",
   "youtube_id": "f6o51Y44MKg",
   "url": "https://www.youtube.com/watch?v=f6o51Y44MKg",
-  "motion_or_topic": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
-  "title": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
+  "motion_or_topic": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: f6o51Y44MKg]",
+  "title": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: f6o51Y44MKg]",
   "original_youtube_title": "PDT YUSUF.. YESUS DISALIB ATAU GK?? BANGZUMA GAGAP SEKETIKA..?",
   "source_video_title": "PDT YUSUF.. YESUS DISALIB ATAU GK?? BANGZUMA GAGAP SEKETIKA..?",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)"
+    "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: f6o51Y44MKg]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Galatia 2:11-14 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Galatia 2",
-    "Kisah Para Rasul 8",
-    "Yohanes 1",
+    "Galatia 2:11-14",
+    "Kisah Para Rasul 8:1",
+    "Yohanes 1:1",
     "Yohanes 1:43",
-    "Galatia 1",
-    "Markus 14",
-    "Ulangan 18",
-    "Yohanes 13"
+    "Galatia 1:8-9",
+    "Markus 14:36"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Galatia 2",
-      "Kisah Para Rasul 8",
-      "Yohanes 1",
+      "Galatia 2:11-14",
+      "Kisah Para Rasul 8:1",
+      "Yohanes 1:1",
       "Yohanes 1:43",
-      "Galatia 1",
-      "Markus 14",
-      "Ulangan 18",
-      "Yohanes 13"
+      "Galatia 1:8-9",
+      "Markus 14:36"
     ]
   },
   "rounds": [

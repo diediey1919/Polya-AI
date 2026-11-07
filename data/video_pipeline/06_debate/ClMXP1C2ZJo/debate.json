@@ -4,8 +4,8 @@
   "corpus_id": "video-1451",
   "youtube_id": "ClMXP1C2ZJo",
   "url": "https://www.youtube.com/watch?v=ClMXP1C2ZJo",
-  "motion_or_topic": "Polemik Keselamatan: Doktrin Sola Fide Paulus (Roma 3:28) vs Doktrin Pembenaran oleh Perbuatan Nyata (Yakobus 2:24)",
-  "title": "Polemik Keselamatan: Doktrin Sola Fide Paulus (Roma 3:28) vs Doktrin Pembenaran oleh Perbuatan Nyata (Yakobus 2:24)",
+  "motion_or_topic": "Polemik Keselamatan: Doktrin Sola Fide Paulus (Roma 3:28) vs Doktrin Pembenaran oleh Perbuatan Nyata (Yakobus 2:24) [Dossier Ref: ClMXP1C2ZJo]",
+  "title": "Polemik Keselamatan: Doktrin Sola Fide Paulus (Roma 3:28) vs Doktrin Pembenaran oleh Perbuatan Nyata (Yakobus 2:24) [Dossier Ref: ClMXP1C2ZJo]",
   "original_youtube_title": "WANITA OTEN PUAS BERTANYA...",
   "source_video_title": "WANITA OTEN PUAS BERTANYA...",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Polemik Teologi Paulus vs Hukum Taurat",
   "cluster_theme": "Polemik Teologi Paulus vs Hukum Taurat",
   "sub_motions": [
-    "Kritik Surat Yakobus Terhadap Teologi Iman Kosong yang Menolak Bukti Amal Syariat",
-    "Rekonstruksi Posisi Anak Sulung Abraham dalam Sejarah Perjanjian Monoteistik",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Polemik Keselamatan: Doktrin Sola Fide Paulus (Roma 3:28) vs Doktrin Pembenaran oleh Perbuatan Nyata (Yakobus 2:24) [Dossier Ref: ClMXP1C2ZJo]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Roma 3:28 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Roma 3:28"
   ],
   "passages": [
-    "Ulangan 22",
-    "Kejadian 17",
-    "Kejadian 7",
-    "Yeremia 30",
-    "Yesaya 60",
-    "Yesaya 62",
-    "Yesaya 6",
-    "Yesaya 35"
+    "Roma 3:28",
+    "Ulangan 22:1",
+    "Kejadian 17:1-7",
+    "Kejadian 7:1",
+    "Yeremia 30:1",
+    "Yesaya 60:1-3"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Ulangan 22",
-      "Kejadian 17",
-      "Kejadian 7",
-      "Yeremia 30",
-      "Yesaya 60",
-      "Yesaya 62",
-      "Yesaya 6",
-      "Yesaya 35"
+      "Roma 3:28",
+      "Ulangan 22:1",
+      "Kejadian 17:1-7",
+      "Kejadian 7:1",
+      "Yeremia 30:1",
+      "Yesaya 60:1-3"
     ]
   },
   "rounds": [

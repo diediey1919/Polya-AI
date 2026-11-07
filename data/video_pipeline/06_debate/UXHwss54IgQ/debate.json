@@ -4,8 +4,8 @@
   "corpus_id": "video-2160",
   "youtube_id": "UXHwss54IgQ",
   "url": "https://www.youtube.com/watch?v=UXHwss54IgQ",
-  "motion_or_topic": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
-  "title": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
+  "motion_or_topic": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: UXHwss54IgQ]",
+  "title": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: UXHwss54IgQ]",
   "original_youtube_title": "SAKSIKANLAH MANA YG MASUK AKAL DAN AKAL2AN",
   "source_video_title": "SAKSIKANLAH MANA YG MASUK AKAL DAN AKAL2AN",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Kristologi & Kemanusiaan Yesus",
   "cluster_theme": "Kristologi & Kemanusiaan Yesus",
   "sub_motions": [
-    "Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea",
-    "Status Inkarnasi Firman dalam Sejarah Pemikiran Patristik dan Pergeseran Makna Monoteisme",
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: UXHwss54IgQ]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 1:1 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Yohanes 1:1"
   ],
   "passages": [
-    "1 Tesalonika 4",
-    "Wahyu 21",
-    "Lukas 10",
-    "Wahyu 19",
-    "Yesaya 65",
-    "Yohanes 5",
-    "Markus 20:07",
-    "Ibrani 5"
+    "Yohanes 1:1",
+    "1 Tesalonika 4:1",
+    "Wahyu 21:1",
+    "Lukas 10:21",
+    "Wahyu 19:10",
+    "Yesaya 65:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "1 Tesalonika 4",
-      "Wahyu 21",
-      "Lukas 10",
-      "Wahyu 19",
-      "Yesaya 65",
-      "Yohanes 5",
-      "Markus 20:07",
-      "Ibrani 5"
+      "Yohanes 1:1",
+      "1 Tesalonika 4:1",
+      "Wahyu 21:1",
+      "Lukas 10:21",
+      "Wahyu 19:10",
+      "Yesaya 65:1"
     ]
   },
   "rounds": [

@@ -4,8 +4,8 @@
   "corpus_id": "video-603",
   "youtube_id": "ycbU3dGHBtE",
   "url": "https://www.youtube.com/watch?v=ycbU3dGHBtE",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: ycbU3dGHBtE]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: ycbU3dGHBtE]",
   "original_youtube_title": "OTEN INI AKUI KLO KRISTEN NYEMBAH SEPOTONG TUHAN SEPOTONG MANUSIA..",
   "source_video_title": "OTEN INI AKUI KLO KRISTEN NYEMBAH SEPOTONG TUHAN SEPOTONG MANUSIA..",
   "debate_mode": "zuma_persona",
@@ -14,13 +14,13 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: ycbU3dGHBtE]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Lukas 21:8 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Lukas 21",
-    "Lukas 4",
-    "Matius 4",
+    "Lukas 21:8",
+    "Lukas 4:8",
+    "Matius 4:10",
     "Daniel 1:00"
   ],
   "extracted_from_transcript": true,
@@ -50,9 +50,9 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Lukas 21",
-      "Lukas 4",
-      "Matius 4",
+      "Lukas 21:8",
+      "Lukas 4:8",
+      "Matius 4:10",
       "Daniel 1:00"
     ]
   },

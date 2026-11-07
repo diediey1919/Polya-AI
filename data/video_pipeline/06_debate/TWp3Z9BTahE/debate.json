@@ -4,8 +4,8 @@
   "corpus_id": "video-1040",
   "youtube_id": "TWp3Z9BTahE",
   "url": "https://www.youtube.com/watch?v=TWp3Z9BTahE",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Kriteria Penghakiman Terakhir Berdasarkan Amal Kasih Nyata vs Klaim Sepihak Menurut Teks Matius 25:31-46 [Dossier Ref: TWp3Z9BTahE]",
+  "title": "Kriteria Penghakiman Terakhir Berdasarkan Amal Kasih Nyata vs Klaim Sepihak Menurut Teks Matius 25:31-46 [Dossier Ref: TWp3Z9BTahE]",
   "original_youtube_title": "SI EDIS LALAT NERAKA DIMINTAI KITAB TERDAHULU MALAH NGACIR...",
   "source_video_title": "SI EDIS LALAT NERAKA DIMINTAI KITAB TERDAHULU MALAH NGACIR...",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Kriteria Penghakiman Terakhir Berdasarkan Amal Kasih Nyata vs Klaim Sepihak Menurut Teks Matius 25:31-46 [Dossier Ref: TWp3Z9BTahE]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 25:31-46 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Matius 25:31-46"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Matius 25:31-46"
+    ]
   },
   "rounds": [
     {

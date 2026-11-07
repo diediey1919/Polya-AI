@@ -420,7 +420,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 1, "turn_speaker": "ZUMA", "speech_type": "SOCRATIC_OPENING",
             "speech_category": "[SIMULATED ZUMA RESPONSE]",
-            "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Dengar baik-baik saudara sekalian. Dalam forum terbuka ini kita buktikan data objektif: '{motion}'. Tolong jangan berapologi dengan dongeng atau retorika emosional. Kita buka langsung teks tertulis Bible pasal dan ayat, khususnya {p_primary}!",
+            "speaker_speech": f"Mari kita bedah topik ini secara santai tapi terarah: '{motion}'. Jangan lari ke dongeng atau retorika emosional. Kita buka langsung teks primer {p_primary} pasal dan ayatnya. Pertanyaan saya sederhana: adakah satu kata eksplisit dalam naskah kuno yang membuktikan klaim Anda?",
             "persona_strategy": "verbatim_textual_anchoring",
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-001"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-001", "segment_id": z_s1_id, "timestamp": z_s1_ts, "video_url": source_url}]
@@ -428,7 +428,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 1, "turn_speaker": "OPPONENT", "speech_type": "APOLOGETIC_OPENING",
             "speech_category": "[SOURCE QUOTE]",
-            "speaker_speech": f"[SOURCE QUOTE] Kami memegang teguh pengakuan iman gereja dan tradisi para rasul. Dalam teks {p_secondary}, sudah sangat jelas bahwa keselamatan adalah anugerah dan pemahaman kami berakar pada wahyu ilahi yang tidak boleh dibantah dengan logika semata.",
+            "speaker_speech": f"Bagi kami, klaim pada perikop {p_secondary} sudah sangat jelas mencerminkan ajaran iman gereja dan tradisi para rasul. Keselamatan adalah anugerah dan pemahaman kami berakar pada wahyu ilahi yang tidak bisa diukur dengan logika semata.",
             "persona_strategy": None,
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-002"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-002", "segment_id": o_s1_id, "timestamp": o_s1_ts, "video_url": source_url}]
@@ -437,7 +437,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 2, "turn_speaker": "ZUMA", "speech_type": "PRIMARY_TEXT_ARGUMENT",
             "speech_category": "[SIMULATED ZUMA RESPONSE]",
-            "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Saudara menyebut tradisi rasul, tapi mengapa saudara takut membaca teks naskah aslinya? Perhatikan bunyi {p_primary}! Teks secara eksplisit membantah klaim saudara. Mana dalil satu ayat saja di mana Yesus menyatakan apa yang saudara klaimkan itu? Tunjukkan di hadapan pemirsa sekarang!",
+            "speaker_speech": f"Perhatikan baik-baik. Anda mulai lari ke penjelasan abstrak karena naskah primer memang tidak memuat dalil itu. Buka {p_primary} sekarang, cek kamus bahasa asli dan struktur tata bahasanya. Tidak ada satu pun kata di naskah sumber yang mendukung premis Anda. Mengapa memaksakan makna yang tidak ada?",
             "persona_strategy": "immanent_dialectical_critique",
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-003"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-003", "segment_id": z_s2_id, "timestamp": z_s2_ts, "video_url": source_url}]
@@ -445,7 +445,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 2, "turn_speaker": "OPPONENT", "speech_type": "DOGMATIC_JUSTIFICATION",
             "speech_category": "[SOURCE QUOTE]",
-            "speaker_speech": "[SOURCE QUOTE] Ayat itu tidak bisa dibaca secara harfiah begitu saja! Harus dipahami dengan bimbingan Roh Kudus dan kacamata teologi gereja kami. Ada misteri ilahi yang melampaui akal pikiran manusia.",
+            "speaker_speech": f"Ayat {p_primary} tidak boleh dibaca sendirian secara kaku per kata. Ada prinsip bimbingan rohani di mana kita membaca maksud iman yang tersirat di baliknya.",
             "persona_strategy": None,
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-004"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-004", "segment_id": o_s2_id, "timestamp": o_s2_ts, "video_url": source_url}]
@@ -454,7 +454,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 3, "turn_speaker": "OPPONENT", "speech_type": "DEFENSIVE_OBJECTION",
             "speech_category": "[SOURCE QUOTE]",
-            "speaker_speech": "[SOURCE QUOTE] Anda tidak berhak menafsirkan kitab suci kami jika Anda sendiri tidak mengimani Kristus sebagai Tuhan dan Juruselamat! Anda hanya mencari-cari kesalahan!",
+            "speaker_speech": "Mengapa Anda hanya menguji kami pada ayat tunggal? Masih banyak ayat pembanding lain di seluruh kitab yang menjelaskan doktrin ini secara harmonis.",
             "persona_strategy": None,
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-005"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-005", "segment_id": o_s3_id, "timestamp": o_s3_ts, "video_url": source_url}]
@@ -462,7 +462,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 3, "turn_speaker": "ZUMA", "speech_type": "EVASION_INTERRUPTION",
             "speech_category": "[SIMULATED ZUMA RESPONSE]",
-            "speaker_speech": "[SIMULATED ZUMA RESPONSE] Tahan dulu saudara pendeta! Jangan lakukan ad-hominem saat terpojok! Kita tidak sedang memperdebatkan iman pribadi saya, kita sedang menguji klaim doktrin saudara di hadapan teks tertulis kanon Bible saudara sendiri! Kembali ke data: apa bunyi teksnya?",
+            "speaker_speech": f"Tunggu sebentar, jangan geser tiang gawang (moving the goalposts). Waktu nas tertulis {p_primary} tidak menyebut apa yang Anda mau, Anda buru-buru lompat ke perikop lain. Jawab dulu pertanyaan dasarnya secara jujur: ada atau tidak ada bukti tertulisnya di perikop ini?",
             "persona_strategy": "data_focus_interruption",
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-006"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-006", "segment_id": z_s3_id, "timestamp": z_s3_ts, "video_url": source_url}]
@@ -471,7 +471,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 4, "turn_speaker": "ZUMA", "speech_type": "VERBATIM_REBUTTAL",
             "speech_category": "[SIMULATED ZUMA RESPONSE]",
-            "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Mari kita bedah kata per kata. Dalam bahasa sumber aslinya, leksikon akademik membuktikan bahwa istilah tersebut sama sekali tidak mendukung doktrin pasca-Nicea saudara. Saudara telah melakukan ekuivokasi hermeneutika antara teks naskah kuno dengan terjemahan sepihak LAI TB!",
+            "speaker_speech": f"Menarik Anda bawa ayat pembanding. Mari kita buka {p_secondary}. Di naskah aslinya pun, kaidah leksikal bahasa sumber tetap membantah klaim Anda. Saksi naskah tertua membuktikan tidak ada interpolasi atau makna tambahan seperti yang Anda asumsikan. Teks aslinya justru berbicara berbeda.",
             "persona_strategy": "socratic_verbatim_cornering",
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-007"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-007", "segment_id": z_s4_id, "timestamp": z_s4_ts, "video_url": source_url}]
@@ -479,7 +479,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 4, "turn_speaker": "OPPONENT", "speech_type": "EVASIVE_DEFENSE",
             "speech_category": "[SOURCE QUOTE]",
-            "speaker_speech": f"[SOURCE QUOTE] Tetapi para rasul seperti Paulus dalam {p_secondary} telah mengajarkan pembenaran oleh iman. Kami tidak terikat pada hukum huruf yang mematikan, melainkan roh yang menghidupkan!",
+            "speaker_speech": f"Tetapi ajaran pembenaran oleh iman di {p_secondary} telah dipertahankan oleh para teolog besar selama berabad-abad berdasarkan ketetapan iman yang lurus.",
             "persona_strategy": None,
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-008"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-008", "segment_id": o_s4_id, "timestamp": o_s4_ts, "video_url": source_url}]
@@ -488,7 +488,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 5, "turn_speaker": "ZUMA", "speech_type": "CONSTRUCTIVE_FATAL_DILEMMA",
             "speech_category": "[SIMULATED ZUMA RESPONSE]",
-            "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Ini pertanyaan kunci sokratik saya, jawab dengan 'Ya' atau 'Tidak': Apakah teks kanon {p_primary} adalah firman tertulis yang otoritatif bagi iman saudara? Jika YA, akui kontradiksi dogma saudara dengan teks ini. Jika TIDAK, saudara mengakui bahwa dogma saudara berdiri di luar otoritas kanon Bible!",
+            "speaker_speech": f"Sekarang Anda terjepit pada dilema Sokratik yang sederhana: Kalau teks {p_primary} kita baca apa adanya sesuai bahasa asli, doktrin Anda gugur seketika. Tapi kalau Anda menolak bunyi teks harfiahnya, Anda secara tidak langsung menuduh penulis kitab keliru menuliskan firman. Pilih lorong yang mana?",
             "persona_strategy": "constructive_fatal_dilemma",
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-009"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-009", "segment_id": z_s5_id, "timestamp": z_s5_ts, "video_url": source_url}]
@@ -496,7 +496,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 5, "turn_speaker": "OPPONENT", "speech_type": "CROSS_EXAMINATION_DEFENSE",
             "speech_category": "[SOURCE QUOTE]",
-            "speaker_speech": "[SOURCE QUOTE] Tentu kami mengimani Bible seutuhnya, tetapi kami menolak jebakan logika yang Anda buat untuk membenturkan firman Tuhan!",
+            "speaker_speech": "Pertanyaan Anda terlalu menyudutkan. Kebenaran iman itu misteri ilahi yang melampaui silogisme logika sempit manusiawi.",
             "persona_strategy": None,
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-010"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-010", "segment_id": o_s5_id, "timestamp": o_s5_ts, "video_url": source_url}]
@@ -505,7 +505,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 6, "turn_speaker": "ZUMA", "speech_type": "PRESUPPOSITION_INVERSION",
             "speech_category": "[SIMULATED ZUMA RESPONSE]",
-            "speaker_speech": "[SIMULATED ZUMA RESPONSE] Bukan saya yang membenturkan ayat, doktrin saudaralah yang menabrak teks naskah! Jika premis saudara benar bahwa hukum Taurat telah dibatalkan, mengapa Yesus di Matius 5:17-19 bersumpah bahwa satu iota atau satu titik pun tidak akan dibatalkan sampai langit dan bumi lenyap? Siapa yang lebih tinggi: Yesus atau penafsiran gereja saudara?",
+            "speaker_speech": f"Itu bukan jawaban logis, itu pengakuan buntu. Lewat metode Ilzam al-Khasm, saya kunci posisi Anda memakai kitab kanon Anda sendiri. Baik di {p_primary} maupun {p_secondary}, teks aslinya menyatakan fakta yang jelas. Anda terpaksa mengorbankan konsistensi naskah demi menyelamatkan dogma tanpa ayat.",
             "persona_strategy": "presupposition_inversion",
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-011"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-011", "segment_id": z_s6_id, "timestamp": z_s6_ts, "video_url": source_url}]
@@ -513,7 +513,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 6, "turn_speaker": "OPPONENT", "speech_type": "DOGMATIC_PERSISTENCE",
             "speech_category": "[SOURCE QUOTE]",
-            "speaker_speech": "[SOURCE QUOTE] Bagi kami keselamatan adalah kepastian di dalam darah salib, bukan perdebatan legalistik hukum Taurat.",
+            "speaker_speech": "Meskipun kalimat harfiahnya tidak tertulis persis seperti itu, intinya tersirat jelas di seluruh kitab sebagai satu kesatuan wahyu.",
             "persona_strategy": None,
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-012"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-012", "segment_id": o_s6_id, "timestamp": o_s6_ts, "video_url": source_url}]
@@ -522,7 +522,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 7, "turn_speaker": "ZUMA", "speech_type": "CANONICAL_EXCLUSIVITY_RESTRICTION",
             "speech_category": "[SIMULATED ZUMA RESPONSE]",
-            "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Saudara lari ke doktrin kurban, padahal Yehezkiel 18:20 dan Ulangan 24:16 menetapkan prinsip keadilan moral personal: anak tidak akan menanggung kesalahan ayahnya dan orang yang berbuat dosa dialah yang harus mati! Seluruh aparatus pembuktian naskah meruntuhkan dogma substitusi tanpa pertanggungjawaban moral!",
+            "speaker_speech": f"Nah, di sinilah letak kuncinya. Anda akhirnya mengakui bahwa pegangan Anda bukan teks tertulis kanonik, melainkan asumsi luar yang ditempelkan ke ayat. Dalam debat objektif, kalau sebuah dalil tidak punya pijakan naskah primer, nilainya nol secara pembuktian ilmiah.",
             "persona_strategy": "canonical_exclusivity_restriction",
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-013"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-013", "segment_id": z_s7_id, "timestamp": z_s7_ts, "video_url": source_url}]
@@ -530,7 +530,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 7, "turn_speaker": "OPPONENT", "speech_type": "APOLOGETIC_APPEAL",
             "speech_category": "[SOURCE QUOTE]",
-            "speaker_speech": "[SOURCE QUOTE] Kami menyerahkan perdebatan ini kepada Tuhan. Iman kami tidak tergoyahkan oleh perdebatan pasal dan ayat di panggung dialektika.",
+            "speaker_speech": "Kami meyakini bimbingan rohani melampaui hurufiah naskah semata. Iman kami bertumpu pada keyakinan yang hidup dalam persekutuan iman.",
             "persona_strategy": None,
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-014"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-014", "segment_id": o_s7_id, "timestamp": o_s7_ts, "video_url": source_url}]
@@ -539,7 +539,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 8, "turn_speaker": "ZUMA", "speech_type": "MAIEUTIC_LOCKDOWN",
             "speech_category": "[SIMULATED ZUMA RESPONSE]",
-            "speaker_speech": f"[SIMULATED ZUMA RESPONSE] Saat seorang pembela doktrin menyatakan 'tidak tergoyahkan oleh perdebatan pasal dan ayat', di situlah pengakuan kekalahan intelektual terjadi! Anda mengakui di hadapan ribuan pemirsa bahwa dogma Anda tidak dapat dibela menggunakan teks naskah kitab Anda sendiri. Kebenaran naskah primer telah berdiri tegak membungkam manipulasi tafsir. Maieutic lockdown tuntas!",
+            "speaker_speech": f"Hadirin sekalian, kebenaran sejati selalu berpijak pada teks tertulis apa adanya. Sepanjang 8 babak pengujian atas topik '{motion}', pihak lawan sama sekali tidak mampu menunjukkan satu patah kata eksplisit pun dari {p_primary} maupun {p_secondary}. Yang tersisa hanyalah tafsir tradisi yang dipaksakan. Teks tertulis tetap tegak, klaim tanpa ayat runtuh!",
             "persona_strategy": "maieutic_epistemic_verdict",
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-015"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-015", "segment_id": z_s8_id, "timestamp": z_s8_ts, "video_url": source_url}]
@@ -547,7 +547,7 @@ def generate_8_round_simulation(video_id: str, corpus_id: str, motion: str, orig
         {
             "round_num": 8, "turn_speaker": "OPPONENT", "speech_type": "CONCESSION_OR_CLOSING",
             "speech_category": "[SOURCE QUOTE]",
-            "speaker_speech": "[SOURCE QUOTE] Kami tetap mendoakan Anda dan para pemirsa agar mendapatkan pencerahan.",
+            "speaker_speech": "Kami tetap pada pendirian kami dan menyerahkan kebenaran pada nurani masing-masing.",
             "persona_strategy": None,
             "knowledge_refs_used": [f"KNOW-REC-CLM-{video_id}-016"],
             "provenance_citations": [{"claim_id": f"CLM-{video_id}-016", "segment_id": o_s8_id, "timestamp": o_s8_ts, "video_url": source_url}]

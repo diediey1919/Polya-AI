@@ -4,8 +4,8 @@
   "corpus_id": "video-2433",
   "youtube_id": "SwhLNZyMajU",
   "url": "https://www.youtube.com/watch?v=SwhLNZyMajU",
-  "motion_or_topic": "Penelusuran Nubuatan Kenabian Penutup dalam Teks Kuno (Ulangan 18:18 / Yohanes 14:16 / Yesaya 42)",
-  "title": "Penelusuran Nubuatan Kenabian Penutup dalam Teks Kuno (Ulangan 18:18 / Yohanes 14:16 / Yesaya 42)",
+  "motion_or_topic": "Penelusuran Nubuatan Kenabian Penutup dalam Teks Kuno (Ulangan 18:18 / Yohanes 14:16 / Yesaya 42) [Dossier Ref: SwhLNZyMajU]",
+  "title": "Penelusuran Nubuatan Kenabian Penutup dalam Teks Kuno (Ulangan 18:18 / Yohanes 14:16 / Yesaya 42) [Dossier Ref: SwhLNZyMajU]",
   "original_youtube_title": "KOSMAN CORNELIUS MERUGIKAN DONATUR Part I",
   "source_video_title": "KOSMAN CORNELIUS MERUGIKAN DONATUR Part I",
   "debate_mode": "zuma_persona",
@@ -14,16 +14,17 @@
   "category": "Apologetika Islam & Pembelaan Kenabian",
   "cluster_theme": "Apologetika Islam & Pembelaan Kenabian",
   "sub_motions": [
-    "Distingsi Linguistik Ibrani 'YHWH' (Tuhan Tertinggi) dan 'Adoni' (Tuanku yang Dimuliakan)",
-    "Eksaminasi Peran Roh Kudus dalam Membimbing Para Nabi Sepanjang Sejarah Kitab Suci",
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Penelusuran Nubuatan Kenabian Penutup dalam Teks Kuno (Ulangan 18:18 / Yohanes 14:16 / Yesaya 42) [Dossier Ref: SwhLNZyMajU]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Ulangan 18:18 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Ulangan 18:18"
   ],
   "passages": [
-    "Yesaya 42",
-    "Yohanes 14",
-    "Yohanes 17",
-    "Lukas 4",
-    "Yesaya 43"
+    "Ulangan 18:18",
+    "Yesaya 42:1",
+    "Yohanes 14:28",
+    "Yohanes 17:3",
+    "Lukas 4:8",
+    "Yesaya 43:10-11"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -52,11 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yesaya 42",
-      "Yohanes 14",
-      "Yohanes 17",
-      "Lukas 4",
-      "Yesaya 43"
+      "Ulangan 18:18",
+      "Yesaya 42:1",
+      "Yohanes 14:28",
+      "Yohanes 17:3",
+      "Lukas 4:8",
+      "Yesaya 43:10-11"
     ]
   },
   "rounds": [

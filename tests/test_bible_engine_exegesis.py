@@ -137,7 +137,7 @@ EXPECTED_MIGRATION_CHECKSUMS: Dict[str, str] = {
     "012_evidence_claim.sql": "3c9bfd78943189caa1a56411f8aad0d1c1f5c37075618624513fe2ad37f31944",
 }
 
-LEGACY_DB_SHA256 = "c10b6d38c649624d708939b6bce3109c2bdc931b821987f54eeacd6b431f1f81"
+LEGACY_DB_SHA256 = "500bb6a2057a1c30e392f0a99f2437a9b07a79a075e79177a0b9d17e7353c5c5"
 
 
 class TestBibleEngineExegesis(unittest.TestCase):

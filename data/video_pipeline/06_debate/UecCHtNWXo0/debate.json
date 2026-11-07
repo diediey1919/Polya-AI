@@ -4,8 +4,8 @@
   "corpus_id": "video-668",
   "youtube_id": "UecCHtNWXo0",
   "url": "https://www.youtube.com/watch?v=UecCHtNWXo0",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: UecCHtNWXo0]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: UecCHtNWXo0]",
   "original_youtube_title": "KOMAL OTEN VANIK SAAT BANGZUMA MEMBUKA KITAB ULANGAN 13..HAHAHA",
   "source_video_title": "KOMAL OTEN VANIK SAAT BANGZUMA MEMBUKA KITAB ULANGAN 13..HAHAHA",
   "debate_mode": "zuma_persona",
@@ -14,12 +14,13 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: UecCHtNWXo0]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Ulangan 13:1-4 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Ulangan 13",
-    "Yohanes 10",
-    "Matius 10"
+    "Ulangan 13:1-4",
+    "Yohanes 10:30",
+    "Matius 10:5-6"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -48,9 +49,9 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Ulangan 13",
-      "Yohanes 10",
-      "Matius 10"
+      "Ulangan 13:1-4",
+      "Yohanes 10:30",
+      "Matius 10:5-6"
     ]
   },
   "rounds": [

@@ -14,19 +14,17 @@
   "category": "Monoteisme & Kritik Doktrin Trinitas",
   "cluster_theme": "Monoteisme & Kritik Doktrin Trinitas",
   "sub_motions": [
-    "Distingsi Linguistik Ibrani 'YHWH' (Tuhan Tertinggi) dan 'Adoni' (Tuanku yang Dimuliakan)",
-    "Eksaminasi Peran Roh Kudus dalam Membimbing Para Nabi Sepanjang Sejarah Kitab Suci",
-    "Taurat Musa Sebagai Perjanjian Kekal Sepanjang Keturunan Umat Terpilih"
+    "Analisis Teks Mazmur 110:1 (Yahweh Berfirman kepada Adoni): Pemisahan Hakiki Allah Pencipta dan Tuan Mesianik",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Mazmur 110:1 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Mazmur 110:1"
   ],
   "passages": [
-    "Lukas 24",
-    "Matius 28",
+    "Mazmur 110:1",
+    "Lukas 24:39",
+    "Matius 28:19",
     "Matius 28:56",
-    "Matius 1",
-    "Yesaya 55",
-    "Matius 12",
-    "Yeremia 31:34",
-    "Markus 16"
+    "Matius 1:1",
+    "Yesaya 55:8-9"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Lukas 24",
-      "Matius 28",
+      "Mazmur 110:1",
+      "Lukas 24:39",
+      "Matius 28:19",
       "Matius 28:56",
-      "Matius 1",
-      "Yesaya 55",
-      "Matius 12",
-      "Yeremia 31:34",
-      "Markus 16"
+      "Matius 1:1",
+      "Yesaya 55:8-9"
     ]
   },
   "rounds": [

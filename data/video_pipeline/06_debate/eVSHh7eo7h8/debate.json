@@ -4,8 +4,8 @@
   "corpus_id": "video-554",
   "youtube_id": "eVSHh7eo7h8",
   "url": "https://www.youtube.com/watch?v=eVSHh7eo7h8",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: eVSHh7eo7h8]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: eVSHh7eo7h8]",
   "original_youtube_title": "MUALAF AL-KTP MASIH DITEROR OTEN...",
   "source_video_title": "MUALAF AL-KTP MASIH DITEROR OTEN...",
   "debate_mode": "zuma_persona",
@@ -14,14 +14,15 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: eVSHh7eo7h8]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Daniel 4:35 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Daniel 4",
-    "Yohanes 16",
-    "Matius 39",
-    "Matius 3",
-    "Keluaran 7"
+    "Daniel 4:35",
+    "Yohanes 16:12-14",
+    "Matius 39:1",
+    "Matius 3:1",
+    "Keluaran 7:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -50,11 +51,11 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Daniel 4",
-      "Yohanes 16",
-      "Matius 39",
-      "Matius 3",
-      "Keluaran 7"
+      "Daniel 4:35",
+      "Yohanes 16:12-14",
+      "Matius 39:1",
+      "Matius 3:1",
+      "Keluaran 7:1"
     ]
   },
   "rounds": [

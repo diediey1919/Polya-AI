@@ -4,8 +4,8 @@
   "corpus_id": "video-341",
   "youtube_id": "CIwc_vIKAks",
   "url": "https://www.youtube.com/watch?v=CIwc_vIKAks",
-  "motion_or_topic": "Hakikat Roh Kudus (Ruach HaKodesh) Sebagai Malaikat Jibril / Kuasa Allah vs Dogma Pribadi Ketiga Ketuhanan",
-  "title": "Hakikat Roh Kudus (Ruach HaKodesh) Sebagai Malaikat Jibril / Kuasa Allah vs Dogma Pribadi Ketiga Ketuhanan",
+  "motion_or_topic": "Seruan Titik Temu Kalimatun Sawa': Yesus Menegaskan Tuhan Allah Kita Itu Esa Berdasarkan Teks Markus 12:29 [Dossier Ref: CIwc_vIKAks]",
+  "title": "Seruan Titik Temu Kalimatun Sawa': Yesus Menegaskan Tuhan Allah Kita Itu Esa Berdasarkan Teks Markus 12:29 [Dossier Ref: CIwc_vIKAks]",
   "original_youtube_title": "EDIS BABAK BELUR BAHAS ALQURAN..BANGZUMA PERMALUKAS EDIS..VIRALKAN",
   "source_video_title": "EDIS BABAK BELUR BAHAS ALQURAN..BANGZUMA PERMALUKAS EDIS..VIRALKAN",
   "debate_mode": "zuma_persona",
@@ -14,11 +14,13 @@
   "category": "Monoteisme & Kritik Doktrin Trinitas",
   "cluster_theme": "Monoteisme & Kritik Doktrin Trinitas",
   "sub_motions": [
-    "Eksaminasi Peran Roh Kudus dalam Membimbing Para Nabi Sepanjang Sejarah Kitab Suci",
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Seruan Titik Temu Kalimatun Sawa': Yesus Menegaskan Tuhan Allah Kita Itu Esa Berdasarkan Teks Markus 12:29 [Dossier Ref: CIwc_vIKAks]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Markus 12:29 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Markus 12:29"
   ],
-  "passages": [],
+  "passages": [
+    "Markus 12:29"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -45,7 +47,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Markus 12:29"
+    ]
   },
   "rounds": [
     {

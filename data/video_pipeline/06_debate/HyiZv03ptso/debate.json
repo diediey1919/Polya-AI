@@ -4,8 +4,8 @@
   "corpus_id": "video-747",
   "youtube_id": "HyiZv03ptso",
   "url": "https://www.youtube.com/watch?v=HyiZv03ptso",
-  "motion_or_topic": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus",
-  "title": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus",
+  "motion_or_topic": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus [Dossier Ref: HyiZv03ptso]",
+  "title": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus [Dossier Ref: HyiZv03ptso]",
   "original_youtube_title": "OTEN2 TERDIAM MENYIMAK ORASI BANGZUMA YG MEROBOHHKAN DOGMA 2000 THN",
   "source_video_title": "OTEN2 TERDIAM MENYIMAK ORASI BANGZUMA YG MEROBOHHKAN DOGMA 2000 THN",
   "debate_mode": "zuma_persona",
@@ -14,18 +14,16 @@
   "category": "Polemik Teologi Paulus vs Hukum Taurat",
   "cluster_theme": "Polemik Teologi Paulus vs Hukum Taurat",
   "sub_motions": [
-    "Taurat Musa Sebagai Perjanjian Kekal Sepanjang Keturunan Umat Terpilih",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus [Dossier Ref: HyiZv03ptso]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Kejadian 17:10 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Galatia 4",
-    "Yohanes 4",
+    "Kejadian 17:10",
+    "Galatia 4:1",
+    "Yohanes 4:21-24",
     "Yohanes 4:22",
-    "Kejadian 6",
-    "Yesaya 14",
-    "Yohanes 17",
-    "Amsal 3",
-    "Matius 5"
+    "Kejadian 6:6",
+    "Yesaya 14:12-14"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -54,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Galatia 4",
-      "Yohanes 4",
+      "Kejadian 17:10",
+      "Galatia 4:1",
+      "Yohanes 4:21-24",
       "Yohanes 4:22",
-      "Kejadian 6",
-      "Yesaya 14",
-      "Yohanes 17",
-      "Amsal 3",
-      "Matius 5"
+      "Kejadian 6:6",
+      "Yesaya 14:12-14"
     ]
   },
   "rounds": [

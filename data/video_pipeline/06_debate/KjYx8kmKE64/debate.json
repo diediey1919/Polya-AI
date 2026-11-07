@@ -4,8 +4,8 @@
   "corpus_id": "video-1983",
   "youtube_id": "KjYx8kmKE64",
   "url": "https://www.youtube.com/watch?v=KjYx8kmKE64",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: KjYx8kmKE64]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: KjYx8kmKE64]",
   "original_youtube_title": "lagi2 BangZuma menabok O73N yg bahas Qs. 2:245.. MaLunya cukur buluPaha..kwkwkw",
   "source_video_title": "lagi2 BangZuma menabok O73N yg bahas Qs. 2:245.. MaLunya cukur buluPaha..kwkwkw",
   "debate_mode": "zuma_persona",
@@ -14,16 +14,16 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: KjYx8kmKE64]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Amsal 19:21 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Amsal 19",
-    "Yesaya 7",
+    "Amsal 19:21",
+    "Yesaya 7:14",
     "Amsal 1:91",
-    "Matius 21",
-    "Matius 1",
-    "Lukas 19"
+    "Matius 21:31",
+    "Matius 1:1",
+    "Lukas 19:10"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -52,12 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Amsal 19",
-      "Yesaya 7",
+      "Amsal 19:21",
+      "Yesaya 7:14",
       "Amsal 1:91",
-      "Matius 21",
-      "Matius 1",
-      "Lukas 19"
+      "Matius 21:31",
+      "Matius 1:1",
+      "Lukas 19:10"
     ]
   },
   "rounds": [

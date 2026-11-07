@@ -49,7 +49,7 @@ from groq import Groq
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("polya.arena")
 
-DB_PATH = os.environ.get("POLYA_DB_PATH", "/home/ubuntu/.polya/polya_index.db")
+DB_PATH = os.environ.get("POLYA_DB_PATH", os.path.join(os.path.dirname(__file__), "..", "data", "polya_arena.db"))
 NINE_ROUTER_URL = os.environ.get("NINE_ROUTER_URL", "http://localhost:20128/v1/chat/completions")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "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")
 
@@ -339,6 +339,13 @@ async def lifespan(app: FastAPI):
         logger.info("Arena database self-healing complete.")
     except Exception as e:
         logger.error(f"Failed to auto-heal arena database: {e}")
+
+    try:
+        # Start background timer loop for live arena
+        asyncio.create_task(arena_manager.timer_loop())
+        logger.info("Arena manager timer loop started via lifespan.")
+    except Exception as e:
+        logger.error(f"Failed to start arena timer loop: {e}")
 
     yield
 
@@ -1842,10 +1849,6 @@ async def trigger_zuma_direct_speak(request: Request):
     asyncio.create_task(generate_ai_rebuttal(prompt, "Host"))
     return {"status": "ok", "message": "Polya Moderator speaking triggered"}
 
-
-@app.on_event("startup")
-async def startup_event():
-    asyncio.create_task(arena_manager.timer_loop())
 
 # ---------------------------------------------------------------------------
 # Debate Arena 3-vs-3 Master Event UI & REST/WebSocket Endpoints (Prompt 12)

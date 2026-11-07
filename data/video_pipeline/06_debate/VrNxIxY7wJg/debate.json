@@ -4,8 +4,8 @@
   "corpus_id": "video-2010",
   "youtube_id": "VrNxIxY7wJg",
   "url": "https://www.youtube.com/watch?v=VrNxIxY7wJg",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: VrNxIxY7wJg]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: VrNxIxY7wJg]",
   "original_youtube_title": "MENANTANG BangZuma tapi simak.. keOK gk nih?? ngakak!!",
   "source_video_title": "MENANTANG BangZuma tapi simak.. keOK gk nih?? ngakak!!",
   "debate_mode": "zuma_persona",
@@ -14,15 +14,15 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: VrNxIxY7wJg]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Ulangan 21:22-23 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Ulangan 21",
+    "Ulangan 21:22-23",
     "Ulangan 21:22",
-    "Matius 26",
+    "Matius 26:39",
     "Amsal 17:23",
-    "Galatia 3"
+    "Galatia 3:13"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -51,11 +51,11 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Ulangan 21",
+      "Ulangan 21:22-23",
       "Ulangan 21:22",
-      "Matius 26",
+      "Matius 26:39",
       "Amsal 17:23",
-      "Galatia 3"
+      "Galatia 3:13"
     ]
   },
   "rounds": [

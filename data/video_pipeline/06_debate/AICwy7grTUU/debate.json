@@ -4,8 +4,8 @@
   "corpus_id": "video-1840",
   "youtube_id": "AICwy7grTUU",
   "url": "https://www.youtube.com/watch?v=AICwy7grTUU",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: AICwy7grTUU]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: AICwy7grTUU]",
   "original_youtube_title": "BangZuma Mengunci URAT LEHER OTEN INI DGN KAJIAN 3 KITAB..",
   "source_video_title": "BangZuma Mengunci URAT LEHER OTEN INI DGN KAJIAN 3 KITAB..",
   "debate_mode": "zuma_persona",
@@ -14,14 +14,15 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: AICwy7grTUU]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 10:30 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Yohanes 10",
-    "Matius 28",
-    "Roma 10",
-    "Matius 7",
-    "Yesaya 66"
+    "Yohanes 10:30",
+    "Matius 28:19",
+    "Roma 10:9",
+    "Matius 7:21",
+    "Yesaya 66:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -50,11 +51,11 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 10",
-      "Matius 28",
-      "Roma 10",
-      "Matius 7",
-      "Yesaya 66"
+      "Yohanes 10:30",
+      "Matius 28:19",
+      "Roma 10:9",
+      "Matius 7:21",
+      "Yesaya 66:1"
     ]
   },
   "rounds": [

@@ -150,6 +150,17 @@ def test_index_html_motion_directory_dom_elements():
     assert 'claim-highlight-pulse' in html
     assert 'scrollIntoView({ behavior: "smooth"' in html
 
+    # Header Tab Navigation: "Cari Mosi" positioned to the left of "Apologetics Machine"
+    pos_motions = html.find('id="side-item-motions"')
+    pos_calc = html.find('id="side-item-calc"')
+    assert pos_motions != -1, "Missing #side-item-motions button in navigation"
+    assert pos_calc != -1, "Missing #side-item-calc button in navigation"
+    assert pos_motions < pos_calc, "side-item-motions must be positioned before (to the left of) side-item-calc"
+    assert 'class="side-item" id="side-item-motions"' in html
+    assert 'Cari Mosi' in html
+    assert 'data-i18n="navSearchMotions"' in html
+    assert 'toggleMotionDirectory(true)' in html
+
 
 @pytest.mark.anyio
 async def test_claims_directory_catalog_quality_and_uniqueness():
@@ -175,4 +186,106 @@ async def test_claims_directory_catalog_quality_and_uniqueness():
         assert "kwkw" not in claim.lower()
         assert "addduuuhhhaaiii" not in claim.lower()
         assert "fooollll" not in claim.lower()
+
+
+def test_knowledge_graph_motion_directory_integration():
+    """Verify that 2,456 motion directory is integrated into Argument Graph tab with dedicated controllers and trigger actions."""
+    with open("/home/ubuntu/Polya-AI/web/static/index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+
+    # 1. Check presence and positioning of toggle buttons in #knowledge-tab-graph
+    pos_know_tab = html.find('id="knowledge-tab-graph"')
+    pos_graph_input = html.find('id="graph-query-input"')
+    pos_explore_btn = html.find('id="knowledge-btn-explore"')
+    pos_toggle_btn = html.find('id="btn-toggle-graph-motion-dir"')
+    pos_dir_panel = html.find('id="graph-motion-directory-panel"')
+    pos_graph_loading = html.find('id="graph-loading"')
+    pos_nodes_container = html.find('id="graph-nodes-container"')
+
+    assert pos_know_tab != -1, "Missing #knowledge-tab-graph"
+    assert pos_graph_input != -1, "Missing #graph-query-input"
+    assert pos_explore_btn != -1, "Missing #knowledge-btn-explore"
+    assert pos_toggle_btn != -1, "Missing #btn-toggle-graph-motion-dir"
+    assert pos_dir_panel != -1, "Missing #graph-motion-directory-panel"
+    assert pos_graph_loading != -1, "Missing #graph-loading"
+    assert pos_nodes_container != -1, "Missing #graph-nodes-container"
+
+    # Strictly verify order: Input -> Explore Btn -> Toggle Btn -> Dir Panel -> Nodes Container
+    assert pos_know_tab < pos_graph_input < pos_explore_btn < pos_toggle_btn < pos_dir_panel < pos_nodes_container
+
+    # 2. Check UI elements inside #graph-motion-directory-panel
+    assert 'id="graph-motion-directory-search"' in html
+    assert 'id="graph-motion-dir-clear-btn"' in html
+    assert 'id="graph-count-tab-all"' in html
+    assert 'id="graph-count-tab-pb"' in html
+    assert 'id="graph-count-tab-pl"' in html
+    assert 'id="graph-motion-dir-rendered-count"' in html
+    assert 'id="graph-motion-directory-list"' in html
+
+    # 3. Check JavaScript controllers for Graph Motion Directory
+    assert "function toggleGraphMotionDirectory(" in html
+    assert "function filterGraphMotionCategory(" in html
+    assert "function onGraphMotionDirectorySearch(" in html
+    assert "function clearGraphMotionDirectorySearch(" in html
+    assert "function filterAndRenderGraphMotions(" in html
+    assert "function renderGraphMotionChunk(" in html
+    assert "function onGraphMotionListScroll(" in html
+    assert "function selectMotionForKnowledgeGraph(" in html
+    assert "function shuffleRandomGraphMotion(" in html
+
+    # 4. Check action button and click behavior
+    assert "🔍 Eksplorasi Graph ➔" in html
+    assert "selectMotionForKnowledgeGraph(it.claim)" in html
+    assert "loadKnowledgeGraph()" in html
+
+
+def test_persona_sparring_motion_directory_and_ux_integration():
+    """Verify Persona Dialektika UI/UX overhaul: title, callout, 2,456 motion directory, and select alignment."""
+    with open("/home/ubuntu/Polya-AI/web/static/index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+
+    # 1. Header, Badge, & Start Button
+    assert "Arena Sparring Dialektika" in html
+    assert "LATIHAN SPARRING (1-ON-1)" in html
+    assert "⚔ Mulai Latihan Sparring" in html
+    assert 'onclick="startZumaSparringSession()"' in html
+
+    # 2. Simplified Callout Box without 3-vs-3 and without ZUMA/Zulkifli names
+    persona_header_slice = html[html.find('id="view-persona"'):html.find('id="zuma-setup-box"')]
+    assert "Mode sparring ini adalah sarana latihan privat mandiri untuk menguji argumen secara mendalam." in persona_header_slice
+    assert "Pemisahan Konstitusional:" not in persona_header_slice
+    assert "3-vs-3" not in persona_header_slice
+    assert "Zulkifli M. Abbas" not in persona_header_slice
+
+    # 3. 2,456 Motion Directory in Persona Sparring
+    assert 'id="btn-toggle-persona-motion-dir"' in html
+    assert 'id="persona-motion-directory-panel"' in html
+    assert 'id="persona-motion-directory-search"' in html
+    assert 'id="persona-count-tab-all"' in html
+    assert 'id="persona-count-tab-pb"' in html
+    assert 'id="persona-count-tab-pl"' in html
+    assert 'id="persona-motion-dir-rendered-count"' in html
+    assert 'id="persona-motion-directory-list"' in html
+
+    # JavaScript controllers
+    assert "function togglePersonaMotionDirectory(" in html
+    assert "function shuffleRandomPersonaMotion(" in html
+    assert "function selectMotionForPersona(" in html
+    assert "function filterPersonaMotionCategory(" in html
+    assert "function onPersonaMotionDirectorySearch(" in html
+    assert "function renderPersonaMotionChunk(" in html
+
+    # 4. Alignment of Posisi Anda & Tingkat Kesulitan without calc-input deformation
+    pos_select_idx = html.find('id="zuma-pos-select"')
+    diff_select_idx = html.find('id="zuma-diff-select"')
+    assert pos_select_idx != -1
+    assert diff_select_idx != -1
+    pos_tag = html[pos_select_idx - 30:pos_select_idx + 100]
+    diff_tag = html[diff_select_idx - 30:diff_select_idx + 100]
+    assert 'class="calc-input"' not in pos_tag
+    assert 'class="calc-input"' not in diff_tag
+    assert 'id="persona-pos-label"' in html
+    assert 'id="persona-diff-label"' in html
+
+
 

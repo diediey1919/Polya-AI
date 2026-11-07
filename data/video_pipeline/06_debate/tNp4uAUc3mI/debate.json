@@ -4,8 +4,8 @@
   "corpus_id": "video-1243",
   "youtube_id": "tNp4uAUc3mI",
   "url": "https://www.youtube.com/watch?v=tNp4uAUc3mI",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: tNp4uAUc3mI]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: tNp4uAUc3mI]",
   "original_youtube_title": "ALHAMDULILLAH SYAHADAT SEORANG WANITA KARIER...",
   "source_video_title": "ALHAMDULILLAH SYAHADAT SEORANG WANITA KARIER...",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: tNp4uAUc3mI]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Lukas 12:5 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Lukas 12",
-    "Lukas 13",
-    "Lukas 22",
-    "Matius 8",
-    "Matius 25",
-    "Yohanes 6",
-    "Matius 15",
-    "Matius 10"
+    "Lukas 12:5",
+    "Lukas 13:1",
+    "Lukas 22:42",
+    "Matius 8:1",
+    "Matius 25:31-46",
+    "Yohanes 6:38"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Lukas 12",
-      "Lukas 13",
-      "Lukas 22",
-      "Matius 8",
-      "Matius 25",
-      "Yohanes 6",
-      "Matius 15",
-      "Matius 10"
+      "Lukas 12:5",
+      "Lukas 13:1",
+      "Lukas 22:42",
+      "Matius 8:1",
+      "Matius 25:31-46",
+      "Yohanes 6:38"
     ]
   },
   "rounds": [

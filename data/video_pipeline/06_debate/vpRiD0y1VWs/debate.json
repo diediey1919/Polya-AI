@@ -4,8 +4,8 @@
   "corpus_id": "video-1080",
   "youtube_id": "vpRiD0y1VWs",
   "url": "https://www.youtube.com/watch?v=vpRiD0y1VWs",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: vpRiD0y1VWs]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: vpRiD0y1VWs]",
   "original_youtube_title": "SI LINA TDK JAYA NONGOL LALU KABUR..OTEN TULLUOL..",
   "source_video_title": "SI LINA TDK JAYA NONGOL LALU KABUR..OTEN TULLUOL..",
   "debate_mode": "zuma_persona",
@@ -14,12 +14,13 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: vpRiD0y1VWs]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 11:25-27 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 11",
-    "Yohanes 5",
-    "Bilangan 23"
+    "Matius 11:25-27",
+    "Yohanes 5:30",
+    "Bilangan 23:19"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -48,9 +49,9 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 11",
-      "Yohanes 5",
-      "Bilangan 23"
+      "Matius 11:25-27",
+      "Yohanes 5:30",
+      "Bilangan 23:19"
     ]
   },
   "rounds": [

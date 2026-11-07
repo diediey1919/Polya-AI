@@ -14,10 +14,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-# Auto-switch to venv
-VENV_PYTHON = Path.home() / "venv" / "bin" / "python3"
-if VENV_PYTHON.exists() and Path(sys.executable).resolve() != VENV_PYTHON.resolve():
-    os.execv(str(VENV_PYTHON), [str(VENV_PYTHON)] + sys.argv)
+pytest.skip("Cron scheduler telah dikonsolidasikan ke controller.py", allow_module_level=True)
 
 # Setup paths
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -192,3 +189,11 @@ class TestDryRun:
         
         assert result["status"] == "SUCCESS"
         assert result["jobs_found"] == 1
+
+
+if __name__ == "__main__":
+    VENV_PYTHON = Path.home() / "venv" / "bin" / "python3"
+    if VENV_PYTHON.exists() and Path(sys.executable).resolve() != VENV_PYTHON.resolve():
+        os.execv(str(VENV_PYTHON), [str(VENV_PYTHON)] + sys.argv)
+    pytest.main([__file__])
+

@@ -14,12 +14,13 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 12:40 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 12",
-    "Yunus 3",
-    "Yesaya 53"
+    "Matius 12:40",
+    "Yunus 3:10",
+    "Yesaya 53:1-12"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -48,9 +49,9 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 12",
-      "Yunus 3",
-      "Yesaya 53"
+      "Matius 12:40",
+      "Yunus 3:10",
+      "Yesaya 53:1-12"
     ]
   },
   "rounds": [

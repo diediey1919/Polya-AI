@@ -4,8 +4,8 @@
   "corpus_id": "video-1999",
   "youtube_id": "uTsO7uu4mdM",
   "url": "https://www.youtube.com/watch?v=uTsO7uu4mdM",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks 2 Samuel 7",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks 2 Samuel 7",
+  "motion_or_topic": "Klaim Otoritas Naskah 2 Samuel 7:14: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah 2 Samuel 7:14: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "SIMAK BangZuma Membuat Ferdinan babakbeluR tanpa Ampun..Part 1",
   "source_video_title": "SIMAK BangZuma Membuat Ferdinan babakbeluR tanpa Ampun..Part 1",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks 2 Samuel 7 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah 2 Samuel 7:14: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah 2 Samuel 7:14 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "2 Samuel 7",
-    "Matius 4",
-    "Mazmur 3",
-    "Yesaya 55",
-    "Yeremia 10",
-    "Yohanes 8",
-    "Yohanes 3",
-    "Yohanes 4"
+    "2 Samuel 7:14",
+    "Matius 4:10",
+    "Mazmur 3:1",
+    "Yesaya 55:8-9",
+    "Yeremia 10:10",
+    "Yohanes 8:40"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "2 Samuel 7",
-      "Matius 4",
-      "Mazmur 3",
-      "Yesaya 55",
-      "Yeremia 10",
-      "Yohanes 8",
-      "Yohanes 3",
-      "Yohanes 4"
+      "2 Samuel 7:14",
+      "Matius 4:10",
+      "Mazmur 3:1",
+      "Yesaya 55:8-9",
+      "Yeremia 10:10",
+      "Yohanes 8:40"
     ]
   },
   "rounds": [

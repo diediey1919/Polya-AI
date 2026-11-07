@@ -4,8 +4,8 @@
   "corpus_id": "video-774",
   "youtube_id": "588Nc80V230",
   "url": "https://www.youtube.com/watch?v=588Nc80V230",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: 588Nc80V230]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: 588Nc80V230]",
   "original_youtube_title": "OTEN KEOK SE KAMPUNG...MANTAP BANGZUMA",
   "source_video_title": "OTEN KEOK SE KAMPUNG...MANTAP BANGZUMA",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: 588Nc80V230]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Kejadian 1:26-27 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Kejadian 1:26-27"
   ],
   "passages": [
-    "Kejadian 1",
-    "Lukas 2",
-    "Filipi 2",
-    "Yohanes 4",
-    "Yohanes 13",
-    "Yohanes 14",
-    "Yohanes 10",
-    "Yohanes 3"
+    "Kejadian 1:26-27",
+    "Lukas 2:52",
+    "Filipi 2:5-8",
+    "Yohanes 4:21-24",
+    "Yohanes 13:34",
+    "Yohanes 14:28"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Kejadian 1",
-      "Lukas 2",
-      "Filipi 2",
-      "Yohanes 4",
-      "Yohanes 13",
-      "Yohanes 14",
-      "Yohanes 10",
-      "Yohanes 3"
+      "Kejadian 1:26-27",
+      "Lukas 2:52",
+      "Filipi 2:5-8",
+      "Yohanes 4:21-24",
+      "Yohanes 13:34",
+      "Yohanes 14:28"
     ]
   },
   "rounds": [

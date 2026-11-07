@@ -4,8 +4,8 @@
   "corpus_id": "video-1995",
   "youtube_id": "L185MoZroRI",
   "url": "https://www.youtube.com/watch?v=L185MoZroRI",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: L185MoZroRI]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: L185MoZroRI]",
   "original_youtube_title": "KEOK .. dari mana Pewarta Lukas dapat Isi Surat warta nya ??",
   "source_video_title": "KEOK .. dari mana Pewarta Lukas dapat Isi Surat warta nya ??",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: L185MoZroRI]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Markus 14:36 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Markus 14",
-    "Keluaran 23",
-    "Galatia 3",
-    "Yohanes 17",
-    "Kisah Para Rasul 2",
-    "Lukas 1",
-    "Lukas 2",
-    "Yohanes 1:78"
+    "Markus 14:36",
+    "Keluaran 23:20-21",
+    "Galatia 3:13",
+    "Yohanes 17:3",
+    "Kisah Para Rasul 2:22",
+    "Lukas 1:31-35"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Markus 14",
-      "Keluaran 23",
-      "Galatia 3",
-      "Yohanes 17",
-      "Kisah Para Rasul 2",
-      "Lukas 1",
-      "Lukas 2",
-      "Yohanes 1:78"
+      "Markus 14:36",
+      "Keluaran 23:20-21",
+      "Galatia 3:13",
+      "Yohanes 17:3",
+      "Kisah Para Rasul 2:22",
+      "Lukas 1:31-35"
     ]
   },
   "rounds": [

@@ -4,8 +4,8 @@
   "corpus_id": "video-1133",
   "youtube_id": "exwQHRY9XBQ",
   "url": "https://www.youtube.com/watch?v=exwQHRY9XBQ",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: exwQHRY9XBQ]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: exwQHRY9XBQ]",
   "original_youtube_title": "PDT INDRA MANUSIA TANPA KEPALA..TERSEOK2 DIBUAT OLEH BANGZUMA",
   "source_video_title": "PDT INDRA MANUSIA TANPA KEPALA..TERSEOK2 DIBUAT OLEH BANGZUMA",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: exwQHRY9XBQ]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 12:49 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Yohanes 12:49"
   ],
   "passages": [
-    "Yohanes 12",
-    "Matius 12",
-    "Yesaya 14",
-    "Matius 2",
-    "Yohanes 14",
-    "Markus 16",
-    "Yohanes 20",
-    "1 Korintus 2"
+    "Yohanes 12:49",
+    "Matius 12:40",
+    "Yesaya 14:12-14",
+    "Matius 2:1-2",
+    "Yohanes 14:28",
+    "Markus 16:9-20"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 12",
-      "Matius 12",
-      "Yesaya 14",
-      "Matius 2",
-      "Yohanes 14",
-      "Markus 16",
-      "Yohanes 20",
-      "1 Korintus 2"
+      "Yohanes 12:49",
+      "Matius 12:40",
+      "Yesaya 14:12-14",
+      "Matius 2:1-2",
+      "Yohanes 14:28",
+      "Markus 16:9-20"
     ]
   },
   "rounds": [

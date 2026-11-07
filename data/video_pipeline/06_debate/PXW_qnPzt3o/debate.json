@@ -4,8 +4,8 @@
   "corpus_id": "video-1281",
   "youtube_id": "PXW_qnPzt3o",
   "url": "https://www.youtube.com/watch?v=PXW_qnPzt3o",
-  "motion_or_topic": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
-  "title": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
+  "motion_or_topic": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: PXW_qnPzt3o]",
+  "title": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: PXW_qnPzt3o]",
   "original_youtube_title": "KING RICHARD AKUI KRISTEN PAKE IMAN DULU BARU AKAL..DIA KEMUDIAN MINTA BANTUAN",
   "source_video_title": "KING RICHARD AKUI KRISTEN PAKE IMAN DULU BARU AKAL..DIA KEMUDIAN MINTA BANTUAN",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Kristologi & Kemanusiaan Yesus",
   "cluster_theme": "Kristologi & Kemanusiaan Yesus",
   "sub_motions": [
-    "Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea",
-    "Status Inkarnasi Firman dalam Sejarah Pemikiran Patristik dan Pergeseran Makna Monoteisme",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: PXW_qnPzt3o]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 1:1 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Yohanes 1:1"
   ],
   "passages": [
-    "Matius 9",
-    "Lukas 1",
-    "Yohanes 1",
+    "Yohanes 1:1",
+    "Matius 9:1",
+    "Lukas 1:31-35",
     "Daniel 1:00",
-    "Kolose 2",
-    "Roma 14",
-    "Roma 10",
-    "Ibrani 11"
+    "Kolose 2:9",
+    "Roma 14:12"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 9",
-      "Lukas 1",
-      "Yohanes 1",
+      "Yohanes 1:1",
+      "Matius 9:1",
+      "Lukas 1:31-35",
       "Daniel 1:00",
-      "Kolose 2",
-      "Roma 14",
-      "Roma 10",
-      "Ibrani 11"
+      "Kolose 2:9",
+      "Roma 14:12"
     ]
   },
   "rounds": [

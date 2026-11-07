@@ -14,19 +14,17 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Perbandingan Papirus Tertua P46 dan P66 dengan Teks Cetak Alkitab Modern",
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Filologis Manuskrip Kuno (Codex Sinaiticus & Vaticanus): Varian Tekstual dan Implikasi Teologisnya",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Daniel 64:67 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Daniel 64:67"
   ],
   "passages": [
     "Daniel 64:67",
-    "Lukas 1",
-    "Lukas 2",
-    "Lukas 3",
-    "Markus 16",
-    "Markus 5",
-    "Lukas 8",
-    "Matius 7"
+    "Lukas 1:31-35",
+    "Lukas 2:52",
+    "Lukas 3:23-38",
+    "Markus 16:9-20",
+    "Markus 5:19"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -56,13 +54,11 @@
     "canonical_naming_enforced": true,
     "biblical_references": [
       "Daniel 64:67",
-      "Lukas 1",
-      "Lukas 2",
-      "Lukas 3",
-      "Markus 16",
-      "Markus 5",
-      "Lukas 8",
-      "Matius 7"
+      "Lukas 1:31-35",
+      "Lukas 2:52",
+      "Lukas 3:23-38",
+      "Markus 16:9-20",
+      "Markus 5:19"
     ]
   },
   "rounds": [

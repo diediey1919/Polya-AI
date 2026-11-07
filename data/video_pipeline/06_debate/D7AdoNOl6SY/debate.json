@@ -4,8 +4,8 @@
   "corpus_id": "video-902",
   "youtube_id": "D7AdoNOl6SY",
   "url": "https://www.youtube.com/watch?v=D7AdoNOl6SY",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Lukas 24",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Lukas 24",
+  "motion_or_topic": "Klaim Otoritas Naskah Lukas 24:39: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah Lukas 24:39: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "PAK VIVO NGAMUK NYEMBAH HANTU..HAHAHA",
   "source_video_title": "PAK VIVO NGAMUK NYEMBAH HANTU..HAHAHA",
   "debate_mode": "zuma_persona",
@@ -14,12 +14,13 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks Lukas 24 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah Lukas 24:39: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Lukas 24:39 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Lukas 24",
-    "Matius 14",
-    "Galatia 2",
+    "Lukas 24:39",
+    "Matius 14:1",
+    "Galatia 2:11-14",
     "Matius 14:26"
   ],
   "extracted_from_transcript": true,
@@ -49,9 +50,9 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Lukas 24",
-      "Matius 14",
-      "Galatia 2",
+      "Lukas 24:39",
+      "Matius 14:1",
+      "Galatia 2:11-14",
       "Matius 14:26"
     ]
   },

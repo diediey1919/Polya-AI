@@ -22,7 +22,15 @@
   "grounding_rules": {
     "strict_knowledge_only": true,
     "zero_hallucination_enforced": true,
-    "provenance_required": true
+    "provenance_required": true,
+    "biblical_references": [
+      "Matius 5:17",
+      "1 Timotius 6:15-16",
+      "1 Timotius 6:16",
+      "1 Timotius 16:1",
+      "Yohanes 10:30",
+      "Yohanes 4:21-24"
+    ]
   },
   "rounds": [
     {
@@ -485,20 +493,16 @@
   "category": "Polemik Teologi Paulus vs Hukum Taurat",
   "cluster_theme": "Polemik Teologi Paulus vs Hukum Taurat",
   "passages": [
-    "1 Timotius 6",
+    "Matius 5:17",
+    "1 Timotius 6:15-16",
     "1 Timotius 6:16",
-    "1 Timotius 16",
-    "Yohanes 10",
-    "Yohanes 4",
-    "Keluaran 33",
-    "Roma 1",
-    "2 Samuel 7:22",
-    "Bilangan 23",
-    "Yesaya 55"
+    "1 Timotius 16:1",
+    "Yohanes 10:30",
+    "Yohanes 4:21-24"
   ],
   "sub_motions": [
-    "Pengujian Eksegesis Verbatim Terhadap Mosi 'Hukum Taurat Kekal vs Peniadaan Hukum oleh Paulus (Matius 5:17 vs Galatia 3:13)'",
-    "Dekonstruksi Premis Lawan Berdasarkan Konsistensi Kanon Naskah Bible"
+    "Hukum Taurat Kekal vs Peniadaan Hukum oleh Paulus (Matius 5:17 vs Galatia 3:13)",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 5:17 Melalui Metode Ilzam al-Khasm"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT"

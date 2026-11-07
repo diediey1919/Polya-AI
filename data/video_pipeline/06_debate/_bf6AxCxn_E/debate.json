@@ -4,8 +4,8 @@
   "corpus_id": "video-1551",
   "youtube_id": "_bf6AxCxn_E",
   "url": "https://www.youtube.com/watch?v=_bf6AxCxn_E",
-  "motion_or_topic": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
-  "title": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
+  "motion_or_topic": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: _bf6AxCxn_E]",
+  "title": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: _bf6AxCxn_E]",
   "original_youtube_title": "NEW MODEL AND NEW FEEL..GEPENK...",
   "source_video_title": "NEW MODEL AND NEW FEEL..GEPENK...",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Kristologi & Kemanusiaan Yesus",
   "cluster_theme": "Kristologi & Kemanusiaan Yesus",
   "sub_motions": [
-    "Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea",
-    "Status Inkarnasi Firman dalam Sejarah Pemikiran Patristik dan Pergeseran Makna Monoteisme",
-    "Distingsi Linguistik Ibrani 'YHWH' (Tuhan Tertinggi) dan 'Adoni' (Tuanku yang Dimuliakan)"
+    "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: _bf6AxCxn_E]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 1:1 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Yohanes 1:1"
   ],
   "passages": [
-    "Yohanes 1",
+    "Yohanes 1:1",
     "Yohanes 1:13",
-    "Yohanes 3",
-    "Yesaya 55",
-    "Matius 4",
-    "Matius 30",
-    "Matius 28",
-    "Matius 5"
+    "Yohanes 3:16",
+    "Yesaya 55:8-9",
+    "Matius 4:10",
+    "Matius 30:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 1",
+      "Yohanes 1:1",
       "Yohanes 1:13",
-      "Yohanes 3",
-      "Yesaya 55",
-      "Matius 4",
-      "Matius 30",
-      "Matius 28",
-      "Matius 5"
+      "Yohanes 3:16",
+      "Yesaya 55:8-9",
+      "Matius 4:10",
+      "Matius 30:1"
     ]
   },
   "rounds": [

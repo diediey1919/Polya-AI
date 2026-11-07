@@ -4,8 +4,8 @@
   "corpus_id": "video-1126",
   "youtube_id": "K8Gla3Zt52Q",
   "url": "https://www.youtube.com/watch?v=K8Gla3Zt52Q",
-  "motion_or_topic": "Kritik Tekstual Comma Johanneum (1 Yohanes 5:7-8): Bukti Interpolasi Sisipan Doktrinal dalam Naskah Yunani Kuno",
-  "title": "Kritik Tekstual Comma Johanneum (1 Yohanes 5:7-8): Bukti Interpolasi Sisipan Doktrinal dalam Naskah Yunani Kuno",
+  "motion_or_topic": "Kritik Tekstual Comma Johanneum (1 Yohanes 5:7-8): Bukti Interpolasi Sisipan Doktrinal dalam Naskah Yunani Kuno [Dossier Ref: K8Gla3Zt52Q]",
+  "title": "Kritik Tekstual Comma Johanneum (1 Yohanes 5:7-8): Bukti Interpolasi Sisipan Doktrinal dalam Naskah Yunani Kuno [Dossier Ref: K8Gla3Zt52Q]",
   "original_youtube_title": "OTEN-OTEN HANCUR DIBUAT OLEH BANGZUMA..",
   "source_video_title": "OTEN-OTEN HANCUR DIBUAT OLEH BANGZUMA..",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Eksaminasi Peran Roh Kudus dalam Membimbing Para Nabi Sepanjang Sejarah Kitab Suci",
-    "Taurat Musa Sebagai Perjanjian Kekal Sepanjang Keturunan Umat Terpilih",
-    "Ketiadaan Saksi Manuskrip Pra-Abad ke-15 pada Frasa Saksi Trinitas di Surga"
+    "Kritik Tekstual Comma Johanneum (1 Yohanes 5:7-8): Bukti Interpolasi Sisipan Doktrinal dalam Naskah Yunani Kuno [Dossier Ref: K8Gla3Zt52Q]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah 1 Yohanes 5:7-8 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah 1 Yohanes 5:7-8"
   ],
   "passages": [
-    "1 Korintus 15",
+    "1 Yohanes 5:7-8",
+    "1 Korintus 15:28",
     "Yohanes 10:27",
-    "1 Yohanes 6",
-    "1 Yohanes 2",
-    "Mazmur 73",
-    "Keluaran 6",
-    "Matius 4",
-    "Yohanes 14"
+    "1 Yohanes 6:1",
+    "1 Yohanes 2:22",
+    "Mazmur 73:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "1 Korintus 15",
+      "1 Yohanes 5:7-8",
+      "1 Korintus 15:28",
       "Yohanes 10:27",
-      "1 Yohanes 6",
-      "1 Yohanes 2",
-      "Mazmur 73",
-      "Keluaran 6",
-      "Matius 4",
-      "Yohanes 14"
+      "1 Yohanes 6:1",
+      "1 Yohanes 2:22",
+      "Mazmur 73:1"
     ]
   },
   "rounds": [

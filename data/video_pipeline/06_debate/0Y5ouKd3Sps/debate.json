@@ -4,8 +4,8 @@
   "corpus_id": "video-1647",
   "youtube_id": "0Y5ouKd3Sps",
   "url": "https://www.youtube.com/watch?v=0Y5ouKd3Sps",
-  "motion_or_topic": "Validitas Klaim Kerasulan Saulus dari Tarsus (Filipi 3:5 / Kisah Para Rasul 9) Ditinjau dari Kriteria Kanonik Kerasulan",
-  "title": "Validitas Klaim Kerasulan Saulus dari Tarsus (Filipi 3:5 / Kisah Para Rasul 9) Ditinjau dari Kriteria Kanonik Kerasulan",
+  "motion_or_topic": "Validitas Klaim Kerasulan Saulus dari Tarsus (Filipi 3:5 / Kisah Para Rasul 9) Ditinjau dari Kriteria Kanonik Kerasulan [Dossier Ref: 0Y5ouKd3Sps]",
+  "title": "Validitas Klaim Kerasulan Saulus dari Tarsus (Filipi 3:5 / Kisah Para Rasul 9) Ditinjau dari Kriteria Kanonik Kerasulan [Dossier Ref: 0Y5ouKd3Sps]",
   "original_youtube_title": "PENYEMBAH LUCIPOKZ KEOOOOKKKKK...",
   "source_video_title": "PENYEMBAH LUCIPOKZ KEOOOOKKKKK...",
   "debate_mode": "zuma_persona",
@@ -14,18 +14,16 @@
   "category": "Polemik Teologi Paulus vs Hukum Taurat",
   "cluster_theme": "Polemik Teologi Paulus vs Hukum Taurat",
   "sub_motions": [
-    "Kontradiksi Tiga Versi Narasi Penglihatan Damaskus dalam Kitab Kisah Para Rasul",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Validitas Klaim Kerasulan Saulus dari Tarsus (Filipi 3:5 / Kisah Para Rasul 9) Ditinjau dari Kriteria Kanonik Kerasulan [Dossier Ref: 0Y5ouKd3Sps]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Filipi 3:5 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
+    "Filipi 3:5",
     "Ulangan 18:20",
-    "Ulangan 18",
-    "Kisah Para Rasul 24",
-    "Galatia 1",
-    "Wahyu 22",
-    "Yesaya 14",
-    "Matius 24",
-    "Kisah Para Rasul 9"
+    "Ulangan 18:18",
+    "Kisah Para Rasul 24:14",
+    "Galatia 1:8-9",
+    "Wahyu 22:18-19"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -54,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
+      "Filipi 3:5",
       "Ulangan 18:20",
-      "Ulangan 18",
-      "Kisah Para Rasul 24",
-      "Galatia 1",
-      "Wahyu 22",
-      "Yesaya 14",
-      "Matius 24",
-      "Kisah Para Rasul 9"
+      "Ulangan 18:18",
+      "Kisah Para Rasul 24:14",
+      "Galatia 1:8-9",
+      "Wahyu 22:18-19"
     ]
   },
   "rounds": [

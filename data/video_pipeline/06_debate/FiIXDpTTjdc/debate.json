@@ -4,8 +4,8 @@
   "corpus_id": "video-1259",
   "youtube_id": "FiIXDpTTjdc",
   "url": "https://www.youtube.com/watch?v=FiIXDpTTjdc",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: FiIXDpTTjdc]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: FiIXDpTTjdc]",
   "original_youtube_title": "BANGZUMA KAGET ADA KATOLIK NGAKU YESUS NIKAH DAN PUNYA ANAK..",
   "source_video_title": "BANGZUMA KAGET ADA KATOLIK NGAKU YESUS NIKAH DAN PUNYA ANAK..",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: FiIXDpTTjdc]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Lukas 7:16 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Lukas 7",
-    "Kolose 4",
-    "Kolose 7",
-    "Matius 1",
-    "Yesaya 53",
-    "Yohanes 14",
-    "Ibrani 5",
-    "Yohanes 10"
+    "Lukas 7:16",
+    "Kolose 4:6",
+    "Kolose 7:1",
+    "Matius 1:1",
+    "Yesaya 53:1-12",
+    "Yohanes 14:28"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Lukas 7",
-      "Kolose 4",
-      "Kolose 7",
-      "Matius 1",
-      "Yesaya 53",
-      "Yohanes 14",
-      "Ibrani 5",
-      "Yohanes 10"
+      "Lukas 7:16",
+      "Kolose 4:6",
+      "Kolose 7:1",
+      "Matius 1:1",
+      "Yesaya 53:1-12",
+      "Yohanes 14:28"
     ]
   },
   "rounds": [

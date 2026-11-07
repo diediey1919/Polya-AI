@@ -22,7 +22,15 @@
   "grounding_rules": {
     "strict_knowledge_only": true,
     "zero_hallucination_enforced": true,
-    "provenance_required": true
+    "provenance_required": true,
+    "biblical_references": [
+      "Wahyu 5:5",
+      "Ulangan 13:1-4",
+      "Matius 7:21",
+      "Yohanes 3:16",
+      "1 Yohanes 2:22",
+      "Matius 23:1-3"
+    ]
   },
   "rounds": [
     {
@@ -485,20 +493,16 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "passages": [
-    "Ulangan 13",
-    "Matius 7",
-    "Yohanes 3",
-    "1 Yohanes 2",
-    "Matius 23",
-    "Matius 5",
-    "Matius 5:19",
-    "Yohanes 1:78",
-    "Kisah Para Rasul 17",
-    "Yohanes 1"
+    "Wahyu 5:5",
+    "Ulangan 13:1-4",
+    "Matius 7:21",
+    "Yohanes 3:16",
+    "1 Yohanes 2:22",
+    "Matius 23:1-3"
   ],
   "sub_motions": [
-    "Pengujian Eksegesis Verbatim Terhadap Mosi 'Gelar Eskatologis Singa Yehuda (Wahyu 5:5) & Batas Otoritas Manusia Fana'",
-    "Dekonstruksi Premis Lawan Berdasarkan Konsistensi Kanon Naskah Bible"
+    "Gelar Eskatologis Singa Yehuda (Wahyu 5:5) & Batas Otoritas Manusia Fana",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Wahyu 5:5 Melalui Metode Ilzam al-Khasm"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT"

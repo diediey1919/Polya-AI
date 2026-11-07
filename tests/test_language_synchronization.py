@@ -96,7 +96,7 @@ def test_zuma_canonical_simulation_localization_en():
     }
     sim = ZumaSkillEngine.generate_canonical_8_round_simulation(claim=claim, context=ctx)
 
-    assert sim["schema_version"] == "1.0.0"
+    assert sim["schema_version"] in ("1.0.0", "1.1.0")
     assert "Forensic Primary Text & Canonical Validity Audit" in sim["motion_or_topic"]
     assert "Theological & Apologetics Discourse" in sim["original_youtube_title"]
 
@@ -105,7 +105,7 @@ def test_zuma_canonical_simulation_localization_en():
 
     # Round 1 ZUMA speech in English
     r1_zuma = rounds[0]["speaker_speech"]
-    assert "Listen carefully" in r1_zuma
+    assert ("Let us examine this topic" in r1_zuma or "Listen carefully" in r1_zuma)
     assert "Lukas 24:42" in r1_zuma or "Lukas" in r1_zuma
 
     # Round 1 OPPONENT speech in English
@@ -137,7 +137,7 @@ def test_zuma_canonical_simulation_localization_id():
 
     rounds = sim["rounds"]
     r1_zuma = rounds[0]["speaker_speech"]
-    assert "Dengar baik-baik saudara sekalian" in r1_zuma
+    assert ("Mari kita bedah topik ini" in r1_zuma or "Dengar baik-baik saudara sekalian" in r1_zuma)
 
     r1_opp = rounds[1]["speaker_speech"]
     assert "tauhid murni para nabi" in r1_opp
@@ -156,7 +156,7 @@ def test_zuma_canonical_simulation_localization_ja():
         "ui_locale": "ja"
     }
     sim = ZumaSkillEngine.generate_canonical_8_round_simulation(claim=claim, context=ctx)
-    assert sim["schema_version"] == "1.0.0"
+    assert sim["schema_version"] in ("1.0.0", "1.1.0")
     assert "主張に対する原典テキストおよび正典的妥当性の科学的監査" in sim["motion_or_topic"]
     # Verify it does NOT fall back to Indonesian
     assert "Uji Forensik Teks Primer" not in sim["motion_or_topic"]
@@ -182,4 +182,102 @@ def test_index_html_17_languages_dictionary():
     assert "ユダヤ教" in content
     assert "無神論 / 世俗主義" in content
     assert "設定が正常に保存されました！" in content
+
+
+def test_zuma_canonical_simulation_localization_it():
+    """Verify ZumaSkillEngine generates Italian simulation with universal role tokens."""
+    claim = "Giovanni 10:30 afferma l'unità essenziale del Padre e del Figlio"
+    ctx = {
+        "user_perspective": "christian_catholic",
+        "opponent_perspective": "islam",
+        "debate_locale": "it",
+        "ui_locale": "it"
+    }
+    sim = ZumaSkillEngine.generate_canonical_8_round_simulation(claim=claim, context=ctx)
+    assert "Audit forense dei testi primari" in sim["motion_or_topic"]
+
+    # Verify participants use universal tokens
+    participants = sim.get("participants", [])
+    assert len(participants) == 2
+    assert participants[0]["name"] == "AFFIRMATIVE_CRITIQUE"
+    assert participants[0]["role"] == "AFFIRMATIVE_CRITIQUE"
+    assert "manoscritti" in participants[0]["core_stance"].lower()
+    assert participants[1]["name"] == "NEGATIVE_DEFENSE"
+    assert participants[1]["role"] == "NEGATIVE_DEFENSE"
+
+    # Verify round speeches are in Italian
+    r1_zuma = sim["rounds"][0]["speaker_speech"]
+    assert "Esaminiamo questo argomento con rigore" in r1_zuma
+    r1_opp = sim["rounds"][1]["speaker_speech"]
+    assert "Tawhid" in r1_opp or "monoteismo" in r1_opp
+
+    # Verify cross examination
+    cx = sim["cross_examination"][0]
+    assert cx["examiner"] == "AFFIRMATIVE_CRITIQUE"
+    assert cx["target"] == "NEGATIVE_DEFENSE"
+    assert "Siete disposti a riconoscere il testo scritto primario" in cx["socratic_question"]
+
+    # Verify verdict summary
+    ev = sim["epistemic_verdict"]
+    assert "L'addebito dialettico forense dimostra" in ev["verdict_summary"]
+
+
+def test_exegesis_engine_localization_it_and_en():
+    """Verify ExegesisEngine provides CEI for Italian and NIV for English in translation comparison."""
+    from orchestrator.exegesis_engine import ExegesisEngine
+
+    # Italian package
+    pkg_it = ExegesisEngine.get_canonical_package("Yohanes 1:1", locale="it")
+    assert pkg_it is not None
+    d_it = pkg_it.model_dump() if hasattr(pkg_it, "model_dump") else dict(pkg_it)
+    assert "Nel principio" in d_it["literal_translation"]
+    assert "Nel principio sussisteva la Parola" in d_it["natural_translation"]
+    versions_it = [c["version"] for c in d_it["translation_comparison"]]
+    assert versions_it[0] == "Significato del Greco Koine del I Secolo"
+    assert versions_it[1] == "CEI"
+    assert "KJV" in versions_it
+    assert "ESV" in versions_it
+
+    # English package
+    pkg_en = ExegesisEngine.get_canonical_package("Yohanes 1:1", locale="en")
+    assert pkg_en is not None
+    d_en = pkg_en.model_dump() if hasattr(pkg_en, "model_dump") else dict(pkg_en)
+    assert "In the beginning" in d_en["literal_translation"]
+    versions_en = [c["version"] for c in d_en["translation_comparison"]]
+    assert versions_en[0] == "1st-Century Koine Greek Meaning"
+    assert versions_en[1] == "NIV"
+
+
+def test_canonical_motions_priority_order():
+    """Verify that get_corpus_debate_motions sorts the 18 canonical IDs to the top."""
+    from web.motion_generator import get_corpus_debate_motions
+    motions = get_corpus_debate_motions()
+    assert len(motions) >= 18
+    canonical_expected = [
+        'Rp9118ln4yo', '-97f2FrX5M0', 'lYMnwmwC34w', 'OO_BJpt1NUk', 'W3z8vlpbh_I',
+        'ffDYCmZfmxQ', 'QC81ZxksAaI', 'ijHavMINev4', 'evS7T0gijYw', 'La9B66ZZw1s',
+        '8v45xJQBV7s', 'zOQn4TYqmBE', 'w1BTZmG-HGo', 'w2tdKAGC2us', 'mMjwLoPx-Is',
+        'X3GjCotsHKo', '2hS2F9BPnxI', 'g7mmqv4Y6XE'
+    ]
+    top_18_ids = [m.get("theme_id") or m.get("id") for m in motions[:18]]
+    assert top_18_ids == canonical_expected
+
+
+def test_index_html_tdz_and_i18n_bindings():
+    """Verify index.html has CANONICAL_MOTIONS_I18N before getLocalizedMotion to avoid TDZ error."""
+    index_file = REPO_ROOT / "web" / "static" / "index.html"
+    content = index_file.read_text(encoding="utf-8")
+
+    idx_canonical = content.find("const CANONICAL_MOTIONS_I18N =")
+    idx_func = content.find("function getLocalizedMotion")
+    assert idx_canonical != -1, "CANONICAL_MOTIONS_I18N declaration not found"
+    assert idx_func != -1, "getLocalizedMotion function not found"
+    assert idx_canonical < idx_func, "CANONICAL_MOTIONS_I18N must precede getLocalizedMotion to prevent TDZ error"
+
+    # Verify I18N keys
+    assert "speakerAffirmativeCritique" in content
+    assert "speakerNegativeDefense" in content
+    assert "benchmarkKoineNT" in content
+    assert "subMotionPrefix" in content
+
 

@@ -4,8 +4,8 @@
   "corpus_id": "video-270",
   "youtube_id": "0iJFws7iotU",
   "url": "https://www.youtube.com/watch?v=0iJFws7iotU",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: 0iJFws7iotU]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: 0iJFws7iotU]",
   "original_youtube_title": "ORG BODOH..LONGOR TINGKAT TUYUL...",
   "source_video_title": "ORG BODOH..LONGOR TINGKAT TUYUL...",
   "debate_mode": "zuma_persona",
@@ -14,18 +14,16 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: 0iJFws7iotU]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 13:34 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Yohanes 13",
-    "Lukas 2",
-    "Yohanes 17",
-    "Yohanes 5",
-    "Roma 8",
-    "Yohanes 3",
-    "Keluaran 6",
-    "Yohanes 4"
+    "Yohanes 13:34",
+    "Lukas 2:52",
+    "Yohanes 17:3",
+    "Yohanes 5:30",
+    "Roma 8:1",
+    "Yohanes 3:16"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -54,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 13",
-      "Lukas 2",
-      "Yohanes 17",
-      "Yohanes 5",
-      "Roma 8",
-      "Yohanes 3",
-      "Keluaran 6",
-      "Yohanes 4"
+      "Yohanes 13:34",
+      "Lukas 2:52",
+      "Yohanes 17:3",
+      "Yohanes 5:30",
+      "Roma 8:1",
+      "Yohanes 3:16"
     ]
   },
   "rounds": [

@@ -4,8 +4,8 @@
   "corpus_id": "video-1756",
   "youtube_id": "JsZsh4a8zKA",
   "url": "https://www.youtube.com/watch?v=JsZsh4a8zKA",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: JsZsh4a8zKA]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: JsZsh4a8zKA]",
   "original_youtube_title": "DUA PERTANYAAN DARI OTEN BUAT BangZuma.. simak sbg edukasi..",
   "source_video_title": "DUA PERTANYAAN DARI OTEN BUAT BangZuma.. simak sbg edukasi..",
   "debate_mode": "zuma_persona",
@@ -14,12 +14,13 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: JsZsh4a8zKA]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Efesus 1:17 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Efesus 1",
-    "Pengkhotbah 3",
-    "Matius 24"
+    "Efesus 1:17",
+    "Pengkhotbah 3:1",
+    "Matius 24:36"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -48,9 +49,9 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Efesus 1",
-      "Pengkhotbah 3",
-      "Matius 24"
+      "Efesus 1:17",
+      "Pengkhotbah 3:1",
+      "Matius 24:36"
     ]
   },
   "rounds": [

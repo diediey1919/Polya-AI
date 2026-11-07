@@ -4,8 +4,8 @@
   "corpus_id": "video-2372",
   "youtube_id": "eZ--OT3y_aQ",
   "url": "https://www.youtube.com/watch?v=eZ--OT3y_aQ",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: eZ--OT3y_aQ]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: eZ--OT3y_aQ]",
   "original_youtube_title": "Roh Kudu$ dan Roh J4h4t apa bedanya ?",
   "source_video_title": "Roh Kudu$ dan Roh J4h4t apa bedanya ?",
   "debate_mode": "zuma_persona",
@@ -14,14 +14,15 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: eZ--OT3y_aQ]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Lukas 22:42 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Lukas 22",
-    "Matius 28",
-    "Kisah Para Rasul 13",
-    "Yohanes 1",
-    "1 Yohanes 1"
+    "Lukas 22:42",
+    "Matius 28:19",
+    "Kisah Para Rasul 13:1",
+    "Yohanes 1:1",
+    "1 Yohanes 1:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -50,11 +51,11 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Lukas 22",
-      "Matius 28",
-      "Kisah Para Rasul 13",
-      "Yohanes 1",
-      "1 Yohanes 1"
+      "Lukas 22:42",
+      "Matius 28:19",
+      "Kisah Para Rasul 13:1",
+      "Yohanes 1:1",
+      "1 Yohanes 1:1"
     ]
   },
   "rounds": [

@@ -1,11 +1,19 @@
 import os
 import sys
+import re
 import json
+import hashlib
+import sqlite3
 import logging
+import threading
+from concurrent.futures import ThreadPoolExecutor
 logger = logging.getLogger("polya.api_foundation")
 from pathlib import Path
 import uuid
 from typing import Dict, Any, Optional, List, Literal
+from urllib.request import urlopen, Request as UrlRequest
+from urllib.parse import urlencode
+from urllib.error import URLError, HTTPError
 from fastapi import APIRouter, HTTPException, Request, Response, status, Header, Depends
 from pydantic import BaseModel, Field
 
@@ -61,8 +69,11 @@ except ImportError:
 
 router = APIRouter(prefix="/api/v1", tags=["Foundation"])
 
-SUPPORTED_LOCALES = {"zh-CN", "id", "en", "ar", "el", "he", "la"}
-DEFAULT_LOCALE = "zh-CN"
+SUPPORTED_LOCALES = {
+    "id", "en", "es", "zh-CN", "ar", "el", "he", "la", "fr", "de",
+    "pt", "it", "ru", "tr", "ja", "ko", "ur", "fa", "hi", "bn"
+}
+DEFAULT_LOCALE = "id"
 
 LOCALIZED_TAG_MAP = {
     "zh-CN": {
@@ -156,91 +167,121 @@ FEATURED_CLAIMS_I18N = {
 }
 
 CATEGORY_I18N_MAP = {
-    "zh-CN": {"perjanjian_baru": "新约 (New Testament)", "perjanjian_lama": "旧约 (Old Testament)", "lainnya": "其他 (Others)"},
+    "id": {"perjanjian_baru": "Perjanjian Baru", "perjanjian_lama": "Perjanjian Lama", "lainnya": "Lainnya"},
     "en": {"perjanjian_baru": "New Testament", "perjanjian_lama": "Old Testament", "lainnya": "Others"},
+    "es": {"perjanjian_baru": "Nuevo Testamento", "perjanjian_lama": "Antiguo Testamento", "lainnya": "Otros"},
+    "zh-CN": {"perjanjian_baru": "新约 (New Testament)", "perjanjian_lama": "旧约 (Old Testament)", "lainnya": "其他 (Others)"},
     "el": {"perjanjian_baru": "Καινὴ Διαθήκη", "perjanjian_lama": "Παλαιὰ Διαθήκη", "lainnya": "Λοιπά"},
     "ar": {"perjanjian_baru": "العهد الجديد", "perjanjian_lama": "العهد القديم", "lainnya": "أخرى"},
     "he": {"perjanjian_baru": "הברית החדשה", "perjanjian_lama": "הברית הישנה", "lainnya": "אחר"},
     "la": {"perjanjian_baru": "Novum Testamentum", "perjanjian_lama": "Vetus Testamentum", "lainnya": "Alia"},
+    "fr": {"perjanjian_baru": "Nouveau Testament", "perjanjian_lama": "Ancien Testament", "lainnya": "Autres"},
+    "de": {"perjanjian_baru": "Neues Testament", "perjanjian_lama": "Altes Testament", "lainnya": "Sonstige"},
+    "pt": {"perjanjian_baru": "Novo Testamento", "perjanjian_lama": "Antigo Testamento", "lainnya": "Outros"},
+    "it": {"perjanjian_baru": "Nuovo Testamento", "perjanjian_lama": "Antico Testamento", "lainnya": "Altri"},
+    "ru": {"perjanjian_baru": "Новый Завет", "perjanjian_lama": "Ветхий Завет", "lainnya": "Другие"},
+    "tr": {"perjanjian_baru": "Yeni Ahit", "perjanjian_lama": "Eski Ahit", "lainnya": "Diğer"},
+    "ja": {"perjanjian_baru": "新約聖書", "perjanjian_lama": "旧約聖書", "lainnya": "その他"},
+    "ko": {"perjanjian_baru": "신약", "perjanjian_lama": "구약", "lainnya": "기타"},
+    "ur": {"perjanjian_baru": "عہد نامہ جدید", "perjanjian_lama": "عہد نامہ قدیم", "lainnya": "دیگر"},
+    "fa": {"perjanjian_baru": "عهد جدید", "perjanjian_lama": "عهد عتیق", "lainnya": "سایر"},
+    "hi": {"perjanjian_baru": "नया नियम", "perjanjian_lama": "पुराना नियम", "lainnya": "अन्य"},
+    "bn": {"perjanjian_baru": "নতুন নিয়ম", "perjanjian_lama": "পুরাতন নিয়ম", "lainnya": "অন্যান্য"}
 }
 
-PHRASE_LEXICON_I18N = {
-    "zh-CN": [
-        ("Doktrin Tubuh Kristus", "基督身体教义"),
-        ("Peringatan Eskatologis Munculnya Kristus Palsu", "末世论关于假基督出现的警告"),
-        ("menyatakan bahwa Yesus dan Bapa adalah satu esensi ketuhanan", "宣告耶稣与父在神性本质上原为一"),
-        ("Satu Esensi", "同一本质"),
-        ("Firman adalah Allah", "话语就是神"),
-        ("Penasihat Ajaib", "奇妙策士"),
-        ("Ketidaktahuan Hari", "日子的不知"),
-        ("Shema Yisrael", "示玛以色列"),
-        ("menyatakan bahwa", "宣告"),
-        ("Yesus dan Bapa", "耶稣与父"),
-        ("Kristus Palsu", "假基督"),
-        ("Doktrin", "教义"),
-        ("Peringatan Eskatologis", "末世论警告"),
-        ("1 Corinthians", "哥林多前书"),
-        ("2 Corinthians", "哥林多后书"),
-        ("1 Korintus", "哥林多前书"),
-        ("2 Korintus", "哥林多后书"),
-        ("Efesus", "以弗所书"),
-        ("Matius", "马太福音"),
-        ("Yohanes", "约翰福音"),
-        ("John", "约翰福音"),
-        ("Kejadian", "创世记"),
-        ("Wahyu", "启示录"),
-        ("Roma", "罗马书"),
-        ("Ibrani", "希伯来书"),
-        ("Yesaya", "以赛亚书"),
-        ("Ulangan", "申命记"),
-    ],
-    "el": [
-        ("Doktrin Tubuh Kristus", "Δόγμα τοῦ Σώματος τοῦ Χριστοῦ"),
-        ("Peringatan Eskatologis Munculnya Kristus Palsu", "Ἐσχατολογικὴ Προειδοποίησις περὶ Ψευδοχρίστων"),
-        ("menyatakan bahwa Yesus dan Bapa adalah satu esensi ketuhanan", "διακηρύσσει ὅτι ὁ Ἰησοῦς καὶ ὁ Πατὴρ ἕν εἰσιν κατὰ τὴν θείαν οὐσίαν"),
-        ("Satu Esensi", "Μία Οὐσία"),
-        ("Firman adalah Allah", "Ὁ Λόγος ἦν Θεός"),
-        ("1 Corinthians", "Α΄ Κορινθίους"),
-        ("1 Korintus", "Α΄ Κορινθίους"),
-        ("2 Korintus", "Β΄ Κορινθίους"),
-        ("Efesus", "Ἐφεσίους"),
-        ("Matius", "Κατὰ Ματθαῖον"),
-        ("John", "Κατὰ Ἰωάννην"),
-        ("Yohanes", "Κατὰ Ἰωάννην"),
-        ("Roma", "Πρὸς Ῥωμαίους"),
-    ],
-    "en": [
-        ("Doktrin Tubuh Kristus", "Doctrine of the Body of Christ"),
-        ("Peringatan Eskatologis Munculnya Kristus Palsu", "Eschatological Warning of False Christs"),
-        ("menyatakan bahwa Yesus dan Bapa adalah satu esensi ketuhanan", "declares that Jesus and the Father are one in divine essence"),
-        ("Satu Esensi", "One Essence"),
-        ("Firman adalah Allah", "The Word is God"),
-        ("Penasihat Ajaib", "Wonderful Counselor"),
-        ("Ketidaktahuan Hari", "Ignorance of the Day"),
-        ("Shema Yisrael", "Shema Yisrael"),
-        ("menyatakan bahwa", "declares that"),
-        ("1 Korintus", "1 Corinthians"),
-        ("2 Korintus", "2 Corinthians"),
-        ("Efesus", "Ephesians"),
-        ("Matius", "Matthew"),
-        ("Yohanes", "John"),
-        ("Roma", "Romans"),
-        ("Ibrani", "Hebrews"),
-        ("Kejadian", "Genesis"),
-        ("Wahyu", "Revelation"),
-        ("Yesaya", "Isaiah"),
-        ("Ulangan", "Deuteronomy"),
+# SQLite WAL Translation Cache
+TRANSLATION_DB_PATH = os.environ.get(
+    "POLYA_TRANSLATION_DB_PATH",
+    os.path.join(REPO_ROOT, "web", "translation_cache.db")
+)
+_MEM_TRANSLATION_CACHE: Dict[tuple, str] = {}
+_DB_LOCK = threading.Lock()
+
+def init_translation_db():
+    try:
+        with sqlite3.connect(TRANSLATION_DB_PATH, timeout=10) as conn:
+            conn.execute("PRAGMA journal_mode=WAL;")
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS translations (
+                    source_hash TEXT,
+                    target_lang TEXT,
+                    translated_text TEXT,
+                    PRIMARY KEY (source_hash, target_lang)
+                )
+            """)
+            conn.commit()
+            cur = conn.execute("SELECT source_hash, target_lang, translated_text FROM translations")
+            for h, l, t in cur.fetchall():
+                _MEM_TRANSLATION_CACHE[(h, l)] = t
+    except Exception as e:
+        logger.warning(f"Failed init translation_cache.db: {e}")
+
+init_translation_db()
+
+def _fetch_external_translation(text: str, target_lang: str) -> Optional[str]:
+    if not text or not text.strip():
+        return text
+    target_code = "zh-CN" if target_lang.startswith("zh") else target_lang
+    endpoints = [
+        f"https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=auto&tl={target_code}&q=" + urlencode({"q": text})[2:],
+        f"https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl={target_code}&dt=t&q=" + urlencode({"q": text})[2:],
+        f"https://api.mymemory.translated.net/get?q={urlencode({'q': text})[2:]}&langpair=id|{target_code}"
     ]
-}
+    for url in endpoints:
+        try:
+            req = UrlRequest(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
+            with urlopen(req, timeout=4.0) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                if isinstance(data, list) and len(data) > 0:
+                    first = data[0]
+                    if isinstance(first, list) and len(first) > 0 and isinstance(first[0], str):
+                        return first[0]
+                    elif isinstance(first, list):
+                        return "".join([s[0] for s in first if isinstance(s, list) and s and isinstance(s[0], str)])
+                    elif isinstance(first, str):
+                        return first
+                elif isinstance(data, dict) and "responseData" in data:
+                    tr = data["responseData"].get("translatedText")
+                    if tr:
+                        return tr
+        except Exception:
+            continue
+    return None
 
 def translate_dynamic_text(text_val: str, lang: str) -> str:
-    if not text_val or lang == "id":
+    if not text_val or not isinstance(text_val, str) or lang == "id":
         return text_val
-    rules = PHRASE_LEXICON_I18N.get(lang) or PHRASE_LEXICON_I18N.get("en", [])
-    out = text_val
-    for src, dst in rules:
-        out = out.replace(src, dst)
-    return out
+    clean_val = text_val.strip()
+    if not clean_val:
+        return text_val
+    src_hash = hashlib.sha256(clean_val.encode("utf-8")).hexdigest()
+    cache_key = (src_hash, lang)
+    if cache_key in _MEM_TRANSLATION_CACHE:
+        return _MEM_TRANSLATION_CACHE[cache_key]
+    
+    try:
+        with _DB_LOCK:
+            with sqlite3.connect(TRANSLATION_DB_PATH, timeout=5) as conn:
+                row = conn.execute("SELECT translated_text FROM translations WHERE source_hash=? AND target_lang=?", (src_hash, lang)).fetchone()
+                if row and row[0]:
+                    _MEM_TRANSLATION_CACHE[cache_key] = row[0]
+                    return row[0]
+    except Exception:
+        pass
+
+    translated = _fetch_external_translation(clean_val, lang)
+    if translated and translated.strip():
+        res_str = translated.strip()
+        _MEM_TRANSLATION_CACHE[cache_key] = res_str
+        try:
+            with _DB_LOCK:
+                with sqlite3.connect(TRANSLATION_DB_PATH, timeout=5) as conn:
+                    conn.execute("INSERT OR REPLACE INTO translations (source_hash, target_lang, translated_text) VALUES (?, ?, ?)", (src_hash, lang, res_str))
+                    conn.commit()
+        except Exception:
+            pass
+        return res_str
+    return text_val
 
 def localize_claim_item(item: dict, lang: str) -> dict:
     if lang == "id":
@@ -248,16 +289,38 @@ def localize_claim_item(item: dict, lang: str) -> dict:
     out = dict(item)
     item_id = out.get("id", "")
     feat_map = FEATURED_CLAIMS_I18N.get(item_id, {})
-    lang_override = feat_map.get(lang) or feat_map.get("en")
+    # Pengaman 1: Jangan fallback ke 'en'. Hanya ambil override jika persis cocok dengan lang
+    lang_override = feat_map.get(lang)
     if lang_override:
         out["label"] = lang_override.get("label", out.get("label"))
         out["claim"] = lang_override.get("claim", out.get("claim"))
     else:
         out["label"] = translate_dynamic_text(out.get("label", ""), lang)
-        out["claim"] = translate_dynamic_text(out.get("claim", ""), lang)
+        raw_claim = out.get("claim", "")
+        if raw_claim:
+            m = re.search(r"\s*(\[[^\]]*Dossier Ref:[^\]]*\])\s*$", raw_claim)
+            if m:
+                tag = m.group(1).strip()
+                base_claim = raw_claim[:m.start()].strip()
+                trans_base = translate_dynamic_text(base_claim, lang)
+                out["claim"] = f"{trans_base} {tag}"
+            else:
+                out["claim"] = translate_dynamic_text(raw_claim, lang)
 
-    out["book_or_cluster"] = translate_dynamic_text(out.get("book_or_cluster", ""), lang)
-    out["passage"] = translate_dynamic_text(out.get("passage", ""), lang)
+    raw_book = out.get("book_or_cluster", "")
+    bmap = get_bible_books_i18n()
+    trans_book = bmap.get(raw_book, {}).get(lang) if raw_book in bmap else None
+    if not trans_book:
+        trans_book = translate_dynamic_text(raw_book, lang)
+    out["book_or_cluster"] = trans_book or raw_book
+
+    raw_passage = out.get("passage", "")
+    if raw_passage:
+        if raw_book and raw_passage.startswith(raw_book) and trans_book:
+            out["passage"] = trans_book + raw_passage[len(raw_book):]
+        else:
+            out["passage"] = translate_dynamic_text(raw_passage, lang)
+
     cat_map = CATEGORY_I18N_MAP.get(lang, CATEGORY_I18N_MAP.get("en", {}))
     out["category_label"] = cat_map.get(out.get("category", ""), out.get("category", ""))
     if "tags" in out:
@@ -400,6 +463,39 @@ async def get_example_claims():
     return {"claims": CANONICAL_DEMO_CLAIMS}
 
 
+@router.api_route("/translate_motion", methods=["GET", "POST"])
+async def translate_motion_endpoint(
+    request: Request,
+    text: Optional[str] = None,
+    locale: Optional[str] = None
+):
+    target_locale = locale or "en"
+    src_text = text or ""
+    if request.method == "POST":
+        try:
+            body = await request.json()
+            if isinstance(body, dict):
+                src_text = body.get("text", src_text)
+                target_locale = body.get("locale", target_locale)
+        except Exception:
+            pass
+    target_locale = resolve_request_locale(request, target_locale)
+    if not src_text or target_locale == "id":
+        return {
+            "success": True,
+            "original": src_text,
+            "locale": target_locale,
+            "translated_text": src_text
+        }
+    translated = translate_dynamic_text(src_text, target_locale)
+    return {
+        "success": True,
+        "original": src_text,
+        "locale": target_locale,
+        "translated_text": translated
+    }
+
+
 @router.get("/claims/directory")
 async def get_claims_directory(
     request: Request,
@@ -418,8 +514,6 @@ async def get_claims_directory(
     items = data.get("items", [])
 
     lang = resolve_request_locale(request, locale)
-    if lang != "id":
-        items = [localize_claim_item(it, lang) for it in items]
 
     if category and category.lower() != "all":
         cat_lower = category.lower()
@@ -437,21 +531,29 @@ async def get_claims_directory(
 
     total_found = len(items)
     off = max(0, offset or 0)
+    
+    # Slicing & 100% full localization with ThreadPoolExecutor
     if limit and limit > 0:
-        items = items[off:off + limit]
+        sliced_items = items[off:off + limit]
     elif off > 0:
-        items = items[off:]
+        sliced_items = items[off:]
+    else:
+        sliced_items = items
+
+    if lang != "id":
+        with ThreadPoolExecutor(max_workers=12) as pool:
+            sliced_items = list(pool.map(lambda it: localize_claim_item(it, lang), sliced_items))
 
     return {
         "success": True,
         "total": total_found,
         "offset": off,
         "limit": limit,
-        "count": len(items),
+        "count": len(sliced_items),
         "locale": lang,
         "categories_localized": CATEGORY_I18N_MAP.get(lang, CATEGORY_I18N_MAP.get("en", {})),
         "categories": data.get("categories", {}),
-        "items": items
+        "items": sliced_items
     }
 
 
@@ -1548,6 +1650,7 @@ async def get_knowledge_evidence_endpoint(q: Optional[str] = None):
 from web.motion_generator import get_corpus_debate_motions
 
 @router.get("/themes")
+@router.get("/themes/catalog")
 async def list_themes_endpoint(
     request: Request,
     limit: Optional[int] = None,
@@ -1558,17 +1661,26 @@ async def list_themes_endpoint(
     themes = get_corpus_debate_motions()
 
     lang = resolve_request_locale(request, locale)
-    if lang != "id":
-        themes = [localize_theme_item(th, lang) for th in themes]
-
     total_count = len(themes)
     off = max(0, offset or 0)
     if limit and limit > 0:
         sliced = themes[off:off + limit]
+        if lang != "id":
+            with ThreadPoolExecutor(max_workers=12) as pool:
+                sliced = list(pool.map(lambda th: localize_theme_item(th, lang), sliced))
     elif off > 0:
         sliced = themes[off:]
+        if lang != "id":
+            with ThreadPoolExecutor(max_workers=12) as pool:
+                head_localized = list(pool.map(lambda th: localize_theme_item(th, lang), sliced[:60]))
+            sliced = head_localized + sliced[60:]
     else:
         sliced = themes
+        if lang != "id":
+            with ThreadPoolExecutor(max_workers=12) as pool:
+                head_localized = list(pool.map(lambda th: localize_theme_item(th, lang), sliced[:60]))
+            sliced = head_localized + sliced[60:]
+
     return {
         "success": True,
         "total": total_count,

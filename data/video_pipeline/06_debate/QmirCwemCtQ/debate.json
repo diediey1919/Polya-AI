@@ -4,8 +4,8 @@
   "corpus_id": "video-1890",
   "youtube_id": "QmirCwemCtQ",
   "url": "https://www.youtube.com/watch?v=QmirCwemCtQ",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Matius 26",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Matius 26",
+  "motion_or_topic": "Klaim Otoritas Naskah Matius 26:39: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah Matius 26:39: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "SATU PERTANYAAN dr BANGZUMA: HP DAN LISTRIK lawan debatnya MELEDAAAKKK..",
   "source_video_title": "SATU PERTANYAAN dr BANGZUMA: HP DAN LISTRIK lawan debatnya MELEDAAAKKK..",
   "debate_mode": "zuma_persona",
@@ -14,10 +14,11 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks Matius 26 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah Matius 26:39: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 26:39 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 26"
+    "Matius 26:39"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -46,7 +47,7 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 26"
+      "Matius 26:39"
     ]
   },
   "rounds": [

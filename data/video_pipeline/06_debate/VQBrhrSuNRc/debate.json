@@ -4,8 +4,8 @@
   "corpus_id": "video-1503",
   "youtube_id": "VQBrhrSuNRc",
   "url": "https://www.youtube.com/watch?v=VQBrhrSuNRc",
-  "motion_or_topic": "Audit Filologis Manuskrip Kuno (Codex Sinaiticus & Vaticanus): Varian Tekstual dan Implikasi Teologisnya",
-  "title": "Audit Filologis Manuskrip Kuno (Codex Sinaiticus & Vaticanus): Varian Tekstual dan Implikasi Teologisnya",
+  "motion_or_topic": "Konsensus Ketauhidan Monoteisme Ahli Kitab dan Risalah Kenabian Terakhir Berdasarkan Teks Ulangan 6:4 [Dossier Ref: VQBrhrSuNRc]",
+  "title": "Konsensus Ketauhidan Monoteisme Ahli Kitab dan Risalah Kenabian Terakhir Berdasarkan Teks Ulangan 6:4 [Dossier Ref: VQBrhrSuNRc]",
   "original_youtube_title": "NYERANG ALQURAN PAKAI DATA KARANGAN SENDIRI... BISANYA HANYA MAIN MUTE KICK..UNYIL...",
   "source_video_title": "NYERANG ALQURAN PAKAI DATA KARANGAN SENDIRI... BISANYA HANYA MAIN MUTE KICK..UNYIL...",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Perbandingan Papirus Tertua P46 dan P66 dengan Teks Cetak Alkitab Modern"
+    "Konsensus Ketauhidan Monoteisme Ahli Kitab dan Risalah Kenabian Terakhir Berdasarkan Teks Ulangan 6:4 [Dossier Ref: VQBrhrSuNRc]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Ulangan 6:4 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Ulangan 6:4"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Ulangan 6:4"
+    ]
   },
   "rounds": [
     {

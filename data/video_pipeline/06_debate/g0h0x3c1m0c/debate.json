@@ -4,8 +4,8 @@
   "corpus_id": "video-1781",
   "youtube_id": "g0h0x3c1m0c",
   "url": "https://www.youtube.com/watch?v=g0h0x3c1m0c",
-  "motion_or_topic": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
-  "title": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
+  "motion_or_topic": "Prinsip Keadilan Moral Personal Menolak Doktrin Dosa Waris dan Penebusan Vikaris Berdasarkan Teks Yehezkiel 18:20 [Dossier Ref: g0h0x3c1m0c]",
+  "title": "Prinsip Keadilan Moral Personal Menolak Doktrin Dosa Waris dan Penebusan Vikaris Berdasarkan Teks Yehezkiel 18:20 [Dossier Ref: g0h0x3c1m0c]",
   "original_youtube_title": "SYAHADAT LAGI..ALHAMDULILLAH  ..OT3N MERADANG",
   "source_video_title": "SYAHADAT LAGI..ALHAMDULILLAH  ..OT3N MERADANG",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Metode Ilzam al-Khasm: Meruntuhkan Inkonsistensi Klaim Berdasarkan Rujukan Teks Kitab Lawan"
+    "Prinsip Keadilan Moral Personal Menolak Doktrin Dosa Waris dan Penebusan Vikaris Berdasarkan Teks Yehezkiel 18:20 [Dossier Ref: g0h0x3c1m0c]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yehezkiel 18:20 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Yehezkiel 18:20"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Yehezkiel 18:20"
+    ]
   },
   "rounds": [
     {

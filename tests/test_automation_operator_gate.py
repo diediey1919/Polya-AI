@@ -4,7 +4,8 @@ import secrets
 import tempfile
 import time
 import pytest
-# from cryptography.hazmat.primitives.asymmetric import ed25519
+cryptography = pytest.importorskip("cryptography")
+from cryptography.hazmat.primitives.asymmetric import ed25519
 
 from orchestrator.automation.controller import AutomationController
 from orchestrator.automation.git_guard import GitIdentity

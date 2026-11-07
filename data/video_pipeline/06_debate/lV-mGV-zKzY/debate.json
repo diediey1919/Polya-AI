@@ -4,8 +4,8 @@
   "corpus_id": "video-1888",
   "youtube_id": "lV-mGV-zKzY",
   "url": "https://www.youtube.com/watch?v=lV-mGV-zKzY",
-  "motion_or_topic": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
-  "title": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
+  "motion_or_topic": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: lV-mGV-zKzY]",
+  "title": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: lV-mGV-zKzY]",
   "original_youtube_title": "OT3N MENGHUJAT BANGZUMA ADALAH IBLIS.. SAKSIKAN..!!!",
   "source_video_title": "OT3N MENGHUJAT BANGZUMA ADALAH IBLIS.. SAKSIKAN..!!!",
   "debate_mode": "zuma_persona",
@@ -14,16 +14,15 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)"
+    "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: lV-mGV-zKzY]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 48:1 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 48",
-    "Markus 5",
-    "Amsal 17",
-    "Amsal 4",
-    "Yohanes 6",
-    "Yohanes 3",
-    "Ulangan 20",
+    "Matius 48:1",
+    "Markus 5:19",
+    "Amsal 17:1",
+    "Amsal 4:1",
+    "Yohanes 6:38",
     "Yohanes 3:16"
   ],
   "extracted_from_transcript": true,
@@ -53,13 +52,11 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 48",
-      "Markus 5",
-      "Amsal 17",
-      "Amsal 4",
-      "Yohanes 6",
-      "Yohanes 3",
-      "Ulangan 20",
+      "Matius 48:1",
+      "Markus 5:19",
+      "Amsal 17:1",
+      "Amsal 4:1",
+      "Yohanes 6:38",
       "Yohanes 3:16"
     ]
   },

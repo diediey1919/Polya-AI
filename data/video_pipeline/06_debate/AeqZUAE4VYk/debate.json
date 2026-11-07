@@ -4,8 +4,8 @@
   "corpus_id": "video-1511",
   "youtube_id": "AeqZUAE4VYk",
   "url": "https://www.youtube.com/watch?v=AeqZUAE4VYk",
-  "motion_or_topic": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
-  "title": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
+  "motion_or_topic": "Nubuatan Nabi Seperti Musa dari Kalangan Saudara yang Firman-Nya Ditaruh dalam Mulutnya Berdasarkan Teks Ulangan 18:18",
+  "title": "Nubuatan Nabi Seperti Musa dari Kalangan Saudara yang Firman-Nya Ditaruh dalam Mulutnya Berdasarkan Teks Ulangan 18:18",
   "original_youtube_title": "KEookk ..4.  penghujat DIMANA NABI MUHAMMAD SAW SEKARANG.??",
   "source_video_title": "KEookk ..4.  penghujat DIMANA NABI MUHAMMAD SAW SEKARANG.??",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Metode Ilzam al-Khasm: Meruntuhkan Inkonsistensi Klaim Berdasarkan Rujukan Teks Kitab Lawan"
+    "Nubuatan Nabi Seperti Musa dari Kalangan Saudara yang Firman-Nya Ditaruh dalam Mulutnya Berdasarkan Teks Ulangan 18:18",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Ulangan 18:18 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Ulangan 18:18"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Ulangan 18:18"
+    ]
   },
   "rounds": [
     {

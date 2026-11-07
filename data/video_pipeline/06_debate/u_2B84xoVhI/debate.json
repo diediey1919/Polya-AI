@@ -4,8 +4,8 @@
   "corpus_id": "video-958",
   "youtube_id": "u_2B84xoVhI",
   "url": "https://www.youtube.com/watch?v=u_2B84xoVhI",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: u_2B84xoVhI]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: u_2B84xoVhI]",
   "original_youtube_title": "LIVE//SIMAK PAPARAN BANGZUMA..HAKEKAT PENCIPTA //SI SENDAL BOLONG NONGOL",
   "source_video_title": "LIVE//SIMAK PAPARAN BANGZUMA..HAKEKAT PENCIPTA //SI SENDAL BOLONG NONGOL",
   "debate_mode": "zuma_persona",
@@ -14,11 +14,12 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: u_2B84xoVhI]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah 2 Petrus 3:16 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "2 Petrus 3",
-    "2 Petrus 2"
+    "2 Petrus 3:16",
+    "2 Petrus 2:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -47,8 +48,8 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "2 Petrus 3",
-      "2 Petrus 2"
+      "2 Petrus 3:16",
+      "2 Petrus 2:1"
     ]
   },
   "rounds": [

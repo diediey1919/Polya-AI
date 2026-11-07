@@ -4,8 +4,8 @@
   "corpus_id": "video-2011",
   "youtube_id": "L-iauAetOgc",
   "url": "https://www.youtube.com/watch?v=L-iauAetOgc",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: L-iauAetOgc]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: L-iauAetOgc]",
   "original_youtube_title": "1 alasan terakhir menuhankan 73505 gugur jg oleh BangZuma..Part@4",
   "source_video_title": "1 alasan terakhir menuhankan 73505 gugur jg oleh BangZuma..Part@4",
   "debate_mode": "zuma_persona",
@@ -14,15 +14,15 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: L-iauAetOgc]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah 2 Yohanes 1:7 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah 2 Yohanes 1:7"
   ],
   "passages": [
-    "2 Yohanes 1",
-    "1 Yohanes 2",
-    "Roma 14",
-    "Yohanes 2",
+    "2 Yohanes 1:7",
+    "1 Yohanes 2:22",
+    "Roma 14:12",
+    "Yohanes 2:1",
     "Yohanes 12:49"
   ],
   "extracted_from_transcript": true,
@@ -52,10 +52,10 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "2 Yohanes 1",
-      "1 Yohanes 2",
-      "Roma 14",
-      "Yohanes 2",
+      "2 Yohanes 1:7",
+      "1 Yohanes 2:22",
+      "Roma 14:12",
+      "Yohanes 2:1",
       "Yohanes 12:49"
     ]
   },

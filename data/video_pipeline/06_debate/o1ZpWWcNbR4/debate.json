@@ -4,8 +4,8 @@
   "corpus_id": "video-572",
   "youtube_id": "o1ZpWWcNbR4",
   "url": "https://www.youtube.com/watch?v=o1ZpWWcNbR4",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: o1ZpWWcNbR4]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: o1ZpWWcNbR4]",
   "original_youtube_title": "VIRALKAN PDT LONGOR INI BABAK BELUR DI TERAPY OLEH BANGZUMA..MALUUU...",
   "source_video_title": "VIRALKAN PDT LONGOR INI BABAK BELUR DI TERAPY OLEH BANGZUMA..MALUUU...",
   "debate_mode": "zuma_persona",
@@ -14,18 +14,16 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: o1ZpWWcNbR4]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 26:39 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 26",
-    "Matius 6",
-    "Lukas 21",
-    "Lukas 24",
-    "Yohanes 20",
-    "Markus 16",
-    "Matius 24",
-    "Matius 12"
+    "Matius 26:39",
+    "Matius 6:9-13",
+    "Lukas 21:8",
+    "Lukas 24:39",
+    "Yohanes 20:17",
+    "Markus 16:9-20"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -54,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 26",
-      "Matius 6",
-      "Lukas 21",
-      "Lukas 24",
-      "Yohanes 20",
-      "Markus 16",
-      "Matius 24",
-      "Matius 12"
+      "Matius 26:39",
+      "Matius 6:9-13",
+      "Lukas 21:8",
+      "Lukas 24:39",
+      "Yohanes 20:17",
+      "Markus 16:9-20"
     ]
   },
   "rounds": [

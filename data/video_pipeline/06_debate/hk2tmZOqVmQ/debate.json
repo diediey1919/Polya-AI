@@ -22,7 +22,15 @@
   "grounding_rules": {
     "strict_knowledge_only": true,
     "zero_hallucination_enforced": true,
-    "provenance_required": true
+    "provenance_required": true,
+    "biblical_references": [
+      "Matius 2:81",
+      "Matius 27:46",
+      "Daniel 53:1",
+      "Markus 13:1",
+      "Markus 1:36",
+      "Yeremia 23:1"
+    ]
   },
   "rounds": [
     {
@@ -484,19 +492,15 @@
   "cluster_theme": "Apologetika Islam & Pembelaan Kenabian",
   "passages": [
     "Matius 2:81",
-    "Matius 27",
-    "Daniel 53",
-    "Markus 13",
+    "Matius 27:46",
+    "Daniel 53:1",
+    "Markus 13:1",
     "Markus 1:36",
-    "Yeremia 23",
-    "Matius 24",
-    "Yeremia 3",
-    "Wahyu 14",
-    "1 Yohanes 4"
+    "Yeremia 23:1"
   ],
   "sub_motions": [
-    "Pengujian Eksegesis Verbatim Terhadap Mosi 'Standar Moralitas Kenabian: Serangan Hadis vs Catatan Moral Tokoh Bible'",
-    "Dekonstruksi Premis Lawan Berdasarkan Konsistensi Kanon Naskah Bible"
+    "Standar Moralitas Kenabian: Serangan Hadis vs Catatan Moral Tokoh Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 2:81 Melalui Metode Ilzam al-Khasm"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT"

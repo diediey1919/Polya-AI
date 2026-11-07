@@ -4,8 +4,8 @@
   "corpus_id": "video-1315",
   "youtube_id": "nbMvUhAhYJw",
   "url": "https://www.youtube.com/watch?v=nbMvUhAhYJw",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: nbMvUhAhYJw]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: nbMvUhAhYJw]",
   "original_youtube_title": "lagi2 mulut besar Christian di bekukan oleh BangZuma...MANTAP SEMOGA SEHAT KEMBALI..",
   "source_video_title": "lagi2 mulut besar Christian di bekukan oleh BangZuma...MANTAP SEMOGA SEHAT KEMBALI..",
   "debate_mode": "zuma_persona",
@@ -14,13 +14,14 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: nbMvUhAhYJw]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Lukas 41:1 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Lukas 41",
-    "Yohanes 3",
-    "Kisah Para Rasul 26",
-    "Kisah Para Rasul 2",
+    "Lukas 41:1",
+    "Yohanes 3:16",
+    "Kisah Para Rasul 26:1",
+    "Kisah Para Rasul 2:22",
     "Kisah Para Rasul 26:14"
   ],
   "extracted_from_transcript": true,
@@ -50,10 +51,10 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Lukas 41",
-      "Yohanes 3",
-      "Kisah Para Rasul 26",
-      "Kisah Para Rasul 2",
+      "Lukas 41:1",
+      "Yohanes 3:16",
+      "Kisah Para Rasul 26:1",
+      "Kisah Para Rasul 2:22",
       "Kisah Para Rasul 26:14"
     ]
   },

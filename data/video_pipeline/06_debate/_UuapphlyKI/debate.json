@@ -4,8 +4,8 @@
   "corpus_id": "video-1843",
   "youtube_id": "_UuapphlyKI",
   "url": "https://www.youtube.com/watch?v=_UuapphlyKI",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: _UuapphlyKI]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: _UuapphlyKI]",
   "original_youtube_title": "BangZuma Buktikan oten AKAN DIBAKAR API.. Si Rasmi panik ngamuk kesurupan..",
   "source_video_title": "BangZuma Buktikan oten AKAN DIBAKAR API.. Si Rasmi panik ngamuk kesurupan..",
   "debate_mode": "zuma_persona",
@@ -14,15 +14,15 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: _UuapphlyKI]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Lukas 3:23-38 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Lukas 3",
-    "Markus 9",
-    "Matius 7",
-    "Matius 13",
-    "Matius 23"
+    "Lukas 3:23-38",
+    "Markus 9:37",
+    "Matius 7:21",
+    "Matius 13:1",
+    "Matius 23:1-3"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -51,11 +51,11 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Lukas 3",
-      "Markus 9",
-      "Matius 7",
-      "Matius 13",
-      "Matius 23"
+      "Lukas 3:23-38",
+      "Markus 9:37",
+      "Matius 7:21",
+      "Matius 13:1",
+      "Matius 23:1-3"
     ]
   },
   "rounds": [

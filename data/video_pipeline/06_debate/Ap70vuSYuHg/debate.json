@@ -14,19 +14,17 @@
   "category": "Polemik Teologi Paulus vs Hukum Taurat",
   "cluster_theme": "Polemik Teologi Paulus vs Hukum Taurat",
   "sub_motions": [
-    "Eksaminasi Peran Roh Kudus dalam Membimbing Para Nabi Sepanjang Sejarah Kitab Suci",
-    "Penolakan Keras Yesus terhadap Pelanggar Hukum Syariat (Anomia / Pembuat Kejahatan)",
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Pengakuan Verbal 'Tuhan, Tuhan' vs Kepatuhan Nyata Menjalankan Kehendak Bapa dalam Matius 7:21-23",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 7:21-23 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Matius 7:21-23"
   ],
   "passages": [
-    "Markus 9",
-    "Yesaya 53",
-    "Yohanes 14",
-    "Matius 7",
-    "Matius 71",
+    "Matius 7:21-23",
+    "Markus 9:37",
+    "Yesaya 53:1-12",
+    "Yohanes 14:28",
     "Matius 7:21",
-    "Markus 9:49",
-    "Yesaya 61"
+    "Matius 71:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Markus 9",
-      "Yesaya 53",
-      "Yohanes 14",
-      "Matius 7",
-      "Matius 71",
+      "Matius 7:21-23",
+      "Markus 9:37",
+      "Yesaya 53:1-12",
+      "Yohanes 14:28",
       "Matius 7:21",
-      "Markus 9:49",
-      "Yesaya 61"
+      "Matius 71:1"
     ]
   },
   "rounds": [

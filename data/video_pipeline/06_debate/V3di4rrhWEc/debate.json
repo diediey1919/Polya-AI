@@ -4,8 +4,8 @@
   "corpus_id": "video-2156",
   "youtube_id": "V3di4rrhWEc",
   "url": "https://www.youtube.com/watch?v=V3di4rrhWEc",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Ketetapan Firman Kebenaran: Audit Filologis Terjemahan LAI TB vs Masoretik [Dossier Ref: V3di4rrhWEc]",
+  "title": "Ketetapan Firman Kebenaran: Audit Filologis Terjemahan LAI TB vs Masoretik [Dossier Ref: V3di4rrhWEc]",
   "original_youtube_title": "NGAKAK.. OTEN INI AKUI PENYEMBAH 3 PRIBADI TUHAN ADALAH SESAT",
   "source_video_title": "NGAKAK.. OTEN INI AKUI PENYEMBAH 3 PRIBADI TUHAN ADALAH SESAT",
   "debate_mode": "zuma_persona",
@@ -14,10 +14,12 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Ketetapan Firman Kebenaran: Audit Filologis Terjemahan LAI TB vs Masoretik [Dossier Ref: V3di4rrhWEc]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Mazmur 119:160 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Mazmur 119:160"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -44,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Mazmur 119:160"
+    ]
   },
   "rounds": [
     {

@@ -5412,7 +5412,7 @@
       <div style="margin-bottom: 0.5rem;">
         <button type="button" class="header-search-btn" style="display: flex; align-items: center; gap: 0.5rem; width: 100%; background: #141822; border: 1px solid var(--border-subtle); border-radius: 10px; padding: 0.45rem 0.75rem; cursor: pointer; text-align: left; transition: all 0.15s ease;" onclick="openSearchModal()">
           <span style="color: var(--text-dim); font-size: 0.8rem;">🔍</span>
-          <span style="color: var(--text-muted); font-size: 0.78rem;">Quick search...</span>
+          <span id="side-search-placeholder" data-i18n="quickSearch" style="color: var(--text-muted); font-size: 0.78rem;">Quick search...</span>
         </button>
       </div>
 
@@ -5486,37 +5486,37 @@
       <div id="sidebar-theme-clusters" class="sidebar-theme-clusters" style="display: flex; flex-direction: column; gap: 0.1rem; padding-left: 0.25rem; margin-top: 0.1rem; margin-bottom: 0.45rem;">
         <a class="side-sub-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('Dialektika Debat Terbuka & Cross-Examination');" title="Dialektika Debat Terbuka & Cross-Examination">
           <span class="sub-icon">🎯</span>
-          <span class="sub-text">Dialektika & Cross-Exam</span>
+          <span class="sub-text" id="side-sub-dialectic" data-i18n="navDialectic">Dialektika & Cross-Exam</span>
           <span class="sub-count">251</span>
         </a>
         <a class="side-sub-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('Kristologi & Kemanusiaan Yesus');" title="Kristologi & Kemanusiaan Yesus">
           <span class="sub-icon">✝️</span>
-          <span class="sub-text">Kristologi & Yesus</span>
+          <span class="sub-text" id="side-sub-christology" data-i18n="navChristology">Kristologi & Yesus</span>
           <span class="sub-count">252</span>
         </a>
         <a class="side-sub-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('Audit Tekstual, Filologi & Varian Naskah');" title="Audit Tekstual, Filologi & Varian Naskah">
           <span class="sub-icon">📜</span>
-          <span class="sub-text">Filologi & Naskah</span>
+          <span class="sub-text" id="side-sub-philology" data-i18n="navPhilology">Filologi & Naskah</span>
           <span class="sub-count">276</span>
         </a>
         <a class="side-sub-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('Diskursus Teologi & Apologetika Komparatif');" title="Diskursus Teologi & Apologetika Komparatif">
           <span class="sub-icon">⚖️</span>
-          <span class="sub-text">Teologi Komparatif</span>
+          <span class="sub-text" id="side-sub-comparative" data-i18n="navComparative">Teologi Komparatif</span>
           <span class="sub-count">322</span>
         </a>
         <a class="side-sub-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('Monoteisme & Kritik Doktrin Trinitas');" title="Monoteisme & Kritik Doktrin Trinitas">
           <span class="sub-icon">☝️</span>
-          <span class="sub-text">Monoteisme & Trinitas</span>
+          <span class="sub-text" id="side-sub-trinity" data-i18n="navTrinity">Monoteisme & Trinitas</span>
           <span class="sub-count">475</span>
         </a>
         <a class="side-sub-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('Polemik Teologi Paulus vs Hukum Taurat');" title="Polemik Teologi Paulus vs Hukum Taurat">
           <span class="sub-icon">📖</span>
-          <span class="sub-text">Paulus vs Taurat</span>
+          <span class="sub-text" id="side-sub-pauline" data-i18n="navPauline">Paulus vs Taurat</span>
           <span class="sub-count">977</span>
         </a>
         <a class="side-sub-item" onclick="navigateRoute(event, '/themes'); selectDebateCategory('Apologetika Islam & Pembelaan Kenabian');" title="Apologetika Islam & Pembelaan Kenabian">
           <span class="sub-icon">☪️</span>
-          <span class="sub-text">Pembelaan Kenabian</span>
+          <span class="sub-text" id="side-sub-prophecy" data-i18n="navProphecy">Pembelaan Kenabian</span>
           <span class="sub-count">72</span>
         </a>
       </div>
@@ -5527,16 +5527,16 @@
       <a class="side-item" id="side-item-pipeline" data-i18n="navPipeline" onclick="navigateRoute(event, '/pipeline')">Exegesis Pipeline</a>
 
       <div class="sidebar-heading" id="side-heading-prep" data-i18n="headingPrepUser">Preparation & User</div>
-      <a class="side-item desktop-only" id="side-item-pricing" data-i18n="navPricing" onclick="navigateRoute(event, '/pricing')">
+      <a class="side-item desktop-only" id="side-item-pricing" onclick="navigateRoute(event, '/pricing')">
         <span style="display: flex; align-items: center; gap: 0.45rem;">
           <span>💎</span>
-          <span id="side-item-pricing-title">Pricing & Plans</span>
+          <span id="side-item-pricing-title" data-i18n="navPricing">Pricing & Plans</span>
         </span>
       </a>
-      <a class="side-item" id="side-item-ancient-course" data-i18n="navAncientCourse" onclick="navigateRoute(event, '/kursus-bahasa-kuno')">
+      <a class="side-item" id="side-item-ancient-course" onclick="navigateRoute(event, '/kursus-bahasa-kuno')">
         <span style="display: flex; align-items: center; gap: 0.45rem;">
           <span>🎓</span>
-          <span id="side-item-ancient-course-title">Kursus Bahasa Kuno</span>
+          <span id="side-item-ancient-course-title" data-i18n="navAncientCourse">Kursus Bahasa Kuno</span>
         </span>
       </a>
 
@@ -7984,6 +7984,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "Monoteisme & Trinitas",
     "navPauline": "Paulus vs Taurat",
     "navProphecy": "Pembelaan Kenabian",
+    "navPricing": "Pricing & Plans",
+    "navAncientCourse": "Kursus Bahasa Kuno",
     "navPendingTranscripts": "Menunggu Transkrip",
     "navKnowledge": "Knowledge Base",
     "navPersona": "Ruang Latihan",
@@ -8194,6 +8196,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "Monotheism & Trinity",
     "navPauline": "Paul vs Mosaic Law",
     "navProphecy": "Prophetic Defense",
+    "navPricing": "Pricing & Plans",
+    "navAncientCourse": "Ancient Languages Course",
     "navPendingTranscripts": "Pending Transcripts",
     "navKnowledge": "Knowledge Base",
     "navPersona": "Dialectical Persona",
@@ -8404,6 +8408,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "التوحيد والتثليث",
     "navPauline": "بولس مقابل الشريعة",
     "navProphecy": "الدفاع عن النبوة",
+    "navPricing": "الأسعار والباقات",
+    "navAncientCourse": "دورة اللغات القديمة",
     "navPendingTranscripts": "بانتظار التفريغ",
     "navKnowledge": "قاعدة المعرفة",
     "navPersona": "الشخصية الجدلية",
@@ -8614,6 +8620,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "一神教と三位一体論",
     "navPauline": "パウロ対モーセ律法",
     "navProphecy": "預言者性の弁護",
+    "navPricing": "料金プラン",
+    "navAncientCourse": "古代語講座",
     "navPendingTranscripts": "文字起こし待ち",
     "navKnowledge": "ナレッジベース",
     "navPersona": "弁証ペルソナ",
@@ -8824,6 +8832,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "유일신론 및 삼위일체론",
     "navPauline": "바울 대 모세 율법",
     "navProphecy": "예언자성 변호",
+    "navPricing": "요금제 및 플랜",
+    "navAncientCourse": "고대어 강좌",
     "navPendingTranscripts": "녹취 대기 목록",
     "navKnowledge": "지식 베이스",
     "navPersona": "변증 페르소나",
@@ -9034,6 +9044,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "一神论与三位一体",
     "navPauline": "保罗对比摩西律法",
     "navProphecy": "先知性辩护",
+    "navPricing": "定价与计划",
+    "navAncientCourse": "古代语言课程",
     "navPendingTranscripts": "待转录文稿",
     "navKnowledge": "知识图谱",
     "navPersona": "辩证人设",
@@ -9237,13 +9249,15 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navApologeticsMachine": "Máquina Apologética",
     "navWorkspace": "Área de Trabajo",
     "navThemeDebate": "Temas de Debate (Mociones)",
-    "navDialectic": "Dialéctica y Contra-interrogatorio",
+    "navDialectic": "Dialéctica y Contraexamen",
     "navChristology": "Cristología y Jesús",
     "navPhilology": "Filología y Manuscritos",
     "navComparative": "Teología Comparada",
     "navTrinity": "Monoteísmo y Trinidad",
-    "navPauline": "Pablo vs Ley Mosaica",
-    "navProphecy": "Defensa Profética",
+    "navPauline": "Pablo vs. la Torá",
+    "navProphecy": "Defensa de la Profecía",
+    "navPricing": "Precios y Planes",
+    "navAncientCourse": "Curso de Lenguas Antiguas",
     "navPendingTranscripts": "Transcripciones Pendientes",
     "navKnowledge": "Base de Conocimiento",
     "navPersona": "Persona Dialéctica",
@@ -9454,6 +9468,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "Monothéisme & Trinité",
     "navPauline": "Paul vs Loi Mosaïque",
     "navProphecy": "Défense Prophétique",
+    "navPricing": "Tarifs et Forfaits",
+    "navAncientCourse": "Cours de Langues Anciennes",
     "navPendingTranscripts": "Transcriptions en Attente",
     "navKnowledge": "Base de Connaissances",
     "navPersona": "Persona Dialectique",
@@ -9664,6 +9680,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "Monotheismus & Trinität",
     "navPauline": "Paulus vs Mosaisches Gesetz",
     "navProphecy": "Prophetische Verteidigung",
+    "navPricing": "Preise & Tarife",
+    "navAncientCourse": "Kurs für antike Sprachen",
     "navPendingTranscripts": "Ausstehende Transkripte",
     "navKnowledge": "Wissensdatenbank",
     "navPersona": "Dialektische Persona",
@@ -9874,6 +9892,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "Монотеизм и Троица",
     "navPauline": "Павел vs Закон Моисея",
     "navProphecy": "Защита Пророчеств",
+    "navPricing": "Тарифы и Планы",
+    "navAncientCourse": "Курс древних языков",
     "navPendingTranscripts": "Ожидающие Расшифровки",
     "navKnowledge": "База Знаний",
     "navPersona": "Диалектическая Персона",
@@ -10084,6 +10104,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "Monoteísmo e Trindade",
     "navPauline": "Paulo vs Lei Mosaica",
     "navProphecy": "Defesa Profética",
+    "navPricing": "Preços e Planos",
+    "navAncientCourse": "Curso de Línguas Antigas",
     "navPendingTranscripts": "Transcrições Pendentes",
     "navKnowledge": "Base de Conhecimento",
     "navPersona": "Persona Dialética",
@@ -10294,6 +10316,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "Monoteismo e Trinità",
     "navPauline": "Paolo vs Legge Mosaica",
     "navProphecy": "Difesa Profetica",
+    "navPricing": "Prezzi e Piani",
+    "navAncientCourse": "Corso di Lingue Antiche",
     "navPendingTranscripts": "Trascrizioni in Attesa",
     "navKnowledge": "Base di Conoscenza",
     "navPersona": "Persona Dialettica",
@@ -10504,6 +10528,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "Tevhid ve Teslis Eleştirisi",
     "navPauline": "Pavlus vs Tevrat Hukuku",
     "navProphecy": "Peygamberlik Savunması",
+    "navPricing": "Fiyatlandırma ve Planlar",
+    "navAncientCourse": "Antik Diller Kursu",
     "navPendingTranscripts": "Bekleyen Transkriptler",
     "navKnowledge": "Bilgi Tabanı",
     "navPersona": "Diyalektik Persona",
@@ -10714,6 +10740,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "توحید اور رد تثلیث",
     "navPauline": "پولس بمقابلہ شریعت موسوی",
     "navProphecy": "دفاع نبوت",
+    "navPricing": "قیمتیں اور منصوبے",
+    "navAncientCourse": "قدیم زبانوں کا کورس",
     "navPendingTranscripts": "منتظر تحریر",
     "navKnowledge": "علمی ڈیٹا بیس",
     "navPersona": "مناظرانہ پرسنل",
@@ -10924,6 +10952,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "توحید و نقد تثلیث",
     "navPauline": "پولس در برابر شریعت",
     "navProphecy": "دفاع از نبوت",
+    "navPricing": "قیمت‌ها و پلن‌ها",
+    "navAncientCourse": "دوره زبان‌های باستانی",
     "navPendingTranscripts": "در انتظار پیاده‌سازی",
     "navKnowledge": "پایگاه دانش",
     "navPersona": "پرسونای دیالکتیکی",
@@ -11134,6 +11164,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "एकेश्वरवाद और त्रिएकत्व आलोचना",
     "navPauline": "पौलुस बनाम मूसा की व्यवस्था",
     "navProphecy": "भविष्यवाणी रक्षा",
+    "navPricing": "मूल्य निर्धारण और योजनाएं",
+    "navAncientCourse": "प्राचीन भाषा पाठ्यक्रम",
     "navPendingTranscripts": "प्रतीक्षारत प्रतिलेख",
     "navKnowledge": "ज्ञानकोष",
     "navPersona": "संवादात्मक व्यक्तित्व",
@@ -11344,6 +11376,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navTrinity": "একেশ্বরবাদ ও ত্রিত্ববাদ খণ্ডন",
     "navPauline": "পৌল বনাম মূসার বিধান",
     "navProphecy": "নবুওয়াত প্রতিরক্ষা",
+    "navPricing": "मूल্য ও পরিকল্পনা",
+    "navAncientCourse": "প্রাচীন ভাষা কোর্স",
     "navPendingTranscripts": "অপেক্ষমাণ অনুলিপি",
     "navKnowledge": "জ্ঞানভাণ্ডার",
     "navPersona": "বিতর্ক ব্যক্তিত্ব",
@@ -11813,16 +11847,26 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
       // 4. Dual-Resolution Safety Net: ID_I18N_MAP direct element updates
       const ID_I18N_MAP = {
+        "side-search-placeholder": "quickSearch",
         "side-heading-workspace": "headingWorkspace",
         "side-item-motions-title": "navSearchMotions",
         "side-item-calc": "navApologeticsMachine",
         "side-item-dash": "navWorkspace",
         "side-item-themes-title": "navThemeDebate",
+        "side-sub-dialectic": "navDialectic",
+        "side-sub-christology": "navChristology",
+        "side-sub-philology": "navPhilology",
+        "side-sub-comparative": "navComparative",
+        "side-sub-trinity": "navTrinity",
+        "side-sub-pauline": "navPauline",
+        "side-sub-prophecy": "navProphecy",
         "side-heading-evidence": "headingEvidenceLab",
         "side-item-knowledge": "navKnowledge",
         "side-item-persona": "navPersona",
         "side-item-pipeline": "navPipeline",
         "side-heading-prep": "headingPrepUser",
+        "side-item-pricing-title": "navPricing",
+        "side-item-ancient-course-title": "navAncientCourse",
         "side-item-settings": "navSettings",
         "side-item-account": "navBilling",
         "side-item-arena": "navDebateArena",
@@ -12015,10 +12059,12 @@ Menunggu instruksi user untuk eksekusi backlog P0.
   const originalFetch = window.fetch.bind(window);
   window.fetch = function (input, init = {}) {
     const activeLocale =
+      (window.userContext && window.userContext.ui_locale) ||
+      localStorage.getItem("ui_locale") ||
       localStorage.getItem("polya_locale") ||
       localStorage.getItem("user_locale") ||
       document.documentElement.lang ||
-      "zh-CN";
+      "id";
 
     let urlStr =
       typeof input === "string"
@@ -15928,11 +15974,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         }
       }
 
-      // If userContext locale is active, localize any embedded bible book references in finalMotion
       const currentLoc = (typeof userContext !== "undefined" && userContext.ui_locale) || "id";
-      if (typeof localizeBibleReference === "function") {
-        finalMotion = localizeBibleReference(finalMotion, currentLoc);
-      }
 
       const claimInput = document.getElementById("claim-input");
       if (claimInput) {
@@ -18584,6 +18626,21 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       const fragment = document.createDocumentFragment();
       let lastGroup = _motionRenderedIndex > 0 ? (listContainer.lastElementChild?.getAttribute("data-group") || "") : "";
 
+      const activeLocale = (typeof userContext !== "undefined" && userContext.ui_locale) || localStorage.getItem("ui_locale") || "id";
+      const subMotionLabel = (tDict && tDict.subMotionPrefix) || {
+        "id": "Sub-mosi",
+        "es": "Sub-moción",
+        "en": "Sub-motion",
+        "zh-CN": "子辩题",
+        "ar": "فرع الأطروحة",
+        "el": "Υπο-πρόταση",
+        "he": "תת-הצעה",
+        "la": "Sub-quaestio",
+        "fr": "Sous-motion",
+        "de": "Unterantrag",
+        "pt": "Sub-moção"
+      }[activeLocale] || "Sub-motion";
+
       nextSlice.forEach(it => {
         const group = it.book_or_cluster || "Kategori Umum";
 
@@ -18637,7 +18694,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               <span style="font-size: 0.68rem; color: #38bdf8; font-weight: 600;">${escapeHtml(it.book_or_cluster)}</span>
             </div>
             <div class="canonical-submotion-box" style="font-size: 0.88rem; font-weight: 500; color: #ffffff; background: rgba(14, 165, 233, 0.08); padding: 0.55rem 0.85rem; border-radius: 6px; border-left: 3px solid var(--accent); line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" title="${safeTitle}">
-              ⚖️ Sub-mosi: ${escapeHtml(it.claim)}
+              ⚖️ ${subMotionLabel}: ${escapeHtml(it.claim)}
             </div>
             ${safePassage ? `
               <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.1rem;">
@@ -18677,18 +18734,27 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     }
 
     async function shuffleRandomMotion() {
+      const activeLocale = (typeof userContext !== "undefined" && userContext.ui_locale) || localStorage.getItem("ui_locale") || "id";
       const motions = await loadMotionDirectoryData();
       if (!motions || motions.length === 0) return;
       const randomIdx = Math.floor(Math.random() * motions.length);
       const chosen = motions[randomIdx];
-      if (chosen && chosen.claim) {
-        const currentLoc = (typeof userContext !== "undefined" && userContext.ui_locale) || "id";
-        let text = chosen.claim;
-        if (typeof localizeBibleReference === "function") {
-          text = localizeBibleReference(text, currentLoc);
+      if (!chosen) return;
+      let motionText = chosen.claim || chosen.label || "";
+      if (activeLocale !== "id") {
+        try {
+          const resp = await fetch(`/api/v1/translate_motion?locale=${encodeURIComponent(activeLocale)}&text=${encodeURIComponent(motionText)}`);
+          if (resp.ok) {
+            const data = await resp.json();
+            if (data && data.translated_text) {
+              motionText = data.translated_text;
+            }
+          }
+        } catch (e) {
+          console.warn("shuffleRandomMotion translation fallback:", e);
         }
-        fillClaim(text);
       }
+      fillClaim(motionText);
     }
 
     function fillClaim(text) {
@@ -18904,7 +18970,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               <span style="font-size: 0.68rem; color: #38bdf8; font-weight: 600;">${escapeHtml(it.book_or_cluster)}</span>
             </div>
             <div class="canonical-submotion-box" style="font-size: 0.88rem; font-weight: 500; color: #ffffff; background: rgba(14, 165, 233, 0.08); padding: 0.55rem 0.85rem; border-radius: 6px; border-left: 3px solid var(--accent); line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" title="${safeTitle}">
-              ⚖️ Sub-mosi: ${escapeHtml(it.claim)}
+              ⚖️ ${subMotionLabel}: ${escapeHtml(it.claim)}
             </div>
             ${safePassage ? `
               <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.1rem;">

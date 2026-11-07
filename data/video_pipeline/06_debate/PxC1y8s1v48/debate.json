@@ -4,8 +4,8 @@
   "corpus_id": "video-505",
   "youtube_id": "PxC1y8s1v48",
   "url": "https://www.youtube.com/watch?v=PxC1y8s1v48",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: PxC1y8s1v48]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: PxC1y8s1v48]",
   "original_youtube_title": "LONGOR MODAL LUBANG HIDUNG...NGAKAK..",
   "source_video_title": "LONGOR MODAL LUBANG HIDUNG...NGAKAK..",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: PxC1y8s1v48]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Ulangan 33:2 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Ulangan 33",
+    "Ulangan 33:2",
     "Yeremia 31:31",
-    "Yeremia 31",
-    "Matius 15",
-    "Yeremia 50",
-    "Matius 10",
-    "Wahyu 22",
-    "Mazmur 1:47"
+    "Yeremia 31:31-34",
+    "Matius 15:24",
+    "Yeremia 50:2",
+    "Matius 10:5-6"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Ulangan 33",
+      "Ulangan 33:2",
       "Yeremia 31:31",
-      "Yeremia 31",
-      "Matius 15",
-      "Yeremia 50",
-      "Matius 10",
-      "Wahyu 22",
-      "Mazmur 1:47"
+      "Yeremia 31:31-34",
+      "Matius 15:24",
+      "Yeremia 50:2",
+      "Matius 10:5-6"
     ]
   },
   "rounds": [

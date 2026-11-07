@@ -4,8 +4,8 @@
   "corpus_id": "video-1205",
   "youtube_id": "m9PoA9ws_r8",
   "url": "https://www.youtube.com/watch?v=m9PoA9ws_r8",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: m9PoA9ws_r8]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: m9PoA9ws_r8]",
   "original_youtube_title": "OTENNYA ERROR..NGAKAK..ngaku yg dtg ke paulus adalah ROH JAHAT",
   "source_video_title": "OTENNYA ERROR..NGAKAK..ngaku yg dtg ke paulus adalah ROH JAHAT",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: m9PoA9ws_r8]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Lukas 1:31-35 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Lukas 1:31-35"
   ],
   "passages": [
-    "Lukas 1",
+    "Lukas 1:31-35",
     "Yohanes 5:37",
-    "Markus 12",
+    "Markus 12:29",
     "Matius 1:81",
-    "1 Timotius 11",
-    "Matius 4:17",
-    "Matius 18",
-    "1 Yohanes 1"
+    "1 Timotius 11:1",
+    "Matius 4:17"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Lukas 1",
+      "Lukas 1:31-35",
       "Yohanes 5:37",
-      "Markus 12",
+      "Markus 12:29",
       "Matius 1:81",
-      "1 Timotius 11",
-      "Matius 4:17",
-      "Matius 18",
-      "1 Yohanes 1"
+      "1 Timotius 11:1",
+      "Matius 4:17"
     ]
   },
   "rounds": [

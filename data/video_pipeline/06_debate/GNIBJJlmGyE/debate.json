@@ -4,8 +4,8 @@
   "corpus_id": "video-2210",
   "youtube_id": "GNIBJJlmGyE",
   "url": "https://www.youtube.com/watch?v=GNIBJJlmGyE",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: GNIBJJlmGyE]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: GNIBJJlmGyE]",
   "original_youtube_title": "SISWA SEKOLAH MINGGU INI SEMOGA GAK JADI P3NGHUJ4T",
   "source_video_title": "SISWA SEKOLAH MINGGU INI SEMOGA GAK JADI P3NGHUJ4T",
   "debate_mode": "zuma_persona",
@@ -14,18 +14,16 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: GNIBJJlmGyE]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 19:16-17 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 19",
-    "Yesaya 5",
-    "Yohanes 16",
-    "Matius 4",
-    "Lukas 2",
-    "Matius 6",
-    "Matius 5",
-    "Yohanes 17"
+    "Matius 19:16-17",
+    "Yesaya 5:20",
+    "Yohanes 16:12-14",
+    "Matius 4:10",
+    "Lukas 2:52",
+    "Matius 6:9-13"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -54,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 19",
-      "Yesaya 5",
-      "Yohanes 16",
-      "Matius 4",
-      "Lukas 2",
-      "Matius 6",
-      "Matius 5",
-      "Yohanes 17"
+      "Matius 19:16-17",
+      "Yesaya 5:20",
+      "Yohanes 16:12-14",
+      "Matius 4:10",
+      "Lukas 2:52",
+      "Matius 6:9-13"
     ]
   },
   "rounds": [

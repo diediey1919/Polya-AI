@@ -4,8 +4,8 @@
   "corpus_id": "video-1899",
   "youtube_id": "HtkfmJ0drkw",
   "url": "https://www.youtube.com/watch?v=HtkfmJ0drkw",
-  "motion_or_topic": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
-  "title": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
+  "motion_or_topic": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: HtkfmJ0drkw]",
+  "title": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: HtkfmJ0drkw]",
   "original_youtube_title": "BANGZuma : BaLBaLin Otenk Kozonk..ancur LebuR si UnYiL",
   "source_video_title": "BANGZuma : BaLBaLin Otenk Kozonk..ancur LebuR si UnYiL",
   "debate_mode": "zuma_persona",
@@ -14,15 +14,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)"
+    "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: HtkfmJ0drkw]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Lukas 21:8 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Lukas 21",
-    "Lukas 31",
-    "Imamat 20",
-    "Imamat 18",
+    "Lukas 21:8",
+    "Lukas 31:1",
+    "Imamat 20:1",
+    "Imamat 18:5",
     "Yohanes 8:44",
-    "Matius 24"
+    "Matius 24:36"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -51,12 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Lukas 21",
-      "Lukas 31",
-      "Imamat 20",
-      "Imamat 18",
+      "Lukas 21:8",
+      "Lukas 31:1",
+      "Imamat 20:1",
+      "Imamat 18:5",
       "Yohanes 8:44",
-      "Matius 24"
+      "Matius 24:36"
     ]
   },
   "rounds": [

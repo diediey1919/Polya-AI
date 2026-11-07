@@ -4,8 +4,8 @@
   "corpus_id": "video-758",
   "youtube_id": "jy_b8we0xwM",
   "url": "https://www.youtube.com/watch?v=jy_b8we0xwM",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: jy_b8we0xwM]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: jy_b8we0xwM]",
   "original_youtube_title": "OTEN JUNTAK MENGAKUI KRISTUS YG DTG KE PAULUS ADALAH SI BILIZIZ",
   "source_video_title": "OTEN JUNTAK MENGAKUI KRISTUS YG DTG KE PAULUS ADALAH SI BILIZIZ",
   "debate_mode": "zuma_persona",
@@ -14,18 +14,16 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: jy_b8we0xwM]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 24:36 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 24",
-    "Matius 7",
-    "Matius 15",
-    "Yohanes 5",
-    "Markus 3",
-    "1 Yohanes 1",
-    "1 Yohanes 2",
-    "Markus 3:21"
+    "Matius 24:36",
+    "Matius 7:21",
+    "Matius 15:24",
+    "Yohanes 5:30",
+    "Markus 3:35",
+    "1 Yohanes 1:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -54,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 24",
-      "Matius 7",
-      "Matius 15",
-      "Yohanes 5",
-      "Markus 3",
-      "1 Yohanes 1",
-      "1 Yohanes 2",
-      "Markus 3:21"
+      "Matius 24:36",
+      "Matius 7:21",
+      "Matius 15:24",
+      "Yohanes 5:30",
+      "Markus 3:35",
+      "1 Yohanes 1:1"
     ]
   },
   "rounds": [

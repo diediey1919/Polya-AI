@@ -4,8 +4,8 @@
   "corpus_id": "video-1884",
   "youtube_id": "32rvhzR2kss",
   "url": "https://www.youtube.com/watch?v=32rvhzR2kss",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: 32rvhzR2kss]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: 32rvhzR2kss]",
   "original_youtube_title": "OTEN VS OTEN : PRIA di kristen bisa MENJANDA sampe 20x..ngakak seRW",
   "source_video_title": "OTEN VS OTEN : PRIA di kristen bisa MENJANDA sampe 20x..ngakak seRW",
   "debate_mode": "zuma_persona",
@@ -14,12 +14,13 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: 32rvhzR2kss]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Daniel 5:25-28 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Daniel 5",
-    "Yohanes 6",
-    "1 Korintus 2"
+    "Daniel 5:25-28",
+    "Yohanes 6:38",
+    "1 Korintus 2:10"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -48,9 +49,9 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Daniel 5",
-      "Yohanes 6",
-      "1 Korintus 2"
+      "Daniel 5:25-28",
+      "Yohanes 6:38",
+      "1 Korintus 2:10"
     ]
   },
   "rounds": [

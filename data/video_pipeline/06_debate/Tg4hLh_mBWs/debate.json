@@ -4,8 +4,8 @@
   "corpus_id": "video-1110",
   "youtube_id": "Tg4hLh_mBWs",
   "url": "https://www.youtube.com/watch?v=Tg4hLh_mBWs",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Peringatan Kanonik Penutup: Eksaminasi Pergeseran Terjemahan Naskah Yunani [Dossier Ref: Tg4hLh_mBWs]",
+  "title": "Peringatan Kanonik Penutup: Eksaminasi Pergeseran Terjemahan Naskah Yunani [Dossier Ref: Tg4hLh_mBWs]",
   "original_youtube_title": "LIVE PANAS //LNDONESIA BERGEMURUH,..APOLOGET SENIOR SI DEMIAN AKHIRNYA MELUK ISLAM",
   "source_video_title": "LIVE PANAS //LNDONESIA BERGEMURUH,..APOLOGET SENIOR SI DEMIAN AKHIRNYA MELUK ISLAM",
   "debate_mode": "zuma_persona",
@@ -14,10 +14,12 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Peringatan Kanonik Penutup: Eksaminasi Pergeseran Terjemahan Naskah Yunani [Dossier Ref: Tg4hLh_mBWs]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Wahyu 22:18-19 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Wahyu 22:18-19"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -44,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Wahyu 22:18-19"
+    ]
   },
   "rounds": [
     {

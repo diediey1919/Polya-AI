@@ -4,8 +4,8 @@
   "corpus_id": "video-1266",
   "youtube_id": "S11KDTNr0YY",
   "url": "https://www.youtube.com/watch?v=S11KDTNr0YY",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: S11KDTNr0YY]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: S11KDTNr0YY]",
   "original_youtube_title": "si OLAN Sdri dr YOGA DIKULIAHIN SAMA BANGZUMA..SEMOGA DAPAT HIDAYAH..AAMIIN",
   "source_video_title": "si OLAN Sdri dr YOGA DIKULIAHIN SAMA BANGZUMA..SEMOGA DAPAT HIDAYAH..AAMIIN",
   "debate_mode": "zuma_persona",
@@ -14,18 +14,16 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: S11KDTNr0YY]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 15:24 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 15",
-    "Lukas 18",
-    "1 Yohanes 5",
-    "Wahyu 5",
-    "Yohanes 4",
-    "Yohanes 4:22",
-    "Yohanes 13",
-    "Yohanes 17"
+    "Matius 15:24",
+    "Lukas 18:18-19",
+    "1 Yohanes 5:7-8",
+    "Wahyu 5:5",
+    "Yohanes 4:21-24",
+    "Yohanes 4:22"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -54,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 15",
-      "Lukas 18",
-      "1 Yohanes 5",
-      "Wahyu 5",
-      "Yohanes 4",
-      "Yohanes 4:22",
-      "Yohanes 13",
-      "Yohanes 17"
+      "Matius 15:24",
+      "Lukas 18:18-19",
+      "1 Yohanes 5:7-8",
+      "Wahyu 5:5",
+      "Yohanes 4:21-24",
+      "Yohanes 4:22"
     ]
   },
   "rounds": [

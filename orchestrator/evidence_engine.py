@@ -65,6 +65,7 @@ class EvidenceItem:
     provenance_hash: str
     witnesses: List[str]
     tokens: List[MorphologicalToken] = field(default_factory=list)
+    translation_comparisons: List[Dict[str, str]] = field(default_factory=list)
     theological_implication: Optional[str] = None
 
     def to_dict(self) -> Dict[str, Any]:
@@ -83,6 +84,7 @@ class EvidenceItem:
                 "en": self.english_translation,
                 "id": self.indonesian_translation
             },
+            "translation_comparisons": self.translation_comparisons,
             "confidence": self.confidence,
             "provenance_hash": self.provenance_hash,
             "witnesses": self.witnesses,
@@ -554,6 +556,138 @@ CANONICAL_PHILOLOGY_KNOWLEDGE: Dict[str, Dict[str, Any]] = {
                 theological_interpretation="Establishes the juridical count of witnesses."
             )
         ]
+    },
+    "Yesaya 9:5": {
+        "book": "Yesaya",
+        "chapter": 9,
+        "verse": 5,
+        "passage_reference": "Yesaya 9:5",
+        "original_language": "Biblical Hebrew",
+        "original_text": "כִּי־יֶ֣לֶד יֻלַּד־לָ֗נוּ בֵּ֚ן נִתַּן־לָ֔נוּ וַתְּהִ֥י הַמִּשְׂרָ֖ה עַל־שִׁכְמ֑וֹ וַיִּקְרָ֨א שְׁמ֜וֹ פֶּ֠לֶא יוֹעֵץ֙ אֵ֣ל גִּבּ֔וֹר אֲבִיעַ֖ד שַׂר־שָׁלֽוֹם׃",
+        "transliteration": "Kî-yeled yullad-lānû, bēn nittan-lānû, wattəhî hammisrāh 'al-šikmô, wayyiqrā šəmô Pele Yô'ēṣ 'Ēl Gibbôr 'Ăḇî'aḏ Śar-Šālôm.",
+        "english": "For unto us a child is born, unto us a son is given; and the government shall be upon his shoulder: and his name shall be called Wonderful Counselor, Mighty Hero/God, Everlasting Father, Prince of Peace.",
+        "indonesian": "Sebab seorang anak telah lahir untuk kita, seorang putera telah diberikan untuk kita; lambang pemerintahan ada di atas bahunya, dan namanya disebutkan orang: Penasihat Ajaib, Allah yang Perkasa, Bapa yang Kekal, Raja Damai.",
+        "tier": EvidenceTier.PRIMARY_SOURCE,
+        "confidence": 0.99,
+        "witnesses": [
+            "Dead Sea Scrolls (1QIsa a, Gua 1 Qumran, Abad II SM)",
+            "Codex Leningradensis (B19a, 1008 M - Teks Masoretik)",
+            "Aleppo Codex (Keter Aram Tzova, Abad X M)",
+            "Septuaginta (LXX Papirus 965 & Codex Vaticanus, Abad III SM - IV M)",
+            "Targum Yonatan (Aramaik Abad I M)"
+        ],
+        "translation_comparisons": [
+            {
+                "version": "Teks Masoretik (BHS Codex Leningradensis & Aleppo Codex)",
+                "reading": "אֵל גִּבּוֹר ('Ēl Gibbôr) — Pahlawan Perkasa / Pemimpin yang Kuat",
+                "notes": "Kata dasar 'el' dalam konteks Semitik Ibrani kuno merujuk pada pahlawan, penguasa, atau hakim perkasa (bdk. Yehezkiel 32:21 'ele gibborim'; Keluaran 15:15 'ele moav'; Mazmur 82:6)."
+            },
+            {
+                "version": "Dead Sea Scrolls (1QIsa a - Naskah Qumran Tertua Abad II SM)",
+                "reading": "אל גבור ('l gbwr) — Identik konsonan dengan Teks Masoretik",
+                "notes": "Saksi tertua pra-Kristen; membuktikan teks konsonantal Ibrani terjaga stabil tanpa interpolasi teologis trinitarian pasca-biblikal."
+            },
+            {
+                "version": "Septuaginta (LXX - Naskah Yunani Kuno Abad III SM)",
+                "reading": "Μεγάλης βουλῆς ἄγγελος (Megales boules angelos) — Utusan Nasihat Agung",
+                "notes": "Para penerjemah Yahudi pra-Kristen TIDAK menerjemahkannya sebagai 'Theos Ischyros' (Allah Perkasa), melainkan 'angelos' (utusan/malaikat), membuktikan teks tidak dipahami sebagai inkarnasi Allah Sang Pencipta."
+            },
+            {
+                "version": "Targum Yonatan (Parafrasa Aramaik Sinagoge Kuno)",
+                "reading": "Dinamakan namanya oleh Dia yang Ajaib Penasihat... pembawa damai",
+                "notes": "Para rabi memahami bahwa gelar-gelar keagungan tersebut adalah sebutan bagi Allah yang memanggil dan melantik sang pangeran pembebas (Hizkia/Mesias)."
+            },
+            {
+                "version": "Terjemahan Baru LAI (Indonesia)",
+                "reading": "Penasihat Ajaib, Allah yang Perkasa, Bapa yang Kekal, Raja Damai",
+                "notes": "Huruf kapital 'Allah yang Perkasa' merupakan pilihan teologis penerjemah modern yang menyamarkan nuansa pahlawan perang manusiawi (gibbor)."
+            },
+            {
+                "version": "King James Version (KJV)",
+                "reading": "Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace",
+                "notes": "Mengikuti tradisi Vulgata Latin (Deus fortis), mencerminkan pembacaan sistemik pasca-Konsili Nicea."
+            }
+        ],
+        "tokens": [
+            MorphologicalToken(
+                surface_form="יֶלֶד",
+                lemma="יֶלֶד (yeled)",
+                part_of_speech="Noun Masculine Singular",
+                morphology="Noun, Masculine Singular Absolute",
+                lexical_meaning="Child, boy, youth (BDB p. 408)",
+                syntactic_role="Grammatical Subject of passive predicate",
+                textual_fact="Yeled denotes a physical human child born in historical time.",
+                linguistic_interpretation="Designates an earthly royal infant (historically Prince Hezekiah in the 8th c. BCE crisis).",
+                theological_interpretation="Establishes that the referent is an earthly human infant, refuting pre-existent divinity."
+            ),
+            MorphologicalToken(
+                surface_form="יֻלַּד",
+                lemma="יָלַד (yalad)",
+                part_of_speech="Verb",
+                morphology="Pual Perfect 3rd Person Masculine Singular",
+                lexical_meaning="To be born, brought forth (BDB p. 408)",
+                syntactic_role="Main passive predicate clause",
+                textual_fact="Pual passive form denoting the historical accomplishment of birth.",
+                linguistic_interpretation="Prophetic perfect tense expressing the absolute certainty of an earthly birth.",
+                theological_interpretation="God causes a child to be born; the child receives existence at birth."
+            ),
+            MorphologicalToken(
+                surface_form="בֵּן",
+                lemma="בֵּן (ben)",
+                part_of_speech="Noun Masculine Singular",
+                morphology="Noun, Masculine Singular Absolute",
+                lexical_meaning="Son, male descendant, royal heir (BDB p. 119)",
+                syntactic_role="Second coordinate grammatical subject",
+                textual_fact="Parallel to yeled in synonymous Hebrew poetic parallelism.",
+                linguistic_interpretation="Dynastic term representing the royal Davidic lineage.",
+                theological_interpretation="Refers to the covenant heir of David."
+            ),
+            MorphologicalToken(
+                surface_form="פֶּלֶא יוֹעֵץ",
+                lemma="פֶּלֶא (pele) + יָעַץ (ya'ats)",
+                part_of_speech="Noun + Participle Active",
+                morphology="Noun Masculine Singular + Qal Participle Masculine Singular",
+                lexical_meaning="Wonder-Counselor, Extraordinary Strategist (BDB p. 810, 419)",
+                syntactic_role="First compound throne name",
+                textual_fact="Pele indicates an extraordinary, wonder-inspiring counsel or plan.",
+                linguistic_interpretation="Construct phrase or apposition denoting exceptional wisdom in military and state governance.",
+                theological_interpretation="Reflects wise administrative and military guidance against the Assyrian crisis."
+            ),
+            MorphologicalToken(
+                surface_form="אֵל גִּבּוֹר",
+                lemma="אֵל ('el) + גִּבּוֹר (gibbor)",
+                part_of_speech="Noun + Adjective",
+                morphology="Noun Masculine Singular + Adjective Masculine Singular",
+                lexical_meaning="Mighty Hero, Valiant Champion, Mighty Ruler (BDB p. 42, 149)",
+                syntactic_role="Second compound throne name",
+                textual_fact="'El in Semitic idiom frequently denotes human rulers, judges, or heroes (cf. Ezekiel 32:21 'ele gibborim; Exodus 15:15 'ele moav; Psalm 82:6).",
+                linguistic_interpretation="Gibbor modifies 'el as warrior/hero; denotes a God-empowered defender of the nation, not ontological deity.",
+                theological_interpretation="Grammatically and idiomatically parallel to warrior-kings; Septuagint ancient translation rendered it as 'angelos' (messenger), not God Almighty."
+            ),
+            MorphologicalToken(
+                surface_form="אֲבִיעַד",
+                lemma="אָב ('av) + עַד ('ad)",
+                part_of_speech="Noun Construct",
+                morphology="Noun Masculine Construct + Noun Masculine Singular",
+                lexical_meaning="Father of eternity / Father of the coming age / Perpetual protector (BDB p. 3, 723)",
+                syntactic_role="Third compound throne name",
+                textual_fact="Idiomatic royal title in Ancient Near East where king is called 'father of his people'.",
+                linguistic_interpretation="Expresses enduring benevolent kingship, protecting subjects perpetually.",
+                theological_interpretation="Kingship idiom for enduring pastoral protection of Israel's citizens."
+            ),
+            MorphologicalToken(
+                surface_form="שַׂר־שָׁלוֹם",
+                lemma="שַׂר (sar) + שָׁלוֹם (shalom)",
+                part_of_speech="Noun Construct",
+                morphology="Noun Masculine Construct + Noun Masculine Singular",
+                lexical_meaning="Prince of Peace, Ruler of Tranquility (BDB p. 978, 1022)",
+                syntactic_role="Fourth compound throne name",
+                textual_fact="Sar denotes a commander, chieftain, prince, or magistrate.",
+                linguistic_interpretation="The ruler who establishes shalom (wholeness, security, absence of war).",
+                theological_interpretation="Prophesies an era of deliverance from war and foreign tyranny."
+            )
+        ],
+        "theological_implication": "Audit filologi forensik membuktikan bahwa Yesaya 9:5 menggunakan idiom monarki Ibrani abad ke-8 SM. Gelar 'El Gibbor' secara gramatika setara dengan 'pahlawan perkasa' (bdk. Yehezkiel 32:21). Saksi Septuaginta (LXX Papirus 965) tertua menerjemahkannya sebagai 'Megales boules angelos' (Utusan Nasihat Agung), membuktikan tidak adanya klaim keilahian ontologis inkarnatif dalam teks sumber asli."
     }
 }
 
@@ -682,6 +816,12 @@ class EvidenceEngine:
                     or ("visi petrus" in q_lower or "penglihatan petrus" in q_lower)
                     or ("korban" in q_lower and "halal" in q_lower)
                 )
+            elif ref in ("Yesaya 9:5", "Yesaya 9:6", "Yesaya 9"):
+                return (
+                    "yesaya 9" in q_lower
+                    or ("yesaya" in q_lower and any(w in q_lower for w in ["9:5", "9:6", "9", "anak", "lahir", "putera"]))
+                    or any(w in q_lower for w in ["el gibbor", "allah yang perkasa", "penasihat ajaib", "pele yoetz", "sar shalom", "raja damai", "bapa yang kekal"])
+                )
             return False
 
         for ref, data in CANONICAL_PHILOLOGY_KNOWLEDGE.items():
@@ -704,6 +844,7 @@ class EvidenceEngine:
                     provenance_hash=prov_hash,
                     witnesses=data["witnesses"],
                     tokens=data["tokens"],
+                    translation_comparisons=data.get("translation_comparisons", []),
                     theological_implication=(
                         f"Canonical manuscript witness: {ref}. Contextually relevant to claim premises."
                     )
@@ -916,10 +1057,13 @@ class EvidenceEngine:
         for ref, data in CANONICAL_PHILOLOGY_KNOWLEDGE.items():
             if ref.lower() == passage_reference.lower():
                 prov_hash = self._generate_provenance_hash(ref, data["original_text"], data["tier"].value)
+                is_hebrew = data.get("original_language") == "Biblical Hebrew"
+                source_title = "Biblia Hebraica Stuttgartensia (BHS) & Dead Sea Scrolls" if is_hebrew else "Greek New Testament (NA28/UBS5) & Critical Apparatus"
+                loc_title = f"Biblia Hebraica / {data['book']} Chapter {data['chapter']}:{data['verse']}" if is_hebrew else f"Biblia Graeca / {data['book']} Chapter {data['chapter']}:{data['verse']}"
                 return {
-                    "source": f"Greek New Testament (NA28/UBS5) & Critical Apparatus",
+                    "source": source_title,
                     "passage_reference": ref,
-                    "location": f"Biblia Graeca / {data['book']} Chapter {data['chapter']}:{data['verse']}",
+                    "location": loc_title,
                     "original_text": data["original_text"],
                     "transliteration": data["transliteration"],
                     "indonesian": data["indonesian"],

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "video_id": "hJci2BInAvQ",
-  "motion_or_topic": "Hukum Makanan Halal/Haram (Imamat 11 vs Kisah 10) & Otoritas Perintah Rasuli",
+  "motion_or_topic": "Hukum Makanan Halal/Haram (Imamat 11:7-8 vs Kisah Para Rasul 10:14-15) & Otoritas Perintah Rasuli",
   "debate_mode": "zuma_persona",
   "persona_id": "zuma_debate_v1",
   "persona_intensity": 0.8,
@@ -22,7 +22,15 @@
   "grounding_rules": {
     "strict_knowledge_only": true,
     "zero_hallucination_enforced": true,
-    "provenance_required": true
+    "provenance_required": true,
+    "biblical_references": [
+      "Imamat 11:7-8",
+      "1 Korintus 3:1",
+      "1 Korintus 13:1",
+      "Mazmur 66:18",
+      "Yesaya 66:1",
+      "Keluaran 31:1"
+    ]
   },
   "rounds": [
     {
@@ -479,26 +487,22 @@
   "corpus_id": "video-010",
   "youtube_id": "hJci2BInAvQ",
   "url": "https://www.youtube.com/watch?v=hJci2BInAvQ",
-  "title": "Hukum Makanan Halal/Haram (Imamat 11 vs Kisah 10) & Otoritas Perintah Rasuli",
+  "title": "Hukum Makanan Halal/Haram (Imamat 11:7-8 vs Kisah Para Rasul 10:14-15) & Otoritas Perintah Rasuli",
   "original_youtube_title": "VIRALKAN..PDT. MEDIAMAN krn SOMBONG AKHIRNYA DIBUBUKIN BANGZUMA..KABUR MEMBAWA MALU 7 TURUNAN",
   "source_video_title": "VIRALKAN..PDT. MEDIAMAN krn SOMBONG AKHIRNYA DIBUBUKIN BANGZUMA..KABUR MEMBAWA MALU 7 TURUNAN",
   "category": "Polemik Teologi Paulus vs Hukum Taurat",
   "cluster_theme": "Polemik Teologi Paulus vs Hukum Taurat",
   "passages": [
-    "1 Korintus 3",
-    "1 Korintus 13",
-    "Mazmur 66",
-    "Yesaya 66",
+    "Imamat 11:7-8",
+    "1 Korintus 3:1",
+    "1 Korintus 13:1",
+    "Mazmur 66:18",
     "Yesaya 66:1",
-    "Keluaran 31",
-    "Kejadian 17",
-    "Markus 25",
-    "Matius 25",
-    "Wahyu 19"
+    "Keluaran 31:1"
   ],
   "sub_motions": [
-    "Pengujian Eksegesis Verbatim Terhadap Mosi 'Hukum Makanan Halal/Haram (Imamat 11 vs Kisah 10) & Otoritas Perintah Rasuli'",
-    "Dekonstruksi Premis Lawan Berdasarkan Konsistensi Kanon Naskah Bible"
+    "Hukum Makanan Halal/Haram (Imamat 11:7-8 vs Kisah Para Rasul 10:14-15) & Otoritas Perintah Rasuli",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Imamat 11:7-8 Melalui Metode Ilzam al-Khasm"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT"

@@ -14,19 +14,17 @@
   "category": "Kristologi & Kemanusiaan Yesus",
   "cluster_theme": "Kristologi & Kemanusiaan Yesus",
   "sub_motions": [
-    "Eksegesis Kata 'Hen' (Satu): Kesatuan Visi dan Tujuan Misi vs Kesatuan Substansi Ontologis",
-    "Eksaminasi Yohanes 17:21 Mengenai Murid-Murid Menjadi Satu Sama Seperti Bapa dan Anak",
-    "Eksaminasi Peran Roh Kudus dalam Membimbing Para Nabi Sepanjang Sejarah Kitab Suci"
+    "Klaim Keesaan Yohanes 10:30 vs Hierarki Ketuhanan Bapa Lebih Besar dari Yesus (Yohanes 14:28)",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 10:30 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Yohanes 10:30"
   ],
   "passages": [
+    "Yohanes 10:30",
     "Kejadian 3:15",
-    "Kejadian 1",
-    "Kejadian 21",
-    "Kejadian 3",
-    "Kejadian 23",
-    "Yohanes 6",
-    "Yohanes 13",
-    "Amsal 21:18"
+    "Kejadian 1:26-27",
+    "Kejadian 21:12-13",
+    "Kejadian 23:1",
+    "Yohanes 6:38"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
+      "Yohanes 10:30",
       "Kejadian 3:15",
-      "Kejadian 1",
-      "Kejadian 21",
-      "Kejadian 3",
-      "Kejadian 23",
-      "Yohanes 6",
-      "Yohanes 13",
-      "Amsal 21:18"
+      "Kejadian 1:26-27",
+      "Kejadian 21:12-13",
+      "Kejadian 23:1",
+      "Yohanes 6:38"
     ]
   },
   "rounds": [

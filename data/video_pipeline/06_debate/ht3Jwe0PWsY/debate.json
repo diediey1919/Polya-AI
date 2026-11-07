@@ -4,8 +4,8 @@
   "corpus_id": "video-1469",
   "youtube_id": "ht3Jwe0PWsY",
   "url": "https://www.youtube.com/watch?v=ht3Jwe0PWsY",
-  "motion_or_topic": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus",
-  "title": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus",
+  "motion_or_topic": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus [Dossier Ref: ht3Jwe0PWsY]",
+  "title": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus [Dossier Ref: ht3Jwe0PWsY]",
   "original_youtube_title": "KATA 73505 OTENK ADALAH ...????",
   "source_video_title": "KATA 73505 OTENK ADALAH ...????",
   "debate_mode": "zuma_persona",
@@ -14,13 +14,15 @@
   "category": "Polemik Teologi Paulus vs Hukum Taurat",
   "cluster_theme": "Polemik Teologi Paulus vs Hukum Taurat",
   "sub_motions": [
-    "Taurat Musa Sebagai Perjanjian Kekal Sepanjang Keturunan Umat Terpilih"
+    "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus [Dossier Ref: ht3Jwe0PWsY]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Kejadian 17:10 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
+    "Kejadian 17:10",
     "Kisah Para Rasul 13:23",
-    "Matius 7",
-    "Matius 15",
-    "Matius 23"
+    "Matius 7:21",
+    "Matius 15:24",
+    "Matius 23:1-3"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -49,10 +51,11 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
+      "Kejadian 17:10",
       "Kisah Para Rasul 13:23",
-      "Matius 7",
-      "Matius 15",
-      "Matius 23"
+      "Matius 7:21",
+      "Matius 15:24",
+      "Matius 23:1-3"
     ]
   },
   "rounds": [

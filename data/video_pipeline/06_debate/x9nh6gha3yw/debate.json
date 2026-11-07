@@ -4,8 +4,8 @@
   "corpus_id": "video-2080",
   "youtube_id": "x9nh6gha3yw",
   "url": "https://www.youtube.com/watch?v=x9nh6gha3yw",
-  "motion_or_topic": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
-  "title": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
+  "motion_or_topic": "Sujud Menghadap Rumah Kudus Menegakkan Ketauhidan Murni Tanpa Berhala Berdasarkan Teks Mazmur 138:2 [Dossier Ref: x9nh6gha3yw]",
+  "title": "Sujud Menghadap Rumah Kudus Menegakkan Ketauhidan Murni Tanpa Berhala Berdasarkan Teks Mazmur 138:2 [Dossier Ref: x9nh6gha3yw]",
   "original_youtube_title": "masjid NUR MAULIDA 16 april 2022",
   "source_video_title": "masjid NUR MAULIDA 16 april 2022",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Metode Ilzam al-Khasm: Meruntuhkan Inkonsistensi Klaim Berdasarkan Rujukan Teks Kitab Lawan"
+    "Sujud Menghadap Rumah Kudus Menegakkan Ketauhidan Murni Tanpa Berhala Berdasarkan Teks Mazmur 138:2 [Dossier Ref: x9nh6gha3yw]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Mazmur 138:2 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Mazmur 138:2"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Mazmur 138:2"
+    ]
   },
   "rounds": [
     {

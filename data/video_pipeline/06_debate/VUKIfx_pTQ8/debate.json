@@ -4,8 +4,8 @@
   "corpus_id": "video-1594",
   "youtube_id": "VUKIfx_pTQ8",
   "url": "https://www.youtube.com/watch?v=VUKIfx_pTQ8",
-  "motion_or_topic": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
-  "title": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
+  "motion_or_topic": "Metode Forensik Jemaat Berea: Meneliti Konsistensi Kitab Suci Setiap Hari Melalui Eksaminasi Teks Kisah Para Rasul 17:11 [Dossier Ref: VUKIfx_pTQ8]",
+  "title": "Metode Forensik Jemaat Berea: Meneliti Konsistensi Kitab Suci Setiap Hari Melalui Eksaminasi Teks Kisah Para Rasul 17:11 [Dossier Ref: VUKIfx_pTQ8]",
   "original_youtube_title": "GEJALA AWALNYA GIMANA BROO.....???",
   "source_video_title": "GEJALA AWALNYA GIMANA BROO.....???",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Metode Ilzam al-Khasm: Meruntuhkan Inkonsistensi Klaim Berdasarkan Rujukan Teks Kitab Lawan"
+    "Metode Forensik Jemaat Berea: Meneliti Konsistensi Kitab Suci Setiap Hari Melalui Eksaminasi Teks Kisah Para Rasul 17:11 [Dossier Ref: VUKIfx_pTQ8]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Kisah Para Rasul 17:11 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Kisah Para Rasul 17:11"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Kisah Para Rasul 17:11"
+    ]
   },
   "rounds": [
     {

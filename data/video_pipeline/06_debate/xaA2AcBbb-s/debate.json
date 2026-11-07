@@ -4,8 +4,8 @@
   "corpus_id": "video-2123",
   "youtube_id": "xaA2AcBbb-s",
   "url": "https://www.youtube.com/watch?v=xaA2AcBbb-s",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: xaA2AcBbb-s]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: xaA2AcBbb-s]",
   "original_youtube_title": "P3NGHUJ@T DAN MURT@D!N INI BAB@K B3LUR K@BUR M@LU",
   "source_video_title": "P3NGHUJ@T DAN MURT@D!N INI BAB@K B3LUR K@BUR M@LU",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: xaA2AcBbb-s]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Bilangan 22:28 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Bilangan 22:28"
   ],
   "passages": [
-    "Bilangan 22",
-    "Lukas 19",
-    "Yohanes 17",
-    "Ulangan 4",
-    "Ulangan 12",
-    "Ulangan 3",
-    "Wahyu 22",
-    "Matius 25"
+    "Bilangan 22:28",
+    "Lukas 19:10",
+    "Yohanes 17:3",
+    "Ulangan 4:2",
+    "Ulangan 12:1",
+    "Ulangan 3:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Bilangan 22",
-      "Lukas 19",
-      "Yohanes 17",
-      "Ulangan 4",
-      "Ulangan 12",
-      "Ulangan 3",
-      "Wahyu 22",
-      "Matius 25"
+      "Bilangan 22:28",
+      "Lukas 19:10",
+      "Yohanes 17:3",
+      "Ulangan 4:2",
+      "Ulangan 12:1",
+      "Ulangan 3:1"
     ]
   },
   "rounds": [

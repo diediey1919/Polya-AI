@@ -4,8 +4,8 @@
   "corpus_id": "video-1044",
   "youtube_id": "XmN0NHvc0Dw",
   "url": "https://www.youtube.com/watch?v=XmN0NHvc0Dw",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: XmN0NHvc0Dw]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: XmN0NHvc0Dw]",
   "original_youtube_title": "OTEN INI NGAMUK SETELAH TAHU  TUHANNYA DUDUK DIATAS KURSI RODA API..",
   "source_video_title": "OTEN INI NGAMUK SETELAH TAHU  TUHANNYA DUDUK DIATAS KURSI RODA API..",
   "debate_mode": "zuma_persona",
@@ -14,12 +14,13 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: XmN0NHvc0Dw]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah 2 Tesalonika 1:8 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "2 Tesalonika 1",
-    "Daniel 7",
-    "Wahyu 1"
+    "2 Tesalonika 1:8",
+    "Daniel 7:13-14",
+    "Wahyu 1:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -48,9 +49,9 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "2 Tesalonika 1",
-      "Daniel 7",
-      "Wahyu 1"
+      "2 Tesalonika 1:8",
+      "Daniel 7:13-14",
+      "Wahyu 1:1"
     ]
   },
   "rounds": [

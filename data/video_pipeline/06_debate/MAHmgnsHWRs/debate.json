@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "video_id": "MAHmgnsHWRs",
-  "motion_or_topic": "Doktrin Tubuh Kristus (1 Korintus 12 / Efesus 5) vs Nubuatan Kristus Palsu (Matius 24)",
+  "motion_or_topic": "Doktrin Tubuh Kristus (1 Korintus 12:27 / Efesus 5:30-32) vs Nubuatan Kristus Palsu (Matius 24:4-5)",
   "debate_mode": "zuma_persona",
   "persona_id": "zuma_debate_v1",
   "persona_intensity": 0.8,
@@ -22,7 +22,15 @@
   "grounding_rules": {
     "strict_knowledge_only": true,
     "zero_hallucination_enforced": true,
-    "provenance_required": true
+    "provenance_required": true,
+    "biblical_references": [
+      "1 Korintus 12:27",
+      "Roma 8:1",
+      "Efesus 5:30-32",
+      "1 Korintus 6:1",
+      "Efesus 5:30",
+      "Markus 13:1"
+    ]
   },
   "rounds": [
     {
@@ -479,26 +487,22 @@
   "corpus_id": "video-002",
   "youtube_id": "MAHmgnsHWRs",
   "url": "https://www.youtube.com/watch?v=MAHmgnsHWRs",
-  "title": "Doktrin Tubuh Kristus (1 Korintus 12 / Efesus 5) vs Nubuatan Kristus Palsu (Matius 24)",
+  "title": "Doktrin Tubuh Kristus (1 Korintus 12:27 / Efesus 5:30-32) vs Nubuatan Kristus Palsu (Matius 24:4-5)",
   "original_youtube_title": "PENDETA KAROLINA DAN JEMAATNYA DIBUAT TERSUNGKUR OLEH BANGZUMA..MEREKA TERBUKTI KRISTUS PALSU",
   "source_video_title": "PENDETA KAROLINA DAN JEMAATNYA DIBUAT TERSUNGKUR OLEH BANGZUMA..MEREKA TERBUKTI KRISTUS PALSU",
   "category": "Kristologi & Kemanusiaan Yesus",
   "cluster_theme": "Kristologi & Kemanusiaan Yesus",
   "passages": [
-    "Roma 8",
-    "1 Korintus 12",
-    "Efesus 5",
     "1 Korintus 12:27",
-    "1 Korintus 6",
+    "Roma 8:1",
+    "Efesus 5:30-32",
+    "1 Korintus 6:1",
     "Efesus 5:30",
-    "Markus 13",
-    "Yohanes 12",
-    "Roma 14",
-    "Keluaran 7"
+    "Markus 13:1"
   ],
   "sub_motions": [
-    "Pengujian Eksegesis Verbatim Terhadap Mosi 'Doktrin Tubuh Kristus (1 Korintus 12 / Efesus 5) vs Nubuatan Kristus Palsu (Matius 24)'",
-    "Dekonstruksi Premis Lawan Berdasarkan Konsistensi Kanon Naskah Bible"
+    "Doktrin Tubuh Kristus (1 Korintus 12:27 / Efesus 5:30-32) vs Nubuatan Kristus Palsu (Matius 24:4-5)",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah 1 Korintus 12:27 Melalui Metode Ilzam al-Khasm"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT"

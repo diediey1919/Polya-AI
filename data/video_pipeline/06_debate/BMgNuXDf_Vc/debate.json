@@ -4,8 +4,8 @@
   "corpus_id": "video-1683",
   "youtube_id": "BMgNuXDf_Vc",
   "url": "https://www.youtube.com/watch?v=BMgNuXDf_Vc",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: BMgNuXDf_Vc]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: BMgNuXDf_Vc]",
   "original_youtube_title": "SANG PENGIKUT BINTANG TIMUR...NGAMUK DAN FREMING",
   "source_video_title": "SANG PENGIKUT BINTANG TIMUR...NGAMUK DAN FREMING",
   "debate_mode": "zuma_persona",
@@ -14,15 +14,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: BMgNuXDf_Vc]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yesaya 14:12 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
     "Yesaya 14:12",
-    "Yesaya 14",
-    "Bilangan 14",
-    "Wahyu 22",
+    "Yesaya 14:12-14",
+    "Bilangan 14:1",
+    "Wahyu 22:18-19",
     "Matius 2:41",
-    "Matius 24"
+    "Matius 24:36"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -52,11 +53,11 @@
     "canonical_naming_enforced": true,
     "biblical_references": [
       "Yesaya 14:12",
-      "Yesaya 14",
-      "Bilangan 14",
-      "Wahyu 22",
+      "Yesaya 14:12-14",
+      "Bilangan 14:1",
+      "Wahyu 22:18-19",
       "Matius 2:41",
-      "Matius 24"
+      "Matius 24:36"
     ]
   },
   "rounds": [

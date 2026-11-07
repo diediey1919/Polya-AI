@@ -4,8 +4,8 @@
   "corpus_id": "video-1802",
   "youtube_id": "7sNKIG2srJ4",
   "url": "https://www.youtube.com/watch?v=7sNKIG2srJ4",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: 7sNKIG2srJ4]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: 7sNKIG2srJ4]",
   "original_youtube_title": "PENGHUJAT INI DI SLEDING GUNTING OLEH BANGZUMA DGN KONSEP NYEMBAH 2 batu ZAKAR",
   "source_video_title": "PENGHUJAT INI DI SLEDING GUNTING OLEH BANGZUMA DGN KONSEP NYEMBAH 2 batu ZAKAR",
   "debate_mode": "zuma_persona",
@@ -14,15 +14,15 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: 7sNKIG2srJ4]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yesaya 6:3 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Yesaya 6",
-    "Kolose 2",
-    "Filipi 2",
-    "Roma 10",
-    "1 Korintus 9",
+    "Yesaya 6:3",
+    "Kolose 2:9",
+    "Filipi 2:5-8",
+    "Roma 10:9",
+    "1 Korintus 9:20",
     "Keluaran 2:91"
   ],
   "extracted_from_transcript": true,
@@ -52,11 +52,11 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yesaya 6",
-      "Kolose 2",
-      "Filipi 2",
-      "Roma 10",
-      "1 Korintus 9",
+      "Yesaya 6:3",
+      "Kolose 2:9",
+      "Filipi 2:5-8",
+      "Roma 10:9",
+      "1 Korintus 9:20",
       "Keluaran 2:91"
     ]
   },

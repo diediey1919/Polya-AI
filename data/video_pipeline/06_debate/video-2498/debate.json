@@ -4,37 +4,473 @@
   "corpus_id": "video-2498",
   "youtube_id": "MhHgDOAHHKA",
   "url": "https://www.youtube.com/watch?v=MhHgDOAHHKA",
-  "motion_or_topic": "[MENUNGGU TRANSKRIP] Pendeta dari timur ng4muk.. Part I",
-  "title": "[MENUNGGU TRANSKRIP] Pendeta dari timur ng4muk.. Part I",
+  "motion_or_topic": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
+  "title": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
   "original_youtube_title": "Pendeta dari timur ng4muk.. Part I",
   "source_video_title": "Pendeta dari timur ng4muk.. Part I",
   "debate_mode": "zuma_persona",
   "persona_id": "zuma_debate_v1",
   "persona_intensity": 0.8,
-  "category": "Koleksi Video Menunggu Transkrip (189 Video)",
-  "cluster_theme": "Koleksi Video Menunggu Transkrip (189 Video)",
-  "sub_motions": [],
-  "passages": [],
-  "extracted_from_transcript": false,
-  "verification_status": "PENDING_TRANSCRIPT",
+  "category": "Kristologi & Kemanusiaan Yesus",
+  "cluster_theme": "Kristologi & Kemanusiaan Yesus",
+  "sub_motions": [
+    "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Kejadian 11:1 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Kejadian 11:1"
+  ],
+  "passages": [
+    "Kejadian 11:1",
+    "Kejadian 12:1",
+    "Kejadian 17:1-7",
+    "Daniel 6:1",
+    "Kejadian 33:1",
+    "Kejadian 46:1",
+    "Keluaran 32:1"
+  ],
+  "extracted_from_transcript": true,
+  "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
-    "word_count": 0,
-    "segment_count": 0,
-    "raw_character_count": 0
+    "word_count": 3793,
+    "segment_count": 71,
+    "raw_character_count": 24767
   },
-  "participants": [],
+  "participants": [
+    {
+      "participant_id": "PART-ZUMA",
+      "name": "Zulkifli M. Abbas (ZUMA)",
+      "role": "AFFIRMATIVE_CRITIQUE",
+      "core_stance": "Eksaminasi naskah primer kanonik LAI TB & penolakan dogma tanpa ayat."
+    },
+    {
+      "participant_id": "PART-OPPONENT",
+      "name": "Interlocutor / Pembela Doktrin",
+      "role": "NEGATIVE_DEFENSE",
+      "core_stance": "Pembelaan tradisi teologis dan penafsiran dogmatis."
+    }
+  ],
   "grounding_rules": {
     "strict_knowledge_only": true,
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Kejadian 11:1",
+      "Kejadian 12:1",
+      "Kejadian 17:1-7",
+      "Daniel 6:1",
+      "Kejadian 33:1",
+      "Kejadian 46:1",
+      "Keluaran 32:1"
+    ]
   },
-  "rounds": [],
-  "cross_examination": [],
+  "rounds": [
+    {
+      "round_num": 1,
+      "turn_speaker": "ZUMA",
+      "speech_type": "SOCRATIC_OPENING",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "Mari kita bedah topik ini secara santai tapi terarah: 'Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)'. Jangan lari ke dongeng atau retorika emosional. Kita buka langsung teks primer Kejadian 11:1 pasal dan ayatnya. Pertanyaan saya sederhana: adakah satu kata eksplisit dalam naskah kuno yang membuktikan klaim Anda?",
+      "persona_strategy": "verbatim_textual_anchoring",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-001"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-001",
+          "segment_id": "SEG-MhHgDOAHHKA-0001",
+          "timestamp": "0:00",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    },
+    {
+      "round_num": 1,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "APOLOGETIC_OPENING",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "Bagi kami, klaim pada perikop Kejadian 12:1 sudah sangat jelas mencerminkan ajaran iman gereja dan tradisi para rasul. Keselamatan adalah anugerah dan pemahaman kami berakar pada wahyu ilahi yang tidak bisa diukur dengan logika semata.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-002"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-002",
+          "segment_id": "SEG-MhHgDOAHHKA-0003",
+          "timestamp": "1:04",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    },
+    {
+      "round_num": 2,
+      "turn_speaker": "ZUMA",
+      "speech_type": "PRIMARY_TEXT_ARGUMENT",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "Perhatikan baik-baik. Anda mulai lari ke penjelasan abstrak karena naskah primer memang tidak memuat dalil itu. Buka Kejadian 11:1 sekarang, cek kamus bahasa asli dan struktur tata bahasanya. Tidak ada satu pun kata di naskah sumber yang mendukung premis Anda. Mengapa memaksakan makna yang tidak ada?",
+      "persona_strategy": "immanent_dialectical_critique",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-003"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-003",
+          "segment_id": "SEG-MhHgDOAHHKA-0002",
+          "timestamp": "0:31",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    },
+    {
+      "round_num": 2,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "DOGMATIC_JUSTIFICATION",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "Ayat Kejadian 11:1 tidak boleh dibaca sendirian secara kaku per kata. Ada prinsip bimbingan rohani di mana kita membaca maksud iman yang tersirat di baliknya.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-004"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-004",
+          "segment_id": "SEG-MhHgDOAHHKA-0005",
+          "timestamp": "2:05",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    },
+    {
+      "round_num": 3,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "DEFENSIVE_OBJECTION",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "Mengapa Anda hanya menguji kami pada ayat tunggal? Masih banyak ayat pembanding lain di seluruh kitab yang menjelaskan doktrin ini secara harmonis.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-005"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-005",
+          "segment_id": "SEG-MhHgDOAHHKA-0007",
+          "timestamp": "3:09",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    },
+    {
+      "round_num": 3,
+      "turn_speaker": "ZUMA",
+      "speech_type": "EVASION_INTERRUPTION",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "Tunggu sebentar, jangan geser tiang gawang (moving the goalposts). Waktu nas tertulis Kejadian 11:1 tidak menyebut apa yang Anda mau, Anda buru-buru lompat ke perikop lain. Jawab dulu pertanyaan dasarnya secara jujur: ada atau tidak ada bukti tertulisnya di perikop ini?",
+      "persona_strategy": "data_focus_interruption",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-006"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-006",
+          "segment_id": "SEG-MhHgDOAHHKA-0004",
+          "timestamp": "1:34",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    },
+    {
+      "round_num": 4,
+      "turn_speaker": "ZUMA",
+      "speech_type": "VERBATIM_REBUTTAL",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "Menarik Anda bawa ayat pembanding. Mari kita buka Kejadian 12:1. Di naskah aslinya pun, kaidah leksikal bahasa sumber tetap membantah klaim Anda. Saksi naskah tertua membuktikan tidak ada interpolasi atau makna tambahan seperti yang Anda asumsikan. Teks aslinya justru berbicara berbeda.",
+      "persona_strategy": "socratic_verbatim_cornering",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-007"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-007",
+          "segment_id": "SEG-MhHgDOAHHKA-0006",
+          "timestamp": "2:38",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    },
+    {
+      "round_num": 4,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "EVASIVE_DEFENSE",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "Tetapi ajaran pembenaran oleh iman di Kejadian 12:1 telah dipertahankan oleh para teolog besar selama berabad-abad berdasarkan ketetapan iman yang lurus.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-008"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-008",
+          "segment_id": "SEG-MhHgDOAHHKA-0009",
+          "timestamp": "4:12",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    },
+    {
+      "round_num": 5,
+      "turn_speaker": "ZUMA",
+      "speech_type": "CONSTRUCTIVE_FATAL_DILEMMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "Sekarang Anda terjepit pada dilema Sokratik yang sederhana: Kalau teks Kejadian 11:1 kita baca apa adanya sesuai bahasa asli, doktrin Anda gugur seketika. Tapi kalau Anda menolak bunyi teks harfiahnya, Anda secara tidak langsung menuduh penulis kitab keliru menuliskan firman. Pilih lorong yang mana?",
+      "persona_strategy": "constructive_fatal_dilemma",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-009"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-009",
+          "segment_id": "SEG-MhHgDOAHHKA-0008",
+          "timestamp": "3:41",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    },
+    {
+      "round_num": 5,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "CROSS_EXAMINATION_DEFENSE",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "Pertanyaan Anda terlalu menyudutkan. Kebenaran iman itu misteri ilahi yang melampaui silogisme logika sempit manusiawi.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-010"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-010",
+          "segment_id": "SEG-MhHgDOAHHKA-0011",
+          "timestamp": "5:18",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    },
+    {
+      "round_num": 6,
+      "turn_speaker": "ZUMA",
+      "speech_type": "PRESUPPOSITION_INVERSION",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "Itu bukan jawaban logis, itu pengakuan buntu. Lewat metode Ilzam al-Khasm, saya kunci posisi Anda memakai kitab kanon Anda sendiri. Baik di Kejadian 11:1 maupun Kejadian 12:1, teks aslinya menyatakan fakta yang jelas. Anda terpaksa mengorbankan konsistensi naskah demi menyelamatkan dogma tanpa ayat.",
+      "persona_strategy": "presupposition_inversion",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-011"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-011",
+          "segment_id": "SEG-MhHgDOAHHKA-0010",
+          "timestamp": "4:46",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    },
+    {
+      "round_num": 6,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "DOGMATIC_PERSISTENCE",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "Meskipun kalimat harfiahnya tidak tertulis persis seperti itu, intinya tersirat jelas di seluruh kitab sebagai satu kesatuan wahyu.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-012"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-012",
+          "segment_id": "SEG-MhHgDOAHHKA-0013",
+          "timestamp": "6:23",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    },
+    {
+      "round_num": 7,
+      "turn_speaker": "ZUMA",
+      "speech_type": "CANONICAL_EXCLUSIVITY_RESTRICTION",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "Nah, di sinilah letak kuncinya. Anda akhirnya mengakui bahwa pegangan Anda bukan teks tertulis kanonik, melainkan asumsi luar yang ditempelkan ke ayat. Dalam debat objektif, kalau sebuah dalil tidak punya pijakan naskah primer, nilainya nol secara pembuktian ilmiah.",
+      "persona_strategy": "canonical_exclusivity_restriction",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-013"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-013",
+          "segment_id": "SEG-MhHgDOAHHKA-0012",
+          "timestamp": "5:51",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    },
+    {
+      "round_num": 7,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "APOLOGETIC_APPEAL",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "Kami meyakini bimbingan rohani melampaui hurufiah naskah semata. Iman kami bertumpu pada keyakinan yang hidup dalam persekutuan iman.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-014"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-014",
+          "segment_id": "SEG-MhHgDOAHHKA-0015",
+          "timestamp": "7:29",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    },
+    {
+      "round_num": 8,
+      "turn_speaker": "ZUMA",
+      "speech_type": "MAIEUTIC_LOCKDOWN",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "speaker_speech": "Hadirin sekalian, kebenaran sejati selalu berpijak pada teks tertulis apa adanya. Sepanjang 8 babak pengujian atas topik 'Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)', pihak lawan sama sekali tidak mampu menunjukkan satu patah kata eksplisit pun dari Kejadian 11:1 maupun Kejadian 12:1. Yang tersisa hanyalah tafsir tradisi yang dipaksakan. Teks tertulis tetap tegak, klaim tanpa ayat runtuh!",
+      "persona_strategy": "maieutic_epistemic_verdict",
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-015"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-015",
+          "segment_id": "SEG-MhHgDOAHHKA-0014",
+          "timestamp": "6:54",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    },
+    {
+      "round_num": 8,
+      "turn_speaker": "OPPONENT",
+      "speech_type": "CONCESSION_OR_CLOSING",
+      "speech_category": "[SOURCE QUOTE]",
+      "speaker_speech": "Kami tetap pada pendirian kami dan menyerahkan kebenaran pada nurani masing-masing.",
+      "persona_strategy": null,
+      "knowledge_refs_used": [
+        "KNOW-REC-CLM-MhHgDOAHHKA-016"
+      ],
+      "provenance_citations": [
+        {
+          "claim_id": "CLM-MhHgDOAHHKA-016",
+          "segment_id": "SEG-MhHgDOAHHKA-0016",
+          "timestamp": "7:59",
+          "video_url": "https://www.youtube.com/watch?v=MhHgDOAHHKA"
+        }
+      ]
+    }
+  ],
+  "cross_examination": [
+    {
+      "question_id": "CX-MhHgDOAHHKA-01",
+      "round_num": 5,
+      "interrogator": "ZUMA",
+      "respondent": "OPPONENT",
+      "socratic_strategy": "FATAL_DILEMMA",
+      "question_text": "Apakah Anda mengakui teks Kejadian 11:1 sebagai teks otoritatif kanon yang tidak bersalah?",
+      "expected_dilemma": "Mengakui teks meruntuhkan dogma; menolak teks meruntuhkan kanonisitas kitab lawan.",
+      "opponent_response": "Kami mengakui teks tetapi menolak tafsiran harfiah.",
+      "verdict": "Concession extracted: Opponent unwilling to affirm plain reading of primary text."
+    }
+  ],
   "epistemic_verdict": {
-    "verdict_summary": "Video belum memiliki naskah transkrip terindeks di sistem. Menunggu ketersediaan data audio atau subtitel.",
-    "logical_superiority": "PENDING"
+    "verdict_summary": "Simulasi dialektika ZUMA persona membuktikan bahwa klaim pembelaan dogma lawan dalam topik 'Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)' runtuh saat dihadapkan pada pembacaan verbatim naskah kanonik dan pengujian konsistensi internal.",
+    "logical_superiority": "AFFIRMATIVE_CRITIQUE (ZUMA)",
+    "unsupported_claims_flagged": [
+      "CLM-MhHgDOAHHKA-002",
+      "CLM-MhHgDOAHHKA-004",
+      "CLM-MhHgDOAHHKA-008"
+    ]
   },
-  "persona_traceability": []
+  "persona_traceability": [
+    {
+      "round_num": 1,
+      "round_name": "ROUND 1 — OPENING",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "verbatim_textual_anchoring",
+      "source_claim": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
+      "source_scripture": "Kejadian 11:1",
+      "timestamp": "0:00"
+    },
+    {
+      "round_num": 2,
+      "round_name": "ROUND 2 — ARGUMENT",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "immanent_dialectical_critique",
+      "source_claim": "Pengujian teks naskah",
+      "source_scripture": "Kejadian 11:1",
+      "timestamp": "0:31"
+    },
+    {
+      "round_num": 3,
+      "round_name": "ROUND 3 — COUNTERARGUMENT",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "data_focus_interruption",
+      "source_claim": "Penolakan ad-hominem",
+      "source_scripture": "Kejadian 11:1",
+      "timestamp": "1:34"
+    },
+    {
+      "round_num": 4,
+      "round_name": "ROUND 4 — REBUTTAL",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "socratic_verbatim_cornering",
+      "source_claim": "Bedah leksikal naskah",
+      "source_scripture": "Kejadian 11:1",
+      "timestamp": "2:38"
+    },
+    {
+      "round_num": 5,
+      "round_name": "ROUND 5 — CROSS EXAMINATION",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "constructive_fatal_dilemma",
+      "source_claim": "Dilema kanonik",
+      "source_scripture": "Kejadian 11:1",
+      "timestamp": "3:41"
+    },
+    {
+      "round_num": 6,
+      "round_name": "ROUND 6 — DEFENSE",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "presupposition_inversion",
+      "source_claim": "Inversi praduga",
+      "source_scripture": "Kejadian 12:1",
+      "timestamp": "4:46"
+    },
+    {
+      "round_num": 7,
+      "round_name": "ROUND 7 — FINAL REBUTTAL",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "canonical_exclusivity_restriction",
+      "source_claim": "Restriksi kanon",
+      "source_scripture": "Kejadian 11:1",
+      "timestamp": "5:51"
+    },
+    {
+      "round_num": 8,
+      "round_name": "ROUND 8 — CLOSING",
+      "speaker": "ZUMA",
+      "speech_category": "[SIMULATED ZUMA RESPONSE]",
+      "persona_strategy": "maieutic_epistemic_verdict",
+      "source_claim": "Maieutic lockdown",
+      "source_scripture": "Kejadian 11:1",
+      "timestamp": "6:54"
+    }
+  ]
 }

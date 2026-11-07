@@ -4,8 +4,8 @@
   "corpus_id": "video-1122",
   "youtube_id": "X_8tSpYqDpw",
   "url": "https://www.youtube.com/watch?v=X_8tSpYqDpw",
-  "motion_or_topic": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
-  "title": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
+  "motion_or_topic": "Deklarasi Tiada yang Semisal Allah Menolak Inkarnasi dan Antropomorfisme Berdasarkan Teks Yesaya 46:9 [Dossier Ref: X_8tSpYqDpw]",
+  "title": "Deklarasi Tiada yang Semisal Allah Menolak Inkarnasi dan Antropomorfisme Berdasarkan Teks Yesaya 46:9 [Dossier Ref: X_8tSpYqDpw]",
   "original_youtube_title": "SEORANG LUKAS MINTA KE BANGZUMA MEMBACAKAN AYAT SUCI ALQURAN ..MASYA ALLAH",
   "source_video_title": "SEORANG LUKAS MINTA KE BANGZUMA MEMBACAKAN AYAT SUCI ALQURAN ..MASYA ALLAH",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Metode Ilzam al-Khasm: Meruntuhkan Inkonsistensi Klaim Berdasarkan Rujukan Teks Kitab Lawan"
+    "Deklarasi Tiada yang Semisal Allah Menolak Inkarnasi dan Antropomorfisme Berdasarkan Teks Yesaya 46:9 [Dossier Ref: X_8tSpYqDpw]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yesaya 46:9 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Yesaya 46:9"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Yesaya 46:9"
+    ]
   },
   "rounds": [
     {

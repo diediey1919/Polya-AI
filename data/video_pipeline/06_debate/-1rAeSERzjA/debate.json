@@ -4,8 +4,8 @@
   "corpus_id": "video-2013",
   "youtube_id": "-1rAeSERzjA",
   "url": "https://www.youtube.com/watch?v=-1rAeSERzjA",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Yohanes 11",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Yohanes 11",
+  "motion_or_topic": "Klaim Otoritas Naskah Yohanes 11:41-42: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah Yohanes 11:41-42: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "3 ALASAN 73505 DI TUHANKAN GUGUR DITANGAN BangZuma..part@2",
   "source_video_title": "3 ALASAN 73505 DI TUHANKAN GUGUR DITANGAN BangZuma..part@2",
   "debate_mode": "zuma_persona",
@@ -14,11 +14,12 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks Yohanes 11 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah Yohanes 11:41-42: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 11:41-42 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Yohanes 11",
-    "Yohanes 14"
+    "Yohanes 11:41-42",
+    "Yohanes 14:28"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -47,8 +48,8 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 11",
-      "Yohanes 14"
+      "Yohanes 11:41-42",
+      "Yohanes 14:28"
     ]
   },
   "rounds": [

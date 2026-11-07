@@ -4,8 +4,8 @@
   "corpus_id": "video-203",
   "youtube_id": "F2O3bUpcNlY",
   "url": "https://www.youtube.com/watch?v=F2O3bUpcNlY",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: F2O3bUpcNlY]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: F2O3bUpcNlY]",
   "original_youtube_title": "AGNOSTOZ TEOS..BANGZUMA HEBAT MENJELASKAN SEMBAHAN ATENA..SERUUU...",
   "source_video_title": "AGNOSTOZ TEOS..BANGZUMA HEBAT MENJELASKAN SEMBAHAN ATENA..SERUUU...",
   "debate_mode": "zuma_persona",
@@ -14,18 +14,16 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: F2O3bUpcNlY]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah 1 Korintus 1:18-25 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "1 Korintus 1",
-    "2 Korintus 10",
-    "Imamat 20",
-    "Daniel 16",
-    "Matius 5",
-    "Galatia 3",
-    "Yohanes 17",
-    "Roma 5"
+    "1 Korintus 1:18-25",
+    "2 Korintus 10:5",
+    "Imamat 20:1",
+    "Daniel 16:1",
+    "Matius 5:17-19",
+    "Galatia 3:13"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -54,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "1 Korintus 1",
-      "2 Korintus 10",
-      "Imamat 20",
-      "Daniel 16",
-      "Matius 5",
-      "Galatia 3",
-      "Yohanes 17",
-      "Roma 5"
+      "1 Korintus 1:18-25",
+      "2 Korintus 10:5",
+      "Imamat 20:1",
+      "Daniel 16:1",
+      "Matius 5:17-19",
+      "Galatia 3:13"
     ]
   },
   "rounds": [

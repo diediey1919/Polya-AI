@@ -4,8 +4,8 @@
   "corpus_id": "video-694",
   "youtube_id": "BM9wKDLVV0c",
   "url": "https://www.youtube.com/watch?v=BM9wKDLVV0c",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks 1 Korintus 7",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks 1 Korintus 7",
+  "motion_or_topic": "Klaim Otoritas Naskah 1 Korintus 7:19: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah 1 Korintus 7:19: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "HEBOOH SEJAGAT RAYA..LAKI2 BERSUAMI ??? APAAAAAA??? HANCUR MINAA..",
   "source_video_title": "HEBOOH SEJAGAT RAYA..LAKI2 BERSUAMI ??? APAAAAAA??? HANCUR MINAA..",
   "debate_mode": "zuma_persona",
@@ -14,10 +14,11 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks 1 Korintus 7 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah 1 Korintus 7:19: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah 1 Korintus 7:19 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "1 Korintus 7"
+    "1 Korintus 7:19"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -46,7 +47,7 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "1 Korintus 7"
+      "1 Korintus 7:19"
     ]
   },
   "rounds": [

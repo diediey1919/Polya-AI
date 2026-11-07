@@ -43,8 +43,8 @@ def get_corpus_debate_motions() -> list:
                     "original_youtube_title": orig_yt,
                     "source_video_title": orig_yt,
                     "discourse_type": d.get("category") or d.get("cluster_theme") or (d.get("debate_mode") or "APOLOGETIC_INTERFAITH_DEBATE").upper(),
-                    "passages": d.get("passages") or ["Galatia 2:11-14", "Roma 15:8-9", "Matius 24:4-5"],
-                    "grounding_rules": d.get("passages") or [],
+                    "passages": [p for p in d.get("passages", []) if p],
+                    "grounding_rules": d.get("grounding_rules") or d.get("passages") or [],
                     "sub_motions": d.get("sub_motions", []),
                     "rounds_count": len(rounds),
                     "participants_count": len(participants),
@@ -77,6 +77,10 @@ def get_corpus_debate_motions() -> list:
                     if vid in debates_by_vid:
                         item = dict(debates_by_vid[vid])
                         item["discourse_type"] = cat_theme
+                        item["motion_or_topic"] = deb.get("motion_or_topic") or item.get("motion_or_topic")
+                        item["title"] = deb.get("title") or item.get("title")
+                        item["sub_motions"] = deb.get("sub_motions") or item.get("sub_motions")
+                        item["passages"] = deb.get("passages") or item.get("passages")
                         themes.append(item)
                     else:
                         motion = deb.get("motion_or_topic") or deb.get("title") or vid
@@ -89,7 +93,7 @@ def get_corpus_debate_motions() -> list:
                             "original_youtube_title": orig_yt,
                             "source_video_title": orig_yt,
                             "discourse_type": cat_theme,
-                            "passages": deb.get("passages", ["Matius 24:4-5", "Roma 3:31", "Galatia 2:16"]),
+                            "passages": [p for p in deb.get("passages", []) if p],
                             "grounding_rules": deb.get("grounding_rules", []),
                             "sub_motions": deb.get("sub_motions", []),
                             "rounds_count": 0,
@@ -105,6 +109,16 @@ def get_corpus_debate_motions() -> list:
 
     if not themes and debates_by_vid:
         themes = list(debates_by_vid.values())
+
+    # Prioritaskan 18 mosi kanonikal teratas agar langsung bersesuaian dengan CANONICAL_MOTIONS_I18N
+    canonical_priority_ids = [
+        'Rp9118ln4yo', '-97f2FrX5M0', 'lYMnwmwC34w', 'OO_BJpt1NUk', 'W3z8vlpbh_I',
+        'ffDYCmZfmxQ', 'QC81ZxksAaI', 'ijHavMINev4', 'evS7T0gijYw', 'La9B66ZZw1s',
+        '8v45xJQBV7s', 'zOQn4TYqmBE', 'w1BTZmG-HGo', 'w2tdKAGC2us', 'mMjwLoPx-Is',
+        'X3GjCotsHKo', '2hS2F9BPnxI', 'g7mmqv4Y6XE'
+    ]
+    prio_map = {cid: idx for idx, cid in enumerate(canonical_priority_ids)}
+    themes.sort(key=lambda x: prio_map.get(x.get("theme_id") or x.get("id"), 999999))
 
     _CORPUS_DEBATE_MOTIONS_CACHE = themes
     return themes

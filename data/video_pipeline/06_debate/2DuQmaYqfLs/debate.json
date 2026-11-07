@@ -4,8 +4,8 @@
   "corpus_id": "video-067",
   "youtube_id": "2DuQmaYqfLs",
   "url": "https://www.youtube.com/watch?v=2DuQmaYqfLs",
-  "motion_or_topic": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
-  "title": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
+  "motion_or_topic": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: 2DuQmaYqfLs]",
+  "title": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: 2DuQmaYqfLs]",
   "original_youtube_title": "BANGZUMA MEMBUAT OTEN INI BENAR2 MENYERAH..ANCUUURR...PASKAH ERROR..",
   "source_video_title": "BANGZUMA MEMBUAT OTEN INI BENAR2 MENYERAH..ANCUUURR...PASKAH ERROR..",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Kristologi & Kemanusiaan Yesus",
   "cluster_theme": "Kristologi & Kemanusiaan Yesus",
   "sub_motions": [
-    "Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea",
-    "Status Inkarnasi Firman dalam Sejarah Pemikiran Patristik dan Pergeseran Makna Monoteisme",
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: 2DuQmaYqfLs]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 1:1 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Yohanes 1:1"
   ],
   "passages": [
-    "Lukas 2",
-    "Keluaran 20",
-    "Matius 24",
-    "Yohanes 12",
-    "Yesaya 14:15",
-    "Matius 12",
-    "Wahyu 5",
-    "Keluaran 12"
+    "Yohanes 1:1",
+    "Lukas 2:52",
+    "Keluaran 20:3-5",
+    "Matius 24:36",
+    "Yohanes 12:49",
+    "Yesaya 14:15"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Lukas 2",
-      "Keluaran 20",
-      "Matius 24",
-      "Yohanes 12",
-      "Yesaya 14:15",
-      "Matius 12",
-      "Wahyu 5",
-      "Keluaran 12"
+      "Yohanes 1:1",
+      "Lukas 2:52",
+      "Keluaran 20:3-5",
+      "Matius 24:36",
+      "Yohanes 12:49",
+      "Yesaya 14:15"
     ]
   },
   "rounds": [

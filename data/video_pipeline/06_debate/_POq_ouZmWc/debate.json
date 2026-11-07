@@ -4,8 +4,8 @@
   "corpus_id": "video-750",
   "youtube_id": "_POq_ouZmWc",
   "url": "https://www.youtube.com/watch?v=_POq_ouZmWc",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Filipi 1",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Filipi 1",
+  "motion_or_topic": "Klaim Otoritas Naskah Filipi 1:21: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah Filipi 1:21: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "OTEN KATOLIK INI SEMOGA DPT HIDAYAH...",
   "source_video_title": "OTEN KATOLIK INI SEMOGA DPT HIDAYAH...",
   "debate_mode": "zuma_persona",
@@ -14,10 +14,11 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks Filipi 1 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah Filipi 1:21: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Filipi 1:21 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Filipi 1"
+    "Filipi 1:21"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -46,7 +47,7 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Filipi 1"
+      "Filipi 1:21"
     ]
   },
   "rounds": [

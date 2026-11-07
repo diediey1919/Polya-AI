@@ -1349,6 +1349,93 @@
       setInterval(fetchState, 4000);
       updateIcons();
     });
+
+    /* ==============================================================
+       GLOBAL LIQUID AUDIO ENGINE (WATER DROP PROCEDURAL SYNTHESIS)
+       ============================================================== */
+    (function initGlobalLiquidAudioEngine() {
+      let liquidAudioCtx = null;
+      let lastTriggerTimestamp = 0;
+
+      function getLiquidAudioContext() {
+        try {
+          if (!liquidAudioCtx) {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (AudioCtx) {
+              liquidAudioCtx = new AudioCtx();
+            }
+          }
+        } catch (e) {}
+        return liquidAudioCtx;
+      }
+
+      function playLiquidSound() {
+        try {
+          const now = performance.now();
+          if (now - lastTriggerTimestamp < 25) return;
+          lastTriggerTimestamp = now;
+
+          const ctx = getLiquidAudioContext();
+          if (!ctx) return;
+          if (ctx.state === "suspended") {
+            ctx.resume();
+          }
+
+          const t = ctx.currentTime;
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(420 + Math.random() * 80, t);
+          osc.frequency.exponentialRampToValueAtTime(1500, t + 0.07);
+
+          gain.gain.setValueAtTime(0.0001, t);
+          gain.gain.exponentialRampToValueAtTime(0.16, t + 0.008);
+          gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.16);
+
+          osc.connect(gain).connect(ctx.destination);
+          osc.start(t);
+          osc.stop(t + 0.18);
+        } catch (e) {}
+      }
+
+      window.playLiquidSound = playLiquidSound;
+
+      const BUTTON_SELECTOR = [
+        'button',
+        '[role="button"]',
+        '[role="tab"]',
+        '.liquid-chip-btn',
+        '.tab-btn',
+        '.motion-dir-tab',
+        '.side-item',
+        '.ancient-sample-tab-btn',
+        'a.btn',
+        'a.btn-primary',
+        'a.btn-secondary',
+        'input[type="button"]',
+        'input[type="submit"]',
+        '[data-liquid-sound]'
+      ].join(', ');
+
+      document.addEventListener('click', function(e) {
+        if (!e.target || typeof e.target.closest !== 'function') return;
+
+        const targetBtn = e.target.closest(BUTTON_SELECTOR);
+        if (!targetBtn) return;
+
+        if (
+          targetBtn.disabled ||
+          targetBtn.getAttribute('aria-disabled') === 'true' ||
+          targetBtn.classList.contains('disabled') ||
+          targetBtn.closest('[data-no-liquid-sound]')
+        ) {
+          return;
+        }
+
+        playLiquidSound();
+      }, true);
+    })();
   </script>
 
 </body>

@@ -4,8 +4,8 @@
   "corpus_id": "video-1034",
   "youtube_id": "OEZnKMd7HrA",
   "url": "https://www.youtube.com/watch?v=OEZnKMd7HrA",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: OEZnKMd7HrA]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: OEZnKMd7HrA]",
   "original_youtube_title": "LIVE SPEKTAKULER BangZuma..BAYANGKAN seorg KRISTEN pun MENANGIS TERSEDU2..RUGI gk NYIMAK",
   "source_video_title": "LIVE SPEKTAKULER BangZuma..BAYANGKAN seorg KRISTEN pun MENANGIS TERSEDU2..RUGI gk NYIMAK",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: OEZnKMd7HrA]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 5:30 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Yohanes 5",
-    "2 Samuel 7",
-    "Yohanes 16",
-    "Yohanes 1",
-    "Yohanes 21",
-    "Markus 1",
-    "Kisah Para Rasul 7",
-    "1 Timotius 6"
+    "Yohanes 5:30",
+    "2 Samuel 7:14",
+    "Yohanes 16:12-14",
+    "Yohanes 1:1",
+    "Yohanes 21:24",
+    "Markus 1:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 5",
-      "2 Samuel 7",
-      "Yohanes 16",
-      "Yohanes 1",
-      "Yohanes 21",
-      "Markus 1",
-      "Kisah Para Rasul 7",
-      "1 Timotius 6"
+      "Yohanes 5:30",
+      "2 Samuel 7:14",
+      "Yohanes 16:12-14",
+      "Yohanes 1:1",
+      "Yohanes 21:24",
+      "Markus 1:1"
     ]
   },
   "rounds": [

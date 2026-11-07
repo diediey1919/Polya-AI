@@ -4,8 +4,8 @@
   "corpus_id": "video-2067",
   "youtube_id": "9zK5SG5VpIk",
   "url": "https://www.youtube.com/watch?v=9zK5SG5VpIk",
-  "motion_or_topic": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
-  "title": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
+  "motion_or_topic": "Panggilan Berperkara dan Pengujian Nalar Objektif Menghadapi Tradisi Dogmatis Melalui Eksaminasi Teks Yesaya 1:18 [Dossier Ref: 9zK5SG5VpIk]",
+  "title": "Panggilan Berperkara dan Pengujian Nalar Objektif Menghadapi Tradisi Dogmatis Melalui Eksaminasi Teks Yesaya 1:18 [Dossier Ref: 9zK5SG5VpIk]",
   "original_youtube_title": "detik2 PDT. Danjte Mumek MTh. AKHIRnya mengakui ISLAM AGAMA HAQ ke team MCI Pusat",
   "source_video_title": "detik2 PDT. Danjte Mumek MTh. AKHIRnya mengakui ISLAM AGAMA HAQ ke team MCI Pusat",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Metode Ilzam al-Khasm: Meruntuhkan Inkonsistensi Klaim Berdasarkan Rujukan Teks Kitab Lawan"
+    "Panggilan Berperkara dan Pengujian Nalar Objektif Menghadapi Tradisi Dogmatis Melalui Eksaminasi Teks Yesaya 1:18 [Dossier Ref: 9zK5SG5VpIk]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yesaya 1:18 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Yesaya 1:18"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Yesaya 1:18"
+    ]
   },
   "rounds": [
     {

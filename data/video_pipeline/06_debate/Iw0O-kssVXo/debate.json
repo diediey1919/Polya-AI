@@ -4,8 +4,8 @@
   "corpus_id": "video-1761",
   "youtube_id": "Iw0O-kssVXo",
   "url": "https://www.youtube.com/watch?v=Iw0O-kssVXo",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: Iw0O-kssVXo]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: Iw0O-kssVXo]",
   "original_youtube_title": "Duluan mana Yesus atau PALUNGAN tempat beliau Lahir?? simak jawabannya!!",
   "source_video_title": "Duluan mana Yesus atau PALUNGAN tempat beliau Lahir?? simak jawabannya!!",
   "debate_mode": "zuma_persona",
@@ -14,12 +14,12 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: Iw0O-kssVXo]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yesaya 43:10-11 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Yesaya 43",
-    "Matius 28"
+    "Yesaya 43:10-11",
+    "Matius 28:19"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -48,8 +48,8 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yesaya 43",
-      "Matius 28"
+      "Yesaya 43:10-11",
+      "Matius 28:19"
     ]
   },
   "rounds": [

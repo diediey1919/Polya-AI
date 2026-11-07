@@ -4,8 +4,8 @@
   "corpus_id": "video-813",
   "youtube_id": "fD-cuz22rqo",
   "url": "https://www.youtube.com/watch?v=fD-cuz22rqo",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Ulangan 34",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Ulangan 34",
+  "motion_or_topic": "Klaim Otoritas Naskah Ulangan 34:10: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah Ulangan 34:10: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "PASTOR INI DAPAT BOGEM MENTAH DARI BANGZUMA..MASIH MAU KOOO???",
   "source_video_title": "PASTOR INI DAPAT BOGEM MENTAH DARI BANGZUMA..MASIH MAU KOOO???",
   "debate_mode": "zuma_persona",
@@ -14,14 +14,15 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks Ulangan 34 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah Ulangan 34:10: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Ulangan 34:10 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Ulangan 34",
-    "Ulangan 1",
-    "Keluaran 23",
-    "Filipi 2",
-    "Yesaya 5"
+    "Ulangan 34:10",
+    "Ulangan 1:1",
+    "Keluaran 23:20-21",
+    "Filipi 2:5-8",
+    "Yesaya 5:20"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -50,11 +51,11 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Ulangan 34",
-      "Ulangan 1",
-      "Keluaran 23",
-      "Filipi 2",
-      "Yesaya 5"
+      "Ulangan 34:10",
+      "Ulangan 1:1",
+      "Keluaran 23:20-21",
+      "Filipi 2:5-8",
+      "Yesaya 5:20"
     ]
   },
   "rounds": [

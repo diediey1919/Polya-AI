@@ -4,8 +4,8 @@
   "corpus_id": "video-1408",
   "youtube_id": "KJyRu8pVJAg",
   "url": "https://www.youtube.com/watch?v=KJyRu8pVJAg",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Integritas Naskah Suci: Audit Penghapusan dan Penambahan Redaksional [Dossier Ref: KJyRu8pVJAg]",
+  "title": "Integritas Naskah Suci: Audit Penghapusan dan Penambahan Redaksional [Dossier Ref: KJyRu8pVJAg]",
   "original_youtube_title": "SIMAK BGMN OTEN M3MBUKT!K@N KETUHANAN 73SUS ..",
   "source_video_title": "SIMAK BGMN OTEN M3MBUKT!K@N KETUHANAN 73SUS ..",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Integritas Naskah Suci: Audit Penghapusan dan Penambahan Redaksional [Dossier Ref: KJyRu8pVJAg]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Ulangan 4:2 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Ulangan 4:2"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Ulangan 4:2"
+    ]
   },
   "rounds": [
     {

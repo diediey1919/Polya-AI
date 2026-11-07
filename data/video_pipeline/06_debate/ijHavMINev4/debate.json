@@ -14,19 +14,17 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea",
-    "Status Inkarnasi Firman dalam Sejarah Pemikiran Patristik dan Pergeseran Makna Monoteisme",
-    "Taurat Musa Sebagai Perjanjian Kekal Sepanjang Keturunan Umat Terpilih"
+    "Kritik Tekstual Comma Johanneum (1 Yohanes 5:7-8): Bukti Interpolasi Sisipan Doktrinal dalam Naskah Yunani Kuno",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah 1 Yohanes 5:7-8 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah 1 Yohanes 5:7-8"
   ],
   "passages": [
-    "1 Yohanes 5",
-    "Matius 28",
+    "1 Yohanes 5:7-8",
+    "Matius 28:19",
     "Matius 2:81",
-    "Markus 16",
-    "Roma 1",
-    "Matius 5",
-    "Ulangan 21",
-    "Yohanes 1"
+    "Markus 16:9-20",
+    "Roma 1:1",
+    "Matius 5:17-19"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "1 Yohanes 5",
-      "Matius 28",
+      "1 Yohanes 5:7-8",
+      "Matius 28:19",
       "Matius 2:81",
-      "Markus 16",
-      "Roma 1",
-      "Matius 5",
-      "Ulangan 21",
-      "Yohanes 1"
+      "Markus 16:9-20",
+      "Roma 1:1",
+      "Matius 5:17-19"
     ]
   },
   "rounds": [

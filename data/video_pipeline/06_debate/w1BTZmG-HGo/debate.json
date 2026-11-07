@@ -14,19 +14,17 @@
   "category": "Monoteisme & Kritik Doktrin Trinitas",
   "cluster_theme": "Monoteisme & Kritik Doktrin Trinitas",
   "sub_motions": [
-    "Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea",
-    "Status Inkarnasi Firman dalam Sejarah Pemikiran Patristik dan Pergeseran Makna Monoteisme",
-    "Eksklusivitas Monoteisme Bapa: Penolakan Pluralitas Wujud Ketuhanan dalam Naskah Kanonik"
+    "Hakikat Satu-Satunya Allah yang Benar dalam Yohanes 17:3 dan Kedudukan Yesus Sebagai Utusan Manusia (1 Timotius 2:5)",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 17:3 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Yohanes 17:3"
   ],
   "passages": [
+    "Yohanes 17:3",
     "Efesus 2:15",
-    "Yohanes 5",
+    "Yohanes 5:30",
     "Matius 2:07",
-    "Bilangan 23",
-    "Yohanes 10",
-    "1 Tesalonika 2",
-    "Yohanes 4:24",
-    "Lukas 4"
+    "Bilangan 23:19",
+    "Yohanes 10:30"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
+      "Yohanes 17:3",
       "Efesus 2:15",
-      "Yohanes 5",
+      "Yohanes 5:30",
       "Matius 2:07",
-      "Bilangan 23",
-      "Yohanes 10",
-      "1 Tesalonika 2",
-      "Yohanes 4:24",
-      "Lukas 4"
+      "Bilangan 23:19",
+      "Yohanes 10:30"
     ]
   },
   "rounds": [

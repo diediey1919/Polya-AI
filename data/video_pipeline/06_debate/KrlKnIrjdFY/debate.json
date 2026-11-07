@@ -4,8 +4,8 @@
   "corpus_id": "video-757",
   "youtube_id": "KrlKnIrjdFY",
   "url": "https://www.youtube.com/watch?v=KrlKnIrjdFY",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: KrlKnIrjdFY]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: KrlKnIrjdFY]",
   "original_youtube_title": "LOGILA TOPIK JADI UBUR-UBUR DI DEPAN BANGZUMA..ANCCUUR SI TOPIK",
   "source_video_title": "LOGILA TOPIK JADI UBUR-UBUR DI DEPAN BANGZUMA..ANCCUUR SI TOPIK",
   "debate_mode": "zuma_persona",
@@ -14,12 +14,13 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: KrlKnIrjdFY]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 7:21 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 7",
-    "Matius 15",
-    "Matius 10"
+    "Matius 7:21",
+    "Matius 15:24",
+    "Matius 10:5-6"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -48,9 +49,9 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 7",
-      "Matius 15",
-      "Matius 10"
+      "Matius 7:21",
+      "Matius 15:24",
+      "Matius 10:5-6"
     ]
   },
   "rounds": [

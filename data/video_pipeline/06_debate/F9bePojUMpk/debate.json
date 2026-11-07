@@ -4,8 +4,8 @@
   "corpus_id": "video-2345",
   "youtube_id": "F9bePojUMpk",
   "url": "https://www.youtube.com/watch?v=F9bePojUMpk",
-  "motion_or_topic": "Status Keberlakuan Hukum Taurat: Ketetapan Kekal Yesus (Matius 5:17-19) vs Teologi Peniadaan Hukum oleh Paulus (Galatia 3:13)",
-  "title": "Status Keberlakuan Hukum Taurat: Ketetapan Kekal Yesus (Matius 5:17-19) vs Teologi Peniadaan Hukum oleh Paulus (Galatia 3:13)",
+  "motion_or_topic": "Status Keberlakuan Hukum Taurat: Ketetapan Kekal Yesus (Matius 5:17-19) vs Teologi Peniadaan Hukum oleh Paulus (Galatia 3:13) [Dossier Ref: F9bePojUMpk]",
+  "title": "Status Keberlakuan Hukum Taurat: Ketetapan Kekal Yesus (Matius 5:17-19) vs Teologi Peniadaan Hukum oleh Paulus (Galatia 3:13) [Dossier Ref: F9bePojUMpk]",
   "original_youtube_title": "KR!$T3N AJAR4N LEZAT",
   "source_video_title": "KR!$T3N AJAR4N LEZAT",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Polemik Teologi Paulus vs Hukum Taurat",
   "cluster_theme": "Polemik Teologi Paulus vs Hukum Taurat",
   "sub_motions": [
-    "Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea",
-    "Status Inkarnasi Firman dalam Sejarah Pemikiran Patristik dan Pergeseran Makna Monoteisme",
-    "Kontradiksi Logika 1+1+1=1 vs Kemutlakan Keberadaan Dzat Tunggal Maha Kuasa"
+    "Status Keberlakuan Hukum Taurat: Ketetapan Kekal Yesus (Matius 5:17-19) vs Teologi Peniadaan Hukum oleh Paulus (Galatia 3:13) [Dossier Ref: F9bePojUMpk]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 5:17-19 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Matius 5:17-19"
   ],
   "passages": [
-    "Yohanes 17",
+    "Matius 5:17-19",
+    "Yohanes 17:3",
     "Daniel 1:00",
-    "Yesaya 42",
-    "Yeremia 31",
-    "Daniel 50:00",
-    "Ulangan 16",
-    "Ulangan 6",
-    "Kejadian 17"
+    "Yesaya 42:1",
+    "Yeremia 31:31-34",
+    "Daniel 50:00"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 17",
+      "Matius 5:17-19",
+      "Yohanes 17:3",
       "Daniel 1:00",
-      "Yesaya 42",
-      "Yeremia 31",
-      "Daniel 50:00",
-      "Ulangan 16",
-      "Ulangan 6",
-      "Kejadian 17"
+      "Yesaya 42:1",
+      "Yeremia 31:31-34",
+      "Daniel 50:00"
     ]
   },
   "rounds": [

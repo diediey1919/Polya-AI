@@ -4,8 +4,8 @@
   "corpus_id": "video-1591",
   "youtube_id": "dAzu54o0g6c",
   "url": "https://www.youtube.com/watch?v=dAzu54o0g6c",
-  "motion_or_topic": "Audit Filologis Manuskrip Kuno (Codex Sinaiticus & Vaticanus): Varian Tekstual dan Implikasi Teologisnya",
-  "title": "Audit Filologis Manuskrip Kuno (Codex Sinaiticus & Vaticanus): Varian Tekstual dan Implikasi Teologisnya",
+  "motion_or_topic": "Audit Filologis Manuskrip Kuno (Codex Sinaiticus & Vaticanus): Varian Tekstual dan Implikasi Teologisnya [Dossier Ref: dAzu54o0g6c]",
+  "title": "Audit Filologis Manuskrip Kuno (Codex Sinaiticus & Vaticanus): Varian Tekstual dan Implikasi Teologisnya [Dossier Ref: dAzu54o0g6c]",
   "original_youtube_title": "LULUSAN STT KABUr Gk  kuat mendengar NABI MUHAMMAD SAW lbh dulu LAHIR dr YESUS...",
   "source_video_title": "LULUSAN STT KABUr Gk  kuat mendengar NABI MUHAMMAD SAW lbh dulu LAHIR dr YESUS...",
   "debate_mode": "zuma_persona",
@@ -14,13 +14,13 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Perbandingan Papirus Tertua P46 dan P66 dengan Teks Cetak Alkitab Modern",
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Audit Filologis Manuskrip Kuno (Codex Sinaiticus & Vaticanus): Varian Tekstual dan Implikasi Teologisnya [Dossier Ref: dAzu54o0g6c]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 20:17 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Yohanes 20",
-    "Yohanes 1",
-    "Lukas 2",
+    "Yohanes 20:17",
+    "Yohanes 1:1",
+    "Lukas 2:52",
     "Matius 28:15"
   ],
   "extracted_from_transcript": true,
@@ -50,9 +50,9 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 20",
-      "Yohanes 1",
-      "Lukas 2",
+      "Yohanes 20:17",
+      "Yohanes 1:1",
+      "Lukas 2:52",
       "Matius 28:15"
     ]
   },

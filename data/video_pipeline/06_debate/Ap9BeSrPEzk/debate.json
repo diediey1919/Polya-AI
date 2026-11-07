@@ -4,8 +4,8 @@
   "corpus_id": "video-859",
   "youtube_id": "Ap9BeSrPEzk",
   "url": "https://www.youtube.com/watch?v=Ap9BeSrPEzk",
-  "motion_or_topic": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
-  "title": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
+  "motion_or_topic": "Penegasan Bahwa Iman Tidak Membatalkan Melainkan Meneguhkan Hukum Taurat Melalui Eksaminasi Teks Roma 3:31 [Dossier Ref: Ap9BeSrPEzk]",
+  "title": "Penegasan Bahwa Iman Tidak Membatalkan Melainkan Meneguhkan Hukum Taurat Melalui Eksaminasi Teks Roma 3:31 [Dossier Ref: Ap9BeSrPEzk]",
   "original_youtube_title": "HANCUUUURRR...IBLIS TERKUTUK MULAI LUNGLAI...",
   "source_video_title": "HANCUUUURRR...IBLIS TERKUTUK MULAI LUNGLAI...",
   "debate_mode": "zuma_persona",
@@ -14,10 +14,12 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Penegasan Bahwa Iman Tidak Membatalkan Melainkan Meneguhkan Hukum Taurat Melalui Eksaminasi Teks Roma 3:31 [Dossier Ref: Ap9BeSrPEzk]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Roma 3:31 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Roma 3:31"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -44,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Roma 3:31"
+    ]
   },
   "rounds": [
     {

@@ -4,8 +4,8 @@
   "corpus_id": "video-1488",
   "youtube_id": "7DoHMpxGJqQ",
   "url": "https://www.youtube.com/watch?v=7DoHMpxGJqQ",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: 7DoHMpxGJqQ]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: 7DoHMpxGJqQ]",
   "original_youtube_title": "NGAKU SARJANA STATISTIK..LIHAT AKHIRNYA///...KWKWKWKW",
   "source_video_title": "NGAKU SARJANA STATISTIK..LIHAT AKHIRNYA///...KWKWKWKW",
   "debate_mode": "zuma_persona",
@@ -14,10 +14,11 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: 7DoHMpxGJqQ]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Ayub 26:7 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Ayub 26"
+    "Ayub 26:7"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -46,7 +47,7 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Ayub 26"
+      "Ayub 26:7"
     ]
   },
   "rounds": [

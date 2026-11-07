@@ -4,8 +4,8 @@
   "corpus_id": "video-1703",
   "youtube_id": "kQn3fkNJnEA",
   "url": "https://www.youtube.com/watch?v=kQn3fkNJnEA",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Kisah Para Rasul 24",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Kisah Para Rasul 24",
+  "motion_or_topic": "Klaim Otoritas Naskah Kisah Para Rasul 24:14: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah Kisah Para Rasul 24:14: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "TanTe ini MARAH BESAR..sebab gk terima PAULOZ DISEBUT NASRANI..BangZuma NgakaK",
   "source_video_title": "TanTe ini MARAH BESAR..sebab gk terima PAULOZ DISEBUT NASRANI..BangZuma NgakaK",
   "debate_mode": "zuma_persona",
@@ -14,10 +14,11 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks Kisah Para Rasul 24 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah Kisah Para Rasul 24:14: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Kisah Para Rasul 24:14 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Kisah Para Rasul 24"
+    "Kisah Para Rasul 24:14"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -46,7 +47,7 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Kisah Para Rasul 24"
+      "Kisah Para Rasul 24:14"
     ]
   },
   "rounds": [

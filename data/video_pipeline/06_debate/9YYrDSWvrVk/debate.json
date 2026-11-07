@@ -4,8 +4,8 @@
   "corpus_id": "video-2086",
   "youtube_id": "9YYrDSWvrVk",
   "url": "https://www.youtube.com/watch?v=9YYrDSWvrVk",
-  "motion_or_topic": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
-  "title": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
+  "motion_or_topic": "Pengakuan Salomo Bahwa Langit yang Mengatasi Segala Langit Tidak Memuat Allah Berdasarkan Teks 1 Raja-raja 8:27 [Dossier Ref: 9YYrDSWvrVk]",
+  "title": "Pengakuan Salomo Bahwa Langit yang Mengatasi Segala Langit Tidak Memuat Allah Berdasarkan Teks 1 Raja-raja 8:27 [Dossier Ref: 9YYrDSWvrVk]",
   "original_youtube_title": "pembangunan masjid NUR MAULIDA",
   "source_video_title": "pembangunan masjid NUR MAULIDA",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Metode Ilzam al-Khasm: Meruntuhkan Inkonsistensi Klaim Berdasarkan Rujukan Teks Kitab Lawan"
+    "Pengakuan Salomo Bahwa Langit yang Mengatasi Segala Langit Tidak Memuat Allah Berdasarkan Teks 1 Raja-raja 8:27 [Dossier Ref: 9YYrDSWvrVk]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah 1 Raja-raja 8:27 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "1 Raja-raja 8:27"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "1 Raja-raja 8:27"
+    ]
   },
   "rounds": [
     {

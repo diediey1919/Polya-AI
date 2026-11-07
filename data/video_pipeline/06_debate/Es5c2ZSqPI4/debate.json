@@ -4,8 +4,8 @@
   "corpus_id": "video-1718",
   "youtube_id": "Es5c2ZSqPI4",
   "url": "https://www.youtube.com/watch?v=Es5c2ZSqPI4",
-  "motion_or_topic": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
-  "title": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
+  "motion_or_topic": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: Es5c2ZSqPI4]",
+  "title": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: Es5c2ZSqPI4]",
   "original_youtube_title": "Si KIBINIRIN juga tak sanggup menanggapi ROH SIAPA YG DTG MENGAKU YESUS KPD PAULUS??!!",
   "source_video_title": "Si KIBINIRIN juga tak sanggup menanggapi ROH SIAPA YG DTG MENGAKU YESUS KPD PAULUS??!!",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)"
+    "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: Es5c2ZSqPI4]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 24:36 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 24",
-    "Kisah Para Rasul 13",
-    "Matius 15",
-    "Matius 26",
-    "Matius 7",
-    "1 Korintus 1",
-    "Ulangan 1",
-    "Yohanes 12"
+    "Matius 24:36",
+    "Kisah Para Rasul 13:1",
+    "Matius 15:24",
+    "Matius 26:39",
+    "Matius 7:21",
+    "1 Korintus 1:18-25"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 24",
-      "Kisah Para Rasul 13",
-      "Matius 15",
-      "Matius 26",
-      "Matius 7",
-      "1 Korintus 1",
-      "Ulangan 1",
-      "Yohanes 12"
+      "Matius 24:36",
+      "Kisah Para Rasul 13:1",
+      "Matius 15:24",
+      "Matius 26:39",
+      "Matius 7:21",
+      "1 Korintus 1:18-25"
     ]
   },
   "rounds": [

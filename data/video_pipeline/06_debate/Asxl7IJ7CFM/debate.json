@@ -14,19 +14,17 @@
   "category": "Polemik Teologi Paulus vs Hukum Taurat",
   "cluster_theme": "Polemik Teologi Paulus vs Hukum Taurat",
   "sub_motions": [
-    "Kontradiksi Logika 1+1+1=1 vs Kemutlakan Keberadaan Dzat Tunggal Maha Kuasa",
-    "Sejarah Masuknya Filsafat Platonisme dan Neoplatonisme ke dalam Teologi Kristen Awal",
-    "Kritik Surat Yakobus Terhadap Teologi Iman Kosong yang Menolak Bukti Amal Syariat"
+    "Polemik Keselamatan: Doktrin Sola Fide Paulus (Roma 3:28) vs Doktrin Pembenaran oleh Perbuatan Nyata (Yakobus 2:24)",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Roma 3:28 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Roma 3:28"
   ],
   "passages": [
+    "Roma 3:28",
     "Yohanes 10:27",
-    "Yohanes 10",
+    "Yohanes 10:30",
     "Yohanes 14:12",
     "Yohanes 14:1",
-    "Matius 24",
-    "Matius 7",
-    "Matius 28",
-    "1 Korintus 9"
+    "Matius 24:36"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
+      "Roma 3:28",
       "Yohanes 10:27",
-      "Yohanes 10",
+      "Yohanes 10:30",
       "Yohanes 14:12",
       "Yohanes 14:1",
-      "Matius 24",
-      "Matius 7",
-      "Matius 28",
-      "1 Korintus 9"
+      "Matius 24:36"
     ]
   },
   "rounds": [

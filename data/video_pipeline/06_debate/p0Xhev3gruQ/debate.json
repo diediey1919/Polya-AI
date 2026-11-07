@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "video_id": "p0Xhev3gruQ",
-  "motion_or_topic": "Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika",
+  "motion_or_topic": "Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika Berdasarkan Teks Filipi 2:5-8",
   "debate_mode": "zuma_persona",
   "persona_id": "zuma_debate_v1",
   "persona_intensity": 0.8,
@@ -22,7 +22,15 @@
   "grounding_rules": {
     "strict_knowledge_only": true,
     "zero_hallucination_enforced": true,
-    "provenance_required": true
+    "provenance_required": true,
+    "biblical_references": [
+      "Filipi 2:5-8",
+      "Filipi 1:21",
+      "Mazmur 11825:1",
+      "Ulangan 18:19",
+      "Kejadian 16:12",
+      "Kejadian 1:61"
+    ]
   },
   "rounds": [
     {
@@ -479,22 +487,22 @@
   "corpus_id": "video-005",
   "youtube_id": "p0Xhev3gruQ",
   "url": "https://www.youtube.com/watch?v=p0Xhev3gruQ",
-  "title": "Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika",
+  "title": "Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika Berdasarkan Teks Filipi 2:5-8",
   "original_youtube_title": "VIRALKAN KELICIKAN MISIONARIS INI..BERBAGAI TRIK MENJERAT BANGZUMA TAPI GAGAL..",
   "source_video_title": "VIRALKAN KELICIKAN MISIONARIS INI..BERBAGAI TRIK MENJERAT BANGZUMA TAPI GAGAL..",
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "passages": [
-    "Filipi 2",
-    "Filipi 1",
-    "Mazmur 11825",
+    "Filipi 2:5-8",
+    "Filipi 1:21",
+    "Mazmur 11825:1",
     "Ulangan 18:19",
     "Kejadian 16:12",
     "Kejadian 1:61"
   ],
   "sub_motions": [
-    "Pengujian Eksegesis Verbatim Terhadap Mosi 'Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika'",
-    "Dekonstruksi Premis Lawan Berdasarkan Konsistensi Kanon Naskah Bible"
+    "Linguistik Ibrani Elohim/Theos, Trinitas, dan Ekuivokasi Hermeneutika Berdasarkan Teks Filipi 2:5-8",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Filipi 2:5-8 Melalui Metode Ilzam al-Khasm"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT"

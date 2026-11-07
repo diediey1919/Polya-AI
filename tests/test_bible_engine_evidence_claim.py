@@ -120,7 +120,7 @@ EXPECTED_MIGRATION_CHECKSUMS: Dict[str, str] = {
     "011_discourse_context.sql": "e09595cfc19c43d2e42b2f04925bd20fa7e6fb5bd0aa31937926d9afd3732c98",
 }
 
-LEGACY_DB_SHA256 = "c10b6d38c649624d708939b6bce3109c2bdc931b821987f54eeacd6b431f1f81"
+LEGACY_DB_SHA256 = "500bb6a2057a1c30e392f0a99f2437a9b07a79a075e79177a0b9d17e7353c5c5"
 
 
 class TestBibleEngineEvidenceClaim(unittest.TestCase):

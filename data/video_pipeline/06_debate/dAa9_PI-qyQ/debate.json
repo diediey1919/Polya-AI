@@ -4,8 +4,8 @@
   "corpus_id": "video-1095",
   "youtube_id": "dAa9_PI-qyQ",
   "url": "https://www.youtube.com/watch?v=dAa9_PI-qyQ",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: dAa9_PI-qyQ]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: dAa9_PI-qyQ]",
   "original_youtube_title": "OTEN PERTAMA YANG NANGIS HARI INI....",
   "source_video_title": "OTEN PERTAMA YANG NANGIS HARI INI....",
   "debate_mode": "zuma_persona",
@@ -14,12 +14,13 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: dAa9_PI-qyQ]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah 1 Timotius 6:15-16 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "1 Timotius 6",
-    "Nahum 1",
-    "Yohanes 1"
+    "1 Timotius 6:15-16",
+    "Nahum 1:1",
+    "Yohanes 1:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -48,9 +49,9 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "1 Timotius 6",
-      "Nahum 1",
-      "Yohanes 1"
+      "1 Timotius 6:15-16",
+      "Nahum 1:1",
+      "Yohanes 1:1"
     ]
   },
   "rounds": [

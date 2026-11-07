@@ -4,8 +4,8 @@
   "corpus_id": "video-374",
   "youtube_id": "R1F5zvykc4s",
   "url": "https://www.youtube.com/watch?v=R1F5zvykc4s",
-  "motion_or_topic": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
-  "title": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
+  "motion_or_topic": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: R1F5zvykc4s]",
+  "title": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: R1F5zvykc4s]",
   "original_youtube_title": "BERJUTA TANYA DILALAP BANGZUMA TAPI 1 PERTANYAAN MEMBUAT OTEN INI MUNTAH KARET,,",
   "source_video_title": "BERJUTA TANYA DILALAP BANGZUMA TAPI 1 PERTANYAAN MEMBUAT OTEN INI MUNTAH KARET,,",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Kristologi & Kemanusiaan Yesus",
   "cluster_theme": "Kristologi & Kemanusiaan Yesus",
   "sub_motions": [
-    "Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea",
-    "Status Inkarnasi Firman dalam Sejarah Pemikiran Patristik dan Pergeseran Makna Monoteisme",
-    "Taurat Musa Sebagai Perjanjian Kekal Sepanjang Keturunan Umat Terpilih"
+    "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: R1F5zvykc4s]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 1:1 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Yohanes 1:1"
   ],
   "passages": [
+    "Yohanes 1:1",
     "Matius 1:21",
-    "Matius 19",
-    "Yesaya 53",
-    "Yesaya 5",
-    "Yesaya 1",
-    "Yesaya 66",
-    "Matius 23",
-    "Kisah Para Rasul 24"
+    "Matius 19:16-17",
+    "Yesaya 53:1-12",
+    "Yesaya 5:20",
+    "Yesaya 1:18"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
+      "Yohanes 1:1",
       "Matius 1:21",
-      "Matius 19",
-      "Yesaya 53",
-      "Yesaya 5",
-      "Yesaya 1",
-      "Yesaya 66",
-      "Matius 23",
-      "Kisah Para Rasul 24"
+      "Matius 19:16-17",
+      "Yesaya 53:1-12",
+      "Yesaya 5:20",
+      "Yesaya 1:18"
     ]
   },
   "rounds": [

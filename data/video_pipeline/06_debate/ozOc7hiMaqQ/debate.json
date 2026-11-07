@@ -4,8 +4,8 @@
   "corpus_id": "video-1934",
   "youtube_id": "ozOc7hiMaqQ",
   "url": "https://www.youtube.com/watch?v=ozOc7hiMaqQ",
-  "motion_or_topic": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus",
-  "title": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus",
+  "motion_or_topic": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus [Dossier Ref: ozOc7hiMaqQ]",
+  "title": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus [Dossier Ref: ozOc7hiMaqQ]",
   "original_youtube_title": "Wanita ini korban dogma tingkat LANGIT.. semoga tdk GiLa permanen",
   "source_video_title": "Wanita ini korban dogma tingkat LANGIT.. semoga tdk GiLa permanen",
   "debate_mode": "zuma_persona",
@@ -14,13 +14,15 @@
   "category": "Polemik Teologi Paulus vs Hukum Taurat",
   "cluster_theme": "Polemik Teologi Paulus vs Hukum Taurat",
   "sub_motions": [
-    "Taurat Musa Sebagai Perjanjian Kekal Sepanjang Keturunan Umat Terpilih"
+    "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus [Dossier Ref: ozOc7hiMaqQ]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Kejadian 17:10 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Markus 7",
+    "Kejadian 17:10",
+    "Markus 7:6-9",
     "Lukas 16:17",
-    "Kejadian 22",
-    "Kejadian 17"
+    "Kejadian 22:1-18",
+    "Kejadian 17:1-7"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -49,10 +51,11 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Markus 7",
+      "Kejadian 17:10",
+      "Markus 7:6-9",
       "Lukas 16:17",
-      "Kejadian 22",
-      "Kejadian 17"
+      "Kejadian 22:1-18",
+      "Kejadian 17:1-7"
     ]
   },
   "rounds": [

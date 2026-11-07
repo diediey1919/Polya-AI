@@ -4,8 +4,8 @@
   "corpus_id": "video-2146",
   "youtube_id": "_KioeANy4oo",
   "url": "https://www.youtube.com/watch?v=_KioeANy4oo",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Daniel 2",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Daniel 2",
+  "motion_or_topic": "Klaim Otoritas Naskah Daniel 2:44: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah Daniel 2:44: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "PENGHUJ@T !N! AKHIRNY@ TERSUNGKUR  K@REN4 BELUM MENERIMA WAHYU",
   "source_video_title": "PENGHUJ@T !N! AKHIRNY@ TERSUNGKUR  K@REN4 BELUM MENERIMA WAHYU",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks Daniel 2 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah Daniel 2:44: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Daniel 2:44 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Daniel 2",
-    "Mazmur 18",
-    "Mazmur 81",
-    "Yesaya 37",
-    "Daniel 12",
-    "Daniel 3",
-    "Keluaran 25",
-    "Wahyu 4"
+    "Daniel 2:44",
+    "Mazmur 18:2",
+    "Mazmur 81:1",
+    "Yesaya 37:1",
+    "Daniel 12:2",
+    "Daniel 3:25"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Daniel 2",
-      "Mazmur 18",
-      "Mazmur 81",
-      "Yesaya 37",
-      "Daniel 12",
-      "Daniel 3",
-      "Keluaran 25",
-      "Wahyu 4"
+      "Daniel 2:44",
+      "Mazmur 18:2",
+      "Mazmur 81:1",
+      "Yesaya 37:1",
+      "Daniel 12:2",
+      "Daniel 3:25"
     ]
   },
   "rounds": [

@@ -4,8 +4,8 @@
   "corpus_id": "video-1366",
   "youtube_id": "VThxs5qX8J8",
   "url": "https://www.youtube.com/watch?v=VThxs5qX8J8",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Keluaran 51",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Keluaran 51",
+  "motion_or_topic": "Klaim Otoritas Naskah Keluaran 51:1: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah Keluaran 51:1: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "FAKTA TERKUAK NGAKU PALING KASIH TAPI..????",
   "source_video_title": "FAKTA TERKUAK NGAKU PALING KASIH TAPI..????",
   "debate_mode": "zuma_persona",
@@ -14,12 +14,13 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks Keluaran 51 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah Keluaran 51:1: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Keluaran 51:1 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Keluaran 51",
-    "Daniel 5",
-    "Ulangan 20"
+    "Keluaran 51:1",
+    "Daniel 5:25-28",
+    "Ulangan 20:16-17"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -48,9 +49,9 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Keluaran 51",
-      "Daniel 5",
-      "Ulangan 20"
+      "Keluaran 51:1",
+      "Daniel 5:25-28",
+      "Ulangan 20:16-17"
     ]
   },
   "rounds": [

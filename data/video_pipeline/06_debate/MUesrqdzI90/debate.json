@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "video_id": "MUesrqdzI90",
-  "motion_or_topic": "Urgensi Dialog Iman & Friksi Apostolik Paulus vs Petrus (Galatia 2 & Roma 15)",
+  "motion_or_topic": "Urgensi Dialog Iman & Friksi Apostolik Paulus vs Petrus Berdasarkan Teks Galatia 2:11-14 & Roma 15:8-9",
   "debate_mode": "zuma_persona",
   "persona_id": "zuma_debate_v1",
   "persona_intensity": 0.8,
@@ -22,7 +22,15 @@
   "grounding_rules": {
     "strict_knowledge_only": true,
     "zero_hallucination_enforced": true,
-    "provenance_required": true
+    "provenance_required": true,
+    "biblical_references": [
+      "Galatia 2:11-14",
+      "Roma 8:1",
+      "Roma 15:20",
+      "Roma 15:8-9",
+      "Filipi 2:5-8",
+      "Filipi 1:21"
+    ]
   },
   "rounds": [
     {
@@ -480,24 +488,22 @@
   "corpus_id": "video-001",
   "youtube_id": "MUesrqdzI90",
   "url": "https://www.youtube.com/watch?v=MUesrqdzI90",
-  "title": "Urgensi Dialog Iman & Friksi Apostolik Paulus vs Petrus (Galatia 2 & Roma 15)",
+  "title": "Urgensi Dialog Iman & Friksi Apostolik Paulus vs Petrus Berdasarkan Teks Galatia 2:11-14 & Roma 15:8-9",
   "original_youtube_title": "CETAR MEMBAHANA BANGZUMA MEMPERMALUKAN OTEN NGAKU KARATEKA SENIOR..ANCUR DAAH..!!",
   "source_video_title": "CETAR MEMBAHANA BANGZUMA MEMPERMALUKAN OTEN NGAKU KARATEKA SENIOR..ANCUR DAAH..!!",
   "category": "Kristologi & Kemanusiaan Yesus",
   "cluster_theme": "Kristologi & Kemanusiaan Yesus",
   "passages": [
-    "Roma 8",
+    "Galatia 2:11-14",
+    "Roma 8:1",
     "Roma 15:20",
-    "Galatia 2",
-    "Roma 15",
-    "Filipi 2",
-    "Filipi 1",
-    "1 Korintus 9",
-    "Wahyu 5"
+    "Roma 15:8-9",
+    "Filipi 2:5-8",
+    "Filipi 1:21"
   ],
   "sub_motions": [
-    "Pengujian Eksegesis Verbatim Terhadap Mosi 'Urgensi Dialog Iman & Friksi Apostolik Paulus vs Petrus (Galatia 2 & Roma 15)'",
-    "Dekonstruksi Premis Lawan Berdasarkan Konsistensi Kanon Naskah Bible"
+    "Urgensi Dialog Iman & Friksi Apostolik Paulus vs Petrus Berdasarkan Teks Galatia 2:11-14 & Roma 15:8-9",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Galatia 2:11-14 Melalui Metode Ilzam al-Khasm"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT"

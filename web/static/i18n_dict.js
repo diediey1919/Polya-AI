@@ -1,6 +1,29 @@
 // Polya-AI/web/static/i18n_dict.js
 const EXTENDED_I18N_MODULES = {
+  "es": {
+    "quickSearch": "Búsqueda rápida...",
+    "navDialectic": "Dialéctica y Contraexamen",
+    "navChristology": "Cristología y Jesús",
+    "navPhilology": "Filología y Manuscritos",
+    "navComparative": "Teología Comparada",
+    "navTrinity": "Monoteísmo y Trinidad",
+    "navPauline": "Pablo vs. la Torá",
+    "navProphecy": "Defensa de la Profecía",
+    "navPricing": "Precios y Planes",
+    "navAncientCourse": "Curso de Lenguas Antiguas",
+  },
+
   "zh-CN": {
+    "quickSearch": "快速搜索...",
+    "navDialectic": "辩证法与交叉质询",
+    "navChristology": "基督论与耶稣",
+    "navPhilology": "语文学与手稿",
+    "navComparative": "比较神学",
+    "navTrinity": "一神论与三位一体",
+    "navPauline": "保罗与摩西律法",
+    "navProphecy": "先知预言辩护",
+    "navPricing": "定价与计划",
+    "navAncientCourse": "古代语言课程",
     "footer": {
       "copyright": "© 2026 PT Polya Creative Entertainment. 保留所有权利。",
       "terms": "服务条款",
@@ -64,6 +87,16 @@ const EXTENDED_I18N_MODULES = {
     }
   },
   "id": {
+    "quickSearch": "Quick search...",
+    "navDialectic": "Dialektika & Cross-Exam",
+    "navChristology": "Kristologi & Yesus",
+    "navPhilology": "Filologi & Naskah",
+    "navComparative": "Teologi Komparatif",
+    "navTrinity": "Monoteisme & Trinitas",
+    "navPauline": "Paulus vs Taurat",
+    "navProphecy": "Pembelaan Kenabian",
+    "navPricing": "Pricing & Plans",
+    "navAncientCourse": "Kursus Bahasa Kuno",
     "footer": {
       "copyright": "© 2026 PT Polya Creative Entertainment. Hak Cipta Dilindungi.",
       "terms": "Ketentuan Layanan",
@@ -127,6 +160,16 @@ const EXTENDED_I18N_MODULES = {
     }
   },
   "en": {
+    "quickSearch": "Quick search...",
+    "navDialectic": "Dialectic & Cross-Exam",
+    "navChristology": "Christology & Jesus",
+    "navPhilology": "Philology & Manuscripts",
+    "navComparative": "Comparative Theology",
+    "navTrinity": "Monotheism & Trinity",
+    "navPauline": "Paul vs Mosaic Law",
+    "navProphecy": "Prophetic Defense",
+    "navPricing": "Pricing & Plans",
+    "navAncientCourse": "Ancient Languages Course",
     "footer": {
       "copyright": "© 2026 PT Polya Creative Entertainment. All Rights Reserved.",
       "terms": "Terms of Service",
@@ -190,6 +233,16 @@ const EXTENDED_I18N_MODULES = {
     }
   },
   "ar": {
+    "quickSearch": "بحث سريع...",
+    "navDialectic": "الجدلية والاستجواب المتقاطع",
+    "navChristology": "الكريستولوجيا ويسوع",
+    "navPhilology": "فقه اللغة والمخطوطات",
+    "navComparative": "علم اللاهوت المقارن",
+    "navTrinity": "التوحيد والثالوث",
+    "navPauline": "بولس مقابل الشريعة الموسوية",
+    "navProphecy": "الدفاع عن النبوة",
+    "navPricing": "الأسعار والباقات",
+    "navAncientCourse": "دورة اللغات القديمة",
     "footer": {
       "copyright": "© 2026 PT Polya Creative Entertainment. جميع الحقوق محفوظة.",
       "terms": "شروط الخدمة",
@@ -253,6 +306,16 @@ const EXTENDED_I18N_MODULES = {
     }
   },
   "el": {
+    "quickSearch": "Γρήγορη αναζήτηση...",
+    "navDialectic": "Διαλεκτική & Αντεξέταση",
+    "navChristology": "Χριστολογία & Ιησούς",
+    "navPhilology": "Φιλολογία & Χειρόγραφα",
+    "navComparative": "Συγκριτική Θεολογία",
+    "navTrinity": "Μονοθεϊσμός & Τριάδα",
+    "navPauline": "Παύλος εναντίον Νόμου",
+    "navProphecy": "Υπεράσπιση Προφητείας",
+    "navPricing": "Τιμολόγηση & Πακέτα",
+    "navAncientCourse": "Μάθημα Αρχαίων Γλωσσών",
     "footer": {
       "copyright": "© 2026 PT Polya Creative Entertainment. Με επιφύλαξη παντός δικαιώματος.",
       "terms": "Όροι Χρήσης",
@@ -316,6 +379,16 @@ const EXTENDED_I18N_MODULES = {
     }
   },
   "he": {
+    "quickSearch": "חיפוש מהיר...",
+    "navDialectic": "דיאלקטיקה וחקירה נגדית",
+    "navChristology": "כריסטולוגיה וישו",
+    "navPhilology": "פילולוגיה וכתבי יד",
+    "navComparative": "תיאולוגיה השוואתית",
+    "navTrinity": "מונותאיזם ושילוש",
+    "navPauline": "פאולוס נגד תורת משה",
+    "navProphecy": "הגנת הנבואה",
+    "navPricing": "מחירים ומסלולים",
+    "navAncientCourse": "קורס שפות עתיקות",
     "footer": {
       "copyright": "© 2026 PT Polya Creative Entertainment. כל הזכויות שמורות.",
       "terms": "תנאי שימוש",
@@ -379,6 +452,16 @@ const EXTENDED_I18N_MODULES = {
     }
   },
   "la": {
+    "quickSearch": "Quaestio celeris...",
+    "navDialectic": "Dialectica et Interrogatio",
+    "navChristology": "Christologia et Iesus",
+    "navPhilology": "Philologia et Manuscripta",
+    "navComparative": "Theologia Comparativa",
+    "navTrinity": "Monotheismus et Trinitas",
+    "navPauline": "Paulus contra Legem Mosaicam",
+    "navProphecy": "Defensio Prophetica",
+    "navPricing": "Pretia et Consilia",
+    "navAncientCourse": "Cursus Linguarum Antiquarum",
     "footer": {
       "copyright": "© 2026 PT Polya Creative Entertainment. Omnia iura reservantur.",
       "terms": "Condiciones Usus",

@@ -4,8 +4,8 @@
   "corpus_id": "video-1493",
   "youtube_id": "1gSPVF8scAk",
   "url": "https://www.youtube.com/watch?v=1gSPVF8scAk",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Perumpamaan Orang Kaya dan Lazarus: Otoritas Taurat dan Para Nabi Menentukan Eskatologi Menurut Teks Lukas 16:19-31 [Dossier Ref: 1gSPVF8scAk]",
+  "title": "Perumpamaan Orang Kaya dan Lazarus: Otoritas Taurat dan Para Nabi Menentukan Eskatologi Menurut Teks Lukas 16:19-31 [Dossier Ref: 1gSPVF8scAk]",
   "original_youtube_title": "BISAKAH PENJAGA ALAM SEMESTA TERTIDUR????",
   "source_video_title": "BISAKAH PENJAGA ALAM SEMESTA TERTIDUR????",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Perumpamaan Orang Kaya dan Lazarus: Otoritas Taurat dan Para Nabi Menentukan Eskatologi Menurut Teks Lukas 16:19-31 [Dossier Ref: 1gSPVF8scAk]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Lukas 16:19-31 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Lukas 16:19-31"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Lukas 16:19-31"
+    ]
   },
   "rounds": [
     {

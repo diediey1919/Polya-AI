@@ -14,19 +14,17 @@
   "category": "Monoteisme & Kritik Doktrin Trinitas",
   "cluster_theme": "Monoteisme & Kritik Doktrin Trinitas",
   "sub_motions": [
-    "Kontradiksi Logika 1+1+1=1 vs Kemutlakan Keberadaan Dzat Tunggal Maha Kuasa",
-    "Sejarah Masuknya Filsafat Platonisme dan Neoplatonisme ke dalam Teologi Kristen Awal",
-    "Eksaminasi Peran Roh Kudus dalam Membimbing Para Nabi Sepanjang Sejarah Kitab Suci"
+    "Uji Sokratik Terhadap Doktrin Trinitas: Evaluasi Konsili Nicea 325 M Menghadapi Naskah Asli Perjanjian Baru",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Kolose 2:9 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Kolose 2:9"
   ],
   "passages": [
-    "Kolose 2",
-    "Matius 7",
-    "Matius 4",
+    "Kolose 2:9",
+    "Matius 7:21",
+    "Matius 4:10",
     "Yohanes 10:27",
-    "1 Korintus 1",
-    "Matius 2",
-    "Yohanes 11",
-    "Yesaya 53"
+    "1 Korintus 1:18-25",
+    "Matius 2:1-2"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Kolose 2",
-      "Matius 7",
-      "Matius 4",
+      "Kolose 2:9",
+      "Matius 7:21",
+      "Matius 4:10",
       "Yohanes 10:27",
-      "1 Korintus 1",
-      "Matius 2",
-      "Yohanes 11",
-      "Yesaya 53"
+      "1 Korintus 1:18-25",
+      "Matius 2:1-2"
     ]
   },
   "rounds": [

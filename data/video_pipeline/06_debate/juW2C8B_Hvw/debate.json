@@ -4,8 +4,8 @@
   "corpus_id": "video-1394",
   "youtube_id": "juW2C8B_Hvw",
   "url": "https://www.youtube.com/watch?v=juW2C8B_Hvw",
-  "motion_or_topic": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
-  "title": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
+  "motion_or_topic": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: juW2C8B_Hvw]",
+  "title": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: juW2C8B_Hvw]",
   "original_youtube_title": "SI RK MENCRET TANAH LIAT... NANTANG TAPI KETAKUTAN..",
   "source_video_title": "SI RK MENCRET TANAH LIAT... NANTANG TAPI KETAKUTAN..",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Kristologi & Kemanusiaan Yesus",
   "cluster_theme": "Kristologi & Kemanusiaan Yesus",
   "sub_motions": [
-    "Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea",
-    "Status Inkarnasi Firman dalam Sejarah Pemikiran Patristik dan Pergeseran Makna Monoteisme",
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: juW2C8B_Hvw]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 1:1 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Yohanes 1:1"
   ],
   "passages": [
-    "Yohanes 1",
-    "Matius 28",
-    "Wahyu 5",
-    "Wahyu 19",
-    "1 Korintus 1",
-    "Mazmur 10",
-    "Markus 1",
-    "Markus 16"
+    "Yohanes 1:1",
+    "Matius 28:19",
+    "Wahyu 5:5",
+    "Wahyu 19:10",
+    "1 Korintus 1:18-25",
+    "Mazmur 10:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 1",
-      "Matius 28",
-      "Wahyu 5",
-      "Wahyu 19",
-      "1 Korintus 1",
-      "Mazmur 10",
-      "Markus 1",
-      "Markus 16"
+      "Yohanes 1:1",
+      "Matius 28:19",
+      "Wahyu 5:5",
+      "Wahyu 19:10",
+      "1 Korintus 1:18-25",
+      "Mazmur 10:1"
     ]
   },
   "rounds": [

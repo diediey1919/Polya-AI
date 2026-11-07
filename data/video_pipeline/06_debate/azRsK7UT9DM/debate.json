@@ -4,8 +4,8 @@
   "corpus_id": "video-1961",
   "youtube_id": "azRsK7UT9DM",
   "url": "https://www.youtube.com/watch?v=azRsK7UT9DM",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: azRsK7UT9DM]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: azRsK7UT9DM]",
   "original_youtube_title": "BANGZuma Tegas : Y3505 Bukan Yuhan tapi mgkn Dewa",
   "source_video_title": "BANGZuma Tegas : Y3505 Bukan Yuhan tapi mgkn Dewa",
   "debate_mode": "zuma_persona",
@@ -14,13 +14,14 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: azRsK7UT9DM]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Roma 6:23 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Roma 6",
-    "Wahyu 1",
-    "Filipi 2",
-    "1 Timotius 6"
+    "Roma 6:23",
+    "Wahyu 1:1",
+    "Filipi 2:5-8",
+    "1 Timotius 6:15-16"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -49,10 +50,10 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Roma 6",
-      "Wahyu 1",
-      "Filipi 2",
-      "1 Timotius 6"
+      "Roma 6:23",
+      "Wahyu 1:1",
+      "Filipi 2:5-8",
+      "1 Timotius 6:15-16"
     ]
   },
   "rounds": [

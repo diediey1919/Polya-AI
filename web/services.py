@@ -1101,9 +1101,18 @@ class CaseFileGenerator:
         - Robust fallback mechanism to valid LinguisticExegesisPackage if parsing fails
         """
         import re
-        from orchestrator.exegesis_engine import ExegesisEngine
+        from orchestrator.exegesis_engine import ExegesisEngine, BIBLE_LOCALE_TRANSLATION_MAP
 
-        # 0. Check domain relevance (never dispatch scripture exegesis for non-theological / secular claims)
+        # 0. Extract UI locale
+        ui_locale = "id"
+        if context:
+            if isinstance(context, dict):
+                ui_locale = context.get("ui_locale") or context.get("debate_locale") or "id"
+            else:
+                ui_locale = getattr(context, "ui_locale", None) or getattr(context, "debate_locale", None) or "id"
+        ui_locale = (ui_locale or "id").strip().lower()
+
+        # 0b. Check domain relevance (never dispatch scripture exegesis for non-theological / secular claims)
         theological_keywords = ["yesus", "bapa", "ontologi", "kehendak", "kristus", "allah", "tuhan", "roh", "tritunggal", "trinitas", "tauhid", "bible", "alkitab", "injil", "taurat", "firman", "logos", "theos", "kenosis", "monoteisme", "ayat", "surat", "pasal", "isa", "nabi", "rasul", "al-qur'an", "quran", "sunnah"]
         is_theological = any(w in claim.lower() for w in theological_keywords) or bool(ExegesisEngine.match_theological_verse(claim) or ExegesisEngine.extract_explicit_verse(claim))
         if not is_theological and not evidence_items:
@@ -1116,7 +1125,7 @@ class CaseFileGenerator:
                 return parsed
 
         # 2. Canonical Registry Accelerator / Cache:
-        # Accelerate response for canonical verses (e.g. Roma 3:31, Yehezkiel 18:20, Yohanes 1:1, Ulangan 6:4, Matius 5:17, Lukas 22:42, 2 Petrus 1:21, 1 Yohanes 5:7-8)
+        # Accelerate response for canonical verses (e.g. Roma 3:31, Yehezkiel 18:20, Yohanes 1:1, Ulangan 6:4, Matius 5:17, Lukas 22:42, 2 Petrus 1:21, 1 Yohanes 5:7-8, Yesaya 9:5)
         explicit_verse = ExegesisEngine.extract_explicit_verse(claim)
         matched_canonical = ExegesisEngine.match_canonical_verse(explicit_verse or claim)
         if matched_canonical and matched_canonical in ExegesisEngine.get_canonical_registry():
@@ -1124,18 +1133,41 @@ class CaseFileGenerator:
                 claim=claim,
                 evidence_items=evidence_items,
                 synthesis_output=synthesis_output,
-                context=context
+                context=context,
+                locale=ui_locale
             )
             if canon_pkg and canon_pkg.interlinear_tokens:
                 return canon_pkg
 
         # 3. Strict Academic System Prompt for Linguistic Exegesis Generator (for any verse outside canonical registry)
+        loc_info = BIBLE_LOCALE_TRANSLATION_MAP.get(ui_locale, BIBLE_LOCALE_TRANSLATION_MAP.get("en", {
+            "language_name": "Bahasa Indonesia",
+            "benchmark_label_nt": "Makna Yunani Koine Abad ke-1",
+            "benchmark_label_ot": "Makna Ibrani Kuno Abad Pertama/Masoretik",
+            "benchmark_critique": "Standar acuan akurasi utama teks naskah asli abad pertama.",
+            "local_code": "TB LAI"
+        }))
+        target_lang_name = loc_info.get("language_name", "Bahasa Indonesia")
+        local_bible_code = loc_info.get("local_code", "TB LAI")
+        bench_nt = loc_info.get("benchmark_label_nt", "Makna Yunani Koine Abad ke-1")
+        bench_ot = loc_info.get("benchmark_label_ot", "Makna Ibrani Kuno Abad Pertama/Masoretik")
+
         academic_system_prompt = (
+            f"TARGET INTERFACE LOCALE: {ui_locale.upper()} ({target_lang_name.upper()}).\n"
+            f"PERATURAN LOKALISASI MUTLAK: Seluruh output wajib disajikan murni dalam BAHASA {target_lang_name.upper()}.\n"
+            + (f"DILARANG KERAS MENGGUNAKAN BAHASA INDONESIA karena target locale pengguna adalah {target_lang_name.upper()}.\n" if ui_locale != 'id' else "")
+            + f"Seluruh field berikut WAJIB murni dalam bahasa {target_lang_name.upper()}:\n"
+            "- 'literal_translation'\n"
+            "- 'natural_translation'\n"
+            "- 'exegetical_note' (pada setiap token)\n"
+            "- 'syntactic_exegesis' (seluruh poin analisis)\n"
+            "- 'exegetical_synthesis'\n"
+            "- 'translation_comparison' (critique evaluasi filologis dan versi lokal)\n\n"
             "Anda adalah Polya Philological & Linguistic Exegesis Engine — pakar filologi forensik naskah kuno Bible "
             "(Biblia Hebraica Stuttgartensia / Nestle-Aland Novum Testamentum Graece NA28) yang beroperasi dengan standar BibleHub Text Analysis.\n\n"
             "TUGAS UTAMA:\n"
             "Lakukan bedah filologi dan eksegesis linguistik interlinear kata-per-kata secara mendalam, objektif, akademis, "
-            "dan presisi terhadap ayat kunci utama dari klaim/mosi pengguna.\n\n"
+            f"dan presisi terhadap ayat kunci utama dari klaim/mosi pengguna. Seluruh hasil analisis, uraian, catatan eksegesis, dan sintesis akhir WAJIB disajikan dalam BAHASA {target_lang_name.upper()}.\n\n"
             "KETENTUAN AKADEMIK & ATURAN NOMENKLATUR MUTLAK:\n"
             "1. Identifikasi ayat kunci utama dari klaim pengguna. Wajib menuliskan Nama Kitab / Surat secara LENGKAP tanpa singkatan "
             "beserta nomor pasal dan nomor ayat yang presisi (contoh: Roma 3:31, Yehezkiel 18:20, Yohanes 1:1, Matius 5:17, Ulangan 6:4, 1 Yohanes 5:7-8). Dilarang keras menyingkat nama kitab atau mengubah nama kitab bernomor (seperti 1 Yohanes) menjadi kata keterangan relatif seperti 'yang Pertama'.\n"
@@ -1146,7 +1178,7 @@ class CaseFileGenerator:
             "DILARANG KERAS menerjemahkan atau menuliskan kata 'Theos' (θεός / θεοῦ / τὸν θεόν) sebagai 'Allah'. "
             "Wajib selalu menuliskan dan mempertahankan bentuk aslinya sebagai 'Theos' (termasuk pada literal_gloss, kamus BDAG, "
             "uraian morfologi, catatan eksegesis, rekonstruksi abad ke-1, hingga sintesis eksegesis). "
-            "Dilarang mengartikannya sebagai 'Allah'. Pengecualian SATU-SATUNYA hanya berlaku pada kutipan cetakan resmi TB LAI di seksi komparasi terjemahan.\n"
+            f"Dilarang mengartikannya sebagai 'Allah'. Pengecualian SATU-SATUNYA hanya berlaku pada kutipan resmi cetakan {local_bible_code} di seksi komparasi terjemahan.\n"
             "4. Pecah SELURUH kata dalam ayat tersebut ke dalam 'interlinear_tokens' secara berurutan dari kata pertama hingga kata terakhir ayat (minimal 10-25 kata berurutan untuk seluruh perikop ayat, DILARANG KERAS hanya mengembalikan 1 kata contoh/placeholder!). Setiap token memuat:\n"
             "   - 'index': nomor urut kata (1, 2, 3...)\n"
             "   - 'strong_number': kode Strong resmi (misal: H5315, G3056)\n"
@@ -1154,22 +1186,22 @@ class CaseFileGenerator:
             "   - 'transliteration': transliterasi fonetis ilmiah akademis\n"
             "   - 'lemma': bentuk lema/akar kata dasar (radix)\n"
             "   - 'morphology_code': kode tag morfologi resmi standar BibleHub (misal: N-AMS, V-PIA-1P, Prep-b | N-fs, V-Qal-Imperf-3ms)\n"
-            "   - 'morphology_expanded': uraian gramatika lengkap (Part of Speech, Stem/Binyan, Tense/Aspect, Voice, Mood, Person, Gender, Number, Case/State)\n"
-            "   - 'literal_gloss': terjemahan harfiah kata tersebut\n"
-            "   - 'syntactic_role': fungsi sintaksis dalam klausa (misal: Subjek Gramatikal, Predikat, Objek Akusatif Emfatis, Konstruk Genitif)\n"
-            "   - 'lexical_entry': kutipan kamus akademik standar {\"source\": \"BDB / HALOT / BDAG / Thayer\", \"definition\": \"...\", \"semantic_range\": \"...\"}\n"
-            "   - 'exegetical_note': catatan signifikansi hermeneutis, teologis, atau yuridis dari kata spesifik ini\n"
-            "5. 'literal_translation': Rekonstruksi terjemahan kata-per-kata yang setia pada tata bahasa naskah asli abad pertama, disajikan dalam susunan bahasa Indonesia yang jernih, runtut, dan mudah dipahami pembaca awam (hindari susunan kaku atau kesan teks mesin yang artifisial).\n"
-            "6. 'natural_translation': terjemahan bahasa Indonesia yang mengalir, alami, dan akurat secara kontekstual.\n"
+            f"   - 'morphology_expanded': uraian gramatika lengkap dalam bahasa {target_lang_name} (Part of Speech, Stem/Binyan, Tense/Aspect, Voice, Mood, Person, Gender, Number, Case/State)\n"
+            f"   - 'literal_gloss': terjemahan harfiah kata tersebut dalam bahasa {target_lang_name}\n"
+            f"   - 'syntactic_role': fungsi sintaksis dalam klausa dalam bahasa {target_lang_name} (misal: Subjek Gramatikal, Predikat, Objek Akusatif Emfatis, Konstruk Genitif)\n"
+            f"   - 'lexical_entry': kutipan kamus akademik standar {{\"source\": \"BDB / HALOT / BDAG / Thayer\", \"definition\": \"...\", \"semantic_range\": \"...\"}} (dalam bahasa {target_lang_name})\n"
+            f"   - 'exegetical_note': catatan signifikansi hermeneutis, teologis, atau yuridis kata ini dalam bahasa {target_lang_name}\n"
+            f"5. 'literal_translation': Rekonstruksi terjemahan kata-per-kata yang setia pada tata bahasa naskah asli abad pertama, disajikan dalam susunan bahasa {target_lang_name} yang jernih, runtut, dan mudah dipahami pembaca awam.\n"
+            f"6. 'natural_translation': terjemahan bahasa {target_lang_name} yang mengalir, alami, dan akurat secara kontekstual.\n"
             "7. 'exegetical_context':\n"
-            "   - 'literary_genre': genre sastra teks (misal: Epistola Didaktik / Diatribe Paulin, Orakel Profetik Yudisial, Narasi Kovenan)\n"
-            "   - 'immediate_context': analisis perikop dekat (ayat-ayat sebelum dan sesudah dalam pasal yang sama)\n"
-            "   - 'historical_cultural_setting': latar belakang historis dan budaya (Sitz im Leben naskah asli)\n"
-            "8. 'syntactic_exegesis': minimal 3 poin krusial analisis sintaksis dan tata bahasa ayat tersebut (misal: aspek verba, urutan kata/topicalization, relasi klausa).\n"
+            f"   - 'literary_genre': genre sastra teks dalam bahasa {target_lang_name}\n"
+            f"   - 'immediate_context': analisis perikop dekat dalam bahasa {target_lang_name}\n"
+            f"   - 'historical_cultural_setting': latar belakang historis dan budaya (Sitz im Leben) dalam bahasa {target_lang_name}\n"
+            f"8. 'syntactic_exegesis': minimal 3 poin krusial analisis sintaksis dan tata bahasa ayat tersebut dalam bahasa {target_lang_name}.\n"
             "9. 'manuscript_witnesses': minimal 3 saksi naskah kuno (misal: Codex Leningradensis B19a, Septuaginta LXX, Dead Sea Scrolls / Codex Sinaiticus, Codex Vaticanus, Papirus P46/P66) beserta status variannya.\n"
-            "10. 'translation_comparison': Wajib menempatkan 'Makna Yunani Koine Abad ke-1' (untuk Perjanjian Baru) atau 'Makna Ibrani Kuno Abad Pertama/Masoretik' (untuk Perjanjian Lama) pada URUTAN PERTAMA (indeks 0) sebagai standar acuan akurasi utama teks, disusul minimal 3 versi terjemahan populer (TB LAI, KJV, ESV) yang diaudit terhadap standar teks asli abad pertama tersebut.\n"
-            "11. 'corpus_cross_references': minimal 3 ayat pembanding konkordansi lintas-ayat Bible (dengan nomor pasal dan ayat lengkap) beserta penjelasannya.\n"
-            "12. 'exegetical_synthesis': Rangkuman kesimpulan akhir makna teks yang ditulis dalam BAHASA INDONESIA AWAM YANG JERNIH, MENGALIR, DAN LANGSUNG MUDAH DIPAHAMI PEMBACA UMUM (hindari jargon teknis linguistik yang kaku seperti anarthrous, colwell, genitif partitif). Jelaskan secara gamblang dan lugas: (a) apa maksud pesan ayat ini sebenarnya dalam bahasa aslinya; (b) apa kesalahpahaman umum yang sering terjadi akibat membaca terjemahan biasa; dan (c) apa kesimpulan apologetik yang tajam dan tak terbantahkan dari teks tersebut.\n\n"
+            f"10. 'translation_comparison': Wajib menempatkan '{bench_nt}' (untuk Perjanjian Baru) atau '{bench_ot}' (untuk Perjanjian Lama) pada URUTAN PERTAMA (indeks 0) sebagai standar acuan akurasi utama teks, disusul Alkitab standar '{local_bible_code}', serta versi historis 'KJV' dan 'ESV' (teks KJV dan ESV tetap dalam bahasa Inggris, namun evaluasi filologis/critique wajib dalam bahasa {target_lang_name}).\n"
+            f"11. 'corpus_cross_references': minimal 3 ayat pembanding konkordansi lintas-ayat Bible (dengan nomor pasal dan ayat lengkap) beserta penjelasannya dalam bahasa {target_lang_name}.\n"
+            f"12. 'exegetical_synthesis': Rangkuman kesimpulan akhir makna teks yang ditulis dalam BAHASA {target_lang_name.upper()} AWAM YANG JERNIH, MENGALIR, DAN LANGSUNG MUDAH DIPAHAMI PEMBACA UMUM.\n\n"
             "FORMAT OUTPUT: Wajib HANYA berupa objek JSON valid (tanpa markdown backtick, tanpa kalimat pengantar/penutup) dengan skema:\n"
             "{\n"
             '  "passage_reference": "Nama Kitab Lengkap Pasal:Ayat",\n'
@@ -1212,13 +1244,13 @@ class CaseFileGenerator:
             '  ],\n'
             '  "syntactic_exegesis": {"poin_1": "...", "poin_2": "...", "poin_3": "..."},\n'
             '  "manuscript_witnesses": [{"witness": "...", "reading": "...", "status": "..."}],\n'
-            '  "translation_comparison": [{"version": "Makna Yunani Koine Abad ke-1", "text": "...", "critique": "Standar acuan akurasi filologis naskah asli abad pertama."}, {"version": "TB LAI", "text": "...", "critique": "..."}, {"version": "KJV", "text": "...", "critique": "..."}, {"version": "ESV", "text": "...", "critique": "..."}],\n'
+            f'  "translation_comparison": [{{"version": "{bench_nt}", "text": "...", "critique": "...", "is_benchmark": true}}, {{"version": "{local_bible_code}", "text": "...", "critique": "..."}}, {{"version": "KJV", "text": "...", "critique": "..."}}, {{"version": "ESV", "text": "...", "critique": "..."}}],\n'
             '  "corpus_cross_references": [{"reference": "...", "connection": "..."}],\n'
             '  "exegetical_synthesis": "..."\n'
             "}"
         )
 
-        user_query = f'Klaim / Teks Mosi: "{claim}"\nLakukan analisis eksegesis linguistik interlinear per kata sesuai standar BibleHub.'
+        user_query = f'Klaim / Teks Mosi: "{claim}"\nLakukan analisis eksegesis linguistik interlinear per kata sesuai standar BibleHub. Wajib menghasilkan seluruh teks terjemahan, analisis sintaksis, catatan eksegesis, komparasi terjemahan, dan sintesis akhir dalam bahasa {target_lang_name.upper()}.'
 
         # 3. Call LLM through AgentRuntime
         try:
@@ -1229,6 +1261,9 @@ class CaseFileGenerator:
             if res and res.status == "COMPLETED" and res.output:
                 parsed_dict = extract_and_sanitize_json(res.output)
                 if isinstance(parsed_dict, dict) and "interlinear_tokens" in parsed_dict:
+                    parsed_trans = parsed_dict.get("translation_comparison")
+                    if isinstance(parsed_trans, list) and len(parsed_trans) > 0 and isinstance(parsed_trans[0], dict):
+                        parsed_trans[0]["is_benchmark"] = True
                     raw_pref = parsed_dict.get("passage_reference") or ""
                     # Reconcile corrupted or missing passage reference
                     claim_verse = ExegesisEngine.extract_explicit_verse(claim)
@@ -1243,7 +1278,7 @@ class CaseFileGenerator:
                     if len(raw_tokens) <= 2:
                         canon_verse = ExegesisEngine.match_canonical_verse(claim_verse or raw_pref or claim)
                         if canon_verse and canon_verse in ExegesisEngine.get_canonical_registry():
-                            canon_pkg = ExegesisEngine.get_canonical_package(canon_verse)
+                            canon_pkg = ExegesisEngine.get_canonical_package(canon_verse, locale=ui_locale)
                             if canon_pkg:
                                 return canon_pkg
                         src_full = parsed_dict.get("source_text_full") or ""
@@ -1257,6 +1292,13 @@ class CaseFileGenerator:
                                         supplemented_tokens.append(raw_tokens[0])
                                     else:
                                         code = f"H{1000+idx}" if is_ot else f"G{2000+idx}"
+                                        morph_exp = f"Morfologia della parola #{idx+1} ({w})" if ui_locale == "it" else (f"Morphology of word #{idx+1} ({w})" if ui_locale != "id" else f"Morfologi kata ke-{idx+1} ({w})")
+                                        lit_gloss = f"significato di {w}" if ui_locale == "it" else (f"meaning of {w}" if ui_locale != "id" else f"makna {w}")
+                                        syn_role = "Costituente di clausola" if ui_locale == "it" else ("Clause Constituent" if ui_locale != "id" else "Konstituen Klausa")
+                                        lex_src = "Lessico Standard" if ui_locale == "it" else ("Standard Lexicon" if ui_locale != "id" else "Leksikon Standar")
+                                        lex_def = f"Definizione lessicale di {w}" if ui_locale == "it" else (f"Lexical definition of {w}" if ui_locale != "id" else f"Definisi leksikal {w}")
+                                        sem_range = "Contesto testuale" if ui_locale == "it" else ("Textual context" if ui_locale != "id" else "Konteks naskah")
+                                        exe_note = f"Significato ermeneutico della parola '{w}'." if ui_locale == "it" else (f"Hermeneutical significance of '{w}'." if ui_locale != "id" else f"Signifikansi hermeneutis kata '{w}'.")
                                         supplemented_tokens.append({
                                             "index": idx + 1,
                                             "strong_number": code,
@@ -1264,11 +1306,11 @@ class CaseFileGenerator:
                                             "transliteration": f"w_{idx+1}",
                                             "lemma": w,
                                             "morphology_code": "V-Qal" if is_ot else "N-NMS",
-                                            "morphology_expanded": f"Morfologi kata ke-{idx+1} ({w})",
-                                            "literal_gloss": f"makna {w}",
-                                            "syntactic_role": "Konstituen Klausa",
-                                            "lexical_entry": {"source": "Leksikon Standar", "definition": f"Definisi leksikal {w}", "semantic_range": "Konteks naskah"},
-                                            "exegetical_note": f"Signifikansi hermeneutis kata '{w}'."
+                                            "morphology_expanded": morph_exp,
+                                            "literal_gloss": lit_gloss,
+                                            "syntactic_role": syn_role,
+                                            "lexical_entry": {"source": lex_src, "definition": lex_def, "semantic_range": sem_range},
+                                            "exegetical_note": exe_note
                                         })
                                 parsed_dict["interlinear_tokens"] = supplemented_tokens
 
@@ -1283,7 +1325,8 @@ class CaseFileGenerator:
             claim=claim,
             evidence_items=evidence_items,
             synthesis_output=synthesis_output,
-            context=context
+            context=context,
+            locale=ui_locale
         )
 
 
@@ -1303,7 +1346,10 @@ class CaseFileGenerator:
         norm_mode = mode.lower() if mode else "research"
         requested_mode = "DEBATE" if norm_mode == "debate" else "RESEARCH"
         ui_locale = getattr(ctx, "ui_locale", "id") or "id"
-        debate_locale = getattr(ctx, "debate_locale", "id") or ui_locale or "id"
+        debate_locale = getattr(ctx, "debate_locale", None)
+        if not debate_locale or (debate_locale == "id" and ui_locale != "id"):
+            debate_locale = ui_locale
+        eff_loc = (ui_locale or debate_locale or "id").strip().lower()
         from orchestrator.exegesis_engine import ExegesisEngine
 
         try:
@@ -1421,11 +1467,11 @@ class CaseFileGenerator:
                                     pass
 
                         if not orig_text:
-                            orig_text = f"Teks naskah primer asli untuk {pref}"
+                            orig_text = f"Teks naskah primer asli untuk {pref}" if ui_locale == "id" else (f"Testo del manoscritto primario originale per {pref}" if ui_locale == "it" else f"Original primary manuscript text for {pref}")
                         if not translit:
-                            translit = f"Transliterasi fonetis {pref}"
+                            translit = f"Transliterasi fonetis {pref}" if ui_locale == "id" else (f"Traslitterazione fonetica {pref}" if ui_locale == "it" else f"Phonetic transliteration for {pref}")
                         if not indo_trans:
-                            indo_trans = f"Terjemahan naskah primer {pref}"
+                            indo_trans = f"Terjemahan naskah primer {pref}" if ui_locale == "id" else (f"Traduzione del testo primario per {pref}" if ui_locale == "it" else f"Primary text translation for {pref}")
                         if not eng_trans:
                             eng_trans = f"Primary witness translation for {pref}"
 
@@ -1475,7 +1521,9 @@ class CaseFileGenerator:
                         "transliteration": e.get("transliteration", ""),
                         "morphology": morph_display,
                         "manuscripts": e.get("witnesses", []),
-                        "critical_apparatus": e.get("theological_implication") or f"Provenance SHA-256: {e.get('provenance_hash', '')}"
+                        "critical_apparatus": e.get("theological_implication") or f"Provenance SHA-256: {e.get('provenance_hash', '')}",
+                        "tokens": e.get("tokens", []),
+                        "translation_comparisons": e.get("translation_comparisons", [])
                     })
                 sources_list = [
                     {"citation": f"{e.get('passage_reference')} ({e.get('source_id')})", "type": "Primary Scripture Witness"}
@@ -1492,11 +1540,23 @@ class CaseFileGenerator:
             steelman = result.get("steelman_counterarg") or {}
 
             # Dynamic synthesis extraction with locale-sensitive fallbacks
-            eff_loc = (debate_locale or ui_locale or "id").strip().lower()
+            eff_loc = (ui_locale or debate_locale or "id").strip().lower()
+            is_it_loc = eff_loc.startswith("it")
             is_zh_loc = eff_loc.startswith("zh")
             is_en_loc = eff_loc.startswith("en")
 
-            if is_zh_loc:
+            if is_it_loc:
+                def_arg = f"L'analisi filologica forense sulla proposizione '{claim}' dimostra la coerenza interna dei manoscritti primari."
+                def_counter = "La controparte eccepisce obiezioni teologiche tradizionali senza esame dei manoscritti primari."
+                def_rebuttal = "Confutazione oggettiva che smonta la distorsione semantica e ristabilisce la coerenza canonica."
+                def_weakness = "Vulnerabilità lessicografica e omissione del contesto linguistico dei testi sorgente."
+                def_questions = [
+                    "In che modo la controparte intende sostenere la propria asserzione in assenza di riscontri sui testimoni manoscritti antichi?",
+                    "I lessici accademici autorevoli di riferimento suffragano la declinazione semantica adottata dall'interlocutore?"
+                ]
+                def_trap = "Incalzare l'interlocutore ancorandolo alla definizione lessicale accademica della lingua d'origine."
+                def_tempo = "Porre domande socratiche concise e strutturate, forzando concessioni vincolanti sui testimoni testuali."
+            elif is_zh_loc:
                 def_arg = f"针对主张 '{claim}' 的文献语言学法医分析证实了原典文本的内在一致性。"
                 def_counter = "反对方在缺乏原始手抄本检验的情况下提出了传统神学抗辩。"
                 def_rebuttal = "客观反驳揭示了经文意义的扭曲，确立了正典的内在一致性。"
@@ -1570,6 +1630,8 @@ class CaseFileGenerator:
                         synthesis_output=synth
                     )
                     prep_val["canonical_8_rounds"] = canonical_sim
+                    if canonical_sim and "glossary" in canonical_sim:
+                        prep_val["glossary"] = canonical_sim["glossary"]
                 except Exception as e_sim:
                     logger.warning(f"Canonical 8-round debate simulation injection skipped: {e_sim}")
             else:
@@ -1674,6 +1736,7 @@ class CaseFileGenerator:
                 open_questions=open_q_val,
                 debate_preparation=prep_val,
                 canonical_simulation=canonical_sim,
+                glossary=canonical_sim.get("glossary") if canonical_sim else None,
                 linguistic_exegesis=linguistic_exegesis,
                 is_demo=False,
                 notice=notice_val,
@@ -1744,7 +1807,8 @@ class CaseFileGenerator:
                         "babak_2_cross_exam": sim_deb.get("babak_2", {}).get("pertanyaan_presisi"),
                         "babak_3_forensik": sim_deb.get("babak_3", {}).get("bedah_bahasa_sumber"),
                         "babak_4_evaluasi": sim_deb.get("babak_4", {}).get("evaluasi_kekuatan_bukti"),
-                        "canonical_8_rounds": fallback_canonical_sim
+                        "canonical_8_rounds": fallback_canonical_sim,
+                        "glossary": fallback_canonical_sim.get("glossary", {}) if fallback_canonical_sim else {}
                     }
                 except Exception:
                     pass
@@ -1767,14 +1831,30 @@ class CaseFileGenerator:
                         "critical_apparatus": f"Audit naskah primer: {fallback_exegesis.passage_reference}"
                     })
                 else:
-                    fb_evidence.append({
-                        "language": "Koine Greek",
-                        "source_text": f"{target_ref} (Naskah Kritis Primer)",
-                        "transliteration": "",
-                        "morphology": f"Perikop kunci: {target_ref}",
-                        "manuscripts": ["Codex Sinaiticus", "Codex Vaticanus", "Papirus Bodmer"],
-                        "critical_apparatus": "NA28 reading identical"
-                    })
+                    from orchestrator.evidence_engine import CANONICAL_PHILOLOGY_KNOWLEDGE
+                    canon_kb = CANONICAL_PHILOLOGY_KNOWLEDGE.get(target_ref)
+                    if canon_kb:
+                        fb_evidence.append({
+                            "language": canon_kb["original_language"],
+                            "source_text": f"{canon_kb['original_text']} ({canon_kb.get('passage_reference') or target_ref})",
+                            "transliteration": canon_kb.get("transliteration", ""),
+                            "morphology": f"Perikop kunci: {target_ref} | {canon_kb['original_language']}",
+                            "manuscripts": canon_kb.get("witnesses", []),
+                            "critical_apparatus": canon_kb.get("theological_implication") or f"Audit naskah primer: {target_ref}",
+                            "tokens": [t.__dict__ if hasattr(t, '__dict__') else t for t in canon_kb.get("tokens", [])],
+                            "translation_comparisons": canon_kb.get("translation_comparisons", [])
+                        })
+                    else:
+                        fb_evidence.append({
+                            "language": "Koine Greek",
+                            "source_text": f"{target_ref} (Naskah Kritis Primer)",
+                            "transliteration": "",
+                            "morphology": f"Perikop kunci: {target_ref}",
+                            "manuscripts": ["Codex Sinaiticus", "Codex Vaticanus", "Papirus Bodmer"],
+                            "critical_apparatus": "NA28 reading identical",
+                            "tokens": [],
+                            "translation_comparisons": []
+                        })
                 sources_val = [{"citation": f"{target_ref} (Nestle-Aland Novum Testamentum Graece, 28th Edition)", "type": "Primary Scripture Witness"}]
                 arg_val = f"Secara forensik teks, premis klaim '{claim[:60]}...' dianalisis berdasarkan sintaksis gramatika bahasa sumber asli ({target_ref})."
                 counter_val = f"Tinjauan pembacaan alternatif akademis terhadap konteks naskah primer {target_ref}."
@@ -1808,6 +1888,7 @@ class CaseFileGenerator:
                     "canonical_8_rounds": None
                 },
                 canonical_simulation=fallback_canonical_sim,
+                glossary=fallback_canonical_sim.get("glossary") if fallback_canonical_sim else None,
                 linguistic_exegesis=fallback_exegesis,
                 is_demo=False,
                 notice=notice_val,

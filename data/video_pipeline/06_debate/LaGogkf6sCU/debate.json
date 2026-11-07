@@ -4,8 +4,8 @@
   "corpus_id": "video-1319",
   "youtube_id": "LaGogkf6sCU",
   "url": "https://www.youtube.com/watch?v=LaGogkf6sCU",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: LaGogkf6sCU]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: LaGogkf6sCU]",
   "original_youtube_title": "SIMAK BGMN BANGZUMA MEMATIKAN LANGKAH PENIPU AKAN KATA ALKITAB...",
   "source_video_title": "SIMAK BGMN BANGZUMA MEMATIKAN LANGKAH PENIPU AKAN KATA ALKITAB...",
   "debate_mode": "zuma_persona",
@@ -14,11 +14,11 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: LaGogkf6sCU]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Filipi 1:21 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Filipi 1"
+    "Filipi 1:21"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -47,7 +47,7 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Filipi 1"
+      "Filipi 1:21"
     ]
   },
   "rounds": [

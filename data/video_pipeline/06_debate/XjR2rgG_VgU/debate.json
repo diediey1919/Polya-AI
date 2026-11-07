@@ -4,8 +4,8 @@
   "corpus_id": "video-2227",
   "youtube_id": "XjR2rgG_VgU",
   "url": "https://www.youtube.com/watch?v=XjR2rgG_VgU",
-  "motion_or_topic": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
-  "title": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
+  "motion_or_topic": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: XjR2rgG_VgU]",
+  "title": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: XjR2rgG_VgU]",
   "original_youtube_title": "DEBATER VANIK SEHINGGA NYEBUT TOEH4NNYA SET4N",
   "source_video_title": "DEBATER VANIK SEHINGGA NYEBUT TOEH4NNYA SET4N",
   "debate_mode": "zuma_persona",
@@ -14,14 +14,15 @@
   "category": "Kristologi & Kemanusiaan Yesus",
   "cluster_theme": "Kristologi & Kemanusiaan Yesus",
   "sub_motions": [
-    "Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea",
-    "Status Inkarnasi Firman dalam Sejarah Pemikiran Patristik dan Pergeseran Makna Monoteisme",
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: XjR2rgG_VgU]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 1:1 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Yohanes 1:1"
   ],
   "passages": [
-    "1 Samuel 15",
-    "Matius 14",
-    "Lukas 16"
+    "Yohanes 1:1",
+    "1 Samuel 15:1",
+    "Matius 14:1",
+    "Lukas 16:19-31"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -50,9 +51,10 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "1 Samuel 15",
-      "Matius 14",
-      "Lukas 16"
+      "Yohanes 1:1",
+      "1 Samuel 15:1",
+      "Matius 14:1",
+      "Lukas 16:19-31"
     ]
   },
   "rounds": [

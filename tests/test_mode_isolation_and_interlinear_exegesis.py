@@ -37,7 +37,7 @@ def test_debate_mode_retains_canonical_simulation():
     cf = CaseFileGenerator.generate_case_file(claim, ctx, user_id="test_user_debate", mode="debate")
 
     assert cf.canonical_simulation is not None, "DEBATE mode must have canonical_simulation"
-    assert cf.canonical_simulation["schema_version"] == "1.0.0"
+    assert cf.canonical_simulation["schema_version"] in ("1.0.0", "1.1.0")
     assert cf.canonical_simulation["debate_mode"] == "zuma_persona"
     assert cf.canonical_simulation["persona_id"] == "zuma_debate_v1"
     assert len(cf.canonical_simulation["rounds"]) == 16, "Must have exactly 8 rounds (16 turns)"

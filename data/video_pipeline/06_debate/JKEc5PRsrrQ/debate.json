@@ -4,8 +4,8 @@
   "corpus_id": "video-1241",
   "youtube_id": "JKEc5PRsrrQ",
   "url": "https://www.youtube.com/watch?v=JKEc5PRsrrQ",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: JKEc5PRsrrQ]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: JKEc5PRsrrQ]",
   "original_youtube_title": "OTEN BERTANYA BERTUBI2..BOLEH MENGGAULI HEWAN??SIMAK JAWAN BANGZUMA..KEREN",
   "source_video_title": "OTEN BERTANYA BERTUBI2..BOLEH MENGGAULI HEWAN??SIMAK JAWAN BANGZUMA..KEREN",
   "debate_mode": "zuma_persona",
@@ -14,16 +14,16 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: JKEc5PRsrrQ]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 19:16-17 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 19",
-    "Ulangan 33",
+    "Matius 19:16-17",
+    "Ulangan 33:2",
     "Mazmur 1:47",
-    "Matius 28",
-    "Markus 16",
-    "Ulangan 20"
+    "Matius 28:19",
+    "Markus 16:9-20",
+    "Ulangan 20:16-17"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -52,12 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 19",
-      "Ulangan 33",
+      "Matius 19:16-17",
+      "Ulangan 33:2",
       "Mazmur 1:47",
-      "Matius 28",
-      "Markus 16",
-      "Ulangan 20"
+      "Matius 28:19",
+      "Markus 16:9-20",
+      "Ulangan 20:16-17"
     ]
   },
   "rounds": [

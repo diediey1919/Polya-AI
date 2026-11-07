@@ -4,8 +4,8 @@
   "corpus_id": "video-897",
   "youtube_id": "ZAhmtTEtjEk",
   "url": "https://www.youtube.com/watch?v=ZAhmtTEtjEk",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: ZAhmtTEtjEk]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: ZAhmtTEtjEk]",
   "original_youtube_title": "MANTAP KALI BAAHH..BANGZUMA DITANYA TENTANG INJIL DI DLM ALQURAN..",
   "source_video_title": "MANTAP KALI BAAHH..BANGZUMA DITANYA TENTANG INJIL DI DLM ALQURAN..",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: ZAhmtTEtjEk]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Lukas 9:20 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Lukas 9",
-    "Yohanes 19",
-    "Kisah Para Rasul 4",
-    "Markus 1",
-    "Yohanes 5",
-    "Yohanes 12",
-    "Galatia 1",
-    "Markus 11"
+    "Lukas 9:20",
+    "Yohanes 19:30",
+    "Kisah Para Rasul 4:12",
+    "Markus 1:1",
+    "Yohanes 5:30",
+    "Yohanes 12:49"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Lukas 9",
-      "Yohanes 19",
-      "Kisah Para Rasul 4",
-      "Markus 1",
-      "Yohanes 5",
-      "Yohanes 12",
-      "Galatia 1",
-      "Markus 11"
+      "Lukas 9:20",
+      "Yohanes 19:30",
+      "Kisah Para Rasul 4:12",
+      "Markus 1:1",
+      "Yohanes 5:30",
+      "Yohanes 12:49"
     ]
   },
   "rounds": [

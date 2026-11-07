@@ -59,10 +59,10 @@ def test_agent_capability_registry_routing():
     assert Registry.get("anti_gravity") is not None
 
     routed_phil = Registry.route_task("PHILOLOGY_AGENT")
-    assert routed_phil in ["cloud_code", "hermes"]
+    assert routed_phil in ["cloud_code", "hermes", "gemini"]
 
     routed_gate = Registry.route_task("RESEARCH_AGENT")
-    assert routed_gate in ["cloud_code", "hermes"]
+    assert routed_gate in ["cloud_code", "hermes", "gemini", "9router"]
 
 
 def test_source_language_evidence_retrieval_and_classification():
@@ -109,7 +109,7 @@ def test_steelman_counterargument_generation():
     steelman = ArgumentEngine.steelman_opposition("Apakah Paulus membatalkan Taurat?")
     assert steelman.opponent_strength == "FORMIDABLE"
     assert len(steelman.opponent_evidence) >= 2
-    assert "Roma 10:4" in str(steelman.opponent_evidence)
+    assert any(ref in str(steelman.opponent_evidence) for ref in ["Roma 10:4", "Efesus 2:15", "Galatia 3:13"])
     assert len(steelman.weaknesses) >= 2
     assert len(steelman.rebuttal_evidence) >= 2
 

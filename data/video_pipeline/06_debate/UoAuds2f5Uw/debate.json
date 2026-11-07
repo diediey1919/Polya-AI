@@ -4,8 +4,8 @@
   "corpus_id": "video-2155",
   "youtube_id": "UoAuds2f5Uw",
   "url": "https://www.youtube.com/watch?v=UoAuds2f5Uw",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Ketetapan Bahwa Manusia Mati Satu Kali Saja dan Sesudah Itu Dihakimi Menurut Teks Ibrani 9:27 [Dossier Ref: UoAuds2f5Uw]",
+  "title": "Ketetapan Bahwa Manusia Mati Satu Kali Saja dan Sesudah Itu Dihakimi Menurut Teks Ibrani 9:27 [Dossier Ref: UoAuds2f5Uw]",
   "original_youtube_title": "Halilintar Pendustaaa ,, ketakutan debat Live",
   "source_video_title": "Halilintar Pendustaaa ,, ketakutan debat Live",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Ketetapan Bahwa Manusia Mati Satu Kali Saja dan Sesudah Itu Dihakimi Menurut Teks Ibrani 9:27 [Dossier Ref: UoAuds2f5Uw]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Ibrani 9:27 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Ibrani 9:27"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Ibrani 9:27"
+    ]
   },
   "rounds": [
     {

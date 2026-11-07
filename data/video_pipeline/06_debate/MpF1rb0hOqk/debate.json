@@ -22,7 +22,15 @@
   "grounding_rules": {
     "strict_knowledge_only": true,
     "zero_hallucination_enforced": true,
-    "provenance_required": true
+    "provenance_required": true,
+    "biblical_references": [
+      "Yehezkiel 18:20",
+      "2 Samuel 7:22",
+      "Yohanes 4:21-24",
+      "Yohanes 4:22",
+      "Yohanes 5:30",
+      "Wahyu 5:5"
+    ]
   },
   "rounds": [
     {
@@ -485,20 +493,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "passages": [
+    "Yehezkiel 18:20",
     "2 Samuel 7:22",
-    "Yohanes 4",
+    "Yohanes 4:21-24",
     "Yohanes 4:22",
-    "Yohanes 5",
-    "Wahyu 5",
-    "Kolose 2",
-    "Yohanes 6",
-    "Yohanes 10",
-    "1 Yohanes 1",
-    "Yohanes 8:29"
+    "Yohanes 5:30",
+    "Wahyu 5:5"
   ],
   "sub_motions": [
-    "Pengujian Eksegesis Verbatim Terhadap Mosi 'Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20)'",
-    "Dekonstruksi Premis Lawan Berdasarkan Konsistensi Kanon Naskah Bible"
+    "Keadilan Ilahi vs Doktrin Dosa Waris & Penyaliban Penebusan (Yehezkiel 18:20)",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yehezkiel 18:20 Melalui Metode Ilzam al-Khasm"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT"

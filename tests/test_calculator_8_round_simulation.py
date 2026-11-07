@@ -24,12 +24,23 @@ def test_canonical_8_round_simulation_schema():
     claim = "Yohanes 10:30 menyatakan kesatuan ontologis antara Yesus dan Bapa"
     sim = ZumaSkillEngine.generate_canonical_8_round_simulation(claim)
 
-    assert sim["schema_version"] == "1.0.0"
+    assert sim["schema_version"] == "1.1.0"
     assert "motion_or_topic" in sim
     assert sim["debate_mode"] == "zuma_persona"
     assert sim["persona_id"] == "zuma_debate_v1"
     assert sim["persona_intensity"] == 0.8
     assert len(sim["participants"]) == 2
+
+    # Verify structured glossary (schema 1.1.0)
+    assert "glossary" in sim
+    assert isinstance(sim["glossary"], dict)
+    assert len(sim["glossary"]) >= 6
+    for g_key, g_entry in sim["glossary"].items():
+        assert isinstance(g_entry, dict)
+        assert "term" in g_entry
+        assert "category" in g_entry
+        assert "short_def" in g_entry
+        assert "analogy" in g_entry
 
     # Verify 8 rounds / 16 turns
     rounds = sim["rounds"]
@@ -63,8 +74,8 @@ def test_canonical_8_round_simulation_schema():
     # Verify cross_examination
     assert len(sim["cross_examination"]) >= 1
     cx = sim["cross_examination"][0]
-    assert cx["examiner"] == "ZUMA"
-    assert cx["target"] == "OPPONENT"
+    assert cx["examiner"] in ("AFFIRMATIVE_CRITIQUE", "ZUMA")
+    assert cx["target"] in ("NEGATIVE_DEFENSE", "OPPONENT")
     assert "socratic_question" in cx
     assert "target_dilemma" in cx
     assert "presupposition_demolished" in cx

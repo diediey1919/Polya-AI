@@ -4,8 +4,8 @@
   "corpus_id": "video-277",
   "youtube_id": "EXqXug51M10",
   "url": "https://www.youtube.com/watch?v=EXqXug51M10",
-  "motion_or_topic": "Penelusuran Nubuatan Kenabian Penutup dalam Teks Kuno (Ulangan 18:18 / Yohanes 14:16 / Yesaya 42)",
-  "title": "Penelusuran Nubuatan Kenabian Penutup dalam Teks Kuno (Ulangan 18:18 / Yohanes 14:16 / Yesaya 42)",
+  "motion_or_topic": "Penelusuran Nubuatan Kenabian Penutup dalam Teks Kuno (Ulangan 18:18 / Yohanes 14:16 / Yesaya 42) [Dossier Ref: EXqXug51M10]",
+  "title": "Penelusuran Nubuatan Kenabian Penutup dalam Teks Kuno (Ulangan 18:18 / Yohanes 14:16 / Yesaya 42) [Dossier Ref: EXqXug51M10]",
   "original_youtube_title": "SOPKATUL NGAMUK BESAR GK BISA HADAPI BANGZUMA KRN HIDUNGNYA PLASTIK..GEMPARKAN!!!!",
   "source_video_title": "SOPKATUL NGAMUK BESAR GK BISA HADAPI BANGZUMA KRN HIDUNGNYA PLASTIK..GEMPARKAN!!!!",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Apologetika Islam & Pembelaan Kenabian",
   "cluster_theme": "Apologetika Islam & Pembelaan Kenabian",
   "sub_motions": [
-    "Taurat Musa Sebagai Perjanjian Kekal Sepanjang Keturunan Umat Terpilih",
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika",
-    "Kesesuaian Sifat-Sifat Nabi Akhir Zaman dengan Profil Biografis Nabi Muhammad SAW"
+    "Penelusuran Nubuatan Kenabian Penutup dalam Teks Kuno (Ulangan 18:18 / Yohanes 14:16 / Yesaya 42) [Dossier Ref: EXqXug51M10]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Ulangan 18:18 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Ulangan 18:18"
   ],
   "passages": [
-    "Yohanes 5",
-    "Ulangan 18",
+    "Ulangan 18:18",
+    "Yohanes 5:30",
     "Mazmur 1:10",
-    "Roma 11",
-    "1 Petrus 2",
-    "Wahyu 21",
-    "Keluaran 12",
-    "Matius 18"
+    "Roma 11:33-36",
+    "1 Petrus 2:22",
+    "Wahyu 21:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 5",
-      "Ulangan 18",
+      "Ulangan 18:18",
+      "Yohanes 5:30",
       "Mazmur 1:10",
-      "Roma 11",
-      "1 Petrus 2",
-      "Wahyu 21",
-      "Keluaran 12",
-      "Matius 18"
+      "Roma 11:33-36",
+      "1 Petrus 2:22",
+      "Wahyu 21:1"
     ]
   },
   "rounds": [

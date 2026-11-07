@@ -4,8 +4,8 @@
   "corpus_id": "video-1073",
   "youtube_id": "Q8s36Gjitlk",
   "url": "https://www.youtube.com/watch?v=Q8s36Gjitlk",
-  "motion_or_topic": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
-  "title": "Eksegesis Pembukaan Injil Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman)",
+  "motion_or_topic": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: Q8s36Gjitlk]",
+  "title": "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: Q8s36Gjitlk]",
   "original_youtube_title": "LIVE SERU//OTEN KERAS..NYUNSEP..GEMETAR..KABUURR..MASYA ALLAH",
   "source_video_title": "LIVE SERU//OTEN KERAS..NYUNSEP..GEMETAR..KABUURR..MASYA ALLAH",
   "debate_mode": "zuma_persona",
@@ -14,19 +14,17 @@
   "category": "Kristologi & Kemanusiaan Yesus",
   "cluster_theme": "Kristologi & Kemanusiaan Yesus",
   "sub_motions": [
-    "Konsep Firman (Dabar / Memra / Logos) dalam Konteks Teologi Perjanjian Lama vs Hermeneutika Pasca-Nicea",
-    "Status Inkarnasi Firman dalam Sejarah Pemikiran Patristik dan Pergeseran Makna Monoteisme",
-    "Eksaminasi Peran Roh Kudus dalam Membimbing Para Nabi Sepanjang Sejarah Kitab Suci"
+    "Eksegesis Pembukaan Yohanes 1:1: Distingsi Gramatikal 'Ho Theos' (Allah Bapa) dan 'Theos' (Logos Firman) [Dossier Ref: Q8s36Gjitlk]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 1:1 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Yohanes 1:1"
   ],
   "passages": [
-    "Filipi 2",
+    "Yohanes 1:1",
+    "Filipi 2:5-8",
     "Yohanes 8:42",
-    "Yohanes 8",
-    "Yohanes 14",
-    "Yohanes 1",
-    "Yohanes 1:14",
-    "Lukas 4",
-    "Ayub 19"
+    "Yohanes 8:40",
+    "Yohanes 14:28",
+    "Yohanes 1:14"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -55,14 +53,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Filipi 2",
+      "Yohanes 1:1",
+      "Filipi 2:5-8",
       "Yohanes 8:42",
-      "Yohanes 8",
-      "Yohanes 14",
-      "Yohanes 1",
-      "Yohanes 1:14",
-      "Lukas 4",
-      "Ayub 19"
+      "Yohanes 8:40",
+      "Yohanes 14:28",
+      "Yohanes 1:14"
     ]
   },
   "rounds": [

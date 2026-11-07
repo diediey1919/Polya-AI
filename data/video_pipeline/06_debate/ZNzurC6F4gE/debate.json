@@ -4,8 +4,8 @@
   "corpus_id": "video-1959",
   "youtube_id": "ZNzurC6F4gE",
   "url": "https://www.youtube.com/watch?v=ZNzurC6F4gE",
-  "motion_or_topic": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
-  "title": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
+  "motion_or_topic": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: ZNzurC6F4gE]",
+  "title": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: ZNzurC6F4gE]",
   "original_youtube_title": "SIAPA YG MEMBATASI TUHAN ???BangZuma atau O73N..??",
   "source_video_title": "SIAPA YG MEMBATASI TUHAN ???BangZuma atau O73N..??",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)"
+    "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: ZNzurC6F4gE]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yesaya 24:1 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Yesaya 24",
-    "Ayub 11",
-    "Yesaya 44",
-    "Kisah Para Rasul 4",
-    "Yohanes 6",
-    "Matius 26",
-    "Matius 12",
-    "Yesaya 43"
+    "Yesaya 24:1",
+    "Ayub 11:1",
+    "Yesaya 44:6",
+    "Kisah Para Rasul 4:12",
+    "Yohanes 6:38",
+    "Matius 26:39"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yesaya 24",
-      "Ayub 11",
-      "Yesaya 44",
-      "Kisah Para Rasul 4",
-      "Yohanes 6",
-      "Matius 26",
-      "Matius 12",
-      "Yesaya 43"
+      "Yesaya 24:1",
+      "Ayub 11:1",
+      "Yesaya 44:6",
+      "Kisah Para Rasul 4:12",
+      "Yohanes 6:38",
+      "Matius 26:39"
     ]
   },
   "rounds": [

@@ -4,8 +4,8 @@
   "corpus_id": "video-994",
   "youtube_id": "AgB3i9PXbpo",
   "url": "https://www.youtube.com/watch?v=AgB3i9PXbpo",
-  "motion_or_topic": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
-  "title": "Cross-Examination Sokratik ZUMA: Pembuktian Beban Pembuktian Doktrinal Interlocutor Berdasarkan Teks Kanon",
+  "motion_or_topic": "Seruan Titik Temu Kalimatun Sawa': Yesus Menegaskan Tuhan Allah Kita Itu Esa Berdasarkan Teks Markus 12:29 [Dossier Ref: AgB3i9PXbpo]",
+  "title": "Seruan Titik Temu Kalimatun Sawa': Yesus Menegaskan Tuhan Allah Kita Itu Esa Berdasarkan Teks Markus 12:29 [Dossier Ref: AgB3i9PXbpo]",
   "original_youtube_title": "QS.ALI IMRAN BACAAN BANG ZUMA..MASYA ALLAH",
   "source_video_title": "QS.ALI IMRAN BACAAN BANG ZUMA..MASYA ALLAH",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Metode Ilzam al-Khasm: Meruntuhkan Inkonsistensi Klaim Berdasarkan Rujukan Teks Kitab Lawan"
+    "Seruan Titik Temu Kalimatun Sawa': Yesus Menegaskan Tuhan Allah Kita Itu Esa Berdasarkan Teks Markus 12:29 [Dossier Ref: AgB3i9PXbpo]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Markus 12:29 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Markus 12:29"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Markus 12:29"
+    ]
   },
   "rounds": [
     {

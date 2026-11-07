@@ -4,8 +4,8 @@
   "corpus_id": "video-1527",
   "youtube_id": "s8WLNBuVgho",
   "url": "https://www.youtube.com/watch?v=s8WLNBuVgho",
-  "motion_or_topic": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Yesaya 6",
-  "title": "Cross-Examination Dialektika ZUMA: Pengujian Premis Doktrin Lawan Menggunakan Teks Yesaya 6",
+  "motion_or_topic": "Klaim Otoritas Naskah Yesaya 6:3: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+  "title": "Klaim Otoritas Naskah Yesaya 6:3: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
   "original_youtube_title": "OTEN INI KETABOK HAJAR ASWAD...",
   "source_video_title": "OTEN INI KETABOK HAJAR ASWAD...",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Dialektika Debat Terbuka & Cross-Examination",
   "cluster_theme": "Dialektika Debat Terbuka & Cross-Examination",
   "sub_motions": [
-    "Verifikasi Konsistensi Bacaan Teks Yesaya 6 Melalui Kaidah Eksegesis Verbatim"
+    "Klaim Otoritas Naskah Yesaya 6:3: Verifikasi Eksegesis Verbatim dan Audit Konsistensi Manuskrip Kuno Bible",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yesaya 6:3 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Yesaya 6",
-    "Keluaran 29",
+    "Yesaya 6:3",
+    "Keluaran 29:45",
     "Keluaran 29:14",
     "Kisah Para Rasul 4:11-12",
-    "Kisah Para Rasul 11",
-    "Kisah Para Rasul 4",
-    "Lukas 2",
-    "Mazmur 83"
+    "Kisah Para Rasul 11:1",
+    "Kisah Para Rasul 4:12"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yesaya 6",
-      "Keluaran 29",
+      "Yesaya 6:3",
+      "Keluaran 29:45",
       "Keluaran 29:14",
       "Kisah Para Rasul 4:11-12",
-      "Kisah Para Rasul 11",
-      "Kisah Para Rasul 4",
-      "Lukas 2",
-      "Mazmur 83"
+      "Kisah Para Rasul 11:1",
+      "Kisah Para Rasul 4:12"
     ]
   },
   "rounds": [

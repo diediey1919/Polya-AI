@@ -4,8 +4,8 @@
   "corpus_id": "video-1887",
   "youtube_id": "Ko19uE5zTfI",
   "url": "https://www.youtube.com/watch?v=Ko19uE5zTfI",
-  "motion_or_topic": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
-  "title": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
+  "motion_or_topic": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: Ko19uE5zTfI]",
+  "title": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: Ko19uE5zTfI]",
   "original_youtube_title": "AKHIRNYA 073N yg menuduh BangZuma sbg Iblis..Mengakui dirinyaLah Iblis",
   "source_video_title": "AKHIRNYA 073N yg menuduh BangZuma sbg Iblis..Mengakui dirinyaLah Iblis",
   "debate_mode": "zuma_persona",
@@ -14,15 +14,15 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)"
+    "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: Ko19uE5zTfI]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 16:16-17 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 16",
-    "Yohanes 3",
-    "Yohanes 11",
+    "Matius 16:16-17",
     "Yohanes 3:16",
+    "Yohanes 11:41-42",
     "Yohanes 11:42",
-    "Yohanes 8"
+    "Yohanes 8:40"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -51,12 +51,11 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 16",
-      "Yohanes 3",
-      "Yohanes 11",
+      "Matius 16:16-17",
       "Yohanes 3:16",
+      "Yohanes 11:41-42",
       "Yohanes 11:42",
-      "Yohanes 8"
+      "Yohanes 8:40"
     ]
   },
   "rounds": [

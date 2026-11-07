@@ -4,8 +4,8 @@
   "corpus_id": "video-1221",
   "youtube_id": "Su9h-PfSAj8",
   "url": "https://www.youtube.com/watch?v=Su9h-PfSAj8",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: Su9h-PfSAj8]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: Su9h-PfSAj8]",
   "original_youtube_title": "ALHAMDULILLAH MENJELANG HARI MUALAF BANG LUBIS SYAHADAT..ALLAHU AKBAR",
   "source_video_title": "ALHAMDULILLAH MENJELANG HARI MUALAF BANG LUBIS SYAHADAT..ALLAHU AKBAR",
   "debate_mode": "zuma_persona",
@@ -14,11 +14,12 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: Su9h-PfSAj8]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 10:30 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Yohanes 10",
-    "Ibrani 5"
+    "Yohanes 10:30",
+    "Ibrani 5:7-9"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -47,8 +48,8 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 10",
-      "Ibrani 5"
+      "Yohanes 10:30",
+      "Ibrani 5:7-9"
     ]
   },
   "rounds": [

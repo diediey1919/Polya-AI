@@ -4,8 +4,8 @@
   "corpus_id": "video-720",
   "youtube_id": "RTRtMuUl5BA",
   "url": "https://www.youtube.com/watch?v=RTRtMuUl5BA",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: RTRtMuUl5BA]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: RTRtMuUl5BA]",
   "original_youtube_title": "IBU DAN ANAK SYAHADAT LG SETELAH DIMURTADKAN SERIGALA ..",
   "source_video_title": "IBU DAN ANAK SYAHADAT LG SETELAH DIMURTADKAN SERIGALA ..",
   "debate_mode": "zuma_persona",
@@ -14,10 +14,11 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: RTRtMuUl5BA]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Markus 12:29 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Markus 12"
+    "Markus 12:29"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -46,7 +47,7 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Markus 12"
+      "Markus 12:29"
     ]
   },
   "rounds": [

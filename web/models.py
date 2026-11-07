@@ -81,9 +81,9 @@ class LinguisticExegesisPackage(BaseModel):
     natural_translation: str = ""                   # Rekonstruksi terjemahan bahasa Indonesia yang mengalir dan akurat
     exegetical_context: Optional[ExegeticalContext] = None
     syntactic_exegesis: Dict[str, str] = {}         # Bedah struktur kalimat: Aspek Verba, klausa kondisional/hukum, pemakaian artikel definit, dll.
-    manuscript_witnesses: List[Dict[str, str]] = [] # Perbandingan saksi naskah kuno (MT Leningradensis, LXX Septuaginta, DSS 4Q, Sinaiticus, Vaticanus) + status varian
-    translation_comparison: List[Dict[str, str]] = [] # Audit terjemahan populer (TB LAI, KJV, ESV, NIV) vs Teks Asli (deteksi pergeseran makna/interpolasi)
-    corpus_cross_references: List[Dict[str, str]] = [] # Konkordansi lintas-ayat: bagaimana kata/konsep kunci dipakai di ayat lain (Internal Kitab & Lintas-Kanon)
+    manuscript_witnesses: List[Dict[str, Any]] = [] # Perbandingan saksi naskah kuno (MT Leningradensis, LXX Septuaginta, DSS 4Q, Sinaiticus, Vaticanus) + status varian
+    translation_comparison: List[Dict[str, Any]] = [] # Audit terjemahan populer (TB LAI, KJV, ESV, NIV) vs Teks Asli (deteksi pergeseran makna/interpolasi)
+    corpus_cross_references: List[Dict[str, Any]] = [] # Konkordansi lintas-ayat: bagaimana kata/konsep kunci dipakai di ayat lain (Internal Kitab & Lintas-Kanon)
     exegetical_synthesis: str = ""                  # Kesimpulan akhir eksegesis historis-gramatikal secara objektif, akademis, dan komprehensif
 
 
@@ -101,6 +101,7 @@ class CaseFile(BaseModel):
     open_questions: List[str]
     debate_preparation: Dict[str, Any]
     canonical_simulation: Optional[Dict[str, Any]] = None
+    glossary: Optional[Dict[str, Any]] = None
     linguistic_exegesis: Optional[Any] = None
     is_demo: bool = False
     notice: str = "REAL INTEL — Epistemic analysis completed"

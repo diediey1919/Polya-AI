@@ -68,13 +68,11 @@ def test_zuma_canonical_8_rounds_simulation_zh():
     assert sim["motion_or_topic"].startswith("对主张的原典文本与正典有效性法医审计")
     assert len(sim["rounds"]) == 16  # 8 rounds * 2 speakers
     
-    # Check that ZUMA and Opponent speeches contain Chinese text
+    # Check that ZUMA and Opponent speeches contain Chinese text in Socratic style
     r1_zuma = sim["rounds"][0]["speaker_speech"]
     r1_opp = sim["rounds"][1]["speaker_speech"]
     
-    assert "[ZUMA 模拟发言]" in r1_zuma
-    assert "请仔细听好" in r1_zuma
-    assert "[引用原文]" in r1_opp
+    assert ("苏格拉底" in r1_zuma or "手抄本" in r1_zuma)
     assert "纯正一神论" in r1_opp
     
     # Check cross examination in Chinese
@@ -110,5 +108,6 @@ def test_calculator_analyze_endpoint_zh():
     assert len(sim.get("rounds", [])) == 16
     
     r1_zuma = sim["rounds"][0]["speaker_speech"]
-    assert "[ZUMA 模拟发言]" in r1_zuma
-    assert "请仔细听好" in r1_zuma
+    assert len(r1_zuma) > 0
+    assert any('\u4e00' <= char <= '\u9fff' for char in r1_zuma)
+    assert "[ZUMA 模拟发言]" not in r1_zuma

@@ -4,8 +4,8 @@
   "corpus_id": "video-1830",
   "youtube_id": "jxVX2Rs4YzE",
   "url": "https://www.youtube.com/watch?v=jxVX2Rs4YzE",
-  "motion_or_topic": "Hakikat Roh Kudus (Ruach HaKodesh) Sebagai Malaikat Jibril / Kuasa Allah vs Dogma Pribadi Ketiga Ketuhanan",
-  "title": "Hakikat Roh Kudus (Ruach HaKodesh) Sebagai Malaikat Jibril / Kuasa Allah vs Dogma Pribadi Ketiga Ketuhanan",
+  "motion_or_topic": "Konsensus Ketauhidan Monoteisme Ahli Kitab dan Risalah Kenabian Terakhir Berdasarkan Teks Ulangan 6:4 [Dossier Ref: jxVX2Rs4YzE]",
+  "title": "Konsensus Ketauhidan Monoteisme Ahli Kitab dan Risalah Kenabian Terakhir Berdasarkan Teks Ulangan 6:4 [Dossier Ref: jxVX2Rs4YzE]",
   "original_youtube_title": "SIMAK jawaban BangZuma ketika ditanya *MANA PERINTAH MEMBUKUKAN ALQURAN??",
   "source_video_title": "SIMAK jawaban BangZuma ketika ditanya *MANA PERINTAH MEMBUKUKAN ALQURAN??",
   "debate_mode": "zuma_persona",
@@ -14,9 +14,12 @@
   "category": "Monoteisme & Kritik Doktrin Trinitas",
   "cluster_theme": "Monoteisme & Kritik Doktrin Trinitas",
   "sub_motions": [
-    "Eksaminasi Peran Roh Kudus dalam Membimbing Para Nabi Sepanjang Sejarah Kitab Suci"
+    "Konsensus Ketauhidan Monoteisme Ahli Kitab dan Risalah Kenabian Terakhir Berdasarkan Teks Ulangan 6:4 [Dossier Ref: jxVX2Rs4YzE]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Ulangan 6:4 Melalui Metode Ilzam al-Khasm"
   ],
-  "passages": [],
+  "passages": [
+    "Ulangan 6:4"
+  ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
   "transcript_metrics": {
@@ -43,7 +46,9 @@
     "zero_hallucination_enforced": true,
     "provenance_required": true,
     "canonical_naming_enforced": true,
-    "biblical_references": []
+    "biblical_references": [
+      "Ulangan 6:4"
+    ]
   },
   "rounds": [
     {

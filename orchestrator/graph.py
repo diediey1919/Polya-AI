@@ -10,10 +10,6 @@ import os
 import sys
 from pathlib import Path
 
-# Seamless auto-switch ke venv python jika dipanggil menggunakan system python
-VENV_PYTHON = Path.home() / "venv" / "bin" / "python3"
-if VENV_PYTHON.exists() and Path(sys.executable).resolve() != VENV_PYTHON.resolve():
-    os.execv(str(VENV_PYTHON), [str(VENV_PYTHON)] + sys.argv)
 
 from typing import Annotated, Any, Dict, List, Optional
 from typing_extensions import TypedDict
@@ -201,6 +197,10 @@ def execute_orchestrator(
 
 
 if __name__ == "__main__":
+    VENV_PYTHON = Path.home() / "venv" / "bin" / "python3"
+    if VENV_PYTHON.exists() and Path(sys.executable).resolve() != VENV_PYTHON.resolve():
+        os.execv(str(VENV_PYTHON), [str(VENV_PYTHON)] + sys.argv)
+
     result = execute_orchestrator(
         task="Inisiasi orkestrasi dinamis LangGraph",
         domain="all"

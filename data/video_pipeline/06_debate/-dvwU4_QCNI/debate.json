@@ -4,8 +4,8 @@
   "corpus_id": "video-847",
   "youtube_id": "-dvwU4_QCNI",
   "url": "https://www.youtube.com/watch?v=-dvwU4_QCNI",
-  "motion_or_topic": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
-  "title": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi",
+  "motion_or_topic": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: -dvwU4_QCNI]",
+  "title": "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: -dvwU4_QCNI]",
   "original_youtube_title": "OTEN OTEN INI KECEWA BERAT TAK SANGGUP HADAPI BANGZUMA",
   "source_video_title": "OTEN OTEN INI KECEWA BERAT TAK SANGGUP HADAPI BANGZUMA",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Komparasi Konsep Keselamatan: Kasih Karunia Berkeadilan vs Teori Substitusi Pidana (Penal Atonement)"
+    "Evaluasi Teologi Penebusan Dosa Melalui Darah Penyaliban Menghadapi Konsep Pengampunan dan Keadilan Ilahi [Dossier Ref: -dvwU4_QCNI]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Yohanes 3:16 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Yohanes 3",
-    "Yohanes 36",
-    "Yohanes 6",
-    "Yohanes 1",
-    "Yohanes 10",
-    "Matius 24",
-    "Matius 23",
-    "Matius 24:23"
+    "Yohanes 3:16",
+    "Yohanes 36:1",
+    "Yohanes 6:38",
+    "Yohanes 1:1",
+    "Yohanes 10:30",
+    "Matius 24:36"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 3",
-      "Yohanes 36",
-      "Yohanes 6",
-      "Yohanes 1",
-      "Yohanes 10",
-      "Matius 24",
-      "Matius 23",
-      "Matius 24:23"
+      "Yohanes 3:16",
+      "Yohanes 36:1",
+      "Yohanes 6:38",
+      "Yohanes 1:1",
+      "Yohanes 10:30",
+      "Matius 24:36"
     ]
   },
   "rounds": [

@@ -4,8 +4,8 @@
   "corpus_id": "video-2113",
   "youtube_id": "IskEr9H--s8",
   "url": "https://www.youtube.com/watch?v=IskEr9H--s8",
-  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
-  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine",
+  "motion_or_topic": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: IskEr9H--s8]",
+  "title": "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: IskEr9H--s8]",
   "original_youtube_title": "AKROBATER LUCU , BAHAS TAHUN HIJRIAH DAN MASEHI MANA YG ASLI MANA PALSU..",
   "source_video_title": "AKROBATER LUCU , BAHAS TAHUN HIJRIAH DAN MASEHI MANA YG ASLI MANA PALSU..",
   "debate_mode": "zuma_persona",
@@ -14,14 +14,15 @@
   "category": "Audit Tekstual, Filologi & Varian Naskah",
   "cluster_theme": "Audit Tekstual, Filologi & Varian Naskah",
   "sub_motions": [
-    "Pergeseran Makna Kata 'Theos', 'Kyrios', dan 'Elohim' dalam Konteks Monoteisme Biblika"
+    "Audit Distorsi Penerjemahan Lembaga Alkitab Indonesia (LAI TB) Menghadapi Teks Sumber Ibrani dan Yunani Koine [Dossier Ref: IskEr9H--s8]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Imamat 11:7-8 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Imamat 11",
-    "Yakobus 3",
+    "Imamat 11:7-8",
+    "Yakobus 3:1",
     "Yakobus 3:09",
-    "Lukas 2",
-    "Matius 2"
+    "Lukas 2:52",
+    "Matius 2:1-2"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -50,11 +51,11 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Imamat 11",
-      "Yakobus 3",
+      "Imamat 11:7-8",
+      "Yakobus 3:1",
       "Yakobus 3:09",
-      "Lukas 2",
-      "Matius 2"
+      "Lukas 2:52",
+      "Matius 2:1-2"
     ]
   },
   "rounds": [

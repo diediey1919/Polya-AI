@@ -81,6 +81,7 @@ class CanonicalCaseFile:
     canonical_simulation: Optional[Dict[str, Any]] = None
     linguistic_exegesis: Optional[Dict[str, Any]] = None
     user_id: str = ""
+    locale: str = "id"
     created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     updated_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
@@ -132,9 +133,14 @@ class CaseFileManager:
             cur.execute("ALTER TABLE case_files_v2 ADD COLUMN user_id TEXT DEFAULT ''")
         except sqlite3.OperationalError:
             pass  # column already present
+        try:
+            cur.execute("ALTER TABLE case_files_v2 ADD COLUMN locale TEXT DEFAULT 'id'")
+        except sqlite3.OperationalError:
+            pass  # column already present
         cur.execute("CREATE INDEX IF NOT EXISTS idx_case_run ON case_files_v2(run_id)")
         cur.execute("CREATE INDEX IF NOT EXISTS idx_case_thread ON case_files_v2(thread_id)")
         cur.execute("CREATE INDEX IF NOT EXISTS idx_case_user ON case_files_v2(user_id)")
+        cur.execute("CREATE INDEX IF NOT EXISTS idx_case_locale ON case_files_v2(case_id, locale)")
         cur.execute("CREATE INDEX IF NOT EXISTS idx_trace_run ON execution_traces(run_id)")
         conn.commit()
         conn.close()
@@ -145,10 +151,11 @@ class CaseFileManager:
         now_iso = datetime.now(timezone.utc).isoformat()
         claim_str = case_file.claim.get("text", "") if isinstance(case_file.claim, dict) else str(case_file.claim)
         uid_str = getattr(case_file, "user_id", "") or ""
+        loc_str = getattr(case_file, "locale", "id") or "id"
         cur.execute("""
         INSERT OR REPLACE INTO case_files_v2 (
-            case_id, run_id, thread_id, claim_text, case_data_json, created_at, updated_at, user_id
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            case_id, run_id, thread_id, claim_text, case_data_json, created_at, updated_at, user_id, locale
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             case_file.case_id,
             case_file.run_id,
@@ -157,7 +164,8 @@ class CaseFileManager:
             json.dumps(case_file.to_dict(), ensure_ascii=False),
             case_file.created_at,
             now_iso,
-            uid_str
+            uid_str,
+            loc_str
         ))
 
         # Also persist traces

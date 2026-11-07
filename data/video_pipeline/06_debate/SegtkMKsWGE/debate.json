@@ -4,8 +4,8 @@
   "corpus_id": "video-976",
   "youtube_id": "SegtkMKsWGE",
   "url": "https://www.youtube.com/watch?v=SegtkMKsWGE",
-  "motion_or_topic": "Status Keberlakuan Hukum Taurat: Ketetapan Kekal Yesus (Matius 5:17-19) vs Teologi Peniadaan Hukum oleh Paulus (Galatia 3:13)",
-  "title": "Status Keberlakuan Hukum Taurat: Ketetapan Kekal Yesus (Matius 5:17-19) vs Teologi Peniadaan Hukum oleh Paulus (Galatia 3:13)",
+  "motion_or_topic": "Status Keberlakuan Hukum Taurat: Ketetapan Kekal Yesus (Matius 5:17-19) vs Teologi Peniadaan Hukum oleh Paulus (Galatia 3:13) [Dossier Ref: SegtkMKsWGE]",
+  "title": "Status Keberlakuan Hukum Taurat: Ketetapan Kekal Yesus (Matius 5:17-19) vs Teologi Peniadaan Hukum oleh Paulus (Galatia 3:13) [Dossier Ref: SegtkMKsWGE]",
   "original_youtube_title": "SIAPA PENCURI KITAB YAHUDI..OTEN INI AKUI OYENK",
   "source_video_title": "SIAPA PENCURI KITAB YAHUDI..OTEN INI AKUI OYENK",
   "debate_mode": "zuma_persona",
@@ -14,14 +14,15 @@
   "category": "Polemik Teologi Paulus vs Hukum Taurat",
   "cluster_theme": "Polemik Teologi Paulus vs Hukum Taurat",
   "sub_motions": [
-    "Kritik Konsep 'Dikutuklah Orang yang Tergantung pada Kayu Salib' Ditinjau dari Ulangan 21:23",
-    "Konsistensi Ajaran Yesus Terhadap Syariat Musa vs Antinomianisme Surat-Surat Kiriman",
-    "Taurat Musa Sebagai Perjanjian Kekal Sepanjang Keturunan Umat Terpilih"
+    "Status Keberlakuan Hukum Taurat: Ketetapan Kekal Yesus (Matius 5:17-19) vs Teologi Peniadaan Hukum oleh Paulus (Galatia 3:13) [Dossier Ref: SegtkMKsWGE]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 5:17-19 Melalui Metode Ilzam al-Khasm",
+    "Dekonstruksi Premis Doktrinal Lawan Berdasarkan Verifikasi Naskah Matius 5:17-19"
   ],
   "passages": [
-    "Yohanes 12",
-    "Yesaya 14",
-    "Matius 12",
+    "Matius 5:17-19",
+    "Yohanes 12:49",
+    "Yesaya 14:12-14",
+    "Matius 12:40",
     "Yohanes 14:30"
   ],
   "extracted_from_transcript": true,
@@ -51,9 +52,10 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Yohanes 12",
-      "Yesaya 14",
-      "Matius 12",
+      "Matius 5:17-19",
+      "Yohanes 12:49",
+      "Yesaya 14:12-14",
+      "Matius 12:40",
       "Yohanes 14:30"
     ]
   },

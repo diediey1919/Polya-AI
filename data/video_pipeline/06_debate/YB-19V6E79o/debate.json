@@ -4,8 +4,8 @@
   "corpus_id": "video-2430",
   "youtube_id": "YB-19V6E79o",
   "url": "https://www.youtube.com/watch?v=YB-19V6E79o",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: YB-19V6E79o]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: YB-19V6E79o]",
   "original_youtube_title": "TURUT BERDUKA UNTUK MKC SUARA MELEMAH KETELLENN BIJI KEDONDONG 🤣",
   "source_video_title": "TURUT BERDUKA UNTUK MKC SUARA MELEMAH KETELLENN BIJI KEDONDONG 🤣",
   "debate_mode": "zuma_persona",
@@ -14,16 +14,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: YB-19V6E79o]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Matius 25:31-46 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Matius 25",
-    "Matius 5",
-    "Markus 9",
-    "Lukas 13",
-    "Matius 26",
-    "Lukas 14",
-    "Markus 9:47"
+    "Matius 25:31-46",
+    "Matius 5:17-19",
+    "Markus 9:37",
+    "Lukas 13:1",
+    "Matius 26:39",
+    "Lukas 14:26"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -52,13 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Matius 25",
-      "Matius 5",
-      "Markus 9",
-      "Lukas 13",
-      "Matius 26",
-      "Lukas 14",
-      "Markus 9:47"
+      "Matius 25:31-46",
+      "Matius 5:17-19",
+      "Markus 9:37",
+      "Lukas 13:1",
+      "Matius 26:39",
+      "Lukas 14:26"
     ]
   },
   "rounds": [

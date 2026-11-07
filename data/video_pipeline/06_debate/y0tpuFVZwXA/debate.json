@@ -4,8 +4,8 @@
   "corpus_id": "video-1124",
   "youtube_id": "y0tpuFVZwXA",
   "url": "https://www.youtube.com/watch?v=y0tpuFVZwXA",
-  "motion_or_topic": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus",
-  "title": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus",
+  "motion_or_topic": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus [Dossier Ref: y0tpuFVZwXA]",
+  "title": "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus [Dossier Ref: y0tpuFVZwXA]",
   "original_youtube_title": "SULIT BAGI OTEN INI BISA WARAS...",
   "source_video_title": "SULIT BAGI OTEN INI BISA WARAS...",
   "debate_mode": "zuma_persona",
@@ -14,14 +14,15 @@
   "category": "Polemik Teologi Paulus vs Hukum Taurat",
   "cluster_theme": "Polemik Teologi Paulus vs Hukum Taurat",
   "sub_motions": [
-    "Taurat Musa Sebagai Perjanjian Kekal Sepanjang Keturunan Umat Terpilih",
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Kewajiban Syariat Sunat dan Larangan Daging Babi (Kejadian 17:10 / Imamat 11:7) vs Antinomianisme Surat Paulus [Dossier Ref: y0tpuFVZwXA]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah Kejadian 17:10 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "Lukas 4",
-    "Matius 7",
-    "Matius 5",
-    "Keluaran 20"
+    "Kejadian 17:10",
+    "Lukas 4:8",
+    "Matius 7:21",
+    "Matius 5:17-19",
+    "Keluaran 20:3-5"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -50,10 +51,11 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "Lukas 4",
-      "Matius 7",
-      "Matius 5",
-      "Keluaran 20"
+      "Kejadian 17:10",
+      "Lukas 4:8",
+      "Matius 7:21",
+      "Matius 5:17-19",
+      "Keluaran 20:3-5"
     ]
   },
   "rounds": [

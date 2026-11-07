@@ -4,8 +4,8 @@
   "corpus_id": "video-433",
   "youtube_id": "SLPP2e7FNdc",
   "url": "https://www.youtube.com/watch?v=SLPP2e7FNdc",
-  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
-  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen",
+  "motion_or_topic": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: SLPP2e7FNdc]",
+  "title": "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: SLPP2e7FNdc]",
   "original_youtube_title": "BANGZUMA DI KROYOK DI KOMAL OTEN PENGHUJAT...VIRALKAN",
   "source_video_title": "BANGZUMA DI KROYOK DI KOMAL OTEN PENGHUJAT...VIRALKAN",
   "debate_mode": "zuma_persona",
@@ -14,17 +14,16 @@
   "category": "Diskursus Teologi & Apologetika Komparatif",
   "cluster_theme": "Diskursus Teologi & Apologetika Komparatif",
   "sub_motions": [
-    "Kriteria Memperoleh Kehidupan Kekal Berdasarkan Teks Kitab Suci Asli"
+    "Studi Komparatif Eskatologi Keselamatan: Konsep Surga dan Neraka dalam Perspektif Islam dan Teologi Kristen [Dossier Ref: SLPP2e7FNdc]",
+    "Pengujian Forensik Eksegesis & Konsistensi Naskah 2 Yohanes 1:7 Melalui Metode Ilzam al-Khasm"
   ],
   "passages": [
-    "2 Yohanes 1",
-    "Yohanes 5",
-    "Matius 12",
+    "2 Yohanes 1:7",
+    "Yohanes 5:30",
+    "Matius 12:40",
     "Matius 1:21",
     "Matius 12:21",
-    "Yesaya 2",
-    "Yesaya 12",
-    "Matius 15"
+    "Yesaya 2:1"
   ],
   "extracted_from_transcript": true,
   "verification_status": "VERIFIED_TRANSCRIPT",
@@ -53,14 +52,12 @@
     "provenance_required": true,
     "canonical_naming_enforced": true,
     "biblical_references": [
-      "2 Yohanes 1",
-      "Yohanes 5",
-      "Matius 12",
+      "2 Yohanes 1:7",
+      "Yohanes 5:30",
+      "Matius 12:40",
       "Matius 1:21",
       "Matius 12:21",
-      "Yesaya 2",
-      "Yesaya 12",
-      "Matius 15"
+      "Yesaya 2:1"
     ]
   },
   "rounds": [
