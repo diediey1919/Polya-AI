@@ -328,14 +328,38 @@ def localize_claim_item(item: dict, lang: str) -> dict:
     out["locale"] = lang
     return out
 
+def localize_bible_passage(p: str, lang: str) -> str:
+    if not p or not isinstance(p, str) or lang == "id":
+        return p
+    target_code = "zh-CN" if lang.startswith("zh") else lang
+    p_clean = p.strip()
+    bmap = get_bible_books_i18n()
+    for b in sorted(bmap.keys(), key=lambda x: len(x), reverse=True):
+        if p_clean.lower().startswith(b.lower()):
+            rest = p_clean[len(b):]
+            trans_book = bmap[b].get(target_code) or bmap[b].get(lang.split("-")[0], b)
+            return trans_book + rest
+    return p
+
 def localize_theme_item(theme: dict, lang: str) -> dict:
     if lang == "id":
         return theme
     out = dict(theme)
+    target_code = "zh-CN" if lang.startswith("zh") else lang
     for key in ("motion_or_topic", "title", "label", "description", "category"):
         if key in out and isinstance(out[key], str):
-            out[key] = translate_dynamic_text(out[key], lang)
-    out["locale"] = lang
+            out[key] = translate_dynamic_text(out[key], target_code)
+    if 'sub_motions' in out and isinstance(out['sub_motions'], list):
+        out['sub_motions'] = [
+            translate_dynamic_text(sm, target_code) if isinstance(sm, str) else sm
+            for sm in out['sub_motions']
+        ]
+    if 'passages' in out and isinstance(out['passages'], list):
+        out['passages'] = [
+            localize_bible_passage(p, target_code) if isinstance(p, str) else p
+            for p in out['passages']
+        ]
+    out["locale"] = target_code
     return out
 
 
@@ -1054,18 +1078,222 @@ async def auth_session(req: SessionAuthRequest):
     }
 
 
+
+KNOWLEDGE_STRUCTURE_PREFIXES = {
+    "premise": {
+        "id": "Premis {lbl} (Alasan Pendukung)",
+        "en": "Premise {lbl} (Supporting Reason)",
+        "ar": "مقدمة {lbl} (سبب داعم)",
+        "zh": "前提 {lbl} (支持理由)",
+        "ja": "前提 {lbl} (支持理由)",
+        "ko": "전제 {lbl} (뒷받침 이유)",
+        "es": "Premisa {lbl} (Razón de Apoyo)",
+        "fr": "Prémisse {lbl} (Raison à l'Appui)",
+        "de": "Prämisse {lbl} (Stützender Grund)",
+        "ru": "Посылка {lbl} (Обоснование)",
+        "pt": "Premissa {lbl} (Razão de Apoio)",
+        "it": "Premessa {lbl} (Ragione a Supporto)",
+        "tr": "Öncül {lbl} (Destekleyici Gerekçe)",
+        "ur": "مقدمہ {lbl} (معاون دلیل)",
+        "fa": "مقدمه {lbl} (دلیل پشتیبان)",
+        "hi": "आधार {lbl} (समर्थक कारण)",
+        "bn": "প্রতিজ্ঞা {lbl} (সমর্থনকারী যুক্তি)"
+    },
+    "conclusion": {
+        "id": "Kesimpulan {lbl}",
+        "en": "Conclusion {lbl}",
+        "ar": "استنتاج {lbl}",
+        "zh": "结论 {lbl}",
+        "ja": "結論 {lbl}",
+        "ko": "결론 {lbl}",
+        "es": "Conclusión {lbl}",
+        "fr": "Conclusion {lbl}",
+        "de": "Schlussfolgerung {lbl}",
+        "ru": "Вывод {lbl}",
+        "pt": "Conclusão {lbl}",
+        "it": "Conclusione {lbl}",
+        "tr": "Sonuç {lbl}",
+        "ur": "نتیجہ {lbl}",
+        "fa": "نتیجه {lbl}",
+        "hi": "निष्कर्ष {lbl}",
+        "bn": "উপসংহার {lbl}"
+    },
+    "statement": {
+        "id": "Pernyataan {lbl}",
+        "en": "Statement {lbl}",
+        "ar": "بيان {lbl}",
+        "zh": "陈述 {lbl}",
+        "ja": "陳述 {lbl}",
+        "ko": "진술 {lbl}",
+        "es": "Declaración {lbl}",
+        "fr": "Énoncé {lbl}",
+        "de": "Aussage {lbl}",
+        "ru": "Утверждение {lbl}",
+        "pt": "Declaração {lbl}",
+        "it": "Dichiarazione {lbl}",
+        "tr": "İfade {lbl}",
+        "ur": "بیان {lbl}",
+        "fa": "گزاره {lbl}",
+        "hi": "कथन {lbl}",
+        "bn": "বিবৃতি {lbl}"
+    },
+    "witness_edge": {
+        "id": "Saksi Naskah Primer untuk {p}",
+        "en": "Primary Manuscript Witness for {p}",
+        "ar": "شاهد مخطوطة أولية لـ {p}",
+        "zh": "{p} 的一手手抄本见证",
+        "ja": "{p} の一次写本証言",
+        "ko": "{p}의 1차 사본 증언",
+        "es": "Testigo de manuscrito primario para {p}",
+        "fr": "Témoin de manuscrit primaire pour {p}",
+        "de": "Primärer Manuskriptzeuge für {p}",
+        "ru": "Свидетельство первичной рукописи для {p}",
+        "pt": "Testemunha de manuscrito primário para {p}",
+        "it": "Testimone del manoscritto primario per {p}",
+        "tr": "{p} için Birincil El Yazması Tanığı",
+        "ur": "{p} کے لیے بنیادی مخطوطہ کی گواہی",
+        "fa": "شاهد دست‌نویس اولیه برای {p}",
+        "hi": "{p} के लिए प्राथमिक पांडुलिपि साक्ष्य",
+        "bn": "{p}-এর জন্য প্রাথমিক পাণ্ডুলিপির সাক্ষ্য"
+    },
+    "status_claim": {
+        "id": "KLAIM UTAMA (MOSI)",
+        "en": "PRIMARY CLAIM (MOTION)",
+        "ar": "الادعاء الرئيسي (القضية)",
+        "zh": "核心主张 (辩题)",
+        "ja": "主要な主張 (論題)",
+        "ko": "핵심 주장 (논제)",
+        "es": "RECLAMO PRINCIPAL (MOCIÓN)",
+        "fr": "REVENDICATION PRINCIPALE (MOTION)",
+        "de": "HAUPTANSPRUCH (ANTRAG)",
+        "ru": "ГЛАВНЫЙ ТЕЗИС (ТЕМА)",
+        "pt": "REIVINDICAÇÃO PRINCIPAL (MOÇÃO)",
+        "it": "AFFERMAZIONE PRINCIPALE (MOZIONE)",
+        "tr": "ANA İDDİA (ÖNERİ)",
+        "ur": "بنیادی دعویٰ (تحریک)",
+        "fa": "ادعای اصلی (موضوع)",
+        "hi": "मुख्य दावा (प्रस्ताव)",
+        "bn": "প্রধান দাবি (প্রস্তাব)"
+    },
+    "status_premise": {
+        "id": "PREMIS PENDUKUNG",
+        "en": "SUPPORTING PREMISE",
+        "ar": "مقدمة داعمة",
+        "zh": "支持前提",
+        "ja": "支持前提",
+        "ko": "뒷받침 전제",
+        "es": "PREMISA DE APOYO",
+        "fr": "PRÉMISSE DE SOUTIEN",
+        "de": "STÜTZENDE PRÄMISSE",
+        "ru": "ПОДДЕРЖИВАЮЩАЯ ПОСЫЛКА",
+        "pt": "PREMISSA DE APOIO",
+        "it": "PREMESSA DI SUPPORTO",
+        "tr": "DESTEKLEYİCİ ÖNCÜL",
+        "ur": "معاون مقدمہ",
+        "fa": "مقدمه پشتیبان",
+        "hi": "सहायक आधार",
+        "bn": "সমর্থনকারী প্রতিজ্ঞা"
+    },
+    "status_conclusion": {
+        "id": "KESIMPULAN",
+        "en": "CONCLUSION",
+        "ar": "استنتاج",
+        "zh": "结论",
+        "ja": "結論",
+        "ko": "결론",
+        "es": "CONCLUSIÓN",
+        "fr": "CONCLUSION",
+        "de": "SCHLUSSFOLGERUNG",
+        "ru": "ВЫВОД",
+        "pt": "CONCLUSÃO",
+        "it": "CONCLUSIONE",
+        "tr": "SONUÇ",
+        "ur": "نتیجہ",
+        "fa": "نتیجه",
+        "hi": "निष्कर्ष",
+        "bn": "উপসংহার"
+    },
+    "status_proposition": {
+        "id": "GAGASAN UTAMA",
+        "en": "MAIN PROPOSITION",
+        "ar": "القضية الأساسية",
+        "zh": "核心命题",
+        "ja": "主要命題",
+        "ko": "핵심 명제",
+        "es": "PROPOSICIÓN PRINCIPAL",
+        "fr": "PROPOSITION PRINCIPALE",
+        "de": "HAUPTAUSSAGE",
+        "ru": "ОСНОВНОЕ ПОЛОЖЕНИЕ",
+        "pt": "PROPOSIÇÃO PRINCIPAL",
+        "it": "PROPOSIZIONE PRINCIPALE",
+        "tr": "ANA ÖNERME",
+        "ur": "بنیادی قضیہ",
+        "fa": "گزاره اصلی",
+        "hi": "मुख्य प्रतिज्ञा",
+        "bn": "মূল প্রতিজ্ঞা"
+    }
+}
+
+DEFAULT_GRAPH_QUERIES_SERVER = {
+    "id": "Paulus menegakkan hukum Taurat (Roma 3:31)",
+    "en": "Paul upholds the Law of Moses (Romans 3:31)",
+    "ar": "بولس يثبت ناموس موسى (رومية 3: 31)",
+    "zh": "保罗坚立摩西律法 (罗马书 3:31)",
+    "ja": "パウロは律法を確立する (ローマ 3:31)",
+    "ko": "바울은 율법을 굳게 세운다 (로마서 3:31)",
+    "es": "Pablo confirma la Ley de Moisés (Romanos 3:31)",
+    "fr": "Paul confirme la Loi de Moïse (Romains 3:31)",
+    "de": "Paulus bestätigt das Gesetz des Mose (Römer 3:31)",
+    "ru": "Павел утверждает Закон Моисея (Римлянам 3:31)",
+    "pt": "Paulo confirma a Lei de Moisés (Romanos 3:31)",
+    "it": "Paolo conferma la Legge di Mosè (Romani 3:31)",
+    "tr": "Pavlus Tevrat Yasasını onaylar (Romalılar 3:31)",
+    "ur": "پولس تورات کی شریعت کو قائم رکھتا ہے (رومیوں 3:31)",
+    "fa": "پولس شریعت تورات را تثبیت می‌کند (رومیان 3:31)",
+    "hi": "पौलुस तोराह की व्यवस्था को स्थिर करता है (रोमियों 3:31)",
+    "bn": "পৌল তাওরাতের ব্যবস্থা বলবৎ রাখেন (রোমীয় ৩:৩১)"
+}
+
+for cat in KNOWLEDGE_STRUCTURE_PREFIXES.values():
+    if "zh" in cat and "zh-CN" not in cat:
+        cat["zh-CN"] = cat["zh"]
+
+if "zh" in DEFAULT_GRAPH_QUERIES_SERVER and "zh-CN" not in DEFAULT_GRAPH_QUERIES_SERVER:
+    DEFAULT_GRAPH_QUERIES_SERVER["zh-CN"] = DEFAULT_GRAPH_QUERIES_SERVER["zh"]
+
+def format_friendly_proposition_prefix(lbl: str, is_conclusion: bool, is_premise: bool, lang: str) -> str:
+    norm_lang = "zh" if lang.startswith("zh") else lang
+    target_lang = norm_lang if norm_lang in KNOWLEDGE_STRUCTURE_PREFIXES["premise"] else "en"
+    clean_lbl = lbl.replace("P", "").replace("C", "").strip() if lbl else ""
+    if is_conclusion or (lbl and lbl.startswith("C")):
+        tpl = KNOWLEDGE_STRUCTURE_PREFIXES["conclusion"].get(target_lang, KNOWLEDGE_STRUCTURE_PREFIXES["conclusion"]["en"])
+        return tpl.format(lbl=clean_lbl or lbl)
+    elif is_premise or (lbl and lbl.startswith("P")):
+        tpl = KNOWLEDGE_STRUCTURE_PREFIXES["premise"].get(target_lang, KNOWLEDGE_STRUCTURE_PREFIXES["premise"]["en"])
+        return tpl.format(lbl=clean_lbl or lbl)
+    else:
+        tpl = KNOWLEDGE_STRUCTURE_PREFIXES["statement"].get(target_lang, KNOWLEDGE_STRUCTURE_PREFIXES["statement"]["en"])
+        return tpl.format(lbl=lbl) if lbl else tpl.replace("{lbl}", "").strip()
+
+def format_evidence_witness_edge_desc(passage: str, lang: str) -> str:
+    norm_lang = "zh" if lang.startswith("zh") else lang
+    target_lang = norm_lang if norm_lang in KNOWLEDGE_STRUCTURE_PREFIXES["witness_edge"] else "en"
+    tpl = KNOWLEDGE_STRUCTURE_PREFIXES["witness_edge"].get(target_lang, KNOWLEDGE_STRUCTURE_PREFIXES["witness_edge"]["en"])
+    return tpl.format(p=passage)
+
 # ===========================================================================
 # P1.1: Dynamic Knowledge Base Graph & Corpus Endpoints
 # ===========================================================================
 
 @router.get("/knowledge/graph")
-async def get_knowledge_graph_endpoint(q: Optional[str] = None, limit: int = 50):
+async def get_knowledge_graph_endpoint(request: Request, q: Optional[str] = None, limit: int = 50, locale: Optional[str] = None):
     """Returns dynamic Knowledge Graph nodes and edges computed from actual claim atomicity and evidence apparatus."""
+    lang = resolve_request_locale(request, locale)
     from orchestrator.claim_atomicity import ClaimAtomicityEngine
     from orchestrator.evidence_engine import CANONICAL_PHILOLOGY_KNOWLEDGE, Evidence
 
-    query = q.strip() if q else "Paulus menegakkan hukum Taurat (Roma 3:31)"
-    dag = ClaimAtomicityEngine.decompose_claim(query)
+    query = q.strip() if q else DEFAULT_GRAPH_QUERIES_SERVER.get(lang, DEFAULT_GRAPH_QUERIES_SERVER["id"])
+    dag = ClaimAtomicityEngine.decompose_claim(query, locale=lang)
 
     nodes = []
     edges = []
@@ -1073,9 +1301,10 @@ async def get_knowledge_graph_endpoint(q: Optional[str] = None, limit: int = 50)
 
     # 1. Root Claim Node
     root_id = dag.claim_id
+    root_label = translate_dynamic_text(query, lang) if lang != "id" else query
     nodes.append({
         "id": root_id,
-        "label": query,
+        "label": root_label,
         "type": "CLAIM",
         "status": "ACTIVE",
         "confidence": 0.96,
@@ -1089,18 +1318,12 @@ async def get_knowledge_graph_endpoint(q: Optional[str] = None, limit: int = 50)
         pid = p_dict["proposition_id"]
         if pid not in seen_nodes:
             lbl = p_dict.get("label", "")
-            if lbl == "P1":
-                friendly_prefix = "Premis 1 (Alasan Pendukung)"
-            elif lbl == "C1":
-                friendly_prefix = "Kesimpulan 1"
-            elif p_dict.get("is_conclusion"):
-                friendly_prefix = f"Kesimpulan ({lbl})"
-            elif p_dict.get("is_premise"):
-                friendly_prefix = f"Premis {lbl} (Alasan Pendukung)"
-            else:
-                friendly_prefix = f"Pernyataan {lbl}" if lbl else "Pernyataan"
+            is_c = bool(p_dict.get("is_conclusion", False) or lbl.startswith("C"))
+            is_p = bool(p_dict.get("is_premise", True) or lbl.startswith("P"))
+            friendly_prefix = format_friendly_proposition_prefix(lbl, is_c, is_p, lang)
 
-            full_txt = p_dict["text"]
+            raw_txt = p_dict["text"]
+            full_txt = translate_dynamic_text(raw_txt, lang) if lang != "id" else raw_txt
             nodes.append({
                 "id": pid,
                 "label": f"{friendly_prefix}: {full_txt}",
@@ -1116,12 +1339,15 @@ async def get_knowledge_graph_endpoint(q: Optional[str] = None, limit: int = 50)
 
     for e in dag.edges[:limit]:
         e_dict = e.to_dict()
+        desc = e_dict.get("description", "")
+        if desc and lang != "id":
+            desc = translate_dynamic_text(desc, lang)
         edges.append({
             "source": e_dict["source_id"],
             "target": e_dict["target_id"],
             "relation": e_dict["relation"],
             "weight": e_dict.get("weight", 0.9),
-            "description": e_dict.get("description", "")
+            "description": desc
         })
 
     # 3. Dynamic Primary Evidence & Manuscript Witnesses Nodes matched to active motion
@@ -1326,7 +1552,7 @@ async def get_knowledge_graph_endpoint(q: Optional[str] = None, limit: int = 50)
                 "target": root_id,
                 "relation": "supports",
                 "weight": ev_info.get("confidence", 0.98),
-                "description": f"Saksi Naskah Primer untuk {passage}"
+                "description": format_evidence_witness_edge_desc(passage, lang)
             })
 
     return {
@@ -1340,60 +1566,60 @@ async def get_knowledge_graph_endpoint(q: Optional[str] = None, limit: int = 50)
 
 
 @router.get("/knowledge/claims")
-async def get_knowledge_claims_endpoint(q: Optional[str] = None):
+async def get_knowledge_claims_endpoint(request: Request, q: Optional[str] = None, locale: Optional[str] = None):
     """Returns verified canonical claims from knowledge index, or dynamic claims & premises if q is provided."""
+    lang = resolve_request_locale(request, locale)
     from orchestrator.claim_atomicity import ClaimAtomicityEngine
     claims_data = []
 
     if q and q.strip():
         query = q.strip()
-        dag = ClaimAtomicityEngine.decompose_claim(query)
+        dag = ClaimAtomicityEngine.decompose_claim(query, locale=lang)
+        norm_lang = "zh" if lang.startswith("zh") else lang
         # 1. Root Claim (Mosi)
+        claim_status = KNOWLEDGE_STRUCTURE_PREFIXES["status_claim"].get(norm_lang, KNOWLEDGE_STRUCTURE_PREFIXES["status_claim"]["en"])
         claims_data.append({
             "claim_id": dag.claim_id,
-            "text": query,
-            "status": "KLAIM UTAMA (MOSI)",
+            "text": translate_dynamic_text(query, lang) if lang != "id" else query,
+            "status": claim_status,
             "type": "CLAIM",
-            "category": "Klaim Utama",
+            "category": claim_status,
             "confidence": 0.96
         })
         # 2. Decomposed Propositions (Premises & Conclusions)
         for p in dag.propositions:
             p_dict = p.to_dict()
             lbl = p_dict.get("label", "")
-            if lbl == "P1":
-                friendly_label = "Premis 1 (Alasan Pendukung)"
-                status = "PREMIS PENDUKUNG"
-            elif lbl == "C1":
-                friendly_label = "Kesimpulan 1"
-                status = "KESIMPULAN"
-            elif p_dict.get("is_conclusion"):
-                friendly_label = f"Kesimpulan ({lbl})"
-                status = "KESIMPULAN"
-            elif p_dict.get("is_premise"):
-                friendly_label = f"Premis {lbl} (Alasan Pendukung)"
-                status = "PREMIS PENDUKUNG"
+            is_c = bool(p_dict.get("is_conclusion", False) or lbl.startswith("C"))
+            is_p = bool(p_dict.get("is_premise", True) or lbl.startswith("P"))
+            friendly_label = format_friendly_proposition_prefix(lbl, is_c, is_p, lang)
+            if is_c:
+                status = KNOWLEDGE_STRUCTURE_PREFIXES["status_conclusion"].get(norm_lang, KNOWLEDGE_STRUCTURE_PREFIXES["status_conclusion"]["en"])
+            elif is_p:
+                status = KNOWLEDGE_STRUCTURE_PREFIXES["status_premise"].get(norm_lang, KNOWLEDGE_STRUCTURE_PREFIXES["status_premise"]["en"])
             else:
-                friendly_label = f"Pernyataan {lbl}" if lbl else "Pernyataan"
-                status = "GAGASAN UTAMA"
+                status = KNOWLEDGE_STRUCTURE_PREFIXES["status_proposition"].get(norm_lang, KNOWLEDGE_STRUCTURE_PREFIXES["status_proposition"]["en"])
+
+            p_text = translate_dynamic_text(p_dict.get("text", ""), lang) if lang != "id" else p_dict.get("text", "")
 
             claims_data.append({
                 "claim_id": p_dict.get("proposition_id", f"prop_{len(claims_data)}"),
-                "text": p_dict.get("text", ""),
+                "text": p_text,
                 "status": status,
                 "friendly_label": friendly_label,
                 "type": "PROPOSITION",
-                "category": "Premis Pendukung" if status == "PREMIS PENDUKUNG" else "Kesimpulan",
+                "category": status,
                 "confidence": p_dict.get("confidence", 0.95)
             })
         return {"success": True, "count": len(claims_data), "claims": claims_data, "query": query}
 
     for idx, c_text in enumerate(CANONICAL_DEMO_CLAIMS):
+        trans_c = translate_dynamic_text(c_text, lang) if lang != "id" else c_text
         claims_data.append({
             "claim_id": f"claim_canon_{idx + 1:03d}",
-            "text": c_text,
+            "text": trans_c,
             "status": "VERIFIED_ACTIVE",
-            "subject": c_text.split(" ")[0] if " " in c_text else c_text,
+            "subject": trans_c.split(" ")[0] if " " in trans_c else trans_c,
             "category": "THEOLOGICAL_POLEMIC",
             "confidence": 0.95
         })
@@ -1401,8 +1627,9 @@ async def get_knowledge_claims_endpoint(q: Optional[str] = None):
 
 
 @router.get("/knowledge/evidence")
-async def get_knowledge_evidence_endpoint(q: Optional[str] = None):
+async def get_knowledge_evidence_endpoint(request: Request, q: Optional[str] = None, locale: Optional[str] = None):
     """Returns verified primary manuscript witnesses and multi-version apparatus details."""
+    lang = resolve_request_locale(request, locale)
     from orchestrator.evidence_engine import CANONICAL_PHILOLOGY_KNOWLEDGE, EvidenceEngine
     from orchestrator.exegesis_engine import CANONICAL_EXEGESIS_REGISTRY, ExegesisEngine
     from web.canonical_evidence import (
@@ -1649,37 +1876,60 @@ async def get_knowledge_evidence_endpoint(q: Optional[str] = None):
 
 from web.motion_generator import get_corpus_debate_motions
 
+_LOCALIZED_THEMES_CACHE = {}
+_THEMES_CACHE_LOCK = threading.Lock()
+
+def get_all_localized_themes(lang: str) -> list:
+    if lang == "id":
+        return get_corpus_debate_motions()
+    target_code = "zh-CN" if lang.startswith("zh") else lang
+    with _THEMES_CACHE_LOCK:
+        if target_code in _LOCALIZED_THEMES_CACHE:
+            return _LOCALIZED_THEMES_CACHE[target_code]
+        raw_themes = get_corpus_debate_motions()
+        with ThreadPoolExecutor(max_workers=16) as pool:
+            localized = list(pool.map(lambda th: localize_theme_item(th, target_code), raw_themes))
+        _LOCALIZED_THEMES_CACHE[target_code] = localized
+        return localized
+
 @router.get("/themes")
 @router.get("/themes/catalog")
 async def list_themes_endpoint(
     request: Request,
+    category: Optional[str] = None,
+    q: Optional[str] = None,
     limit: Optional[int] = None,
     offset: Optional[int] = 0,
     locale: Optional[str] = None
 ):
-    """Returns dynamic catalog of 300+ professional theological debate motion themes derived from transcript content analysis."""
-    themes = get_corpus_debate_motions()
-
+    """Returns dynamic catalog of professional theological debate motion themes derived from transcript content analysis."""
     lang = resolve_request_locale(request, locale)
-    total_count = len(themes)
+    all_themes = get_all_localized_themes(lang)
+
+    items = all_themes
+    if category and category.upper() != "ALL":
+        cat_lower = category.lower().strip()
+        items = [t for t in items if (t.get("discourse_type") or "").lower().strip() == cat_lower]
+
+    if q:
+        q_lower = q.lower().strip()
+        items = [
+            t for t in items
+            if q_lower in (t.get("title") or "").lower()
+            or q_lower in (t.get("theme_id") or "").lower()
+            or q_lower in (t.get("motion_or_topic") or "").lower()
+            or any(q_lower in str(p).lower() for p in t.get("passages", []))
+            or any(q_lower in str(sm).lower() for sm in t.get("sub_motions", []))
+        ]
+
+    total_count = len(items)
     off = max(0, offset or 0)
     if limit and limit > 0:
-        sliced = themes[off:off + limit]
-        if lang != "id":
-            with ThreadPoolExecutor(max_workers=12) as pool:
-                sliced = list(pool.map(lambda th: localize_theme_item(th, lang), sliced))
+        sliced = items[off:off + limit]
     elif off > 0:
-        sliced = themes[off:]
-        if lang != "id":
-            with ThreadPoolExecutor(max_workers=12) as pool:
-                head_localized = list(pool.map(lambda th: localize_theme_item(th, lang), sliced[:60]))
-            sliced = head_localized + sliced[60:]
+        sliced = items[off:]
     else:
-        sliced = themes
-        if lang != "id":
-            with ThreadPoolExecutor(max_workers=12) as pool:
-                head_localized = list(pool.map(lambda th: localize_theme_item(th, lang), sliced[:60]))
-            sliced = head_localized + sliced[60:]
+        sliced = items
 
     return {
         "success": True,
@@ -1693,8 +1943,9 @@ async def list_themes_endpoint(
 
 
 @router.get("/themes/{theme_id}")
-async def get_theme_detail_endpoint(theme_id: str, locale: Optional[str] = "id"):
+async def get_theme_detail_endpoint(theme_id: str, request: Request, locale: Optional[str] = None):
     """Returns complete 6-tab theme details for theme_id."""
+    lang = resolve_request_locale(request, locale)
     import hashlib
     canonical_alias_map = {
         "pauline_torah": "friksi-paulus-vs-petrus",
@@ -1885,6 +2136,33 @@ async def get_theme_detail_endpoint(theme_id: str, locale: Optional[str] = "id")
             "clash_resolution": "Unanimous Textual Priority"
         }
     }
+    if lang != "id":
+        theme_obj["title"] = translate_dynamic_text(theme_obj.get("title", ""), lang)
+        theme_obj["motion_or_topic"] = translate_dynamic_text(theme_obj.get("motion_or_topic", ""), lang)
+        if "sub_motions" in theme_obj and isinstance(theme_obj["sub_motions"], list):
+            theme_obj["sub_motions"] = [
+                translate_dynamic_text(sm, lang) if isinstance(sm, str) else sm
+                for sm in theme_obj["sub_motions"]
+            ]
+        if isinstance(theme_obj.get("overview"), dict):
+            theme_obj["overview"]["motion"] = translate_dynamic_text(theme_obj["overview"].get("motion", ""), lang)
+            theme_obj["overview"]["motion_or_topic"] = translate_dynamic_text(theme_obj["overview"].get("motion_or_topic", ""), lang)
+            if "sub_motions" in theme_obj["overview"] and isinstance(theme_obj["overview"]["sub_motions"], list):
+                theme_obj["overview"]["sub_motions"] = [
+                    translate_dynamic_text(sm, lang) if isinstance(sm, str) else sm
+                    for sm in theme_obj["overview"]["sub_motions"]
+                ]
+        motion = theme_obj["title"]
+        if isinstance(theme_obj.get("debate"), dict) and "rounds" in theme_obj["debate"]:
+            for r in theme_obj["debate"]["rounds"]:
+                if isinstance(r, dict) and "argument_text" in r:
+                    r["argument_text"] = translate_dynamic_text(r["argument_text"], lang)
+        if "passages" in theme_obj and isinstance(theme_obj["passages"], list):
+            theme_obj["passages"] = [
+                localize_bible_passage(p, lang) if isinstance(p, str) else p
+                for p in theme_obj["passages"]
+            ]
+
     return {
         "success": True,
         "theme_id": theme_id,

@@ -35,7 +35,7 @@ def test_frontend_index_html_i18n_sidebar_and_calculator():
         "calc-hero-title", "calc-hero-copy", "hero-cta-btn", "calc-header-title",
         "btn-mode-debate", "btn-mode-research", "btn-calc-text",
         "canonical-cases-title", "canonical-cases-sub",
-        "case-claim-display", "case-zuma-header", "case-primary-ev-header",
+        "case-claim-display", "case-dialectical-header", "case-primary-ev-header",
         "case-ctx-ling-header", "case-opp-counter-header", "case-rebuttal-header",
         "case-weakness-header", "case-open-q-header", "case-provenance-header",
         "btn-weakest-point", "adv-title"

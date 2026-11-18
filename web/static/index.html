@@ -5392,9 +5392,9 @@
   <!-- MAIN APP SHELL -->
   <div class="app-body">
     <!-- Floating Desktop Sidebar Toggle Button -->
-    <button id="btn-sidebar-toggle" type="button" class="btn-sidebar-toggle" onclick="toggleSidebar(event)" title="Buka Menu Sidebar" aria-label="Buka Menu Sidebar">
+    <button id="btn-sidebar-toggle" type="button" class="btn-sidebar-toggle" onclick="toggleSidebar(event)" title="Buka Menu Sidebar" aria-label="Buka Menu Sidebar" data-i18n-title="btnSidebarToggleTitle">
       <span style="font-size: 1.05rem; line-height: 1;">☰</span>
-      <span style="font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em;">Menu Sidebar</span>
+      <span id="btn-sidebar-toggle-text" data-i18n="btnSidebarMenu" style="font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em;">Menu Sidebar</span>
     </button>
 
     <!-- Sidebar Navigation with Logo at the Top for Desktop -->
@@ -5562,34 +5562,34 @@
         <div class="top-nav-tabs-wrap">
           <button type="button" class="top-nav-tab active" id="top-tab-calc" onclick="navigateRoute(event, '/calculator')" title="Apologetics Machine">
             <span class="top-tab-icon">⚡</span>
-            <span>Apologetics Machine</span>
+            <span data-i18n="navApologeticsMachine">Apologetics Machine</span>
           </button>
           <button type="button" class="top-nav-tab" id="top-tab-motions" onclick="navigateRoute(event, '/'); toggleMotionDirectory(true);" title="Cari 2.456 Mosi">
             <span class="top-tab-icon">📚</span>
-            <span>Cari Mosi</span>
+            <span data-i18n="navSearchMotions">Cari Mosi</span>
             <span class="top-tab-badge">2.456</span>
           </button>
           <button type="button" class="top-nav-tab" id="top-tab-dash" onclick="navigateRoute(event, '/dashboard')" title="Research Workspace Dashboard">
             <span class="top-tab-icon">📊</span>
-            <span>Workspace</span>
+            <span data-i18n="navWorkspace">Workspace</span>
           </button>
           <button type="button" class="top-nav-tab" id="top-tab-courses" onclick="navigateRoute(event, '/kursus-bahasa-kuno')" title="Kursus Bahasa Kuno (Metode Polyglot)">
             <span class="top-tab-icon">🎓</span>
-            <span>Kursus Bahasa Kuno</span>
+            <span data-i18n="navAncientCourse">Kursus Bahasa Kuno</span>
           </button>
           <button type="button" class="top-nav-tab" id="top-tab-account" onclick="navigateRoute(event, '/account')" title="Account, Quota & Billing">
             <span class="top-tab-icon">💳</span>
-            <span>Billing &amp; Kuota</span>
+            <span data-i18n="navBilling">Billing &amp; Kuota</span>
           </button>
           <button type="button" class="top-nav-tab" id="top-tab-pricing" onclick="navigateRoute(event, '/pricing')" title="Pricing &amp; Plans">
             <span class="top-tab-icon">💎</span>
-            <span>Pricing</span>
+            <span data-i18n="navPricing">Pricing</span>
           </button>
         </div>
 
         <div class="top-nav-actions-wrap">
           <div id="top-nav-quota-pill-wrap" style="cursor: pointer;" onclick="openGateModal()" title="Status Kuota Analisis">
-            <span class="badge-pill badge-quota" id="top-nav-quota-pill">5 Analisis Gratis</span>
+            <span class="badge-pill badge-quota" id="top-nav-quota-pill" data-i18n="quotaPillFree">5 Analisis Gratis</span>
           </div>
           <button type="button" class="header-search-btn top-nav-icon-btn" onclick="openSearchModal()" title="Quick search (Ctrl+K)">
             <span style="font-size: 0.85rem;">🔍</span>
@@ -6061,7 +6061,7 @@
         <div class="case-card" style="padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.85rem;">
           <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
             <div style="flex: 1; min-width: 260px; position: relative;">
-              <input type="text" id="theme-search-input" placeholder="🔍 Cari mosi debat, nomor video, lemma, atau dalil ayat..." oninput="onThemeSearchChange(this.value)" style="width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle); color: var(--text-main); padding: 0.55rem 0.85rem; border-radius: var(--radius-sm); font-size: 0.85rem; box-sizing: border-box;">
+              <input type="text" id="theme-search-input" data-i18n-placeholder="themesSearchPlaceholder" placeholder="🔍 Cari mosi debat, nomor video, lemma, atau dalil ayat..." oninput="onThemeSearchChange(this.value)" style="width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle); color: var(--text-main); padding: 0.55rem 0.85rem; border-radius: var(--radius-sm); font-size: 0.85rem; box-sizing: border-box;">
             </div>
             <div id="theme-counter-status" style="font-size: 0.8rem; color: var(--text-dim); white-space: nowrap;">
               Menampilkan <span id="theme-visible-count" style="color: var(--primary); font-weight: 600;">2.625</span> dari 2.625 mosi terverifikasi
@@ -6178,7 +6178,7 @@
         </div>
 
         <div class="tabs-nav" style="margin-bottom: 1.25rem;">
-          <button id="knowledge-tab-graph-btn" class="tab-btn active" onclick="switchKnowledgeTab('graph')">Argument Graph</button>
+          <button id="knowledge-tab-graph-btn" class="tab-btn active" data-i18n="knowledgeTabGraph" onclick="switchKnowledgeTab('graph')">Argument Graph</button>
           <button id="knowledge-tab-claims-btn" data-i18n="knowledgeTabClaims" class="tab-btn" onclick="switchKnowledgeTab('claims')">Daftar Klaim & Premis</button>
           <button id="knowledge-tab-evidence-btn" data-i18n="knowledgeTabEvidence" class="tab-btn" onclick="switchKnowledgeTab('evidence')">Bukti Naskah & Ayat</button>
         </div>
@@ -6186,21 +6186,21 @@
         <!-- Tab 1: Interactive Dynamic Graph -->
         <div id="knowledge-tab-graph" class="case-card shine-border-panel" style="padding: 1.5rem;">
           <div style="margin-bottom: 0.75rem;">
-            <input type="text" id="graph-query-input" class="search-box" style="width: 100%; margin-bottom: 0; box-sizing: border-box;" placeholder="Cari proposisi atau mosi (contoh: Kisah Para Rasul 24:14, Paulus menegakkan hukum Taurat)..." onkeydown="if(event.key==='Enter')loadKnowledgeGraph()">
+            <input type="text" id="graph-query-input" class="search-box" style="width: 100%; margin-bottom: 0; box-sizing: border-box;" data-i18n-placeholder="knowledgeQueryPlaceholder" placeholder="Cari proposisi atau mosi (contoh: Kisah Para Rasul 24:14, Paulus menegakkan hukum Taurat)..." onkeydown="if(event.key==='Enter')loadKnowledgeGraph()">
           </div>
 
           <!-- Tombol Eksekusi Utama: Petakan Alur Logika (Full-Width) -->
-          <button id="knowledge-btn-explore" data-i18n="knowledgeBtnExplore" class="btn-primary" onclick="loadKnowledgeGraph()" style="width: 100%; padding: 0.75rem 1.25rem; font-size: 0.95rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 8px; box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25); margin: 0.5rem 0 0.85rem 0; cursor: pointer; transition: all 0.2s ease;">
-            <span>Petakan Alur Logika</span> <span>🔍</span>
+          <button id="knowledge-btn-explore" class="btn-primary" onclick="loadKnowledgeGraph()" style="width: 100%; padding: 0.75rem 1.25rem; font-size: 0.95rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 8px; box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25); margin: 0.5rem 0 0.85rem 0; cursor: pointer; transition: all 0.2s ease;">
+            <span id="knowledge-btn-explore-text" data-i18n="knowledgeBtnExplore">Petakan Alur Logika</span> <span>🔍</span>
           </button>
 
           <!-- Quick Action Buttons: Acak Mosi & Cari Mosi (2.456 Mosi) -->
           <div style="display: flex; align-items: center; justify-content: center; width: 100%; gap: 0.6rem; flex-wrap: wrap; text-align: center; margin: 0.35rem 0 0.85rem 0;">
-            <button type="button" class="liquid-chip-btn" onclick="shuffleRandomGraphMotion()" title="Tarik Mosi Acak untuk Penjelajah Argumen">
-              <span>🎲</span> <span>Acak Mosi</span>
+            <button type="button" id="btn-shuffle-graph-motion" class="liquid-chip-btn" onclick="shuffleRandomGraphMotion()" data-i18n-title="knowledgeShuffleTitle" title="Tarik Mosi Acak untuk Penjelajah Argumen">
+              <span>🎲</span> <span id="label-shuffle-graph-motion" data-i18n="knowledgeShuffleBtn">Acak Mosi</span>
             </button>
-            <button type="button" id="btn-toggle-graph-motion-dir" class="liquid-chip-btn" onclick="toggleGraphMotionDirectory()" title="Buka Direktori 2.456 Mosi">
-              <span id="btn-toggle-graph-motion-dir-icon">📚</span> <span id="btn-toggle-graph-motion-dir-text">Cari Mosi (2.456 Mosi) ▼</span>
+            <button type="button" id="btn-toggle-graph-motion-dir" class="liquid-chip-btn" onclick="toggleGraphMotionDirectory()" data-i18n-title="knowledgeDirToggleTitle" title="Buka Direktori 2.456 Mosi">
+              <span id="btn-toggle-graph-motion-dir-icon">📚</span> <span id="btn-toggle-graph-motion-dir-text" data-i18n="knowledgeDirToggleDefault">Cari Mosi (2.456 Mosi) ▼</span>
             </button>
           </div>
 
@@ -6209,25 +6209,25 @@
             <!-- Search Box -->
             <div class="motion-dir-search-wrap">
               <span class="motion-dir-search-icon">🔍</span>
-              <input type="text" id="graph-motion-directory-search" class="motion-dir-search-input" placeholder="Cari 2.456 mosi untuk eksplorasi (nama kitab, ayat, dogma, contoh: Roma 3:31, Yohanes 10:30, Kisah Para Rasul 24:14)..." oninput="onGraphMotionDirectorySearch(this.value)">
-              <button type="button" id="graph-motion-dir-clear-btn" class="motion-dir-clear-btn" onclick="clearGraphMotionDirectorySearch()" title="Hapus Pencarian">✕</button>
+              <input type="text" id="graph-motion-directory-search" class="motion-dir-search-input" data-i18n-placeholder="knowledgeDirSearchPlaceholder" placeholder="Cari 2.456 mosi untuk eksplorasi (nama kitab, ayat, dogma, contoh: Roma 3:31, Yohanes 10:30, Kisah Para Rasul 24:14)..." oninput="onGraphMotionDirectorySearch(this.value)">
+              <button type="button" id="graph-motion-dir-clear-btn" class="motion-dir-clear-btn" onclick="clearGraphMotionDirectorySearch()" data-i18n-title="btnClearSearch" title="Hapus Pencarian">✕</button>
             </div>
 
             <!-- Header & Category Filter Tabs -->
             <div class="motion-dir-header">
               <div class="motion-dir-tabs">
                 <button type="button" class="motion-dir-tab active" data-cat="all" onclick="filterGraphMotionCategory('all')">
-                  Semua (<span id="graph-count-tab-all">2.456</span>)
+                  <span data-i18n="dirTabAll">Semua</span> (<span id="graph-count-tab-all">2.456</span>)
                 </button>
                 <button type="button" class="motion-dir-tab" data-cat="perjanjian_baru" onclick="filterGraphMotionCategory('perjanjian_baru')">
-                  Perjanjian Baru (<span id="graph-count-tab-pb">1.654</span>)
+                  <span data-i18n="dirTabNT">Perjanjian Baru</span> (<span id="graph-count-tab-pb">1.654</span>)
                 </button>
                 <button type="button" class="motion-dir-tab" data-cat="perjanjian_lama" onclick="filterGraphMotionCategory('perjanjian_lama')">
-                  Perjanjian Lama (<span id="graph-count-tab-pl">802</span>)
+                  <span data-i18n="dirTabOT">Perjanjian Lama</span> (<span id="graph-count-tab-pl">802</span>)
                 </button>
               </div>
               <div id="graph-motion-dir-status" style="font-size: 0.72rem; color: #94a3b8; white-space: nowrap;">
-                Menampilkan <span id="graph-motion-dir-rendered-count" style="color: #eab308; font-weight: 700;">0</span> mosi
+                <span id="graph-status-dir-showing" data-i18n="dirStatusShowing">Menampilkan</span> <span id="graph-motion-dir-rendered-count" style="color: #eab308; font-weight: 700;">0</span> <span id="graph-status-dir-unit" data-i18n="dirMotionsUnit">mosi</span>
               </div>
             </div>
 
@@ -6238,37 +6238,37 @@
           </div>
 
           <div id="graph-loading" style="display: none; padding: 2rem; text-align: center; color: var(--primary);">
-            <span class="pulse-dot"></span> Mengomputasi relasi DAG dan simpul aparatus...
+            <span class="pulse-dot"></span> <span data-i18n="knowledgeGraphLoading">Mengomputasi relasi DAG dan simpul aparatus...</span>
           </div>
 
           <!-- Node Details Card (Revealed on click) -->
           <div id="graph-node-detail-box" class="case-card shine-border-panel hidden" style="margin-bottom: 1.25rem; padding: 1.25rem 1.45rem;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
               <span id="node-detail-type" class="badge-pill" style="background: rgba(234, 179, 8, 0.15); color: #fbbf24; border: 1px solid rgba(234, 179, 8, 0.4); font-size: 0.72rem; font-weight: 700; border-radius: 9999px; padding: 0.25rem 0.65rem;">NODE</span>
-              <button class="record-chip" style="background: #000000; color: #ffffff; border: 1px solid #94a3b8; cursor: pointer;" onclick="resetGraphNodeDetailBox()">✕ Tutup</button>
+              <button class="record-chip" style="background: #000000; color: #ffffff; border: 1px solid #94a3b8; cursor: pointer;" onclick="resetGraphNodeDetailBox()"><span data-i18n="btnClose">✕ Tutup</span></button>
             </div>
-            <h4 id="node-detail-title" style="margin-bottom: 0.45rem; font-size: 1.15rem; color: #ffffff; font-weight: 700;">Detail Simpul</h4>
+            <h4 id="node-detail-title" data-i18n="knowledgeNodeDetailTitle" style="margin-bottom: 0.45rem; font-size: 1.15rem; color: #ffffff; font-weight: 700;">Detail Simpul</h4>
             <p id="node-detail-text" style="font-size: 0.95rem; color: #f1f5f9; line-height: 1.65; margin: 0;"></p>
             <div id="node-detail-meta" style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 0.82rem; color: #94a3b8; font-family: var(--font-mono);"></div>
           </div>
 
           <!-- Nodes and Edges Interactive Display -->
-          <div style="margin-top: 1.75rem; margin-bottom: 0.85rem; font-size: 0.78rem; text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.05em; font-weight: 700;">
+          <div id="heading-graph-relations" data-i18n="knowledgeSectionRelations" style="margin-top: 1.75rem; margin-bottom: 0.85rem; font-size: 0.78rem; text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.05em; font-weight: 700;">
             Hubungan Argumen & Bukti (Klik untuk Menelaah)
           </div>
           <div id="graph-nodes-container" style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: flex-start; margin-bottom: 2rem;"></div>
 
-          <div style="margin-bottom: 0.75rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.05em; font-weight: 600;">
+          <div id="heading-graph-edges" data-i18n="knowledgeSectionEdges" style="margin-bottom: 0.75rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.05em; font-weight: 600;">
             Relasi Antar-Premis (Directed DAG Edges)
           </div>
           <div id="graph-edges-container" class="table-responsive">
             <table class="data-table" style="font-size: 0.76rem;">
               <thead>
                 <tr>
-                  <th style="padding: 0.35rem 0.6rem;">Sumber (Source)</th>
-                  <th style="padding: 0.35rem 0.6rem;">Relasi Dialektika</th>
-                  <th style="padding: 0.35rem 0.6rem;">Target</th>
-                  <th style="padding: 0.35rem 0.6rem;">Bobot</th>
+                  <th data-i18n="thSource" style="padding: 0.35rem 0.6rem;">Sumber (Source)</th>
+                  <th data-i18n="thDialecticalRelation" style="padding: 0.35rem 0.6rem;">Relasi Dialektika</th>
+                  <th data-i18n="thTarget" style="padding: 0.35rem 0.6rem;">Target</th>
+                  <th data-i18n="thWeight" style="padding: 0.35rem 0.6rem;">Bobot</th>
                 </tr>
               </thead>
               <tbody id="graph-edges-body"></tbody>
@@ -6279,8 +6279,8 @@
         <!-- Tab 2: Claims Index -->
         <div id="knowledge-tab-claims" class="case-card shine-border-panel hidden" style="padding: 1.5rem;">
           <div style="margin-bottom: 1.25rem;">
-            <h4 id="knowledge-claims-heading" style="margin-bottom: 0.35rem; font-size: 1.2rem; font-weight: 700; color: #ffffff;">Daftar Klaim & Premis dari Mosi Aktif</h4>
-            <p id="knowledge-claims-sub" style="font-size: 0.88rem; color: #94a3b8; margin: 0; line-height: 1.6;">Rincian klaim utama dan premis pendukung yang membentuk alur logika. Klik "⚡ Uji di Kalkulator" untuk menguji keabsahan logikanya.</p>
+            <h4 id="knowledge-claims-heading" data-i18n="knowledgeClaimsHeading" style="margin-bottom: 0.35rem; font-size: 1.2rem; font-weight: 700; color: #ffffff;">Daftar Klaim & Premis dari Mosi Aktif</h4>
+            <p id="knowledge-claims-sub" data-i18n="knowledgeClaimsSub" style="font-size: 0.88rem; color: #94a3b8; margin: 0; line-height: 1.6;">Rincian klaim utama dan premis pendukung yang membentuk alur logika. Klik "⚡ Uji di Kalkulator" untuk menguji keabsahan logikanya.</p>
           </div>
           <div id="claims-list-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 0.75rem; align-items: start;"></div>
         </div>
@@ -6288,8 +6288,8 @@
         <!-- Tab 3: Evidence Corpus -->
         <div id="knowledge-tab-evidence" class="case-card shine-border-panel hidden" style="padding: 1.5rem;">
           <div style="margin-bottom: 1.25rem;">
-            <h4 id="knowledge-evidence-heading" style="margin-bottom: 0.35rem; font-size: 1.2rem; font-weight: 700; color: #ffffff;">Bukti Naskah Asli & Saksi Manuskrip Kuno</h4>
-            <p id="knowledge-evidence-sub" style="font-size: 0.88rem; color: #94a3b8; margin: 0; line-height: 1.6;">Naskah bahasa asli (Yunani Koine/Ibrani/Aramaik), transliterasi, terjemahan, dan saksi manuskrip tertua yang mendasari mosi.</p>
+            <h4 id="knowledge-evidence-heading" data-i18n="knowledgeEvidenceHeading" style="margin-bottom: 0.35rem; font-size: 1.2rem; font-weight: 700; color: #ffffff;">Bukti Naskah Asli & Saksi Manuskrip Kuno</h4>
+            <p id="knowledge-evidence-sub" data-i18n="knowledgeEvidenceSub" style="font-size: 0.88rem; color: #94a3b8; margin: 0; line-height: 1.6;">Naskah bahasa asli (Yunani Koine/Ibrani/Aramaik), transliterasi, terjemahan, dan saksi manuskrip tertua yang mendasari mosi.</p>
           </div>
           <div id="evidence-list-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 0.75rem; align-items: start;"></div>
         </div>
@@ -7785,8 +7785,14 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       if (sLang && sLang.value !== code) sLang.value = code;
 
       _motionDirectoryCatalog = null;
+      currentThemes = [];
       applyI18n(code);
-      if (typeof renderThemesCards === "function") renderThemesCards();
+      if (typeof renderThemeCategoryPills === "function") renderThemeCategoryPills(code);
+      if (typeof loadThemes === "function") {
+        loadThemes();
+      } else if (typeof renderThemesCards === "function") {
+        renderThemesCards();
+      }
       if (typeof loadCanonicalCases === "function") {
         loadCanonicalCases("canonical-cases-list", true);
         loadCanonicalCases("calculator-canonical-cases", true);
@@ -7794,6 +7800,13 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       }
       if (typeof filterAndRenderMotions === "function") {
         filterAndRenderMotions(true);
+      }
+      if (typeof filterAndRenderGraphMotions === "function") {
+        filterAndRenderGraphMotions(true);
+      }
+      const viewKnowledge = document.getElementById("view-knowledge");
+      if (viewKnowledge && !viewKnowledge.classList.contains("hidden") && typeof loadKnowledgeGraph === "function") {
+        loadKnowledgeGraph();
       }
     }
 
@@ -7972,10 +7985,50 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
         const I18N_DICTIONARY = {
   "id": {
+    "themesCounterSummary": "Menampilkan {visible} dari {total} mosi terverifikasi",
+    "themeCatAll": "Semua Terverifikasi",
+    "themeCatDialectic": "Dialektika",
+    "themeCatChristology": "Kristologi",
+    "themeCatPhilology": "Filologi",
+    "themeCatTheology": "Teologi",
+    "themeCatTrinity": "Monoteisme",
+    "themeCatPauline": "Paulus vs Taurat",
+    "themeCatProphecy": "Kenabian",
+    "unitMotions": "Mosi",
+    "unitVideos": "Video",
+    "badgeRecommended": "Rekomendasi",
+    "perspRec_islam": "Rekomendasi Islam",
+    "perspRec_christian_protestant": "Rekomendasi Protestan",
+    "perspRec_christian_catholic": "Rekomendasi Katolik",
+    "perspRec_judaism": "Rekomendasi Yudaisme",
+    "perspRec_atheist_secular": "Rekomendasi Sekuler",
+    "statusVideoQueue": "Antrean Video",
+    "statusVerifiedCluster": "Klaster Terverifikasi",
+    "btnExploreMotions": "Jelajahi {count} {unit}",
+    "btnBackToAllClusters": "Kembali ke Semua Klaster",
+    "filterActive": "Filter Aktif",
+    "filterCluster": "Klaster",
+    "btnTestInCalculator": "Uji di Kalkulator",
+    "btnDossierDetail": "Detail Dossier →",
+    "showingCategoryMotions": "Menampilkan {visible} dari {total} mosi",
+    "allMotionsVerifiedTranscript": "✓ Seluruh Mosi Terverifikasi Transkrip",
+    "loadNextMotions": "Muat 20 Mosi Berikutnya (+{batch} lagi)",
+    "allClusterMotionsDisplayed": "✓ Seluruh {total} mosi dalam klaster ini telah ditampilkan",
+
+    "btnSidebarMenu": "Menu Sidebar",
+    "btnSidebarToggleTitle": "Buka Menu Sidebar",
+    "quotaPillFree": "5 Analisis Gratis",
+    "quotaFreeAnalyses": "{rem} Analisis Gratis",
+    "heroCtaFree": "Coba {rem} Analisis Gratis",
+    "heroCtaPremium": "Mulai Analisis Premium",
+    "heroCtaSubscribe": "Berlangganan Polya Premium",
+    "canonicalLoading": "Menghubungkan ke pipeline naskah server & memuat tema unggulan...",
+    "canonicalLoadingMore": "Memuat tema lainnya...",
+    "canonicalConnectionError": "Koneksi terputus saat mengambil studi kasus kanonikal.",
     "quickSearch": "Quick search...",
     "navSearchMotions": "Cari Mosi",
-    "navApologeticsMachine": "Apologetics Machine",
-    "navWorkspace": "Workspace",
+    "navApologeticsMachine": "Mesin Apologetika",
+    "navWorkspace": "Ruang Kerja",
     "navThemeDebate": "Theme Debate (Mosi)",
     "navDialectic": "Dialektika & Cross-Exam",
     "navChristology": "Kristologi & Yesus",
@@ -7996,7 +8049,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "navAbout": "About Polya AI",
     "navTerms": "Terms & Conditions",
     "navMobileVersion": "Ke Versi Mobile",
-    "headingWorkspace": "Research Workspace",
+    "headingWorkspace": "Ruang Kerja Riset",
     "headingEvidenceLab": "Evidence Lab",
     "headingPrepUser": "Preparation & User",
     "profileItemProfile": "Profile",
@@ -8098,7 +8151,6 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "personaTopicLabel": "Topik / Mosi Debat",
     "personaPosLabel": "Posisi Anda",
     "personaDiffLabel": "Tingkat Kesulitan",
-    "btnTestInCalculator": "⚡ Uji di Kalkulator",
     "btnDetailDossier": "Detail Dossier →",
     "subMotionPrefix": "Sub-mosi",
     "noCanonicalData": "Tidak ada data studi kasus kanonikal terverifikasi.",
@@ -8184,6 +8236,46 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "btnSelectSparringMotion": "⚔ Pilih Mosi Sparring ➔"
   },
   "en": {
+    "themesCounterSummary": "Showing {visible} of {total} verified motions",
+    "themeCatAll": "All Verified",
+    "themeCatDialectic": "Dialectics",
+    "themeCatChristology": "Christology",
+    "themeCatPhilology": "Philology",
+    "themeCatTheology": "Theology",
+    "themeCatTrinity": "Monotheism",
+    "themeCatPauline": "Paul vs Torah",
+    "themeCatProphecy": "Prophethood",
+    "unitMotions": "Motions",
+    "unitVideos": "Videos",
+    "badgeRecommended": "Recommended for",
+    "perspRec_islam": "Islamic Recommendation",
+    "perspRec_christian_protestant": "Protestant Recommendation",
+    "perspRec_christian_catholic": "Catholic Recommendation",
+    "perspRec_judaism": "Jewish Recommendation",
+    "perspRec_atheist_secular": "Secular Recommendation",
+    "statusVideoQueue": "Video Queue",
+    "statusVerifiedCluster": "Verified Cluster",
+    "btnExploreMotions": "Explore {count} {unit}",
+    "btnBackToAllClusters": "Back to All Clusters",
+    "filterActive": "Active Filter",
+    "filterCluster": "Cluster",
+    "btnTestInCalculator": "Test in Calculator",
+    "btnDossierDetail": "Dossier Details →",
+    "showingCategoryMotions": "Showing {visible} of {total} motions",
+    "allMotionsVerifiedTranscript": "✓ All Motions Verified by Transcript",
+    "loadNextMotions": "Load Next 20 Motions (+{batch} more)",
+    "allClusterMotionsDisplayed": "✓ All {total} motions in this cluster are displayed",
+
+    "btnSidebarMenu": "Sidebar Menu",
+    "btnSidebarToggleTitle": "Toggle Sidebar Menu",
+    "quotaPillFree": "5 Free Analyses",
+    "quotaFreeAnalyses": "{rem} Free Analyses",
+    "heroCtaFree": "Try {rem} Free Analyses",
+    "heroCtaPremium": "Start Premium Analysis",
+    "heroCtaSubscribe": "Subscribe to Polya Premium",
+    "canonicalLoading": "Connecting to server manuscript pipeline & loading featured themes...",
+    "canonicalLoadingMore": "Loading more themes...",
+    "canonicalConnectionError": "Connection lost while fetching canonical case studies.",
     "quickSearch": "Quick search...",
     "navSearchMotions": "Search Motions",
     "navApologeticsMachine": "Apologetics Machine",
@@ -8396,6 +8488,41 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "btnSelectSparringMotion": "⚔ Select Sparring Motion ➔"
   },
   "ar": {
+    "themesCounterSummary": "عرض {visible} من أصل {total} قضية موثقة",
+    "themeCatAll": "الكل موثق",
+    "themeCatDialectic": "الجدلية",
+    "themeCatChristology": "الكريستولوجيا",
+    "themeCatPhilology": "فقه اللغة",
+    "themeCatTheology": "علم اللاهوت",
+    "themeCatTrinity": "التوحيد",
+    "themeCatPauline": "بولس ضد الشريعة",
+    "themeCatProphecy": "النبوة",
+    "unitMotions": "قضايا",
+    "unitVideos": "مقاطع فيديو",
+    "badgeRecommended": "موصى به لـ",
+    "statusVideoQueue": "طابور الفيديوهات",
+    "statusVerifiedCluster": "مجموعة موثقة",
+    "btnExploreMotions": "استكشف {count} {unit}",
+    "btnBackToAllClusters": "العودة إلى جميع المجموعات",
+    "filterActive": "تصفية نشطة",
+    "filterCluster": "مجموعة",
+    "btnTestInCalculator": "اختبر في الحاسبة",
+    "btnDossierDetail": "تفاصيل الملف ←",
+    "showingCategoryMotions": "عرض {visible} من أصل {total} قضية",
+    "allMotionsVerifiedTranscript": "✓ جميع القضايا موثقة بالنصوص",
+    "loadNextMotions": "تحميل 20 قضية تالية (+{batch} إضافية)",
+    "allClusterMotionsDisplayed": "✓ تم عرض جميع القضايا البالغ عددها {total} في هذه المجموعة",
+
+    "btnSidebarMenu": "قائمة الشريط الجانبي",
+    "btnSidebarToggleTitle": "تبديل الشريط الجانبي",
+    "quotaPillFree": "5 تحليلات مجانية",
+    "quotaFreeAnalyses": "{rem} تحليلات مجانية",
+    "heroCtaFree": "جرب {rem} تحليلات مجانية",
+    "heroCtaPremium": "بدء التحليل المتميز",
+    "heroCtaSubscribe": "الاشتراك في بوليا بريميوم",
+    "canonicalLoading": "الاتصال بخادم المخطوطات وتحميل الموضوعات المميزة...",
+    "canonicalLoadingMore": "جاري تحميل المزيد من الموضوعات...",
+    "canonicalConnectionError": "انقطع الاتصال أثناء جلب دراسات الحالة القانونية.",
     "quickSearch": "بحث سريع...",
     "navSearchMotions": "البحث في القضايا",
     "navApologeticsMachine": "آلة الدفاعيات",
@@ -8608,6 +8735,41 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "researchSec8Title": "🎯 القسم 8: المعنى الجوهري للنص للقارئ العام (التركيب التفسيري)"
   },
   "ja": {
+    "themesCounterSummary": "検証済み論題 {total} 件中 {visible} 件を表示",
+    "themeCatAll": "すべて検証済み",
+    "themeCatDialectic": "弁証法",
+    "themeCatChristology": "キリスト論",
+    "themeCatPhilology": "文献学",
+    "themeCatTheology": "神学",
+    "themeCatTrinity": "唯一神論",
+    "themeCatPauline": "パウロ対律法",
+    "themeCatProphecy": "預言者性",
+    "unitMotions": "論題",
+    "unitVideos": "動画",
+    "badgeRecommended": "おすすめ：",
+    "statusVideoQueue": "動画キュー",
+    "statusVerifiedCluster": "検証済みクラスター",
+    "btnExploreMotions": "{count} 件の{unit}を探索",
+    "btnBackToAllClusters": "すべてのクラスターに戻る",
+    "filterActive": "アクティブフィルター",
+    "filterCluster": "クラスター",
+    "btnTestInCalculator": "計算機で検証",
+    "btnDossierDetail": "調書詳細 →",
+    "showingCategoryMotions": "{total} 件中 {visible} 件を表示",
+    "allMotionsVerifiedTranscript": "✓ すべての論題が文字起こしで検証済み",
+    "loadNextMotions": "次の20件を読み込む (+{batch}件)",
+    "allClusterMotionsDisplayed": "✓ このクラスター内の全 {total} 件の論題が表示されました",
+
+    "btnSidebarMenu": "サイドバーメニュー",
+    "btnSidebarToggleTitle": "サイドバーの切り替え",
+    "quotaPillFree": "5件の無料分析",
+    "quotaFreeAnalyses": "{rem}件の無料分析",
+    "heroCtaFree": "{rem}件の無料分析を試す",
+    "heroCtaPremium": "プレミアム分析を開始",
+    "heroCtaSubscribe": "Polya プレミアムに登録",
+    "canonicalLoading": "サーバーの写本パイプラインに接続し、注目テーマを読み込み中...",
+    "canonicalLoadingMore": "他のテーマを読み込み中...",
+    "canonicalConnectionError": "カノニカルケーススタディの取得中に接続が切断されました。",
     "quickSearch": "クイック検索...",
     "navSearchMotions": "弁題検索",
     "navApologeticsMachine": "弁証論マシン",
@@ -8820,6 +8982,41 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "researchSec8Title": "🎯 第8セクション: 一般読者のための核心的要約 (釈義的総合)"
   },
   "ko": {
+    "themesCounterSummary": "검증된 의제 {total}개 중 {visible}개 표시",
+    "themeCatAll": "모두 검증됨",
+    "themeCatDialectic": "변증법",
+    "themeCatChristology": "기독론",
+    "themeCatPhilology": "문헌학",
+    "themeCatTheology": "신학",
+    "themeCatTrinity": "유일신론",
+    "themeCatPauline": "바울 대 율법",
+    "themeCatProphecy": "예언자성",
+    "unitMotions": "의제",
+    "unitVideos": "비디오",
+    "badgeRecommended": "추천:",
+    "statusVideoQueue": "비디오 대기열",
+    "statusVerifiedCluster": "검증된 클러스터",
+    "btnExploreMotions": "{count}개 {unit} 탐색",
+    "btnBackToAllClusters": "모든 클러스터로 돌아가기",
+    "filterActive": "활성 필터",
+    "filterCluster": "클러스터",
+    "btnTestInCalculator": "계산기에서 테스트",
+    "btnDossierDetail": "서류 상세 →",
+    "showingCategoryMotions": "{total}개 중 {visible}개 표시",
+    "allMotionsVerifiedTranscript": "✓ 모든 의제가 녹취록으로 검증됨",
+    "loadNextMotions": "다음 20개 의제 로드 (+{batch}개 더)",
+    "allClusterMotionsDisplayed": "✓ 이 클러스터의 모든 {total}개 의제가 표시되었습니다",
+
+    "btnSidebarMenu": "사이드바 메뉴",
+    "btnSidebarToggleTitle": "사이드바 전환",
+    "quotaPillFree": "무료 분석 5회",
+    "quotaFreeAnalyses": "무료 분석 {rem}회",
+    "heroCtaFree": "무료 분석 {rem}회 시작하기",
+    "heroCtaPremium": "프리미엄 분석 시작",
+    "heroCtaSubscribe": "Polya 프리미엄 구독하기",
+    "canonicalLoading": "서버 사본 파이프라인에 연결하여 추천 주제 로드 중...",
+    "canonicalLoadingMore": "더 많은 주제를 로드하는 중...",
+    "canonicalConnectionError": "표준 사례 연구를 가져오는 중 연결이 끊어졌습니다.",
     "quickSearch": "빠른 검색...",
     "navSearchMotions": "주제 검색",
     "navApologeticsMachine": "변증론 머신",
@@ -9032,6 +9229,41 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "researchSec8Title": "🎯 8섹션: 일반 독자를 위한 본문 핵심 요약 (주석적 종합)"
   },
   "zh": {
+    "themesCounterSummary": "显示 {total} 条已验证辩题中的 {visible} 条",
+    "themeCatAll": "全部已验证",
+    "themeCatDialectic": "辩证法",
+    "themeCatChristology": "基督论",
+    "themeCatPhilology": "文献学",
+    "themeCatTheology": "神学",
+    "themeCatTrinity": "一神论",
+    "themeCatPauline": "保罗与律法",
+    "themeCatProphecy": "先知圣品",
+    "unitMotions": "辩题",
+    "unitVideos": "视频",
+    "badgeRecommended": "推荐：",
+    "statusVideoQueue": "视频排队",
+    "statusVerifiedCluster": "已验证聚类",
+    "btnExploreMotions": "探索 {count} 条{unit}",
+    "btnBackToAllClusters": "返回所有聚类",
+    "filterActive": "当前筛选",
+    "filterCluster": "聚类",
+    "btnTestInCalculator": "在计算器中测试",
+    "btnDossierDetail": "卷宗详情 →",
+    "showingCategoryMotions": "显示 {total} 条中的 {visible} 条",
+    "allMotionsVerifiedTranscript": "✓ 全部辩题均通过逐字稿验证",
+    "loadNextMotions": "加载接下来的 20 条辩题（还剩 +{batch} 条）",
+    "allClusterMotionsDisplayed": "✓ 该聚类下的全部 {total} 条辩题已展示完毕",
+
+    "btnSidebarMenu": "侧边栏菜单",
+    "btnSidebarToggleTitle": "切换侧边栏菜单",
+    "quotaPillFree": "5 次免费分析",
+    "quotaFreeAnalyses": "{rem} 次免费分析",
+    "heroCtaFree": "尝试 {rem} 次免费分析",
+    "heroCtaPremium": "开启高级分析",
+    "heroCtaSubscribe": "订阅 Polya Premium",
+    "canonicalLoading": "正在连接服务器手稿流水线并加载精选主题...",
+    "canonicalLoadingMore": "正在加载更多主题...",
+    "canonicalConnectionError": "获取经典案例研究时连接中断。",
     "quickSearch": "快速搜索...",
     "navSearchMotions": "搜索辩题",
     "navApologeticsMachine": "护教学引擎",
@@ -9244,6 +9476,41 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "researchSec8Title": "🎯 第八节：普通读者文本核心要义（释经综合总结）"
   },
   "es": {
+    "themesCounterSummary": "Mostrando {visible} de {total} mociones verificadas",
+    "themeCatAll": "Todos Verificados",
+    "themeCatDialectic": "Dialéctica",
+    "themeCatChristology": "Cristología",
+    "themeCatPhilology": "Filología",
+    "themeCatTheology": "Teología",
+    "themeCatTrinity": "Monoteísmo",
+    "themeCatPauline": "Pablo vs Torá",
+    "themeCatProphecy": "Profecía",
+    "unitMotions": "Mociones",
+    "unitVideos": "Videos",
+    "badgeRecommended": "Recomendado para",
+    "statusVideoQueue": "Cola de Videos",
+    "statusVerifiedCluster": "Grupo Verificado",
+    "btnExploreMotions": "Explorar {count} {unit}",
+    "btnBackToAllClusters": "Volver a Todos los Grupos",
+    "filterActive": "Filtro Activo",
+    "filterCluster": "Grupo",
+    "btnTestInCalculator": "Probar en Calculadora",
+    "btnDossierDetail": "Detalles del Dossier →",
+    "showingCategoryMotions": "Mostrando {visible} de {total} mociones",
+    "allMotionsVerifiedTranscript": "✓ Todas las Mociones Verificadas por Transcripción",
+    "loadNextMotions": "Cargar Siguientes 20 Mociones (+{batch} más)",
+    "allClusterMotionsDisplayed": "✓ Se han mostrado las {total} mociones de este grupo",
+
+    "btnSidebarMenu": "Menú Lateral",
+    "btnSidebarToggleTitle": "Abrir Menú Lateral",
+    "quotaPillFree": "5 Análisis Gratuitos",
+    "quotaFreeAnalyses": "{rem} Análisis Gratuitos",
+    "heroCtaFree": "Prueba {rem} Análisis Gratuitos",
+    "heroCtaPremium": "Iniciar Análisis Premium",
+    "heroCtaSubscribe": "Suscribirse a Polya Premium",
+    "canonicalLoading": "Conectando al flujo de manuscritos del servidor y cargando temas destacados...",
+    "canonicalLoadingMore": "Cargando más temas...",
+    "canonicalConnectionError": "Se perdió la conexión al recuperar los estudios de casos canónicos.",
     "quickSearch": "Búsqueda rápida...",
     "navSearchMotions": "Buscar Temas",
     "navApologeticsMachine": "Máquina Apologética",
@@ -9456,6 +9723,41 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "researchSec8Title": "🎯 Sección 8: Esencia del Texto para Lectores Generales (Síntesis Exegética)"
   },
   "fr": {
+    "themesCounterSummary": "Affichage de {visible} sur {total} motions vérifiées",
+    "themeCatAll": "Tous Vérifiés",
+    "themeCatDialectic": "Dialectique",
+    "themeCatChristology": "Christologie",
+    "themeCatPhilology": "Philologie",
+    "themeCatTheology": "Théologie",
+    "themeCatTrinity": "Monothéisme",
+    "themeCatPauline": "Paul vs la Loi",
+    "themeCatProphecy": "Prophétie",
+    "unitMotions": "Motions",
+    "unitVideos": "Vidéos",
+    "badgeRecommended": "Recommandé pour",
+    "statusVideoQueue": "File d'attente Vidéos",
+    "statusVerifiedCluster": "Groupe Vérifié",
+    "btnExploreMotions": "Explorer {count} {unit}",
+    "btnBackToAllClusters": "Retour à tous les groupes",
+    "filterActive": "Filtre Actif",
+    "filterCluster": "Groupe",
+    "btnTestInCalculator": "Tester dans le Calculateur",
+    "btnDossierDetail": "Détails du Dossier →",
+    "showingCategoryMotions": "Affichage de {visible} sur {total} motions",
+    "allMotionsVerifiedTranscript": "✓ Toutes les Motions Vérifiées par Transcription",
+    "loadNextMotions": "Charger les 20 motions suivantes (+{batch} de plus)",
+    "allClusterMotionsDisplayed": "✓ Toutes les {total} motions de ce groupe sont affichées",
+
+    "btnSidebarMenu": "Menu Latéral",
+    "btnSidebarToggleTitle": "Basculer le menu latéral",
+    "quotaPillFree": "5 Analyses Gratuites",
+    "quotaFreeAnalyses": "{rem} Analyses Gratuites",
+    "heroCtaFree": "Essayez {rem} Analyses Gratuites",
+    "heroCtaPremium": "Démarrer l'Analyse Premium",
+    "heroCtaSubscribe": "S'abonner à Polya Premium",
+    "canonicalLoading": "Connexion au pipeline de manuscrits du serveur et chargement des thèmes...",
+    "canonicalLoadingMore": "Chargement d'autres thèmes...",
+    "canonicalConnectionError": "Connexion perdue lors de la récupération des études de cas canoniques.",
     "quickSearch": "Recherche rapide...",
     "navSearchMotions": "Rechercher Thèmes",
     "navApologeticsMachine": "Machine d'Apologétique",
@@ -9668,6 +9970,41 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "researchSec8Title": "🎯 Section 8 : Essentiel du Texte pour le Grand Public (Synthèse Exégétique)"
   },
   "de": {
+    "themesCounterSummary": "Zeige {visible} von {total} verifizierten Anträgen",
+    "themeCatAll": "Alle Verifiziert",
+    "themeCatDialectic": "Dialektik",
+    "themeCatChristology": "Christologie",
+    "themeCatPhilology": "Philologie",
+    "themeCatTheology": "Theologie",
+    "themeCatTrinity": "Monotheismus",
+    "themeCatPauline": "Paulus vs. Gesetz",
+    "themeCatProphecy": "Prophetentum",
+    "unitMotions": "Anträge",
+    "unitVideos": "Videos",
+    "badgeRecommended": "Empfohlen für",
+    "statusVideoQueue": "Video-Warteschlange",
+    "statusVerifiedCluster": "Verifizierter Cluster",
+    "btnExploreMotions": "{count} {unit} erkunden",
+    "btnBackToAllClusters": "Zurück zu allen Clustern",
+    "filterActive": "Aktiver Filter",
+    "filterCluster": "Cluster",
+    "btnTestInCalculator": "Im Rechner testen",
+    "btnDossierDetail": "Dossier-Details →",
+    "showingCategoryMotions": "Zeige {visible} von {total} Anträgen",
+    "allMotionsVerifiedTranscript": "✓ Alle Anträge durch Transkript verifiziert",
+    "loadNextMotions": "Nächste 20 Anträge laden (+{batch} weitere)",
+    "allClusterMotionsDisplayed": "✓ Alle {total} Anträge in diesem Cluster werden angezeigt",
+
+    "btnSidebarMenu": "Seitenleiste-Menü",
+    "btnSidebarToggleTitle": "Seitenleiste umschalten",
+    "quotaPillFree": "5 Kostenlose Analysen",
+    "quotaFreeAnalyses": "{rem} Kostenlose Analysen",
+    "heroCtaFree": "Testen Sie {rem} kostenlose Analysen",
+    "heroCtaPremium": "Premium-Analyse starten",
+    "heroCtaSubscribe": "Polya Premium abonnieren",
+    "canonicalLoading": "Verbindung zur Manuskript-Pipeline des Servers und Laden ausgewählter Themen...",
+    "canonicalLoadingMore": "Weitere Themen werden geladen...",
+    "canonicalConnectionError": "Verbindung beim Abrufen kanonischer Fallstudien unterbrochen.",
     "quickSearch": "Schnellsuche...",
     "navSearchMotions": "Themen Suchen",
     "navApologeticsMachine": "Apologetik-Maschine",
@@ -9880,6 +10217,41 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "researchSec8Title": "🎯 Abschnitt 8: Kernaussage des Textes für Laien (Exegetische Synthese)"
   },
   "ru": {
+    "themesCounterSummary": "Отображение {visible} из {total} проверенных тезисов",
+    "themeCatAll": "Все Проверенные",
+    "themeCatDialectic": "Диалектика",
+    "themeCatChristology": "Христология",
+    "themeCatPhilology": "Филология",
+    "themeCatTheology": "Теология",
+    "themeCatTrinity": "Монотеизм",
+    "themeCatPauline": "Павел против Закона",
+    "themeCatProphecy": "Пророчество",
+    "unitMotions": "Тезисов",
+    "unitVideos": "Видео",
+    "badgeRecommended": "Рекомендовано для",
+    "statusVideoQueue": "Очередь Видео",
+    "statusVerifiedCluster": "Проверенный Кластер",
+    "btnExploreMotions": "Исследовать {count} {unit}",
+    "btnBackToAllClusters": "Назад ко всем кластерам",
+    "filterActive": "Активный Фильтр",
+    "filterCluster": "Кластер",
+    "btnTestInCalculator": "Проверить в Калькуляторе",
+    "btnDossierDetail": "Детали Досье →",
+    "showingCategoryMotions": "Отображение {visible} из {total} тезисов",
+    "allMotionsVerifiedTranscript": "✓ Все Тезисы Проверены Стенограммой",
+    "loadNextMotions": "Загрузить следующие 20 тезисов (+{batch} ещё)",
+    "allClusterMotionsDisplayed": "✓ Все {total} тезисов этого кластера отображены",
+
+    "btnSidebarMenu": "Боковое меню",
+    "btnSidebarToggleTitle": "Переключить боковое меню",
+    "quotaPillFree": "5 Бесплатных Анализов",
+    "quotaFreeAnalyses": "{rem} Бесплатных Анализов",
+    "heroCtaFree": "Попробуйте {rem} бесплатных анализов",
+    "heroCtaPremium": "Начать премиум-анализ",
+    "heroCtaSubscribe": "Оформить подписку Polya Premium",
+    "canonicalLoading": "Подключение к серверному конвейеру рукописей и загрузка избранных тем...",
+    "canonicalLoadingMore": "Загрузка дополнительных тем...",
+    "canonicalConnectionError": "Соединение потеряно при получении канонических тематических исследований.",
     "quickSearch": "Быстрый поиск...",
     "navSearchMotions": "Поиск Тез",
     "navApologeticsMachine": "Апологетический Движок",
@@ -10092,6 +10464,41 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "researchSec8Title": "🎯 Раздел 8: Суть текста для широкого круга читателей (Экзегетический синтез)"
   },
   "pt": {
+    "themesCounterSummary": "Exibindo {visible} de {total} moções verificadas",
+    "themeCatAll": "Todos Verificados",
+    "themeCatDialectic": "Dialética",
+    "themeCatChristology": "Cristologia",
+    "themeCatPhilology": "Filologia",
+    "themeCatTheology": "Teologia",
+    "themeCatTrinity": "Monoteísmo",
+    "themeCatPauline": "Paulo vs Lei",
+    "themeCatProphecy": "Profecia",
+    "unitMotions": "Moções",
+    "unitVideos": "Vídeos",
+    "badgeRecommended": "Recomendado para",
+    "statusVideoQueue": "Fila de Vídeos",
+    "statusVerifiedCluster": "Cluster Verificado",
+    "btnExploreMotions": "Explorar {count} {unit}",
+    "btnBackToAllClusters": "Voltar a Todos os Clusters",
+    "filterActive": "Filtro Ativo",
+    "filterCluster": "Cluster",
+    "btnTestInCalculator": "Testar na Calculadora",
+    "btnDossierDetail": "Detalhes do Dossier →",
+    "showingCategoryMotions": "Exibindo {visible} de {total} moções",
+    "allMotionsVerifiedTranscript": "✓ Todas as Moções Verificadas por Transcrição",
+    "loadNextMotions": "Carregar Próximas 20 Moções (+{batch} mais)",
+    "allClusterMotionsDisplayed": "✓ Todas as {total} moções deste cluster foram exibidas",
+
+    "btnSidebarMenu": "Menu Lateral",
+    "btnSidebarToggleTitle": "Alternar menu lateral",
+    "quotaPillFree": "5 Análises Gratuitas",
+    "quotaFreeAnalyses": "{rem} Análises Gratuitas",
+    "heroCtaFree": "Experimente {rem} Análises Gratuitas",
+    "heroCtaPremium": "Iniciar Análise Premium",
+    "heroCtaSubscribe": "Assine o Polya Premium",
+    "canonicalLoading": "Conectando ao pipeline de manuscritos do servidor e carregando temas em destaque...",
+    "canonicalLoadingMore": "Carregando mais temas...",
+    "canonicalConnectionError": "Conexão perdida ao buscar estudos de caso canônicos.",
     "quickSearch": "Pesquisa rápida...",
     "navSearchMotions": "Buscar Temas",
     "navApologeticsMachine": "Máquina Apologética",
@@ -10304,6 +10711,41 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "researchSec8Title": "🎯 Seção 8: Essência do Texto para o Leitor Comum (Síntese Exegética)"
   },
   "it": {
+    "themesCounterSummary": "Visualizzazione di {visible} su {total} mozioni verificate",
+    "themeCatAll": "Tutti Verificati",
+    "themeCatDialectic": "Dialettica",
+    "themeCatChristology": "Cristologia",
+    "themeCatPhilology": "Filologia",
+    "themeCatTheology": "Teologia",
+    "themeCatTrinity": "Monoteismo",
+    "themeCatPauline": "Paolo vs Legge",
+    "themeCatProphecy": "Profezia",
+    "unitMotions": "Mozioni",
+    "unitVideos": "Video",
+    "badgeRecommended": "Consigliato per",
+    "statusVideoQueue": "Coda Video",
+    "statusVerifiedCluster": "Cluster Verificato",
+    "btnExploreMotions": "Esplora {count} {unit}",
+    "btnBackToAllClusters": "Torna a Tutti i Cluster",
+    "filterActive": "Filtro Attivo",
+    "filterCluster": "Cluster",
+    "btnTestInCalculator": "Testa nel Calcolatore",
+    "btnDossierDetail": "Dettagli Dossier →",
+    "showingCategoryMotions": "Visualizzazione di {visible} su {total} mozioni",
+    "allMotionsVerifiedTranscript": "✓ Tutte le Mozioni Verificate da Trascrizione",
+    "loadNextMotions": "Carica le successive 20 mozioni (+{batch} altre)",
+    "allClusterMotionsDisplayed": "✓ Tutte le {total} mozioni di questo cluster sono state mostrate",
+
+    "btnSidebarMenu": "Menu Laterale",
+    "btnSidebarToggleTitle": "Attiva/disattiva barra laterale",
+    "quotaPillFree": "5 Analisi Gratuite",
+    "quotaFreeAnalyses": "{rem} Analisi Gratuite",
+    "heroCtaFree": "Prova {rem} Analisi Gratuite",
+    "heroCtaPremium": "Avvia Analisi Premium",
+    "heroCtaSubscribe": "Abbonati a Polya Premium",
+    "canonicalLoading": "Connessione alla pipeline di manoscritti del server e caricamento dei temi in evidenza...",
+    "canonicalLoadingMore": "Caricamento di altri temi...",
+    "canonicalConnectionError": "Connessione interrotta durante il recupero dei casi di studio canonici.",
     "quickSearch": "Ricerca rapida...",
     "navSearchMotions": "Cerca Mozioni",
     "navApologeticsMachine": "Macchina Apologetica",
@@ -10516,6 +10958,41 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "btnSelectSparringMotion": "⚔ Seleziona Mozione di Sparring ➔"
   },
   "tr": {
+    "themesCounterSummary": "Doğrulanmış {total} konudan {visible} tanesi gösteriliyor",
+    "themeCatAll": "Tümü Doğrulandı",
+    "themeCatDialectic": "Diyalektik",
+    "themeCatChristology": "Kristoloji",
+    "themeCatPhilology": "Filoloji",
+    "themeCatTheology": "Teoloji",
+    "themeCatTrinity": "Tevhid",
+    "themeCatPauline": "Pavlus ve Şeriat",
+    "themeCatProphecy": "Peygamberlik",
+    "unitMotions": "Konu",
+    "unitVideos": "Video",
+    "badgeRecommended": "Şunun için önerilir:",
+    "statusVideoQueue": "Video Sırası",
+    "statusVerifiedCluster": "Doğrulanmış Küme",
+    "btnExploreMotions": "{count} {unit} Keşfet",
+    "btnBackToAllClusters": "Tüm Kümelere Dön",
+    "filterActive": "Aktif Filtre",
+    "filterCluster": "Küme",
+    "btnTestInCalculator": "Hesaplayıcıda Test Et",
+    "btnDossierDetail": "Dosya Detayları →",
+    "showingCategoryMotions": "{total} konudan {visible} tanesi gösteriliyor",
+    "allMotionsVerifiedTranscript": "✓ Tüm Konular Transkriptle Doğrulandı",
+    "loadNextMotions": "Sonraki 20 Konuyu Yükle (+{batch} daha)",
+    "allClusterMotionsDisplayed": "✓ Bu kümedeki {total} konunun tümü görüntülendi",
+
+    "btnSidebarMenu": "Kenar Çubuğu Menüsü",
+    "btnSidebarToggleTitle": "Kenar çubuğunu aç/kapat",
+    "quotaPillFree": "5 Ücretsiz Analiz",
+    "quotaFreeAnalyses": "{rem} Ücretsiz Analiz",
+    "heroCtaFree": "{rem} Ücretsiz Analizi Deneyin",
+    "heroCtaPremium": "Premium Analizi Başlat",
+    "heroCtaSubscribe": "Polya Premium'a Abone Ol",
+    "canonicalLoading": "Sunucu el yazması hattına bağlanılıyor ve öne çıkan temalar yükleniyor...",
+    "canonicalLoadingMore": "Daha fazla tema yükleniyor...",
+    "canonicalConnectionError": "Kanonik vaka çalışmaları alınırken bağlantı kesildi.",
     "quickSearch": "Hızlı ara...",
     "navSearchMotions": "Konu Ara",
     "navApologeticsMachine": "Apolojetik Motoru",
@@ -10728,6 +11205,41 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "researchSec8Title": "🎯 8. Bölüm: Genel Okuyucular İçin Metnin Özü (Tefsir Sentezi)"
   },
   "ur": {
+    "themesCounterSummary": "تصدیق شدہ {total} میں سے {visible} موضوعات دکھائے جا رہے ہیں",
+    "themeCatAll": "تمام تصدیق شدہ",
+    "themeCatDialectic": "جدلیات",
+    "themeCatChristology": "مسیحیات",
+    "themeCatPhilology": "فیلولوجی",
+    "themeCatTheology": "الہیات",
+    "themeCatTrinity": "توحید",
+    "themeCatPauline": "پولس بمقابلہ تورات",
+    "themeCatProphecy": "نبوت",
+    "unitMotions": "موضوعات",
+    "unitVideos": "ویڈیوز",
+    "badgeRecommended": "تجویز کردہ برائے",
+    "statusVideoQueue": "ویڈیو قطار",
+    "statusVerifiedCluster": "تصدیق شدہ کلسٹر",
+    "btnExploreMotions": "{count} {unit} دریافت کریں",
+    "btnBackToAllClusters": "تمام کلسٹرز پر واپس جائیں",
+    "filterActive": "فعال فلٹر",
+    "filterCluster": "کلسٹر",
+    "btnTestInCalculator": "کیلکولیٹر میں جانچیں",
+    "btnDossierDetail": "دستاویز کی تفصیلات ←",
+    "showingCategoryMotions": "{total} میں سے {visible} موضوعات دکھائے جا رہے ہیں",
+    "allMotionsVerifiedTranscript": "✓ تمام موضوعات متون سے تصدیق شدہ ہیں",
+    "loadNextMotions": "اگلے 20 موضوعات لوڈ کریں (+{batch} مزید)",
+    "allClusterMotionsDisplayed": "✓ اس کلسٹر کے تمام {total} موضوعات دکھائے جا چکے ہیں",
+
+    "btnSidebarMenu": "سائیڈ بار مینو",
+    "btnSidebarToggleTitle": "سائیڈ بار مینو تبدیل کریں",
+    "quotaPillFree": "5 مفت تجزیے",
+    "quotaFreeAnalyses": "{rem} مفت تجزیے",
+    "heroCtaFree": "{rem} مفت تجزیے آزمائیں",
+    "heroCtaPremium": "پریمیم تجزیہ شروع کریں",
+    "heroCtaSubscribe": "پولیا پریمیم سبسکرائب کریں",
+    "canonicalLoading": "سرور نسخہ پائپ لائن سے رابطہ قائم اور منتخب موضوعات لوڈ ہو رہے ہیں...",
+    "canonicalLoadingMore": "مزید موضوعات لوڈ ہو رہے ہیں...",
+    "canonicalConnectionError": "مستند کیس اسٹڈیز حاصل کرتے وقت کنکشن منقطع ہو گیا۔",
     "quickSearch": "فوری تلاش...",
     "navSearchMotions": "مباحث تلاش کریں",
     "navApologeticsMachine": "مناظرہ مشین",
@@ -10940,6 +11452,41 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "researchSec8Title": "🎯 آٹھواں شعبہ: عام قارئین کے لیے متن کا بنیادی خلاصہ"
   },
   "fa": {
+    "themesCounterSummary": "نمایش {visible} از {total} موضوع تأیید شده",
+    "themeCatAll": "همه تأیید شده",
+    "themeCatDialectic": "دیالکتیک",
+    "themeCatChristology": "مسیح‌شناسی",
+    "themeCatPhilology": "فیلولوژی",
+    "themeCatTheology": "الهیات",
+    "themeCatTrinity": "توحید",
+    "themeCatPauline": "پولس در برابر تورات",
+    "themeCatProphecy": "نبوت",
+    "unitMotions": "موضوعات",
+    "unitVideos": "ویدئوها",
+    "badgeRecommended": "پیشنهاد شده برای",
+    "statusVideoQueue": "صف ویدئوها",
+    "statusVerifiedCluster": "خوشه تأیید شده",
+    "btnExploreMotions": "کاوش {count} {unit}",
+    "btnBackToAllClusters": "بازگشت به همه خوشه‌ها",
+    "filterActive": "فیلتر فعال",
+    "filterCluster": "خوشه",
+    "btnTestInCalculator": "آزمایش در ماشین حساب",
+    "btnDossierDetail": "جزئیات پرونده ←",
+    "showingCategoryMotions": "نمایش {visible} از {total} موضوع",
+    "allMotionsVerifiedTranscript": "✓ همه موضوعات با متن پیاده‌شده تأیید شده‌اند",
+    "loadNextMotions": "بارگذاری ۲۰ موضوع بعدی (+{batch} بیشتر)",
+    "allClusterMotionsDisplayed": "✓ همه {total} موضوع این خوشه نمایش داده شده است",
+
+    "btnSidebarMenu": "منوی نوار کناری",
+    "btnSidebarToggleTitle": "تغییر وضعیت نوار کناری",
+    "quotaPillFree": "۵ تحلیل رایگان",
+    "quotaFreeAnalyses": "{rem} تحلیل رایگان",
+    "heroCtaFree": "امتحان {rem} تحلیل رایگان",
+    "heroCtaPremium": "شروع تحلیل پرمیوم",
+    "heroCtaSubscribe": "اشتراک در پولیا پرمیوم",
+    "canonicalLoading": "در حال اتصال به خط لوله دست‌نوشته‌های سرور و بارگذاری موضوعات منتخب...",
+    "canonicalLoadingMore": "در حال بارگذاری موضوعات بیشتر...",
+    "canonicalConnectionError": "اتصال هنگام دریافت مطالعات موردی قانونی قطع شد.",
     "quickSearch": "جستجوی سریع...",
     "navSearchMotions": "جستجوی مباحث",
     "navApologeticsMachine": "موتور دفاعیات",
@@ -11152,6 +11699,41 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "researchSec8Title": "🎯 بخش 8: پیام بنیادین متن برای عموم (سنتز تفسیری)"
   },
   "hi": {
+    "themesCounterSummary": "{total} सत्यापित प्रस्तावों में से {visible} दिखाए जा रहे हैं",
+    "themeCatAll": "सभी सत्यापित",
+    "themeCatDialectic": "तर्कशास्त्र",
+    "themeCatChristology": "मसीह-शास्त्र",
+    "themeCatPhilology": "भाषाशास्त्र",
+    "themeCatTheology": "धर्मशास्त्र",
+    "themeCatTrinity": "एकेश्वरवाद",
+    "themeCatPauline": "पौलुस बनाम व्यवस्था",
+    "themeCatProphecy": "नबुवत",
+    "unitMotions": "प्रस्ताव",
+    "unitVideos": "वीडियो",
+    "badgeRecommended": "अनुशंसित:",
+    "statusVideoQueue": "वीडियो कतार",
+    "statusVerifiedCluster": "सत्यापित क्लस्टर",
+    "btnExploreMotions": "{count} {unit} देखें",
+    "btnBackToAllClusters": "सभी क्लस्टरों पर वापस जाएं",
+    "filterActive": "सक्रिय फ़िल्टर",
+    "filterCluster": "क्लस्टर",
+    "btnTestInCalculator": "कैलकुलेटर में परीक्षण करें",
+    "btnDossierDetail": "दस्तावेज़ विवरण →",
+    "showingCategoryMotions": "{total} में से {visible} प्रस्ताव दिखाए जा रहे हैं",
+    "allMotionsVerifiedTranscript": "✓ सभी प्रस्ताव प्रतिलिपि द्वारा सत्यापित हैं",
+    "loadNextMotions": "अगले 20 प्रस्ताव लोड करें (+{batch} और)",
+    "allClusterMotionsDisplayed": "✓ इस क्लस्टर के सभी {total} प्रस्ताव प्रदर्शित किए गए हैं",
+
+    "btnSidebarMenu": "साइडबार मेनू",
+    "btnSidebarToggleTitle": "साइडबार मेनू टॉगल करें",
+    "quotaPillFree": "5 निःशुल्क विश्लेषण",
+    "quotaFreeAnalyses": "{rem} निःशुल्क विश्लेषण",
+    "heroCtaFree": "{rem} निःशुल्क विश्लेषण आज़माएं",
+    "heroCtaPremium": "प्रीमियम विश्लेषण शुरू करें",
+    "heroCtaSubscribe": "Polya प्रीमियम की सदस्यता लें",
+    "canonicalLoading": "सर्वर पांडुलिपि पाइपलाइन से जुड़ रहा है और प्रमुख विषयों को लोड कर रहा है...",
+    "canonicalLoadingMore": "अधिक विषय लोड हो रहे हैं...",
+    "canonicalConnectionError": "प्रामाणिक केस अध्ययनों को लाते समय कनेक्शन टूट गया।",
     "quickSearch": "त्वरित खोज...",
     "navSearchMotions": "विषय खोजें",
     "navApologeticsMachine": "धर्मरक्षण मशीन",
@@ -11364,6 +11946,41 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     "researchSec8Title": "🎯 अनुभाग 8: सामान्य पाठकों के लिए मूल पाठ का सार"
   },
   "bn": {
+    "themesCounterSummary": "{total}টি যাচাইকৃত প্রস্তাবনার মধ্যে {visible}টি প্রদর্শিত হচ্ছে",
+    "themeCatAll": "সবগুলি যাচাইকৃত",
+    "themeCatDialectic": "দ্বান্দ্বিকতা",
+    "themeCatChristology": "খ্রিস্টতত্ত্ব",
+    "themeCatPhilology": "ভাষাতত্ত্ব",
+    "themeCatTheology": "ধর্মতত্ত্ব",
+    "themeCatTrinity": "একেশ্বরবাদ",
+    "themeCatPauline": "পৌল বনাম তোরাহ",
+    "themeCatProphecy": "নবুওয়াত",
+    "unitMotions": "প্রস্তাবনা",
+    "unitVideos": "ভিডিও",
+    "badgeRecommended": "সুপারিশকৃত:",
+    "statusVideoQueue": "ভিডিও সারি",
+    "statusVerifiedCluster": "যাচাইকৃত ক্লাস্টার",
+    "btnExploreMotions": "{count}টি {unit} অন্বেষণ করুন",
+    "btnBackToAllClusters": "সব ক্লাস্টারে ফিরে যান",
+    "filterActive": "সক্রিয় ফিল্টার",
+    "filterCluster": "ক্লাস্টার",
+    "btnTestInCalculator": "ক্যালকুলেটরে পরীক্ষা করুন",
+    "btnDossierDetail": "নথির বিস্তারিত →",
+    "showingCategoryMotions": "{total}টির মধ্যে {visible}টি দেখানো হচ্ছে",
+    "allMotionsVerifiedTranscript": "✓ সমস্ত প্রস্তাবনা অনুলিপি দ্বারা যাচাইকৃত",
+    "loadNextMotions": "পরবর্তী ২০টি প্রস্তাবনা লোড করুন (আরও +{batch}টি)",
+    "allClusterMotionsDisplayed": "✓ এই ক্লাস্টারের সমস্ত {total}টি প্রস্তাবনা প্রদর্শিত হয়েছে",
+
+    "btnSidebarMenu": "সাইডবার মেনু",
+    "btnSidebarToggleTitle": "সাইডবার মেনু টগল করুন",
+    "quotaPillFree": "৫টি বিনামূল্যে বিশ্লেষণ",
+    "quotaFreeAnalyses": "{rem}টি বিনামূল্যে বিশ্লেষণ",
+    "heroCtaFree": "{rem}টি বিনামূল্যে বিশ্লেষণ শুরু করুন",
+    "heroCtaPremium": "প্রিমিয়াম বিশ্লেষণ শুরু করুন",
+    "heroCtaSubscribe": "Polya প্রিমিয়াম সাবস্ক্রাইব করুন",
+    "canonicalLoading": "সার্ভার পাণ্ডুলিপি পাইপলাইনে সংযোগ স্থাপন এবং বিশিষ্ট বিষয়বস্তু লোড হচ্ছে...",
+    "canonicalLoadingMore": "আরও বিষয়বস্তু লোড হচ্ছে...",
+    "canonicalConnectionError": "প্রামাণ্য কেস স্টাডি সংগ্রহের সময় সংযোগ বিচ্ছিন্ন হয়েছে।",
     "quickSearch": "দ্রুত অনুসন্ধান...",
     "navSearchMotions": "বিতর্ক খুঁজুন",
     "navApologeticsMachine": "বিতর্ক ইঞ্জিন",
@@ -11577,6 +12194,143 @@ Menunggu instruksi user untuk eksekusi backlog P0.
   }
 };
 
+    
+    const CLUSTER_TITLES_I18N = {
+  "Dialektika Debat Terbuka & Cross-Examination": {
+    "id": "Dialektika Debat Terbuka & Cross-Examination",
+    "en": "Open Debate Dialectics & Cross-Examination",
+    "ar": "جدليات المناظرة المفتوحة والاستجواب المتقاطع",
+    "ja": "公開討論弁証法と反対尋問",
+    "ko": "공개 토론 변증법 및 반대심문",
+    "zh": "公开辩论辩证法与交叉质询",
+    "es": "Dialéctica de Debate Abierto y Contraexamen",
+    "fr": "Dialectique de Débat Ouvert & Contre-Interrogatoire",
+    "de": "Offene Debattendialektik & Kreuzverhör",
+    "ru": "Диалектика Открытых Дебатов и Перекрёстный Допрос",
+    "pt": "Dialética de Debate Aberto e Contra-interrogatório",
+    "it": "Dialettica del Dibattito Aperto e Controinterrogatorio",
+    "tr": "Açık Münazara Diyalektiği ve Çapraz Sorgu",
+    "ur": "کھلے مباحثے کی جدلیات اور جرح",
+    "fa": "دیالکتیک مناظره باز و استنطاق متقابل",
+    "hi": "खुले वाद-विवाद का तर्कशास्त्र और जिरह",
+    "bn": "উন্মুক্ত বিতর্কের দ্বান্দ্বিকতা ও জেরা"
+  },
+  "Kristologi & Kemanusiaan Yesus": {
+    "id": "Kristologi & Kemanusiaan Yesus",
+    "en": "Christology & the Humanity of Jesus",
+    "ar": "الكريستولوجيا وإنسانية يسوع",
+    "ja": "キリスト論とイエスの人間性",
+    "ko": "기독론 및 예수의 인성",
+    "zh": "基督论与耶稣的人性",
+    "es": "Cristología y la Humanidad de Jesús",
+    "fr": "Christologie & Humanité de Jésus",
+    "de": "Christologie & die Menschlichkeit Jesu",
+    "ru": "Христология и Человечность Иисуса",
+    "pt": "Cristologia e a Humanidade de Jesus",
+    "it": "Cristologia e l'Umanità di Gesù",
+    "tr": "Kristoloji ve İsa'nın İnsanlığı",
+    "ur": "مسیحیات اور عیسیٰ کی انسانیت",
+    "fa": "مسیح‌شناسی و بشریت عیسی",
+    "hi": "मसीह-शास्त्र और यीशु की मानवता",
+    "bn": "খ্রিস্টতত্ত্ব ও যীশুর মানবতা"
+  },
+  "Audit Tekstual, Filologi & Varian Naskah": {
+    "id": "Audit Tekstual, Filologi & Varian Naskah",
+    "en": "Textual Audit, Philology & Manuscript Variants",
+    "ar": "التدقيق النصي وفقه اللغة ومتغيرات المخطوطات",
+    "ja": "テキスト監査、文献学、および写本異読",
+    "ko": "본문 감사, 문헌학 및 사본 이문",
+    "zh": "文本审计、文献学与手抄本异文",
+    "es": "Auditoría Textual, Filología y Variantes de Manuscritos",
+    "fr": "Audit Textuel, Philologie & Variantes de Manuscrits",
+    "de": "Textprüfung, Philologie & Manuskriptvarianten",
+    "ru": "Текстологический Аудит, Филология и Варианты Рукописей",
+    "pt": "Auditoria Textual, Filologia e Variantes de Manuscritos",
+    "it": "Audit Testuale, Filologia e Varianti di Manoscritto",
+    "tr": "Metin Denetimi, Filoloji ve El Yazması Varyantları",
+    "ur": "متنی تحقیق، فیلولوجی اور مخطوطاتی اختلافات",
+    "fa": "ارزیابی متنی، فیلولوژی و نسخه‌بدل‌های خطی",
+    "hi": "पाठ्य ऑडिट, भाषाशास्त्र और पांडुलिपि रूपांतर",
+    "bn": "মূলপাঠ নিরীক্ষা, ভাষাতত্ত্ব ও পাণ্ডুলিপির পাঠান্তর"
+  },
+  "Diskursus Teologi & Apologetika Komparatif": {
+    "id": "Diskursus Teologi & Apologetika Komparatif",
+    "en": "Theological Discourse & Comparative Apologetics",
+    "ar": "الخطاب اللاهوتي والدفاعيات المقارنة",
+    "ja": "神学言説と比較弁証論",
+    "ko": "신학 담론 및 비교 변증학",
+    "zh": "神学话语与比较护教学",
+    "es": "Discurso Teológico y Apologética Comparativa",
+    "fr": "Discours Théologique & Apologétique Comparative",
+    "de": "Theologischer Diskurs & Vergleichende Apologetik",
+    "ru": "Богословский Дискурс и Сравнительная Апологетика",
+    "pt": "Discurso Teológico e Apologética Comparativa",
+    "it": "Discorso Teologico e Apologetica Comparativa",
+    "tr": "Teolojik Söylem ve Karşılaştırmalı Apolojetik",
+    "ur": "الہیاتی گفتمان اور تقابلی مناظرہ",
+    "fa": "گفتمان الهیاتی و دفاعیات تطبیقی",
+    "hi": "धर्मशास्त्रीय विमर्श और तुलनात्मक धर्मरक्षण",
+    "bn": "ধর্মতাত্ত্বিক আলোচনা ও তুলনামূলক বিতর্ক"
+  },
+  "Monoteisme & Kritik Doktrin Trinitas": {
+    "id": "Monoteisme & Kritik Doktrin Trinitas",
+    "en": "Monotheism & Critique of Trinitarian Doctrine",
+    "ar": "التوحيد ونقد عقيدة التثليث",
+    "ja": "唯一神論と三位一体教理の批判",
+    "ko": "유일신론 및 삼위일체 교리 비판",
+    "zh": "一神论与三位一体教义批判",
+    "es": "Monoteísmo y Crítica de la Doctrina Trinitaria",
+    "fr": "Monothéisme & Critique de la Doctrine Trinitaire",
+    "de": "Monotheismus & Kritik der Trinitätslehre",
+    "ru": "Монотеизм и Критика Доктрины Троицы",
+    "pt": "Monoteísmo e Crítica da Doutrina Trinitária",
+    "it": "Monoteismo e Critica della Dottrina Trinitaria",
+    "tr": "Tevhid ve Teslis Doktrini Eleştirisi",
+    "ur": "توحید اور عقیدہ تثلیث پر تنقید",
+    "fa": "توحید و نقد آموزه تثلیث",
+    "hi": "एकेश्वरवाद और त्रिएकत्व सिद्धांत की आलोचना",
+    "bn": "একেশ্বরবাদ ও ত্রিত্ববাদী মতবাদের সমালোচনা"
+  },
+  "Polemik Teologi Paulus vs Hukum Taurat": {
+    "id": "Polemik Teologi Paulus vs Hukum Taurat",
+    "en": "Pauline Theological Polemics vs Torah Law",
+    "ar": "جدليات بولس اللاهوتية ضد شريعة التوراة",
+    "ja": "パウロ神学論争対モーセ律法",
+    "ko": "바울의 신학적 논쟁 대 토라 율법",
+    "zh": "保罗神学争辩与妥拉律法",
+    "es": "Polémica Teológica Paulina vs Ley de la Torá",
+    "fr": "Polémique Théologique Paulinienne vs Loi de la Torah",
+    "de": "Paulinische theologische Polemik vs. Tora-Gesetz",
+    "ru": "Павлова Богословская Полемика против Закона Торы",
+    "pt": "Polêmica Teológica Paulina vs Lei da Torá",
+    "it": "Polemica Teologica Paolina vs Legge della Torah",
+    "tr": "Pavlus'un Teolojik Polemiği ve Tevrat Şeriati",
+    "ur": "پولسی الہیاتی تنازعہ بمقابلہ شریعت تورات",
+    "fa": "مناقشه الهیاتی پولس در برابر شریعت تورات",
+    "hi": "पौलुस का धर्मशास्त्रीय विवाद बनाम तोराह व्यवस्था",
+    "bn": "পৌলীয় ধর্মতাত্ত্বিক বিতর্ক বনাম তোরাহর বিধান"
+  },
+  "Apologetika Islam & Pembelaan Kenabian": {
+    "id": "Apologetika Islam & Pembelaan Kenabian",
+    "en": "Islamic Apologetics & Defense of Prophethood",
+    "ar": "الدفاعيات الإسلامية والدفاع عن النبوة",
+    "ja": "イスラーム弁証論と預言者性の弁護",
+    "ko": "이슬람 변증학 및 예언자성 변호",
+    "zh": "伊斯兰护教学与先知圣品辩护",
+    "es": "Apologética Islámica y Defensa de la Profecía",
+    "fr": "Apologétique Islamique & Défense de la Prophétie",
+    "de": "Islamische Apologetik & Verteidigung des Prophetentums",
+    "ru": "Исламская Апологетика и Защита Пророчества",
+    "pt": "Apologética Islâmica e Defesa da Profecia",
+    "it": "Apologetica Islamica e Difesa della Profezia",
+    "tr": "İslami Apolojetik ve Peygamberliğin Savunulması",
+    "ur": "اسلامی مناظرہ اور دفاع نبوت",
+    "fa": "دفاعیات اسلامی و دفاع از نبوت",
+    "hi": "इस्लामी धर्मरक्षण और नबुवत का बचाव",
+    "bn": "ইসলামিক বিতর্ক ও নবুওয়াতের প্রতিরক্ষা"
+  }
+};
+
     const CLUSTER_I18N = {
   "Dialektika Debat Terbuka & Cross-Examination": {
     "id": "Debat panggung terbuka, konfrontasi premis, interrogasi sokratik, dan pengujian argumen lintas iman.",
@@ -11734,34 +12488,56 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
 (function mergeExtendedModules() {
   const ext = window.EXTENDED_I18N_MODULES || {};
+  if (ext["zh-CN"] && !ext["zh"]) {
+    ext["zh"] = ext["zh-CN"];
+  }
+  const fallback = ext["en"] || ext["id"] || {};
+
+  // First merge explicitly defined extended modules
   Object.keys(ext).forEach((lang) => {
     I18N_DICTIONARY[lang] = I18N_DICTIONARY[lang] || {};
     Object.assign(I18N_DICTIONARY[lang], ext[lang]);
+  });
 
-    // Flattened aliases untuk kompatibilitas fungsi lama & ID_I18N_MAP
-    const m = ext[lang];
+  if (ext["zh-CN"]) {
+    I18N_DICTIONARY["zh-CN"] = Object.assign({}, I18N_DICTIONARY["zh"], ext["zh-CN"]);
+  }
+  ["el", "he", "la"].forEach((extraLang) => {
+    if (ext[extraLang]) {
+      I18N_DICTIONARY[extraLang] = Object.assign({}, I18N_DICTIONARY["en"], ext[extraLang]);
+    }
+  });
+
+  // Ensure ALL languages in I18N_DICTIONARY have the modular objects and aliases (with fallback)
+  Object.keys(I18N_DICTIONARY).forEach((lang) => {
+    const m = ext[lang] || fallback;
+    ["footer", "motionFetcher", "directory", "dashboard", "corpus", "sourceAudit", "strategic"].forEach((mod) => {
+      I18N_DICTIONARY[lang][mod] = Object.assign({}, fallback[mod], ext[lang]?.[mod]);
+    });
+
     Object.assign(I18N_DICTIONARY[lang], {
-      footer_copyright: m.footer?.copyright,
-      footer_terms: m.footer?.terms,
-      footer_privacy: m.footer?.privacy,
-      footer_pricing: m.footer?.pricing,
-      footer_corpus_status: m.footer?.corpusStatus,
-      random_motion_btn: m.motionFetcher?.triggerBtn,
-      random_motion_placeholder: m.motionFetcher?.placeholder,
-      random_motion_helper: m.motionFetcher?.helperText,
-      persona_layer_title: m.dashboard?.personaLayer,
-      dialectical_cockpit_title: m.dashboard?.dialecticalCockpit,
-      dialectical_pipeline_title: m.dashboard?.dialecticalPipeline,
-      corpus_module_title: m.corpus?.moduleTitle,
-      source_first_title: m.sourceAudit?.sourceFirstPipeline,
-      distortion_audit_title: m.sourceAudit?.translationalDistortionAudit,
-      lemma_extraction_title: m.sourceAudit?.lemmaRootExtraction,
-      strategic_panel_title: m.strategic?.panelTitle,
-      dialectical_persona_title: m.strategic?.dialecticalPersona,
-      featured_canonical_cases: m.strategic?.featuredCanonicalCases
+      footer_copyright: m.footer?.copyright || fallback.footer?.copyright,
+      footer_terms: m.footer?.terms || fallback.footer?.terms,
+      footer_privacy: m.footer?.privacy || fallback.footer?.privacy,
+      footer_pricing: m.footer?.pricing || fallback.footer?.pricing,
+      footer_corpus_status: m.footer?.corpusStatus || fallback.footer?.corpusStatus,
+      random_motion_btn: m.motionFetcher?.triggerBtn || fallback.motionFetcher?.triggerBtn,
+      random_motion_placeholder: m.motionFetcher?.placeholder || fallback.motionFetcher?.placeholder,
+      random_motion_helper: m.motionFetcher?.helperText || fallback.motionFetcher?.helperText,
+      persona_layer_title: m.dashboard?.personaLayer || fallback.dashboard?.personaLayer,
+      dialectical_cockpit_title: m.dashboard?.dialecticalCockpit || fallback.dashboard?.dialecticalCockpit,
+      dialectical_pipeline_title: m.dashboard?.dialecticalPipeline || fallback.dashboard?.dialecticalPipeline,
+      corpus_module_title: m.corpus?.moduleTitle || fallback.corpus?.moduleTitle,
+      source_first_title: m.sourceAudit?.sourceFirstPipeline || fallback.sourceAudit?.sourceFirstPipeline,
+      distortion_audit_title: m.sourceAudit?.translationalDistortionAudit || fallback.sourceAudit?.translationalDistortionAudit,
+      lemma_extraction_title: m.sourceAudit?.lemmaRootExtraction || fallback.sourceAudit?.lemmaRootExtraction,
+      strategic_panel_title: m.strategic?.panelTitle || fallback.strategic?.panelTitle,
+      dialectical_persona_title: m.strategic?.dialecticalPersona || fallback.strategic?.dialecticalPersona,
+      featured_canonical_cases: m.strategic?.featuredCanonicalCases || fallback.strategic?.featuredCanonicalCases
     });
   });
   window.i18n = I18N_DICTIONARY;
+  window.I18N_DICTIONARY = I18N_DICTIONARY;
 })();
 
     function updatePerspectiveConfigs(locale) {
@@ -11848,6 +12624,9 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       // 4. Dual-Resolution Safety Net: ID_I18N_MAP direct element updates
       const ID_I18N_MAP = {
         "side-search-placeholder": "quickSearch",
+        "btn-sidebar-toggle-text": "btnSidebarMenu",
+        "top-nav-quota-pill": "quotaPillFree",
+        "theme-search-input": "themesSearchPlaceholder",
         "side-heading-workspace": "headingWorkspace",
         "side-item-motions-title": "navSearchMotions",
         "side-item-calc": "navApologeticsMachine",
@@ -11914,8 +12693,20 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         "themes-btn-reload": "themesBtnReload",
         "knowledge-title": "knowledgeTitle",
         "knowledge-sub": "knowledgeSub",
+        "knowledge-tab-graph-btn": "knowledgeTabGraph",
         "knowledge-tab-claims-btn": "knowledgeTabClaims",
         "knowledge-tab-evidence-btn": "knowledgeTabEvidence",
+        "knowledge-btn-explore-text": "knowledgeBtnExplore",
+        "label-shuffle-graph-motion": "knowledgeShuffleBtn",
+        "node-detail-title": "knowledgeNodeDetailTitle",
+        "heading-graph-relations": "knowledgeSectionRelations",
+        "heading-graph-edges": "knowledgeSectionEdges",
+        "knowledge-claims-heading": "knowledgeClaimsHeading",
+        "knowledge-claims-sub": "knowledgeClaimsSub",
+        "knowledge-evidence-heading": "knowledgeEvidenceHeading",
+        "knowledge-evidence-sub": "knowledgeEvidenceSub",
+        "graph-status-dir-showing": "dirStatusShowing",
+        "graph-status-dir-unit": "dirMotionsUnit",
         "persona-title": "personaTitle",
         "persona-badge": "personaBadge",
         "persona-sub": "personaSub",
@@ -11936,6 +12727,22 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         if (el && t[key]) {
           el.textContent = t[key];
         }
+      }
+
+      // 4b. Update knowledge stats pill and directory toggle button
+      const statsPill = document.getElementById("knowledge-stats-pill");
+      if (statsPill) {
+        const normP = typeof normalizePerspectiveKey === "function" ? normalizePerspectiveKey(userContext.user_perspective) : "christian_protestant";
+        const pCfg = (typeof PERSPECTIVE_CONFIGS !== "undefined" && PERSPECTIVE_CONFIGS[normP]) ? PERSPECTIVE_CONFIGS[normP] : { badge: "🛡️ PROTESTAN" };
+        const nNodes = (typeof currentGraphData !== "undefined" && currentGraphData && currentGraphData.nodes_count !== undefined) ? currentGraphData.nodes_count : 0;
+        const nEdges = (typeof currentGraphData !== "undefined" && currentGraphData && currentGraphData.edges_count !== undefined) ? currentGraphData.edges_count : 0;
+        statsPill.textContent = `${pCfg.badge} | ${t.knowledgeStatsNodes || 'Titik Argumen'}: ${nNodes} | ${t.knowledgeStatsEdges || 'Hubungan Logika'}: ${nEdges}`;
+      }
+      const btnToggleGraphDir = document.getElementById("btn-toggle-graph-motion-dir-text");
+      const graphDirPanel = document.getElementById("graph-motion-directory-panel");
+      if (btnToggleGraphDir) {
+        const isOpen = graphDirPanel && !graphDirPanel.classList.contains("hidden");
+        btnToggleGraphDir.textContent = isOpen ? (t.knowledgeDirToggleOpen || "Tutup Direktori Mosi ▲") : (t.knowledgeDirToggleDefault || "Cari Mosi (2.456 Mosi) ▼");
       }
 
       // 5. Update calculator opponent select
@@ -12046,6 +12853,20 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         const themesContainer = document.getElementById("theme-list-cards");
         if (themesContainer && typeof currentThemes !== 'undefined' && currentThemes && currentThemes.length > 0) {
           renderThemesCards();
+        } else {
+          if (typeof renderThemeCategoryPills === "function") {
+            renderThemeCategoryPills(loc);
+          }
+          if (typeof updateThemeCounterStatus === "function") {
+            updateThemeCounterStatus(
+              (typeof currentThemes !== 'undefined' && currentThemes && currentThemes.length) ? currentThemes.length : 2625,
+              (typeof currentThemes !== 'undefined' && currentThemes && currentThemes.length) ? currentThemes.length : 2625,
+              loc
+            );
+          }
+        }
+        if (typeof updateUsageUI === "function" && typeof currentUsage !== "undefined" && currentUsage) {
+          updateUsageUI();
         }
       } catch(e) {
         console.warn("Re-render dynamic components note:", e);
@@ -12168,6 +12989,9 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
     function updateUsageUI() {
       if (!currentUsage) return;
+      const loc = (typeof userContext !== "undefined" && userContext?.ui_locale) ? userContext.ui_locale : "id";
+      const t = (typeof I18N_DICTIONARY !== "undefined" && (I18N_DICTIONARY[loc] || I18N_DICTIONARY["en"])) || {};
+
       const pill = document.getElementById("badge-quota-display");
       const calcPill = document.getElementById("calc-quota-pill");
       const dashPill = document.getElementById("dash-quota-val");
@@ -12199,7 +13023,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         if (accTier) accTier.textContent = "PREMIUM ACTIVE";
         if (accUsed) accUsed.textContent = "Unlimited";
         if (heroCta) {
-          heroCta.textContent = "Mulai Analisis Premium";
+          heroCta.textContent = t.heroCtaPremium || "Mulai Analisis Premium";
           heroCta.onclick = focusCalculator;
         }
       } else {
@@ -12227,10 +13051,10 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         }
         if (heroCta) {
           if (rem <= 0) {
-            heroCta.textContent = "Berlangganan Polya Premium";
+            heroCta.textContent = t.heroCtaSubscribe || "Berlangganan Polya Premium";
             heroCta.onclick = openCheckoutModal;
           } else {
-            heroCta.textContent = `Coba ${rem} Analisis Gratis`;
+            heroCta.textContent = (t.heroCtaFree || 'Coba {rem} Analisis Gratis').replace('{rem}', rem);
             heroCta.onclick = focusCalculator;
           }
         }
@@ -12252,7 +13076,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
             topNavPill.style.background = "#eab308";
             topNavPill.style.color = "#040914";
           } else {
-            topNavPill.textContent = `${rem} Analisis Gratis`;
+            topNavPill.textContent = (t.quotaFreeAnalyses || '{rem} Analisis Gratis').replace('{rem}', rem);
             topNavPill.className = "badge-pill badge-quota";
             topNavPill.style.background = "";
             topNavPill.style.color = "";
@@ -13324,14 +14148,14 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
               // 3. Manuscript Witnesses
               const mssHtml = e.manuscripts ? `
-                <div style="margin-top: 0.75rem; font-size: 0.94rem; color: #e2e8f0; line-height: 1.65; padding: 0.65rem 0.85rem; background: rgba(255, 255, 255, 0.03); border-radius: 8px; border-left: 3px solid var(--accent);">
+                <div style="margin-top: 0.75rem; font-size: 0.94rem; color: #e2e8f0; line-height: 1.65; padding: 0.65rem 0.85rem; background: rgba(255, 255, 255, 0.03); border-radius: 8px; border-inline-start: 3px solid var(--accent);">
                   <strong style="color: #ffffff;">Saksi:</strong> ${safeEscapeText(safeJoin(e.manuscripts))}
                 </div>
               ` : "";
 
               // 4. Critical apparatus / Closing philological analysis
               const critAppHtml = e.critical_apparatus ? `
-                <div style="margin-top: 0.75rem; font-size: 0.94rem; color: #cbd5e1; line-height: 1.65; font-style: italic; border-left: 3px solid var(--primary); padding-left: 0.85rem;">
+                <div style="margin-top: 0.75rem; font-size: 0.94rem; color: #cbd5e1; line-height: 1.65; font-style: italic; border-inline-start: 3px solid var(--primary); padding-left: 0.85rem;">
                   ${highlightGlossaryTerms(safeEscapeText(e.critical_apparatus), activeGlossary)}
                 </div>
               ` : "";
@@ -13991,14 +14815,14 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           // ==========================================
           const targetLangName = tDict.langName || (userContext.ui_locale === "it" ? "Italiano" : "Bahasa Indonesia");
           const litTrans = le.literal_translation ? `
-            <div style="background: rgba(217, 119, 6, 0.08); border-left: 3px solid var(--accent); padding: 0.75rem 0.9rem; border-radius: 4px;">
+            <div style="background: rgba(217, 119, 6, 0.08); border-inline-start: 3px solid var(--accent); padding: 0.75rem 0.9rem; border-radius: 4px;">
               <strong style="color: var(--accent); font-size: 0.88rem; display: block; margin-bottom: 0.3rem;">${tDict.researchSec1Literal || "📝 Rekonstruksi Kata demi Kata Teks Asli (Literal Precision):"}</strong>
               <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); font-family: var(--font-sans) !important; line-height: 1.65; text-align: justify !important; text-justify: inter-word;">${safeEscapeText(le.literal_translation)}</p>
             </div>
           ` : "";
 
           const natTrans = le.natural_translation ? `
-            <div style="background: rgba(13, 148, 136, 0.08); border-left: 3px solid var(--primary); padding: 0.75rem 0.9rem; border-radius: 4px;">
+            <div style="background: rgba(13, 148, 136, 0.08); border-inline-start: 3px solid var(--primary); padding: 0.75rem 0.9rem; border-radius: 4px;">
               <strong style="color: var(--primary); font-size: 0.88rem; display: block; margin-bottom: 0.3rem;">📖 ${tDict.researchSec1NaturalPrefix || "Terjemahan Alami"} (${targetLangName}):</strong>
               <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); font-family: var(--font-sans) !important; line-height: 1.65; text-align: justify !important; text-justify: inter-word;">${safeEscapeText(le.natural_translation)}</p>
             </div>
@@ -14188,7 +15012,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           // ==========================================
           const ctx = le.exegetical_context || {};
           const seksi3Html = `
-            <div class="case-card" style="margin-bottom: 1rem; border-left: 3px solid var(--accent); background: rgba(255, 255, 255, 0.02); padding: 1rem;">
+            <div class="case-card" style="margin-bottom: 1rem; border-inline-start: 3px solid var(--accent); background: rgba(255, 255, 255, 0.02); padding: 1rem;">
               <strong style="color: var(--accent); font-size: 1.05rem; display: block; margin-bottom: 0.65rem;">
                 ${tDict.researchSec3Title || "🏛 Seksi 3: Eksegesis Kontekstual & Hermeneutika (Exegetical Context)"}
               </strong>
@@ -14216,7 +15040,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           let seksi4Html = "";
           if (typeof synMap === "object" && Object.keys(synMap).length > 0) {
             seksi4Html = `
-              <div class="case-card" style="margin-bottom: 1rem; border-left: 3px solid var(--primary); background: rgba(255, 255, 255, 0.02); padding: 1rem;">
+              <div class="case-card" style="margin-bottom: 1rem; border-inline-start: 3px solid var(--primary); background: rgba(255, 255, 255, 0.02); padding: 1rem;">
                 <strong style="color: var(--primary); font-size: 1.05rem; display: block; margin-bottom: 0.65rem;">
                   ${tDict.researchSec4Title || "📐 Seksi 4: Bedah Sintaksis & Gramatika Forensik (Syntactic Exegesis)"}
                 </strong>
@@ -14441,7 +15265,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
             const b3 = prep.babak_3_forensik;
             const b4 = prep.babak_4_evaluasi;
             simDebateHtml = `<div style="margin-top: 0.75rem; border-top: 1px solid var(--border-subtle); padding-top: 0.5rem; font-size: 0.82rem;">
-              <div style="background: rgba(13, 148, 136, 0.1); padding: 0.5rem; border-radius: 4px; margin-bottom: 0.5rem; border-left: 3px solid var(--primary);">
+              <div style="background: rgba(13, 148, 136, 0.1); padding: 0.5rem; border-radius: 4px; margin-bottom: 0.5rem; border-inline-start: 3px solid var(--primary);">
                 <strong style="color: var(--primary);">Simulasi Dialektika Forensik:</strong> ${safeEscapeText(hs.pihak_a || "")} vs. ${safeEscapeText(hs.pihak_b || "")}<br/>
                 <strong>Topik:</strong> ${safeEscapeText(hs.topik || "")}<br/>
                 <strong>Rujukan Utama:</strong> ${safeEscapeText(hs.rujukan_utama || "")}<br/>
@@ -14926,7 +15750,10 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       }
       themesInFlightPromise = (async () => {
         try {
-          const res = await fetch("/api/v1/themes");
+          const activeLoc = (typeof userContext !== "undefined" && userContext.ui_locale) || localStorage.getItem("ui_locale") || "id";
+          const res = await fetch(`/api/v1/themes?locale=${encodeURIComponent(activeLoc)}`, {
+            headers: { "Accept-Language": activeLoc }
+          });
           const data = await res.json();
           if (res.ok && data.success && data.themes) {
             currentThemes = data.themes;
@@ -15682,14 +16509,20 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
     function getLocalizedMotion(t, loc) {
       const themeId = t.theme_id || t.id;
-      const l = loc || userContext.ui_locale || 'id';
+      const l = loc || (typeof userContext !== "undefined" && userContext?.ui_locale) || 'id';
       if (typeof CANONICAL_MOTIONS_I18N !== 'undefined' && CANONICAL_MOTIONS_I18N[themeId]) {
         const m = CANONICAL_MOTIONS_I18N[themeId];
         if (m[l]) return m[l];
         if (l !== 'id' && m['en']) return m['en'];
         if (m['id']) return m['id'];
       }
-      return (t.sub_motions && t.sub_motions.length > 0) ? t.sub_motions[0] : (t.title || '');
+      if (l !== 'id') {
+        if (t.sub_motions && t.sub_motions.length > 0 && t.sub_motions[0]) {
+          return t.sub_motions[0];
+        }
+        return t.title || t.motion_or_topic || '';
+      }
+      return (t.sub_motions && t.sub_motions.length > 0) ? t.sub_motions[0] : (t.title || t.motion_or_topic || '');
     }
 
     function getLocalizedDiscourseType(typeStr, loc) {
@@ -15748,6 +16581,10 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       if (st.loading) return;
       if (!reset && !st.hasMore) return;
 
+      const loc = (typeof userContext !== "undefined" && userContext?.ui_locale) ? userContext.ui_locale : "id";
+      const tDict = I18N_DICTIONARY[loc] || I18N_DICTIONARY["en"] || I18N_DICTIONARY["id"] || {};
+      window.tDict = tDict;
+
       if (reset) {
         st.offset = 0;
         st.hasMore = true;
@@ -15759,14 +16596,16 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         }
         container.innerHTML = `
           <div style="padding: 1.25rem; text-align: center; color: var(--text-dim); font-size: 0.82rem; background: var(--bg-surface); border-radius: 6px; border: 1px solid var(--border-subtle);">
-            <span class="pulse-dot"></span> Menghubungkan ke pipeline naskah server & memuat tema unggulan...
+            <span class="pulse-dot"></span> ${tDict.canonicalLoading || 'Menghubungkan ke pipeline naskah server & memuat tema unggulan...'}
           </div>
         `;
       }
 
       st.loading = true;
       try {
-        const res = await fetch(`/api/v1/themes?limit=${CANONICAL_PAGE_SIZE}&offset=${st.offset}`);
+        const res = await fetch(`/api/v1/themes?limit=${CANONICAL_PAGE_SIZE}&offset=${st.offset}&locale=${encodeURIComponent(loc)}`, {
+          headers: { "Accept-Language": loc }
+        });
         if (!res.ok) throw new Error(`HTTP error ${res.status}`);
         const data = await res.json();
         const themes = data?.themes || [];
@@ -15775,9 +16614,6 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           st.hasMore = false;
         }
         st.offset += themes.length;
-
-        const loc = (typeof userContext !== "undefined" && userContext?.ui_locale) ? userContext.ui_locale : "id";
-        window.tDict = I18N_DICTIONARY[loc] || I18N_DICTIONARY["en"] || I18N_DICTIONARY["id"] || {};
 
         const validItems = [];
         for (const t of themes) {
@@ -15799,7 +16635,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           const cardsHtml = validItems.map(t => {
             const itemIdx = st.renderedCount++;
             const subMotionsCount = t?.sub_motions?.length || 1;
-            const localizedMotion = getLocalizedMotion(t, loc) || t?.motion_or_topic || t?.title || '';
+            const rawLocalizedMotion = getLocalizedMotion(t, loc) || t?.motion_or_topic || t?.title || '';
+            const localizedMotion = localizeBibleReference(rawLocalizedMotion, loc);
             const safeMotion = (localizedMotion || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
             const localizedCategory = getLocalizedDiscourseType(t?.discourse_type, loc);
             const passagesList = (t?.passages || []).slice(0, 4);
@@ -15815,17 +16652,17 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                       #${itemIdx + 1} • ${localizedCategory}
                     </span>
                   </div>
-                  <div style="font-size: 0.88rem; font-weight: 500; color: #ffffff; background: rgba(14, 165, 233, 0.08); padding: 0.55rem 0.85rem; border-radius: 6px; border-left: 3px solid var(--accent); line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" onclick="openThemeFromDashboard('${safeId}')" title="${safeMotion}">
+                  <div style="font-size: 0.88rem; font-weight: 500; color: #ffffff; background: rgba(14, 165, 233, 0.08); padding: 0.55rem 0.85rem; border-radius: 6px; border-inline-start: 3px solid var(--accent); line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" onclick="openThemeFromDashboard('${safeId}')" title="${safeMotion}">
                     ⚖️ ${tDict?.subMotionPrefix || 'Sub-mosi'} (${subMotionsCount}): ${localizedMotion}
                   </div>
                   ${passagesList.length > 0 ? `
                     <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.1rem;">
-                      ${passagesList.map(p => `<span class="evidence-badge" style="font-size: 0.68rem; padding: 0.1rem 0.45rem; background: rgba(234, 179, 8, 0.12); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.25);">${p}</span>`).join('')}
+                      ${passagesList.map(p => `<span class="evidence-badge" style="font-size: 0.68rem; padding: 0.1rem 0.45rem; background: rgba(234, 179, 8, 0.12); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.25);">${localizeBibleReference(p, loc)}</span>`).join('')}
                     </div>
                   ` : ''}
                   <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.25rem; padding-top: 0.45rem; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 0.5rem;">
                     <button type="button" class="btn-primary" style="padding: 0.32rem 0.75rem; font-size: 0.75rem; cursor: pointer;" onclick="loadMotionIntoCalculator('${safeMotion}', '${safeId}')" title="Uji sub-mosi ini di Apologetics Calculator">
-                      ${tDict?.btnTestInCalculator || '⚡ Uji di Kalkulator'}
+                      ⚡ ${tDict?.btnTestInCalculator || 'Uji di Kalkulator'}
                     </button>
                     <span style="color: var(--primary); font-size: 0.78rem; font-weight: 600; cursor: pointer;" onclick="openThemeFromDashboard('${safeId}')">
                       ${tDict?.btnDetailDossier || 'Detail Dossier →'}
@@ -15857,7 +16694,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           sentinel.style.textAlign = "center";
           sentinel.style.color = "var(--text-dim)";
           sentinel.style.fontSize = "0.75rem";
-          sentinel.innerHTML = `<span class="pulse-dot"></span> Memuat tema lainnya...`;
+          sentinel.innerHTML = `<span class="pulse-dot"></span> ${tDict.canonicalLoadingMore || 'Memuat tema lainnya...'}`;
           container.appendChild(sentinel);
 
           if (!st.observer) {
@@ -15872,7 +16709,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       } catch (err) {
         console.error("Gagal memuat tema kanonikal:", err);
         if (st.renderedCount === 0) {
-          container.innerHTML = `<p style="color: var(--rose); font-size: 0.82rem; padding: 1rem; text-align: center;">Koneksi terputus saat mengambil studi kasus kanonikal.</p>`;
+          container.innerHTML = `<p style="color: var(--rose); font-size: 0.82rem; padding: 1rem; text-align: center;">${tDict.canonicalConnectionError || 'Koneksi terputus saat mengambil studi kasus kanonikal.'}</p>`;
         }
       } finally {
         st.loading = false;
@@ -15990,6 +16827,116 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       }
     }
 
+    const BIBLE_BOOKS_MAP_I18N = {
+      'Kejadian': { en: 'Genesis', zh: '创世记' },
+      'Keluaran': { en: 'Exodus', zh: '出埃及记' },
+      'Imamat': { en: 'Leviticus', zh: '利未记' },
+      'Bilangan': { en: 'Numbers', zh: '民数记' },
+      'Ulangan': { en: 'Deuteronomy', zh: '申命记' },
+      'Yosua': { en: 'Joshua', zh: '约书亚记' },
+      'Hakim-hakim': { en: 'Judges', zh: '士师记' },
+      'Rut': { en: 'Ruth', zh: '路得记' },
+      '1 Samuel': { en: '1 Samuel', zh: '撒母耳记上' },
+      '2 Samuel': { en: '2 Samuel', zh: '撒母耳记下' },
+      'I Samuel': { en: '1 Samuel', zh: '撒母耳记上' },
+      'II Samuel': { en: '2 Samuel', zh: '撒母耳记下' },
+      '1 Raja-raja': { en: '1 Kings', zh: '列王纪上' },
+      '2 Raja-raja': { en: '2 Kings', zh: '列王纪下' },
+      '1 Raja': { en: '1 Kings', zh: '列王纪上' },
+      '2 Raja': { en: '2 Kings', zh: '列王纪下' },
+      'I Raja-raja': { en: '1 Kings', zh: '列王纪上' },
+      'II Raja-raja': { en: '2 Kings', zh: '列王纪下' },
+      'I Raja': { en: '1 Kings', zh: '列王纪上' },
+      'II Raja': { en: '2 Kings', zh: '列王纪下' },
+      '1 Tawarikh': { en: '1 Chronicles', zh: '历代志上' },
+      '2 Tawarikh': { en: '2 Chronicles', zh: '历代志下' },
+      'I Tawarikh': { en: '1 Chronicles', zh: '历代志上' },
+      'II Tawarikh': { en: '2 Chronicles', zh: '历代志下' },
+      'Ezra': { en: 'Ezra', zh: '以斯拉记' },
+      'Nehemia': { en: 'Nehemiah', zh: '尼希米记' },
+      'Ester': { en: 'Esther', zh: '以斯帖记' },
+      'Ayub': { en: 'Job', zh: '约伯记' },
+      'Mazmur': { en: 'Psalms', zh: '诗篇' },
+      'Amsal': { en: 'Proverbs', zh: '箴言' },
+      'Pengkhotbah': { en: 'Ecclesiastes', zh: '传道书' },
+      'Kidung Agung': { en: 'Song of Solomon', zh: '雅歌' },
+      'Kidung': { en: 'Song of Solomon', zh: '雅歌' },
+      'Yesaya': { en: 'Isaiah', zh: '以赛亚书' },
+      'Yeremia': { en: 'Jeremiah', zh: '耶利米书' },
+      'Ratapan': { en: 'Lamentations', zh: '耶利米哀歌' },
+      'Yehezkiel': { en: 'Ezekiel', zh: '以西结书' },
+      'Daniel': { en: 'Daniel', zh: '但以理书' },
+      'Hosea': { en: 'Hosea', zh: '何西阿书' },
+      'Yoel': { en: 'Joel', zh: '约珥书' },
+      'Amos': { en: 'Amos', zh: '阿摩司书' },
+      'Obaja': { en: 'Obadiah', zh: '俄巴底亚书' },
+      'Yunus': { en: 'Jonah', zh: '约拿书' },
+      'Mikha': { en: 'Micah', zh: '弥迦书' },
+      'Nahum': { en: 'Nahum', zh: '那鸿书' },
+      'Habakuk': { en: 'Habakkuk', zh: '哈巴谷书' },
+      'Zefanya': { en: 'Zephaniah', zh: '西番雅书' },
+      'Hagai': { en: 'Haggai', zh: '哈该书' },
+      'Zakharia': { en: 'Zechariah', zh: '撒迦利亚书' },
+      'Maleakhi': { en: 'Malachi', zh: '玛拉基书' },
+      'Matius': { en: 'Matthew', zh: '马太福音' },
+      'Markus': { en: 'Mark', zh: '马可福音' },
+      'Lukas': { en: 'Luke', zh: '路加福音' },
+      'Yohanes': { en: 'John', zh: '约翰福音' },
+      'Kisah Para Rasul': { en: 'Acts', zh: '使徒行传' },
+      'Kisah': { en: 'Acts', zh: '使徒行传' },
+      'Roma': { en: 'Romans', zh: '罗马书' },
+      '1 Korintus': { en: '1 Corinthians', zh: '哥林多前书' },
+      '2 Korintus': { en: '2 Corinthians', zh: '哥林多后书' },
+      'I Korintus': { en: '1 Corinthians', zh: '哥林多前书' },
+      'II Korintus': { en: '2 Corinthians', zh: '哥林多后书' },
+      'Galatia': { en: 'Galatians', zh: '加拉太书' },
+      'Efesus': { en: 'Ephesians', zh: '以弗所书' },
+      'Filipi': { en: 'Philippians', zh: '腓立比书' },
+      'Kolose': { en: 'Colossians', zh: '歌罗西书' },
+      '1 Tesalonika': { en: '1 Thessalonians', zh: '帖撒罗尼迦前书' },
+      '2 Tesalonika': { en: '2 Thessalonians', zh: '帖撒罗尼迦后书' },
+      'I Tesalonika': { en: '1 Thessalonians', zh: '帖撒罗尼迦前书' },
+      'II Tesalonika': { en: '2 Thessalonians', zh: '帖撒罗尼迦后书' },
+      '1 Timotius': { en: '1 Timothy', zh: '提摩太前书' },
+      '2 Timotius': { en: '2 Timothy', zh: '提摩太后书' },
+      'I Timotius': { en: '1 Timothy', zh: '提摩太前书' },
+      'II Timotius': { en: '2 Timothy', zh: '提摩太后书' },
+      'Titus': { en: 'Titus', zh: '提多书' },
+      'Filemon': { en: 'Philemon', zh: '腓利门书' },
+      'Ibrani': { en: 'Hebrews', zh: '希伯来书' },
+      'Yakobus': { en: 'James', zh: '雅各书' },
+      '1 Petrus': { en: '1 Peter', zh: '彼得前书' },
+      '2 Petrus': { en: '2 Peter', zh: '彼得后书' },
+      'I Petrus': { en: '1 Peter', zh: '彼得前书' },
+      'II Petrus': { en: '2 Peter', zh: '彼得后书' },
+      '1 Yohanes': { en: '1 John', zh: '约翰一书' },
+      '2 Yohanes': { en: '2 John', zh: '约翰二书' },
+      '3 Yohanes': { en: '3 John', zh: '约翰三书' },
+      'I Yohanes': { en: '1 John', zh: '约翰一书' },
+      'II Yohanes': { en: '2 John', zh: '约翰二书' },
+      'III Yohanes': { en: '3 John', zh: '约翰三书' },
+      'Yudas': { en: 'Jude', zh: '犹大书' },
+      'Wahyu': { en: 'Revelation', zh: '启示录' }
+    };
+
+    function localizeBibleReference(rawRef, locale) {
+      if (!rawRef || typeof rawRef !== 'string') return '';
+      const targetLocale = locale || (window.userContext && window.userContext.ui_locale) || 'id';
+      if (targetLocale === 'id') return rawRef;
+      const langKey = targetLocale.startsWith('zh') ? 'zh' : (targetLocale === 'en' ? 'en' : 'en');
+
+      let out = rawRef;
+      const sortedBooks = Object.keys(BIBLE_BOOKS_MAP_I18N).sort((a, b) => b.length - a.length);
+      for (const b of sortedBooks) {
+        const trans = BIBLE_BOOKS_MAP_I18N[b][langKey] || BIBLE_BOOKS_MAP_I18N[b]['en'];
+        if (!trans) continue;
+        const escaped = b.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp('(^|[^a-zA-Z0-9])' + escaped + '(?=[\\s\\d:–—\\-]|$)', 'gi');
+        out = out.replace(regex, (m, prefix) => prefix + trans);
+      }
+      return out;
+    }
+
     function localizeMotionText(rawText, locale) {
       if (!rawText) return '';
       const targetLocale = locale || (window.userContext && window.userContext.ui_locale) || 'id';
@@ -16015,8 +16962,14 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       try { localStorage.setItem('ui_locale', newLocale); } catch (e) {}
 
       _motionDirectoryCatalog = null;
+      currentThemes = [];
       if (typeof applyI18n === 'function') applyI18n(newLocale);
-      if (typeof renderThemesCards === 'function') renderThemesCards();
+      if (typeof renderThemeCategoryPills === 'function') renderThemeCategoryPills(newLocale);
+      if (typeof loadThemes === 'function') {
+        loadThemes();
+      } else if (typeof renderThemesCards === 'function') {
+        renderThemesCards();
+      }
       if (typeof renderMotionDirectory === 'function') renderMotionDirectory();
       if (typeof loadCanonicalCases === 'function') {
         loadCanonicalCases("canonical-cases-list", true);
@@ -16033,13 +16986,73 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       }
     }
 
-    function renderThemesCards() {
+    
+    function updateThemeCounterStatus(visibleCount, totalCount, loc) {
+      const counterStatusEl = document.getElementById("theme-counter-status");
+      if (!counterStatusEl) return;
+      const targetLoc = loc || (window.userContext && window.userContext.ui_locale) || 'id';
+      const dict = (typeof I18N_DICTIONARY !== 'undefined' && (I18N_DICTIONARY[targetLoc] || I18N_DICTIONARY['en']))
+        || (window.I18N_DICTIONARY && (window.I18N_DICTIONARY[targetLoc] || window.I18N_DICTIONARY['en']))
+        || (window.i18n && (window.i18n[targetLoc] || window.i18n['en']))
+        || {};
+      const template = dict.themesCounterSummary || (targetLoc === 'en' ? "Showing {visible} of {total} verified motions" : "Menampilkan {visible} dari {total} mosi terverifikasi");
+      const visFormatted = (visibleCount !== undefined ? visibleCount : 2625).toLocaleString(targetLoc);
+      const totFormatted = (totalCount !== undefined ? totalCount : 2625).toLocaleString(targetLoc);
+      counterStatusEl.innerHTML = template
+        .replace('{visible}', `<span id="theme-visible-count" style="color: var(--primary); font-weight: 600;">${visFormatted}</span>`)
+        .replace('{total}', totFormatted);
+    }
+
+    function renderThemeCategoryPills(loc) {
+      const targetLoc = loc || (window.userContext && window.userContext.ui_locale) || 'id';
+      const dict = (typeof I18N_DICTIONARY !== 'undefined' && (I18N_DICTIONARY[targetLoc] || I18N_DICTIONARY['en']))
+        || (window.I18N_DICTIONARY && (window.I18N_DICTIONARY[targetLoc] || window.I18N_DICTIONARY['en']))
+        || (window.i18n && (window.i18n[targetLoc] || window.i18n['en']))
+        || {};
+      const container = document.getElementById("theme-category-pills");
+      if (!container) return;
+
+      const catDefinitions = [
+        { cat: 'ALL', labelKey: 'themeCatAll', defaultLabel: (targetLoc === 'en' ? 'All Verified' : 'Semua Terverifikasi'), icon: '', count: 2625 },
+        { cat: 'Dialektika Debat Terbuka & Cross-Examination', labelKey: 'themeCatDialectic', defaultLabel: (targetLoc === 'en' ? 'Dialectics' : 'Dialektika'), icon: '🎯 ', count: 251 },
+        { cat: 'Kristologi & Kemanusiaan Yesus', labelKey: 'themeCatChristology', defaultLabel: (targetLoc === 'en' ? 'Christology' : 'Kristologi'), icon: '✝️ ', count: 252 },
+        { cat: 'Audit Tekstual, Filologi & Varian Naskah', labelKey: 'themeCatPhilology', defaultLabel: (targetLoc === 'en' ? 'Philology' : 'Filologi'), icon: '📜 ', count: 276 },
+        { cat: 'Diskursus Teologi & Apologetika Komparatif', labelKey: 'themeCatTheology', defaultLabel: (targetLoc === 'en' ? 'Theology' : 'Teologi'), icon: '⚖️ ', count: 322 },
+        { cat: 'Monoteisme & Kritik Doktrin Trinitas', labelKey: 'themeCatTrinity', defaultLabel: (targetLoc === 'en' ? 'Monotheism' : 'Monoteisme'), icon: '☝️ ', count: 475 },
+        { cat: 'Polemik Teologi Paulus vs Hukum Taurat', labelKey: 'themeCatPauline', defaultLabel: (targetLoc === 'en' ? 'Paul vs Torah' : 'Paulus vs Taurat'), icon: '📖 ', count: 977 },
+        { cat: 'Apologetika Islam & Pembelaan Kenabian', labelKey: 'themeCatProphecy', defaultLabel: (targetLoc === 'en' ? 'Prophethood' : 'Kenabian'), icon: '☪️ ', count: 72 }
+      ];
+
+      const tracks = container.querySelectorAll(".theme-marquee-track");
+      tracks.forEach((track, trackIdx) => {
+        track.innerHTML = catDefinitions.map(def => {
+          const isActive = (typeof currentSelectedCategory !== 'undefined' ? currentSelectedCategory : 'ALL') === def.cat;
+          const label = dict[def.labelKey] || def.defaultLabel;
+          const formattedCount = (def.count || 0).toLocaleString(targetLoc);
+          const safeCat = def.cat.replace(/'/g, "\\'");
+          return `<button class="theme-cat-pill ${isActive ? 'active' : ''}" onclick="selectDebateCategory('${safeCat}')" data-cat="${def.cat}">${def.icon}${label} (${formattedCount})</button>`;
+        }).join('\n              ');
+      });
+    }
+
+function renderThemesCards() {
       const container = document.getElementById("theme-list-cards");
       const counterEl = document.getElementById("theme-visible-count");
       if (!container) return;
 
+      const activeLoc = (typeof userContext !== "undefined" && userContext.ui_locale) || "id";
+      const tDict = (typeof I18N_DICTIONARY !== 'undefined' && (I18N_DICTIONARY[activeLoc] || I18N_DICTIONARY['en']))
+        || (window.I18N_DICTIONARY && (window.I18N_DICTIONARY[activeLoc] || window.I18N_DICTIONARY['en']))
+        || (window.i18n && (window.i18n[activeLoc] || window.i18n['en']))
+        || {};
+
+      if (typeof renderThemeCategoryPills === 'function') {
+        renderThemeCategoryPills(activeLoc);
+      }
+
       if (!currentThemes || currentThemes.length === 0) {
-        container.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 2rem;">${(I18N_DICTIONARY[userContext.ui_locale || 'id'] || I18N_DICTIONARY['en']).themesLoading || 'Sedang memuat data korpus tema mosi...'}</div>`;
+        container.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 2rem;">${tDict.themesLoading || (activeLoc === 'en' ? 'Loading debate themes corpus...' : 'Sedang memuat data korpus tema mosi...')}</div>`;
+        updateThemeCounterStatus(0, 0, activeLoc);
         return;
       }
 
@@ -16063,17 +17076,18 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                (t.discourse_type && t.discourse_type.toLowerCase().includes(q));
       });
 
+      updateThemeCounterStatus(filtered.length, (currentThemes && currentThemes.length ? currentThemes.length : 2625), activeLoc);
       if (counterEl) {
-        counterEl.textContent = filtered.length.toLocaleString('id-ID');
+        counterEl.textContent = filtered.length.toLocaleString(activeLoc);
       }
 
       if (filtered.length === 0) {
         container.innerHTML = `
           <div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 3rem; background: var(--bg-surface); border: 1px dashed var(--border-subtle); border-radius: var(--radius-sm);">
             <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🔍</div>
-            <h4 style="color: var(--text-main); margin-bottom: 0.35rem;">Tidak Ditemukan Mosi yang Cocok</h4>
-            <p style="font-size: 0.82rem; color: var(--text-dim); margin-bottom: 1rem;">Coba gunakan kata kunci lain atau pilih filter "Semua Klaster".</p>
-            <button class="btn-primary" style="font-size: 0.78rem; padding: 0.35rem 0.75rem;" onclick="selectDebateCategory('ALL'); document.getElementById('theme-search-input').value = ''; onThemeSearchChange('');">${(I18N_DICTIONARY[userContext.ui_locale || 'id'] || I18N_DICTIONARY['en']).themesResetFilter || 'Reset Filter & Pencarian'}</button>
+            <h4 style="color: var(--text-main); margin-bottom: 0.35rem;">${tDict.themesNoMatch || 'Tidak Ditemukan Mosi yang Cocok'}</h4>
+            <p style="font-size: 0.82rem; color: var(--text-dim); margin-bottom: 1rem;">${tDict.themesResetFilterHint || 'Coba gunakan kata kunci lain atau pilih filter "Semua Klaster".'}</p>
+            <button class="btn-primary" style="font-size: 0.78rem; padding: 0.35rem 0.75rem;" onclick="selectDebateCategory('ALL'); document.getElementById('theme-search-input').value = ''; onThemeSearchChange('');">${tDict.themesResetFilter || 'Reset Filter & Pencarian'}</button>
           </div>
         `;
         return;
@@ -16139,25 +17153,42 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           const icon = categoryIcons[cat] || "🏛️";
           const isPendingCat = cat.includes("Menunggu Transkrip");
           const safeCat = cat.replace(/'/g, "\\'");
-          const desc = categoryDescriptions[cat] || (isPendingCat ? 'Daftar video yang belum memiliki transkrip terindeks di sistem dan dipisahkan dari perumusan mosi.' : 'Kompilasi mosi dialektika, analisis naskah, dan aparatus apologetika DIALECTICAL CORE berbasis isi transkrip.');
+          const localizedTitle = (typeof CLUSTER_TITLES_I18N !== 'undefined' && CLUSTER_TITLES_I18N[cat] && CLUSTER_TITLES_I18N[cat][activeLoc]) || cat;
+          const localizedDesc = (typeof CLUSTER_I18N !== 'undefined' && CLUSTER_I18N[cat] && (CLUSTER_I18N[cat][activeLoc] || CLUSTER_I18N[cat]['en'] || CLUSTER_I18N[cat]['id']))
+            || categoryDescriptions[cat]
+            || (isPendingCat ? (tDict.descPendingVideos || 'Daftar video yang belum memiliki transkrip terindeks di sistem dan dipisahkan dari perumusan mosi.') : (tDict.descVerifiedMotions || 'Kompilasi mosi dialektika, analisis naskah, dan aparatus apologetika DIALECTICAL CORE berbasis isi transkrip.'));
           const isPriority = prioritizedCats.includes(cat);
+          const unitLabel = isPendingCat
+            ? (tDict.unitVideos || (activeLoc === 'en' ? 'Videos' : 'Video'))
+            : (tDict.unitMotions || (activeLoc === 'en' ? 'Motions' : 'Mosi'));
+          const formattedCount = list.length.toLocaleString(activeLoc);
+          const exploreTemplate = tDict.btnExploreMotions || (activeLoc === 'en' ? 'Explore {count} {unit}' : 'Jelajahi {count} {unit}');
+          const exploreText = exploreTemplate
+            .replace('{count}', formattedCount)
+            .replace('{unit}', unitLabel);
+          const recLabel = tDict['perspRec_' + activeP]
+            || (activeLoc === 'en' ? (activeP === 'islam' ? 'Islamic Recommendation' : 'Recommended') : (activeP === 'islam' ? 'Rekomendasi Islam' : 'Rekomendasi'));
+          const recBadge = isPriority ? `<span class="evidence-badge" style="font-size: 0.68rem; padding: 0.12rem 0.45rem; background: rgba(56, 189, 248, 0.15); color: var(--accent); border: 1px solid var(--border-focus);">⭐ ${recLabel}</span>` : '';
+          const statusBadgeText = isPendingCat
+            ? (tDict.statusVideoQueue || (activeLoc === 'en' ? 'Video Queue' : 'Antrean Video'))
+            : (tDict.statusVerifiedCluster || (activeLoc === 'en' ? 'Verified Cluster' : 'Klaster Terverifikasi'));
 
           return `
             <div class="case-card" style="height: auto; min-height: fit-content; width: 100%; max-width: 100%; box-sizing: border-box; display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; border-inline-start: 4px solid ${isPendingCat ? '#f59e0b' : (isPriority ? 'var(--accent)' : 'var(--primary)')}; padding: 1.25rem 1.5rem;">
               <div style="flex: 1 1 500px; min-width: 0; display: flex; flex-direction: column; gap: 0.35rem;">
                 <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
-                  <span class="evidence-badge ${isPendingCat ? '' : 'badge-primary-source'}" style="font-size: 0.68rem; padding: 0.12rem 0.45rem; ${isPendingCat ? 'background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);' : ''}">${icon} ${list.length} ${isPendingCat ? 'Video' : 'Mosi'}</span>
-                  ${isPriority ? `<span class="evidence-badge" style="font-size: 0.68rem; padding: 0.12rem 0.45rem; background: rgba(56, 189, 248, 0.15); color: var(--accent); border: 1px solid var(--border-focus);">⭐ Rekomendasi ${PERSPECTIVE_CONFIGS[activeP].badge}</span>` : ''}
-                  <span style="font-size: 0.72rem; color: var(--text-dim);">${isPendingCat ? 'Antrean Video' : 'Klaster Terverifikasi'}</span>
+                  <span class="evidence-badge ${isPendingCat ? '' : 'badge-primary-source'}" style="font-size: 0.68rem; padding: 0.12rem 0.45rem; ${isPendingCat ? 'background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);' : ''}">${icon} ${formattedCount} ${unitLabel}</span>
+                  ${recBadge}
+                  <span style="font-size: 0.72rem; color: var(--text-dim);">${statusBadgeText}</span>
                 </div>
-                <h3 style="font-size: 1.18rem; margin: 0.15rem 0 0.25rem 0; line-height: 1.35; font-family: var(--font-serif); color: var(--text-main); word-break: break-word;">${cat}</h3>
+                <h3 style="font-size: 1.18rem; margin: 0.15rem 0 0.25rem 0; line-height: 1.35; font-family: var(--font-serif); color: var(--text-main); word-break: break-word;">${localizedTitle}</h3>
                 <p style="font-size: 0.84rem; color: var(--text-muted); margin: 0; line-height: 1.5; white-space: normal; word-break: break-word; overflow: visible;">
-                  ${desc}
+                  ${localizedDesc}
                 </p>
               </div>
               <div class="theme-overview-action" style="flex-shrink: 0; display: flex; align-items: center; justify-content: flex-end;">
                 <button type="button" class="btn-primary" style="white-space: nowrap; display: inline-flex; justify-content: center; align-items: center; gap: 0.5rem; padding: 0.6rem 1.25rem; font-size: 0.82rem; cursor: pointer;" onclick="selectDebateCategory('${safeCat}')">
-                  <span>Jelajahi ${list.length} ${isPendingCat ? 'Video' : 'Mosi'}</span>
+                  <span>${exploreText}</span>
                   <span>→</span>
                 </button>
               </div>
@@ -16171,7 +17202,13 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         const icon = categoryIcons[cat] || "🏛️";
         const isPendingCat = cat.includes("Menunggu Transkrip");
         const safeCat = cat.replace(/'/g, "\\'");
-        const desc = categoryDescriptions[cat] || (isPendingCat ? 'Daftar video yang belum memiliki transkrip terindeks di sistem dan dipisahkan dari perumusan mosi.' : 'Kompilasi mosi dialektika, analisis naskah, dan aparatus apologetika DIALECTICAL CORE berbasis isi transkrip.');
+        const localizedTitle = (typeof CLUSTER_TITLES_I18N !== 'undefined' && CLUSTER_TITLES_I18N[cat] && CLUSTER_TITLES_I18N[cat][activeLoc]) || cat;
+        const localizedDesc = (typeof CLUSTER_I18N !== 'undefined' && CLUSTER_I18N[cat] && (CLUSTER_I18N[cat][activeLoc] || CLUSTER_I18N[cat]['en'] || CLUSTER_I18N[cat]['id']))
+          || categoryDescriptions[cat]
+          || (isPendingCat ? (tDict.descPendingVideos || 'Daftar video yang belum memiliki transkrip terindeks di sistem dan dipisahkan dari perumusan mosi.') : (tDict.descVerifiedMotions || 'Kompilasi mosi dialektika, analisis naskah, dan aparatus apologetika DIALECTICAL CORE berbasis isi transkrip.'));
+        const unitLabel = isPendingCat
+          ? (tDict.unitVideos || (activeLoc === 'en' ? 'Videos' : 'Video'))
+          : (tDict.unitMotions || (activeLoc === 'en' ? 'Motions' : 'Mosi'));
 
         const pageLimit = themeCategoryPageLimits[cat] || 20;
         const visibleList = list.slice(0, pageLimit);
@@ -16183,17 +17220,17 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           <div class="case-card" style="grid-column: 1 / -1; width: 100%; max-width: 100%; box-sizing: border-box; display: flex; flex-direction: column; border-inline-start: 4px solid var(--primary); padding: 1.25rem;">
             <div style="position: sticky; top: 64px; z-index: 10; background: rgba(12, 16, 23, 0.95); backdrop-filter: blur(12px); padding: 0.75rem 0; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-subtle);">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.45rem; flex-wrap: wrap; gap: 0.5rem;">
-                <span class="evidence-badge badge-primary-source" style="font-size: 0.68rem; padding: 0.12rem 0.45rem;">${icon} ${list.length} Mosi</span>
+                <span class="evidence-badge badge-primary-source" style="font-size: 0.68rem; padding: 0.12rem 0.45rem;">${icon} ${list.length.toLocaleString(activeLoc)} ${unitLabel}</span>
                 <div style="display: flex; align-items: center; gap: 0.45rem;">
-                  <button type="button" class="btn-primary" style="font-size: 0.74rem; padding: 0.25rem 0.7rem; background: rgba(255, 255, 255, 0.08); border: 1px solid var(--border-subtle); color: var(--text-main); cursor: pointer;" onclick="selectDebateCategory('ALL')" title="Kembali ke semua klaster tema">
-                    ← Kembali ke Semua Klaster
+                  <button type="button" class="btn-primary" style="font-size: 0.74rem; padding: 0.25rem 0.7rem; background: rgba(255, 255, 255, 0.08); border: 1px solid var(--border-subtle); color: var(--text-main); cursor: pointer;" onclick="selectDebateCategory('ALL')" title="${tDict.btnBackToAllClusters || 'Kembali ke Semua Klaster'}">
+                    ← ${tDict.btnBackToAllClusters || 'Kembali ke Semua Klaster'}
                   </button>
-                  <span style="font-size: 0.72rem; color: var(--text-dim);">${cat === currentSelectedCategory ? 'Filter Aktif' : 'Klaster'}</span>
+                  <span style="font-size: 0.72rem; color: var(--text-dim);">${cat === currentSelectedCategory ? (tDict.filterActive || 'Filter Aktif') : (tDict.filterCluster || 'Klaster')}</span>
                 </div>
               </div>
-              <h3 style="font-size: 1.25rem; margin: 0.25rem 0 0.35rem 0; line-height: 1.35; font-family: var(--font-serif); color: var(--text-main);">${cat}</h3>
+              <h3 style="font-size: 1.25rem; margin: 0.25rem 0 0.35rem 0; line-height: 1.35; font-family: var(--font-serif); color: var(--text-main);">${localizedTitle}</h3>
               <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0; line-height: 1.45;">
-                ${desc}
+                ${localizedDesc}
               </p>
             </div>
             <div>
@@ -16202,25 +17239,26 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                   const safeTitle = (t.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
                   const subMotionsCount = (t.sub_motions && t.sub_motions.length) ? t.sub_motions.length : 0;
                   const firstSub = subMotionsCount > 0 ? t.sub_motions[0] : '';
-                  const motionText = (subMotionsCount > 0) ? firstSub : (t.title || '');
+                  const rawMotionText = (subMotionsCount > 0) ? firstSub : (t.title || '');
+                  const motionText = localizeBibleReference(rawMotionText, activeLoc);
                   const safeMotion = motionText.replace(/'/g, "\\'").replace(/"/g, '&quot;');
                   const passagesList = (t.passages || []).slice(0, 4);
                   return `
-                    <div style="padding: 0.85rem 1rem; background: rgba(0,0,0,0.22); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                      <div style="font-size: 0.88rem; font-weight: 500; color: #ffffff; background: rgba(14, 165, 233, 0.08); padding: 0.55rem 0.85rem; border-radius: 6px; border-left: 3px solid var(--accent); line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" onclick="openThemeDetail('${t.theme_id}')" title="${safeMotion}">
-                        ⚖️ ${(I18N_DICTIONARY[userContext.ui_locale || 'id'] || I18N_DICTIONARY['en']).subMotionPrefix || 'Sub-mosi'} (${subMotionsCount}): ${firstSub || t.title}
+                    <div class="theme-motion-card" style="padding: 0.85rem 1rem; background: rgba(0,0,0,0.22); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                      <div style="font-size: 0.88rem; font-weight: 500; color: #ffffff; background: rgba(14, 165, 233, 0.08); padding: 0.55rem 0.85rem; border-radius: 6px; border-inline-start: 3px solid var(--accent); line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" onclick="openThemeDetail('${t.theme_id}')" title="${safeMotion}">
+                        ⚖️ ${(tDict.subMotionPrefix || 'Sub-mosi')} (${subMotionsCount}): ${motionText}
                       </div>
                       ${passagesList.length > 0 ? `
                         <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.1rem;">
-                          ${passagesList.map(p => `<span class="evidence-badge" style="font-size: 0.68rem; padding: 0.1rem 0.4rem; background: rgba(56, 189, 248, 0.1); color: var(--primary);">${p}</span>`).join('')}
+                          ${passagesList.map(p => `<span class="evidence-badge" style="font-size: 0.68rem; padding: 0.1rem 0.4rem; background: rgba(56, 189, 248, 0.1); color: var(--primary);">${localizeBibleReference(p, activeLoc)}</span>`).join('')}
                         </div>
                       ` : ''}
                       <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.25rem; padding-top: 0.45rem; border-top: 1px solid rgba(255,255,255,0.04); flex-wrap: wrap; gap: 0.5rem;">
                         <button type="button" class="btn-primary" style="padding: 0.32rem 0.75rem; font-size: 0.75rem; cursor: pointer;" onclick="loadMotionIntoCalculator('${safeMotion}', '${t.theme_id}')" title="Uji sub-mosi ini di Apologetics Calculator">
-                          ⚡ Uji di Kalkulator
+                          ⚡ ${tDict.btnTestInCalculator || 'Uji di Kalkulator'}
                         </button>
                         <span style="color: var(--primary); font-size: 0.78rem; font-weight: 600; cursor: pointer;" onclick="openThemeDetail('${t.theme_id}')">
-                          Detail Dossier →
+                          ${tDict.btnDossierDetail || 'Detail Dossier →'}
                         </span>
                       </div>
                     </div>
@@ -16229,19 +17267,19 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               </div>
               <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; border-top: 1px solid var(--border-subtle); padding-top: 0.85rem; margin-top: 1.25rem;">
                 <div style="display: flex; justify-content: space-between; width: 100%; font-size: 0.75rem; color: var(--text-dim); align-items: center; flex-wrap: wrap; gap: 0.5rem;">
-                  <span>Menampilkan <strong style="color: var(--text-main);">${visibleList.length}</strong> dari <strong style="color: var(--text-main);">${list.length}</strong> mosi</span>
-                  <span style="color: var(--emerald); font-weight: 600;">✓ Seluruh Mosi Terverifikasi Transkrip</span>
+                  <span>${(tDict.showingCategoryMotions || 'Menampilkan {visible} dari {total} mosi').replace('{visible}', `<strong style="color: var(--text-main);">${visibleList.length.toLocaleString(activeLoc)}</strong>`).replace('{total}', `<strong style="color: var(--text-main);">${list.length.toLocaleString(activeLoc)}</strong>`)}</span>
+                  <span style="color: var(--emerald); font-weight: 600;">${tDict.allMotionsVerifiedTranscript || '✓ Seluruh Mosi Terverifikasi Transkrip'}</span>
                 </div>
                 ${hasMore ? `
                   <div style="display: flex; justify-content: center; width: 100%; margin-top: 0.25rem;">
                     <button type="button" class="btn-primary" style="padding: 0.45rem 1.35rem; font-size: 0.78rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.45rem; background: rgba(56, 189, 248, 0.12); color: var(--primary); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 6px; font-weight: 600;" onclick="loadMoreCategoryMotions('${safeCat}')">
-                      <span>Muat 20 Mosi Berikutnya (+${nextBatch} lagi)</span>
+                      <span>${(tDict.loadNextMotions || 'Muat 20 Mosi Berikutnya (+{batch} lagi)').replace('{batch}', nextBatch.toLocaleString(activeLoc))}</span>
                       <span>↓</span>
                     </button>
                   </div>
                 ` : `
                   <div style="font-size: 0.75rem; color: var(--text-dim); font-style: italic;">
-                    ✓ Seluruh ${list.length} mosi dalam klaster ini telah ditampilkan
+                    ${(tDict.allClusterMotionsDisplayed || '✓ Seluruh {total} mosi dalam klaster ini telah ditampilkan').replace('{total}', list.length.toLocaleString(activeLoc))}
                   </div>
                 `}
               </div>
@@ -16262,7 +17300,10 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       if (thOver) thOver.textContent = "Mengambil data naskah, ronde, dan aparatus...";
 
       try {
-        const res = await fetch(`/api/v1/themes/${themeId}`);
+        const activeLoc = (typeof userContext !== "undefined" && userContext.ui_locale) || localStorage.getItem("ui_locale") || "id";
+        const res = await fetch(`/api/v1/themes/${encodeURIComponent(themeId)}?locale=${encodeURIComponent(activeLoc)}`, {
+          headers: { "Accept-Language": activeLoc }
+        });
         const data = await res.json();
         if (res.ok && data.success) {
           currentActiveTheme = data;
@@ -16283,18 +17324,19 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                 ${isPending ? '⏳ Status: Menunggu Transkrip' : '✓ Status: Mosi Terverifikasi Transkrip'}
               </span>
             </div>
-            <p><strong>Mosi Debat:</strong> ${data.overview.motion}</p>
+            <p><strong>Mosi Debat:</strong> ${localizeBibleReference(data.overview.motion, activeLoc)}</p>
             ${subMotions.length > 0 ? `
-              <div style="margin-top: 0.65rem; padding: 0.65rem 0.85rem; background: rgba(56, 189, 248, 0.08); border-left: 3px solid var(--primary); border-radius: 4px;">
+              <div style="margin-top: 0.65rem; padding: 0.65rem 0.85rem; background: rgba(56, 189, 248, 0.08); border-inline-start: 3px solid var(--primary); border-radius: 4px;">
                 <strong style="color: var(--primary); font-size: 0.82rem;">Sub-Mosi Debat Spesifik (${subMotions.length}):</strong>
                 <ul style="margin: 0.35rem 0 0 0; padding: 0; list-style: none; font-size: 0.82rem; color: var(--text-main); display: flex; flex-direction: column; gap: 0.45rem;">
                   ${subMotions.map(sm => {
-                    const safeSm = sm.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                    const locSm = localizeBibleReference(sm, activeLoc);
+                    const safeSm = locSm.replace(/'/g, "\\'").replace(/"/g, '&quot;');
                     return `
                       <li style="padding: 0.35rem 0.55rem; background: rgba(0,0,0,0.22); border-radius: 6px; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span style="flex: 1; min-width: 200px;">• ${sm}</span>
+                        <span style="flex: 1; min-width: 200px;">• ${locSm}</span>
                         <button type="button" class="btn-primary" style="padding: 0.22rem 0.6rem; font-size: 0.7rem; cursor: pointer; flex-shrink: 0;" onclick="loadMotionIntoCalculator('${safeSm}', '${data.theme_id}')" title="Uji sub-mosi ini di Apologetics Calculator">
-                          ⚡ Uji di Kalkulator
+                          ⚡ ${tDict.btnTestInCalculator || 'Uji di Kalkulator'}
                         </button>
                       </li>
                     `;
@@ -16306,7 +17348,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               <div style="margin-top: 0.65rem;">
                 <strong style="font-size: 0.82rem; color: var(--text-main);">Rujukan Ayat Bible Terkait:</strong>
                 <div style="display: flex; gap: 0.35rem; flex-wrap: wrap; margin-top: 0.35rem;">
-                  ${passages.map(p => `<span class="evidence-badge badge-primary-source" style="font-size: 0.7rem; padding: 0.1rem 0.4rem;">${p}</span>`).join('')}
+                  ${passages.map(p => `<span class="evidence-badge badge-primary-source" style="font-size: 0.7rem; padding: 0.1rem 0.4rem;">${localizeBibleReference(p, activeLoc)}</span>`).join('')}
                 </div>
               </div>
             ` : ''}
@@ -16428,13 +17470,129 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     // ===========================================================================
     let currentGraphData = null;
 
-    const DEFAULT_KNOWLEDGE_QUERIES = {
-      christian_protestant: "Paulus menegakkan hukum Taurat (Roma 3:31)",
-      christian_catholic: "Otoritas Magisterium dan Suksesi Apostolik (Matius 16:18-19)",
-      islam: "Tawhid murni dan penolakan syirik dalam teologi kenabian (Yohanes 17:3)",
-      judaism: "Keabadian hukum Taurat dan Monoteisme Murni (Ulangan 6:4)",
-      atheist_secular: "Historisitas klaim mukjizat dan evolusi tekstual manuskrip Bible"
+    const DEFAULT_KNOWLEDGE_QUERIES_I18N = {
+      "id": {
+        christian_protestant: "Paulus menegakkan hukum Taurat (Roma 3:31)",
+        christian_catholic: "Otoritas Magisterium dan Suksesi Apostolik (Matius 16:18-19)",
+        islam: "Tawhid murni dan penolakan syirik dalam teologi kenabian (Yohanes 17:3)",
+        judaism: "Keabadian hukum Taurat dan Monoteisme Murni (Ulangan 6:4)",
+        atheist_secular: "Historisitas klaim mukjizat dan evolusi tekstual manuskrip Bible"
+      },
+      "en": {
+        christian_protestant: "Paul upholds the Law of Moses (Romans 3:31)",
+        christian_catholic: "Magisterium Authority and Apostolic Succession (Matthew 16:18-19)",
+        islam: "Pure Tawhid and the rejection of shirk in prophetic theology (John 17:3)",
+        judaism: "Eternity of the Torah and Pure Monotheism (Deuteronomy 6:4)",
+        atheist_secular: "Historicity of miracle claims and textual evolution of Bible manuscripts"
+      },
+      "ar": {
+        christian_protestant: "بولس يثبت ناموس موسى (رومية 3: 31)",
+        christian_catholic: "سلطة الكنيسة المعلمة والخلافة الرسولية (متى 16: 18-19)",
+        islam: "التوحيد الخالص ونفي الشرك في اللاهوت النبوي (يوحنا 17: 3)",
+        judaism: "أبدية التوراة والتوحيد الخالص (تثنية 6: 4)",
+        atheist_secular: "تاريخية ادعاءات المعجزات والتطور النصي لمخطوطات الكتاب المقدس"
+      },
+      "zh": {
+        christian_protestant: "保罗坚立摩西律法 (罗马书 3:31)",
+        christian_catholic: "训导权权威与使徒统绪 (马太福音 16:18-19)",
+        islam: "纯正认主独一与先知神学中对以物配主的驳斥 (约翰福音 17:3)",
+        judaism: "妥拉律法的永恒性与纯粹一神论 (申命记 6:4)",
+        atheist_secular: "神迹主张的历史性与圣经手抄本的文本演变"
+      },
+      "ja": {
+        christian_protestant: "パウロは律法を確立する (ローマ 3:31)",
+        christian_catholic: "教皇権の権威と使徒継承 (マタイ 16:18-19)",
+        islam: "預言的神学における純粋なタウヒードとシルクの否定 (ヨハネ 17:3)",
+        judaism: "トーラー律法の永遠性と純粋な一神教 (申命記 6:4)",
+        atheist_secular: "奇跡の主張の歴史性と聖書写本のテキスト的変遷"
+      },
+      "ko": {
+        christian_protestant: "바울은 율법을 굳게 세운다 (로마서 3:31)",
+        christian_catholic: "교도권의 권위와 사도 전승 (마태복음 16:18-19)",
+        islam: "예언자적 신학에서 순수한 타우히드와 시르크의 거부 (요한복음 17:3)",
+        judaism: "토라 율법의 영원성과 순수한 유일신론 (신명기 6:4)",
+        atheist_secular: "기적 주장의 역사성과 성경 사본의 텍스트 진화"
+      },
+      "es": {
+        christian_protestant: "Pablo confirma la Ley de Moisés (Romanos 3:31)",
+        christian_catholic: "Autoridad del Magisterio y Sucesión Apostólica (Mateo 16:18-19)",
+        islam: "Tawhid puro y rechazo del shirk en la teología profética (Juan 17:3)",
+        judaism: "Eternidad de la Torá y Monoteísmo Puro (Deuteronomio 6:4)",
+        atheist_secular: "Historicidad de los milagros y evolución textual de los manuscritos bíblicos"
+      },
+      "fr": {
+        christian_protestant: "Paul confirme la Loi de Moïse (Romains 3:31)",
+        christian_catholic: "Autorité du Magistère et Succession Apostolique (Matthieu 16:18-19)",
+        islam: "Tawhid pur et rejet du shirk dans la théologie prophétique (Jean 17:3)",
+        judaism: "Éternité de la Torah et Monothéisme Pur (Deutéronome 6:4)",
+        atheist_secular: "Historicité des récits de miracles et évolution textuelle des manuscrits bibliques"
+      },
+      "de": {
+        christian_protestant: "Paulus bestätigt das Gesetz des Mose (Römer 3:31)",
+        christian_catholic: "Autorität des Lehramts und Apostolische Sukzession (Matthäus 16:18-19)",
+        islam: "Reiner Tauhid und Ablehnung von Schirk in der prophetischen Theologie (Johannes 17:3)",
+        judaism: "Ewigkeit der Tora und Reiner Monotheismus (5. Mose 6:4)",
+        atheist_secular: "Historizität von Wunderberichten und textuelle Entwicklung biblischer Handschriften"
+      },
+      "ru": {
+        christian_protestant: "Павел утверждает Закон Моисея (Римлянам 3:31)",
+        christian_catholic: "Авторитет Учительства Церкви и Апостольское преемство (Матфея 16:18-19)",
+        islam: "Чистый Таухид и отвержение ширка в пророческой теологии (Иоанна 17:3)",
+        judaism: "Вечность закона Торы и Чистый Монотеизм (Второзаконие 6:4)",
+        atheist_secular: "Историчность чудес и текстологическая эволюция библейских рукописей"
+      },
+      "pt": {
+        christian_protestant: "Paulo confirma a Lei de Moisés (Romanos 3:31)",
+        christian_catholic: "Autoridade do Magistério e Sucessão Apostólica (Mateus 16:18-19)",
+        islam: "Tawhid puro e rejeição do shirk na teologia profética (João 17:3)",
+        judaism: "Eternidade da Torá e Monoteísmo Puro (Deuteronômio 6:4)",
+        atheist_secular: "Historicidade das alegações de milagres e evolução textual dos manuscritos bíblicos"
+      },
+      "it": {
+        christian_protestant: "Paolo conferma la Legge di Mosè (Romani 3:31)",
+        christian_catholic: "Autorità del Magisterio e Successione Apostolica (Matteo 16:18-19)",
+        islam: "Puro Tawhid e rifiuto dello shirk nella teologia profetica (Giovanni 17:3)",
+        judaism: "Eternità della Torah e Puro Monoteismo (Deuteronomio 6:4)",
+        atheist_secular: "Storicità dei miracoli ed evoluzione testuale dei manoscritti biblici"
+      },
+      "tr": {
+        christian_protestant: "Pavlus Tevrat Yasasını onaylar (Romalılar 3:31)",
+        christian_catholic: "Magisterium Yetkisi ve Elçisel Halefiyet (Matta 16:18-19)",
+        islam: "Peygamberlik teolojisinde saf Tevhid ve şirkin reddi (Yuhanna 17:3)",
+        judaism: "Tora Yasasının Ebediyeti ve Saf Tektanrıcılık (Yasanın Tekrarı 6:4)",
+        atheist_secular: "Mucize iddialarının tarihselliği ve Kutsal Kitap el yazmalarının metinsel evrimi"
+      },
+      "ur": {
+        christian_protestant: "پولس تورات کی شریعت کو قائم رکھتا ہے (رومیوں 3:31)",
+        christian_catholic: "کلیسیائی مجسٹریم کا اختیار اور رسولی جانشینی (متی 16:18-19)",
+        islam: "خالص توحید اور نبوی الہیات میں شرک کا رد (یوحنا 17:3)",
+        judaism: "تورات کی ابدیت اور خالص توحید (استثناء 6:4)",
+        atheist_secular: "معجزات کے دعووں کی تاریخی حیثیت اور بائبل کے مخطوطات کا متنی ارتقاء"
+      },
+      "fa": {
+        christian_protestant: "پولس شریعت تورات را تثبیت می‌کند (رومیان 3:31)",
+        christian_catholic: "اقتدار تعلیمی کلیسا و جانشینی رسولی (متی 16:18-19)",
+        islam: "توحید ناب و نفی شرک در الهیات پیامبری (یوحنا 17:3)",
+        judaism: "ابدیت شریعت تورات و یکتاپرستی محض (تثنیه 6:4)",
+        atheist_secular: "تاریخی بودن ادعاهای معجزه و سیر تکامل متنی دست‌نوشته‌های کتاب مقدس"
+      },
+      "hi": {
+        christian_protestant: "पौलुस तोराह की व्यवस्था को स्थिर करता है (रोमियों 3:31)",
+        christian_catholic: "मजिस्टेरियम का अधिकार और प्रेरितिक उत्तराधिकार (मत्ती 16:18-19)",
+        islam: "पैगंबरीय धर्मशास्त्र में शुद्ध तौहीद और शिर्क का खंडन (यूहन्ना 17:3)",
+        judaism: "तोराह की अनंतता और शुद्ध एकेश्वरवाद (व्यवस्थाविवरण 6:4)",
+        atheist_secular: "चमत्कार के दावों की ऐतिहासिकता और बाइबिल पांडुलिपियों का पाठ्य विकास"
+      },
+      "bn": {
+        christian_protestant: "পৌল তাওরাতের ব্যবস্থা বলবৎ রাখেন (রোমীয় ৩:৩১)",
+        christian_catholic: "ম্যাজিস্টেরিয়ামের কর্তৃত্ব এবং প্রেরিতিক উত্তরাধিকার (মথি ১৬:১৮-১৯)",
+        islam: "নবুয়তি ধর্মতত্ত্বে খাঁটি তাওহীদ এবং শিরকের প্রত্যাখ্যান (যোহন ১৭:৩)",
+        judaism: "তাওরাতের অনন্তকালীনতা এবং নিখাদ একেশ্বরবাদ (দ্বিতীয় বিবরণ ৬:৪)",
+        atheist_secular: "অলৌকিক ঘটনার দাবির ঐতিহাসিকতা এবং বাইবেলের পাণ্ডুলিপির পাঠ্যগত বিবর্তন"
+      }
     };
+    DEFAULT_KNOWLEDGE_QUERIES_I18N["zh-CN"] = DEFAULT_KNOWLEDGE_QUERIES_I18N["zh"];
+    const DEFAULT_KNOWLEDGE_QUERIES = DEFAULT_KNOWLEDGE_QUERIES_I18N["id"];
 
 
 
@@ -16470,13 +17628,19 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
     async function loadKnowledgeGraph() {
       resetGraphNodeDetailBox();
+      const loc = userContext.ui_locale || "id";
       const normP = normalizePerspectiveKey(userContext.user_perspective);
       const pCfg = PERSPECTIVE_CONFIGS[normP] || PERSPECTIVE_CONFIGS["christian_protestant"];
       const qInput = document.getElementById("graph-query-input");
-      const defaultQ = DEFAULT_KNOWLEDGE_QUERIES[normP] || DEFAULT_KNOWLEDGE_QUERIES.christian_protestant;
-      let q = (qInput ? qInput.value.trim() : "") || defaultQ;
-      if (qInput && !qInput.value.trim()) {
-        qInput.value = q;
+      const tDict = (typeof I18N_DICTIONARY !== "undefined" && I18N_DICTIONARY[loc]) ? I18N_DICTIONARY[loc] : ((typeof I18N_DICTIONARY !== "undefined" && I18N_DICTIONARY["en"]) ? I18N_DICTIONARY["en"] : {});
+      const qDict = DEFAULT_KNOWLEDGE_QUERIES_I18N[loc] || DEFAULT_KNOWLEDGE_QUERIES_I18N["en"] || DEFAULT_KNOWLEDGE_QUERIES_I18N["id"];
+      const defaultQ = qDict[normP] || qDict.christian_protestant;
+
+      const isKnownDefault = Object.values(DEFAULT_KNOWLEDGE_QUERIES_I18N).some(d => Object.values(d).includes(qInput ? qInput.value.trim() : ""));
+      let q = (qInput ? qInput.value.trim() : "");
+      if (!q || isKnownDefault) {
+        q = defaultQ;
+        if (qInput) qInput.value = q;
       }
       currentActiveKnowledgeQuery = q;
 
@@ -16488,22 +17652,33 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       if (loader) loader.style.display = "block";
 
       try {
-        const res = await fetch(`/api/v1/knowledge/graph?q=${encodeURIComponent(q)}`);
+        const res = await fetch(`/api/v1/knowledge/graph?q=${encodeURIComponent(q)}&locale=${encodeURIComponent(loc)}`);
         const data = await res.json();
         if (loader) loader.style.display = "none";
 
         if (res.ok && data.success) {
           currentGraphData = data;
-          if (statsPill) statsPill.textContent = `${pCfg.badge} | Titik Argumen: ${data.nodes_count} | Hubungan Logika: ${data.edges_count}`;
+          if (statsPill) statsPill.textContent = `${pCfg.badge} | ${tDict.knowledgeStatsNodes || 'Titik Argumen'}: ${data.nodes_count} | ${tDict.knowledgeStatsEdges || 'Hubungan Logika'}: ${data.edges_count}`;
 
           // Auto-synchronize Claims Index and Evidence Corpus tabs with active motion query
           loadKnowledgeClaims(q);
           loadKnowledgeEvidence(q);
 
           const NODE_TYPE_LABELS = {
-            "CLAIM": "KLAIM UTAMA",
-            "PROPOSITION": "GAGASAN UTAMA",
-            "EVIDENCE": "BUKTI AYAT"
+            "CLAIM": tDict.nodeTypeClaim || "KLAIM UTAMA",
+            "PROPOSITION": tDict.nodeTypeProposition || "GAGASAN UTAMA",
+            "EVIDENCE": tDict.nodeTypeEvidence || "BUKTI AYAT"
+          };
+
+          const STATUS_BADGE_MAP = {
+            "ACTIVE": tDict.badgeStatusActive || "ACTIVE",
+            "SUPPORTED": tDict.badgeStatusSupported || "SUPPORTED",
+            "INFERRED": tDict.badgeStatusInferred || "INFERRED",
+            "PRIMARY_SOURCE": tDict.badgeStatusPrimarySource || "PRIMARY_SOURCE",
+            "DIRECTLY_VERIFIED": tDict.badgeStatusVerified || "DIRECTLY_VERIFIED",
+            "DISPUTED": tDict.badgeStatusDisputed || "DISPUTED",
+            "UNSUPPORTED": tDict.badgeStatusUnsupported || "UNSUPPORTED",
+            "VERIFIED": tDict.badgeStatusVerified || "VERIFIED"
           };
 
           // Render interactive nodes following Studi Kasus Kanonikal Unggulan theme
@@ -16530,7 +17705,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
             const passageRaw = n.passage || n.passage_reference || extractPassageReferenceFromText(n.label || '') || extractPassageReferenceFromText(q || '');
             const passageParam = (typeof escapeHtml === "function" ? escapeHtml(passageRaw) : passageRaw).replace(/'/g, "\\'");
             const confidencePercent = ((n.confidence || 0.95)*100).toFixed(0);
-            const statusLabel = n.status || (n.type === 'EVIDENCE' ? 'PRIMARY_SOURCE' : 'VERIFIED');
+            const statusLabel = STATUS_BADGE_MAP[n.status] || n.status || (n.type === 'EVIDENCE' ? (STATUS_BADGE_MAP.PRIMARY_SOURCE || 'PRIMARY_SOURCE') : 'VERIFIED');
             const origLang = n.original_language || '';
             const isHebrew = origLang.toLowerCase().includes('hebrew') || origLang.toLowerCase().includes('ibrani') || origLang.toLowerCase().includes('aramaic');
             const origLangClass = isHebrew ? 'hebrew-text' : 'greek-text';
@@ -16580,29 +17755,29 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                       ${n.translations && (n.translations.literal || n.translations.lai || n.translations.kjv) ? `
                         <div style="margin: 0.35rem 0 0.2rem 0; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 0.5rem 0.65rem; font-size: 0.78rem; display: flex; flex-direction: column; gap: 0.35rem;">
                           <div style="font-size: 0.68rem; font-weight: 700; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.1rem; display: flex; align-items: center; gap: 0.3rem;">
-                            <span>📖</span> <span>Perbandingan Terjemahan Multi-Versi:</span>
+                            <span>📖</span> <span>${tDict.transComparisonTitle || 'Perbandingan Terjemahan Multi-Versi:'}</span>
                           </div>
                           ${n.translations.literal ? `
                             <div style="line-height: 1.4; border-inline-start: 3px solid #38bdf8; padding-inline-start: 0.45rem;">
-                              <strong style="color: #38bdf8; font-size: 0.72rem;">Literal Koine Abad ke-1 / Filologis:</strong>
+                              <strong style="color: #38bdf8; font-size: 0.72rem;">${tDict.transLiteralTitle || 'Literal Koine Abad ke-1 / Filologis:'}</strong>
                               <div style="color: #f1f5f9; margin-top: 0.1rem;">"${escapeHtml(n.translations.literal)}"</div>
                             </div>
                           ` : ''}
                           ${n.translations.lai ? `
                             <div style="line-height: 1.4; border-inline-start: 3px solid #34d399; padding-inline-start: 0.45rem;">
-                              <strong style="color: #34d399; font-size: 0.72rem;">LAI (Terjemahan Baru - Indonesia):</strong>
+                              <strong style="color: #34d399; font-size: 0.72rem;">${tDict.transLaiTitle || 'LAI (Terjemahan Baru - Indonesia):'}</strong>
                               <div style="color: #f1f5f9; margin-top: 0.1rem;">"${escapeHtml(n.translations.lai)}"</div>
                             </div>
                           ` : ''}
                           ${n.translations.kjv ? `
                             <div style="line-height: 1.4; border-inline-start: 3px solid #a78bfa; padding-inline-start: 0.45rem;">
-                              <strong style="color: #a78bfa; font-size: 0.72rem;">KJV (King James Version):</strong>
+                              <strong style="color: #a78bfa; font-size: 0.72rem;">${tDict.transKjvTitle || 'KJV (King James Version):'}</strong>
                               <div style="color: #cbd5e1; margin-top: 0.1rem;">"${escapeHtml(n.translations.kjv)}"</div>
                             </div>
                           ` : ''}
                           ${n.translations.esv ? `
                             <div style="line-height: 1.4; border-inline-start: 3px solid #f472b6; padding-inline-start: 0.45rem;">
-                              <strong style="color: #f472b6; font-size: 0.72rem;">ESV / NRSV (Academic Standard):</strong>
+                              <strong style="color: #f472b6; font-size: 0.72rem;">${tDict.transEsvTitle || 'ESV / NRSV (Academic Standard):'}</strong>
                               <div style="color: #cbd5e1; margin-top: 0.1rem;">"${escapeHtml(n.translations.esv)}"</div>
                             </div>
                           ` : ''}
@@ -16615,10 +17790,10 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                   <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.4rem; margin-top: auto; display: flex; justify-content: space-between; align-items: center; font-size: 0.76rem; flex-wrap: wrap; gap: 0.4rem;">
                     <span style="color: #94a3b8; display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.74rem;">
                       <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
-                      Akurasi Bukti: <strong style="color: #ffffff; font-weight: 700;">${confidencePercent}%</strong>
+                      ${tDict.evidenceAccuracy || 'Akurasi Bukti'}: <strong style="color: #ffffff; font-weight: 700;">${confidencePercent}%</strong>
                     </span>
-                    <span style="color: var(--primary); font-size: 0.76rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem;" onclick="event.stopPropagation(); openSourceDrawer('${passageParam}');" title="Buka telaah naskah primer di drawer">
-                      <span>Telaah Bukti</span> <span>→</span>
+                    <span style="color: var(--primary); font-size: 0.76rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem;" onclick="event.stopPropagation(); openSourceDrawer('${passageParam}');" title="${tDict.inspectEvidenceTooltip || 'Buka telaah naskah primer di drawer'}">
+                      <span>${tDict.inspectEvidenceAction || 'Telaah Bukti'}</span> <span>→</span>
                     </span>
                   </div>
                 </div>
@@ -16647,15 +17822,17 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       const node = currentGraphData.nodes.find(n => n.id === nodeId);
       if (!node) return;
 
+      const loc = userContext.ui_locale || "id";
+      const tDict = (typeof I18N_DICTIONARY !== "undefined" && I18N_DICTIONARY[loc]) ? I18N_DICTIONARY[loc] : ((typeof I18N_DICTIONARY !== "undefined" && I18N_DICTIONARY["en"]) ? I18N_DICTIONARY["en"] : {});
       const box = document.getElementById("graph-node-detail-box");
       box.classList.remove("hidden");
       box.scrollIntoView({ behavior: "smooth" });
 
       const nType = document.getElementById("node-detail-type");
       const typeDisplay = {
-        "CLAIM": "KLAIM UTAMA",
-        "PROPOSITION": "GAGASAN UTAMA",
-        "EVIDENCE": "BUKTI AYAT"
+        "CLAIM": tDict.nodeTypeClaim || "KLAIM UTAMA",
+        "PROPOSITION": tDict.nodeTypeProposition || "GAGASAN UTAMA",
+        "EVIDENCE": tDict.nodeTypeEvidence || "BUKTI AYAT"
       }[node.type] || node.type;
       if (nType) nType.textContent = typeDisplay;
       const nTitle = document.getElementById("node-detail-title");
@@ -16665,14 +17842,25 @@ Menunggu instruksi user untuk eksekusi backlog P0.
 
       const passageRaw = node.passage || node.passage_reference || (node.label ? node.label.split('(')[0].trim() : '');
       const passageParam = (typeof escapeHtml === "function" ? escapeHtml(passageRaw) : passageRaw).replace(/'/g, "\\'");
+      const stMap = {
+        "ACTIVE": tDict.badgeStatusActive || "ACTIVE",
+        "SUPPORTED": tDict.badgeStatusSupported || "SUPPORTED",
+        "INFERRED": tDict.badgeStatusInferred || "INFERRED",
+        "PRIMARY_SOURCE": tDict.badgeStatusPrimarySource || "PRIMARY_SOURCE",
+        "DIRECTLY_VERIFIED": tDict.badgeStatusVerified || "DIRECTLY_VERIFIED",
+        "DISPUTED": tDict.badgeStatusDisputed || "DISPUTED",
+        "UNSUPPORTED": tDict.badgeStatusUnsupported || "UNSUPPORTED",
+        "VERIFIED": tDict.badgeStatusVerified || "VERIFIED"
+      };
+      const stDisp = stMap[node.status] || node.status || 'VERIFIED';
       document.getElementById("node-detail-meta").innerHTML = `
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.65rem;">
           <div>
-            Status: <strong style="color: #ffffff;">${node.status || 'VERIFIED'}</strong> | Confidence: <strong style="color: #ffffff;">${((node.confidence || 0.95)*100).toFixed(1)}%</strong>
+            Status: <strong style="color: #ffffff;">${stDisp}</strong> | ${tDict.confidenceLabel || 'Confidence:'} <strong style="color: #ffffff;">${((node.confidence || 0.95)*100).toFixed(1)}%</strong>
             ${node.provenance_hash ? ` | Provenance: <code>${node.provenance_hash}</code>` : ''}
           </div>
           <button type="button" class="btn-primary" style="background: #000000; color: #ffffff; border: 1px solid #94a3b8; padding: 0.35rem 0.85rem; font-size: 0.78rem; font-weight: 600; cursor: pointer; border-radius: 8px; display: inline-flex; align-items: center; gap: 0.35rem;" onclick="openSourceDrawer('${passageParam}')">
-            <span>🔍 Show me the source</span> ${passageRaw ? `<span style="color: #38bdf8;">(${escapeHtml(passageRaw)})</span>` : ''}
+            <span>${tDict.btnShowSource || '🔍 Show me the source'}</span> ${passageRaw ? `<span style="color: #38bdf8;">(${escapeHtml(passageRaw)})</span>` : ''}
           </button>
         </div>
       `;
@@ -16701,19 +17889,22 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     async function loadKnowledgeClaims(query) {
       const container = document.getElementById("claims-list-container");
       if (!container) return;
-      container.innerHTML = `<p style="color: var(--primary);"><span class="pulse-dot"></span> Memuat daftar klaim & premis...</p>`;
+      const loc = userContext.ui_locale || "id";
+      const tDict = (typeof I18N_DICTIONARY !== "undefined" && I18N_DICTIONARY[loc]) ? I18N_DICTIONARY[loc] : ((typeof I18N_DICTIONARY !== "undefined" && I18N_DICTIONARY["en"]) ? I18N_DICTIONARY["en"] : {});
+      container.innerHTML = `<p style="color: var(--primary);"><span class="pulse-dot"></span> ${tDict.claimsLoading || 'Memuat daftar klaim & premis...'}</p>`;
       const qInput = document.getElementById("graph-query-input");
       const normP = normalizePerspectiveKey(userContext.user_perspective);
-      const defaultQ = DEFAULT_KNOWLEDGE_QUERIES[normP] || DEFAULT_KNOWLEDGE_QUERIES.christian_protestant;
+      const qDict = DEFAULT_KNOWLEDGE_QUERIES_I18N[loc] || DEFAULT_KNOWLEDGE_QUERIES_I18N["en"] || DEFAULT_KNOWLEDGE_QUERIES_I18N["id"];
+      const defaultQ = qDict[normP] || qDict.christian_protestant;
       const activeQ = (query !== undefined && query !== null && query !== "") ? query : (currentActiveKnowledgeQuery || (qInput ? qInput.value.trim() : "") || defaultQ);
 
       try {
-        const res = await fetch(`/api/v1/knowledge/claims?q=${encodeURIComponent(activeQ)}`);
+        const res = await fetch(`/api/v1/knowledge/claims?q=${encodeURIComponent(activeQ)}&locale=${encodeURIComponent(loc)}`);
         const data = await res.json();
         if (res.ok && data.success) {
           _activeKnowledgeClaimsList = data.claims || [];
           if (_activeKnowledgeClaimsList.length === 0) {
-            container.innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem;">Tidak ada klaim atau premis yang ditemukan untuk mosi ini.</p>`;
+            container.innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem;">${tDict.claimsEmpty || 'Tidak ada klaim atau premis yang ditemukan untuk mosi ini.'}</p>`;
             return;
           }
 
@@ -16749,7 +17940,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                         <span>${typeIcon}</span> <span>• ${escapeHtml(c.status)}</span>
                       </span>
                       <span class="evidence-badge" style="background: rgba(255, 255, 255, 0.06); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.15); font-size: 0.68rem; padding: 0.12rem 0.5rem; font-family: var(--font-mono); border-radius: 9999px;">
-                        Keyakinan: ${((c.confidence || 0.95)*100).toFixed(0)}%
+                        ${tDict.confidenceLabel || 'Keyakinan:'} ${((c.confidence || 0.95)*100).toFixed(0)}%
                       </span>
                     </div>
 
@@ -16760,7 +17951,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                     ` : ''}
 
                     <!-- Body: Klaim / Proposisi -->
-                    <div style="font-size: 0.88rem; font-weight: 600; color: #f8fafc; line-height: 1.45; word-break: break-word; white-space: normal; background: rgba(14, 165, 233, 0.08); padding: 0.5rem 0.75rem; border-radius: 6px; border-left: 3px solid var(--accent); margin-bottom: 0.25rem;">
+                    <div style="font-size: 0.88rem; font-weight: 600; color: #f8fafc; line-height: 1.45; word-break: break-word; white-space: normal; background: rgba(14, 165, 233, 0.08); padding: 0.5rem 0.75rem; border-radius: 6px; border-inline-start: 3px solid var(--accent); margin-bottom: 0.25rem;">
                       ⚖️ ${escapeHtml(c.text)}
                     </div>
 
@@ -16777,10 +17968,10 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                   <!-- Footer Action Bar -->
                   <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.4rem; margin-top: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.4rem;">
                     <button type="button" class="btn-primary" style="padding: 0.28rem 0.7rem; font-size: 0.74rem; cursor: pointer; border-radius: 6px;" onclick="event.stopPropagation(); applyKnowledgeClaimToCalculator(${idx});" title="Uji klaim ini di Apologetics Calculator">
-                      ⚡ Uji di Kalkulator
+                      ⚡ ${tDict.btnTestInCalculator || 'Uji di Kalkulator'}
                     </button>
                     <span style="color: var(--primary); font-size: 0.76rem; font-weight: 600; cursor: pointer;" onclick="event.stopPropagation(); ${extractedPassage ? `openSourceDrawer('${extractedPassage.replace(/'/g, "\\'")}')` : `applyKnowledgeClaimToCalculator(${idx})`};">
-                      ${extractedPassage ? 'Telaah Bukti →' : 'Detail Dossier →'}
+                      ${extractedPassage ? (tDict.inspectEvidenceAction ? tDict.inspectEvidenceAction + ' →' : 'Telaah Bukti →') : (tDict.btnDossierDetail || 'Detail Dossier →')}
                     </span>
                   </div>
                 </div>
@@ -16789,28 +17980,31 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           }).join('');
         }
       } catch(e) {
-        container.innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem;">Gagal memuat daftar klaim & premis.</p>`;
+        container.innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem;">${tDict.claimsEmpty || 'Gagal memuat daftar klaim & premis.'}</p>`;
       }
     }
 
     async function loadKnowledgeEvidence(query) {
       const container = document.getElementById("evidence-list-container");
       if (!container) return;
-      container.innerHTML = `<p style="color: var(--primary);"><span class="pulse-dot"></span> Memuat bukti naskah asli & saksi manuskrip...</p>`;
+      const loc = userContext.ui_locale || "id";
+      const tDict = (typeof I18N_DICTIONARY !== "undefined" && I18N_DICTIONARY[loc]) ? I18N_DICTIONARY[loc] : ((typeof I18N_DICTIONARY !== "undefined" && I18N_DICTIONARY["en"]) ? I18N_DICTIONARY["en"] : {});
+      container.innerHTML = `<p style="color: var(--primary);"><span class="pulse-dot"></span> ${tDict.evidenceLoading || 'Memuat bukti naskah asli & saksi manuskrip...'}</p>`;
       const normP = normalizePerspectiveKey(userContext.user_perspective);
       const pCfg = PERSPECTIVE_CONFIGS[normP] || PERSPECTIVE_CONFIGS["christian_protestant"];
       const preferredLangs = PERSPECTIVE_CORPUS_LANG_PREFERENCE[normP] || ["el", "he"];
       const qInput = document.getElementById("graph-query-input");
-      const defaultQ = DEFAULT_KNOWLEDGE_QUERIES[normP] || DEFAULT_KNOWLEDGE_QUERIES.christian_protestant;
+      const qDict = DEFAULT_KNOWLEDGE_QUERIES_I18N[loc] || DEFAULT_KNOWLEDGE_QUERIES_I18N["en"] || DEFAULT_KNOWLEDGE_QUERIES_I18N["id"];
+      const defaultQ = qDict[normP] || qDict.christian_protestant;
       const activeQ = (query !== undefined && query !== null && query !== "") ? query : (currentActiveKnowledgeQuery || (qInput ? qInput.value.trim() : "") || defaultQ);
 
       try {
-        const res = await fetch(`/api/v1/knowledge/evidence?q=${encodeURIComponent(activeQ)}`);
+        const res = await fetch(`/api/v1/knowledge/evidence?q=${encodeURIComponent(activeQ)}&locale=${encodeURIComponent(loc)}`);
         const data = await res.json();
         if (res.ok && data.success) {
           let list = (data.evidence || []).slice();
           if (list.length === 0) {
-            container.innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem;">Tidak ada bukti naskah yang cocok dengan mosi ini.</p>`;
+            container.innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem;">${tDict.evidenceEmpty || 'Tidak ada bukti naskah yang cocok dengan mosi ini.'}</p>`;
             return;
           }
 
@@ -16847,9 +18041,9 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                           📜 • ${escapeHtml(e.original_language || 'Koine Greek').toUpperCase()}
                         </span>
                         <span class="evidence-badge badge-direct" style="font-size: 0.65rem; padding: 0.12rem 0.45rem; background: rgba(16, 185, 129, 0.12); color: var(--emerald); border: 1px solid var(--emerald); font-weight: 700;">
-                          • NASKAH SUMBER ASLI
+                          ${tDict.badgeOriginalText || '• NASKAH SUMBER ASLI'}
                         </span>
-                        ${isPreferred ? `<span class="evidence-badge badge-primary-source" style="font-size: 0.65rem; padding: 0.12rem 0.45rem;">⭐ KORPUS UTAMA</span>` : ''}
+                        ${isPreferred ? `<span class="evidence-badge badge-primary-source" style="font-size: 0.65rem; padding: 0.12rem 0.45rem;">${tDict.badgePrimaryCorpus || '⭐ KORPUS UTAMA'}</span>` : ''}
                       </div>
                       <span class="evidence-badge" style="background: rgba(255, 255, 255, 0.06); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.15); font-size: 0.65rem; padding: 0.12rem 0.45rem; font-family: var(--font-mono); border-radius: 9999px;">
                         PRIMARY_SOURCE
@@ -16879,29 +18073,29 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                     <!-- 2. Blok Perbandingan Terjemahan Multi-Versi Lengkap -->
                     <div style="margin: 0.35rem 0 0.35rem 0; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 0.5rem 0.7rem; font-size: 0.80rem; display: flex; flex-direction: column; gap: 0.35rem;">
                       <div style="font-size: 0.68rem; font-weight: 700; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.1rem; display: flex; align-items: center; gap: 0.3rem;">
-                        <span>📖</span> <span>Perbandingan Terjemahan Multi-Versi:</span>
+                        <span>📖</span> <span>${tDict.transComparisonTitle || 'Perbandingan Terjemahan Multi-Versi:'}</span>
                       </div>
                       <div style="line-height: 1.4; border-inline-start: 3px solid #38bdf8; padding-inline-start: 0.45rem;">
-                        <strong style="color: #38bdf8; font-size: 0.72rem;">Literal Koine Abad ke-1 / Filologis:</strong>
+                        <strong style="color: #38bdf8; font-size: 0.72rem;">${tDict.transLiteralTitle || 'Literal Koine Abad ke-1 / Filologis:'}</strong>
                         <div style="color: #f1f5f9; margin-top: 0.1rem;">"${escapeHtml(tLit)}"</div>
                       </div>
                       <div style="line-height: 1.4; border-inline-start: 3px solid #34d399; padding-inline-start: 0.45rem;">
-                        <strong style="color: #34d399; font-size: 0.72rem;">LAI (Terjemahan Baru - Indonesia):</strong>
+                        <strong style="color: #34d399; font-size: 0.72rem;">${tDict.transLaiTitle || 'LAI (Terjemahan Baru - Indonesia):'}</strong>
                         <div style="color: #f1f5f9; margin-top: 0.1rem;">"${escapeHtml(tLai)}"</div>
                       </div>
                       <div style="line-height: 1.4; border-inline-start: 3px solid #a78bfa; padding-inline-start: 0.45rem;">
-                        <strong style="color: #a78bfa; font-size: 0.72rem;">KJV (King James Version):</strong>
+                        <strong style="color: #a78bfa; font-size: 0.72rem;">${tDict.transKjvTitle || 'KJV (King James Version):'}</strong>
                         <div style="color: #cbd5e1; margin-top: 0.1rem;">"${escapeHtml(tKjv)}"</div>
                       </div>
                       <div style="line-height: 1.4; border-inline-start: 3px solid #f472b6; padding-inline-start: 0.45rem;">
-                        <strong style="color: #f472b6; font-size: 0.72rem;">ESV / NRSV (Academic Standard):</strong>
+                        <strong style="color: #f472b6; font-size: 0.72rem;">${tDict.transEsvTitle || 'ESV / NRSV (Academic Standard):'}</strong>
                         <div style="color: #cbd5e1; margin-top: 0.1rem;">"${escapeHtml(tEsv)}"</div>
                       </div>
                     </div>
 
                     <!-- Saksi Manuskrip Chips -->
                     <div style="font-size: 0.74rem; color: #94a3b8; margin-top: 0.25rem; display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap;">
-                      <strong style="color: #cbd5e1;">Saksi Manuskrip:</strong>
+                      <strong style="color: #cbd5e1;">${tDict.manuscriptWitnessesTitle || 'Saksi Manuskrip:'}</strong>
                       ${(e.witnesses || []).map(w => `<span class="evidence-badge" style="font-size: 0.65rem; padding: 0.1rem 0.45rem; background: rgba(234, 179, 8, 0.12); color: #fbbf24; border: 1px solid rgba(234, 179, 8, 0.25); text-transform: uppercase;">${escapeHtml(w)}</span>`).join('') || '<span style="color: var(--text-dim);">-</span>'}
                     </div>
                   </div>
@@ -16913,7 +18107,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
                       Keyakinan: <strong style="color: #ffffff;">${((e.confidence || 0.98)*100).toFixed(0)}%</strong>
                     </span>
                     <span style="color: var(--primary); font-size: 0.76rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem;" onclick="event.stopPropagation(); openSourceDrawer('${passClean}');" title="Buka telaah naskah di drawer sumber">
-                      <span>Telaah di Drawer Sumber</span> <span>→</span>
+                      <span>${tDict.btnInspectDrawer || 'Telaah di Drawer Sumber →'}</span>
                     </span>
                   </div>
                 </div>
@@ -16922,7 +18116,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
           }).join('');
         }
       } catch(e) {
-        container.innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem;">Gagal memuat bukti naskah.</p>`;
+        container.innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem;">${tDict.evidenceEmpty || 'Gagal memuat bukti naskah.'}</p>`;
       }
     }
 
@@ -18693,7 +19887,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               </span>
               <span style="font-size: 0.68rem; color: #38bdf8; font-weight: 600;">${escapeHtml(it.book_or_cluster)}</span>
             </div>
-            <div class="canonical-submotion-box" style="font-size: 0.88rem; font-weight: 500; color: #ffffff; background: rgba(14, 165, 233, 0.08); padding: 0.55rem 0.85rem; border-radius: 6px; border-left: 3px solid var(--accent); line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" title="${safeTitle}">
+            <div class="canonical-submotion-box" style="font-size: 0.88rem; font-weight: 500; color: #ffffff; background: rgba(14, 165, 233, 0.08); padding: 0.55rem 0.85rem; border-radius: 6px; border-inline-start: 3px solid var(--accent); line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" title="${safeTitle}">
               ⚖️ ${subMotionLabel}: ${escapeHtml(it.claim)}
             </div>
             ${safePassage ? `
@@ -18805,9 +19999,11 @@ Menunggu instruksi user untuk eksekusi backlog P0.
       if (!panel) return;
 
       const shouldOpen = forceOpen !== null ? forceOpen : panel.classList.contains("hidden");
+      const loc = userContext.ui_locale || "id";
+      const tDict = (typeof I18N_DICTIONARY !== "undefined" && I18N_DICTIONARY[loc]) ? I18N_DICTIONARY[loc] : ((typeof I18N_DICTIONARY !== "undefined" && I18N_DICTIONARY["en"]) ? I18N_DICTIONARY["en"] : {});
       if (shouldOpen) {
         panel.classList.remove("hidden");
-        if (btnText) btnText.textContent = "Tutup Direktori Mosi ▲";
+        if (btnText) btnText.textContent = tDict.knowledgeDirToggleOpen || "Tutup Direktori Mosi ▲";
         if (btnIcon) btnIcon.textContent = "📖";
 
         await loadMotionDirectoryData();
@@ -18824,7 +20020,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
         }
       } else {
         panel.classList.add("hidden");
-        if (btnText) btnText.textContent = "Cari Mosi (2.456 Mosi) ▼";
+        if (btnText) btnText.textContent = tDict.knowledgeDirToggleDefault || "Cari Mosi (2.456 Mosi) ▼";
         if (btnIcon) btnIcon.textContent = "📚";
       }
     }
@@ -18899,6 +20095,9 @@ Menunggu instruksi user untuk eksekusi backlog P0.
     }
 
     function renderGraphMotionChunk() {
+      const loc = userContext.ui_locale || 'id';
+      const tDict = (typeof I18N_DICTIONARY !== 'undefined' && I18N_DICTIONARY[loc]) ? I18N_DICTIONARY[loc] : ((typeof I18N_DICTIONARY !== 'undefined' && I18N_DICTIONARY['en']) ? I18N_DICTIONARY['en'] : {});
+      const subMotionLabel = (tDict && tDict.subMotionPrefix) || "Sub-mosi";
       const listContainer = document.getElementById("graph-motion-directory-list");
       if (!listContainer) return;
 
@@ -18969,7 +20168,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               </span>
               <span style="font-size: 0.68rem; color: #38bdf8; font-weight: 600;">${escapeHtml(it.book_or_cluster)}</span>
             </div>
-            <div class="canonical-submotion-box" style="font-size: 0.88rem; font-weight: 500; color: #ffffff; background: rgba(14, 165, 233, 0.08); padding: 0.55rem 0.85rem; border-radius: 6px; border-left: 3px solid var(--accent); line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" title="${safeTitle}">
+            <div class="canonical-submotion-box" style="font-size: 0.88rem; font-weight: 500; color: #ffffff; background: rgba(14, 165, 233, 0.08); padding: 0.55rem 0.85rem; border-radius: 6px; border-inline-start: 3px solid var(--accent); line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" title="${safeTitle}">
               ⚖️ ${subMotionLabel}: ${escapeHtml(it.claim)}
             </div>
             ${safePassage ? `
@@ -18978,8 +20177,8 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               </div>
             ` : ''}
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.25rem; padding-top: 0.45rem; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 0.5rem;">
-              <button type="button" class="btn-primary btn-motion-test" style="padding: 0.32rem 0.75rem; font-size: 0.75rem; cursor: pointer;" title="Eksplorasi ontologi graph dan relasi DAG untuk mosi ini">
-                🔍 Eksplorasi Graph ➔
+              <button type="button" class="btn-primary btn-motion-test" style="padding: 0.32rem 0.75rem; font-size: 0.75rem; cursor: pointer;" title="${escapeHtml(tDict.knowledgeBtnExploreTooltip || 'Eksplorasi ontologi graph dan relasi DAG untuk mosi ini')}">
+                🔍 ${escapeHtml(tDict.knowledgeBtnExploreCard || 'Eksplorasi Graph')} ➔
               </button>
               <span style="color: var(--primary); font-size: 0.78rem; font-weight: 600; cursor: pointer;">
                 ${escapeHtml(it.label)} ➔
@@ -19270,7 +20469,7 @@ Menunggu instruksi user untuk eksekusi backlog P0.
               </span>
               <span style="font-size: 0.68rem; color: #38bdf8; font-weight: 600;">${escapeHtml(it.book_or_cluster)}</span>
             </div>
-            <div class="canonical-submotion-box" style="font-size: 0.88rem; font-weight: 500; color: #ffffff; background: rgba(14, 165, 233, 0.08); padding: 0.55rem 0.85rem; border-radius: 6px; border-left: 3px solid var(--accent); line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" title="${safeTitle}">
+            <div class="canonical-submotion-box" style="font-size: 0.88rem; font-weight: 500; color: #ffffff; background: rgba(14, 165, 233, 0.08); padding: 0.55rem 0.85rem; border-radius: 6px; border-inline-start: 3px solid var(--accent); line-height: 1.45; white-space: normal; word-break: break-word; overflow-wrap: anywhere; cursor: pointer;" title="${safeTitle}">
               ⚖️ Mosi: ${escapeHtml(it.claim)}
             </div>
             ${safePassage ? `

@@ -16,7 +16,8 @@
     "pt": "Mateus",
     "de": "Matthäus",
     "it": "Matteo",
-    "ru": "Матфея"
+    "ru": "Матфея",
+    "zh-CN": "马太福音"
   },
   "Markus": {
     "en": "Mark",
@@ -35,7 +36,8 @@
     "pt": "Marcos",
     "de": "Markus",
     "it": "Marco",
-    "ru": "Марка"
+    "ru": "Марка",
+    "zh-CN": "马可福音"
   },
   "Lukas": {
     "en": "Luke",
@@ -54,7 +56,8 @@
     "pt": "Lucas",
     "de": "Lukas",
     "it": "Luca",
-    "ru": "Луки"
+    "ru": "Луки",
+    "zh-CN": "路加福音"
   },
   "Yohanes": {
     "en": "John",
@@ -73,7 +76,8 @@
     "pt": "João",
     "de": "Johannes",
     "it": "Giovanni",
-    "ru": "Иоанна"
+    "ru": "Иоанна",
+    "zh-CN": "约翰福音"
   },
   "Kisah Para Rasul": {
     "en": "Acts",
@@ -92,7 +96,8 @@
     "pt": "Atos",
     "de": "Apostelgeschichte",
     "it": "Atti degli Apostoli",
-    "ru": "Деяния"
+    "ru": "Деяния",
+    "zh-CN": "使徒行传"
   },
   "Kisah": {
     "en": "Acts",
@@ -111,7 +116,8 @@
     "pt": "Atos",
     "de": "Apostelgeschichte",
     "it": "Atti degli Apostoli",
-    "ru": "Деяния"
+    "ru": "Деяния",
+    "zh-CN": "使徒行传"
   },
   "Roma": {
     "en": "Romans",
@@ -130,7 +136,8 @@
     "pt": "Romanos",
     "de": "Römer",
     "it": "Romani",
-    "ru": "Римлянам"
+    "ru": "Римлянам",
+    "zh-CN": "罗马书"
   },
   "1 Korintus": {
     "en": "1 Corinthians",
@@ -149,7 +156,8 @@
     "pt": "1 Coríntios",
     "de": "1. Korinther",
     "it": "1 Corinzi",
-    "ru": "1 Коринфянам"
+    "ru": "1 Коринфянам",
+    "zh-CN": "哥林多前书"
   },
   "2 Korintus": {
     "en": "2 Corinthians",
@@ -168,7 +176,8 @@
     "pt": "2 Coríntios",
     "de": "2. Korinther",
     "it": "2 Corinzi",
-    "ru": "2 Коринфянам"
+    "ru": "2 Коринфянам",
+    "zh-CN": "哥林多后书"
   },
   "Galatia": {
     "en": "Galatians",
@@ -187,7 +196,8 @@
     "pt": "Gálatas",
     "de": "Galater",
     "it": "Galati",
-    "ru": "Галатам"
+    "ru": "Галатам",
+    "zh-CN": "加拉太书"
   },
   "Efesus": {
     "en": "Ephesians",
@@ -206,7 +216,8 @@
     "pt": "Efésios",
     "de": "Epheser",
     "it": "Efesini",
-    "ru": "Ефесянам"
+    "ru": "Ефесянам",
+    "zh-CN": "以弗所书"
   },
   "Filipi": {
     "en": "Philippians",
@@ -225,7 +236,8 @@
     "pt": "Filipenses",
     "de": "Philipper",
     "it": "Filippesi",
-    "ru": "Филиппийцам"
+    "ru": "Филиппийцам",
+    "zh-CN": "腓立比书"
   },
   "Kolose": {
     "en": "Colossians",
@@ -244,7 +256,8 @@
     "pt": "Colossenses",
     "de": "Kolosser",
     "it": "Colossesi",
-    "ru": "Колоссянам"
+    "ru": "Колоссянам",
+    "zh-CN": "歌罗西书"
   },
   "1 Tesalonika": {
     "en": "1 Thessalonians",
@@ -263,7 +276,8 @@
     "pt": "1 Tessalonicenses",
     "de": "1. Thessalonicher",
     "it": "1 Tessalonicesi",
-    "ru": "1 Фессалоникийцам"
+    "ru": "1 Фессалоникийцам",
+    "zh-CN": "帖撒罗尼迦前书"
   },
   "2 Tesalonika": {
     "en": "2 Thessalonians",
@@ -282,7 +296,8 @@
     "pt": "2 Tessalonicenses",
     "de": "2. Thessalonicher",
     "it": "2 Tessalonicesi",
-    "ru": "2 Фессалоникийцам"
+    "ru": "2 Фессалоникийцам",
+    "zh-CN": "帖撒罗尼迦后书"
   },
   "1 Timotius": {
     "en": "1 Timothy",
@@ -301,7 +316,8 @@
     "pt": "1 Timóteo",
     "de": "1. Timotheus",
     "it": "1 Timoteo",
-    "ru": "1 Тимофею"
+    "ru": "1 Тимофею",
+    "zh-CN": "提摩太前书"
   },
   "2 Timotius": {
     "en": "2 Timothy",
@@ -320,7 +336,8 @@
     "pt": "2 Timóteo",
     "de": "2. Timotheus",
     "it": "2 Timoteo",
-    "ru": "2 Тимофею"
+    "ru": "2 Тимофею",
+    "zh-CN": "提摩太后书"
   },
   "Titus": {
     "en": "Titus",
@@ -339,7 +356,8 @@
     "pt": "Tito",
     "de": "Titus",
     "it": "Tito",
-    "ru": "Титу"
+    "ru": "Титу",
+    "zh-CN": "提多书"
   },
   "Filemon": {
     "en": "Philemon",
@@ -358,7 +376,8 @@
     "pt": "Filemom",
     "de": "Philemon",
     "it": "Filemone",
-    "ru": "Филимону"
+    "ru": "Филимону",
+    "zh-CN": "腓利门书"
   },
   "Ibrani": {
     "en": "Hebrews",
@@ -377,7 +396,8 @@
     "pt": "Hebreus",
     "de": "Hebräer",
     "it": "Ebrei",
-    "ru": "Евреям"
+    "ru": "Евреям",
+    "zh-CN": "希伯来书"
   },
   "Yakobus": {
     "en": "James",
@@ -396,7 +416,8 @@
     "pt": "Tiago",
     "de": "Jakobus",
     "it": "Giacomo",
-    "ru": "Иакова"
+    "ru": "Иакова",
+    "zh-CN": "雅各书"
   },
   "1 Petrus": {
     "en": "1 Peter",
@@ -415,7 +436,8 @@
     "pt": "1 Pedro",
     "de": "1. Petrus",
     "it": "1 Pietro",
-    "ru": "1 Петра"
+    "ru": "1 Петра",
+    "zh-CN": "彼得前书"
   },
   "2 Petrus": {
     "en": "2 Peter",
@@ -434,7 +456,8 @@
     "pt": "2 Pedro",
     "de": "2. Petrus",
     "it": "2 Pietro",
-    "ru": "2 Петра"
+    "ru": "2 Петра",
+    "zh-CN": "彼得后书"
   },
   "1 Yohanes": {
     "en": "1 John",
@@ -453,7 +476,8 @@
     "pt": "1 João",
     "de": "1. Johannes",
     "it": "1 Giovanni",
-    "ru": "1 Иоанна"
+    "ru": "1 Иоанна",
+    "zh-CN": "约翰一书"
   },
   "2 Yohanes": {
     "en": "2 John",
@@ -472,7 +496,8 @@
     "pt": "2 João",
     "de": "2. Johannes",
     "it": "2 Giovanni",
-    "ru": "2 Иоанна"
+    "ru": "2 Иоанна",
+    "zh-CN": "约翰二书"
   },
   "3 Yohanes": {
     "en": "3 John",
@@ -491,7 +516,8 @@
     "pt": "3 João",
     "de": "3. Johannes",
     "it": "3 Giovanni",
-    "ru": "3 Иоанна"
+    "ru": "3 Иоанна",
+    "zh-CN": "约翰三书"
   },
   "Yudas": {
     "en": "Jude",
@@ -510,7 +536,8 @@
     "pt": "Judas",
     "de": "Judas",
     "it": "Giuda",
-    "ru": "Иуды"
+    "ru": "Иуды",
+    "zh-CN": "犹大书"
   },
   "Wahyu": {
     "en": "Revelation",
@@ -529,7 +556,8 @@
     "pt": "Apocalipse",
     "de": "Offenbarung",
     "it": "Apocalisse",
-    "ru": "Откровение"
+    "ru": "Откровение",
+    "zh-CN": "启示录"
   },
   "Kejadian": {
     "en": "Genesis",
@@ -548,7 +576,8 @@
     "pt": "Gênesis",
     "de": "1. Mose",
     "it": "Genesi",
-    "ru": "Бытие"
+    "ru": "Бытие",
+    "zh-CN": "创世记"
   },
   "Keluaran": {
     "en": "Exodus",
@@ -567,7 +596,8 @@
     "pt": "Êxodo",
     "de": "2. Mose",
     "it": "Esodo",
-    "ru": "Исход"
+    "ru": "Исход",
+    "zh-CN": "出埃及记"
   },
   "Imamat": {
     "en": "Leviticus",
@@ -586,7 +616,8 @@
     "pt": "Levítico",
     "de": "3. Mose",
     "it": "Levitico",
-    "ru": "Левит"
+    "ru": "Левит",
+    "zh-CN": "利未记"
   },
   "Bilangan": {
     "en": "Numbers",
@@ -605,7 +636,8 @@
     "pt": "Números",
     "de": "4. Mose",
     "it": "Numeri",
-    "ru": "Числа"
+    "ru": "Числа",
+    "zh-CN": "民数记"
   },
   "Ulangan": {
     "en": "Deuteronomy",
@@ -624,7 +656,8 @@
     "pt": "Deuteronômio",
     "de": "5. Mose",
     "it": "Deuteronomio",
-    "ru": "Второзаконие"
+    "ru": "Второзаконие",
+    "zh-CN": "申命记"
   },
   "Yosua": {
     "en": "Joshua",
@@ -643,7 +676,8 @@
     "pt": "Josué",
     "de": "Josua",
     "it": "Giosuè",
-    "ru": "Иисус Навин"
+    "ru": "Иисус Навин",
+    "zh-CN": "约书亚记"
   },
   "Hakim-hakim": {
     "en": "Judges",
@@ -662,7 +696,8 @@
     "pt": "Juízes",
     "de": "Richter",
     "it": "Giudici",
-    "ru": "Судей"
+    "ru": "Судей",
+    "zh-CN": "士师记"
   },
   "Rut": {
     "en": "Ruth",
@@ -681,7 +716,8 @@
     "pt": "Rute",
     "de": "Rut",
     "it": "Rut",
-    "ru": "Руфь"
+    "ru": "Руфь",
+    "zh-CN": "路得记"
   },
   "1 Samuel": {
     "en": "1 Samuel",
@@ -700,7 +736,8 @@
     "pt": "1 Samuel",
     "de": "1. Samuel",
     "it": "1 Samuele",
-    "ru": "1 Царств"
+    "ru": "1 Царств",
+    "zh-CN": "撒母耳记上"
   },
   "2 Samuel": {
     "en": "2 Samuel",
@@ -719,7 +756,8 @@
     "pt": "2 Samuel",
     "de": "2. Samuel",
     "it": "2 Samuele",
-    "ru": "2 Царств"
+    "ru": "2 Царств",
+    "zh-CN": "撒母耳记下"
   },
   "1 Raja-raja": {
     "en": "1 Kings",
@@ -738,7 +776,8 @@
     "pt": "1 Reis",
     "de": "1. Könige",
     "it": "1 Re",
-    "ru": "3 Царств"
+    "ru": "3 Царств",
+    "zh-CN": "列王纪上"
   },
   "1 Raja": {
     "en": "1 Kings",
@@ -757,7 +796,8 @@
     "pt": "1 Reis",
     "de": "1. Könige",
     "it": "1 Re",
-    "ru": "3 Царств"
+    "ru": "3 Царств",
+    "zh-CN": "列王纪上"
   },
   "2 Raja-raja": {
     "en": "2 Kings",
@@ -776,7 +816,8 @@
     "pt": "2 Reis",
     "de": "2. Könige",
     "it": "2 Re",
-    "ru": "4 Царств"
+    "ru": "4 Царств",
+    "zh-CN": "列王纪下"
   },
   "2 Raja": {
     "en": "2 Kings",
@@ -795,7 +836,8 @@
     "pt": "2 Reis",
     "de": "2. Könige",
     "it": "2 Re",
-    "ru": "4 Царств"
+    "ru": "4 Царств",
+    "zh-CN": "列王纪下"
   },
   "1 Tawarikh": {
     "en": "1 Chronicles",
@@ -814,7 +856,8 @@
     "pt": "1 Crônicas",
     "de": "1. Chronik",
     "it": "1 Cronache",
-    "ru": "1 Паралипоменон"
+    "ru": "1 Паралипоменон",
+    "zh-CN": "历代志上"
   },
   "2 Tawarikh": {
     "en": "2 Chronicles",
@@ -833,7 +876,8 @@
     "pt": "2 Crônicas",
     "de": "2. Chronik",
     "it": "2 Cronache",
-    "ru": "2 Паралипоменон"
+    "ru": "2 Паралипоменон",
+    "zh-CN": "历代志下"
   },
   "Ayub": {
     "en": "Job",
@@ -852,7 +896,8 @@
     "pt": "Jó",
     "de": "Hiob",
     "it": "Giobbe",
-    "ru": "Иов"
+    "ru": "Иов",
+    "zh-CN": "约伯记"
   },
   "Mazmur": {
     "en": "Psalms",
@@ -871,7 +916,8 @@
     "pt": "Salmos",
     "de": "Psalmen",
     "it": "Salmi",
-    "ru": "Псалтирь"
+    "ru": "Псалтирь",
+    "zh-CN": "诗篇"
   },
   "Amsal": {
     "en": "Proverbs",
@@ -890,7 +936,8 @@
     "pt": "Provérbios",
     "de": "Sprüche",
     "it": "Proverbi",
-    "ru": "Притчи"
+    "ru": "Притчи",
+    "zh-CN": "箴言"
   },
   "Pengkhotbah": {
     "en": "Ecclesiastes",
@@ -909,7 +956,8 @@
     "pt": "Eclesiastes",
     "de": "Prediger",
     "it": "Ecclesiaste",
-    "ru": "Екклесиаст"
+    "ru": "Екклесиаст",
+    "zh-CN": "传道书"
   },
   "Kidung Agung": {
     "en": "Song of Solomon",
@@ -928,7 +976,8 @@
     "pt": "Cânticos",
     "de": "Hoheslied",
     "it": "Cantico dei Cantici",
-    "ru": "Песнь Песней"
+    "ru": "Песнь Песней",
+    "zh-CN": "雅歌"
   },
   "Kidung": {
     "en": "Song of Solomon",
@@ -947,7 +996,8 @@
     "pt": "Cânticos",
     "de": "Hoheslied",
     "it": "Cantico dei Cantici",
-    "ru": "Песнь Песней"
+    "ru": "Песнь Песней",
+    "zh-CN": "雅歌"
   },
   "Yesaya": {
     "en": "Isaiah",
@@ -966,7 +1016,8 @@
     "pt": "Isaías",
     "de": "Jesaja",
     "it": "Isaia",
-    "ru": "Исаия"
+    "ru": "Исаия",
+    "zh-CN": "以赛亚书"
   },
   "Yeremia": {
     "en": "Jeremiah",
@@ -985,7 +1036,8 @@
     "pt": "Jeremias",
     "de": "Jeremia",
     "it": "Geremia",
-    "ru": "Иеремия"
+    "ru": "Иеремия",
+    "zh-CN": "耶利米书"
   },
   "Yehezkiel": {
     "en": "Ezekiel",
@@ -1004,7 +1056,8 @@
     "pt": "Ezequiel",
     "de": "Hesekiel",
     "it": "Ezechiele",
-    "ru": "Иезекииль"
+    "ru": "Иезекииль",
+    "zh-CN": "以西结书"
   },
   "Daniel": {
     "en": "Daniel",
@@ -1023,7 +1076,8 @@
     "pt": "Daniel",
     "de": "Daniel",
     "it": "Daniele",
-    "ru": "Даниил"
+    "ru": "Даниил",
+    "zh-CN": "但以理书"
   },
   "Hosea": {
     "en": "Hosea",
@@ -1042,7 +1096,8 @@
     "pt": "Oseias",
     "de": "Hosea",
     "it": "Osea",
-    "ru": "Осия"
+    "ru": "Осия",
+    "zh-CN": "何西阿书"
   },
   "Habakuk": {
     "en": "Habakkuk",
@@ -1061,7 +1116,8 @@
     "pt": "Habacuque",
     "de": "Habakuk",
     "it": "Abacuc",
-    "ru": "Аввакум"
+    "ru": "Аввакум",
+    "zh-CN": "哈巴谷书"
   },
   "Maleakhi": {
     "en": "Malachi",
@@ -1080,7 +1136,8 @@
     "pt": "Malaquias",
     "de": "Maleachi",
     "it": "Malachia",
-    "ru": "Малахия"
+    "ru": "Малахия",
+    "zh-CN": "玛拉基书"
   },
   "Yunus": {
     "en": "Jonah",
@@ -1099,6 +1156,627 @@
     "pt": "Jonas",
     "de": "Jona",
     "it": "Giona",
-    "ru": "Иона"
+    "ru": "Иона",
+    "zh-CN": "约拿书"
+  },
+  "Ezra": {
+    "en": "Ezra",
+    "id": "Ezra",
+    "zh": "以斯拉记",
+    "ar": "عزرا",
+    "tr": "Ezra",
+    "ur": "عزرا",
+    "fa": "عزرا",
+    "hi": "एज्रा",
+    "bn": "ইজ্ৰা",
+    "ja": "エズラ記",
+    "ko": "에스라",
+    "es": "Esdras",
+    "fr": "Esdras",
+    "pt": "Esdras",
+    "de": "Esra",
+    "it": "Esdra",
+    "ru": "Ездра",
+    "zh-CN": "以斯拉记"
+  },
+  "Nehemia": {
+    "en": "Nehemiah",
+    "id": "Nehemia",
+    "zh": "尼希米记",
+    "ar": "نحميا",
+    "tr": "Nehemya",
+    "ur": "نحمیاہ",
+    "fa": "نحمیا",
+    "hi": "नहेमायाह",
+    "bn": "নহিমিয়",
+    "ja": "ネヘミヤ記",
+    "ko": "느헤미야",
+    "es": "Nehemías",
+    "fr": "Néhémie",
+    "pt": "Neemias",
+    "de": "Nehemia",
+    "it": "Neemia",
+    "ru": "Неемия",
+    "zh-CN": "尼希米记"
+  },
+  "Ester": {
+    "en": "Esther",
+    "id": "Ester",
+    "zh": "以斯帖记",
+    "ar": "أستير",
+    "tr": "Ester",
+    "ur": "ایستر",
+    "fa": "استر",
+    "hi": "एस्तेर",
+    "bn": "ইষ্টের",
+    "ja": "エステル記",
+    "ko": "에스더",
+    "es": "Ester",
+    "fr": "Esther",
+    "pt": "Ester",
+    "de": "Ester",
+    "it": "Ester",
+    "ru": "Есфирь",
+    "zh-CN": "以斯帖记"
+  },
+  "Ratapan": {
+    "en": "Lamentations",
+    "id": "Ratapan",
+    "zh": "耶利米哀歌",
+    "ar": "مراثي",
+    "tr": "Ağıtlar",
+    "ur": "نوحہ",
+    "fa": "مراثی",
+    "hi": "विलापगीत",
+    "bn": "বিলাপ-গাথা",
+    "ja": "哀歌",
+    "ko": "예레미야 애가",
+    "es": "Lamentaciones",
+    "fr": "Lamentations",
+    "pt": "Lamentações",
+    "de": "Klagelieder",
+    "it": "Lamentazioni",
+    "ru": "Плач Иеремии",
+    "zh-CN": "耶利米哀歌"
+  },
+  "Yoel": {
+    "en": "Joel",
+    "id": "Yoel",
+    "zh": "约珥书",
+    "ar": "يوئيل",
+    "tr": "Yoel",
+    "ur": "یوایل",
+    "fa": "یوئیل",
+    "hi": "योएल",
+    "bn": "যোয়েল",
+    "ja": "ヨエル書",
+    "ko": "요엘",
+    "es": "Joel",
+    "fr": "Joël",
+    "pt": "Joel",
+    "de": "Joel",
+    "it": "Gioele",
+    "ru": "Иоиль",
+    "zh-CN": "约珥书"
+  },
+  "Amos": {
+    "en": "Amos",
+    "id": "Amos",
+    "zh": "阿摩司书",
+    "ar": "عاموس",
+    "tr": "Amos",
+    "ur": "آموس",
+    "fa": "عاموس",
+    "hi": "आमोस",
+    "bn": "আমোষ",
+    "ja": "アモス書",
+    "ko": "아모스",
+    "es": "Amós",
+    "fr": "Amos",
+    "pt": "Amós",
+    "de": "Amos",
+    "it": "Amos",
+    "ru": "Амос",
+    "zh-CN": "阿摩司书"
+  },
+  "Obaja": {
+    "en": "Obadiah",
+    "id": "Obaja",
+    "zh": "俄巴底亚书",
+    "ar": "عوبديا",
+    "tr": "Ovadya",
+    "ur": "عوبدیاہ",
+    "fa": "عوبدیا",
+    "hi": "ओबद्याह",
+    "bn": "ওবদিয়",
+    "ja": "オバデヤ書",
+    "ko": "오바댜",
+    "es": "Abdías",
+    "fr": "Abdias",
+    "pt": "Obadias",
+    "de": "Obadja",
+    "it": "Abdia",
+    "ru": "Авдий",
+    "zh-CN": "俄巴底亚书"
+  },
+  "Mikha": {
+    "en": "Micah",
+    "id": "Mikha",
+    "zh": "弥迦书",
+    "ar": "ميخا",
+    "tr": "Mika",
+    "ur": "میکاہ",
+    "fa": "میکاه",
+    "hi": "मीका",
+    "bn": "মীখা",
+    "ja": "ミカ書",
+    "ko": "미가",
+    "es": "Miqueas",
+    "fr": "Michée",
+    "pt": "Miqueias",
+    "de": "Micha",
+    "it": "Michea",
+    "ru": "Михей",
+    "zh-CN": "弥迦书"
+  },
+  "Nahum": {
+    "en": "Nahum",
+    "id": "Nahum",
+    "zh": "那鸿书",
+    "ar": "ناحوم",
+    "tr": "Nahum",
+    "ur": "نحوم",
+    "fa": "ناحوم",
+    "hi": "नहूम",
+    "bn": "নহূম",
+    "ja": "ナホム書",
+    "ko": "나훔",
+    "es": "Nahúm",
+    "fr": "Nahum",
+    "pt": "Naum",
+    "de": "Nahum",
+    "it": "Naum",
+    "ru": "Наум",
+    "zh-CN": "那鸿书"
+  },
+  "Zefanya": {
+    "en": "Zephaniah",
+    "id": "Zefanya",
+    "zh": "西番雅书",
+    "ar": "صفنيا",
+    "tr": "Sefanya",
+    "ur": "صفنیاہ",
+    "fa": "صفنیا",
+    "hi": "सपन्याह",
+    "bn": "সফনিয়",
+    "ja": "ゼパニヤ書",
+    "ko": "스바냐",
+    "es": "Sofonías",
+    "fr": "Sophonie",
+    "pt": "Sofonias",
+    "de": "Zefanja",
+    "it": "Sofonia",
+    "ru": "Софония",
+    "zh-CN": "西番雅书"
+  },
+  "Hagai": {
+    "en": "Haggai",
+    "id": "Hagai",
+    "zh": "哈该书",
+    "ar": "حجي",
+    "tr": "Haggay",
+    "ur": "حجی",
+    "fa": "حجی",
+    "hi": "हाग्गै",
+    "bn": "হগয়",
+    "ja": "ハガイ書",
+    "ko": "학개",
+    "es": "Hageo",
+    "fr": "Aggée",
+    "pt": "Ageu",
+    "de": "Haggai",
+    "it": "Aggeo",
+    "ru": "Аггей",
+    "zh-CN": "哈该书"
+  },
+  "Zakharia": {
+    "en": "Zechariah",
+    "id": "Zakharia",
+    "zh": "撒迦利亚书",
+    "ar": "زكريا",
+    "tr": "Zekeriya",
+    "ur": "زکریاہ",
+    "fa": "زکریا",
+    "hi": "जकर्याह",
+    "bn": "সখরিয়",
+    "ja": "ゼカリヤ書",
+    "ko": "스가랴",
+    "es": "Zacarías",
+    "fr": "Zacharie",
+    "pt": "Zacarias",
+    "de": "Sacharja",
+    "it": "Zaccaria",
+    "ru": "Захария",
+    "zh-CN": "撒迦利亚书"
+  },
+  "I Korintus": {
+    "en": "1 Corinthians",
+    "id": "1 Korintus",
+    "ar": "1 كورنثوس",
+    "tr": "1. Korintliler",
+    "ur": "1 کرنتھیوں",
+    "fa": "1 قرنتیان",
+    "hi": "1 कुरिन्थियों",
+    "bn": "১ করিন্থীয়",
+    "zh": "哥林多前书",
+    "ja": "コリント人への手紙一",
+    "ko": "고린도전서",
+    "es": "1 Corintios",
+    "fr": "1 Corinthiens",
+    "pt": "1 Coríntios",
+    "de": "1. Korinther",
+    "it": "1 Corinzi",
+    "ru": "1 Коринфянам",
+    "zh-CN": "哥林多前书"
+  },
+  "II Korintus": {
+    "en": "2 Corinthians",
+    "id": "2 Korintus",
+    "ar": "2 كورنثوس",
+    "tr": "2. Korintliler",
+    "ur": "2 کرنتھیوں",
+    "fa": "2 قرنتیان",
+    "hi": "2 कुरिन्थियों",
+    "bn": "২ করিন্থীয়",
+    "zh": "哥林多后书",
+    "ja": "コリント人への手紙二",
+    "ko": "고린도후서",
+    "es": "2 Corintios",
+    "fr": "2 Corinthiens",
+    "pt": "2 Coríntios",
+    "de": "2. Korinther",
+    "it": "2 Corinzi",
+    "ru": "2 Коринфянам",
+    "zh-CN": "哥林多后书"
+  },
+  "I Petrus": {
+    "en": "1 Peter",
+    "id": "1 Petrus",
+    "ar": "1 بطرس",
+    "tr": "1. Petrus",
+    "ur": "1 پطرس",
+    "fa": "1 پطرس",
+    "hi": "1 पतरस",
+    "bn": "১ পিতর",
+    "zh": "彼得前书",
+    "ja": "ペテロの手紙一",
+    "ko": "베드로전서",
+    "es": "1 Pedro",
+    "fr": "1 Pierre",
+    "pt": "1 Pedro",
+    "de": "1. Petrus",
+    "it": "1 Pietro",
+    "ru": "1 Петра",
+    "zh-CN": "彼得前书"
+  },
+  "II Petrus": {
+    "en": "2 Peter",
+    "id": "2 Petrus",
+    "ar": "2 بطرس",
+    "tr": "2. Petrus",
+    "ur": "2 پطرس",
+    "fa": "2 پطرس",
+    "hi": "2 पतरस",
+    "bn": "২ পিতর",
+    "zh": "彼得后书",
+    "ja": "ペテロの手紙二",
+    "ko": "베드로후서",
+    "es": "2 Pedro",
+    "fr": "2 Pierre",
+    "pt": "2 Pedro",
+    "de": "2. Petrus",
+    "it": "2 Pietro",
+    "ru": "2 Петра",
+    "zh-CN": "彼得后书"
+  },
+  "I Yohanes": {
+    "en": "1 John",
+    "id": "1 Yohanes",
+    "ar": "1 يوحنا",
+    "tr": "1. Yuhanna",
+    "ur": "1 یوحنا",
+    "fa": "1 یوحنا",
+    "hi": "1 यूहन्ना",
+    "bn": "১ যোহন",
+    "zh": "约翰一书",
+    "ja": "ヨハネの手紙一",
+    "ko": "요한일서",
+    "es": "1 Juan",
+    "fr": "1 Jean",
+    "pt": "1 João",
+    "de": "1. Johannes",
+    "it": "1 Giovanni",
+    "ru": "1 Иоанна",
+    "zh-CN": "约翰一书"
+  },
+  "II Yohanes": {
+    "en": "2 John",
+    "id": "2 Yohanes",
+    "ar": "2 يوحنا",
+    "tr": "2. Yuhanna",
+    "ur": "2 یوحنا",
+    "fa": "2 یوحنا",
+    "hi": "2 यूहन्ना",
+    "bn": "২ যোহন",
+    "zh": "约翰二书",
+    "ja": "ヨハネの手紙二",
+    "ko": "요한이서",
+    "es": "2 Juan",
+    "fr": "2 Jean",
+    "pt": "2 João",
+    "de": "2. Johannes",
+    "it": "2 Giovanni",
+    "ru": "2 Иоанна",
+    "zh-CN": "约翰二书"
+  },
+  "III Yohanes": {
+    "en": "3 John",
+    "id": "3 Yohanes",
+    "ar": "3 يوحنا",
+    "tr": "3. Yuhanna",
+    "ur": "3 یوحنا",
+    "fa": "3 یوحنا",
+    "hi": "3 यूहन्ना",
+    "bn": "৩ যোহন",
+    "zh": "约翰三书",
+    "ja": "ヨハネの手紙三",
+    "ko": "요한삼서",
+    "es": "3 Juan",
+    "fr": "3 Jean",
+    "pt": "3 João",
+    "de": "3. Johannes",
+    "it": "3 Giovanni",
+    "ru": "3 Иоанна",
+    "zh-CN": "约翰三书"
+  },
+  "I Samuel": {
+    "en": "1 Samuel",
+    "id": "1 Samuel",
+    "ar": "1 صموئيل",
+    "tr": "1. Samuel",
+    "ur": "1 سموئیل",
+    "fa": "1 سموئیل",
+    "hi": "1 शमूएल",
+    "bn": "১ শমূয়েল",
+    "zh": "撒母耳记上",
+    "ja": "サムエル記一",
+    "ko": "사무엘상",
+    "es": "1 Samuel",
+    "fr": "1 Samuel",
+    "pt": "1 Samuel",
+    "de": "1. Samuel",
+    "it": "1 Samuele",
+    "ru": "1 Царств",
+    "zh-CN": "撒母耳记上"
+  },
+  "II Samuel": {
+    "en": "2 Samuel",
+    "id": "2 Samuel",
+    "ar": "2 صموئيل",
+    "tr": "2. Samuel",
+    "ur": "2 سموئیل",
+    "fa": "2 سموئیل",
+    "hi": "2 शमूएल",
+    "bn": "২ শমূয়েল",
+    "zh": "撒母耳记下",
+    "ja": "サムエル記二",
+    "ko": "사무엘하",
+    "es": "2 Samuel",
+    "fr": "2 Samuel",
+    "pt": "2 Samuel",
+    "de": "2. Samuel",
+    "it": "2 Samuele",
+    "ru": "2 Царств",
+    "zh-CN": "撒母耳记下"
+  },
+  "I Raja-raja": {
+    "en": "1 Kings",
+    "id": "1 Raja-raja",
+    "ar": "1 ملوك",
+    "tr": "1. Krallar",
+    "ur": "1 سلاطین",
+    "fa": "1 پادشاهان",
+    "hi": "1 राजा",
+    "bn": "১ রাজাবলি",
+    "zh": "列王纪上",
+    "ja": "列王記一",
+    "ko": "열왕기상",
+    "es": "1 Reyes",
+    "fr": "1 Rois",
+    "pt": "1 Reis",
+    "de": "1. Könige",
+    "it": "1 Re",
+    "ru": "3 Царств",
+    "zh-CN": "列王纪上"
+  },
+  "II Raja-raja": {
+    "en": "2 Kings",
+    "id": "2 Raja-raja",
+    "ar": "2 ملوك",
+    "tr": "2. Krallar",
+    "ur": "2 سلاطین",
+    "fa": "2 پادشاهان",
+    "hi": "2 राजा",
+    "bn": "২ রাজাবলি",
+    "zh": "列王纪下",
+    "ja": "列王記二",
+    "ko": "열왕기하",
+    "es": "2 Reyes",
+    "fr": "2 Rois",
+    "pt": "2 Reis",
+    "de": "2. Könige",
+    "it": "2 Re",
+    "ru": "4 Царств",
+    "zh-CN": "列王纪下"
+  },
+  "I Raja": {
+    "en": "1 Kings",
+    "id": "1 Raja",
+    "ar": "1 ملوك",
+    "tr": "1. Krallar",
+    "ur": "1 سلاطین",
+    "fa": "1 پادشاهان",
+    "hi": "1 राजा",
+    "bn": "১ রাজাবলি",
+    "zh": "列王纪上",
+    "ja": "列王記一",
+    "ko": "열왕기상",
+    "es": "1 Reyes",
+    "fr": "1 Rois",
+    "pt": "1 Reis",
+    "de": "1. Könige",
+    "it": "1 Re",
+    "ru": "3 Царств",
+    "zh-CN": "列王纪上"
+  },
+  "II Raja": {
+    "en": "2 Kings",
+    "id": "2 Raja",
+    "ar": "2 ملوك",
+    "tr": "2. Krallar",
+    "ur": "2 سلاطین",
+    "fa": "2 پادشاهان",
+    "hi": "2 राजा",
+    "bn": "২ রাজাবলি",
+    "zh": "列王纪下",
+    "ja": "列王記二",
+    "ko": "열왕기하",
+    "es": "2 Reyes",
+    "fr": "2 Rois",
+    "pt": "2 Reis",
+    "de": "2. Könige",
+    "it": "2 Re",
+    "ru": "4 Царств",
+    "zh-CN": "列王纪下"
+  },
+  "I Tawarikh": {
+    "en": "1 Chronicles",
+    "id": "1 Tawarikh",
+    "ar": "1 أخبار الأيام",
+    "tr": "1. Tarihler",
+    "ur": "1 تواریخ",
+    "fa": "1 تواریخ",
+    "hi": "1 इतिहास",
+    "bn": "১ বংশাবলি",
+    "zh": "历代志上",
+    "ja": "歴代誌一",
+    "ko": "역대상",
+    "es": "1 Crónicas",
+    "fr": "1 Chroniques",
+    "pt": "1 Crônicas",
+    "de": "1. Chronik",
+    "it": "1 Cronache",
+    "ru": "1 Паралипоменон",
+    "zh-CN": "历代志上"
+  },
+  "II Tawarikh": {
+    "en": "2 Chronicles",
+    "id": "2 Tawarikh",
+    "ar": "2 أخبار الأيام",
+    "tr": "2. Tarihler",
+    "ur": "2 تواریخ",
+    "fa": "2 تواریخ",
+    "hi": "2 इतिहास",
+    "bn": "২ বংশাবলি",
+    "zh": "历代志下",
+    "ja": "歴代誌二",
+    "ko": "역대하",
+    "es": "2 Crónicas",
+    "fr": "2 Chroniques",
+    "pt": "2 Crônicas",
+    "de": "2. Chronik",
+    "it": "2 Cronache",
+    "ru": "2 Паралипоменон",
+    "zh-CN": "历代志下"
+  },
+  "I Tesalonika": {
+    "en": "1 Thessalonians",
+    "id": "1 Tesalonika",
+    "ar": "1 تسالونيكي",
+    "tr": "1. Selanikliler",
+    "ur": "1 تھسلنیکیوں",
+    "fa": "1 تسالونیکیان",
+    "hi": "1 थिस्सलुनीकियों",
+    "bn": "১ থিষলনীকীয়",
+    "zh": "帖撒罗尼迦前书",
+    "ja": "テサロニケ人への手紙一",
+    "ko": "데살로니가전서",
+    "es": "1 Tesalonicenses",
+    "fr": "1 Thessaloniciens",
+    "pt": "1 Tessalonicenses",
+    "de": "1. Thessalonicher",
+    "it": "1 Tessalonicesi",
+    "ru": "1 Фессалоникийцам",
+    "zh-CN": "帖撒罗尼迦前书"
+  },
+  "II Tesalonika": {
+    "en": "2 Thessalonians",
+    "id": "2 Tesalonika",
+    "ar": "2 تسالونيكي",
+    "tr": "2. Selanikliler",
+    "ur": "2 تھسلنیکیوں",
+    "fa": "2 تسالونیکیان",
+    "hi": "2 थिस्सलुनीकियों",
+    "bn": "২ থিষলনীকীয়",
+    "zh": "帖撒罗尼迦后书",
+    "ja": "テサロニケ人への手紙二",
+    "ko": "데살로니가후서",
+    "es": "2 Tesalonicenses",
+    "fr": "2 Thessaloniciens",
+    "pt": "2 Tessalonicenses",
+    "de": "2. Thessalonicher",
+    "it": "2 Tessalonicesi",
+    "ru": "2 Фессалоникийцам",
+    "zh-CN": "帖撒罗尼迦后书"
+  },
+  "I Timotius": {
+    "en": "1 Timothy",
+    "id": "1 Timotius",
+    "ar": "1 تيموثاوس",
+    "tr": "1. Timoteos",
+    "ur": "1 تیمتھیس",
+    "fa": "1 تیموتائوس",
+    "hi": "1 तीमुथियुस",
+    "bn": "১ তীমথিয়",
+    "zh": "提摩太前书",
+    "ja": "テモテへの手紙一",
+    "ko": "디모데전서",
+    "es": "1 Timoteo",
+    "fr": "1 Timothée",
+    "pt": "1 Timóteo",
+    "de": "1. Timotheus",
+    "it": "1 Timoteo",
+    "ru": "1 Тимофею",
+    "zh-CN": "提摩太前书"
+  },
+  "II Timotius": {
+    "en": "2 Timothy",
+    "id": "2 Timotius",
+    "ar": "2 تيموثاوس",
+    "tr": "2. Timoteos",
+    "ur": "2 تیمتھیس",
+    "fa": "2 تیموتائوس",
+    "hi": "2 तीमुथियुस",
+    "bn": "২ তীমথিয়",
+    "zh": "提摩太后书",
+    "ja": "テモテへの手紙二",
+    "ko": "디모데후서",
+    "es": "2 Timoteo",
+    "fr": "2 Timothée",
+    "pt": "2 Timóteo",
+    "de": "2. Timotheus",
+    "it": "2 Timoteo",
+    "ru": "2 Тимофею",
+    "zh-CN": "提摩太后书"
   }
 }

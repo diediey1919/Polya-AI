@@ -92,6 +92,47 @@ class ClaimDependencyGraph:
         }
 
 
+GENERIC_PROPOSITION_TEMPLATES = {
+    "p1": {
+        "id": "Proposisi tekstual utama dari klaim: '{claim}'.",
+        "en": "Primary textual proposition of the claim: '{claim}'.",
+        "ar": "القضية النصية الرئيسية للادعاء: '{claim}'.",
+        "zh": "该主张的核心文本命题: '{claim}'。",
+        "ja": "主張の主要なテキスト命题: '{claim}'。",
+        "ko": "주장의 주요 텍스트 명제: '{claim}'.",
+        "es": "Proposición textual principal de la afirmación: '{claim}'.",
+        "fr": "Proposition textuelle principale de la revendication : '{claim}'.",
+        "de": "Primäre textuelle Aussage der Behauptung: '{claim}'.",
+        "ru": "Основное текстовое положение тезиса: '{claim}'.",
+        "pt": "Proposição textual principal da reivindicação: '{claim}'.",
+        "it": "Proposizione testuale principale dell'affermazione: '{claim}'.",
+        "tr": "İddianın birincil metinsel önermesi: '{claim}'.",
+        "ur": "دعویٰ کا بنیادی متنی قضیہ: '{claim}'۔",
+        "fa": "گزاره متنی اصلی ادعا: '{claim}'.",
+        "hi": "दावे की प्राथमिक पाठ्य प्रतिज्ञा: '{claim}'।",
+        "bn": "দাবীর প্রাথমিক পাঠ্য প্রতিজ্ঞা: '{claim}'।"
+    },
+    "c1": {
+        "id": "Kesimpulan inferensial yang diturunkan dari klaim '{claim}'.",
+        "en": "Inferential conclusion derived from claim '{claim}'.",
+        "ar": "الاستنتاج الاستدلالي المستمد من الادعاء '{claim}'.",
+        "zh": "从主张 '{claim}' 得出的推论结论。",
+        "ja": "主張 '{claim}' から導出された推論的結論。",
+        "ko": "주장 '{claim}'에서 도출된 추론적 결론.",
+        "es": "Conclusión inferencial derivada de la afirmación '{claim}'.",
+        "fr": "Conclusion inférentielle dérivée de la revendication '{claim}'.",
+        "de": "Schlussfolgerung abgeleitet aus der Behauptung '{claim}'.",
+        "ru": "Логический вывод, полученный из тезиса '{claim}'.",
+        "pt": "Conclusão inferencial derivada da reivindicação '{claim}'.",
+        "it": "Conclusione inferenziale derivata dall'affermazione '{claim}'.",
+        "tr": "'{claim}' iddiasından türetilen çıkarımsal sonuç.",
+        "ur": "دعویٰ '{claim}' سے اخذ کردہ استنباطی نتیجہ۔",
+        "fa": "نتیجه استنتاجی برگرفته از ادعای '{claim}'.",
+        "hi": "दावे '{claim}' से निकाला गया अनुमानात्मक निष्कर्ष।",
+        "bn": "দাবী '{claim}' থেকে প্রাপ্ত অনুমিতিমূলক উপসংহার।"
+    }
+}
+
 class ClaimAtomicityEngine:
     """
     Decomposes claims into atomic propositions and audits dependency health.
@@ -99,7 +140,7 @@ class ClaimAtomicityEngine:
     """
 
     @classmethod
-    def decompose_claim(cls, claim_text: str) -> ClaimDependencyGraph:
+    def decompose_claim(cls, claim_text: str, locale: str = "id") -> ClaimDependencyGraph:
         """
         Decomposes claim into atomic propositions.
         Example for canonical claim 'Apakah Paulus membatalkan Taurat?':
@@ -112,7 +153,12 @@ class ClaimAtomicityEngine:
         G. Therefore Paul abolishes Torah.
         """
         cid = f"atom_{uuid.uuid4().hex[:8]}"
-        is_pauline_law = any(w in claim_text.lower() for w in ["paulus", "taurat", "law", "nomos"])
+        pauline_keywords = [
+            "paulus", "paul", "بولس", "保罗", "パウロ", "바울", "pablo", "paolo",
+            "taurat", "torah", "law", "nomos", "νόμος", "hukum", "توراة", "ناموس",
+            "律法", "3:31", "roma", "romans", "romanos", "romani", "romains", "römer", "رومية", "罗马"
+        ]
+        is_pauline_law = any(w in claim_text.lower() for w in pauline_keywords)
 
         if is_pauline_law:
             prop_a = AtomicProposition(
@@ -211,10 +257,16 @@ class ClaimAtomicityEngine:
             )
         else:
             # Generic theological decomposition fallback
+            norm_loc = "zh" if (locale or "id").startswith("zh") else (locale or "id")
+            p1_tpl = GENERIC_PROPOSITION_TEMPLATES["p1"].get(norm_loc, GENERIC_PROPOSITION_TEMPLATES["p1"]["en"])
+            c1_tpl = GENERIC_PROPOSITION_TEMPLATES["c1"].get(norm_loc, GENERIC_PROPOSITION_TEMPLATES["c1"]["en"])
+            p1_text = p1_tpl.format(claim=claim_text)
+            c1_text = c1_tpl.format(claim=claim_text)
+
             p1 = AtomicProposition(
                 proposition_id=f"{cid}_1",
                 label="P1",
-                text=f"Proposisi tekstual utama dari klaim: '{claim_text}'.",
+                text=p1_text,
                 epistemic_status=EpistemicStatus.SUPPORTED,
                 evidence_citations=["Naskah Primer"],
                 is_premise=True,
@@ -225,7 +277,7 @@ class ClaimAtomicityEngine:
             p2 = AtomicProposition(
                 proposition_id=f"{cid}_2",
                 label="C1",
-                text=f"Kesimpulan inferensial yang diturunkan dari klaim '{claim_text}'.",
+                text=c1_text,
                 epistemic_status=EpistemicStatus.INFERRED,
                 evidence_citations=["Naskah Primer"],
                 is_premise=False,

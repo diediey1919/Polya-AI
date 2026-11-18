@@ -281,3 +281,42 @@ def test_index_html_tdz_and_i18n_bindings():
     assert "subMotionPrefix" in content
 
 
+def test_knowledge_graph_endpoints_localization():
+    """Verify /api/v1/knowledge/graph and /claims localize prefixes and text across multiple locales."""
+    # 1. English (en)
+    res_en = client.get("/api/v1/knowledge/graph?locale=en")
+    assert res_en.status_code == 200
+    data_en = res_en.json()
+    assert data_en["success"] is True
+    assert "Paul upholds" in data_en["query"]
+    assert any("Premise" in n.get("label", "") and "(Supporting Reason)" in n.get("label", "") for n in data_en["nodes"])
+    assert any("Primary Manuscript Witness for" in e.get("description", "") for e in data_en["edges"])
+
+    # 2. Chinese (zh)
+    res_zh = client.get("/api/v1/knowledge/graph?locale=zh")
+    assert res_zh.status_code == 200
+    data_zh = res_zh.json()
+    assert data_zh["success"] is True
+    assert "保罗坚立摩西律法" in data_zh["query"]
+    assert any("前提" in n.get("label", "") and "(支持理由)" in n.get("label", "") for n in data_zh["nodes"])
+    assert any("一手手抄本见证" in e.get("description", "") for e in data_zh["edges"])
+
+    # 3. Arabic (ar)
+    res_ar = client.get("/api/v1/knowledge/graph?locale=ar")
+    assert res_ar.status_code == 200
+    data_ar = res_ar.json()
+    assert data_ar["success"] is True
+    assert "بولس يثبت" in data_ar["query"]
+    assert any("مقدمة" in n.get("label", "") and "(سبب داعم)" in n.get("label", "") for n in data_ar["nodes"])
+    assert any("شاهد مخطوطة أولية" in e.get("description", "") for e in data_ar["edges"])
+
+    # 4. Claims endpoint Chinese (zh)
+    res_claims_zh = client.get("/api/v1/knowledge/claims?q=Paul&locale=zh")
+    assert res_claims_zh.status_code == 200
+    data_claims_zh = res_claims_zh.json()
+    assert data_claims_zh["success"] is True
+    assert any(c.get("status") == "核心主张 (辩题)" for c in data_claims_zh["claims"])
+    assert any("前提" in c.get("friendly_label", "") and "(支持理由)" in c.get("friendly_label", "") for c in data_claims_zh["claims"])
+
+
+
